@@ -110,6 +110,7 @@ class RenderSession:
         self.closed = False
         self.restart = False
         self.suspended = False
+        self.prefetch = True
         self.upstream = None
         self.progress = None
         self.thread = None
@@ -147,6 +148,14 @@ class RenderSession:
             self.limit = int(limit)
             self._trim()
             self.condition.notify_all()
+
+    def set_prefetch(self, enabled):
+        """Control idle fill-ahead throughout the pipeline without discarding pixels."""
+        with self.condition:
+            self.prefetch = bool(enabled)
+            self.condition.notify_all()
+        if self.upstream:
+            self.upstream.set_prefetch(enabled)
 
     def _start(self):
         if self.closed or self.error:
@@ -251,6 +260,14 @@ class RenderSession:
                         # Resume temporal replay only for the next real hole.
                         if replaying and self.target in self.cache:
                             self.condition.wait(.05)
+                            continue
+                        if not self.prefetch:
+                            # Real frames need no neighbour. Interpolated frames
+                            # require the next real frame as their right endpoint.
+                            last_source = (self.target+self.multiplier-1)//self.multiplier
+                            if source_index <= last_source:
+                                break
+                            self.condition.wait(.1)
                             continue
                         # One extra real frame supplies the right endpoint.
                         capacity = max(2*self.multiplier, self._allowance() // max(self.frame_bytes, 1))
@@ -486,6 +503,7 @@ def encode_cached(session, output, settings, cancel, progress):
     sequence = ImageSequence.load(session.source) if is_sequence(session.source) else None
     if sequence:
         sequence.validate(lambda: check_cancel(cancel))
+    session.set_prefetch(True)
     session.set_progress(progress)
     metadata = session.wait_metadata(cancel)
     hdr = metadata['hdr_metadata']

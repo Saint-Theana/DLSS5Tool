@@ -184,7 +184,9 @@ def test_warm_encoding_zero_compute_and_safe_cancellation(tmp_path):
             session.wait(i, threading.Event())
         wait_complete(session)
         with mock.patch('dlss5tool.video_export.FFmpegVideoWriter', Writer):
+            session.set_prefetch(False)
             report = rc.encode_cached(session, tmp_path/'output.mp4', {}, threading.Event(), lambda *args: None)
+            assert session.prefetch, 'export restores buffering after a paused preview'
             assert report['cache_hits'] == 24
             assert report['new_frames'] == 0
             assert len(Writer.instances[-1].frames) == 24

@@ -75,6 +75,7 @@ class ClockTests(unittest.TestCase):
         self.pixels = (np.zeros((2, 2, 4), np.uint8),)*2
         self.missing = set()
         self.session = SimpleNamespace(multiplier=2,
+            set_prefetch=mock.Mock(),
             metadata={'output_rate': '60', 'source_frames': 165},
             request=lambda i: None if i in self.missing else self.pixels,
             peek=lambda i: self.pixels, buffered=lambda i, n: True)

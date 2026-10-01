@@ -14,6 +14,15 @@ from dlss5tool.image_sequence import open_capture
 
 
 class SharedRenderPreview:
+    def _preview_auto_prerender(self):
+        settings = getattr(self, '_preview_runtime_settings', None)
+        if settings is not None:
+            return bool(settings.get('preview_auto_prerender', False))
+        variable = getattr(self, '_preview_settings', {}).get('v_auto_prerender')
+        if variable is not None:
+            return bool(variable.get())
+        return bool(getattr(self, '_saved_settings', {}).get('preview_auto_prerender', False))
+
     def _preview_effect_enabled(self, effect):
         key = 'preview_' + effect
         variable = getattr(self, '_export_settings', {}).get('v_' + key)
@@ -265,6 +274,7 @@ class SharedRenderPreview:
                 index = getattr(self, '_shared_output_index', self._frame*session.multiplier)
                 index = min(max(0, index), max(0, self.nframes*session.multiplier-1))
                 self._shared_output_index = index
+                session.set_prefetch(self.playing or self._preview_auto_prerender())
                 pair = session.request(index)
                 ready = pair is not None
                 if ready:
@@ -328,8 +338,11 @@ class SharedRenderPreview:
                 cache_bytes += upstream.snapshot()['bytes']
                 upstream = upstream.upstream
             self.timeline.set_cache_ranges(_frame_ranges(snapshot['ranges']), [])
-            self.set_status(tr('status.shared_ready', fps=f'{self.fps*session.multiplier:g}',
-                frame=index+1, count=snapshot['frames'], mib=f"{cache_bytes/1024**2:.0f}"))
+            status = tr('status.shared_ready', fps=f'{self.fps*session.multiplier:g}',
+                frame=index+1, count=snapshot['frames'], mib=f"{cache_bytes/1024**2:.0f}")
+            if not self.playing and not self._preview_auto_prerender():
+                status += ' · ' + tr('status.auto_prerender_off')
+            self.set_status(status)
             self._shared_status_time = now
 
     def _shared_play(self):
@@ -359,6 +372,7 @@ class SharedRenderPreview:
                 if self.playing:
                     self._shared_buffer()
                 return
+            session.set_prefetch(True)
             fps = float(Fraction(session.metadata['output_rate']))
             total = session.metadata['source_frames']*session.multiplier
             index = min(self._shared_output_index, total-1)

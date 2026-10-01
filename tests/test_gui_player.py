@@ -560,6 +560,7 @@ class SettingsPanelPersistenceTests(unittest.TestCase):
             "output_mix": 1.0,
             "use_output_mix": True,
             "preview_quality": "auto",
+            "preview_auto_prerender": False,
             "preview_cache_mb": 8192,
             "output_container": "mp4",
             "output_resolution": "source",
@@ -1223,6 +1224,7 @@ class PreviewQueueTests(unittest.TestCase):
 
     def test_paused_prerender_can_start_without_playback(self):
         app = App.__new__(App)
+        app._preview_runtime_settings = {'preview_auto_prerender': True}
         calls = []
         source = np.zeros((4, 8, 3), np.uint8)
 
@@ -1379,6 +1381,7 @@ class PreviewQueueTests(unittest.TestCase):
 
     def test_precise_prerender_keeps_only_the_current_frame(self):
         app = App.__new__(App)
+        app._preview_runtime_settings = {'preview_auto_prerender': True}
         calls = []
         source = np.zeros((4, 8, 3), np.uint8)
         app.playing = False
@@ -1455,6 +1458,7 @@ class PreviewQueueTests(unittest.TestCase):
 
     def test_finished_exact_frame_hands_the_forward_window_back_to_playback(self):
         app = App.__new__(App)
+        app._preview_runtime_settings = {'preview_auto_prerender': True}
         scheduled = []
         app.playing = False
         app._source_kind = "video"
@@ -1912,6 +1916,8 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertTrue(app.clear_btn.instate(["disabled"]))
                 self.assertTrue(app._preview_section.collapsed)
                 self.assertEqual(app._preview_settings["v_quality"].get(), "自动（推荐）")
+                self.assertFalse(app._preview_settings['v_auto_prerender'].get())
+                self.assertEqual(app._preview_settings['w_auto_prerender'].grid_info()['row'], 0)
                 self.assertTrue(app._export_section.collapsed)
                 self.assertTrue(app._host_section.collapsed)
                 packed = list(app.root.pack_slaves())

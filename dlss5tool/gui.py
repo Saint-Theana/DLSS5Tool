@@ -3527,12 +3527,21 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             'v_cache': tk.IntVar(value=saved.get('preview_cache', 96)),
             'v_cache_mb': tk.IntVar(value=saved.get('preview_cache_mb', 2048)),
             'v_scrub_ms': tk.IntVar(value=saved.get('preview_scrub_ms', 40)),
+            'v_auto_prerender': tk.BooleanVar(value=saved.get('preview_auto_prerender', False)),
         }
 
         parent.grid_columnconfigure(0, weight=1)
         preview_group = ttk.Frame(parent, style="Panel.TFrame")
         preview_group.grid(row=0, column=0, sticky="ew", padx=(6, 8), pady=(2, 4))
         preview_group.grid_columnconfigure(1, weight=1)
+
+        auto_prerender = CheckToggle(
+            preview_group, tr("label.auto_prerender"), d['v_auto_prerender'],
+            command=self._on_auto_prerender_change, ui=self._ui,
+        )
+        auto_prerender.grid(row=0, column=0, columnspan=2, sticky="ew", pady=(0, 4))
+        self._theme_widgets.append(auto_prerender)
+        Tooltip(auto_prerender, tr("tooltip.auto_prerender"))
 
         quality = self._chrome_combo(
             preview_group, d['v_quality'], list(PREVIEW_QUALITY_CHOICES),
@@ -3573,6 +3582,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         Tooltip(scrub, tr("tooltip.render_after_scrub"))
         d.update({
             'w_quality': quality, 'w_cache_mb': cache_mb, 'w_scrub_ms': scrub,
+            'w_auto_prerender': auto_prerender,
             'cache_tooltips': (Tooltip(cache_mb, ""), Tooltip(cache_label, "")),
         })
         quality.bind("<<ComboboxSelected>>", self._on_preview_settings_change)
@@ -3598,6 +3608,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             'preview_cache': integer('v_cache', 96, 16, 400),
             'preview_cache_mb': integer('v_cache_mb', 2048, 256, 32768),
             'preview_scrub_ms': integer('v_scrub_ms', 40, 0, 400),
+            'preview_auto_prerender': bool(d['v_auto_prerender'].get())
+            if 'v_auto_prerender' in d else False,
         }
 
     def _preview_prefetch(self):
@@ -3663,6 +3675,31 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 self._present_play_frame(self._frame)
             elif self.view_var.get() in ("dlss", "compare"):
                 self._schedule_full_preview()
+
+    def _on_auto_prerender_change(self):
+        self._preview_runtime_settings = self._collect_preview_settings()
+        self._schedule_settings_save()
+        if any(getattr(self, name, False) for name in (
+            '_exporting', '_queue_running', '_switching_backend',
+            '_module_reload_thread', '_clear_preview_pending',
+        )):
+            return
+        if self._uses_shared_render():
+            session = getattr(self, '_shared_session', None)
+            if session is not None:
+                session.set_prefetch(self.playing or self._preview_auto_prerender())
+            if not self.playing:
+                self._shared_display()
+            return
+        if self.playing or not self.video or self._is_image:
+            return
+        # Keep completed pixels, but retire queued work and its pending timers.
+        # Resume waits for the old worker, then requests only the current frame
+        # when automatic fill-ahead is disabled.
+        if not getattr(self, '_preview_cache_frozen', False):
+            self._cancel_after('_scrub_after')
+            self._retire_preview_worker()
+            self._schedule_preview_cache_resume(0)
 
     def _update_preview_memory_hint(self):
         settings = getattr(self, "_preview_runtime_settings", None) or self._collect_preview_settings()
@@ -5776,6 +5813,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _limit_precise_prerender(self, target_size):
         """Full resolution fills only the paused frame. Playback stays on the proxy."""
+        if not self._preview_auto_prerender():
+            self._prerender_frame_limit = 1
+            return
         still = (
             getattr(self, "_source_kind", None) == "image"
             and getattr(self, "_image_bgr", None) is not None
@@ -6831,7 +6871,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if wants_dlss and self._cached_dlss(self._frame, precise_size) is not None:
             width, height = precise_size
             key = "status.precise_upscale" if sr_scale > 1 else "status.precise_preview"
-            self.set_status(tr(key, scale=sr_scale, width=width, height=height))
+            status = tr(key, scale=sr_scale, width=width, height=height)
+            if not self._is_image and not self._preview_auto_prerender():
+                status += ' · ' + tr('status.auto_prerender_off')
+            self.set_status(status)
 
     def _on_timeline_seek(self, frame, phase):
         if not self.video or self._exporting:
@@ -7508,6 +7551,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return False
         if self.view_var.get() not in ("dlss", "compare") or self._hold_original:
             return False
+        if target_size is None and not self._preview_auto_prerender():
+            return False
         self._stop_paused_prerender()
         self._pre_rendering = True
         self._limit_precise_prerender(target_size)
@@ -7621,6 +7666,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if self._pre_rendering and not self.playing:
             handoff = (
                 getattr(self, "_prerender_frame_limit", None) == 1
+                and self._preview_auto_prerender()
                 and not (
                     getattr(self, "_source_kind", None) == "image"
                     and getattr(self, "_image_bgr", None) is not None
@@ -7710,9 +7756,12 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 available=available, required=required,
             )
         elif self._pre_rendering and not self.playing:
-            text = tr("status.prerendering", rendered=rendered_ahead, total=target_total)
+            text = (tr("status.preview_current_rendering")
+                    if getattr(self, '_prerender_frame_limit', None) == 1 else
+                    tr("status.prerendering", rendered=rendered_ahead, total=target_total))
         elif not self.playing:
-            text = tr("status.prerendered", rendered=rendered_ahead, total=target_total)
+            text = (tr("status.prerendered", rendered=rendered_ahead, total=target_total)
+                    if self._preview_auto_prerender() else tr("status.auto_prerender_off"))
         else:
             text = tr("status.strict_preview", frames=len(rendered_frames))
         if rate > 0:
@@ -8147,6 +8196,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             decoder.invalidate()
         was_playing = self.playing
         self.playing = False
+        session = getattr(self, '_shared_session', None)
+        if session is not None and not self._exporting:
+            session.set_prefetch(self._preview_auto_prerender())
         self._buffering = False
         self._buffer_started_at = None
         self._pre_rendering = False

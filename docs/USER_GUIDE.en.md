@@ -103,6 +103,7 @@ Export a complete MP4 or the current PNG at source dimensions/frame rate, withou
 - Still images skip temporal flow without changing video preferences or blocking image tiling. Tiled video temporal guidance remains unsupported.
 - Flow analysis supports long edges up to 2048. Above 1280 is experimental and requires an updated enhancement component; defaults are unchanged. High-resolution RAFT costs substantially more memory/time and is not an export-size limit.
 - Flow is zero for a standalone image. Seeking and scene cuts reset relevant history.
+- **Preview performance → Automatic pre-render** is off by default and remembers your choice. When off, importing, seeking, or changing parameters updates only the current frame; playback still buffers as needed and stops continuous pre-rendering when paused. Enable it to prepare subsequent frames while paused. Turning it off stops further work and keeps completed cache entries.
 - Frame caches share a budget of 8192 MiB by default. Cache does not survive a restart or speed up frames not yet processed. The RAM readout shows registered caches, not total process memory or VRAM.
 - Parallel export uses up to four workers and can consume more memory without necessarily being faster. Reduce concurrency or try smaller media when resources are limited.
 - Model inference does not silently reduce precision, swap models, or switch to CPU on an out-of-memory error.
