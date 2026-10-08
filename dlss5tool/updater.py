@@ -138,8 +138,20 @@ def _read_metadata(response):
 
 def fetch_latest_release(timeout=8.0, opener=None):
     """Fetch the latest non-draft, non-prerelease release from GitHub."""
+    return _fetch_release(LATEST_RELEASE_API, timeout, opener)
+
+
+def fetch_release_by_tag(tag, timeout=8.0, opener=None):
+    """Read the official digest for an explicitly selected release."""
+    if not isinstance(tag, str) or not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", tag):
+        raise UpdateError("更新包目标版本号无效")
+    api_url = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/releases/tags/{tag}"
+    return _fetch_release(api_url, timeout, opener, expected_tag=tag)
+
+
+def _fetch_release(api_url, timeout, opener, expected_tag=None):
     request = urllib.request.Request(
-        LATEST_RELEASE_API,
+        api_url,
         headers={
             "Accept": "application/vnd.github+json",
             "User-Agent": USER_AGENT,
@@ -164,6 +176,9 @@ def fetch_latest_release(timeout=8.0, opener=None):
     tag = str(payload.get("tag_name") or "").strip()
     if _parsed_version(tag) is None:
         raise UpdateError("最新 Release 的版本号格式无效")
+    if (expected_tag is not None and tag != expected_tag
+            or payload.get("draft") or payload.get("prerelease")):
+        raise UpdateError("目标版本不是匹配的正式 Release")
     page_url = str(payload.get("html_url") or RELEASES_URL)
     if not _trusted_github_url(page_url):
         page_url = RELEASES_URL

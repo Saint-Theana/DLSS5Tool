@@ -203,6 +203,7 @@ def test_rapid_changes_acknowledge_immediately_and_debounce_setup():
         assert app._shared_ready() is None
     assert app._shared_revision == 20
     assert app.set_status.call_count == 20
+    app._draw_work_status.assert_not_called()
     assert not hasattr(app, '_shared_setup_thread')
     assert app.root.after.call_args.args[0] == 16
 
@@ -227,6 +228,8 @@ def test_output_mix_repaints_real_frame_without_recomputing_or_retargeting():
         assert app._shared_interim()
         assert base.target == 5
         assert app._shared_paint.call_count == 1
+        app._draw_work_status.assert_not_called()
+        app.set_status.assert_not_called()  # The caller owns the wait status.
         app._shared_config = lambda: {'frame_generation_multiplier': 2, 'output_mix': .25, 'intensity': .9}
         assert not app._shared_interim(), 'must not paint old strength with new-parameter label'
     finally:

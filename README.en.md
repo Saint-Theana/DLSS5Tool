@@ -15,11 +15,13 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/release-v2.3.3-0E7490?style=flat&amp;labelColor=475569" alt="Source version v2.3.3" height="20"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="Source version v3.0.0 (unreleased)" height="20"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/platform-Windows_x64-0369A1?style=flat&amp;labelColor=475569" alt="Platform: Windows x64" height="20"></a>
   <a href="#2-select-the-runtime-for-your-gpu"><img src="https://img.shields.io/badge/GPU-NVIDIA_RTX-0E7490?style=flat&amp;labelColor=475569" alt="GPU: NVIDIA RTX; select the runtime for your GPU generation" height="20"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0369A1?style=flat&amp;labelColor=475569" alt="Project source is licensed under MIT" height="20"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0369A1?style=flat&amp;labelColor=475569" alt="Combined source licensed under GPLv3" height="20"></a>
 </p>
+
+The current source version is **v3.0.0 (unreleased)**; see the [release notes in Chinese](docs/release/RELEASE_NOTES_v3.0.0.md). Download links still point to published releases, not a v3.0.0 package.
 
 ## In-app preview
 
@@ -46,7 +48,9 @@ DLSS5Tool uses **DLSS 5 Neural Rendering** to enhance local videos and images. N
 - **Optical flow guidance:** Optional RAFT / NVOFA motion estimates provide temporal input for video enhancement.
 - **GPU and updates:** Select a high-performance NVIDIA GPU by default, with multi-GPU selection, diagnostics export, and file-level updates.
 
-The interface supports Simplified Chinese / English and light / dark themes. Change the language under **More → Language**, then restart the app.
+The working tree now has **Local media / Realtime enhancement** modes in one workbench. A single click on the paired-arrow icon beside the native title-bar buttons switches modes directly, without a selection menu. Ctrl+Tab and More → Work mode are also available; no extra realtime control window is needed. Realtime NR/SR/FG, temporal stabilization and protected regions remain available, without a capture card. While a session is active, its status and Stop appear in the bottom status bar and remain reachable in local mode. This is not yet a released feature; target-game and HDR/multi-display validation remains open. See the [usage guide](docs/REALTIME_USER_GUIDE.md) and [acceptance ledger](docs/development/REALTIME_IMPLEMENTATION_20261003.md).
+
+Both workspaces support Simplified Chinese / English and light / dark themes. Change the language under **More → Language**, then restart the app. Technical effect names and unknown third-party descriptions retain their original text.
 
 ## Before and after
 
@@ -181,7 +185,7 @@ Lower playback quality, try smaller media or 2× scaling, and temporarily disabl
 
 **How do I update?**
 
-Use **About → Check for updates**, or download the latest Release. Incremental packages support only the previous official release: **v2.3.3 targets v2.3.2 → v2.3.3 for both Lite and Full**. Earlier versions have no direct delta to this release. Users with official v2.2.2 / v2.3.0 inference components can reuse them with the new Lite package; see the [upgrade guide](docs/release/UPGRADE_v2.3.1.md). Do not replace only the EXE.
+Use **About → Check for updates**, or download the latest Release. The current official release is **v2.3.3**, with v2.3.2 → v2.3.3 incremental packages for Lite and Full. **No v3.0.0 package or incremental update has been published yet.** Incremental updates support only the previous official release; check the actual release assets. Users with official v2.2.2 / v2.3.0 inference components can reuse them with a compatible Lite package; see the [upgrade guide](docs/release/UPGRADE_v2.3.1.md). Do not replace only the EXE.
 
 When a matching payload exists, the updater downloads changed files for the installed edition, verifies them, then asks again before exiting for the standalone helper to install it. Without a matching payload, Lite offers its complete archive; Full directs you to the release page for Full or Lite plus the matching add-on. Versions without the update helper must be upgraded by fully extracting the new release into a new folder. Incremental updates require the matching assets on the release page. See the [update guide](docs/USER_GUIDE.en.md).
 
@@ -198,4 +202,4 @@ Use **About → Export diagnostics**, then open an [issue](https://github.com/ba
 
 ## License
 
-Project-owned source code is released under the [MIT License](LICENSE). `nvngx_dlssnr.dll`, NVIDIA SDKs, FFmpeg, and bundled Python dependencies remain subject to their respective upstream licenses and are not covered by this repository's MIT license. Full and add-on packages include RAFT weights only. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `mods/enhancement/licenses` in those packages.
+The combined source incorporating Magpie / Veyra realtime modules uses [GPLv3](LICENSE). The [original MIT notice](licenses/DLSS5Tool-original-MIT.txt) remains in force for previously MIT-licensed code and releases. Vendor SDKs, runtimes and other dependencies retain their own terms. The realtime host is for local validation: redistribution of the GPL/proprietary NVIDIA combination remains under review, not approved by this license change. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [realtime provenance](native/realtime/NOTICE.md).

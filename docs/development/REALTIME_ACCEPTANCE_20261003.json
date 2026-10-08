@@ -1,0 +1,1101 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "scope": "owned synthetic windows only, not a game benchmark",
+  "environment": "RTX 4070 SUPER; one 1024x768 SDR virtual display",
+  "current_host_sha256": "d5cc8e78b1d2e790ae639b39e4192360b3f37cec3038bba67b825a8235238edd",
+  "not_accepted": [
+    "real-game anti-cheat and relative input",
+    "game concurrent load and long soak",
+    "HDR display end-to-end",
+    "mixed DPI and physical multi-monitor/multi-GPU",
+    "OBS coexistence",
+    "real-scene high-motion subjective quality"
+  ],
+  "cases": {
+    "nr-sr-fg-final": {
+      "interpretation": "combined_chain_and_live_parameter",
+      "report_sha256": "a38de497568db68d6cbdad4ddcb6fbcb298276de467e79f367071f2b82f5d28e",
+      "host_sha256_at_probe": "d5cc8e78b1d2e790ae639b39e4192360b3f37cec3038bba67b825a8235238edd",
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": {
+        "name": "intensity",
+        "value": 0.65,
+        "run_id": 0
+      },
+      "parameter_confirmed": true,
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 2,
+              "antiFlicker": 2,
+              "enableInputResolutionScaling": 1,
+              "inputResolutionPercent": 50
+            },
+            "scale": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "DLSS\\DLSS_SR",
+            "parameters": {},
+            "scale": [
+              1.5,
+              1.5
+            ]
+          },
+          {
+            "name": "DLSSFG\\DLSS_FrameGeneration",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": 0,
+        "sync_enabled": true,
+        "sync_mode": 1,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": true,
+          "feather": 12.0,
+          "regions": [
+            [
+              0,
+              0,
+              1,
+              0.22
+            ]
+          ]
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 512,
+        "captured": 1079,
+        "dequeue_to_submit_ms_p50": 52.5283,
+        "dequeue_to_submit_ms_p95": 85.1137,
+        "dequeue_to_submit_ms_p99": 86.6366,
+        "discarded_capture": 0,
+        "generated": 1078,
+        "nr_evaluations": 1080,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 26.775552,
+        "processed": 2157,
+        "publication_cpu_ms_p95": 0.256,
+        "real": 1079,
+        "source_timestamp_delta_ms": 37.1771,
+        "submitted": 2157
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [
+        {
+          "event": "ack",
+          "message": "Command belongs to an expired session"
+        }
+      ],
+      "source_clicks": []
+    },
+    "nr-static-quality-final": {
+      "interpretation": "static_quality_redraw",
+      "report_sha256": "ea9338205164799e4a186c6d098898912b80090bddb1db98840e95406ba3248d",
+      "host_sha256_at_probe": "d5cc8e78b1d2e790ae639b39e4192360b3f37cec3038bba67b825a8235238edd",
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": true,
+      "parameter_test": null,
+      "parameter_confirmed": false,
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 2,
+              "antiFlicker": 0
+            },
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 33,
+        "captured": 33,
+        "dequeue_to_submit_ms_p50": 4.3827,
+        "dequeue_to_submit_ms_p95": 5.1041,
+        "dequeue_to_submit_ms_p99": 8.2951,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 33,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 2.905088,
+        "processed": 34,
+        "publication_cpu_ms_p95": 0.2843,
+        "real": 33,
+        "source_timestamp_delta_ms": 1995.7896,
+        "submitted": 34
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        }
+      ],
+      "errors": [],
+      "source_clicks": [],
+      "quality_timeline": [
+        {
+          "quality_revision": 1,
+          "applied": 0,
+          "captured": 0,
+          "nr_evaluations": 0,
+          "submitted": 0,
+          "generated": 0
+        },
+        {
+          "quality_revision": 1,
+          "applied": 0,
+          "captured": 0,
+          "nr_evaluations": 0,
+          "submitted": 0,
+          "generated": 0
+        },
+        {
+          "quality_revision": 1,
+          "applied": 1,
+          "captured": 6,
+          "nr_evaluations": 6,
+          "submitted": 6,
+          "generated": 0
+        },
+        {
+          "quality_revision": 1,
+          "applied": 1,
+          "captured": 20,
+          "nr_evaluations": 19,
+          "submitted": 19,
+          "generated": 0
+        },
+        {
+          "quality_revision": 1,
+          "applied": 1,
+          "captured": 32,
+          "nr_evaluations": 32,
+          "submitted": 32,
+          "generated": 0
+        },
+        {
+          "quality_revision": 1,
+          "applied": 1,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 33,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        },
+        {
+          "quality_revision": 2,
+          "applied": 2,
+          "captured": 33,
+          "nr_evaluations": 33,
+          "submitted": 34,
+          "generated": 0
+        }
+      ]
+    },
+    "input-hotkey": {
+      "interpretation": "manual_owned_window_click_and_emergency_stop",
+      "report_sha256": "a153cbb745e7ff803cf8a06a57b1506e2cc4c267b3bd2a0e281f6a9224089d27",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": false,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 512,
+        "captured": 1065,
+        "dequeue_to_submit_ms_p50": 1.2486,
+        "dequeue_to_submit_ms_p95": 1.9223,
+        "dequeue_to_submit_ms_p99": 2.6771,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 1065,
+        "publication_cpu_ms_p95": 0.2771,
+        "real": 1065,
+        "source_timestamp_delta_ms": -12.9594,
+        "submitted": 1065
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [],
+      "source_clicks": [
+        {
+          "x": 369,
+          "y": 259,
+          "time": 69.35303650000424
+        }
+      ]
+    },
+    "gdi-windowed": {
+      "interpretation": "capture_output",
+      "report_sha256": "ea2e6767b239d8e2d383f52ee09a06915d89069bc345f52780de42ea7f39fd54",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 2,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 349,
+        "captured": 349,
+        "dequeue_to_submit_ms_p50": 0.5815,
+        "dequeue_to_submit_ms_p95": 1.3863,
+        "dequeue_to_submit_ms_p99": 3.6971,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 349,
+        "publication_cpu_ms_p95": 0.1055,
+        "real": 349,
+        "source_timestamp_delta_ms": 0.0,
+        "submitted": 349
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [],
+      "source_clicks": []
+    },
+    "dwm-windowed": {
+      "interpretation": "capture_output",
+      "report_sha256": "f5aa59dc7a515c5a21c97973fb75f4602ba55d4fded3b4ab9ba07e6b275d48d6",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 3,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 349,
+        "captured": 350,
+        "dequeue_to_submit_ms_p50": 0.8342,
+        "dequeue_to_submit_ms_p95": 2.4317,
+        "dequeue_to_submit_ms_p99": 3.177,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 350,
+        "publication_cpu_ms_p95": 0.1745,
+        "real": 349,
+        "source_timestamp_delta_ms": 0.0,
+        "submitted": 349
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [],
+      "source_clicks": []
+    },
+    "wgc-fullscreen": {
+      "interpretation": "capture_output",
+      "report_sha256": "4cd08752271a01bd6473f580d73fbf90ac267ab4c1d32fb50b87f42b22f1dd0b",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": false,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 124,
+        "captured": 124,
+        "dequeue_to_submit_ms_p50": 1.1842,
+        "dequeue_to_submit_ms_p95": 1.7496,
+        "dequeue_to_submit_ms_p99": 2.1861,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 124,
+        "publication_cpu_ms_p95": 0.4529,
+        "real": 124,
+        "source_timestamp_delta_ms": -13.3297,
+        "submitted": 124
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [],
+      "source_clicks": []
+    },
+    "dd-diagnostic": {
+      "interpretation": "environment_capture_timeout_not_passed",
+      "report_sha256": "44589e544f8c34755f47e163975d3741a4602ecaed225aa478b207e81ab3ee74",
+      "host_sha256_at_probe": null,
+      "rendered": false,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 1,
+        "windowed": false,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": null,
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 3,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 1
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 42,
+          "message": "Displayed effects / F:\\project\\DLSS5Tool\\var\\realtime\\screenshots / No presented scene available"
+        }
+      ],
+      "source_clicks": []
+    },
+    "dd-explicit-wgc-fallback": {
+      "interpretation": "explicit_wgc_fallback_not_dd_success",
+      "report_sha256": "033672cc23bc2646865739c9a92a6299f81c107e86c4236bed46150647eb56d5",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 1,
+        "windowed": false,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 110,
+        "captured": 110,
+        "dequeue_to_submit_ms_p50": 0.9019,
+        "dequeue_to_submit_ms_p95": 1.3867,
+        "dequeue_to_submit_ms_p99": 1.4858,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 110,
+        "publication_cpu_ms_p95": 0.1744,
+        "real": 110,
+        "source_timestamp_delta_ms": -13.4347,
+        "submitted": 110
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 1
+        },
+        {
+          "state": 3,
+          "run_id": 1
+        },
+        {
+          "state": 0,
+          "run_id": 2
+        }
+      ],
+      "errors": [],
+      "source_clicks": []
+    },
+    "hdr-preflight-fixed": {
+      "interpretation": "sdr_environment_correctly_rejects_hdr",
+      "report_sha256": "badc5a37a6ec86c167fc308aafa87c2f36b82677c8eb17abc496ee4c90522d56",
+      "host_sha256_at_probe": null,
+      "rendered": false,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 0,
+              "antiFlicker": 0
+            },
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": true,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": null,
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 0,
+          "run_id": 0
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 72,
+          "message": "源显示器未启用 HDR；请启用系统 HDR 或关闭本次 HDR 选项"
+        }
+      ],
+      "source_clicks": []
+    },
+    "nr-protocol-lifecycle": {
+      "interpretation": "stale_session_rejected_and_source_lifecycle",
+      "report_sha256": "2edb6fb7a1b54bd870c1fc095fb494a0ace2d3a0bba9e0cbc33546e7d36c0d02",
+      "host_sha256_at_probe": null,
+      "rendered": true,
+      "exit_ok": true,
+      "quality_confirmed": false,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 2,
+              "antiFlicker": 0
+            },
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "last_rendered_metrics": {
+        "age_samples": 185,
+        "captured": 187,
+        "dequeue_to_submit_ms_p50": 4.4299,
+        "dequeue_to_submit_ms_p95": 8.1857,
+        "dequeue_to_submit_ms_p99": 12.1812,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 187,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 33.512448,
+        "processed": 187,
+        "publication_cpu_ms_p95": 0.3344,
+        "real": 185,
+        "source_timestamp_delta_ms": -9.8371,
+        "submitted": 187
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 1,
+          "run_id": 1
+        },
+        {
+          "state": 2,
+          "run_id": 1
+        },
+        {
+          "state": 1,
+          "run_id": 2
+        },
+        {
+          "state": 4,
+          "run_id": 2
+        },
+        {
+          "state": 2,
+          "run_id": 2
+        },
+        {
+          "state": 3,
+          "run_id": 2
+        },
+        {
+          "state": 0,
+          "run_id": 3
+        }
+      ],
+      "errors": [
+        {
+          "event": "ack",
+          "message": "Command belongs to an expired session"
+        }
+      ],
+      "source_clicks": []
+    },
+    "ui-rollback": {
+      "interpretation": "known_good_restored_after_native_rejection",
+      "report_sha256": "35e3f6d69fee897b9ed14f8cfbc76a72e8eccc9c51033016515abf045ae930a8",
+      "host_sha256_at_probe": null,
+      "rendered": null,
+      "exit_ok": null,
+      "quality_confirmed": null,
+      "parameter_test": null,
+      "parameter_confirmed": null,
+      "config": null,
+      "last_rendered_metrics": {
+        "age_samples": 4,
+        "captured": 4,
+        "dequeue_to_submit_ms_p50": 0.9521,
+        "dequeue_to_submit_ms_p95": 1.5001,
+        "dequeue_to_submit_ms_p99": 1.5001,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 4,
+        "publication_cpu_ms_p95": 0.228,
+        "real": 4,
+        "source_timestamp_delta_ms": -14.3793,
+        "submitted": 4
+      },
+      "states": [
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        },
+        {
+          "state": 1,
+          "run_id": 0
+        },
+        {
+          "state": 2,
+          "run_id": 0
+        }
+      ],
+      "errors": [],
+      "source_clicks": [],
+      "success": true,
+      "active_config": {
+        "effects": [
+          {
+            "name": "Bilinear",
+            "parameters": {},
+            "scale": [
+              1.0,
+              1.0
+            ],
+            "scaling_type": 0
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": false,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "saved_known_good": true,
+      "status": "实时增强已输出画面（已恢复最近成功配置）"
+    }
+  }
+}

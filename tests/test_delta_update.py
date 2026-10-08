@@ -106,6 +106,27 @@ class DeltaTests(unittest.TestCase):
         self.assertEqual((self.install / 'mods/models/custom.pth').read_bytes(), b'user model')
         self.assertEqual((self.install / delta.TRANSACTION / 'backup/DLSS5Tool.exe').read_bytes(), b'old exe')
 
+    def test_local_package_uses_official_digest_and_existing_install_flow(self):
+        with mock.patch.object(updater, 'download_asset', side_effect=AssertionError('network download')):
+            delta.prepare(self.install, self.asset(), 'v3.0.0', 'v3.0.1', 'lite',
+                          local_file=self.package)
+        self.assertEqual(delta.status(self.install)['phase'], 'ready')
+        self.assertEqual((self.install / delta.TRANSACTION / 'package.dlssupdate').read_bytes(),
+                         self.package.read_bytes())
+        with delta.transaction_lock(self.install):
+            delta.apply_transaction(self.install)
+        self.assertEqual(delta.status(self.install)['phase'], 'complete')
+        self.assertEqual((self.install / 'DLSS5Tool.exe').read_bytes(), b'new exe')
+
+    def test_local_package_rejects_changed_bytes_before_staging(self):
+        changed = self.root / self.package.name
+        changed.write_bytes(self.package.read_bytes()[:-1] + b'!')
+        with self.assertRaisesRegex(delta.DeltaError, 'SHA-256'):
+            delta.prepare(self.install, self.asset(), 'v3.0.0', 'v3.0.1', 'lite',
+                          local_file=changed)
+        self.assertEqual((self.install / 'DLSS5Tool.exe').read_bytes(), b'old exe')
+        self.assertNotEqual(delta.status(self.install)['phase'], 'ready')
+
     def test_modified_unchanged_dependency_aborts(self):
         self.put(self.install, '_internal/unchanged.dll', b'custom')
         with self.assertRaisesRegex(delta.DeltaError, 'modified'):

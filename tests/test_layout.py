@@ -1,5 +1,7 @@
 """Source layout contracts; no native loading, GPU or PyInstaller build."""
 import ast
+import hashlib
+import json
 import os
 from pathlib import Path
 import re
@@ -106,6 +108,7 @@ class LayoutTests(unittest.TestCase):
             fixtures = ('gui.py', 'dlss5tool/amd_devtest.py', 'dlss5tool/guidance_worker.py',
                         'assets/app.ico', 'assets/app.png', 'locales/en_US.json', 'locales/zh_CN.json',
                         'LICENSE', 'README.md', 'README.en.md', 'THIRD_PARTY_NOTICES.md',
+                        'licenses/DLSS5Tool-original-MIT.txt',
                         'docs/guidance/GUIDANCE_PARAMETERS.md', 'licenses/torchvision-LICENSE.txt',
                         'runtime/dlssnr_host_v2.dll', 'runtime/nvngx_dlssnr.dll',
                         'runtime/vsr_host.dll', 'runtime/nvngx_vsr.dll',
@@ -120,6 +123,17 @@ class LayoutTests(unittest.TestCase):
                 file = root / name
                 file.parent.mkdir(parents=True, exist_ok=True)
                 file.touch()
+            realtime = root / 'runtime/realtime'
+            realtime_files = {}
+            for name in ('dlss5_realtime_host.exe', 'licenses/DLSS5Tool-GPLv3.txt',
+                         'REALTIME-NOTICE.txt', 'sources.lock.json'):
+                file = realtime / name
+                file.parent.mkdir(parents=True, exist_ok=True)
+                file.touch()
+                realtime_files[name] = {'size': 0, 'sha256': hashlib.sha256(b'').hexdigest()}
+            (realtime / 'build-manifest.json').write_text(json.dumps({
+                'version': 1, 'files': realtime_files, 'packaging_license_review_complete': False,
+            }), encoding='utf-8')
             for recipe in (ROOT / 'packaging').glob('*.spec'):
                 tree = ast.parse(recipe.read_text(encoding='utf-8'))
                 prefix = []
@@ -133,7 +147,7 @@ class LayoutTests(unittest.TestCase):
                 namespace = {'SPECPATH': str(root / 'packaging'), 'Analysis': capture,
                              'collect_all': lambda _: ([], [], []), 'copy_metadata': lambda _: []}
                 with mock.patch.object(sys, 'path', list(sys.path)), \
-                        mock.patch.dict(os.environ, {'DLSS5_DEPTH_SOURCE': str(root / 'depth')}), \
+                        mock.patch.dict(os.environ, {'DLSS5_DEPTH_SOURCE': str(root / 'depth'), 'DLSS5_LOCAL_CANDIDATE': '1'}), \
                         mock.patch('dlss5tool.frame_generation.runtime_files', return_value=(root/'runtime/dlssg_video_worker.exe', root/'runtime/nvngx_dlssg.dll')), \
                         mock.patch('dlss5tool.frame_generation.PINNED_RUNTIME', __import__('hashlib').sha256(b'').hexdigest()), \
                         mock.patch('dlss5tool.video_export.find_ffmpeg', return_value=str(root/'media/bin/ffmpeg.exe')), \

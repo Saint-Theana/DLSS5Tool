@@ -53,8 +53,9 @@ def test_about_shows_latest_version_and_checks_for_updates(tag, current, expecte
         assert about.REPO_LABEL in texts
         assert "板板之歌" in "".join(texts)
         assert window.title() == about.tr("about.title")
-        assert "DLSS5Tool" not in texts
-        assert not hasattr(window, "_about_mark")
+        assert texts.count("DLSS5Tool") == 1
+        assert window._about_mark.width() == window._about_mark.height()
+        assert window._about_mark.width() >= 56
         button = next(
             item for item in _walk(root)
             if callable(getattr(item, "invoke", None)) and _text(item) == about.tr("action.check_updates")

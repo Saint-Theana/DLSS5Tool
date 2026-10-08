@@ -594,7 +594,10 @@ def apply_ttk(root, ui):
     configure_fonts(root)
     style = ttk.Style(root)
     try:
-        style.theme_use("clam")
+        # A palette change only needs new colors, not another global theme
+        # selection and its <<ThemeChanged>> notifications/layout work.
+        if style.theme_use() != "clam":
+            style.theme_use("clam")
     except tk.TclError:
         pass
     root.configure(bg=ui["bg"])

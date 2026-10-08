@@ -93,6 +93,10 @@ LUCIDE = {
         '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>'
         '<path d="M3 3v5h5"/>'
     ),
+    "undo": (
+        '<path d="M9 14 4 9l5-5"/>'
+        '<path d="M4 9h10a6 6 0 0 1 0 12h-2"/>'
+    ),
     "clear-done": (
         '<path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/>'
         '<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/>'

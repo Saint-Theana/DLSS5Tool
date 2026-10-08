@@ -1,7 +1,13 @@
 # Third-party notices
 
-DLSS5Tool 的 MIT 许可证只覆盖本仓库的自有源码。以下组件保持其各自许可证、版权、
+DLSS5Tool 当前组合源码采用 GPLv3，原有 MIT 代码保留原始授权声明。以下组件保持其各自许可证、版权、
 商标和分发限制；本文件只是项目清单，不替代原始许可证，也不构成法律意见。
+
+## Magpie / Veyra 实时增强
+
+- 本地实时宿主链接 Magpie.Core，并改编 Veyra GPU 残差合成与区域保护 shader；均保留 GPLv3 来源。
+- 固定提交、源归档校验值和改动边界见 [实时来源说明](native/realtime/NOTICE.md) 与 `native/realtime/sources.lock.json`。
+- 本机可运行不代表可对外发布；GPL 与专有 NVIDIA SDK/运行库组合的二进制分发尚未完成专项审核。构建清单默认标记不可公开分发。
 
 ## NVIDIA Optical Flow API headers
 

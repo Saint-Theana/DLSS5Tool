@@ -7,9 +7,12 @@ $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $python = Join-Path $projectRoot '.venv\Scripts\python.exe'
 if (-not (Test-Path -LiteralPath $python)) { throw 'Reuse the verified .venv first.' }
+$appIcon = Join-Path $projectRoot 'assets\app.ico'
+if (-not (Test-Path -LiteralPath $appIcon -PathType Leaf)) { throw 'Missing required updater application icon.' }
 # The caller must follow REPOSITORY_HYGIENE.md and budget output/work directories.
 # A one-file helper is independent of the application's occupied _internal DLLs.
 & $python -m PyInstaller --noconfirm --onefile --windowed --name DLSS5Update `
+    --icon $appIcon `
     --paths $projectRoot --distpath $OutputDirectory --workpath $WorkDirectory `
     --specpath $WorkDirectory --noupx --exclude-module tkinter --exclude-module numpy `
     (Join-Path $projectRoot 'packaging\update_entry.py')

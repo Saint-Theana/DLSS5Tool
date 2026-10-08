@@ -1,0 +1,1337 @@
+{
+  "date": "2026-09-30",
+  "environment": {
+    "runtime_sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650",
+    "host_sha256": "c8ad631f8f78b2dedec6aec418c7a570d6fc5bf1b9ffa9f3514bcb0edd58fc13",
+    "gpu": "RTX 4070 SUPER",
+    "driver": "617.14"
+  },
+  "complete_run": {
+    "operations": [
+      {
+        "label": "starting",
+        "wall": 1790757220.3206542,
+        "app_pid": 44632,
+        "settings": {
+          "host_backend": "v2",
+          "host_auto_fallback": false,
+          "guidance_mode": 0,
+          "dlss_runtime": "F:\\project\\DLSS5Tool\\runtime\\nvngx_dlssnr.dll",
+          "host_submission": "compatibility",
+          "host_in_flight": 1,
+          "host_persistent_buffers": true,
+          "host_zero_fast_path": true,
+          "style": 0,
+          "intensity": 1.0
+        },
+        "host_dll": "F:\\project\\DLSS5Tool\\runtime\\dlssnr_host_v2.dll"
+      },
+      {
+        "label": "initialized",
+        "wall": 1790757227.1891081,
+        "pid": 41352
+      },
+      {
+        "label": "processed",
+        "wall": 1790757227.2112918,
+        "width": 640,
+        "height": 360,
+        "pid": 41352,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "ef23523fcdebbfe0623240782b9ca11c04f98bf0a4f9c8ebb04750d8dad114fa"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757229.2128835,
+        "stage": "before-resize-0",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "resized",
+        "wall": 1790757237.0776768,
+        "old_pid": 41352,
+        "pid": 43772,
+        "width": 800,
+        "height": 448
+      },
+      {
+        "label": "processed",
+        "wall": 1790757237.1032245,
+        "width": 800,
+        "height": 448,
+        "pid": 43772,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "98801728b2a8012a31556a8920f240867bce27ced85e10299b21d8f4e580df12"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757238.1059685,
+        "stage": "before-resize-1",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "resized",
+        "wall": 1790757245.7676141,
+        "old_pid": 43772,
+        "pid": 27084,
+        "width": 640,
+        "height": 360
+      },
+      {
+        "label": "processed",
+        "wall": 1790757245.7895925,
+        "width": 640,
+        "height": 360,
+        "pid": 27084,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "ef23523fcdebbfe0623240782b9ca11c04f98bf0a4f9c8ebb04750d8dad114fa"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757246.7912314,
+        "stage": "before-resize-2",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "resized",
+        "wall": 1790757254.5614395,
+        "old_pid": 27084,
+        "pid": 44660,
+        "width": 800,
+        "height": 448
+      },
+      {
+        "label": "processed",
+        "wall": 1790757254.584559,
+        "width": 800,
+        "height": 448,
+        "pid": 44660,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "98801728b2a8012a31556a8920f240867bce27ced85e10299b21d8f4e580df12"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757255.5872133,
+        "stage": "before-resize-3",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "resized",
+        "wall": 1790757263.249493,
+        "old_pid": 44660,
+        "pid": 18824,
+        "width": 640,
+        "height": 360
+      },
+      {
+        "label": "processed",
+        "wall": 1790757263.270567,
+        "width": 640,
+        "height": 360,
+        "pid": 18824,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "ef23523fcdebbfe0623240782b9ca11c04f98bf0a4f9c8ebb04750d8dad114fa"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757264.2730088,
+        "stage": "before-resize-4",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "resized",
+        "wall": 1790757271.6393225,
+        "old_pid": 18824,
+        "pid": 46520,
+        "width": 800,
+        "height": 448
+      },
+      {
+        "label": "processed",
+        "wall": 1790757271.6639726,
+        "width": 800,
+        "height": 448,
+        "pid": 46520,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "98801728b2a8012a31556a8920f240867bce27ced85e10299b21d8f4e580df12"
+      },
+      {
+        "label": "style-update",
+        "wall": 1790757272.6658564,
+        "old_pid": 46520,
+        "pid": 46520
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757272.6669304,
+        "stage": "before-close",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "closed",
+        "wall": 1790757272.7837834
+      },
+      {
+        "label": "reopened",
+        "wall": 1790757282.736778,
+        "pid": 44868
+      },
+      {
+        "label": "processed",
+        "wall": 1790757282.7572005,
+        "width": 640,
+        "height": 360,
+        "pid": 44868,
+        "backend": "v2",
+        "adapter": {
+          "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "preference_index": 0,
+          "vendor_id": 4318,
+          "device_id": 10115,
+          "subsys_id": 662904531,
+          "revision": 161,
+          "dedicated_video_memory": 12579766272,
+          "luid_high": 0,
+          "luid_low": 84589,
+          "d3d12_feature_level": "12_0",
+          "cuda_index": 0,
+          "pci_bus_id": "0000:01:00.0"
+        },
+        "output_sha256": "ef23523fcdebbfe0623240782b9ca11c04f98bf0a4f9c8ebb04750d8dad114fa"
+      },
+      {
+        "label": "host-log-unavailable",
+        "wall": 1790757282.758323,
+        "stage": "reopened",
+        "reason": "native file sharing lock"
+      },
+      {
+        "label": "final-close",
+        "wall": 1790757282.8660538
+      },
+      {
+        "label": "app-exiting",
+        "wall": 1790757292.8671803
+      }
+    ],
+    "result": {
+      "baseline": [],
+      "workload_pid": 38312,
+      "workload_exit": 0,
+      "cycles": 5,
+      "poll_seconds": 0.1,
+      "app_exit_observation_seconds": 20,
+      "observed": [
+        {
+          "pid": 45284,
+          "parent": 41352,
+          "name": "nvngx_update.exe",
+          "created": 134352308258272511,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.044,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.379
+        },
+        {
+          "pid": 10932,
+          "parent": 41352,
+          "name": "nvngx_update.exe",
+          "created": 134352308260224976,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.267,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.609
+        },
+        {
+          "pid": 32552,
+          "parent": 41352,
+          "name": "nvngx_update.exe",
+          "created": 134352308260629542,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.379,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.72
+        },
+        {
+          "pid": 38188,
+          "parent": 41352,
+          "name": "nvngx_update.exe",
+          "created": 134352308260831749,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.379,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.837
+        },
+        {
+          "pid": 34956,
+          "parent": 41352,
+          "name": "nvngx_update.exe",
+          "created": 134352308261110934,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.379,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.951
+        },
+        {
+          "pid": 22836,
+          "parent": 43772,
+          "name": "nvngx_update.exe",
+          "created": 134352308354547790,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 15.761,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 16.114
+        },
+        {
+          "pid": 42740,
+          "parent": 43772,
+          "name": "nvngx_update.exe",
+          "created": 134352308356340987,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 15.874,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 16.347
+        },
+        {
+          "pid": 3672,
+          "parent": 43772,
+          "name": "nvngx_update.exe",
+          "created": 134352308356563664,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 15.874,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 16.462
+        },
+        {
+          "pid": 47768,
+          "parent": 43772,
+          "name": "nvngx_update.exe",
+          "created": 134352308356805397,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 15.993,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 16.576
+        },
+        {
+          "pid": 47020,
+          "parent": 43772,
+          "name": "nvngx_update.exe",
+          "created": 134352308357063782,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 15.993,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 16.806
+        },
+        {
+          "pid": 5988,
+          "parent": 27084,
+          "name": "nvngx_update.exe",
+          "created": 134352308442129413,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 24.497,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 24.963
+        },
+        {
+          "pid": 41848,
+          "parent": 27084,
+          "name": "nvngx_update.exe",
+          "created": 134352308444258462,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 24.721,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 25.077
+        },
+        {
+          "pid": 37636,
+          "parent": 27084,
+          "name": "nvngx_update.exe",
+          "created": 134352308444468830,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 24.721,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 25.194
+        },
+        {
+          "pid": 38652,
+          "parent": 27084,
+          "name": "nvngx_update.exe",
+          "created": 134352308444738986,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 24.721,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 25.309
+        },
+        {
+          "pid": 48468,
+          "parent": 27084,
+          "name": "nvngx_update.exe",
+          "created": 134352308445069245,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 24.721,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 25.424
+        },
+        {
+          "pid": 46656,
+          "parent": 44660,
+          "name": "nvngx_update.exe",
+          "created": 134352308529753511,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 33.234,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 33.58
+        },
+        {
+          "pid": 42180,
+          "parent": 44660,
+          "name": "nvngx_update.exe",
+          "created": 134352308531646827,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 33.462,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 33.813
+        },
+        {
+          "pid": 48276,
+          "parent": 44660,
+          "name": "nvngx_update.exe",
+          "created": 134352308531876911,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 33.462,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 33.929
+        },
+        {
+          "pid": 42492,
+          "parent": 44660,
+          "name": "nvngx_update.exe",
+          "created": 134352308532145977,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 33.462,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 34.047
+        },
+        {
+          "pid": 15188,
+          "parent": 44660,
+          "name": "nvngx_update.exe",
+          "created": 134352308532474845,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 33.462,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 34.161
+        },
+        {
+          "pid": 48796,
+          "parent": 18824,
+          "name": "nvngx_update.exe",
+          "created": 134352308616962530,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 41.992,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 42.343
+        },
+        {
+          "pid": 42552,
+          "parent": 18824,
+          "name": "nvngx_update.exe",
+          "created": 134352308618869976,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 42.107,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 42.461
+        },
+        {
+          "pid": 42388,
+          "parent": 18824,
+          "name": "nvngx_update.exe",
+          "created": 134352308619107752,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 42.222,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 42.575
+        },
+        {
+          "pid": 48196,
+          "parent": 18824,
+          "name": "nvngx_update.exe",
+          "created": 134352308619389018,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 42.222,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 42.805
+        },
+        {
+          "pid": 14792,
+          "parent": 18824,
+          "name": "nvngx_update.exe",
+          "created": 134352308619695390,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 42.222,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 42.922
+        },
+        {
+          "pid": 47852,
+          "parent": 46520,
+          "name": "nvngx_update.exe",
+          "created": 134352308702196353,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 50.469,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 50.816
+        },
+        {
+          "pid": 43836,
+          "parent": 46520,
+          "name": "nvngx_update.exe",
+          "created": 134352308704077188,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 50.697,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 50.931
+        },
+        {
+          "pid": 45800,
+          "parent": 46520,
+          "name": "nvngx_update.exe",
+          "created": 134352308704301145,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 50.697,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 51.048
+        },
+        {
+          "pid": 44176,
+          "parent": 46520,
+          "name": "nvngx_update.exe",
+          "created": 134352308704565299,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 50.697,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 51.273
+        },
+        {
+          "pid": 43732,
+          "parent": 46520,
+          "name": "nvngx_update.exe",
+          "created": 134352308704813249,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 50.697,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 51.387
+        },
+        {
+          "pid": 39096,
+          "parent": 44868,
+          "name": "nvngx_update.exe",
+          "created": 134352308814185447,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 61.64,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 61.982
+        },
+        {
+          "pid": 48044,
+          "parent": 44868,
+          "name": "nvngx_update.exe",
+          "created": 134352308815701128,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 61.863,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 62.212
+        },
+        {
+          "pid": 44808,
+          "parent": 44868,
+          "name": "nvngx_update.exe",
+          "created": 134352308815913837,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 61.863,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 62.328
+        },
+        {
+          "pid": 45452,
+          "parent": 44868,
+          "name": "nvngx_update.exe",
+          "created": 134352308816123311,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 61.863,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 62.441
+        },
+        {
+          "pid": 44556,
+          "parent": 44868,
+          "name": "nvngx_update.exe",
+          "created": 134352308816356521,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 61.863,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 62.555
+        }
+      ],
+      "samples": [
+        {
+          "seconds": 0.015,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 6.044,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            45284
+          ]
+        },
+        {
+          "seconds": 6.267,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            10932,
+            45284
+          ]
+        },
+        {
+          "seconds": 6.379,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            10932,
+            32552,
+            34956,
+            38188,
+            45284
+          ]
+        },
+        {
+          "seconds": 6.494,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            10932,
+            32552,
+            34956,
+            38188
+          ]
+        },
+        {
+          "seconds": 6.72,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            32552,
+            34956,
+            38188
+          ]
+        },
+        {
+          "seconds": 6.837,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            34956,
+            38188
+          ]
+        },
+        {
+          "seconds": 6.951,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            34956
+          ]
+        },
+        {
+          "seconds": 7.062,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 15.761,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            22836
+          ]
+        },
+        {
+          "seconds": 15.874,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            3672,
+            22836,
+            42740
+          ]
+        },
+        {
+          "seconds": 15.993,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            3672,
+            22836,
+            42740,
+            47020,
+            47768
+          ]
+        },
+        {
+          "seconds": 16.231,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            3672,
+            42740,
+            47020,
+            47768
+          ]
+        },
+        {
+          "seconds": 16.462,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            3672,
+            47020,
+            47768
+          ]
+        },
+        {
+          "seconds": 16.576,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            47020,
+            47768
+          ]
+        },
+        {
+          "seconds": 16.691,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            47020
+          ]
+        },
+        {
+          "seconds": 16.919,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 24.497,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            5988
+          ]
+        },
+        {
+          "seconds": 24.721,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            5988,
+            37636,
+            38652,
+            41848,
+            48468
+          ]
+        },
+        {
+          "seconds": 25.077,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            37636,
+            38652,
+            41848,
+            48468
+          ]
+        },
+        {
+          "seconds": 25.194,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            37636,
+            38652,
+            48468
+          ]
+        },
+        {
+          "seconds": 25.309,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            38652,
+            48468
+          ]
+        },
+        {
+          "seconds": 25.424,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            48468
+          ]
+        },
+        {
+          "seconds": 25.539,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 33.234,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            46656
+          ]
+        },
+        {
+          "seconds": 33.462,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            15188,
+            42180,
+            42492,
+            46656,
+            48276
+          ]
+        },
+        {
+          "seconds": 33.697,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            15188,
+            42180,
+            42492,
+            48276
+          ]
+        },
+        {
+          "seconds": 33.929,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            15188,
+            42492,
+            48276
+          ]
+        },
+        {
+          "seconds": 34.047,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            15188,
+            42492
+          ]
+        },
+        {
+          "seconds": 34.161,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            15188
+          ]
+        },
+        {
+          "seconds": 34.275,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 41.992,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            48796
+          ]
+        },
+        {
+          "seconds": 42.107,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            42552,
+            48796
+          ]
+        },
+        {
+          "seconds": 42.222,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            14792,
+            42388,
+            42552,
+            48196,
+            48796
+          ]
+        },
+        {
+          "seconds": 42.461,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            14792,
+            42388,
+            42552,
+            48196
+          ]
+        },
+        {
+          "seconds": 42.575,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            14792,
+            42388,
+            48196
+          ]
+        },
+        {
+          "seconds": 42.69,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            14792,
+            48196
+          ]
+        },
+        {
+          "seconds": 42.922,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            14792
+          ]
+        },
+        {
+          "seconds": 43.037,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 50.469,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            47852
+          ]
+        },
+        {
+          "seconds": 50.697,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            43732,
+            43836,
+            44176,
+            45800,
+            47852
+          ]
+        },
+        {
+          "seconds": 50.931,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            43732,
+            43836,
+            44176,
+            45800
+          ]
+        },
+        {
+          "seconds": 51.048,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            43732,
+            44176,
+            45800
+          ]
+        },
+        {
+          "seconds": 51.162,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            43732,
+            44176
+          ]
+        },
+        {
+          "seconds": 51.387,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            43732
+          ]
+        },
+        {
+          "seconds": 51.503,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 61.64,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            39096
+          ]
+        },
+        {
+          "seconds": 61.863,
+          "total": 5,
+          "owned": 5,
+          "pids": [
+            39096,
+            44556,
+            44808,
+            45452,
+            48044
+          ]
+        },
+        {
+          "seconds": 62.098,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            44556,
+            44808,
+            45452,
+            48044
+          ]
+        },
+        {
+          "seconds": 62.328,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            44556,
+            44808,
+            45452
+          ]
+        },
+        {
+          "seconds": 62.441,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            44556,
+            45452
+          ]
+        },
+        {
+          "seconds": 62.555,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            44556
+          ]
+        },
+        {
+          "seconds": 62.668,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        }
+      ],
+      "peak_total": 5,
+      "peak_owned": 5,
+      "remaining_before_cleanup": [],
+      "cleanup": [],
+      "final": []
+    }
+  },
+  "initial_probe": {
+    "failure": "Diagnostic script attempted to read a live native log locked by CRT; fixed by treating log read as optional. Not a DLSS failure.",
+    "result": {
+      "baseline": [],
+      "workload_pid": 46368,
+      "workload_exit": 1,
+      "cycles": 5,
+      "poll_seconds": 0.1,
+      "app_exit_observation_seconds": 20,
+      "observed": [
+        {
+          "pid": 28140,
+          "parent": 39012,
+          "name": "nvngx_update.exe",
+          "created": 134352307310723707,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.548,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 6.771
+        },
+        {
+          "pid": 12780,
+          "parent": 39012,
+          "name": "nvngx_update.exe",
+          "created": 134352307313128089,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.771,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 7.003
+        },
+        {
+          "pid": 22408,
+          "parent": 39012,
+          "name": "nvngx_update.exe",
+          "created": 134352307313321178,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.771,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 7.119
+        },
+        {
+          "pid": 24740,
+          "parent": 39012,
+          "name": "nvngx_update.exe",
+          "created": 134352307313534157,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.771,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 7.346
+        },
+        {
+          "pid": 40596,
+          "parent": 39012,
+          "name": "nvngx_update.exe",
+          "created": 134352307313857939,
+          "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_da865124972e1f80\\nvngx_update.exe",
+          "first_seen": 6.886,
+          "owned": true,
+          "existed_before": false,
+          "last_seen": 7.456
+        }
+      ],
+      "samples": [
+        {
+          "seconds": 0.015,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        },
+        {
+          "seconds": 6.548,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            28140
+          ]
+        },
+        {
+          "seconds": 6.771,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            12780,
+            22408,
+            24740,
+            28140
+          ]
+        },
+        {
+          "seconds": 6.886,
+          "total": 4,
+          "owned": 4,
+          "pids": [
+            12780,
+            22408,
+            24740,
+            40596
+          ]
+        },
+        {
+          "seconds": 7.119,
+          "total": 3,
+          "owned": 3,
+          "pids": [
+            22408,
+            24740,
+            40596
+          ]
+        },
+        {
+          "seconds": 7.232,
+          "total": 2,
+          "owned": 2,
+          "pids": [
+            24740,
+            40596
+          ]
+        },
+        {
+          "seconds": 7.456,
+          "total": 1,
+          "owned": 1,
+          "pids": [
+            40596
+          ]
+        },
+        {
+          "seconds": 7.567,
+          "total": 0,
+          "owned": 0,
+          "pids": []
+        }
+      ],
+      "peak_total": 4,
+      "peak_owned": 4,
+      "remaining_before_cleanup": [],
+      "cleanup": [],
+      "final": []
+    }
+  }
+}

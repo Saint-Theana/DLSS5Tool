@@ -1,5 +1,17 @@
 # 打包轻量化记录与索引
 
+## v3.0.0 — 2026-10-08 · 源码整理，未打包／发布
+
+- 按维护者要求将本轮工作区升级统一命名为 v3.0.0；应用版本、Windows 文件／产品版本、中英文 README 和更新日志同步。原 v2.3.4 仅为未发布源码，修复并入本版，不改写已发布历史。
+- 本轮只读核对 GitHub Releases：上一正式版为 v2.3.3，发布于 2026-09-24。用户文案只列相对此版的变化，见 [v3.0.0 Release Notes](RELEASE_NOTES_v3.0.0.md)；未生成下载选择或已发布增量包承诺。
+- 纳入工作区现有源码、测试、原生实时宿主与构建脚本、许可／来源说明及维护记录。遵守忽略规则，不纳入模型、运行库、第三方源码副本、用户设置、缓存和历史发行包。
+- 主要实现证据：[实时验收](../development/REALTIME_IMPLEMENTATION_20261003.md)、[参数统一](../development/PARAMETER_UNIFICATION_20261007.md)、[预览与透明图片修复](../development/USER_FEEDBACK_TRIAGE_20261006.md)、[共享分界预览](../development/SHARED_DIVIDER_PREVIEW_20261008.md)。历史测试结果仅代表各自条件，不作为本轮全量验收结果。
+- 保留现有 GPL 组合源码说明及原 MIT 通知；实时组件的 `packaging_license_review_complete=false` 公开分发检查不放开，详见 [来源与发布边界](../../native/realtime/NOTICE.md)。源码定版／本地提交不等于公开二进制分发审核完成。
+- 更新策略保持 `previous-release`，基线仍为正式 v2.3.3 lite/full。未登记未经打包验收的 v3.0.0 基线，也未为源码提交执行大包构建。后续获准打包时，须重新预检 v3.0.0、运行完整 editions 工作流并通过上传集合检查；不得省略两种增量包。
+- 本轮定点验证：`tests.test_release_packaging tests.test_release_updates tests.test_updater tests.test_delta_update tests.test_i18n tests.test_realtime_i18n` 共 101 项通过（21.281 秒）；新增当前版 Release Notes／文档链接一致性检查。80 个待提交 Python 文件 AST、5 个 JSON 解析通过；未重跑完整 GUI、GPU 或原生构建验收。
+- 待提交文件检查未发现大文件、二进制、明显凭证文件或高置信度密钥文本；不是全面安全审计。测试使用 `tmp/source-v300-20261008`，夹具自动清理，不复制依赖；任务登记保留用于追溯，2026-10-15 复核。
+- 全部 151 个暂存文件的 `git diff --cached --check` 通过，无删除项；本任务临时目录仅剩 1,292 字节的 `TASK.md`，未手动删除其他文件，也不声称释放磁盘空间。
+
 ## v2.3.3 — 2026-09-24 · 本地候选打包完成，未上传
 
 - 正式产物：`dist/v2.3.3-release-20260924/editions/`；上传集合：其下 `github-assets/`。基础 EXE 文件／产品版本均为 2.3.3。候选保留 `DISTRIBUTION-REVIEW.txt`，公开分发材料仍需发布者审查。

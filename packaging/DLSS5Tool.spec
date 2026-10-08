@@ -21,6 +21,15 @@ datas.append((os.path.join(project_root, 'third_party', 'NVIDIA-DLSS', 'LICENSE.
 binaries = []
 hiddenimports = []
 
+# A source checkout with realtime must build and include it, or fail loudly.
+# GPL/proprietary combination clearance is independent of local GPU verification.
+from scripts.realtime_packaging import validate_runtime
+realtime_root = os.path.join(project_root, 'runtime', 'realtime')
+realtime_manifest = validate_runtime(realtime_root, local_candidate=os.environ.get('DLSS5_LOCAL_CANDIDATE') == '1')
+for name in ['build-manifest.json', *realtime_manifest['files']]:
+    datas.append((os.path.join(realtime_root, name), os.path.join('realtime', os.path.dirname(name))))
+datas.append((os.path.join(project_root, 'licenses', 'DLSS5Tool-original-MIT.txt'), 'licenses'))
+
 for package in ("tkinterdnd2", "imageio_ffmpeg"):
     package_datas, package_binaries, package_hiddenimports = collect_all(package)
     datas += package_datas

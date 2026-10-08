@@ -15,11 +15,13 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/release-v2.3.3-0E7490?style=flat&amp;labelColor=475569" alt="源码版本 v2.3.3" height="20"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="源码版本 v3.0.0（待发布）" height="20"></a>
   <a href="#快速开始"><img src="https://img.shields.io/badge/platform-Windows_x64-0369A1?style=flat&amp;labelColor=475569" alt="平台 Windows x64" height="20"></a>
   <a href="#2-选择显卡运行库"><img src="https://img.shields.io/badge/GPU-NVIDIA_RTX-0E7490?style=flat&amp;labelColor=475569" alt="显卡 NVIDIA RTX；请按代际选择运行库" height="20"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0369A1?style=flat&amp;labelColor=475569" alt="项目自有源码采用 MIT 许可证" height="20"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0369A1?style=flat&amp;labelColor=475569" alt="当前组合源码采用 GPLv3 许可证" height="20"></a>
 </p>
+
+当前源码版本为 **v3.0.0（待发布）**，本次升级内容见 [更新说明](docs/release/RELEASE_NOTES_v3.0.0.md)。下载入口仍指向已发布版本，不代表 v3.0.0 安装包已经提供。
 
 ## 实机演示
 
@@ -44,6 +46,8 @@ DLSS5Tool 使用 **DLSS 5 Neural Rendering** 增强本地视频与图片，无�
 - **批量与图片序列**：图片、视频混合排队，逐项保存参数；连续编号图片可合成为视频。
 - **HDR 与 GPU 导出**：支持 HDR10 / HLG 10-bit；符合条件时使用 GPU 加速导出。
 - **光流引导**：可选 RAFT / NVOFA，为连续画面增强提供帧间运动参考。
+
+当前工作区已整合「本地媒体 / 实时增强」双模式：单击右上角标题栏的双向箭头图标即可直接切换，不弹选择菜单；也可使用 `Ctrl+Tab`／「更多 → 工作模式」，无需额外控制窗口。实时模式直接选择运行中的窗口，组合 NR／SR／FG、时域稳定与区域保护，不需要采集卡；会话运行时，底部状态栏显示状态和停止按钮，切回本地仍可操作。此功能尚未正式发布，真实游戏与 HDR／多显示器兼容性仍需对应环境验收；见[使用说明](docs/REALTIME_USER_GUIDE.md)及[验收台账](docs/development/REALTIME_IMPLEMENTATION_20261003.md)。
 
 界面支持简体中文 / English、浅色 / 暗色主题。通过「更多 → 语言」切换语言，重启后生效。
 
@@ -186,11 +190,13 @@ mods\nvngx_dlssnr.dll
 
 **如何更新？**
 
-通过「关于 → 检查更新」，或直接下载最新 Release。增量包仅适配上一个正式版本：**v2.3.3 对应 v2.3.2 → v2.3.3 的轻量版／完整版更新包**；更早版本不提供直达本版的增量包。
+通过「关于 → 检查更新」，或直接下载最新 Release。当前正式版仍为 **v2.3.3**，提供 v2.3.2 → v2.3.3 的轻量版／完整版增量包。**v3.0.0 尚未发布安装包或增量包**；增量更新仅支持上一个正式版本，具体以发布页实际附件为准。
 
 若提示 `_internal/nvngx_dlssnr.dll` 被修改，或希望保留 v2.2.2 / v2.3.0 已安装的官方推理组件以减少下载，请看 [旧版省流量升级说明](docs/release/UPGRADE_v2.3.1.md)。无需一律重新下载完整版；不要只替换 EXE。
 
 有匹配包时，更新器只下载当前安装形态的变化文件，校验后再次确认退出，由独立助手安装。没有匹配包时，轻量版可下载整包，完整版引导到发布页选择完整版或同版本轻量版＋附加包。没有更新助手的旧版请手动将新版完整解压到新目录；增量更新需发布页提供对应附件。详见[更新说明](docs/USER_GUIDE.md)。
+
+若程序内下载失败，但浏览器能下载 `.dlssupdate`，可在「关于 → 安装本地更新包」选择该文件。文件名中的来源版本必须等于当前程序版本，`lite`／`full` 必须与当前安装形态一致。程序会从 GitHub API 取得该附件的官方 SHA-256，校验本地文件和旧版安装后再次询问是否退出安装；导入需要能访问 GitHub API。请勿自行解压更新包或覆盖程序文件。此入口需要新版程序自带的更新助手，旧版请先使用整包升级一次。
 
 **仍然无法使用？**
 
@@ -206,4 +212,4 @@ mods\nvngx_dlssnr.dll
 
 ## 许可证
 
-项目自有源码按 [MIT License](LICENSE) 发布。免安装版附带的 `nvngx_dlssnr.dll`、NVIDIA SDK、FFmpeg 和 Python 依赖仍受各自上游许可约束，不属于本仓库 MIT 授权范围。完整版 / 附加包仅附 RAFT 权重。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 及包内 `mods/enhancement/licenses`。
+接入 Magpie / Veyra 实时模块后的组合源码采用 [GPLv3](LICENSE)，原有 MIT 版权和授权声明保留在 [原始 MIT 许可证](licenses/DLSS5Tool-original-MIT.txt)，不追溯撤销旧版本授权。NVIDIA SDK/运行库、FFmpeg 和 Python 依赖仍受各自条款约束。实时原生宿主当前用于本机验证，GPL 与 NVIDIA 专有组件的组合再分发审核尚未完成，不能据此公开发布二进制。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 及 [实时来源说明](native/realtime/NOTICE.md)。

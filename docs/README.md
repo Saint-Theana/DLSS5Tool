@@ -5,7 +5,7 @@
 | 目录 | 用途 |
 | --- | --- |
 | `dlss5tool/` | 应用 Python 包；统一使用 `dlss5tool.*` 导入 |
-| `native/host_v2/`、`native/vsr_host/`、`native/amd_probe/` | 原生源码与各自构建入口 |
+| `native/host_v2/`、`native/vsr_host/`、`native/amd_probe/`、`native/realtime/` | 原生源码与各自构建入口 |
 | `scripts/` | 构建、打包、诊断、性能探针与维护脚本 |
 | `packaging/` | PyInstaller 配方、Windows 版本资源、增强组件契约 |
 | `docs/` | 功能说明、实验记录和发行维护文档 |
@@ -48,6 +48,7 @@
 
 ## 文档导航
 
+- 本机窗口实时增强：[Magpie / Veyra 联合参考与复用清单（2026-10-03，待实施）](development/MAGPIE_VEYRA_REUSE_CHECKLIST_20261003.md)
 - 下一轮研究交接：[光流性能与质量 TODO（用户决策、缓存收益、异步时序安全）](development/TODO_FLOW_PERFORMANCE_20260915.md)
 - GPU 常驻研究：[2026-09-15 原型](development/GPU_PIPELINE_STUDY_20260915.md)；编码合同补测：[2026-09-16 验收（未批准生产接入）](development/ENCODE_ACCEPTANCE_20260916.md)
 - 当前接入进展：[2026-09-17 编码时间戳与SDR GPU转换（候选通过，未切换默认）](development/ENCODER_INTEGRATION_20260917.md)
@@ -56,7 +57,8 @@
 
 - 仓库维护：[卫生守则与空间预算](development/REPOSITORY_HYGIENE.md)、[2026-09-11 临时目录盘点](development/TMP_AUDIT_20260911.md)
 
-- 当前源码版本：[v2.1.2 说明](release/RELEASE_NOTES_v2.1.2.md)、[NVOFA 集成验证](experiments/NVOFA_INTEGRATION.md)、[深度下线状态](experiments/DEPTH_REFERENCE_STATUS.md)、[实施核对](development/IMPLEMENTATION_READINESS.md)
+- 当前源码版本：[v3.0.0 说明（待发布）](release/RELEASE_NOTES_v3.0.0.md)、[打包与发布状态](release/PACKAGING_INDEX.md)
+- 既有功能与历史验证：[NVOFA 集成验证](experiments/NVOFA_INTEGRATION.md)、[深度下线状态](experiments/DEPTH_REFERENCE_STATUS.md)、[实施核对](development/IMPLEMENTATION_READINESS.md)
 
 - 用户指南：[简体中文](USER_GUIDE.md)、[English](USER_GUIDE.en.md)
 - 开发上手：[源码运行与构建](development/BUILDING.md)、[English](development/BUILDING.en.md)
@@ -66,3 +68,5 @@
 - 开发与发行：[AMD 验证](development/AMD_DEVTEST.md)、[打包索引](release/PACKAGING_INDEX.md)、[历史发行说明](release/RELEASE_NOTES_v2.1.1.md)、[v2.1.2 待办：暂时下线深度引导](development/TODO_v2.1.2.md)、[NVOFA 接入待办](development/TODO_NVOFA.md)
 
 实验记录中的历史部署路径和哈希描述当时的验证环境，不代表当前文件仍位于旧目录。
+
+- 本机实时增强：[使用说明](REALTIME_USER_GUIDE.md)、[双模式工作台设计与验证](development/WORKBENCH_UI_20261003.md)、[标题栏入口与播放器布局](development/CAPTION_TOOLBAR_20261003.md)、[切换动画与界面本地化](development/WORKBENCH_POLISH_20261003.md)、[19 项实现与验收台账](development/REALTIME_IMPLEMENTATION_20261003.md)、[源码来源与构建](../native/realtime/NOTICE.md)。

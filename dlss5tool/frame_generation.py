@@ -471,9 +471,11 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                 raise RuntimeError('NVOFA 与 DLSSG 不在同一物理显卡，已停止，未自动换卡')
         if scale > 1 and input_session is None:
             from dlss5tool.super_resolution import ProcessSuperResolution
+            _emit_progress(progress, i18n.tr('status.init_super_resolution'), 0)
             sr = ProcessSuperResolution(w, h, scale, is_hdr=hdr)
         if enhance and (input_session is None or config.get('_render_stage') == 'base'):
             from dlss5tool.dlss_host_process import ProcessLive
+            _emit_progress(progress, i18n.tr('status.init_enhancement'), 0)
             nr = ProcessLive(process_w, process_h, config)
         if input_session is None:
             capture = FFmpegHDRVideoReader(source, w, h, meta) if meta['is_hdr'] else open_capture(source)
@@ -575,6 +577,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                 # Capture before VSR: the original side must contain source pixels.
                 reference = resize_original(rgba, (ow, oh)).copy()
             if sr:
+                _emit_progress(progress, i18n.tr('status.super_resolution_frame', frame=index+1), index/max(total, 1))
                 rgba = sr.process(rgba).copy()
             scene_proxy = analysis_rgba8(rgba, config)
             cut = previous_scene_proxy is not None and is_cut(previous_scene_proxy, scene_proxy)
@@ -591,6 +594,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                     'rgba16f' if hdr else 'rgba',writer.adapter_luid,enhancement_pitch,strict_hdr=False)
             elif nr:
                 mix_source = rgba
+                _emit_progress(progress, i18n.tr('status.enhancement_frame', frame=index+1), index/max(total, 1))
                 processed = nr.process(rgba, reset=index == 0 or cut)
                 if processed is None:
                     raise RuntimeError('DLSS 5 增强失败')

@@ -39,6 +39,17 @@ class ReleasePackagingTests(unittest.TestCase):
         for key in ('FileVersion', 'ProductVersion'):
             self.assertIn(f"StringStruct(u'{key}', u'{app_version.__version__}')", resource)
 
+    def test_current_source_has_release_notes_and_documentation_links(self):
+        version = app_version.APP_VERSION
+        name = f'RELEASE_NOTES_{version}.md'
+        notes = (ROOT / 'docs/release' / name).read_text(encoding='utf-8')
+        self.assertEqual(notes.splitlines()[0], f'# {version} Release Notes')
+        for filename in ('CHANGELOG.md', 'README.md', 'README.en.md', 'docs/README.md'):
+            with self.subTest(filename=filename):
+                self.assertIn(name, (ROOT / filename).read_text(encoding='utf-8'))
+        for filename in ('README.md', 'README.en.md'):
+            self.assertIn(f'source-{version}-', (ROOT / filename).read_text(encoding='utf-8'))
+
     def test_main_spec_excludes_developer_python_modules(self):
         tree = ast.parse((ROOT / 'packaging/DLSS5Tool.spec').read_text(encoding='utf-8'))
         analysis = next(node for node in ast.walk(tree) if isinstance(node, ast.Call)

@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT))
 from dlss5tool.app_version import APP_VERSION
 from scripts.check_release_contents import forbidden_contents
 from scripts.release_updates import plan_updates, build_updates, verify_upload_updates
+from scripts.realtime_packaging import validate_runtime
 
 # CUDA RAFT worker with GPU flow; rebuilt for v2.2.2. See FLOW_GPU_INTEGRATION_20260915.md.
 WORKER_SHA = '17650318624cbf75604ee550bbd73203cb434f4dc59e82cacde1c84685d8aec0'
@@ -116,6 +117,7 @@ def main():
     parser.add_argument('--models', type=Path, required=True)
     parser.add_argument('--licenses', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--local-candidate', action='store_true', help='Explicit local-only artifact; not cleared for public redistribution')
     parser.add_argument('--update-baseline', type=Path, action='append', default=[],
                         help='Relocate a required baseline editions directory; repeat for multiple versions. Defaults come from packaging/update-policy.json')
     parser.add_argument('--initial-update-baseline', action='store_true',
@@ -131,6 +133,9 @@ def main():
     update_plan = plan_updates(APP_VERSION, initial=args.initial_update_baseline, overrides=args.update_baseline)
     if forbidden_contents(base):
         raise ValueError('Base package contains development/user data')
+    for realtime in (base / '_internal/realtime', base / 'realtime'):
+        if realtime.exists():
+            validate_runtime(realtime, local_candidate=args.local_candidate)
     if not (base / 'DLSS5Update.exe').is_file():
         raise ValueError('Base package lacks the standalone update helper; rebuild it before packaging editions')
     if sha(component / 'guidance_worker.exe') != WORKER_SHA:

@@ -171,11 +171,13 @@ def check_shared_display_applies_idle_policy_before_request(enabled, playing):
     app = make_app(enabled, playing)
     calls = []
     session = SimpleNamespace(multiplier=2,
+        set_progress=Mock(),
         set_prefetch=lambda value: calls.append(('prefetch', value)),
         request=lambda index: calls.append(('request', index)))
     app._shared_ready = lambda: session
     app._shared_source_preview = Mock()
     app._shared_interim = Mock()
+    app._draw_work_status = Mock()
     app._shared_display()
     assert calls == [('prefetch', enabled or playing), ('request', 4)]
 

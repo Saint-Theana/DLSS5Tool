@@ -52,6 +52,15 @@ def asset_name(old, new, edition):
     return f'DLSS5Tool-{old}-to-{new}-win64-{edition}.dlssupdate'
 
 
+def parse_asset_name(name):
+    match = re.fullmatch(
+        r'DLSS5Tool-(v[0-9]+\.[0-9]+\.[0-9]+)-to-'
+        r'(v[0-9]+\.[0-9]+\.[0-9]+)-win64-(lite|full)\.dlssupdate', name)
+    if match is None:
+        raise DeltaError('请选择官方命名的 .dlssupdate 文件')
+    return match.groups()
+
+
 def installed_edition(root, settings=None):
     """External/custom component locations require manual compatibility review."""
     root = Path(root).absolute()
@@ -283,7 +292,41 @@ def discard_transaction(root):
     shutil.rmtree(directory)
 
 
-def prepare(root, asset, current, target, edition, progress=None, cancelled=None, opener=None):
+def _copy_local_asset(source, destination, asset, progress=None, cancelled=None):
+    source = Path(source).absolute()
+    try:
+        info = source.lstat()
+    except OSError as ex:
+        raise DeltaError('无法读取所选更新包') from ex
+    if (not stat.S_ISREG(info.st_mode) or info.st_size != asset.size
+            or info.st_nlink > 1 or getattr(info, 'st_file_attributes', 0) & 0x400):
+        raise DeltaError('本地更新包不是大小匹配的普通文件')
+    expected = updater._expected_sha256(asset.digest)
+    if not expected:
+        raise DeltaError('缺少官方更新包 SHA-256')
+    digest = hashlib.sha256()
+    copied = 0
+    with source.open('rb') as incoming, destination.open('xb') as output:
+        if os.fstat(incoming.fileno()).st_size != asset.size:
+            raise DeltaError('本地更新包在读取前发生变化')
+        while chunk := incoming.read(1024 * 1024):
+            if cancelled and cancelled():
+                raise updater.DownloadCancelled('更新已取消')
+            copied += len(chunk)
+            if copied > asset.size:
+                raise DeltaError('本地更新包超过官方大小')
+            digest.update(chunk)
+            output.write(chunk)
+            if progress:
+                progress(copied, asset.size)
+        output.flush()
+        os.fsync(output.fileno())
+    if copied != asset.size or digest.hexdigest() != expected:
+        raise DeltaError('本地更新包大小或官方 SHA-256 校验失败')
+
+
+def prepare(root, asset, current, target, edition, progress=None, cancelled=None,
+            opener=None, local_file=None):
     root = Path(root).absolute()
     if asset.name != asset_name(current, target, edition) or not updater._expected_sha256(asset.digest):
         raise DeltaError('Missing trusted update digest or wrong update asset')
@@ -295,7 +338,10 @@ def prepare(root, asset, current, target, edition, progress=None, cancelled=None
     set_state(root, 'failed', error='Download/preparation did not finish; application is unchanged')
     with transaction_lock(root):
         archive = safe_path(directory, 'package.dlssupdate')
-        updater.download_asset(asset, str(archive), progress, cancelled, opener=opener)
+        if local_file is None:
+            updater.download_asset(asset, str(archive), progress, cancelled, opener=opener)
+        else:
+            _copy_local_asset(local_file, archive, asset, progress, cancelled)
         with zipfile.ZipFile(archive) as bundle:
             infos = bundle.infolist()
             if len(infos) > MAX_FILES + 1 or len({i.filename for i in infos}) != len(infos):

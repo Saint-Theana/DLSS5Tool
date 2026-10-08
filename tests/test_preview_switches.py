@@ -75,12 +75,15 @@ class ClockTests(unittest.TestCase):
         self.pixels = (np.zeros((2, 2, 4), np.uint8),)*2
         self.missing = set()
         self.session = SimpleNamespace(multiplier=2,
+            set_progress=mock.Mock(),
             set_prefetch=mock.Mock(),
             metadata={'output_rate': '60', 'source_frames': 165},
             request=lambda i: None if i in self.missing else self.pixels,
             peek=lambda i: self.pixels, buffered=lambda i, n: True)
         app._shared_ready = lambda: self.session
         app._shared_output_index = 0
+        app.video = 'source.mp4'
+        app._draw_work_status = mock.Mock()
         app._shared_clock = None
         app._shared_clock_index = 0
         app._hold_original = False

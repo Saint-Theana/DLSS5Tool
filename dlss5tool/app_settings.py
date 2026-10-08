@@ -3,6 +3,7 @@
 """Validated, atomic persistence for DLSS5Tool UI/export settings."""
 
 import json
+import math
 import os
 import re
 import sys
@@ -84,6 +85,7 @@ DEFAULTS = {
     "ui_host_open": False,
     "ui_preview_open": False,
     "ui_theme": "light",
+    "workbench_mode": "local",
     "ui_language": i18n.DEFAULT_LANGUAGE,
     "inspector_width": 360,
     "preview_detached": False,
@@ -153,6 +155,15 @@ def validate(values):
     result["enable_5x"] = _as_bool(
         source.get("enable_5x", result["enable_5x"]), result["enable_5x"]
     )
+    # Legacy settings can contain >1 values without the newer range switch.
+    # Loading them must not silently destroy their remembered values.
+    for name in ('intensity', 'local_tone', 'local_struct', 'skin_struct', 'output_mix'):
+        try:
+            value = float(source.get(name, 0))
+            if math.isfinite(value) and DLSS_STANDARD_MAX < value <= DLSS_SLIDER_MAX:
+                result['enable_5x'] = True
+        except (TypeError, ValueError, OverflowError):
+            pass
     slider_max = DLSS_SLIDER_MAX if result["enable_5x"] else DLSS_STANDARD_MAX
     for name in (
         "intensity", "local_tone", "local_struct", "skin_struct", "output_mix",
@@ -260,6 +271,8 @@ def validate(values):
         result[name] = _as_bool(source.get(name, result[name]), result[name])
     theme = str(source.get("ui_theme", result["ui_theme"])).strip().lower()
     result["ui_theme"] = "light" if theme == "light" else "dark"
+    mode = str(source.get("workbench_mode", result["workbench_mode"])).strip().lower()
+    result["workbench_mode"] = mode if mode in ("local", "realtime") else "local"
     result["ui_language"] = i18n.normalize_language(
         source.get("ui_language", result["ui_language"])
     )

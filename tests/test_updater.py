@@ -36,6 +36,23 @@ class VersionComparisonTests(unittest.TestCase):
 
 
 class ReleaseMetadataTests(unittest.TestCase):
+    def test_fetch_release_by_tag_requires_exact_published_version(self):
+        payload = json.dumps({
+            'tag_name': 'v3.0.1', 'draft': False, 'prerelease': False,
+            'assets': [],
+        }).encode()
+
+        def opener(request, timeout):
+            self.assertTrue(request.full_url.startswith(
+                'https://api.github.com/repos/banbanzhige/DLSS5Tool/releases/tags/v3.0.'))
+            return FakeResponse(payload)
+
+        self.assertEqual(updater.fetch_release_by_tag('v3.0.1', opener=opener).tag, 'v3.0.1')
+        with self.assertRaises(updater.UpdateError):
+            updater.fetch_release_by_tag('v3.0.1/../bad', opener=opener)
+        with self.assertRaisesRegex(updater.UpdateError, '正式 Release'):
+            updater.fetch_release_by_tag('v3.0.2', opener=opener)
+
     def test_fetch_parses_release_and_filters_untrusted_asset_urls(self):
         payload = json.dumps({
             "tag_name": "v1.2.0",

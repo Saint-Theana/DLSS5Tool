@@ -22,6 +22,7 @@ import traceback
 import webbrowser
 from collections import deque
 from fractions import Fraction
+from pathlib import Path
 import tkinter as tk
 from concurrent.futures import ThreadPoolExecutor
 from tkinter import ttk, filedialog, messagebox, scrolledtext
@@ -33,13 +34,16 @@ import numpy as np
 from dlss5tool import app_settings
 from dlss5tool import i18n
 from dlss5tool.app_version import APP_VERSION
-from dlss5tool import diagnostics
+from dlss5tool import diagnostics, support_diagnostics
 from dlss5tool import dlss_engine
 from dlss5tool import guidance_client
 from dlss5tool.guidance_public import depth_enabled, public_mode, still_image_settings
 from dlss5tool.preview_comparison import PreviewComparison
 from dlss5tool.guidance_export_ui import GuidanceExportUI
 from dlss5tool.shared_render_preview import SharedRenderPreview
+from dlss5tool.image_alpha import (
+    ALPHA_EXTENSIONS, read_still, inference_color, resize_preview, restore_alpha,
+)
 from dlss5tool.shared_cache_budget import SharedCacheBudget
 from dlss5tool import mod_paths
 from dlss5tool import export_queue as export_queue_state
@@ -67,6 +71,7 @@ from dlss5tool.video_export import (
 )
 from dlss5tool.gpu_export_runtime import create_video_writer as FFmpegVideoWriter
 from dlss5tool import ui_theme
+from dlss5tool.divider_preview import DividerPreview
 from dlss5tool.ui_widgets import (
     AccentSlider, CheckToggle, ChipGroup, ChromeButton, ChromeCombobox,
     ChromeEntry, ChromeSpinbox, CollapsibleSection, ProgressRule, SegmentedBar,
@@ -394,17 +399,12 @@ def _clamp_window_geometry(value, bounds, fallback=(1100, 700, 48, 48)):
     return f"{width}x{height}{x:+d}{y:+d}"
 
 
-def _preview_control_layout(width, language=None):
-    """Choose a player-toolbar layout that never dictates a wide preview window."""
+def _preview_control_layout(width, wide_required, stacked_required):
+    """Use measured natural widget widths, not a language/pixel breakpoint."""
     width = max(int(width), 0)
-    language = i18n.normalize_language(language or i18n.get_language())
-    # Four localized guidance-view labels need more room than the original
-    # three-item DLSS selector, plus the cache-clear tool.
-    wide_min = 1000
-    stacked_min = 560 if language == "en_US" else 460
-    if width >= wide_min:
+    if width >= wide_required:
         return "wide"
-    if width >= stacked_min:
+    if width >= stacked_required:
         return "stacked"
     return "compact"
 
@@ -447,13 +447,7 @@ def _is_image_path(path):
 
 
 def _read_image_bgr(path):
-    try:
-        data = np.fromfile(path, dtype=np.uint8)
-    except OSError:
-        return None
-    if data.size == 0:
-        return None
-    return cv2.imdecode(data, cv2.IMREAD_COLOR)
+    return read_still(path)[0]
 
 
 def _write_image_bgr(path, bgr):
@@ -461,6 +455,8 @@ def _write_image_bgr(path, bgr):
     if ext not in IMAGE_ENCODE_EXTS:
         ext = ".png"
         path = os.path.splitext(path)[0] + ext
+    if bgr.ndim == 3 and bgr.shape[2] == 4 and ext not in ALPHA_EXTENSIONS:
+        raise ValueError(tr('message.alpha_output_format'))
     ok, buf = cv2.imencode(ext, bgr)
     if not ok:
         ext = ".png"
@@ -761,7 +757,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._saved_settings.get("ui_theme", "dark")
         )
         self._ui = ui_theme.tokens(self._ui_theme_name)
-        self._log_open = True
+        self._log_open = False
         self._drop_hover = False
         self._empty_btn_hover = 0.0
         self._empty_btn_target = 0.0
@@ -874,6 +870,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._export_ema_fps = None
         self._audio = PreviewAudio()
         self._image_bgr = None
+        self._image_alpha = None
         self._source_kind = None
         self._video_color_info = None
         self._media_w = 0
@@ -900,8 +897,15 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._init_comparison()
         self._theme_widgets = []
 
+        self._workbench_mode = 'local'
+        self._realtime_workspace = None
+        self._mode_var = tk.StringVar(root, value='local')
+        self._caption_mode_button = None
+        self._mode_host = ttk.Frame(root, style='Workspace.TFrame')
+        self._mode_host.pack(fill='both', expand=True)
+
         # Studio: left monitor + fixed 360px inspector (matches the mockup).
-        self._studio = ttk.Frame(root, style="Workspace.TFrame")
+        self._studio = ttk.Frame(self._mode_host, style="Workspace.TFrame")
         self._studio.pack(fill="both", expand=True)
         language_min_width = 420 if self._ui_language == "en_US" else ui_theme.INSPECTOR_MIN
         self._inspector_width = max(
@@ -915,12 +919,19 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._inspector.pack_propagate(False)
         self._inspector_grip = tk.Frame(
             self._inspector, width=4, cursor="sb_h_double_arrow",
-            bg=self._ui.get("line", "#2a3540"), bd=0, highlightthickness=0,
+            bg=self._ui.get("line", "#2a3540"), bd=0, highlightthickness=0, takefocus=1,
         )
         self._inspector_grip.pack(side="left", fill="y")
+        self._inspector_preview = DividerPreview(self._studio, self._ui['accent'])
+        self._inspector_drag = self._inspector_pending_width = None
         self._inspector_grip.bind("<Button-1>", self._on_inspector_grip_start)
         self._inspector_grip.bind("<B1-Motion>", self._on_inspector_grip_drag)
         self._inspector_grip.bind("<ButtonRelease-1>", self._on_inspector_grip_end)
+        self._inspector_grip.bind('<Escape>', self._cancel_inspector_grip)
+        self._inspector_grip.bind('<FocusOut>', self._cancel_inspector_grip)
+        self._inspector_grip.bind('<Unmap>', self._cancel_inspector_grip)
+        self._studio.bind('<Configure>', self._cancel_inspector_grip)
+        Tooltip(self._inspector_grip, tr('workbench.resize_hint'))
         self._preview_host = ttk.Frame(self._studio, style="Stage.TFrame")
         self._preview_host.pack(side="left", fill="both", expand=True)
 
@@ -1115,6 +1126,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._build_queue_tab(self.queue_tab)
         self._build_export_quick(self._export_quick)
         self._build_status_bar(root)
+        self._build_workbench_controls()
         self._build_progress_rule(root)
 
         self.log = scrolledtext.ScrolledText(
@@ -1131,6 +1143,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self.root.protocol("WM_DELETE_WINDOW", self._on_close)
         self._setup_drag_and_drop()
         self._apply_ui_theme(self._ui_theme_name, persist=False)
+        self._install_caption_mode_button()
         self.root.after_idle(
             lambda: ui_theme.apply_native_titlebar(
                 self.root, self._ui, self._ui_theme_name == "dark",
@@ -1143,6 +1156,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self.root.after_idle(self._draw_empty)
         self._poll_guidance_events()
         self._sync_comparison_controls()
+        # Restore the saved pair, not a user switch (which inverts the theme).
+        # All shared controls must exist before the realtime workspace opens.
+        self._select_workbench_mode(self._saved_settings.get('workbench_mode', 'local'), restoring=True)
         if self._saved_settings.get("preview_detached", False):
             self.root.after_idle(self.detach_preview)
         if getattr(sys, "frozen", False) and not os.environ.get(
@@ -1163,6 +1179,105 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._last_module_settings = None
             self._on_mod_settings_change()
 
+    def _build_workbench_controls(self):
+        self._realtime_controls = ttk.Frame(self._status_bar, style='Status.TFrame')
+        self._realtime_stop = ChromeButton(self._realtime_controls, text=tr('realtime.stop') + ' · Ctrl+Alt+F10', variant='danger',
+                                           command=self._stop_realtime, ui=self._ui)
+        self._realtime_stop.pack(side='right', padx=(8, 0))
+        self._realtime_stop.configure(state='disabled')
+        self._theme_widgets.append(self._realtime_stop)
+        self._realtime_summary = tk.StringVar(self.root, value=tr('realtime.session', phase=tr('realtime.phase.idle'), target=''))
+        self._realtime_summary_label = ttk.Label(self._realtime_controls, textvariable=self._realtime_summary,
+                                                style='Status.TLabel', width=26, anchor='w')
+        self._realtime_summary_label.pack(side='left', padx=(8, 0))
+        self._realtime_tooltip = Tooltip(self._realtime_summary_label, self._realtime_summary.get() + '\n' + tr('workbench.emergency_stop'))
+
+    def _install_caption_mode_button(self):
+        from dlss5tool.caption_button import CaptionModeButton
+        self._caption_mode_button = CaptionModeButton(self.root, self._cycle_workbench_mode, self._ui)
+        self.root.bind('<Control-Tab>', self._cycle_workbench_mode, add='+')
+
+    def _cycle_workbench_mode(self, _event=None):
+        self._select_workbench_mode('realtime' if self._workbench_mode == 'local' else 'local')
+        return 'break'
+
+    def _workbench_mode_menu(self, parent):
+        menu = tk.Menu(parent, tearoff=False)
+        for mode in ('local', 'realtime'):
+            menu.add_radiobutton(label=tr('workbench.mode.' + mode), value=mode, variable=self._mode_var,
+                                 command=lambda m=mode: self._select_workbench_mode(m))
+        return menu
+
+    def _on_realtime_session(self, summary, busy):
+        self._realtime_summary.set(summary)
+        self._realtime_tooltip.text = summary + '\n' + tr('workbench.emergency_stop')
+        self._realtime_stop.configure(state='normal' if busy else 'disabled')
+        if busy:
+            self._realtime_controls.pack(side='left', before=self.eta_label, padx=(4, 0))
+        else:
+            self._realtime_controls.pack_forget()
+
+    def _stop_realtime(self):
+        workspace = getattr(self, '_realtime_workspace', None)
+        if workspace and not workspace._closed:
+            workspace.command('stop')
+
+    def _select_workbench_mode(self, mode, *, restoring=False):
+        if mode not in ('local', 'realtime'):
+            raise ValueError('Unknown workbench mode')
+        if mode == self._workbench_mode:
+            return
+        transition = self._mode_transition
+        previous_theme = self._ui_theme_name
+        target_theme = previous_theme if restoring else ('light' if previous_theme != 'light' else 'dark')
+        transition.begin(ui_theme.tokens(target_theme), tr('workbench.mode.' + mode))
+        if not restoring:
+            self._apply_ui_theme(target_theme, persist=False)
+        if mode == 'realtime' and self._realtime_workspace is None:
+            from dlss5tool.realtime_ui import RealtimeWorkspace
+            try:
+                self._realtime_workspace = RealtimeWorkspace(
+                    self._mode_host, self._saved_settings, ui=self._ui,
+                    on_session_change=self._on_realtime_session, inspector_width=self._inspector_width,
+                    log_parent=self.root, on_export_diagnostics=self.export_diagnostics,
+                    can_start=lambda: not getattr(self, '_deep_diagnosing', False),
+                    on_nr_settings=self._open_realtime_nr_settings,
+                    on_copy_local=self._copy_to_realtime)
+            except Exception as error:
+                transition.cancel()
+                if not restoring:
+                    self._apply_ui_theme(previous_theme, persist=False)
+                self._mode_var.set(self._workbench_mode)
+                messagebox.showerror(tr('workbench.open_failed'), str(error), parent=self.root)
+                return
+        if self._fullscreen:
+            self._exit_fullscreen()
+        if mode == 'realtime':
+            # Pause playback, not export jobs. Media, timeline and widgets survive.
+            self.pause()
+            self._set_hold_original(False)
+            self._hide_detached_placeholder()
+            self._studio.pack_forget()
+            if self._detached_preview_window is not None:
+                self._detached_preview_window.withdraw()
+            self._realtime_workspace.window.pack(fill='both', expand=True)
+        else:
+            self._realtime_workspace.window.pack_forget()
+            self._studio.pack(fill='both', expand=True)
+            if self._detached_preview_window is not None:
+                self._detached_preview_window.deiconify()
+        self._workbench_mode = mode
+        self._mode_var.set(mode)
+        if mode == 'local' and self._detached_preview_window is not None:
+            self._show_detached_placeholder()
+        if self._caption_mode_button:
+            self._caption_mode_button.set_mode(mode)
+        self._sync_log_panel()
+        if not restoring:
+            self.root.focus_set()
+            self._schedule_settings_save()
+        transition.reveal(highlight=not restoring)
+
     def _create_preview_pane(self, parent, detached=False):
         """Build one visual player surface backed by the shared App state."""
         theme_widgets = []
@@ -1174,6 +1289,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         canvas.bind("<Button-1>", self.on_canvas_press)
         canvas.bind("<B1-Motion>", self.on_canvas_drag)
         canvas.bind("<ButtonRelease-1>", self.on_canvas_release)
+        canvas.bind("<Button-3>", self.on_canvas_pan_press)
+        canvas.bind("<B3-Motion>", self.on_canvas_drag)
+        canvas.bind("<ButtonRelease-3>", self.on_canvas_pan_release)
         canvas.bind("<Motion>", self.on_canvas_hover)
         canvas.bind("<Double-Button-1>", self.on_canvas_double)
         canvas.bind("<Leave>", self._on_canvas_leave)
@@ -1300,18 +1418,26 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         fs_btn.pack(side="left")
         Tooltip(fs_btn, tr("tooltip.fullscreen"))
 
-        layout_state = {"mode": "wide"}
-        ctrl.bind(
-            "<Configure>",
-            lambda event: self._layout_preview_controls(
-                event.width,
+        layout_state = {"mode": None, 'after': None}
+        def relayout():
+            layout_state['after'] = None
+            self._layout_preview_controls(
+                ctrl.winfo_width(),
                 left, right,
                 playback_bar, position_bar,
                 view_bar, zoom_bar, detach_btn, fs_btn,
                 layout_state,
-            ),
-            add="+",
-        )
+            )
+        def schedule_layout(_event=None):
+            if layout_state['after'] is None:
+                layout_state['after'] = ctrl.after_idle(relayout)
+        def cancel_layout(_event=None):
+            if layout_state['after'] is not None:
+                ctrl.after_cancel(layout_state['after'])
+                layout_state['after'] = None
+        for sizing_widget in (ctrl, left, right, playback_bar, position_bar, view_bar, zoom_bar):
+            sizing_widget.bind('<Configure>', schedule_layout, add='+')
+        ctrl.bind('<Destroy>', cancel_layout, add='+')
 
         for widget in (
             prev_btn, play_btn, next_btn, mute_btn,
@@ -1339,6 +1465,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             "detach_btn": detach_btn,
             "fs_btn": fs_btn,
             "theme_widgets": tuple(theme_widgets),
+            "control_layout": layout_state,
         }
 
     @staticmethod
@@ -1349,7 +1476,15 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         view_bar, zoom_bar, detach_btn, fs_btn,
         state,
     ):
-        mode = _preview_control_layout(width)
+        # Measure groups that never change orientation. Measuring left/right
+        # themselves would feed their stacked size back into the next decision.
+        left_width = playback_bar.winfo_reqwidth() + position_bar.winfo_reqwidth()
+        right_width = (view_bar.winfo_reqwidth() + 8 + zoom_bar.winfo_reqwidth() + 8
+                       + detach_btn.winfo_reqwidth() + 4 + fs_btn.winfo_reqwidth())
+        gap = ui_theme.scale_px(left, 12)
+        state['measured'] = {'available': width, 'single_row': left_width + right_width + gap,
+                             'left': left_width, 'right': right_width}
+        mode = _preview_control_layout(width, left_width + right_width + gap, max(left_width, right_width))
         if state.get("mode") == mode:
             return
         state["mode"] = mode
@@ -1381,6 +1516,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         fs_btn.pack(side="left")
 
     def _activate_preview_pane(self, pane):
+        self._cancel_after('_viewport_repaint_after')
+        self._viewport_rasters = []
+        self._wipe_surface_key = None
+        self._wipe_photos = None
         for name, widget in pane.items():
             if name == "theme_widgets":
                 continue
@@ -1392,6 +1531,16 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _on_inspector_grip_start(self, event):
         self._inspector_drag = (event.x_root, self._inspector_width)
+        self._inspector_grip.focus_set()
+        self._show_inspector_preview(self._inspector_width)
+
+    def _show_inspector_preview(self, width):
+        self._inspector_pending_width = width
+        scale = getattr(self.root, '_studio_scale', 1.0)
+        self._inspector_preview.place(x=self._studio.winfo_width()-round(width*scale),
+                                      y=self._inspector.winfo_y(),
+                                      width=max(2, round(2*scale)), height=self._inspector.winfo_height())
+        self._inspector_preview.lift()
 
     def _on_inspector_grip_drag(self, event):
         start = getattr(self, "_inspector_drag", None)
@@ -1400,12 +1549,30 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         scale = getattr(self.root, "_studio_scale", 1.0)
         width = start[1] + (start[0] - event.x_root) / scale
         width = max(ui_theme.INSPECTOR_MIN, min(ui_theme.INSPECTOR_MAX, int(width)))
-        self._inspector_width = width
-        self._inspector.configure(width=round(width * scale))
+        if width != self._inspector_pending_width:
+            self._show_inspector_preview(width)
 
-    def _on_inspector_grip_end(self, _event=None):
+    def _on_inspector_grip_end(self, event=None):
+        start = getattr(self, '_inspector_drag', None)
+        if not start:
+            return
+        if event is not None:
+            self._on_inspector_grip_drag(event)
+        width = self._inspector_pending_width
+        self._cancel_inspector_grip()
+        if width != start[1]:
+            scale = getattr(self.root, '_studio_scale', 1.0)
+            self._inspector_width = width
+            self._inspector.configure(width=round(width*scale))
+            self._schedule_settings_save()
+
+    def _cancel_inspector_grip(self, _event=None):
         self._inspector_drag = None
-        self._schedule_settings_save()
+        self._inspector_pending_width = None
+        preview = getattr(self, '_inspector_preview', None)
+        if preview is not None and preview.winfo_exists():
+            preview.place_forget()
+        return 'break'
 
     def _open_about(self):
         from dlss5tool.about_dialog import show_about
@@ -1413,11 +1580,18 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self.root,
             on_check_updates=lambda: self.check_for_updates(manual=True),
             on_export_diagnostics=self.export_diagnostics,
+            on_import_update=self.import_local_update,
         )
 
     def _popup_more(self):
         menu = tk.Menu(self.root, tearoff=0)
+        menu.add_cascade(label=tr('workbench.menu'), menu=self._workbench_mode_menu(menu))
+        menu.add_separator()
         menu.add_command(label=str(self.log_btn.cget("text")), command=self.toggle_log_panel)
+        menu.add_command(label=tr('diagnostics.export'), command=self.export_diagnostics,
+                         state='disabled' if self._diagnosing else 'normal')
+        menu.add_command(label=tr('diagnostics.deep'), command=lambda: self.export_diagnostics(deep=True),
+                         state='disabled' if self._diagnosing else 'normal')
         menu.add_separator()
         menu.add_command(label=str(self.theme_btn.cget("text")), command=self.toggle_ui_theme)
         language_menu = tk.Menu(menu, tearoff=0)
@@ -1459,6 +1633,11 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         bar = ttk.Frame(parent, style="Status.TFrame")
         self._status_bar = bar
         bar.pack(fill="x")
+        from dlss5tool.workbench_transition import WorkbenchTransition
+        self._mode_transition = WorkbenchTransition(
+            bar, self._ui, tr('workbench.mode.' + self._workbench_mode),
+            (tr('workbench.mode.local'), tr('workbench.mode.realtime')))
+        self._theme_widgets.append(self._mode_transition)
         dot = ui_theme.scale_px(parent, 10)
         self._status_dot = tk.Canvas(
             bar, width=dot, height=dot, highlightthickness=0, bg=self._ui["surface"],
@@ -1512,6 +1691,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         rule.pack(fill="x", before=self._status_bar)
 
     def toggle_ui_theme(self):
+        # A manual theme choice clears the old highlight, keeping the mode label.
+        transition = getattr(self, '_mode_transition', None)
+        if transition is not None:
+            transition.cancel()
         self._apply_ui_theme(
             "light" if self._ui_theme_name != "light" else "dark",
         )
@@ -1521,16 +1704,21 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._sync_log_panel()
 
     def _sync_log_panel(self):
-        if self._log_open:
+        realtime = getattr(self, '_realtime_workspace', None)
+        realtime_log = realtime.log if realtime is not None and not realtime._closed else None
+        current = realtime_log if getattr(self, '_workbench_mode', 'local') == 'realtime' else self.log
+        for panel in (self.log, realtime_log):
+            if panel is not None and (panel is not current or not self._log_open):
+                panel.pack_forget()
+        if self._log_open and current is not None:
             options = {"fill": "x", "padx": 0, "pady": 0}
             if getattr(self, "_progress_rule", None) is not None:
                 options["after"] = self._progress_rule
             elif getattr(self, "_status_bar", None) is not None:
                 options["before"] = self._status_bar
-            self.log.pack(**options)
+            current.pack(**options)
             self.log_btn.configure(text=tr("action.hide_log"))
         else:
-            self.log.pack_forget()
             self.log_btn.configure(text=tr("action.log"))
 
     def _restack_bottom_chrome(self):
@@ -1546,25 +1734,21 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._sync_log_panel()
 
     def _apply_ui_theme(self, name=None, persist=True):
+        # Commit every client palette in one event-loop turn. In particular,
+        # never flush idle redraws between ttk styles and Canvas/Tk widgets:
+        # that exposes a frame containing both the old and the new theme.
         if name is not None:
             self._ui_theme_name = ui_theme.normalize_theme_name(name)
         self._ui = ui_theme.tokens(self._ui_theme_name)
         self.root._dlss_ui = self._ui
         Tooltip.set_palette(self._ui)
         ui_theme.apply_ttk(self.root, self._ui)
-        themed_windows = [self.root]
-        if self._detached_preview_window is not None:
-            themed_windows.append(self._detached_preview_window)
-        for window in themed_windows:
-            try:
-                window.update_idletasks()
-                ui_theme.apply_native_titlebar(
-                    window, self._ui, self._ui_theme_name == "dark",
-                )
-            except Exception:
-                pass
+        realtime = getattr(self, '_realtime_workspace', None)
+        if realtime is not None:
+            realtime.apply_theme(self._ui)
         try:
             self._inspector_grip.configure(bg=self._ui.get("line", "#2a3540"))
+            self._inspector_preview.configure(bg=self._ui['accent'])
         except Exception:
             pass
         try:
@@ -1640,6 +1824,23 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 pass
         else:
             self._refresh_preview_surface()
+
+        # Native chrome is updated only after all client widgets are ready.
+        # Startup already schedules a titlebar retry once the window is mapped;
+        # an update_idletasks() here would re-enter layout/paint callbacks.
+        caption_button = getattr(self, '_caption_mode_button', None)
+        if caption_button:
+            caption_button.apply_theme(self._ui)
+        themed_windows = [self.root]
+        if self._detached_preview_window is not None:
+            themed_windows.append(self._detached_preview_window)
+        for window in themed_windows:
+            try:
+                ui_theme.apply_native_titlebar(
+                    window, self._ui, self._ui_theme_name == "dark",
+                )
+            except Exception:
+                pass
 
     def _refresh_status_chips(self):
         self._update_queue_depth_status()
@@ -1809,7 +2010,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _show_detached_placeholder(self):
         if self._detached_preview_placeholder is None:
-            placeholder = ttk.Frame(self.root, padding=(10, 6), style="Status.TFrame")
+            placeholder = ttk.Frame(self._mode_host, padding=(10, 6), style="Status.TFrame")
             ttk.Label(
                 placeholder,
                 text=tr("status.detached_preview"),
@@ -1825,9 +2026,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._preview_host.pack_forget()
         self._inspector.pack_configure(side="right", fill="both", expand=True)
         self._inspector.pack_propagate(True)
-        self._detached_preview_placeholder.pack(
-            fill="x", before=self._studio,
-        )
+        if self._workbench_mode == 'local':
+            self._detached_preview_placeholder.pack(fill="x", before=self._studio)
 
     def _hide_detached_placeholder(self):
         if self._detached_preview_placeholder is not None:
@@ -1866,6 +2066,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
     def detach_preview(self):
         window = self._detached_preview_window
         if window is not None:
+            if self._workbench_mode != 'local':
+                return
             try:
                 window.deiconify()
                 window.lift()
@@ -1904,13 +2106,16 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._sync_window_titles()
         self._schedule_settings_save()
 
-        try:
-            if self.root.state() != "withdrawn":
+        # A remembered detached player belongs to the local workbench. Keep it
+        # ready but hidden when startup restores realtime mode.
+        if self._workbench_mode == 'local':
+            try:
+                if self.root.state() != "withdrawn":
+                    window.deiconify()
+                    window.lift()
+                    window.focus_set()
+            except Exception:
                 window.deiconify()
-                window.lift()
-                window.focus_set()
-        except Exception:
-            window.deiconify()
         self._refresh_preview_surface()
 
     def dock_preview(self):
@@ -2026,6 +2231,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _on_workspace_mousewheel(self, event):
         """Scroll inspector pages when the pointer is over them."""
+        if getattr(self, '_workbench_mode', 'local') == 'realtime':
+            return self._realtime_workspace.on_mousewheel(event)
         widget = getattr(event, "widget", None)
         target = None
         cursor = widget
@@ -2708,6 +2915,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._add_paths_to_queue([self.video])
 
     def _add_paths_to_queue(self, paths, switch_tab=True):
+        if not self._validate_adjustment_draft():
+            return 0
         if self._queue_running or self._exporting:
             messagebox.showinfo(tr("dialog.queue_busy"), tr("message.queue_busy"))
             return 0
@@ -2844,6 +3053,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self.queue_tree.see(job.job_id)
 
     def apply_current_settings_to_queue(self):
+        if not self._validate_adjustment_draft():
+            return
         if not self._queue_editable():
             return
         settings = self._collect_settings()
@@ -3287,45 +3498,13 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         body = ttk.Frame(parent, style="Panel.TFrame")
         body.pack(fill="x", padx=0, pady=2)
 
-        ttk.Label(body, text=tr("label.style"), style="Kicker.TLabel").pack(
-            fill="x", pady=(0, 6),
-        )
-        style_chips = ChipGroup(
-            body, d['v_style'], list(STYLE_CHOICES),
-            command=self.on_settings_change, ui=self._ui,
-        )
-        style_chips.pack(anchor="w", pady=(0, 12))
-        self._theme_widgets.append(style_chips)
-
-        slider_max = (
-            app_settings.DLSS_SLIDER_MAX
-            if d['v_enable_5x'].get() else app_settings.DLSS_STANDARD_MAX
-        )
-        sliders = ttk.Frame(body, style="Panel.TFrame")
-        sliders.pack(fill="x")
-        _, d['w_intensity'], d['w_intensity_value'] = self._add_toggle_slider(
-            sliders, 0, 0, tr("label.strength"), d['v_intensity'], d['v_use_intensity'],
-            tr("tooltip.strength"), slider_max=slider_max,
-        )
-        d['w_use_output_mix'], d['w_outmix'], d['w_outmix_value'] = self._add_toggle_slider(
-            sliders, 1, 0, tr("label.output_mix"), d['v_outmix'], d['v_use_output_mix'],
-            tr("tooltip.output_mix"),
-            on_change=self.on_output_settings_change,
-            slider_max=slider_max,
-        )
-        _, d['w_local_tone'], d['w_local_tone_value'] = self._add_toggle_slider(
-            sliders, 2, 0, tr("label.local_tone"), d['v_local_tone'], d['v_use_local_tone'],
-            tr("tooltip.local_tone"), slider_max=slider_max,
-        )
-        _, d['w_local_struct'], d['w_local_struct_value'] = self._add_toggle_slider(
-            sliders, 3, 0, tr("label.local_structure"), d['v_local_struct'], d['v_use_local_struct'],
-            tr("tooltip.local_structure"), slider_max=slider_max,
-        )
-        _, d['w_skin_struct'], d['w_skin_struct_value'] = self._add_toggle_slider(
-            sliders, 4, 0, tr("label.skin_mask"), d['v_skin_struct'], d['v_auto_mask'],
-            tr("tooltip.skin_mask"),
-            slider_max=slider_max,
-        )
+        from dlss5tool.local_adjustments import LocalAdjustments
+        self._local_adjustments = LocalAdjustments(
+            body, d, ui=self._ui, styles=STYLE_CHOICES, on_model=self.on_settings_change,
+            on_output=self.on_output_settings_change, on_copy=self._copy_from_realtime)
+        self._local_adjustments.pack(fill='x')
+        self._theme_widgets.append(self._local_adjustments)
+        self._slider_committers.append(lambda: self._local_adjustments.commit(notify=False))
 
         enable_5x = CheckToggle(
             body, tr("label.experimental_range"), d['v_enable_5x'],
@@ -3361,6 +3540,38 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._settings = d
         self._update_dlss_control_states()
         return d
+
+    def _validate_adjustment_draft(self):
+        editor = getattr(self, '_local_adjustments', None)
+        if editor is not None and not editor.valid():
+            messagebox.showwarning(tr('common.settings'), tr('parameter.local_invalid'), parent=self.root)
+            return False
+        return True
+
+    def _copy_from_realtime(self):
+        from dlss5tool.parameter_transfer import from_realtime, describe
+        workspace = getattr(self, '_realtime_workspace', None)
+        try:
+            if workspace is None:
+                raise ValueError(tr('parameter.copy_metadata'))
+            values = from_realtime(workspace.collect(), workspace.catalog, self._dlss_slider_limit())
+            if messagebox.askyesno(tr('parameter.copy_title'), tr('parameter.copy_confirm', values=describe(values)), parent=self.root):
+                self._local_adjustments.replace_common(values)
+        except (ValueError, tk.TclError) as error:
+            messagebox.showwarning(tr('parameter.copy_title'), str(error), parent=self.root)
+
+    def _copy_to_realtime(self):
+        from dlss5tool.parameter_transfer import to_realtime, describe
+        workspace = getattr(self, '_realtime_workspace', None)
+        if workspace is None or not self._validate_adjustment_draft():
+            return
+        try:
+            snapshot = self._local_adjustments.snapshot()
+            index, candidate = to_realtime(snapshot, workspace.collect(), workspace.catalog)
+            if messagebox.askyesno(tr('parameter.copy_title'), tr('parameter.copy_confirm', values=describe(snapshot)), parent=self.root):
+                workspace.replace_common_parameters(index, candidate)
+        except (ValueError, tk.TclError) as error:
+            messagebox.showwarning(tr('parameter.copy_title'), str(error), parent=self.root)
 
     def _add_toggle_slider(
         self, parent, row, column, text, value_var, enabled_var,
@@ -3454,19 +3665,25 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _on_5x_toggle(self):
         d = self._settings
-        limit = self._dlss_slider_limit()
-        if limit <= app_settings.DLSS_STANDARD_MAX:
-            for key in (
-                'v_intensity', 'v_local_tone', 'v_local_struct',
-                'v_skin_struct', 'v_outmix',
-            ):
-                variable = d[key]
+        editor = getattr(self, '_local_adjustments', None)
+        if not d['v_enable_5x'].get() and editor is not None:
+            from dlss5tool.parameter_values import parse_number
+            blocked = []
+            for name, row in editor.rows.items():
+                if name == 'style':
+                    continue
                 try:
-                    value = float(variable.get())
+                    if not 0 <= parse_number(row.variable.get(), percent=True) <= 1:
+                        blocked.append(row.title)
                 except (TypeError, ValueError, tk.TclError):
-                    value = app_settings.DLSS_SLIDER_MIN
-                variable.set(_normalize_slider_input(value, value, max_value=limit))
-        self.on_settings_change()
+                    blocked.append(row.title)
+            if blocked:
+                d['v_enable_5x'].set(True)
+                messagebox.showwarning(tr('parameter.range_title'),
+                    tr('parameter.range_blocked', names='、'.join(blocked)), parent=self.root)
+                return
+        self._update_dlss_control_states()
+        self._schedule_settings_save()
 
     def _set_slider_enabled(self, scale, value_input, enabled):
         colors = ui_theme.slider_colors(self._ui, enabled)
@@ -3479,6 +3696,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return
         d = self._settings
         limit = self._dlss_slider_limit()
+        editor = getattr(self, '_local_adjustments', None)
+        if editor is not None:
+            editor.set_limit(limit)
         for scale_key, input_key in (
             ('w_intensity', 'w_intensity_value'),
             ('w_local_tone', 'w_local_tone_value'),
@@ -3506,6 +3726,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             d['w_local_struct'], d['w_local_struct_value'], d['v_use_local_struct'].get(),
         )
         mix_view = d['v_outview'].get() == OUTVIEW_NAMES[0]
+        if editor is not None:
+            editor.set_composition_enabled(mix_view)
         self._set_ttk_enabled(d['w_use_output_mix'], mix_view)
         self._set_slider_enabled(
             d['w_outmix'], d['w_outmix_value'],
@@ -4296,6 +4518,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._modules_section.toggle()
         self.root.after_idle(lambda: self._export_canvas.yview_moveto(1.0))
 
+    def _open_realtime_nr_settings(self):
+        self._select_workbench_mode('local')
+        self._show_module_editor('runtime')
+
     def _show_module_editor(self, name):
         self.workspace_tabs.select(self._export_page)
         if self._module_editor.collapsed:
@@ -4995,7 +5221,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             'use_output_mix': bool(d['v_use_output_mix'].get()),
         }
 
-    def _collect_settings(self):
+    def _collect_settings(self, *, include_cache_pool=True):
         d = self._settings
         remembered = self._remembered_dlss()
         use_auto_mask, skin_struct = effective_skin_settings(
@@ -5022,7 +5248,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if hasattr(self, "_host_settings"):
             result.update(self._collect_host_settings())
         result['ui_language'] = getattr(self, '_ui_language', i18n.get_language())
-        result['guidance_cache_pool'] = self._ensure_shared_cache_pool().name
+        if include_cache_pool:
+            result['guidance_cache_pool'] = self._ensure_shared_cache_pool().name
         if hasattr(self, "_export_settings"):
             result['super_resolution_scale'] = self._collect_export_settings()[
                 'super_resolution_scale'
@@ -5332,6 +5559,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 getattr(self, "_preview_section", None) and not self._preview_section.collapsed
             ),
             "ui_theme": self._ui_theme_name,
+            "workbench_mode": self._workbench_mode,
             "ui_language": getattr(
                 self, "_preferred_ui_language", i18n.get_language()
             ),
@@ -5381,6 +5609,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 pass
             setattr(self, name, None)
 
+    def _open_realtime(self):
+        self._select_workbench_mode('realtime')
+
     def _on_close(self):
         if getattr(self, '_module_reload_thread', None) is not None:
             self._close_after_module_reload = True
@@ -5410,6 +5641,16 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if retiring and retiring.is_alive():
             self.root.after(50, self._on_close)
             return
+        transition = getattr(self, '_mode_transition', None)
+        if transition:
+            transition.cancel()
+        realtime_window = getattr(self, '_realtime_workspace', None)
+        self._cancel_inspector_grip()
+        if realtime_window:
+            realtime_window.close()
+        caption_button = getattr(self, '_caption_mode_button', None)
+        if caption_button:
+            caption_button.close()
         self._cancel_after("_settings_save_after")
         self._cancel_after("_live_debounce")
         self._cancel_after("_output_preview_after")
@@ -5421,6 +5662,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._cancel_after('_module_reload_after')
         self._cancel_after('_guidance_preview_after')
         self._cancel_after('_render_gpu_scan_after')
+        self._clear_preview_wait()
+        self._cancel_after('_viewport_repaint_after')
         self._save_settings_now()
         self._save_queue_state()
         self.pause()
@@ -5432,6 +5675,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if getattr(self, "_cap", None):
             self._cap.release()
         self._image_bgr = None
+        self._image_alpha = None
         self._source_kind = None
         self._video_color_info = None
         self._close_live()
@@ -5875,6 +6119,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _cache_clear(self, keep_source=False):
         """Invalidate processed frames; only parameter edits can retain decoded sources."""
+        self._viewport_rasters = []
+        self._wipe_surface_key = None
+        self._wipe_photos = None
         if not keep_source:
             decoder = getattr(self, '_background_preview_decoder', None)
             if decoder is not None:
@@ -6127,7 +6374,24 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             if nw < crop.shape[1] or nh < crop.shape[0]
             else cv2.INTER_LINEAR
         )
-        rendered = cv2.resize(crop, (nw, nh), interpolation=interpolation)
+        alpha = (getattr(self, '_image_alpha', None)
+                 if getattr(self, '_source_kind', None) == 'image'
+                 and not getattr(self, '_guidance_context', False) else None)
+        key = (ix0, iy0, ix1, iy1, nw, nh, id(alpha))
+        cache = getattr(self, '_viewport_rasters', [])
+        rendered = next((pixels for source, cache_key, pixels in cache
+                         if source is img and cache_key == key), None)
+        if rendered is None:
+            if alpha is not None:
+                ah, aw = alpha.shape
+                ax0, ay0 = int(ix0 * aw / iw), int(iy0 * ah / ih)
+                ax1 = max(ax0 + 1, int(math.ceil(ix1 * aw / iw)))
+                ay1 = max(ay0 + 1, int(math.ceil(iy1 * ah / ih)))
+                rendered = resize_preview(crop, alpha[ay0:ay1, ax0:ax1], (nw, nh), interpolation)
+            else:
+                rendered = cv2.resize(crop, (nw, nh), interpolation=interpolation)
+            # Only the visible frame pair; strong source references prevent id reuse.
+            self._viewport_rasters = (cache + [(img, key, rendered)])[-2:]
         ox, oy = int(round(dx)), int(round(dy))
         if track:
             self._preview_pan_x, self._preview_pan_y = center
@@ -6160,7 +6424,11 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if self._navigator_source is img and self._navigator_thumb_size == (nw, nh):
             thumb = self._navigator_thumb
         else:
-            thumb = cv2.resize(img, (nw, nh), interpolation=cv2.INTER_AREA)
+            alpha = getattr(self, '_image_alpha', None)
+            if alpha is not None and not getattr(self, '_guidance_context', False):
+                thumb = resize_preview(img, alpha, (nw, nh), cv2.INTER_AREA)
+            else:
+                thumb = cv2.resize(img, (nw, nh), interpolation=cv2.INTER_AREA)
             self._navigator_source = img
             self._navigator_thumb = thumb
             self._navigator_thumb_size = (nw, nh)
@@ -6192,13 +6460,11 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _draw_pending_status(self, cw, ch):
         if not self._dlss_pending:
+            self._clear_preview_wait()
             return
-        nav = getattr(self, "_navigator_geom", None)
-        y = nav[1] - 8 if nav is not None else ch - 10
-        self.canvas.create_text(
-            cw - 10, y, text="DLSS…", fill=self._ui_color("muted", "#aaaaaa"), anchor="se",
-            font=ui_theme.UI_FONT_SMALL,
-        )
+        if self._uses_shared_render():
+            return  # Shared pipeline supplies its stage and revision after painting.
+        self._show_preview_wait(tr('status.rendering_current'))
 
     def _draw_work_status(self, text):
         """A fixed overlay, independent of the layout and bottom status bar."""
@@ -6314,23 +6580,48 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._drag_offsetx = ox
         composed = original
         show_divider = self._active_compare() and not self._hold_original
+        sx = int(self.split_x * nw)
+        surface_key = (self.canvas, id(original), id(processed), ox, oy, nw, nh,
+                       self._compare_label(), self._dlss_pending,
+                       self._ui_color('split', SPLIT_LINE), self._ui_color('text', ''))
+        if (show_divider and surface_key == getattr(self, '_wipe_surface_key', None)
+                and self.canvas.find_withtag('preview_wipe')):
+            # Tk copies only the newly exposed strip. No resize, RGB conversion,
+            # PhotoImage construction or scene rebuild for divider-only motion.
+            previous = self._wipe_last_x
+            if sx != previous:
+                lo, hi = sorted((sx, previous))
+                source_photo = self._wipe_photos[0 if sx > previous else 1]
+                self._photo.tk.call(str(self._photo), 'copy', str(source_photo),
+                                    '-from', lo, 0, hi, nh, '-to', lo, 0)
+                absolute = ox + sx
+                self.canvas.coords(self._wipe_line, absolute, oy, absolute, oy + nh)
+                cy = oy + nh // 2
+                self.canvas.coords(self._wipe_handle, absolute-5, cy-5, absolute+5, cy+5)
+                self._wipe_last_x = sx
+            return
+        self._wipe_surface_key = None
+        self._wipe_photos = None
         if show_divider:
             composed = original.copy()
-            sx = int(self.split_x * nw)
             if processed is not None:
                 composed[:, sx:] = processed[:, sx:]
         from PIL import Image, ImageTk
         self._pilimg = Image.fromarray(cv2.cvtColor(composed, cv2.COLOR_BGR2RGB))
         self._photo = ImageTk.PhotoImage(self._pilimg)
         self.canvas.delete("all")
-        self.canvas.create_image(ox, oy, anchor="nw", image=self._photo)
+        self.canvas.create_image(ox, oy, anchor="nw", image=self._photo, tags='preview_wipe')
         if show_divider:
+            self._wipe_photos = tuple(ImageTk.PhotoImage(Image.fromarray(cv2.cvtColor(pixels, cv2.COLOR_BGR2RGB)))
+                                     for pixels in (original, processed if processed is not None else original))
+            self._wipe_surface_key = surface_key
+            self._wipe_last_x = sx
             sx_abs = ox + int(self.split_x * nw)
-            self.canvas.create_line(
+            self._wipe_line = self.canvas.create_line(
                 sx_abs, oy, sx_abs, oy + nh, fill=self._ui_color("split", SPLIT_LINE), width=2, tags=("split",),
             )
             handle_y = oy + nh // 2
-            self.canvas.create_oval(
+            self._wipe_handle = self.canvas.create_oval(
                 sx_abs - 5, handle_y - 5, sx_abs + 5, handle_y + 5,
                 fill=self._ui_color("split", SPLIT_LINE),
                 outline=self._ui_color("canvas", CANVAS_BG),
@@ -6371,12 +6662,26 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return
         ox, _oy, nw, _nh = geom
         self.split_x = max(0.0, min(1.0, (event.x - ox) / max(nw, 1)))
+        if self._drag_split:
+            self._schedule_viewport_repaint()
+            return
+        self._paint_split_position()
+
+    def _paint_split_position(self):
         cw, ch = self._canvas_size()
         if getattr(self, "_split_orig", None) is not None:
             self._blit_split(cw, ch)
         else:
             # Repainting must never start synchronous inference on a cache miss.
             self.display_view(quality="fast")
+
+    def _schedule_viewport_repaint(self):
+        if getattr(self, '_viewport_repaint_after', None) is None:
+            self._viewport_repaint_after = self.root.after(16, self._flush_viewport_repaint)
+
+    def _flush_viewport_repaint(self):
+        self._cancel_after('_viewport_repaint_after')
+        self._refresh_viewport_display()
 
     def _point_in_navigator(self, x, y):
         geom = getattr(self, "_navigator_geom", None)
@@ -6495,7 +6800,35 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             tags=("empty", "empty_pick"),
         )
 
+    def on_canvas_pan_press(self, event):
+        # Right drag always pans, including close to the comparison divider.
+        if self._canvas_press is not None:
+            return 'break'  # Do not steal an active left-button gesture.
+        if (not self.video or self._exporting or self._preview_zoom <= 1.
+                or not self._point_in_video(event.x, event.y)):
+            return 'break'
+        self._focus_preview_host()
+        self._drag_split = False
+        self._pan_moved = False
+        self._canvas_press = ('right_pan', event.x, event.y,
+                              self._preview_pan_x, self._preview_pan_y,
+                              self._viewport_scale, self._viewport_source_size)
+        self.canvas.config(cursor='fleur')
+        return 'break'
+
+    def on_canvas_pan_release(self, event):
+        press = self._canvas_press
+        if press and press[0] == 'right_pan':
+            self._canvas_press = None
+            self._pan_moved = False
+            if getattr(self, '_viewport_repaint_after', None) is not None:
+                self._flush_viewport_repaint()
+            self.on_canvas_hover(event)
+        return 'break'
+
     def on_canvas_press(self, event):
+        if self._canvas_press and self._canvas_press[0] == 'right_pan':
+            return 'break'
         if not self.video or self._exporting:
             if (
                 not self.video
@@ -6542,7 +6875,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if press and press[0] == "navigator":
             self._update_pan_from_navigator(event)
             return
-        if press and press[0] == "pan":
+        if press and press[0] in ("pan", 'right_pan'):
             dx, dy = event.x - press[1], event.y - press[2]
             if abs(dx) > 3 or abs(dy) > 3:
                 self._pan_moved = True
@@ -6550,7 +6883,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             source_w, source_h = press[6]
             self._preview_pan_x = press[3] - dx / (scale * max(source_w, 1))
             self._preview_pan_y = press[4] - dy / (scale * max(source_h, 1))
-            self._refresh_viewport_display()
+            self._schedule_viewport_repaint()
             self.canvas.config(cursor="fleur")
             return
         if not self._drag_split:
@@ -6565,6 +6898,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._update_split_from_event(event)
 
     def on_canvas_release(self, event):
+        if self._canvas_press and self._canvas_press[0] == 'right_pan':
+            return 'break'
+        if getattr(self, '_viewport_repaint_after', None) is not None:
+            self._flush_viewport_repaint()
         if self._drag_split:
             self._drag_split = False
             self._canvas_press = None
@@ -7151,6 +7488,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return cls in _INPUT_WIDGETS or cls in extra
 
     def _preview_tab_selected(self):
+        if getattr(self, '_workbench_mode', 'local') != 'local':
+            return False
         window = self._detached_preview_window
         if window is None:
             return True
@@ -7735,6 +8074,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self.timeline.set_cache_ranges(
             _frame_ranges(rendered_frames), _frame_ranges(queued_frames),
         )
+        if getattr(self, '_preview_wait_key', None) is not None:
+            return  # Keep the current-frame wait message until that frame is ready.
         elapsed = (
             now - self._preview_process_t0
             if self._preview_process_t0 is not None else 0.0
@@ -7805,6 +8146,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if not error:
             return False
         self._preview_worker_error = None
+        self._clear_preview_wait()
         self.pause()
         self._freeze_preview_cache(resume_ms=None)
         self._dlss_pending = False
@@ -7938,9 +8280,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     @staticmethod
     def _pending_preview_image(orig):
-        gray = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
-        muted = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
-        return cv2.addWeighted(muted, 0.28, np.zeros_like(muted), 0.72, 0.0)
+        # The status bar distinguishes this source placeholder from a ready result.
+        return orig
 
     def _blit_play_split(self, orig, dlss, cw, ch, pending=False):
         self._split_orig = orig
@@ -8387,7 +8728,73 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         if messagebox.askyesno(tr('dialog.new_version'), tr('update.fallback', error=error)):
             self._open_release_page(release.page_url)
 
-    def _start_delta_download(self, release, asset, edition):
+    def import_local_update(self):
+        if self._update_checking or self._update_downloading:
+            messagebox.showinfo(tr('dialog.check_updates'), tr('message.update_in_progress'))
+            return
+        if not (getattr(sys, 'frozen', False) and os.name == 'nt'
+                and (paths.app_root() / delta_update.HELPER).is_file()):
+            messagebox.showerror(tr('dialog.update_failed'), tr('update.local_requires_helper'))
+            return
+        selected = filedialog.askopenfilename(
+            parent=self.root, title=tr('about.import_update'),
+            filetypes=[(tr('update.local_file_type'), '*.dlssupdate')],
+        )
+        if not selected:
+            return
+        local_file = Path(selected)
+        try:
+            source, target, file_edition = delta_update.parse_asset_name(local_file.name)
+            edition = delta_update.installed_edition(paths.app_root(), self._collect_host_settings())
+            if source != APP_VERSION or file_edition != edition or not updater.is_newer_version(target, source):
+                raise delta_update.DeltaError(tr('update.local_mismatch'))
+        except Exception as error:
+            messagebox.showerror(tr('dialog.update_failed'), str(error))
+            return
+
+        self._update_checking = True
+        self._update_action_labels()
+        self.logln(tr('update.local_metadata', target=target))
+        results = queue.Queue(maxsize=1)
+
+        def worker():
+            try:
+                release = updater.fetch_release_by_tag(target)
+                asset = delta_update.select_asset(release, source, edition)
+                if asset is None or asset.name != local_file.name:
+                    raise delta_update.DeltaError(tr('update.local_no_digest'))
+                results.put((release, asset, None))
+            except Exception as error:
+                results.put((None, None, str(error)))
+
+        def poll():
+            try:
+                release, asset, error = results.get_nowait()
+            except queue.Empty:
+                self.root.after(100, poll)
+                return
+            self._update_checking = False
+            self._update_thread = None
+            self._update_action_labels()
+            if error:
+                self.logln('[更新] ' + error)
+                messagebox.showerror(tr('dialog.update_failed'),
+                                     tr('update.local_verify_failed', error=error))
+                return
+            if not messagebox.askyesno(
+                    tr('dialog.new_version'),
+                    tr('update.local_offer', current=source, latest=target,
+                       edition=tr('update.edition_' + edition), name=local_file.name,
+                       size=updater.format_size(asset.size))):
+                return
+            self._start_delta_download(release, asset, edition, local_file=local_file)
+
+        self._update_thread = threading.Thread(
+            target=worker, name='dlss5-local-update-metadata', daemon=True)
+        self._update_thread.start()
+        self.root.after(100, poll)
+
+    def _start_delta_download(self, release, asset, edition, local_file=None):
         root = paths.app_root()
         try:
             if delta_update.transaction_path(root).exists():
@@ -8405,7 +8812,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._update_progress_percent = 0
         self._update_cancel_event.clear()
         self._update_action_labels()
-        self.logln(tr('update.preparing'))
+        self.logln(tr('update.local_preparing' if local_file else 'update.preparing'))
         events = queue.Queue()
 
         def worker():
@@ -8414,6 +8821,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                     root, asset, APP_VERSION, release.tag, edition,
                     progress=lambda done, total: events.put(('progress', done, total)),
                     cancelled=self._update_cancel_event.is_set,
+                    local_file=local_file,
                 )
                 events.put(('complete', None, None))
             except Exception as error:
@@ -8564,12 +8972,16 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._update_thread.start()
         self.root.after(100, poll_events)
 
-    def export_diagnostics(self):
-        """Create a shareable support log without requiring imported media."""
+    def export_diagnostics(self, *, deep=False):
+        """Default to an inexpensive snapshot; probes require explicit consent."""
         if self._diagnosing:
             return
-        if self._exporting or self._queue_running or self._switching_backend:
-            messagebox.showinfo(tr("dialog.busy"), tr("message.wait_diagnostics"))
+        realtime = getattr(self, '_realtime_workspace', None)
+        realtime_busy = realtime is not None and not realtime._closed and realtime.session_summary()[1]
+        if deep and (self._exporting or self._queue_running or self._switching_backend or realtime_busy):
+            messagebox.showinfo(tr("dialog.busy"), tr('diagnostics.stop_before_deep'), parent=self.root)
+            return
+        if deep and not messagebox.askyesno(tr('diagnostics.deep'), tr('diagnostics.deep_confirm'), parent=self.root):
             return
         initial_dir = ""
         if self.video:
@@ -8580,18 +8992,28 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         output_path = filedialog.asksaveasfilename(
             title=tr("dialog.save_diagnostics"),
             initialdir=initial_dir,
-            initialfile=diagnostics.suggested_report_name(),
+            initialfile=support_diagnostics.suggested_name(self._workbench_mode, deep),
             defaultextension=".log",
             filetypes=[
                 (tr("filetype.diagnostic"), "*.log"),
                 (tr("filetype.text"), "*.txt"),
+                ('JSON', '*.json'),
                 (tr("common.all_files"), "*.*"),
             ],
         )
         if not output_path:
             return
+        # Modal dialogs pump Tk events: a queued job or realtime session may
+        # have started while the user was choosing a destination.
+        if self._diagnosing:
+            return
+        realtime = getattr(self, '_realtime_workspace', None)
+        realtime_busy = realtime is not None and not realtime._closed and realtime.session_summary()[1]
+        if deep and (self._exporting or self._queue_running or self._switching_backend or realtime_busy):
+            messagebox.showinfo(tr("dialog.busy"), tr('diagnostics.stop_before_deep'), parent=self.root)
+            return
         try:
-            ui_log = self.log.get("1.0", "end")
+            ui_log = self.log.get("end-501l", "end")
         except Exception:
             ui_log = ""
         active_host = None
@@ -8638,7 +9060,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             except Exception:
                 guidance_info = {}
         context = {
-            "settings": self._collect_settings(),
+            'workbench_mode': self._workbench_mode,
+            "settings": self._collect_settings(include_cache_pool=deep),
             "export_settings": self._collect_export_settings(),
             "preview_super_resolution": self._preview_effect_enabled("super_resolution"),
             "preview_frame_generation": self._preview_effect_enabled("frame_generation"),
@@ -8662,6 +9085,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 if getattr(job, "state", "") in {"completed", "failed", "cancelled", "interrupted"}
             ],
         }
+        if realtime is not None and not realtime._closed:
+            context['realtime'] = realtime.diagnostic_snapshot()
+            context['_diagnostic_io'] = {'realtime_logs': str(paths.state_path('realtime') / 'logs')}
+        self._deep_diagnosing = deep
         self._diagnosing = True
         self._diagnostic_progress = (0, 6, "collecting")
         from dlss5tool.about_dialog import set_diagnostics_progress
@@ -8671,10 +9098,11 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._update_host_control_states()
         self._update_queue_action_states()
         self.set_status(tr("status.diagnosing_host"))
-        self.logln("[诊断] 开始生成一键诊断报告…")
+        self.logln(tr('diagnostics.started'))
 
         def finish(result, error):
             self._diagnosing = False
+            self._deep_diagnosing = False
             self._diagnostic_progress = None
             set_diagnostics_progress(self.root, False)
             self._diagnostic_thread = None
@@ -8684,7 +9112,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._update_queue_action_states()
             if error:
                 self.set_status(tr("status.diagnostics_export_failed"))
-                self.logln("[诊断] 导出失败: " + error)
+                self.logln(tr('diagnostics.failed', error=error))
                 messagebox.showerror(
                     tr("dialog.diagnostics_failed"),
                     tr("message.diagnostics_save_failed", error=error),
@@ -8692,7 +9120,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 return
             path = result["path"]
             self.set_status(tr("status.diagnostics_complete"))
-            self.logln(f"[诊断] 已导出: {path}")
+            self.logln(tr('diagnostics.saved', path=path))
             messagebox.showinfo(
                 tr("dialog.diagnostics_complete"),
                 tr("message.diagnostics_complete", path=path),
@@ -8704,8 +9132,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             result = None
             error = None
             try:
-                result = diagnostics.write_diagnostic_report(
-                    output_path, context,
+                result = support_diagnostics.write_report(
+                    output_path, context, deep=deep,
                     on_progress=lambda completed, total, stage: result_queue.put(
                         ("progress", completed, total, stage)
                     ),
@@ -8766,6 +9194,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self.logln(tr("log.dnd_init_failed", error=ex))
 
     def _on_drop_enter(self, event):
+        if getattr(self, '_workbench_mode', 'local') != 'local':
+            return 'none'
         if not self._exporting and not self._queue_running and not self._diagnosing:
             self._drop_hover = True
             self.canvas.config(bg=self._ui_color("canvas_drop", CANVAS_DROP_BG))
@@ -8784,6 +9214,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return getattr(event, "action", None)
 
     def _on_drop(self, event):
+        if getattr(self, '_workbench_mode', 'local') != 'local':
+            return 'none'
         self._drop_hover = False
         self.canvas.config(bg=self._ui_color("canvas", CANVAS_BG))
         if self._exporting or self._queue_running or self._diagnosing:
@@ -8818,6 +9250,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return getattr(event, "action", None)
 
     def _begin_source_load(self):
+        self._clear_preview_wait()
+        self._shared_progress_token = None
+        self._shared_progress_binding = None
+        self._shared_source_paint_key = None
         self._shared_revision = getattr(self, '_shared_revision', 0)+1
         self._shared_painted_position = None
         self._shared_source_result = None
@@ -8830,6 +9266,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._guidance_ready = self._guidance_presented = None
         self._guidance_display_signature = None
         self.pause()
+        self._cancel_after('_viewport_repaint_after')
         self._cancel_after('_shared_preview_after')
         self._cancel_after('_clear_preview_after')
         self._freeze_preview_cache(resume_ms=None)
@@ -8859,6 +9296,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._cap = None
         self._cap_next = None
         self._image_bgr = None
+        self._image_alpha = None
         self._source_kind = None
         self._video_color_info = None
         self._media_w = 0
@@ -8948,7 +9386,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return False
 
     def _load_image(self, path):
-        img = _read_image_bgr(path)
+        img, alpha = read_still(path)
         if img is None or img.size == 0:
             messagebox.showerror(
                 tr("dialog.import_failed"), tr("message.image_unreadable")
@@ -8964,7 +9402,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return False
         self._begin_source_load()
         self.video = path
-        self._image_bgr = img
+        self._image_bgr = inference_color(img, alpha)
+        self._image_alpha = alpha
         self._source_kind = "image"
         self._media_w, self._media_h = w, h
         self.nframes, self.fps = 1, 1.0
@@ -9149,6 +9588,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return candidate
 
     def _begin_export_ui(self, status_text):
+        self._clear_preview_wait()
+        self._cancel_after('_viewport_repaint_after')
         self.pause()
         self._cancel_after("_preview_cache_resume_after")
         self._preview_cache_frozen = False
@@ -9344,7 +9785,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         source_path = os.path.abspath(os.path.normpath(source_path))
         settings = {**self._collect_settings(), **dict(settings or {})}
         settings['guidance_cache_pool'] = self._ensure_shared_cache_pool().name
-        orig = _read_image_bgr(source_path)
+        orig, alpha = read_still(source_path)
         if orig is None or orig.size == 0:
             error = tr("message.input_image_unreadable")
             self.logln(tr("log.export_error", error=error))
@@ -9381,6 +9822,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         ext = os.path.splitext(source_path)[1].lower()
         if ext not in IMAGE_ENCODE_EXTS:
             ext = ".png"
+        if alpha is not None and ext not in ALPHA_EXTENSIONS:
+            ext = '.png'
         default_out = os.path.splitext(source_path)[0] + "_dlss" + ext
         out_path = out_path or self._unique_output_path(source_path, ext)
         if not notify and os.path.exists(out_path):
@@ -9392,6 +9835,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         error_message = ""
         started_at = self._export_t0
         try:
+            orig = inference_color(orig, alpha)
             processed = self._process_still_image(orig, settings)
             if processed is None:
                 raise RuntimeError("DLSS 处理失败")
@@ -9400,6 +9844,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             orig = (resize_original(orig, (processed.shape[1], processed.shape[0]))
                     if view else self._preview_composition_source(0, orig, processed))
             composed = compose_output_frame(orig, processed, view, mix)
+            composed = restore_alpha(composed, alpha)
             out_path = _write_image_bgr(out_path, composed)
             success = True
             elapsed = time.perf_counter() - started_at
@@ -9664,6 +10109,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 writer.abort()
 
     def export_dlss(self):
+        if not self._validate_adjustment_draft():
+            return
         if getattr(self, '_switching_backend', False):
             return
         if not self.video:

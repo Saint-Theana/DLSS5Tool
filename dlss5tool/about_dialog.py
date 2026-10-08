@@ -4,6 +4,7 @@ import threading
 import tkinter as tk
 from tkinter import ttk
 import webbrowser
+from PIL import Image, ImageTk
 
 from dlss5tool import ui_theme, updater
 from dlss5tool.app_version import APP_VERSION
@@ -18,7 +19,8 @@ AUTHOR_URL = "https://space.bilibili.com/3584419"
 REPO_LABEL = "github.com/banbanzhige/DLSS5Tool"
 
 
-def show_about(parent, on_check_updates, on_export_diagnostics, current_version=APP_VERSION):
+def show_about(parent, on_check_updates, on_export_diagnostics,
+               current_version=APP_VERSION, on_import_update=None):
     """Open one about window. A second click brings the existing one forward."""
     existing = getattr(parent, "_about_window", None)
     if existing is not None:
@@ -41,6 +43,18 @@ def show_about(parent, on_check_updates, on_export_diagnostics, current_version=
     ui_theme.apply_app_icon(window)
     body = ttk.Frame(window, padding=20)
     body.pack(fill="both", expand=True)
+
+    brand = ttk.Frame(body)
+    brand.pack(fill="x", pady=(0, 16))
+    try:
+        with Image.open(ui_theme.app_icon_paths()[1]) as source:
+            size = ui_theme.scale_px(window, 56)
+            mark = source.convert("RGBA").resize((size, size), Image.Resampling.LANCZOS)
+        window._about_mark = ImageTk.PhotoImage(mark, master=window)
+        tk.Label(brand, image=window._about_mark, bg=panel, borderwidth=0).pack(side="left", padx=(0, 12))
+    except (OSError, tk.TclError):
+        pass
+    ttk.Label(brand, text="DLSS5Tool", font=ui_theme.UI_FONT_TITLE).pack(side="left")
 
     facts = ttk.Frame(body)
     facts.pack(anchor="w", fill="x")
@@ -77,6 +91,11 @@ def show_about(parent, on_check_updates, on_export_diagnostics, current_version=
     ChromeButton(
         actions, text=tr("action.check_updates"), command=check, ui=ui, variant="outline",
     ).pack(side="right", padx=(0, 8))
+    if on_import_update is not None:
+        ChromeButton(
+            actions, text=tr("about.import_update"), command=on_import_update,
+            ui=ui, variant="outline",
+        ).pack(side="right", padx=(0, 8))
     diagnostic_button = ChromeButton(
         actions, text=tr("about.export_diagnostics"), command=on_export_diagnostics,
         ui=ui, variant="outline",

@@ -274,14 +274,14 @@ class PlayerHelperTests(unittest.TestCase):
         )
 
     def test_preview_controls_wrap_at_narrow_widths(self):
-        self.assertEqual(_preview_control_layout(900, "zh_CN"), "stacked")
-        self.assertEqual(_preview_control_layout(1000, "zh_CN"), "wide")
-        self.assertEqual(_preview_control_layout(999, "zh_CN"), "stacked")
-        self.assertEqual(_preview_control_layout(460, "zh_CN"), "stacked")
-        self.assertEqual(_preview_control_layout(459, "zh_CN"), "compact")
-        self.assertEqual(_preview_control_layout(999, "en_US"), "stacked")
-        self.assertEqual(_preview_control_layout(1000, "en_US"), "wide")
-        self.assertEqual(_preview_control_layout(559, "en_US"), "compact")
+        self.assertEqual(_preview_control_layout(900, 820, 460), 'wide')
+        self.assertEqual(_preview_control_layout(820, 820, 460), 'wide')
+        self.assertEqual(_preview_control_layout(819, 820, 460), 'stacked')
+        self.assertEqual(_preview_control_layout(460, 820, 460), 'stacked')
+        self.assertEqual(_preview_control_layout(459, 820, 460), 'compact')
+        # Larger fonts / additional view choices are measured, not hardcoded.
+        self.assertEqual(_preview_control_layout(1000, 1120, 560), 'stacked')
+        self.assertEqual(_preview_control_layout(1120, 1120, 560), 'wide')
 
     def test_play_target_skips_ahead_and_stops_at_last(self):
         self.assertEqual(_play_target_frame(0, 0, 24, 242), 0)
@@ -714,7 +714,7 @@ class EffectiveSliderTests(unittest.TestCase):
         self.assertEqual(_normalize_slider_input("600%", max_value=5.0), 5.0)
         self.assertEqual(_normalize_slider_input("bad", fallback=0.8), 0.8)
 
-    def test_persisted_slider_values_require_5x_permission(self):
+    def test_persisted_high_values_open_extended_range_without_losing_memory(self):
         standard = app_settings.validate(
             {
                 "intensity": 0.75,
@@ -724,12 +724,12 @@ class EffectiveSliderTests(unittest.TestCase):
                 "output_mix": 6.0,
             }
         )
-        self.assertFalse(standard["enable_5x"])
+        self.assertTrue(standard["enable_5x"])
         self.assertEqual(standard["intensity"], 0.75)
         self.assertEqual(standard["local_tone"], 1.0)
-        self.assertEqual(standard["local_struct"], 1.0)
-        self.assertEqual(standard["skin_struct"], 1.0)
-        self.assertEqual(standard["output_mix"], 1.0)
+        self.assertEqual(standard["local_struct"], 1.25)
+        self.assertEqual(standard["skin_struct"], 2.0)
+        self.assertEqual(standard["output_mix"], 5.0)
 
         experimental = app_settings.validate({
             "enable_5x": True,
@@ -881,12 +881,11 @@ class PreviewCacheTests(unittest.TestCase):
         self.assertEqual(calls[1][2]["fill"], "#ffffff")
         self.assertEqual([call[2]["text"] for call in calls], ["DLSS", "DLSS"])
 
-    def test_pending_preview_is_visibly_not_the_original(self):
+    def test_pending_preview_preserves_source_colors_for_wait_hud(self):
         original = np.full((4, 8, 3), (40, 120, 220), np.uint8)
         pending = App._pending_preview_image(original)
         self.assertEqual(pending.shape, original.shape)
-        self.assertFalse(np.array_equal(pending, original))
-        self.assertLess(float(pending.mean()), float(original.mean()) * 0.4)
+        np.testing.assert_array_equal(pending, original)
 
 
 class PreviewQueueTests(unittest.TestCase):
@@ -1545,14 +1544,15 @@ class WidgetSmokeTests(unittest.TestCase):
             root.withdraw()
             app = None
             original_dialog = filedialog.asksaveasfilename
-            original_writer = diagnostics.write_diagnostic_report
+            original_writer = gui.support_diagnostics.write_report
             original_showinfo = messagebox.showinfo
             original_showerror = messagebox.showerror
             allow_finish = threading.Event()
             shown_messages = []
             filedialog.asksaveasfilename = lambda **_kwargs: report_path
 
-            def fake_writer(path, context, on_progress=None):
+            def fake_writer(path, context, on_progress=None, *, deep=False):
+                self.assertFalse(deep)
                 on_progress(2, 6, "video")
                 allow_finish.wait(timeout=3.0)
                 with open(path, "w", encoding="utf-8") as handle:
@@ -1560,7 +1560,7 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertIn("settings", context)
                 return {"path": path, "passed": 2, "total": 2}
 
-            diagnostics.write_diagnostic_report = fake_writer
+            gui.support_diagnostics.write_report = fake_writer
             messagebox.showinfo = lambda *args, **kwargs: shown_messages.append(args)
             messagebox.showerror = lambda *args, **kwargs: None
             try:
@@ -1606,7 +1606,7 @@ class WidgetSmokeTests(unittest.TestCase):
             finally:
                 allow_finish.set()
                 filedialog.asksaveasfilename = original_dialog
-                diagnostics.write_diagnostic_report = original_writer
+                gui.support_diagnostics.write_report = original_writer
                 messagebox.showinfo = original_showinfo
                 messagebox.showerror = original_showerror
                 if app is not None:
@@ -1698,9 +1698,9 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertEqual(str(app.queue_clear_done_btn.cget("icon")), "clear-done")
                 self.assertEqual(str(app.queue_move_up_btn.cget("icon")), "up")
                 self.assertEqual(str(app.queue_move_down_btn.cget("icon")), "down")
-                self.assertTrue(app._log_open)
-                self.assertEqual(str(app.log_btn.cget("text")), "收起日志")
-                self.assertEqual(str(app.log.winfo_manager()), "pack")
+                self.assertFalse(app._log_open)
+                self.assertEqual(str(app.log_btn.cget("text")), "日志")
+                self.assertEqual(str(app.log.frame.winfo_manager()), "")
                 self.assertEqual(str(app.zoom_reset_btn.cget("text")), "适应")
                 self.assertEqual(str(app.zoom_reset_btn.cget("icon")), "fit")
                 self.assertNotEqual(
@@ -1920,14 +1920,19 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertEqual(app._preview_settings['w_auto_prerender'].grid_info()['row'], 0)
                 self.assertTrue(app._export_section.collapsed)
                 self.assertTrue(app._host_section.collapsed)
+                self.assertFalse(app._log_open)
+                self.assertNotIn(app.log.frame, app.root.pack_slaves())
+                app.toggle_log_panel()
+                self.assertTrue(app._log_open)
                 packed = list(app.root.pack_slaves())
-                self.assertIn(app._studio, packed)
+                self.assertIn(app._mode_host, packed)
+                self.assertIn(app._studio, app._mode_host.pack_slaves())
                 self.assertIn(app._progress_rule, packed)
                 self.assertIn(app.log.frame, packed)
                 self.assertIsInstance(app.log.vbar, ttk.Scrollbar)
                 self.assertEqual(app.log.vbar.winfo_class(), "TScrollbar")
                 self.assertIn(app._status_bar, packed)
-                self.assertLess(packed.index(app._studio), packed.index(app._progress_rule))
+                self.assertLess(packed.index(app._mode_host), packed.index(app._progress_rule))
                 self.assertLess(packed.index(app._progress_rule), packed.index(app.log.frame))
                 self.assertLess(packed.index(app.log.frame), packed.index(app._status_bar))
                 self.assertEqual(str(app.pbar.winfo_manager()), "pack")
@@ -2280,7 +2285,13 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertEqual(int(float(app.pbar["value"])), 6)
                 self.assertEqual(int(float(app.pbar["maximum"])), 24)
                 self.assertEqual(str(app._progress_rule.winfo_manager()), "pack")
+                self.assertFalse(app._log_open)
+                self.assertEqual(str(app.log.frame.winfo_manager()), "")
                 app.toggle_log_panel()
+                self.assertTrue(app._log_open)
+                self.assertEqual(str(app.log.frame.winfo_manager()), "pack")
+                app.toggle_log_panel()
+                self.assertFalse(app._log_open)
                 self.assertEqual(str(app.log.frame.winfo_manager()), "")
                 packed = list(app.root.pack_slaves())
                 self.assertEqual(packed[-2:], [app._progress_rule, app._status_bar])
@@ -2378,9 +2389,16 @@ class WidgetSmokeTests(unittest.TestCase):
                 self.assertIn("0%–500%", str(app._settings["w_range_hint"].cget("text")))
                 app._settings["v_intensity"].set(4.0)
                 app._settings["v_enable_5x"].set(False)
+                with mock.patch('dlss5tool.gui.messagebox.showwarning') as warning:
+                    app._on_5x_toggle()
+                warning.assert_called_once()
+                self.assertTrue(app._settings['v_enable_5x'].get())
+                self.assertEqual(float(app._settings['v_intensity'].get()), 4.0)
+                app._settings['v_intensity'].set(0.9)
+                app._settings['v_enable_5x'].set(False)
                 app._on_5x_toggle()
                 self.assertEqual(float(app._settings["w_intensity"].cget("to")), 1.0)
-                self.assertEqual(float(app._settings["v_intensity"].get()), 1.0)
+                self.assertEqual(float(app._settings["v_intensity"].get()), 0.9)
                 app._settings["v_intensity"].set(0.9)
 
                 app._settings["v_use_intensity"].set(True)

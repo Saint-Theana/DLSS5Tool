@@ -25,6 +25,8 @@ class UpdateGuiTests(unittest.TestCase):
         self.app._update_action_labels = mock.Mock()
         self.app._on_close = mock.Mock()
         self.app.root = mock.Mock()
+        self.app._update_checking = False
+        self.app._update_downloading = False
         self.release = updater.ReleaseInfo('v99.0.0', updater.RELEASES_URL, '', (
             updater.ReleaseAsset('DLSS5Tool-v99.0.0-win64.zip', 'https://github.com/a/lite.zip', 10),))
         patch = mock.patch.object(gui.paths, 'app_root', return_value=self.root)
@@ -60,6 +62,33 @@ class UpdateGuiTests(unittest.TestCase):
               mock.patch.object(gui.messagebox, 'askyesno', return_value=True)):
             self.app._prompt_for_update(self.release)
         self.app._start_delta_download.assert_called_once_with(self.release, asset, 'lite')
+
+    def test_local_import_selects_official_asset_without_downloading(self):
+        name = delta.asset_name(gui.APP_VERSION, 'v99.0.0', 'lite')
+        asset = updater.ReleaseAsset(
+            name,
+            f'https://github.com/{updater.GITHUB_REPOSITORY}/releases/download/v99.0.0/{name}',
+            123, 'sha256:' + 'a' * 64)
+        release = updater.ReleaseInfo('v99.0.0', updater.RELEASES_URL, '', (asset,))
+        local_file = self.root / name
+        self.app._start_delta_download = mock.Mock()
+
+        def run_thread(*args, **kwargs):
+            thread = mock.Mock()
+            thread.start.side_effect = kwargs['target']
+            return thread
+
+        with (mock.patch.object(gui.sys, 'frozen', True, create=True),
+              mock.patch.object(gui.os, 'name', 'nt'),
+              mock.patch.object(gui.filedialog, 'askopenfilename', return_value=str(local_file)),
+              mock.patch.object(gui.updater, 'fetch_release_by_tag', return_value=release) as fetch,
+              mock.patch.object(gui.threading, 'Thread', side_effect=run_thread),
+              mock.patch.object(gui.messagebox, 'askyesno', return_value=True)):
+            self.app.import_local_update()
+            self.app.root.after.call_args.args[1]()
+        fetch.assert_called_once_with('v99.0.0')
+        self.app._start_delta_download.assert_called_once_with(
+            release, asset, 'lite', local_file=local_file)
 
     def test_export_blocks_install_and_does_not_launch_helper(self):
         self.app._exporting = True

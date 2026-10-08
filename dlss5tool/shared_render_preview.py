@@ -11,9 +11,34 @@ from dlss5tool.render_cache import RenderCache, render_identity, file_identity
 from dlss5tool.video_export import compose_hdr_frame, compose_output_frame, tone_map_hdr_preview
 from dlss5tool.i18n import tr
 from dlss5tool.image_sequence import open_capture
+from dlss5tool.preview_feedback import PreviewFeedback
 
 
-class SharedRenderPreview:
+class SharedRenderPreview(PreviewFeedback):
+    def _shared_wait_status(self, stage):
+        key = (self.video, getattr(self, '_shared_revision', 0),
+               getattr(self, '_shared_output_index', getattr(self, '_frame', 0)))
+        detail = getattr(self, '_shared_progress_detail', None)
+        if detail and detail[0] == getattr(self, '_shared_progress_token', None):
+            stage += '\n' + detail[1]
+        self._show_preview_wait(stage, key=key)
+
+    def _shared_bind_progress(self, session):
+        key = (session, getattr(self, '_shared_revision', 0))
+        if getattr(self, '_shared_progress_binding', None) == key:
+            return
+        self._shared_progress_binding = key
+        token = self._shared_progress_token = object()
+        self._shared_progress_detail = None
+        def progress(message, fraction=0, counts=None):
+            # Worker threads publish Python data only. Tk is updated by polling.
+            if token is self._shared_progress_token:
+                detail = str(message)
+                if counts and counts[1]:
+                    detail += f' ({int(counts[0])}/{int(counts[1])})'
+                self._shared_progress_detail = (token, detail)
+        session.set_progress(progress)
+
     def _preview_auto_prerender(self):
         settings = getattr(self, '_preview_runtime_settings', None)
         if settings is not None:
@@ -46,6 +71,9 @@ class SharedRenderPreview:
             self._schedule_settings_save()
             return
         self.pause()
+        self._clear_preview_wait()
+        self._shared_progress_token = None
+        self._shared_progress_binding = None
         self._shared_revision = getattr(self, '_shared_revision', 0)+1
         self._shared_output_index = self._frame*self._preview_effect_settings()['frame_generation_multiplier']
         self._shared_clock = None
@@ -66,8 +94,10 @@ class SharedRenderPreview:
         self._shared_not_before = time.perf_counter()+.12
         self._shared_last_error = None
         self._shared_error_key = None
-        self.set_status(tr('status.shared_updating'))
-        self._draw_work_status(tr('status.shared_updating'))
+        self._shared_progress_token = None
+        self._shared_progress_binding = None
+        self._show_preview_wait(tr('status.shared_updating'),
+                                key=(self.video, self._shared_revision))
         self._shared_interim()
         self._cancel_after('_shared_preview_after')
         self._shared_preview_after = self.root.after(16, self._shared_poll)
@@ -103,9 +133,7 @@ class SharedRenderPreview:
                 work = pixels.astype(np.float32) if pixels.dtype == np.float16 else pixels
                 return cv2.resize(work, tuple(size), interpolation=cv2.INTER_LANCZOS4).astype(pixels.dtype)
             processed, reference = resize(processed), resize(reference)
-        self._shared_paint(base, (processed, reference), self._frame)
-        self.set_status(tr('status.shared_updating'))
-        self._draw_work_status(tr('status.shared_updating'))
+        self._shared_paint(base, (processed, reference), self._frame, waiting=True)
         return True
 
     def _shared_source_preview(self):
@@ -151,6 +179,16 @@ class SharedRenderPreview:
         selected = 'original' if getattr(self, '_hold_original', False) else (
             self.view_var.get() if getattr(self, 'view_var', None) else ''
         )
+        size = self._canvas_size()
+        paint_key = (self.video, self._frame, selected, id(image),
+                     id(getattr(self, '_split_dlss', None)), getattr(self, '_dlss_pending', False),
+                     size, getattr(self, '_preview_zoom', 1),
+                     getattr(self, '_preview_pan_x', .5), getattr(self, '_preview_pan_y', .5),
+                     getattr(self, 'canvas', None), getattr(self, 'split_x', .5),
+                     getattr(self, '_shared_revision', 0))
+        if paint_key == getattr(self, '_shared_source_paint_key', None):
+            return
+        self._shared_source_paint_key = paint_key
         if selected == 'compare' and hasattr(self, '_blit_play_split'):
             same_frame = getattr(self, '_split_frame', -1) == int(self._frame)
             processed = getattr(self, '_split_dlss', None) if same_frame else None
@@ -187,6 +225,10 @@ class SharedRenderPreview:
 
     def _shared_retire(self):
         """Detach immediately; close old GPU workers off the UI thread."""
+        self._clear_preview_wait()
+        self._shared_progress_token = None
+        self._shared_progress_binding = None
+        self._shared_source_paint_key = None
         self._cancel_after('_shared_preview_after')
         self._cancel_after('_scrub_after')
         self._cancel_after('_preview_cache_resume_after')
@@ -268,26 +310,29 @@ class SharedRenderPreview:
             session = self._shared_ready()
             if session is None:
                 updating = getattr(self, '_shared_painted_position', None) == (file_identity(self.video), self._frame)
-                self.set_status(tr('status.shared_updating' if updating else 'status.shared_preparing'))
+                self._shared_wait_status(tr('status.shared_updating' if updating else 'status.shared_preparing'))
                 ready = False
             else:
                 index = getattr(self, '_shared_output_index', self._frame*session.multiplier)
                 index = min(max(0, index), max(0, self.nframes*session.multiplier-1))
                 self._shared_output_index = index
+                self._shared_bind_progress(session)
                 session.set_prefetch(self.playing or self._preview_auto_prerender())
                 pair = session.request(index)
                 ready = pair is not None
                 if ready:
-                    self._shared_paint(session, pair, index)
+                    self._shared_paint(session, pair, index,
+                                       waiting=self.playing and getattr(self, '_buffering', False))
                 else:
-                    self.set_status(tr('status.shared_buffering', frame=index+1))
                     if not self.playing:
                         self._shared_interim()
+                    self._shared_wait_status(tr('status.shared_buffering', frame=index+1))
             if not ready and not self.playing:
                 self._shared_preview_after = self.root.after(40, self._shared_poll)
             return ready
         except Exception as error:
             self.pause()
+            self._clear_preview_wait()
             self._cancel_after('_scrub_after')
             self.set_status(tr('status.shared_failed', error=str(error).splitlines()[0]))
             if getattr(self, '_shared_last_error', None) != str(error):
@@ -300,7 +345,9 @@ class SharedRenderPreview:
         if self._uses_shared_render() and not self.playing:
             self._shared_display()
 
-    def _shared_paint(self, session, pair, index):
+    def _shared_paint(self, session, pair, index, waiting=False):
+        if not waiting:
+            self._clear_preview_wait()
         processed, reference = pair
         config = self._shared_display_config
         meta = (session.metadata or {}).get('hdr_metadata')
@@ -323,9 +370,9 @@ class SharedRenderPreview:
         self._sync_transport_labels()
         cw, ch = self._canvas_size()
         selected = 'original' if self._hold_original else self.view_var.get()
-        self._dlss_pending = False
+        self._dlss_pending = waiting
         if selected == 'compare':
-            self._blit_play_split(original, result, cw, ch)
+            self._blit_play_split(original, result, cw, ch, pending=waiting)
         else:
             self._draw_fit(original if selected == 'original' else result, cw, ch)
         now = time.perf_counter()
@@ -342,7 +389,8 @@ class SharedRenderPreview:
                 frame=index+1, count=snapshot['frames'], mib=f"{cache_bytes/1024**2:.0f}")
             if not self.playing and not self._preview_auto_prerender():
                 status += ' · ' + tr('status.auto_prerender_off')
-            self.set_status(status)
+            if not waiting:
+                self.set_status(status)
             self._shared_status_time = now
 
     def _shared_play(self):
@@ -373,6 +421,7 @@ class SharedRenderPreview:
                     self._shared_buffer()
                 return
             session.set_prefetch(True)
+            self._shared_bind_progress(session)
             fps = float(Fraction(session.metadata['output_rate']))
             total = session.metadata['source_frames']*session.multiplier
             index = min(self._shared_output_index, total-1)
@@ -415,6 +464,7 @@ class SharedRenderPreview:
             self._play_after = self.root.after(delay, self._shared_tick)
         except Exception as error:
             self.pause()
+            self._clear_preview_wait()
             self.set_status(tr('status.shared_failed', error=str(error).splitlines()[0]))
             self.logln('[预览] ' + str(error))
 
@@ -427,7 +477,7 @@ class SharedRenderPreview:
         self._shared_audio_running = False
         self._shared_clock = None
         self._set_play_btn(True)
-        self.set_status(tr('status.shared_buffering', frame=self._shared_output_index+1))
+        self._shared_wait_status(tr('status.shared_buffering', frame=self._shared_output_index+1))
         self._play_after = self.root.after(40, self._shared_tick)
 
     def _shared_advance(self, index):

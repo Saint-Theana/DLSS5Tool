@@ -122,6 +122,13 @@ class RenderSession:
         if self.upstream:
             self.upstream.set_progress(progress)
 
+    def _report_progress(self, *args, **kwargs):
+        # Sessions survive parameter/preview changes and may later be exported.
+        # Resolve the current subscriber rather than capture an old callback.
+        progress = self.progress
+        if progress:
+            return progress(*args, **kwargs)
+
     def _allowance(self):
         if self.pool is None:
             return self.limit
@@ -330,7 +337,7 @@ class RenderSession:
                 result = self.renderer(self.source, None, multiplier=self.multiplier,
                     scale=int(self.settings.get('super_resolution_scale', 1)), enhance=True,
                     settings=self.settings, cancel=stop, frame_sink=sink, render_gate=gate,
-                    metadata_sink=metadata, progress=self.progress)
+                    metadata_sink=metadata, progress=self._report_progress)
                 with self.condition:
                     self.result = result
                     self.complete = True
