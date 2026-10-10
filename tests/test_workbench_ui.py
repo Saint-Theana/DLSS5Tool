@@ -82,6 +82,22 @@ class WorkbenchUiTests(unittest.TestCase):
         app._stop_realtime()
         self.client.send.assert_called_with('stop')
 
+    def test_realtime_status_hides_local_idle_chips_but_keeps_background_jobs(self):
+        app = self.app
+        app._select_workbench_mode('realtime')
+        app._refresh_status_chips()
+        for widget in (app._status_host, app._status_chips, app._status_metric):
+            self.assertFalse(widget.winfo_manager())
+        app._exporting = True
+        app._refresh_status_chips()
+        self.assertEqual(app._status_host.winfo_manager(), 'pack')
+        self.assertFalse(app._status_metric.winfo_manager())
+        app._exporting = False
+        app._select_workbench_mode('local')
+        app._refresh_status_chips()
+        for widget in (app._status_host, app._status_chips, app._status_metric):
+            self.assertEqual(widget.winfo_manager(), 'pack')
+
     def test_realtime_does_not_receive_local_playback_shortcuts_or_drops(self):
         app = self.app
         app._select_workbench_mode('realtime')
@@ -156,8 +172,7 @@ class WorkbenchUiTests(unittest.TestCase):
         app = self.app
         self.root.deiconify()
         self.root.update()
-        self.assertFalse(app._log_open)
-        app.toggle_log_panel()
+        self.assertTrue(app._log_open)
         app.log.configure(state='normal')
         app.log.insert('end', '\n'.join(f'local {i}' for i in range(100)))
         app.log.configure(state='disabled')
@@ -167,7 +182,7 @@ class WorkbenchUiTests(unittest.TestCase):
         app._select_workbench_mode('realtime')
         workspace = app._realtime_workspace
         self.root.update()
-        self.assertEqual(len(workspace.tabs._tabs), 3)
+        self.assertEqual(len(workspace.tabs._tabs), 4)
         self.assertIs(workspace.log.frame.master, self.root)
         self.assertFalse(app.log.winfo_ismapped())
         self.assertTrue(workspace.log.winfo_ismapped())

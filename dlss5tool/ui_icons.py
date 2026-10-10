@@ -93,6 +93,14 @@ LUCIDE = {
         '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>'
         '<path d="M3 3v5h5"/>'
     ),
+    "scan": (
+        '<path d="M4 7V4h3M17 4h3v3M20 17v3h-3M7 20H4v-3"/>'
+        '<rect x="8" y="8" width="8" height="8" rx="1"/>'
+    ),
+    "monitor": (
+        '<rect x="3" y="3" width="18" height="14" rx="2"/>'
+        '<path d="M8 21h8M12 17v4"/>'
+    ),
     "undo": (
         '<path d="M9 14 4 9l5-5"/>'
         '<path d="M4 9h10a6 6 0 0 1 0 12h-2"/>'

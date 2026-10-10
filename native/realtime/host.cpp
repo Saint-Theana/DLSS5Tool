@@ -2,6 +2,7 @@
 // DLSS5Tool control host for the pinned Magpie.Core (Magpie contributors).
 #include "pch.h"
 #include "safety_state.h"
+#include "hotkeys.h"
 #include "guidance.h"
 #include <thread>
 #include "ScalingOptions.h"
@@ -31,6 +32,8 @@ constexpr UINT TASK_SWITCH_MESSAGE = WM_APP + 42;
 std::mutex outputMutex, commandMutex;
 std::deque<std::string> commands;
 DWORD mainThread;
+Realtime::Hotkeys hotkeyBindings;
+std::array<bool, 4> registeredHotkeys{};
 std::atomic<bool> inputClosed = false;
 std::shared_ptr<EffectParameterSessionState> session;
 json activeConfig;
@@ -209,7 +212,9 @@ ScalingOptions options(const json& config) {
     o.save = save;
     o.requestEffectParameters = saveRequest;
     o.isParameterFocusSwitchingEnabled = true;
-    o.toolbarShortcutLabels = {"Ctrl+Alt+F", "Ctrl+Alt+P", "", "", "Ctrl+Alt+C", "", ""};
+    o.toolbarShortcutLabels = {registeredHotkeys[2] ? hotkeyBindings[2].label : "",
+        registeredHotkeys[3] ? hotkeyBindings[3].label : "", "", "",
+        registeredHotkeys[1] ? hotkeyBindings[1].label : "", "", ""};
     return o;
 }
 Realtime::QualitySettings quality(const json& config) {
@@ -329,14 +334,23 @@ int main(int argc, char** argv) {
         wchar_t supervised[2]{};
         Realtime::supervisedStop = GetEnvironmentVariableW(L"DLSS5_REALTIME_SUPERVISED_STOP", supervised, 2) == 1
             && supervised[0] == L'1';
-        bool hotkey = Realtime::supervisedStop ||
-            RegisterHotKey(nullptr, 1, MOD_CONTROL | MOD_ALT | MOD_NOREPEAT, VK_F10) != 0;
+        hotkeyBindings = Realtime::LoadHotkeys();
+        json labels = json::object();
+        for (size_t i = 0; i < hotkeyBindings.size(); ++i) {
+            const auto& binding = hotkeyBindings[i];
+            registeredHotkeys[i] = (i == 0 && Realtime::supervisedStop) ||
+                RegisterHotKey(nullptr, int(i + 1), binding.modifiers | MOD_NOREPEAT, binding.key) != 0;
+            labels[binding.action] = binding.label;
+        }
+        const bool hotkey = registeredHotkeys[0];
         Realtime::stopAvailable = hotkey;
-        const bool compareKey = RegisterHotKey(nullptr, 2, MOD_CONTROL | MOD_ALT | MOD_NOREPEAT, 'C') != 0;
-        const bool profilerKey = RegisterHotKey(nullptr, 3, MOD_CONTROL | MOD_ALT | MOD_NOREPEAT, 'F') != 0;
-        const bool parametersKey = RegisterHotKey(nullptr, 4, MOD_CONTROL | MOD_ALT | MOD_NOREPEAT, 'P') != 0;
+        const bool compareKey = registeredHotkeys[1];
+        const bool profilerKey = registeredHotkeys[2];
+        const bool parametersKey = registeredHotkeys[3];
         Realtime::controlAvailable = parametersKey;
+        Realtime::ConfigureStopHint(hotkeyBindings[0].label, hotkeyBindings[3].label);
         emit({{"event", "ready"}, {"protocol", 1}, {"stop_hotkey_registered", hotkey},
+            {"hotkey_bindings", labels}, {"configurable_hotkeys", true},
             {"independent_stop", Realtime::supervisedStop.load()},
             {"hotkeys", {{"stop", hotkey}, {"compare", compareKey}, {"profiler", profilerKey}, {"parameters", parametersKey}}},
             {"task_switch_hook", keyboard != nullptr},
@@ -397,7 +411,7 @@ int main(int argc, char** argv) {
                         const int priority = config.value("gpu_priority", 0);
                         if (priority < 0 || priority > 2) throw std::runtime_error("Invalid GPU priority");
                         if (!config.value("windowed", false) && !hotkey)
-                            throw std::runtime_error("Emergency stop hotkey is occupied; use windowed output or release Ctrl+Alt+F10");
+                            throw std::runtime_error("Emergency stop hotkey unavailable; configure shortcuts or use windowed output");
                         if (request.value("activate", false)) {
                             if (IsIconic(hwnd)) ShowWindowAsync(hwnd, SW_RESTORE);
                             SetForegroundWindow(hwnd);

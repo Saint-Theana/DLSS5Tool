@@ -83,6 +83,11 @@ set_target_properties(dlss5_realtime_host PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY_RELEASE "${REALTIME_OUTPUT_DIR}"
   RUNTIME_OUTPUT_DIRECTORY_DEBUG "${REALTIME_OUTPUT_DIR}")
 enable_testing()
+add_executable(realtime_hotkeys_tests hotkeys_tests.cpp)
+target_include_directories(realtime_hotkeys_tests PRIVATE "${DEPS}/json/single_include")
+target_compile_definitions(realtime_hotkeys_tests PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
+target_compile_options(realtime_hotkeys_tests PRIVATE /UNDEBUG)
+add_test(NAME realtime_hotkeys COMMAND realtime_hotkeys_tests)
 add_executable(realtime_app_icon_tests app_icon_tests.cpp "${GENERATED}/app_icon.rc")
 target_compile_options(realtime_app_icon_tests PRIVATE /UNDEBUG)
 target_link_libraries(realtime_app_icon_tests PRIVATE user32 gdi32)

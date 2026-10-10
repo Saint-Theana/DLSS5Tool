@@ -84,6 +84,7 @@ DEFAULTS = {
     "ui_export_open": False,
     "ui_host_open": False,
     "ui_preview_open": False,
+    "ui_log_open": True,
     "ui_theme": "light",
     "workbench_mode": "local",
     "ui_language": i18n.DEFAULT_LANGUAGE,
@@ -266,7 +267,7 @@ def validate(values):
         "preview_auto_prerender",
         "guidance_skip_still_flow",
         "host_zero_fast_path", "host_persistent_buffers", "host_auto_fallback",
-        "ui_export_open", "ui_host_open", "ui_preview_open", "ui_modules_open", "preview_detached",
+        "ui_export_open", "ui_host_open", "ui_preview_open", "ui_modules_open", "ui_log_open", "preview_detached",
     ):
         result[name] = _as_bool(source.get(name, result[name]), result[name])
     theme = str(source.get("ui_theme", result["ui_theme"])).strip().lower()

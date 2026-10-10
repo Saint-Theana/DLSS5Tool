@@ -142,7 +142,8 @@ class RealtimeRangeTests(unittest.TestCase):
         self.ui.range_toggle.invoke()
         row = self.ui.parameter_rows['intensity']
         row.number_text.set('1.65'); row._commit_input()
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.ui.range_toggle.invoke()
         self.assertFalse(self.ui.extended_range.get())
         self.ui.undo_button.invoke()

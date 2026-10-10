@@ -6,6 +6,7 @@ from ctypes import wintypes
 import os
 import threading
 import time
+from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS, parse_hotkey
 
 STOP_TIMEOUT = 2.0
 WRITE_TIMEOUT = 3.0
@@ -13,7 +14,8 @@ WRITE_TIMEOUT = 3.0
 
 class WindowsStopControl:
     """Created/used on one dedicated thread (RegisterHotKey owns a message queue)."""
-    def __init__(self):
+    def __init__(self, hotkey=DEFAULT_HOTKEYS['stop']):
+        _, modifiers, key = parse_hotkey(hotkey)
         self.user = ctypes.WinDLL('user32', use_last_error=True)
         self.user.RegisterHotKey.argtypes = [wintypes.HWND, ctypes.c_int, wintypes.UINT, wintypes.UINT]
         self.user.UnregisterHotKey.argtypes = [wintypes.HWND, ctypes.c_int]
@@ -21,7 +23,7 @@ class WindowsStopControl:
                                          wintypes.UINT, wintypes.UINT, wintypes.UINT]
         self.user.ClipCursor.argtypes = [ctypes.POINTER(wintypes.RECT)]
         self.user.SystemParametersInfoW.argtypes = [wintypes.UINT, wintypes.UINT, ctypes.c_void_p, wintypes.UINT]
-        self.registered = bool(self.user.RegisterHotKey(None, 1, 0x0002 | 0x0001 | 0x4000, 0x79))
+        self.registered = bool(self.user.RegisterHotKey(None, 1, modifiers | 0x4000, key))
 
     def pressed(self):
         message = wintypes.MSG()
@@ -57,9 +59,9 @@ class RealtimeSafety:
     Silence/static content is NOT a failure. Only an explicit stop/quit or a
     blocked command write arms a deadline. Repeated clicks never extend it.
     """
-    def __init__(self, stop, emit, *, platform_factory=None):
+    def __init__(self, stop, emit, *, platform_factory=None, hotkey=DEFAULT_HOTKEYS['stop']):
         self._stop, self._emit = stop, emit
-        self._factory = platform_factory or (WindowsStopControl if os.name == 'nt' else None)
+        self._factory = platform_factory or ((lambda: WindowsStopControl(hotkey)) if os.name == 'nt' else None)
         self._lock = threading.Lock()
         self._done, self._ready = threading.Event(), threading.Event()
         self._process = None

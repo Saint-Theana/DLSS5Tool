@@ -277,7 +277,8 @@ class RealtimeSwitchTests(unittest.TestCase):
         self.assertFalse(self.ui.parameter_rows['pass2_intensity'].enabled)
         row = self.ui.parameter_rows['intensity']
         row.enable_toggle.invoke()
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.assertTrue(row.enabled_variable.get())
         self.ui.undo_button.invoke()
         self.assertFalse(row.enabled_variable.get())
@@ -285,7 +286,8 @@ class RealtimeSwitchTests(unittest.TestCase):
         row.number_text.set('nan'); row._commit_input()
         self.assertEqual(self.ui._editor_state, 'invalid')
         self.assertTrue(row._feedback_state[3])
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.ui.range_toggle.invoke()
         row.number_text.set('123.456%'); row._commit_input()
         self.assertEqual(row.value(), 1.23456)

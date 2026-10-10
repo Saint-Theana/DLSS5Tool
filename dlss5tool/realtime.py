@@ -20,6 +20,7 @@ import shutil
 
 from dlss5tool import paths, mod_paths
 from dlss5tool.i18n import tr
+from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS, validate_hotkeys, native_hotkeys
 
 PROTOCOL = 1
 NR = r"DLSSNR\DLSSNR_AI_Filter"
@@ -402,13 +403,15 @@ class PresetStore:
                 self.data['session'] = validate_config(data['session'])
             self.data['effect_favorites'] = self._effect_favorites(data.get('effect_favorites', []))
             local = data.get('local', {})
-            if not isinstance(local, dict) or set(local) - {'runtime_directory'}:
+            if not isinstance(local, dict) or set(local) - {'runtime_directory', 'hotkeys'}:
                 raise ValueError(tr('realtime.error.local_settings'))
             if 'runtime_directory' in local:
                 directory = local['runtime_directory']
                 if not isinstance(directory, str) or len(directory) > 32767 or not Path(directory).is_absolute():
                     raise ValueError(tr('realtime.error.runtime'))
                 self.data['local'] = {'runtime_directory': directory}
+            if 'hotkeys' in local:
+                self.data.setdefault('local', {})['hotkeys'] = validate_hotkeys(local['hotkeys'])
             self.data['nr_presets'] = {}
             if not isinstance(data.get('nr_presets', {}), dict):
                 raise ValueError(tr('realtime.error.nr_table'))
@@ -451,7 +454,12 @@ class PresetStore:
         if not Path(directory).is_dir():
             raise ValueError(tr('realtime.error.runtime_missing'))
         new = deepcopy(self.data)
-        new['local'] = {'runtime_directory': directory}
+        new.setdefault('local', {})['runtime_directory'] = directory
+        self._commit(new)
+
+    def save_hotkeys(self, bindings):
+        new = deepcopy(self.data)
+        new.setdefault('local', {})['hotkeys'] = validate_hotkeys(bindings)
         self._commit(new)
 
     def save_nr(self, name, config):
@@ -494,6 +502,45 @@ class RealtimeClient:
         self._safety = None
         self.generation = 0
         self.runtime_selection = None
+        self.hotkeys = dict(DEFAULT_HOTKEYS)
+        self._handshake = threading.Event()
+        self._handshake_event = None
+
+    def configure_hotkeys(self, bindings):
+        """Idle-only caller; verify a fresh engine, roll back on any failure."""
+        bindings = validate_hotkeys(bindings)
+        previous = dict(self.hotkeys)
+        previous_ready = self._handshake_event or {}
+        try:
+            self.close()
+            self.hotkeys = bindings
+            self.launch()
+            if not self._handshake.wait(8):
+                raise RuntimeError(tr('realtime.shortcuts.timeout'))
+            ready = self._handshake_event or {}
+            if ready.get('hotkey_bindings') != bindings:
+                raise RuntimeError(tr('realtime.shortcuts.unsupported'))
+            failed = [name for name in bindings if ready.get('hotkeys', {}).get(name) is not True]
+            if failed:
+                from .realtime_shortcuts import ACTION_LABELS
+                raise RuntimeError(tr('realtime.shortcuts.occupied', actions=', '.join(
+                    tr(ACTION_LABELS[name]) + ' (' + bindings[name] + ')' for name in failed)))
+        except Exception as error:
+            self.hotkeys = previous
+            try:
+                self.close()
+                self.launch()
+                if not self._handshake.wait(8):
+                    raise RuntimeError(tr('realtime.shortcuts.timeout'))
+                restored = self._handshake_event or {}
+                labels = restored.get('hotkey_bindings', DEFAULT_HOTKEYS)
+                lost = [name for name, ok in previous_ready.get('hotkeys', {}).items()
+                        if ok and restored.get('hotkeys', {}).get(name) is not True]
+                if not restored or labels != previous or lost:
+                    raise RuntimeError(tr('realtime.shortcuts.restore_unavailable'))
+            except Exception as rollback_error:
+                raise RuntimeError(tr('realtime.shortcuts.rollback_failed', error=rollback_error)) from error
+            raise
 
     def _put(self, message, generation=None):
         generation = self.generation if generation is None else generation
@@ -526,6 +573,8 @@ class RealtimeClient:
         environment['DLSS5_REALTIME_NR_PATH'] = str(Path(mod_paths.runtime_path(self.settings)).resolve())
         environment["DLSS5_REALTIME_EFFECTS_ROOT"] = str((self.host.parent / "effects").resolve())
         environment['DLSS5_REALTIME_STATE_ROOT'] = str(state)
+        bindings = validate_hotkeys(self.hotkeys)
+        environment['DLSS5_REALTIME_HOTKEYS'] = json.dumps(native_hotkeys(bindings))
         self.runtime_selection = {**mod_paths.runtime_info(self.settings),
                                   'feature_directory': str(Path(feature_root).resolve()),
                                   'meaning': 'paths passed to host, not proof of loaded modules'}
@@ -536,6 +585,8 @@ class RealtimeClient:
             except queue.Empty:
                 break
         generation = self.generation
+        self._handshake_event = None
+        self._handshake.clear()
         from .realtime_safety import RealtimeSafety
         outgoing = self._outgoing = queue.Queue(maxsize=64)
         def emergency_stop():
@@ -543,7 +594,8 @@ class RealtimeClient:
                 outgoing.put_nowait('{"command":"stop"}\n')
             except queue.Full:
                 pass  # Safety deadline is already armed, independently of IO.
-        safety = self._safety = RealtimeSafety(emergency_stop, lambda event: self._put(event, generation))
+        safety = self._safety = RealtimeSafety(emergency_stop, lambda event: self._put(event, generation),
+                                             hotkey=bindings['stop'])
         try:
             safety.start()
             environment['DLSS5_REALTIME_SUPERVISED_STOP'] = '1' if safety.registered else '0'
@@ -597,10 +649,22 @@ class RealtimeClient:
                     if event.get('event') == 'ready' and safety.registered:
                         event['stop_hotkey_registered'] = event['independent_stop'] = True
                         event.setdefault('hotkeys', {})['stop'] = True
+                    if (event.get('event') == 'ready' and bindings != DEFAULT_HOTKEYS
+                            and event.get('hotkey_bindings') != bindings):
+                        # Old engines ignore the environment. Never claim a custom
+                        # chord works or allow fullscreen with misleading guidance.
+                        self._put({'event': 'fatal', 'message': tr('realtime.shortcuts.unsupported')}, generation)
+                        self._handshake.set()
+                        process.terminate()
+                        break
+                    if event.get('event') == 'ready':
+                        self._handshake_event = event
+                        self._handshake.set()
                     safety.observe(event)
                     self._put(event, generation)
             finally:
                 if generation == self.generation:
+                    self._handshake.set()
                     self._put({"event": "exited", "returncode": process.wait()}, generation)
         self._reader = threading.Thread(target=read, daemon=True, name="realtime-control")
         self._reader.start()

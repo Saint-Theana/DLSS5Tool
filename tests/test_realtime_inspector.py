@@ -333,7 +333,7 @@ class RealtimeInspectorTests(unittest.TestCase):
         self.assertFalse(second[0].get())
         self.assertFalse(third[0].get())
         self.assertEqual(third[1].cget('state'), 'disabled')
-        self.assertIn('未选用', self.ui.parameter_sections['pass2']._title)
+        self.assertNotIn(i18n.tr('realtime.editor.pass_off'), self.ui.parameter_sections['pass2']._title)
         self.ui.parameter_sections['pass2'].toggle()
         self.assertEqual(self.ui.parameter_rows['multiPass'].value(), 1)
         third[1].invoke()
@@ -403,7 +403,7 @@ class RealtimeInspectorTests(unittest.TestCase):
         self.assertFalse(self.ui.pass_toggles)
         self.assertEqual(self.ui.parameter_rows['multiPass'].winfo_manager(), 'pack')
 
-    def test_markers_distinguish_custom_from_unapplied_and_count_groups(self):
+    def test_only_unapplied_feedback_is_visible_not_default_comparisons(self):
         self.running()
         row = self.ui.parameter_rows['intensity']
         self.assertFalse(row.nondefault)
@@ -411,7 +411,7 @@ class RealtimeInspectorTests(unittest.TestCase):
         row.variable.set('1.5')
         self.assertTrue(row.nondefault)
         self.assertTrue(row.unapplied)
-        self.assertTrue(self.ui.parameter_sections['look']._title.endswith(' · 1'))
+        self.assertEqual(self.ui.parameter_sections['look']._title, self.ui._parameter_groups['look'][0])
         row.commit()
         self.assertTrue(row.unapplied)
         applied = deepcopy(self.ui._applied_effects)
@@ -419,10 +419,12 @@ class RealtimeInspectorTests(unittest.TestCase):
         self.status(applied)
         self.assertTrue(row.nondefault)
         self.assertFalse(row.unapplied)
-        row.reset_button.invoke()
+        self.assertIsNone(row.reset_button)
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.assertFalse(row.nondefault)
         self.assertTrue(row.unapplied)
-        self.assertFalse(self.ui.parameter_sections['look']._title.endswith(' · 1'))
+        self.assertNotIn(i18n.tr('realtime.workspace.adjusted', count=1), self.ui.parameter_sections['look']._title)
 
     def test_group_reset_is_batched_and_undo_restores_values_without_restart(self):
         self.running()
@@ -454,7 +456,8 @@ class RealtimeInspectorTests(unittest.TestCase):
         row.number_text.set('1.00'); row._commit_input()
         self.assertEqual(self.ui.undo_button.cget('state'), 'disabled')
         row.variable.set('bad')
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.assertEqual(row.value(), 1)
         self.ui.undo_button.invoke()
         self.assertEqual(row.variable.get(), 'bad')

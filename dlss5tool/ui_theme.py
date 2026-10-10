@@ -367,26 +367,29 @@ def _apply_win32_icons(window, ico_path):
         load_big = 64
     else:
         load_big = big_size
-    small = _load_icon_file(ico_path, small_size)
-    big = _load_icon_file(ico_path, load_big)
-    if not small and small_size != 16:
-        small = _load_icon_file(ico_path, 16)
-    if not big:
-        big = _load_icon_file(ico_path, big_size) or _load_icon_file(ico_path, 32)
+    # Cache by DPI for this root's lifetime. Detached windows can borrow these
+    # handles, so a theme refresh must not destroy the icons they still use.
+    cache = getattr(window, '_app_icon_cache', {})
+    key = (ico_path, small_size, load_big)
+    if key in cache:
+        small, big = cache[key]
+    else:
+        small = _load_icon_file(ico_path, small_size)
+        big = _load_icon_file(ico_path, load_big)
+        if not small and small_size != 16:
+            small = _load_icon_file(ico_path, 16)
+        if not big:
+            big = _load_icon_file(ico_path, big_size) or _load_icon_file(ico_path, 32)
+        if small or big:
+            cache[key] = (small, big)
+            window._app_icon_cache = cache
     if not small and not big:
         return False
     if small:
         user32.SendMessageW(hwnd, 0x0080, 0, small)
     if big:
         user32.SendMessageW(hwnd, 0x0080, 1, big)
-    previous = getattr(window, "_app_icon_handles", [])
     window._app_icon_handles = [handle for handle in (small, big) if handle]
-    for handle in previous:
-        if handle and handle not in window._app_icon_handles:
-            try:
-                user32.DestroyIcon(handle)
-            except (AttributeError, OSError):
-                pass
     _bind_app_icon_cleanup(window)
     return True
 
@@ -394,6 +397,18 @@ def _apply_win32_icons(window, ico_path):
 def release_app_icon(window):
     """Release Win32 icon handles owned by a window before it is destroyed."""
     handles = list(getattr(window, "_app_icon_handles", ()))
+    for pair in getattr(window, '_app_icon_cache', {}).values():
+        handles.extend(pair)
+    handles = set(handle for handle in handles if handle)
+    window._app_icon_cache = {}
+    window._app_icon_released = True
+    pending = getattr(window, '_app_icon_after', None)
+    if pending is not None:
+        try:
+            window.after_cancel(pending)
+        except tk.TclError:
+            pass
+        window._app_icon_after = None
     borrowed = list(getattr(window, "_app_icon_borrowed_handles", ()))
     window._app_icon_handles = []
     window._app_icon_borrowed_handles = []
@@ -478,9 +493,18 @@ def apply_app_icon(window, default=False):
     """Attach the split-comparison Shiba mark. Missing files are ignored."""
     ico_path, png_path = app_icon_paths()
     applied = False
-    # Win32 receives exact system-sized icons through WM_SETICON below. Calling
-    # Tk's iconbitmap as well duplicates HICON ownership for each Toplevel and
-    # leaves GDI objects behind after repeated detach/dock cycles.
+    # Register Tk's application/class default ONCE, not once per Toplevel.
+    # WM_SETICON alone leaves Tk's default (and newly-created wrappers) using
+    # the feather. Tk owns this default; we own only the native DPI cache.
+    if sys.platform == 'win32' and default and os.path.isfile(ico_path):
+        owner = window._root()
+        try:
+            if getattr(owner, '_app_icon_default_path', None) != ico_path:
+                owner.iconbitmap(default=ico_path)
+                owner._app_icon_default_path = ico_path
+            applied = True
+        except tk.TclError:
+            pass
     if os.path.isfile(ico_path) and sys.platform != "win32":
         try:
             window.iconbitmap(ico_path)
@@ -509,8 +533,22 @@ def apply_app_icon(window, default=False):
         except tk.TclError:
             pass
     if sys.platform == "win32" and os.path.isfile(ico_path):
+        window._app_icon_released = False
+        window._app_icon_path = ico_path
         def apply_native(_event=None):
-            return _apply_win32_icons(window, ico_path)
+            window._app_icon_after = None
+            if getattr(window, '_app_icon_released', False):
+                return False
+            return _apply_win32_icons(window, window._app_icon_path)
+
+        def mapped(event):
+            if event.widget is window and not getattr(window, '_app_icon_released', False):
+                if getattr(window, '_app_icon_after', None) is None:
+                    window._app_icon_after = window.after_idle(apply_native)
+
+        if not getattr(window, '_app_icon_map_bound', False):
+            window.bind('<Map>', mapped, add='+')
+            window._app_icon_map_bound = True
 
         try:
             window.update_idletasks()
@@ -520,7 +558,8 @@ def apply_app_icon(window, default=False):
             applied = True
         else:
             try:
-                window.after_idle(apply_native)
+                if getattr(window, '_app_icon_after', None) is None:
+                    window._app_icon_after = window.after_idle(apply_native)
             except tk.TclError:
                 pass
     return applied

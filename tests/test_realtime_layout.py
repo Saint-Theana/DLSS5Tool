@@ -16,18 +16,21 @@ class RealtimeLayoutTests(unittest.TestCase):
     running = inspector.RealtimeInspectorTests.running
     event = inspector.RealtimeInspectorTests.event
 
-    def test_three_pages_and_common_parameters_first(self):
+    def test_four_pages_and_common_parameters_first(self):
         self.catalog()
         ui = self.ui
         self.assertEqual([tab['text'] for tab in ui.tabs._tabs],
-                         [i18n.tr('realtime.tab.effects'), i18n.tr('realtime.layout.output'), i18n.tr('realtime.layout.advanced')])
+                         [i18n.tr('realtime.tab.effects'), i18n.tr('realtime.workspace.workflow'),
+                          i18n.tr('realtime.layout.output'), i18n.tr('realtime.layout.advanced')])
         self.assertIs(ui.tabs._current, ui._pages['effects'].master.master)
         children = ui._pages['effects'].pack_slaves()
-        self.assertLess(children.index(ui.parameter_frame), children.index(ui.workflow_section))
+        self.assertLess(children.index(ui.parameter_frame), children.index(ui.protection_section))
+        self.assertIs(ui.workflow_section.master, ui._pages['workflow'])
+        self.assertIs(ui.fluency_section.master, ui._pages['display'])
         for section in (ui.presets_section, ui.protection_section, ui.residual_section,
-                        ui.workflow_section, ui.fluency_section, ui.metrics_section):
+                        ui.metrics_section):
             self.assertTrue(section.collapsed)
-        self.assertFalse(ui.region_preview.winfo_ismapped())
+        self.assertTrue(ui.region_preview.winfo_ismapped())
         self.assertFalse(ui.log.frame.winfo_manager())
         self.assertIs(ui.parameter_rows['intensity'].master, ui.parameter_sections['look'].body)
         self.client.start.assert_not_called()
@@ -36,8 +39,7 @@ class RealtimeLayoutTests(unittest.TestCase):
         self.catalog()
         ui = self.ui
         for route, widget, page in (
-                ('effects', ui.chain, 'effects'),
-                ('protection', ui.region_preview, 'effects'),
+                ('effects', ui.chain, 'workflow'),
                 ('protection', ui.residual_section, 'effects'),
                 ('display', ui.controls['capture_method'][0], 'runtime'),
                 ('runtime', ui.runtime_button, 'runtime')):
@@ -48,6 +50,9 @@ class RealtimeLayoutTests(unittest.TestCase):
                 self.assertTrue(widget.winfo_ismapped())
                 self.assertGreater(widget.winfo_width(), 20)
         self.client.start.assert_not_called()
+        ui._focus_page('startup', ui.region_preview)
+        self.root.update()
+        self.assertTrue(ui.region_preview.winfo_ismapped())
 
     def test_startup_settings_move_left_but_protection_stays_in_adjustments(self):
         self.catalog()
@@ -175,6 +180,8 @@ class RealtimeLayoutTests(unittest.TestCase):
         row = ui.parameter_rows['intensity']
         row.number_text.set('unfinished')
         self.client.send.reset_mock()
+        ui._set_inspector_width(580, remember=False)
+        self.root.update()
         before = ui.inspector.winfo_width()
         ui.splitter.event_generate('<ButtonPress-1>', x=2, y=10, rootx=600, rooty=100)
         with mock.patch.object(ui, '_set_inspector_width', wraps=ui._set_inspector_width) as set_width:
@@ -198,6 +205,8 @@ class RealtimeLayoutTests(unittest.TestCase):
 
     def test_splitter_release_uses_latest_pointer_and_commits_once(self):
         ui = self.ui
+        ui._set_inspector_width(580, remember=False)
+        self.root.update()
         before = ui.inspector.winfo_width()
         ui._splitter_start(SimpleNamespace(x_root=600))
         ui._splitter_move(SimpleNamespace(x_root=580))
@@ -292,9 +301,10 @@ class RealtimeLayoutTests(unittest.TestCase):
             ui.apply_theme(ui_theme.tokens(theme))
             self.assertEqual(ui._splitter_preview.cget('bg'), ui_theme.tokens(theme)['accent'])
             ui._paint_splitter(True)
-            self.assertEqual(ui.splitter.cget('bg'), ui_theme.tokens(theme)['accent'])
+            self.assertEqual(ui.splitter.itemcget('divider', 'fill'), ui_theme.tokens(theme)['accent'])
             ui._paint_splitter(False)
-            self.assertEqual(ui.splitter.cget('bg'), ui_theme.tokens(theme)['line'])
+            self.assertEqual(ui.splitter.itemcget('divider', 'fill'), ui_theme.tokens(theme)['line'])
+            self.assertEqual(ui.splitter.cget('bg'), ui_theme.tokens(theme)['panel'])
 
     def test_switching_tabs_and_sections_does_not_send_or_discard_drafts(self):
         self.catalog()
@@ -306,7 +316,7 @@ class RealtimeLayoutTests(unittest.TestCase):
         for tab in ui.tabs._tabs:
             ui.tabs.select(tab['frame'])
         ui._focus_page('effects', ui.chain)
-        ui.workflow_section.toggle()
+        ui.add_section.toggle()
         self.assertEqual(ui.parameter_rows, widgets)
         self.assertEqual(row.number_text.get(), 'unfinished')
         self.client.send.assert_not_called()
@@ -381,11 +391,40 @@ class RealtimeLayoutTests(unittest.TestCase):
         ui = self.ui
         ui._notify_session()
         self.assertTrue(all(button.cget('state') == 'disabled' for button in ui.presentation_buttons.values()))
+        self.assertEqual(ui.output_tools.winfo_manager(), 'pack')
+        self.assertIs(ui.output_tools.master, ui.stage_footer)
         self.running()
         ui._notify_session()
         self.assertTrue(all(button.cget('state') == 'normal' for button in ui.presentation_buttons.values()))
+        self.assertEqual(ui.output_tools.winfo_manager(), 'pack')
         ui.command('stop')
         self.assertTrue(all(button.cget('state') == 'disabled' for button in ui.presentation_buttons.values()))
+        self.assertEqual(ui.output_tools.winfo_manager(), 'pack')
+
+    def test_idle_footer_is_quiet_but_logs_and_safety_are_retained(self):
+        ui = self.ui
+        self.catalog()
+        self.assertFalse(ui.log.frame.winfo_manager())
+        self.assertIn(i18n.tr('realtime.catalog_loaded', count=len(ui.catalog)), ui.log.get('1.0', 'end'))
+        for widget in (ui.session_label, ui.metrics_label, ui.stop_hint_label, ui.status_notice):
+            self.assertFalse(widget.winfo_manager(), str(widget))
+        self.event({'event': 'ready', 'hotkeys': {'stop': False}})
+        self.assertEqual(ui.stop_hint_label.winfo_manager(), 'pack')
+        self.event({'event': 'ready', 'hotkeys': {'stop': True}})
+        self.assertFalse(ui.stop_hint_label.winfo_manager())
+        ui.status.set('Fixture failure')
+        self.catalog()
+        self.assertEqual(ui.status.get(), 'Fixture failure')
+        self.assertEqual(ui.status_notice.winfo_manager(), 'pack')
+        self.assertIn('Fixture failure', ui.log.get('1.0', 'end'))
+        self.running(); ui._notify_session()
+        self.assertEqual(ui.session_label.winfo_manager(), 'pack')
+        self.assertEqual(ui.stop_hint_label.winfo_manager(), 'pack')
+        ui._metrics_compact = 'Fixture metrics'; ui._notify_session()
+        self.assertEqual(ui.metrics_label.winfo_manager(), 'pack')
+        self.event({'event': 'state', 'state': 0, 'run_id': ui._run_id})
+        self.assertFalse(ui.session_label.winfo_manager())
+        self.assertFalse(ui.metrics_label.winfo_manager())
 
     def test_footer_controls_fit_small_window_in_both_themes(self):
         self.running()

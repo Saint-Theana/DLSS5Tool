@@ -16,6 +16,8 @@ from dlss5tool import ui_theme, i18n
 class RealtimeUiTests(unittest.TestCase):
     def setUp(self):
         self.root = tk.Tk()
+        self.callback_errors = []
+        self.root.report_callback_exception = lambda *error: self.callback_errors.append(error)
         ui_theme.apply_ttk(self.root, ui_theme.tokens('dark'))
         self.temp = tempfile.TemporaryDirectory(prefix='realtime-ui-')
         self.store = PresetStore(Path(self.temp.name) / 'presets.json')
@@ -38,6 +40,7 @@ class RealtimeUiTests(unittest.TestCase):
         self.root.destroy()
         self.temp.cleanup()
         i18n.set_language(i18n.DEFAULT_LANGUAGE)
+        self.assertEqual(self.callback_errors, [])
 
     def test_stop_hint_reports_protected_and_unavailable_states(self):
         self.event({'event': 'ready', 'stop_hotkey_registered': True, 'independent_stop': True})
@@ -424,12 +427,16 @@ class RealtimeUiTests(unittest.TestCase):
         self.assertIsNone(self.ui.selected_window())
 
     def test_region_coordinates_follow_resized_canvas(self):
-        from types import SimpleNamespace
-        self.ui._focus_page('protection', self.ui.region_preview)
+        from PIL import Image
+        from dlss5tool.realtime_snapshot import Snapshot
+        self.ui.source_preview.snapshot = Snapshot(Image.new('RGB', (640, 360), '#345678'), (1920, 1080))
+        self.ui.source_preview.edit_regions()
+        editor = self.ui.source_preview.editor
         self.root.update()
-        width, height = self.ui._region_bounds()
-        self.ui._region_begin(SimpleNamespace(x=width*.1, y=height*.2))
-        self.ui._region_end(SimpleNamespace(x=width*.8, y=height*.9))
+        left, top, right, bottom = editor.bounds()
+        editor.begin(SimpleNamespace(x=left+(right-left)*.1, y=top+(bottom-top)*.2))
+        editor.end(SimpleNamespace(x=left+(right-left)*.8, y=top+(bottom-top)*.9))
+        editor.apply()
         self.assertEqual(self.ui.collect()['quality']['regions'], [[.1, .2, .8, .9]])
         self.root.geometry('840x640')
         self.root.update()

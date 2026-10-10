@@ -105,8 +105,9 @@ class SkinInspectorTests(unittest.TestCase):
         self.assertEqual(effective_nr_skin(self.ui.collect())['effects'][0]['parameters']['skinStructureStrength'], 0)
         row.enable_toggle.invoke()
         self.assertEqual(row.value(), 1.2345)
-        self.assertTrue(self.ui.parameter_sections['look']._title.endswith(' · 1'))
-        row.reset_button.invoke()
+        self.assertEqual(self.ui.parameter_sections['look']._title, self.ui._parameter_groups['look'][0])
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.assertEqual((row.value(), self.ui.parameters['useAutoMask'][1].get()), (0, '0'))
         self.ui.undo_button.invoke()
         self.assertEqual((row.value(), self.ui.parameters['useAutoMask'][1].get()), (1.2345, '1'))
@@ -275,11 +276,11 @@ class SkinInspectorTests(unittest.TestCase):
                     self.root.geometry(size)
                     self.root.update()
                     row = self.ui.parameter_rows['skinStructureStrength']
-                    switch, field, reset = row.enable_toggle, row.field, row.reset_button
+                    switch, field = row.enable_toggle, row.field
+                    self.assertIsNone(row.reset_button)
                     self.assertGreater(field.winfo_width(), 60)
                     self.assertLessEqual(switch.winfo_rootx() + switch.winfo_width(), field.winfo_rootx())
-                    self.assertLessEqual(field.winfo_rootx() + field.winfo_width(), reset.winfo_rootx())
-                    self.assertLessEqual(reset.winfo_rootx() + reset.winfo_width(), row.winfo_rootx() + row.winfo_width())
+                    self.assertLessEqual(field.winfo_rootx() + field.winfo_width(), row.winfo_rootx() + row.winfo_width())
             self.ui.parameters['multiPass'][1].set('3')
             for strength, mask in NR_SKIN_PAIRS:
                 self.assertEqual(str(self.ui.parameter_rows[strength].field.cget('state')), 'normal')
@@ -290,7 +291,8 @@ class SkinInspectorTests(unittest.TestCase):
         row.enable_toggle.invoke()
         row.number_text.set('not a number'); row._commit_input()
         self.assertEqual(self.ui._editor_state, 'invalid')
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.realtime_ui.messagebox.askokcancel', return_value=True):
+            self.ui._reset_current_effect()
         self.assertEqual(self.ui._editor_state, 'idle')
         self.assertEqual(row.value(), 0)
         self.assertFalse(row.enable_display.get())

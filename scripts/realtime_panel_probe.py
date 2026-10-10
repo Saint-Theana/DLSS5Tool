@@ -3,6 +3,7 @@ import argparse
 from contextlib import ExitStack
 from copy import deepcopy
 import ctypes
+import faulthandler
 from ctypes import wintypes
 import json
 import os
@@ -25,8 +26,14 @@ def main():
     parser.add_argument('--geometry', default='1000x680')
     parser.add_argument('--inspector-width', type=int, help='Set a user-selected width in logical pixels')
     parser.add_argument('--expand-presets', action='store_true')
-    parser.add_argument('--page', choices=('effects', 'protection', 'display', 'runtime'), default='effects')
+    parser.add_argument('--page', choices=('effects', 'workflow', 'protection', 'display', 'runtime'), default='effects')
+    parser.add_argument('--hold-seconds', type=int, default=0, help='Keep the mocked window open for manual/UI-tool inspection')
+    parser.add_argument('--no-screenshot', action='store_true', help='Do not capture; inspection is handled externally')
+    parser.add_argument('--full-catalog', action='store_true', help='Use installed shader names as mocked catalog entries')
+    parser.add_argument('--show-shortcuts', action='store_true', help='Show the isolated shortcut editor')
+    parser.add_argument('--startup-timeout', type=int, default=60, help='Dump Python stacks and exit if startup cannot finish')
     args = parser.parse_args()
+    faulthandler.dump_traceback_later(max(10, args.startup_timeout), exit=True)
     work = args.work_dir.resolve()
     if work == ROOT / 'tmp' or not work.is_relative_to(ROOT / 'tmp'):
         parser.error('--work-dir must be a task subdirectory of tmp')
@@ -37,16 +44,26 @@ def main():
     from PIL import ImageGrab
     from dlss5tool import gui, ui_theme, i18n
     from dlss5tool.realtime import NR, PresetStore, effective_nr_skin
+    from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS
     from tests.test_realtime_inspector import parameter
 
+    ui_theme.claim_app_identity('DLSS5Tool.UIProbe')
     ui_theme.enable_dpi_awareness()
     client = mock.Mock(events=queue.Queue(), generation=1, settings={})
     client.send.return_value = 1
+    def configure_hotkeys(bindings):
+        client.hotkeys = dict(bindings)
+        client.generation += 1
+        client.events.put(dict(event='ready', hotkey_bindings=dict(bindings), configurable_hotkeys=True,
+                               independent_stop=True, hotkeys={k: True for k in bindings}, _generation=client.generation))
+    client.configure_hotkeys.side_effect = configure_hotkeys
     errors = []
     with ExitStack() as stack:
         for name, value in [('RealtimeClient', client), ('PresetStore', PresetStore(work / 'realtime.json')),
                             ('list_windows', [])]:
             stack.enter_context(mock.patch('dlss5tool.realtime_ui.' + name, return_value=value))
+        # Even manual snapshot clicks must never target a real HWND.
+        stack.enter_context(mock.patch('dlss5tool.realtime_source_preview.SnapshotJob', side_effect=RuntimeError('Synthetic preview only')))
         stack.enter_context(mock.patch('dlss5tool.workbench_transition.animations_enabled', return_value=False))
         root = tk.Tk()
         root.report_callback_exception = lambda *error: errors.append(str(error[1]))
@@ -65,17 +82,34 @@ def main():
                        parameter('useAutoMask', label='Automatic Mask', default=0, maximum=1, integer=True, step=1),
                        parameter('inputResolutionPercent', label='Input Resolution (%)', default=100,
                                  minimum=25, maximum=100, integer=True, step=1)]
-        client.events.put(dict(event='catalog', effects=[dict(name=NR, parameters=descriptors, available=True)], _generation=1))
+        descriptors.extend([
+            parameter('multiPass', default=1, minimum=1, maximum=3, integer=True, step=1),
+            parameter('pass2_intensity', label='NR Intensity'),
+            parameter('pass3_intensity', label='NR Intensity'),
+            parameter('residualMultiplier', label='Residual Multiplier', minimum=1),
+            parameter('residualSaturation', label='Residual Saturation Multiplier')])
+        effects = {NR: dict(name=NR, parameters=descriptors, available=True)}
+        if args.full_catalog:
+            directory = ROOT / 'runtime/realtime/effects'
+            for path in directory.rglob('*.hlsl'):
+                name = str(path.relative_to(directory).with_suffix(''))
+                effects.setdefault(name, dict(name=name, parameters=[], available=True))
+        client.events.put(dict(event='catalog', effects=list(effects.values()), _generation=1))
+        client.events.put(dict(event='ready', hotkey_bindings=dict(DEFAULT_HOTKEYS), configurable_hotkeys=True,
+                               independent_stop=True, hotkeys={k: True for k in DEFAULT_HOTKEYS}, _generation=1))
         ui.windows = [dict(hwnd=123, pid=123, title='Example source (not captured)', application='example.exe')]
         ui.target.configure(values=['Example source (not captured)'])
         ui.target.current(0)
         ui.stop_hint.set(i18n.tr('realtime.safety.protected'))
 
         def prepare():
+            if args.show_shortcuts:
+                ui._open_shortcuts()
             if args.scenario != 'idle':
                 ui._active = ui._render_confirmed = True
                 ui._native_state = 2
                 ui._run_id = 12
+                ui._metrics_run_id = 12
                 ui._session_target = ui.windows[0]
                 ui._running_config = effective_nr_skin(ui.collect())
                 ui._applied_effects = deepcopy(ui._running_config['effects'])
@@ -112,7 +146,8 @@ def main():
             # Start the capture delay after scenario layout completes. On a
             # busy/high-DPI desktop, two timers measured from startup can both
             # expire before Tk processes the scenario's native paint events.
-            root.after(1000, finish)
+            faulthandler.cancel_dump_traceback_later()
+            root.after(max(1000, args.hold_seconds * 1000), finish)
 
         def finish():
             try:
@@ -122,8 +157,9 @@ def main():
                 user.GetAncestor.restype = wintypes.HWND
                 hwnd = user.GetAncestor(root.winfo_id(), 2)
                 shot = work / f'{args.language}-{args.theme}-{args.scenario}-{args.page}.png'
-                ImageGrab.grab(window=hwnd).save(shot)
-                result = dict(image=str(shot), geometry=root.geometry(), callback_errors=errors,
+                if not args.no_screenshot:
+                    ImageGrab.grab(window=hwnd).save(shot)
+                result = dict(image=None if args.no_screenshot else str(shot), geometry=root.geometry(), callback_errors=errors,
                               editor_state=ui._editor_state, apply_visible=bool(ui.apply_button.winfo_ismapped()),
                               metrics=ui.metrics_summary.get(), details_collapsed=ui.metrics_section.collapsed,
                               protection_collapsed=ui.protection_section.collapsed,
@@ -145,6 +181,7 @@ def main():
                 app._on_close()
 
         root.after(500, prepare)
+        root.protocol('WM_DELETE_WINDOW', finish)
         root.mainloop()
     if errors or client.start.called:
         raise SystemExit(1)

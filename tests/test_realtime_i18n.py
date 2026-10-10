@@ -15,7 +15,7 @@ class RealtimeLocalizationTests(unittest.TestCase):
     def test_realtime_ui_and_caption_have_catalogued_keys_and_no_hardcoded_chinese(self):
         root = Path(__file__).resolve().parents[1]
         keys = set()
-        for file in ('realtime_ui.py', 'realtime_controls.py', 'caption_button.py', 'realtime_labels.py', 'realtime.py', 'realtime_logs.py', 'realtime_readiness.py', 'realtime_effects.py'):
+        for file in ('realtime_shortcuts.py', 'realtime_shortcuts_ui.py', 'realtime_ui.py', 'realtime_source_preview.py', 'realtime_snapshot.py', 'realtime_controls.py', 'caption_button.py', 'realtime_labels.py', 'realtime.py', 'realtime_logs.py', 'realtime_readiness.py', 'realtime_effects.py'):
             tree = ast.parse((root / 'dlss5tool' / file).read_text(encoding='utf-8'))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Constant) and isinstance(node.value, str):
@@ -36,6 +36,7 @@ class RealtimeLocalizationTests(unittest.TestCase):
             i18n.set_language(language)
             messages = [event_summary({'event': 'ready', 'hotkeys': {'stop': False, 'compare': True}}),
                         event_summary({'event': 'devices', 'monitors': [], 'adapters': []}),
+                        event_summary({'event': 'catalog', 'effects': []}),
                         native_message({'event': 'error', 'code': 17})]
             for source in _NATIVE_ERRORS:
                 messages.append(native_message({'event': 'error', 'message': source}))

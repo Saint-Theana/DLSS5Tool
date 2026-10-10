@@ -1,4 +1,4 @@
-"""Embeddable realtime workspace; pixels stay in the native presentation path."""
+"""Realtime workspace with an idle-only source snapshot; live output stays native."""
 from copy import deepcopy
 import json
 import math
@@ -11,7 +11,7 @@ from dlss5tool import ui_theme, paths, mod_paths, support_diagnostics
 from dlss5tool.i18n import tr
 from dlss5tool.realtime_labels import (effect_text, parameter_label, effect_title, inspector_groups,
                                      EFFECT_CATEGORIES, effect_category, effect_description, parameter_hint)
-from dlss5tool.realtime_controls import EffectChainCards, HoverHelp, InlineHelp, InspectorChoice, InspectorSection, ParameterRow
+from dlss5tool.realtime_controls import EffectChainCards, HoverHelp, InlineHelp, InspectorChoice, InspectorGroup, InspectorSection, ParameterRow
 from dlss5tool.realtime_effects import (RECIPES, PURPOSES, algorithm_group, grouped_algorithms,
                                      recipe_effects, new_effect, is_frame_generation, step_title, step_subtitle, choice_issue)
 from dlss5tool.realtime_readiness import StartIssue, chain_summary, check_start
@@ -26,6 +26,8 @@ from dlss5tool.realtime import NR_SKIN_PAIRS, NR_SWITCH_PARAMETERS, effective_nr
 from dlss5tool.realtime import NR_RANGE_PARAMETERS, nr_extended_range
 from dlss5tool.parameter_values import parse_number
 from dlss5tool.divider_preview import DividerPreview
+from dlss5tool.realtime_source_preview import SourcePreview
+from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS, ACTION_LABELS, validate_hotkeys, effective_bindings
 
 
 class RealtimeWorkspace:
@@ -77,12 +79,17 @@ class RealtimeWorkspace:
             self.window.destroy()
             raise
         self.config = deepcopy(self.store.data.get('session', DEFAULT_CONFIG))
+        self.client.hotkeys = validate_hotkeys(self.store.data.get('local', {}).get('hotkeys', DEFAULT_HOTKEYS))
+        self._shortcut_changing = False
+        self._shortcut_result = queue.Queue()
         directory = self.store.data.get('local', {}).get('runtime_directory')
         if directory:
             self.client.settings['realtime_runtime_directory'] = directory
         self.catalog = {}
         self._catalog_generation = None
         self.windows = []
+        self._monitors = []
+        self._adapters = []
         self.controls = {}
         self._display_targets = {}
         self.parameters = {}
@@ -130,12 +137,13 @@ class RealtimeWorkspace:
         self.inspector.pack(side='right', fill='y')
         self.inspector.pack_propagate(False)
         self.window.bind('<Configure>', self._size_inspector)
-        self.splitter = tk.Frame(self.inspector, width=max(6, round(6 * scale)),
-                                 cursor='sb_h_double_arrow', bg=self._ui['line'],
+        self.splitter = tk.Canvas(self.inspector, width=max(6, round(6 * scale)),
+                                 cursor='sb_h_double_arrow', bg=self._ui['panel'],
                                  borderwidth=0, highlightthickness=0, takefocus=1)
         self.splitter.pack(side='left', fill='y')
         # A placed sibling overlays the panes without taking part in layout.
         self._splitter_preview = DividerPreview(self.window, self._ui['accent'])
+        self.splitter.bind('<Configure>', lambda _: self._paint_splitter())
         self.splitter.bind('<Button-1>', self._splitter_start)
         self.splitter.bind('<B1-Motion>', self._splitter_move)
         self.splitter.bind('<ButtonRelease-1>', self._splitter_end)
@@ -168,9 +176,16 @@ class RealtimeWorkspace:
         self.target = self._combo(target_row, state="readonly", width=12)
         self.target.pack(side="left", fill="x", expand=True)
         self.target.bind("<<ComboboxSelected>>", self._target_changed)
-        self._button(target_row, tr("realtime.refresh"), self.refresh).pack(side="left", padx=6)
+        refresh_windows = self._button(target_row, tr("realtime.refresh"), self.refresh, 'tool', icon='retry', icon_only=True)
+        refresh_windows.pack(side="left", padx=(6, 0))
+        self._hover_help(refresh_windows, tr('realtime.refresh'))
         self.target_hint = tk.StringVar(self.window)
         self._label(header, variable=self.target_hint, muted=True)
+        self.source_preview = SourcePreview(header, ui=self._ui, get_regions=self._read_regions,
+                                             commit_regions=self._commit_regions)
+        self.source_preview.pack(fill='x')
+        self.region_preview = self.source_preview.canvas
+        self._theme_widgets.append(self.source_preview)
         self.status = tk.StringVar(value=tr("realtime.not_started"))
         self._status_trace = self.status.trace_add('write', self._record_status)
 
@@ -178,21 +193,27 @@ class RealtimeWorkspace:
         self.recipe_frame.pack(fill='x')
         output_row = self.output_row = ttk.Frame(header, padding=(0, 8, 0, 0), style='Stage.TFrame')
         output_row.pack(fill='x')
-        self.check_button = self._button(header, tr('realtime.preflight.check'), self.check_before_start, 'tool')
-        self.check_button.pack(anchor='e', pady=(4, 0))
         self.session_text = tk.StringVar(self.window)
         self.session_label = self._label(footer, variable=self.session_text, font=ui_theme.UI_FONT_BOLD)
         self._hover_help(self.session_label, tr('realtime.layout.native_output'))
         self.stop_hint = tk.StringVar(self.window, value=tr('realtime.safety.checking'))
         self.stop_hint_label = self._label(footer, variable=self.stop_hint, muted=True)
         Tooltip(self.stop_hint_label, tr('realtime.safety.protected_detail'))
-        notice = ttk.Frame(footer, style='Stage.TFrame')
+        notice = self.status_notice = ttk.Frame(footer, style='Stage.TFrame')
         notice.pack(fill='x')
         self.status_label = self._label(notice, variable=self.status, muted=True)
+        self.status_label.pack_forget()
+        self._shortcut_details = ''
+        self.shortcut_notice = ttk.Frame(footer, style='Stage.TFrame')
+        self.shortcut_details_button = self._button(self.shortcut_notice, tr('realtime.shortcuts.configure'),
+            self._show_shortcut_details, 'tool')
+        self.shortcut_details_button.pack(side='right')
+        self._label(self.shortcut_notice, tr('realtime.polish.shortcut_warning'), muted=True).pack_configure(
+            side='left', fill='x', expand=True)
         self.metrics_summary = tk.StringVar(value=tr('realtime.metrics_idle'))
         self.metrics_label = self._label(footer, variable=self.metrics_summary, muted=True)
         Tooltip(self.metrics_label, tr('realtime.metrics_hint'))
-        run_actions = ttk.Frame(footer, style='Stage.TFrame')
+        run_actions = self.run_actions = ttk.Frame(footer, style='Stage.TFrame')
         run_actions.pack(fill='x', pady=(4, 0))
         self.start_button = self._button(run_actions, tr("realtime.start"), self.start, 'accent')
         self.start_button.pack(side='left', fill='x', expand=True)
@@ -215,7 +236,6 @@ class RealtimeWorkspace:
         self._button(fixes, tr('realtime.help.hide'), lambda: self.preflight_panel.pack_forget(), 'tool').pack(side='right')
 
         info = ttk.Frame(self.stage_content, padding=(0, 4), style='Stage.TFrame')
-        info.pack(fill='x')
         self.metrics_section = self._section(info, tr('realtime.metrics_details'))
         self.metrics = tk.StringVar(value=tr("realtime.metrics_hint"))
         self._label(self.metrics_section.body, variable=self.metrics, muted=True)
@@ -223,21 +243,24 @@ class RealtimeWorkspace:
         self._label(self.metrics_section.body, variable=self.gpu_load, muted=True)
         self._hover_help(self.metrics_section._header, tr('realtime.metrics_hint') + '\n' + tr('realtime.gpu_hint'))
 
-        surface = ttk.Frame(self.stage_content, padding=(0, 8), style='Stage.TFrame')
-        surface.pack(fill='x', before=info)
-        self._label(surface, tr('realtime.layout.output_tools'), font=ui_theme.UI_FONT_BOLD)
-        presentation = ttk.Frame(surface, style='Stage.TFrame')
+        self.runtime_info = info
+        surface = self.output_tools = ttk.Frame(footer, style='Stage.TFrame')
+        surface.pack(fill='x', before=run_actions)
+        self.tools_section = self._section(surface, tr('realtime.polish.tools_idle'))
+        presentation = ttk.Frame(self.tools_section.body, style='Stage.TFrame')
         presentation.pack(fill='x', pady=(4, 8))
         self.presentation_buttons = {}
         for i, (label, action) in enumerate(((tr("realtime.compare"), 'compare'), (tr("realtime.overlay_parameters"), 'parameters'),
                                             (tr("realtime.profiler"), 'profiler'), (tr("realtime.screenshot"), 'screenshot'))):
             presentation.columnconfigure(i % 2, weight=1)
-            action_button = self._button(presentation, label, lambda a=action: self.command(a))
+            action_button = self._button(presentation, label, lambda a=action: self.command(a), 'tool')
             self.presentation_buttons[action] = action_button
             action_button.grid(
                 row=i // 2, column=i % 2, sticky='ew', padx=2, pady=2)
             if action == 'parameters':
                 self._control_tip = Tooltip(action_button, tr('realtime.control.help'))
+            else:
+                self._hover_help(action_button, tr('realtime.polish.' + action + '_hint'))
 
         inspector_footer = self.editor_footer = ttk.Frame(self.inspector, padding=10, style='Panel.TFrame')
         inspector_footer.pack(side='bottom', fill='x')
@@ -246,14 +269,24 @@ class RealtimeWorkspace:
         self.apply_button = self._button(inspector_footer, tr('realtime.editor.apply'), self._apply_editor, 'accent')
         self.apply_button.pack(fill='x', pady=(4, 0))
         Tooltip(self.apply_button, tr('realtime.independent_hint'))
+        navigation = ttk.Frame(self.inspector, padding=(12, 6), style='Panel.TFrame')
+        navigation.pack(fill='x')
+        self.library_button = self._button(navigation, tr('realtime.workspace.library_count', count=0), self._open_library, 'tool')
+        self.library_button.pack(side='right')
+        self._hover_help(self.library_button, tr('realtime.workspace.library_hint'))
+        self._label(navigation, tr('realtime.workspace.editing'), muted=True)
         self.tabs = tabs = StudioNotebook(self.inspector, ui=self._ui)
         tabs.pack(fill='both', expand=True)
         self._theme_widgets.append(tabs)
         effect_page = self._scroll_page(tabs, tr("realtime.tab.effects"))
+        workflow_page = self._scroll_page(tabs, tr('realtime.workspace.workflow'))
         display_page = self._scroll_page(tabs, tr('realtime.layout.output'))
         advanced_page = self._scroll_page(tabs, tr('realtime.layout.advanced'))
-        self._pages = dict(effects=effect_page, protection=effect_page, display=display_page,
+        self._pages = dict(effects=effect_page, workflow=workflow_page, protection=effect_page, display=display_page,
                            runtime=advanced_page, startup=self.stage_content)
+        tabs._header.configure(takefocus=True)
+        tabs._header.bind('<Left>', lambda _: self._switch_editor_tab(-1))
+        tabs._header.bind('<Right>', lambda _: self._switch_editor_tab(1))
 
         self._build_recipe_picker(self.recipe_frame)
         self.presets_section = self._section(self.recipe_frame, tr('realtime.layout.presets'))
@@ -261,17 +294,18 @@ class RealtimeWorkspace:
         parameter_actions = ttk.Frame(effect_page, style='Panel.TFrame')
         parameter_actions.pack(fill='x', pady=(4, 0))
         self.parameter_heading = self._hint(parameter_actions, '', '', heading=True)
-        self.undo_button = self._button(self.parameter_heading.row, tr('realtime.editor.undo_short'), self._undo_parameter_edit, 'tool', icon='undo', icon_only=True)
+        self.parameter_more = self._button(self.parameter_heading.row, '···', self._parameter_menu, 'tool')
+        self.parameter_more.pack(side='right', padx=(4, 0), before=self.parameter_heading.label)
+        self._hover_help(self.parameter_more, tr('realtime.editor.more'))
+        self.undo_button = self._button(self.parameter_heading.row, tr('realtime.polish.undo_parameters'), self._undo_parameter_edit, 'tool', icon='undo')
         self.undo_button.pack(side='right', padx=(4, 0), before=self.parameter_heading.label)
         self._hover_help(self.undo_button, tr('realtime.editor.undo_hint'))
         self.parameter_frame = ttk.Frame(effect_page, style='Panel.TFrame')
         self.parameter_frame.pack(fill='x')
-        self.fluency_section = self._section(effect_page, tr('realtime.workflow.fluency'))
-        self._build_fluency(self.fluency_section.body)
         self.residual_section = self._section(effect_page, tr('realtime.residual'))
         self.protection_section = self._section(effect_page, tr('realtime.layout.protection'))
         quality_page = self.protection_section.body
-        self.workflow_section = self._section(effect_page, tr('realtime.layout.workflow'))
+        self.workflow_section = self._group(workflow_page, tr('realtime.workspace.current_steps'))
         left = self.workflow_section.body
         actions = ttk.Frame(left, style='Panel.TFrame')
         actions.pack(fill='x')
@@ -288,13 +322,12 @@ class RealtimeWorkspace:
         self.draft_summary = tk.StringVar(self.window)
         self.running_summary = tk.StringVar(self.window)
         self.chain_summary_help = self._hint(left, tr('realtime.summary.difference'), '')
-        self.add_section = CollapsibleSection(left, tr('realtime.workflow.add_step'), collapsed=True, ui=self._ui)
+        self.add_section = CollapsibleSection(workflow_page, tr('realtime.workspace.guided'), collapsed=True, ui=self._ui)
         self.add_section.pack(fill='x', pady=(0, 6))
         self._theme_widgets.append(self.add_section)
         self._build_guided_picker(self.add_section.body)
-        self.library_section = CollapsibleSection(self.add_section.body, tr('realtime.workflow.library'), collapsed=True, ui=self._ui)
-        self.library_section.pack(fill='x', pady=(8, 0))
-        self._theme_widgets.append(self.library_section)
+        self.library_section = self._group(workflow_page, tr('realtime.workflow.library'))
+        self.library_section.pack_configure(before=self.add_section)
         library = self.library_section.body
         self.effect_category = self._combo(library, state='readonly', width=12,
                                           values=[tr('realtime.effects.category.' + key) for key in EFFECT_CATEGORIES])
@@ -303,13 +336,20 @@ class RealtimeWorkspace:
         self.effect_category.bind('<<ComboboxSelected>>', lambda _: self._filter_effects())
         self._label(library, tr('realtime.editor.search'), muted=True)
         self.effect_search = tk.StringVar(self.window)
-        self._entry_field(library, textvariable=self.effect_search, width=12).pack(fill='x', pady=(0, 6))
+        self.search_entry = self._entry_field(library, textvariable=self.effect_search, width=12)
+        self.search_entry.pack(fill='x', pady=(0, 6))
         self.favorites_only = tk.BooleanVar(self.window, value=False)
-        self._check(library, tr('realtime.workflow.favorites_only'), self.favorites_only, self._filter_effects).pack(anchor='w')
+        filters = ttk.Frame(library, style='Panel.TFrame'); filters.pack(fill='x')
+        self._check(filters, tr('realtime.workflow.favorites_only'), self.favorites_only, self._filter_effects).pack(side='left')
+        self.reset_filters_button = self._button(filters, tr('realtime.workspace.reset_filters'), self._reset_library_filters, 'tool')
+        self.reset_filters_button.pack(side='right')
+        self.replacement_status = tk.StringVar(self.window)
+        self._label(library, variable=self.replacement_status, muted=True)
         picker = ttk.Frame(library, style='Panel.TFrame')
         picker.pack(fill='x')
         self.library_add = self._button(picker, tr('realtime.editor.add'), self._add)
         self.library_add.pack(side='right', padx=(6, 0))
+        self.library_cancel = self._button(library, tr('realtime.workflow.cancel_replace'), self._cancel_replacement, 'tool')
         self.effect_choice = self._combo(picker, state='readonly', width=12)
         self.effect_choice.pack(side='left', fill='x', expand=True)
         self.effect_choice.bind('<<ComboboxSelected>>', lambda _: self._describe_effect_choice())
@@ -320,12 +360,12 @@ class RealtimeWorkspace:
         self.favorite_button.pack(anchor='e')
         self.effect_help_widget = self._hint(library, '', tr('realtime.effects.choose_hint'), variable=self.effect_help)
         self.effect_search.trace_add('write', lambda *_: self._filter_effects())
-        if on_copy_local is not None:
-            copy_button = self._button(preset_page, tr('realtime.copy_local_short'), on_copy_local, 'tool')
-            copy_button.pack(fill='x', pady=4)
-            Tooltip(copy_button, tr('parameter.copy_from_local'))
-
-        self._label(output_row, tr('realtime.output.mode'))
+        output_heading = ttk.Frame(output_row, style='Stage.TFrame')
+        output_heading.pack(fill='x')
+        self.output_details_button = self._button(output_heading, tr('realtime.layout.output_settings'),
+                                                  lambda: self._focus_page('display'), 'tool')
+        self.output_details_button.pack(side='right')
+        self._label(output_heading, tr('realtime.output.mode')).pack_configure(side='left', fill='x', expand=True)
         self.output_mode = tk.BooleanVar(self.window, value=self.config['windowed'])
         self.controls['windowed'] = (self.output_mode, 'bool')
         self.output_selector = ChipGroup(output_row, self.output_mode,
@@ -333,30 +373,40 @@ class RealtimeWorkspace:
             command=self._output_changed, ui=self._ui, connected=True)
         self.output_selector.pack(anchor='w')
         self._theme_widgets.append(self.output_selector)
-        Tooltip(self.output_selector, tr('realtime.output.help'))
+        self._output_tip = self._hover_help(self.output_selector, tr('realtime.output.help'))
         self.output_hint = tk.StringVar(self.window)
-        self._hint(output_row, '', tr('realtime.output.help'), variable=self.output_hint)
-        self.output_details_button = self._button(output_row, tr('realtime.layout.output_settings'),
-                                                  lambda: self._focus_page('display'), 'tool')
-        self.output_details_button.pack(anchor='w', pady=(4, 0))
+        self.output_hint_widget = self._hint(output_row, '', tr('realtime.output.help'), variable=self.output_hint)
+        self.output_hint_widget.pack_forget()
         self.output_summary = tk.StringVar(self.window)
         self._label(display_page, variable=self.output_summary, muted=True)
-        self._choice(advanced_page, tr("realtime.capture_method"), "capture_method", [tr("realtime.capture.wgc"), tr("realtime.capture.dd"), "GDI", tr("realtime.capture.dwm")])
+        display_settings = self._group(display_page, tr('realtime.workspace.display')).body
+        capture_settings = self._group(advanced_page, tr('realtime.workspace.capture')).body
+        device_settings = self._group(advanced_page, tr('realtime.workspace.devices')).body
+        self._choice(capture_settings, tr("realtime.capture_method"), "capture_method", [tr("realtime.capture.wgc"), tr("realtime.capture.dd"), "GDI", tr("realtime.capture.dwm")])
         self.controls['capture_method'][0].bind('<<ComboboxSelected>>', lambda _: self._output_changed())
-        self._choice(display_page, tr("realtime.monitor_mode"), "monitor_mode", [tr("realtime.monitor.nearest"), tr("realtime.monitor.intersecting"), tr("realtime.monitor.all"), tr("realtime.monitor.specific")])
-        self._entry(display_page, tr("realtime.monitor_id"), "monitor_id")
-        self._entry(advanced_page, tr("realtime.gpu_index"), "gpu_index")
-        self._entry(display_page, tr("realtime.window_scale"), "window_scale")
-        self._choice(advanced_page, tr("realtime.gpu_priority"), 'gpu_priority', [tr("realtime.priority.normal"), tr("realtime.priority.enhancement"), tr("realtime.priority.game")])
-        self.monitor_picker = self._combo(display_page, state='readonly', width=12)
+        self._choice(display_settings, tr("realtime.monitor_mode"), "monitor_mode", [tr("realtime.monitor.nearest"), tr("realtime.monitor.intersecting"), tr("realtime.monitor.all"), tr("realtime.monitor.specific")])
+        self.device_ids_section = self._section(device_settings, tr('realtime.workspace.device_ids'))
+        self._entry(self.device_ids_section.body, tr("realtime.monitor_id"), "monitor_id")
+        self._entry(self.device_ids_section.body, tr("realtime.gpu_index"), "gpu_index")
+        self._label(display_settings, tr('realtime.workspace.monitor'), muted=True)
+        self.monitor_picker = self._combo(display_settings, state='readonly', width=12)
         self.monitor_picker.pack(fill='x', pady=4)
         self.monitor_picker.bind('<<ComboboxSelected>>', self._pick_monitor)
-        self.gpu_picker = self._combo(advanced_page, state='readonly', width=12)
+        self._entry(display_settings, tr("realtime.window_scale"), "window_scale")
+        self._label(device_settings, tr('realtime.workspace.gpu'), muted=True)
+        self.gpu_picker = self._combo(device_settings, state='readonly', width=12)
         self.gpu_picker.pack(fill='x', pady=4)
         self.gpu_picker.bind('<<ComboboxSelected>>', self._pick_gpu)
-        self._choice(display_page, tr("realtime.sync_mode"), "sync_mode", [tr("realtime.sync.front"), tr("realtime.sync.async"), tr("realtime.sync.reflex")])
-        self._entry(display_page, tr("realtime.frame_rate"), "frame_rate")
-        profiles = ttk.Frame(display_page); profiles.pack(fill='x', pady=5)
+        self._choice(device_settings, tr("realtime.gpu_priority"), 'gpu_priority', [tr("realtime.priority.normal"), tr("realtime.priority.enhancement"), tr("realtime.priority.game")])
+        self.device_ids_section.pack_configure(after=device_settings.pack_slaves()[-1])
+        self.fluency_section = self._group(display_page, tr('realtime.workspace.fluency'))
+        fluency = self.fluency_section.body
+        self._build_fluency(fluency)
+        self._choice(fluency, tr("realtime.sync_mode"), "sync_mode", [tr("realtime.sync.front"), tr("realtime.sync.async"), tr("realtime.sync.reflex")])
+        self._entry(fluency, tr("realtime.frame_rate"), "frame_rate")
+        self._hint(fluency, tr('realtime.workspace.timing'), tr('realtime.workspace.timing_hint'))
+        self._hint(fluency, tr('realtime.workspace.performance'), tr('realtime.workspace.performance_hint'), heading=True)
+        profiles = ttk.Frame(fluency); profiles.pack(fill='x', pady=5)
         for i, (name, label) in enumerate((('balanced', tr("realtime.profile.balanced")), ('game', tr("realtime.profile.game")), ('eco', tr("realtime.profile.eco")), ('quality', tr("realtime.profile.display")))):
             profiles.columnconfigure(i % 2, weight=1)
             self._button(profiles, label, lambda n=name: self.apply_profile(n)).grid(row=i // 2, column=i % 2, sticky='ew', padx=2, pady=2)
@@ -365,13 +415,17 @@ class RealtimeWorkspace:
                            (tr("realtime.capture_title"), "capture_title_bar"), (tr("realtime.not_topmost"), "disable_topmost")):
             var = tk.BooleanVar(value=self.config[key])
             self.controls[key] = (var, "bool")
-            widget = self._check(advanced_page if key in ('game_mode', 'capture_title_bar') else display_page, label, var, self._editor_changed)
+            parent = capture_settings if key in ('game_mode', 'capture_title_bar') else fluency if key == 'sync_enabled' else display_settings
+            widget = self._check(parent, label, var, self._editor_changed)
             widget.pack(anchor="w", pady=5)
             self._display_targets[key] = widget
         fallback = tk.BooleanVar(value=self.config['capture_fallback'])
         self.controls['capture_fallback'] = (fallback, 'bool')
-        self._check(advanced_page, tr('realtime.fallback'), fallback, self._editor_changed).pack(anchor='w', pady=5)
-        self._hint(advanced_page, tr('realtime.help.display'), tr('realtime.display_hint'))
+        self._check(capture_settings, tr('realtime.fallback'), fallback, self._editor_changed).pack(anchor='w', pady=5)
+        self._hint(capture_settings, tr('realtime.help.display'), tr('realtime.display_hint'))
+        for key in ('monitor_id', 'gpu_index'):
+            self.controls[key][0].trace_add('write', lambda *_: self._sync_device_pickers())
+        self.controls['monitor_mode'][0].bind('<<ComboboxSelected>>', lambda _: self._sync_device_pickers())
         self._sync_output_controls()
 
         self._hover_help(self.residual_section._header, tr('realtime.residual_hint'))
@@ -390,53 +444,44 @@ class RealtimeWorkspace:
             self._theme_widgets.append(row)
         self.quality_controls['protection'] = tk.BooleanVar(value=self.config['quality']['protection'])
         self._check(quality_page, tr('realtime.protection'), self.quality_controls['protection'], self._quality_committed).pack(anchor='w', pady=8)
-        self.region_preview = tk.Canvas(quality_page, width=1, height=150, highlightthickness=0)
-        self.region_preview.pack(fill='x', pady=8)
-        self._drag_start = None
-        self.region_preview.bind('<Configure>', lambda _: self._draw_regions())
-        self.region_preview.bind('<ButtonPress-1>', self._region_begin)
-        self.region_preview.bind('<B1-Motion>', self._region_drag)
-        self.region_preview.bind('<ButtonRelease-1>', self._region_end)
-        self._hover_help(self.protection_section._header, tr('realtime.regions_hint') + '\n' + tr('realtime.regions_format'))
-        self._hover_help(self.region_preview, tr('realtime.regions_hint') + '\n' + tr('realtime.regions_format'))
-        self.regions = tk.Text(quality_page, height=5, width=1)
-        self.regions.pack(fill='x', pady=8)
+        self._button(quality_page, tr('realtime.preview.regions'), self._open_region_editor, 'tool').pack(anchor='w')
+        self._hover_help(self.protection_section._header,
+                         tr('realtime.preview.region_summary') + '\n' + tr('realtime.preview.edit_hint'))
+        coordinates = self.coordinates_section = self._section(advanced_page, tr('realtime.preview.coordinates'))
+        self._button(quality_page, tr('realtime.workspace.coordinates'),
+                     lambda: self._focus_page('runtime', self.regions), 'tool').pack(anchor='w', pady=4)
+        self.regions = tk.Text(coordinates.body, height=4, width=1)
+        self.regions.pack(fill='x', pady=6)
         self.regions.insert('1.0', '\n'.join(' '.join(map(str, r)) for r in self.config['quality']['regions']))
-        self._label(quality_page, tr("realtime.regions_edit"), muted=True)
+        self._label(coordinates.body, tr("realtime.regions_edit"), muted=True)
         self._button(quality_page, tr('realtime.apply_quality'), self.apply_quality).pack(fill='x', pady=8)
+        self._button(coordinates.body, tr('realtime.apply_quality'), self.apply_quality, 'tool').pack(anchor='e')
 
-        self._label(preset_page, tr("realtime.presets"), font=ui_theme.UI_FONT_BOLD)
-        self._hint(preset_page, tr('realtime.help.presets'), tr('realtime.presets_hint'))
-        self.preset_choice = self._combo(preset_page, values=sorted(self.store.data["presets"]), state="readonly", width=12)
-        self.preset_choice.pack(fill='x', pady=10)
-        self.bind_app = tk.BooleanVar(value=True)
-        self._check(preset_page, tr('realtime.bind_app'), self.bind_app).pack(anchor="w", pady=6)
-        for label, action in ((tr("realtime.load_preset"), self.load_preset), (tr("realtime.save_current"), self.save_preset),
-                              (tr("realtime.export_config"), self.export_config), (tr("realtime.import_config"), self.import_config)):
-            self._button(preset_page, label, action).pack(fill='x', pady=5)
-        self.nr_choice = self._combo(preset_page, values=sorted(self.store.data.get('nr_presets', {})), state='readonly', width=12)
-        self.nr_choice.pack(fill='x', pady=8)
-        self._button(preset_page, tr('realtime.save_nr'), self.save_nr).pack(fill='x', pady=4)
-        self._button(preset_page, tr('realtime.load_nr'), self.load_nr).pack(fill='x', pady=4)
-        self.nr_export = tk.BooleanVar(value=False)
-        self._check(preset_page, tr('realtime.export_nr'), self.nr_export).pack(anchor='w', pady=5)
-        self._button(advanced_page, tr('diagnostics.export'), self.export_diagnostics).pack(fill='x', pady=6)
+        self._build_presets(preset_page, on_copy_local)
+        shortcut_settings = self._group(advanced_page, tr('realtime.shortcuts.title')).body
+        self.shortcut_button = self._button(shortcut_settings, tr('realtime.shortcuts.configure'), self._open_shortcuts)
+        self.shortcut_button.pack(fill='x', pady=4)
+        self._label(shortcut_settings, tr('realtime.shortcuts.hint'), muted=True)
+        runtime_settings = self._group(advanced_page, tr('realtime.workspace.runtime')).body
+        self.check_button = self._button(runtime_settings, tr('realtime.preflight.check'), self.check_before_start, 'tool')
+        self.check_button.pack(fill='x', pady=4)
+        self._button(runtime_settings, tr('diagnostics.export'), self.export_diagnostics).pack(fill='x', pady=6)
         # App owns visibility in the shared bottom slot; standalone harnesses
         # keep a bottom log of their own. Each mode retains its text and scroll.
         self.log = scrolledtext.ScrolledText(log_parent if log_parent is not None else self.window,
-                                             height=5, width=1, wrap='word', state='disabled',
+                                             height=4, width=1, wrap='word', state='disabled',
                                              font=ui_theme.UI_MONO)
         ui_theme.install_ttk_scrolledtext_scrollbar(self.log)
         if log_parent is None:
-            self._button(advanced_page, tr('action.log'), self._toggle_log, 'tool').pack(fill='x', pady=4)
-        self.runtime_button = self._button(advanced_page, tr('realtime.runtime_directory'), self.select_runtime)
+            self._button(runtime_settings, tr('action.log'), self._toggle_log, 'tool').pack(fill='x', pady=4)
+        self.runtime_button = self._button(runtime_settings, tr('realtime.runtime_directory'), self.select_runtime)
         self.runtime_button.pack(fill='x', pady=6)
         runtime = mod_paths.runtime_info(self.client.settings)
-        runtime_label = self._label(advanced_page, tr('realtime.runtime.shared', source=tr('realtime.runtime.' + runtime['source'])), muted=True)
+        runtime_label = self._label(runtime_settings, tr('realtime.runtime.shared', source=tr('realtime.runtime.' + runtime['source'])), muted=True)
         Tooltip(runtime_label, runtime['path'] + '\n' + tr('realtime.runtime.explanation'))
-        self._hint(advanced_page, tr('realtime.help.runtime'), tr('realtime.runtime.explanation'))
+        self._hint(runtime_settings, tr('realtime.help.runtime'), tr('realtime.runtime.explanation'))
         if self._on_nr_settings:
-            self._button(advanced_page, tr('realtime.preflight.nr_settings'), self._on_nr_settings, 'tool').pack(fill='x', pady=4)
+            self._button(runtime_settings, tr('realtime.preflight.nr_settings'), self._on_nr_settings, 'tool').pack(fill='x', pady=4)
         self.apply_theme(self._ui)
         self._render_chain()
         self._editor_building = False
@@ -455,12 +500,11 @@ class RealtimeWorkspace:
         self._layout_inspector(event.width)
 
     def _layout_inspector(self, total):
-        # No preview canvas needs the majority of the width in this mode.
-        # Automatic sizing is used only until the user moves the divider.
+        # A compact session rail; parameters use the remaining width. Manual
+        # divider sizing still wins, including after a resize or mode switch.
         scale = self._layout_scale
         width = (self._inspector_user_width * scale if self._inspector_user_width is not None
-                 else min(round(total * .62), max(round(self._inspector_default * scale),
-                          min(round(total * .56), round(620 * scale)))))
+                 else total - min(round(400 * scale), max(round(340 * scale), round(total * .30))))
         self._set_inspector_width(width, remember=False, total=total)
 
     def _clamp_inspector_width(self, width, total=None):
@@ -483,7 +527,11 @@ class RealtimeWorkspace:
             self._splitter_hover = hover
         focused = str(self.splitter.tk.call('focus')) == str(self.splitter)
         active = self._splitter_hover or self._splitter_drag is not None or focused
-        self.splitter.configure(bg=self._ui['accent'] if active else self._ui['line'])
+        self.splitter.configure(bg=self._ui['panel'])
+        self.splitter.delete('divider')
+        width = max(1, self.splitter.winfo_width())
+        self.splitter.create_line(width / 2, 0, width / 2, self.splitter.winfo_height(),
+            fill=self._ui['accent'] if active else self._ui['line'], width=2 if active else 1, tags='divider')
         self._splitter_preview.configure(bg=self._ui['accent'])
 
     def _show_splitter_preview(self, width):
@@ -548,7 +596,7 @@ class RealtimeWorkspace:
 
     def _section(self, parent, title):
         stage = str(parent.cget('style')) == 'Stage.TFrame'
-        section = CollapsibleSection(parent, title, collapsed=True,
+        section = InspectorSection(parent, title, collapsed=True,
                                      ui=dict(self._ui, panel=self._ui['canvas']) if stage else self._ui)
         if stage:
             section.configure(style='Stage.TFrame')
@@ -556,6 +604,11 @@ class RealtimeWorkspace:
         section.pack(fill='x', pady=(6, 0))
         self._theme_widgets.append(section)
         return section
+
+    def _group(self, parent, title):
+        group = InspectorGroup(parent, title)
+        group.pack(fill='x', pady=(8, 10))
+        return group
 
     def _build_recipe_picker(self, parent):
         self._label(parent, tr('realtime.workflow.recipes'), font=ui_theme.UI_FONT_BOLD)
@@ -571,7 +624,7 @@ class RealtimeWorkspace:
         self.recipe_help = tk.StringVar(self.window)
         self.recipe_help_widget = self._hint(parent, '', tr('realtime.workflow.recipe_hint'),
                                              variable=self.recipe_help)
-        self.chain_undo_button = self._button(self.recipe_help_widget.row, tr('realtime.editor.undo_short'), self._undo_chain, 'tool', icon='undo', icon_only=True)
+        self.chain_undo_button = self._button(self.recipe_help_widget.row, tr('realtime.polish.undo_recipe'), self._undo_chain, 'tool', icon='undo')
         self.chain_undo_button.pack(side='right', padx=(4, 0), before=self.recipe_help_widget.label)
         self._hover_help(self.chain_undo_button, tr('realtime.workflow.undo_chain'))
 
@@ -625,9 +678,8 @@ class RealtimeWorkspace:
     def _use_recipe(self):
         key = RECIPES[max(0, self.recipe_choice.current())]
         if key == 'custom':
-            if self.add_section.collapsed:
-                self.add_section.toggle()
-            self._focus_page('effects', self.purpose_choice)
+            self._cancel_replacement()
+            self._open_library()
             return
         try:
             self._commit_effects(recipe_effects(key, self.catalog, self.collect()['effects']))
@@ -780,11 +832,12 @@ class RealtimeWorkspace:
             self._select_algorithm()
             if name in self._guided_ids:
                 self.variant_choice.current(self._guided_ids.index(name))
-        if self.add_section.collapsed:
-            self.add_section.toggle()
+        self._reset_library_filters()
+        if name in self._effect_ids:
+            self.effect_choice.current(self._effect_ids.index(name))
         self._describe_guided()
         self._describe_effect_choice()
-        self._focus_page('effects', self.purpose_choice)
+        self._open_library()
 
     def _cancel_replacement(self):
         self._replace_index = None
@@ -793,6 +846,22 @@ class RealtimeWorkspace:
 
     def _focus_parameters(self):
         self._focus_page('effects', self.parameter_frame)
+
+    def _open_library(self):
+        # Navigation must not collect parameters: even unfinished text survives.
+        self._focus_page('workflow', self.library_section)
+        self.search_entry.entry.focus_set()
+
+    def _switch_editor_tab(self, step):
+        current = self.tabs._index(self.tabs._current)
+        self.tabs.select((current + step) % len(self.tabs._tabs))
+        return 'break'
+
+    def _reset_library_filters(self):
+        self.effect_category.current(0)
+        self.favorites_only.set(False)
+        self.effect_search.set('')
+        self._filter_effects()
 
     def _toggle_favorite(self):
         index = self.effect_choice.current()
@@ -923,6 +992,8 @@ class RealtimeWorkspace:
         self.log.configure(bg=ui['log_bg'], fg=ui['log_fg'], insertbackground=ui['text'],
                            selectbackground=ui['select_bg'], selectforeground=ui['text'],
                            relief='flat', borderwidth=0, highlightthickness=0)
+        for level, color in (('info', 'log_fg'), ('warning', 'warn'), ('error', 'danger')):
+            self.log.tag_configure(level, foreground=ui[color])
         self.region_preview.configure(bg=ui['canvas'])
         self._draw_regions()
 
@@ -955,47 +1026,113 @@ class RealtimeWorkspace:
         return max(1, self.region_preview.winfo_width()), max(1, self.region_preview.winfo_height())
 
     def _draw_regions(self):
-        if not hasattr(self, 'regions'):
-            return
-        width, height = self._region_bounds()
-        self.region_preview.delete('all')
-        self.region_preview.create_text(width / 2, height / 2, text=tr("realtime.diagram"),
-                                        fill=self._ui['muted'], width=max(40, width-24), font=ui_theme.UI_FONT)
-        try:
-            regions = [list(map(float, line.split())) for line in self.regions.get('1.0', 'end').splitlines() if line.strip()]
-            for i, (x0, y0, x1, y1) in enumerate(regions):
-                if not 0 <= x0 < x1 <= 1 or not 0 <= y0 < y1 <= 1:
-                    continue
-                self.region_preview.create_rectangle(x0*width, y0*height, x1*width, y1*height, outline=self._ui['accent'], width=2)
-                self.region_preview.create_text(x0*width+8, y0*height+8, text=str(i+1), anchor='nw', fill=self._ui['accent'])
-        except (ValueError, OverflowError):
-            pass  # Partial text edits are not applied until validation succeeds.
+        self.source_preview.draw()
 
-    def _region_begin(self, event):
-        width, height = self._region_bounds()
-        self._drag_start = (max(0, min(width, event.x)), max(0, min(height, event.y)))
+    def _read_regions(self):
+        if not hasattr(self, 'regions'): return []
+        regions = [[float(v) for v in line.replace(',', ' ').split()]
+                   for line in self.regions.get('1.0', 'end').splitlines() if line.strip()]
+        return validate_config({'quality': {'regions': regions}})['quality']['regions']
 
-    def _region_drag(self, event):
-        if self._drag_start:
-            width, height = self._region_bounds()
-            self.region_preview.delete('drag')
-            self.region_preview.create_rectangle(*self._drag_start, max(0, min(width, event.x)), max(0, min(height, event.y)), outline=self._ui['accent'], tags='drag')
-
-    def _region_end(self, event):
-        if not self._drag_start:
-            return
-        x, y = self._drag_start; self._drag_start = None
-        width, height = self._region_bounds()
-        right, bottom = max(0, min(width, event.x)), max(0, min(height, event.y))
-        if abs(x-right) < 2 or abs(y-bottom) < 2:
-            return
-        lines = [line for line in self.regions.get('1.0', 'end').splitlines() if line.strip()]
-        if len(lines) >= 4:
-            self.status.set(tr("realtime.regions_limit")); return
-        lines.append(f'{min(x,right)/width:.4f} {min(y,bottom)/height:.4f} {max(x,right)/width:.4f} {max(y,bottom)/height:.4f}')
-        self.regions.delete('1.0', 'end'); self.regions.insert('1.0', '\n'.join(lines))
-        self.quality_controls['protection'].set(True)
+    def _commit_regions(self, regions):
+        if self.session_summary()[1]: return
+        validated = validate_config({'quality': {'regions': regions}})['quality']['regions']
+        self.regions.delete('1.0', 'end')
+        self.regions.insert('1.0', '\n'.join(' '.join(map(str, r)) for r in validated))
+        self.quality_controls['protection'].set(bool(validated))
         self.apply_quality()
+
+    def _open_region_editor(self):
+        self._focus_page('startup', self.source_preview)
+        self.source_preview.edit_regions()
+
+    def _sync_source_preview(self):
+        title = (self.controls['capture_title_bar'][0].get()
+                 and self.controls['capture_method'][0].current() not in (2, 3))
+        self.source_preview.set_target(self.selected_window(), title, busy=self.session_summary()[1])
+
+    def _build_presets(self, page, on_copy_local):
+        self.preset_scope = tk.StringVar(self.window, value='full')
+        heading = self.preset_heading = ttk.Frame(page, style='Stage.TFrame'); heading.pack(fill='x')
+        heading.columnconfigure(0, weight=1)
+        self.preset_scope_selector = ChipGroup(heading, self.preset_scope,
+            {'full': tr('realtime.preset.full'), 'nr': tr('realtime.preset.nr')},
+            command=self._preset_scope_changed, ui=self._ui, connected=True)
+        self.preset_scope_selector.grid(row=0, column=0, sticky='w')
+        self._theme_widgets.append(self.preset_scope_selector)
+        if on_copy_local:
+            self.copy_local_button = self._button(heading, tr('realtime.preset.copy'), on_copy_local, 'tool')
+            self.copy_local_button.grid(row=0, column=1, sticky='e')
+            Tooltip(self.copy_local_button, tr('parameter.copy_from_local'))
+        self.preset_row = ttk.Frame(page, style='Stage.TFrame'); self.preset_row.pack(fill='x', pady=6)
+        self.preset_row.columnconfigure(0, weight=1)
+        self.preset_choice = self._combo(self.preset_row, values=sorted(self.store.data['presets']), state='readonly', width=12)
+        self.nr_choice = self._combo(self.preset_row, values=sorted(self.store.data.get('nr_presets', {})), state='readonly', width=12)
+        self.preset_actions = ttk.Frame(self.preset_row, style='Stage.TFrame')
+        self.preset_load = self._button(self.preset_actions, tr('realtime.preset.load'), self._load_selected_preset)
+        self.preset_load.pack(side='left')
+        self.preset_save = self._button(self.preset_actions, tr('realtime.preset.save'), self._save_selected_preset)
+        self.preset_save.pack(side='left', padx=5)
+        self.preset_more = self._button(self.preset_actions, tr('realtime.preset.more'), self._preset_menu, 'tool')
+        self.preset_more.pack(side='left')
+        for choice in (self.preset_choice, self.nr_choice):
+            choice.bind('<<ComboboxSelected>>', lambda _: self._preset_scope_changed())
+        self.preset_help = tk.StringVar(self.window)
+        self._label(page, variable=self.preset_help, muted=True)
+        self.bind_app = tk.BooleanVar(self.window, value=True)
+        self.bind_app_toggle = self._check(page, tr('realtime.preset.bind'), self.bind_app)
+        Tooltip(self.bind_app_toggle, tr('realtime.preset.bind_hint'))
+        self.nr_export = tk.BooleanVar(self.window, value=False)
+        self.preset_row.bind('<Configure>', self._layout_presets)
+        self._preset_scope_changed()
+        self.preset_binding = tk.StringVar(self.window)
+        self.preset_binding_label = self._label(self.recipe_frame, variable=self.preset_binding, muted=True)
+        self.preset_binding_label.pack_forget()
+
+    def _layout_presets(self, _=None):
+        choice = self.nr_choice if self.preset_scope.get() == 'nr' else self.preset_choice
+        narrow = self.preset_row.winfo_width() < self.preset_actions.winfo_reqwidth() + round(190*self._layout_scale)
+        choice.grid(row=0, column=0, sticky='ew', padx=(0, 0 if narrow else 6))
+        self.preset_actions.grid(row=1 if narrow else 0, column=0 if narrow else 1,
+                                 sticky='w', pady=(5 if narrow else 0, 0))
+        copy = getattr(self, 'copy_local_button', None)
+        if copy:
+            wrap = self.preset_heading.winfo_width() < self.preset_scope_selector.winfo_reqwidth()+copy.winfo_reqwidth()+8
+            copy.grid(row=1 if wrap else 0, column=0 if wrap else 1, sticky='e')
+
+    def _preset_scope_changed(self):
+        nr = self.preset_scope.get() == 'nr'
+        self.nr_export.set(nr)
+        (self.preset_choice if nr else self.nr_choice).grid_remove()
+        self.bind_app_toggle.pack_forget()
+        if not nr: self.bind_app_toggle.pack(anchor='w', pady=(2, 5))
+        self.preset_help.set(tr('realtime.preset.nr_hint' if nr else 'realtime.preset.full_hint'))
+        choice = self.nr_choice if nr else self.preset_choice
+        table = self.store.data.get('nr_presets' if nr else 'presets', {})
+        self.preset_load.configure(state='normal' if choice.get() in table else 'disabled')
+        self._layout_presets()
+
+    def _load_selected_preset(self):
+        (self.load_nr if self.preset_scope.get() == 'nr' else self.load_preset)()
+
+    def _save_selected_preset(self):
+        (self.save_nr if self.preset_scope.get() == 'nr' else self.save_preset)()
+        self._preset_scope_changed()
+
+    def _preset_menu(self):
+        previous = getattr(self, '_preset_popup', None)
+        if previous:
+            previous.destroy()
+        menu = tk.Menu(self.window, tearoff=False, background=self._ui['panel'], foreground=self._ui['text'],
+                       activebackground=self._ui['select_bg'], activeforeground=self._ui['text'])
+        self._preset_popup = menu
+        menu.add_command(label=tr('realtime.preset.import'), command=self.import_config)
+        menu.add_command(label=tr('realtime.preset.export_nr' if self.preset_scope.get() == 'nr' else 'realtime.preset.export_full'),
+                         command=self.export_config)
+        try:
+            menu.tk_popup(self.preset_more.winfo_rootx(), self.preset_more.winfo_rooty()+self.preset_more.winfo_height())
+        finally:
+            menu.grab_release()
 
     def apply_profile(self, name):
         try:
@@ -1031,8 +1168,31 @@ class RealtimeWorkspace:
         self._display_targets['game_mode'].configure(state='disabled' if windowed else 'normal')
         self._display_targets['window_scale'].configure(state='normal' if windowed else 'disabled')
         self.output_hint.set(tr('realtime.output.windowed_hint' if windowed else 'realtime.output.fullscreen_hint'))
+        self._output_tip.text = self.output_hint.get() + '\n' + tr('realtime.output.help')
+        self.output_hint_widget.pack_forget()
         self.output_summary.set(tr('realtime.layout.output_draft',
                                   mode=tr('realtime.output.windowed' if windowed else 'realtime.output.fullscreen')))
+        self._sync_device_pickers()
+
+    def _sync_device_pickers(self):
+        """Display the draft's device IDs; never silently select another GPU."""
+        monitor_id = self.controls['monitor_id'][0].get()
+        if self.controls['monitor_mode'][0].current() != 3:
+            self.monitor_picker.set(tr('realtime.workspace.monitor_auto'))
+        else:
+            index = next((i for i, m in enumerate(self._monitors) if m['id'] == monitor_id), None)
+            if index is None:
+                self.monitor_picker.set(tr('realtime.workspace.device_missing', value=monitor_id))
+            else:
+                self.monitor_picker.current(index)
+        gpu_index = self.controls['gpu_index'][0].get()
+        index = next((i + 1 for i, a in enumerate(self._adapters) if str(a['index']) == gpu_index), None)
+        if gpu_index == '-1':
+            self.gpu_picker.set(tr('realtime.automatic'))
+        elif index is None:
+            self.gpu_picker.set(tr('realtime.workspace.device_missing', value=gpu_index))
+        else:
+            self.gpu_picker.current(index)
 
     def _output_changed(self):
         if self._editor_building or self._closed:
@@ -1048,21 +1208,27 @@ class RealtimeWorkspace:
         self._sync_output_controls()
         if adjustments:
             self.output_hint.set(tr('realtime.output.adjusted', changes=tr('realtime.output.separator').join(adjustments)))
+            self.output_hint_widget.pack(fill='x', pady=3)
         # Only edit the draft. In particular, never auto-switch to fullscreen
         # or restart a running capture when resolving an incompatible option.
         self._editor_changed()
 
     def _pick_monitor(self, _=None):
         index = self.monitor_picker.current()
-        if index >= 0:
+        if 0 <= index < len(self._monitors):
             self.controls['monitor_id'][0].set(self._monitors[index]['id'])
             self.controls['monitor_mode'][0].current(3)
+            self._sync_device_pickers()
+            self._editor_changed()
 
     def _pick_gpu(self, _=None):
         index = self.gpu_picker.current()
-        self.controls['gpu_index'][0].set(-1 if index == 0 else self._adapters[index-1]['index'])
+        if 0 <= index <= len(self._adapters):
+            self.controls['gpu_index'][0].set(-1 if index == 0 else self._adapters[index-1]['index'])
 
     def select_runtime(self):
+        if self._shortcut_changing:
+            return
         if self.session_summary()[1]:
             self.status.set(tr("realtime.stop_before_runtime"))
             return
@@ -1125,20 +1291,117 @@ class RealtimeWorkspace:
             routine = {tr('realtime.' + key) for key in (
                 'not_started', 'running', 'stopped', 'starting', 'stopping',
                 'initializing', 'init_wait_output', 'stopping_short', 'output_ready',
-                'parameters_saved', 'quality_saved', 'parameters_unchanged')}
+                'phase.wait_source', 'parameters_saved', 'quality_saved', 'parameters_unchanged')}
+            routine.add(tr('realtime.output_ready') + tr('realtime.output_restored'))
             if self.status.get() in routine:
                 label.pack_forget()
             elif not label.winfo_manager():
                 label.pack(fill='x', pady=3)
+            self._sync_footer()
 
-    def _write_log(self, message):
+    def _sync_footer(self):
+        """Idle keeps only actions; faults and escape warnings stay reachable."""
+        if not hasattr(self, 'run_actions'):
+            return
+        busy = self.session_summary()[1]
+        anchor = self.run_actions
+        for widget, visible in reversed((
+                (self.session_label, busy),
+                (self.stop_hint_label, busy or self.stop_hint.get() == tr('realtime.safety.unavailable')),
+                (self.shortcut_notice, bool(self._shortcut_details)),
+                (self.status_notice, bool(self.status_label.winfo_manager())),
+                (self.metrics_label, busy and bool(self._metrics_compact)))):
+            if visible:
+                if not widget.winfo_manager():
+                    widget.pack(fill='x', before=anchor, pady=3 if widget is not self.status_notice else 0)
+                anchor = widget
+            elif widget.winfo_manager():
+                widget.pack_forget()
+        if (busy and self._metrics_compact and self._render_confirmed
+                and not (self._pending_start or self._recovering or self._stop_requested)
+                and self._metrics_run_id == self._run_id):
+            if not self.runtime_info.winfo_manager():
+                self.runtime_info.pack(fill='x')
+        else:
+            self.runtime_info.pack_forget()
+
+    def _show_shortcut_details(self):
+        self._open_shortcuts()
+
+    def _open_shortcuts(self):
+        from dlss5tool.realtime_shortcuts_ui import ShortcutDialog
+        existing = getattr(self, '_shortcut_dialog', None)
+        if existing is not None and existing.window.winfo_exists():
+            existing.window.lift()
+            return
+        self._shortcut_dialog = ShortcutDialog(self)
+
+    def _change_shortcuts(self, bindings, *, persist=True):
+        if self._shortcut_changing or self.session_summary()[1]:
+            self.status.set(tr('realtime.shortcuts.stop_first'))
+            return False
+        bindings = validate_hotkeys(bindings)
+        self._shortcut_changing = True
+        self._host_ready = None
+        self._shortcut_details = ''
+        self._shortcut_previous = dict(self.client.hotkeys)
+        self._shortcut_persist = persist
+        self.stop_hint.set(tr('realtime.shortcuts.checking'))
+        self.status.set(tr('realtime.shortcuts.checking'))
+        def worker():
+            error = None
+            try:
+                self.client.configure_hotkeys(bindings)
+            except Exception as failure:
+                error = str(failure)
+            finally:
+                if self._closed:
+                    self.client.close()
+                self._shortcut_result.put((bindings, error))
+        self._shortcut_worker = threading.Thread(target=worker, name='realtime-shortcuts', daemon=False)
+        self._shortcut_worker.start()
+        self._notify_session()
+        return True
+
+    def _finish_shortcuts(self):
+        try:
+            bindings, error = self._shortcut_result.get_nowait()
+        except queue.Empty:
+            return False
+        self._shortcut_changing = False
+        if not error and self._shortcut_persist:
+            try:
+                self.store.save_hotkeys(bindings)
+            except (OSError, ValueError) as failure:
+                self._write_log(str(failure), 'error')
+                self._shortcut_save_error = str(failure)
+                self._change_shortcuts(self._shortcut_previous, persist=False)
+                return False
+        save_error = getattr(self, '_shortcut_save_error', '')
+        self._shortcut_save_error = ''
+        result = (tr('realtime.shortcuts.failed', error=error or save_error) if error or save_error
+                  else tr('realtime.shortcuts.saved'))
+        self.status.set(result)
+        dialog = getattr(self, '_shortcut_dialog', None)
+        if dialog and dialog.window.winfo_exists():
+            dialog.finish(result)
+        # Rebuild metadata/readiness for the new generation without discarding drafts.
+        if self.client.process and self.client.process.poll() is None:
+            try:
+                self.client.send('catalog')
+                self.client.send('devices')
+            except Exception as failure:
+                self.status.set(str(failure))
+        return True
+
+    def _write_log(self, message, level='info'):
         message = compact(message)
         if not message or not hasattr(self, 'log') or message == getattr(self, '_last_log_message', None):
             return
         self._last_log_message = message
         follow_tail = self.log.yview()[1] >= .999
         self.log.configure(state='normal')
-        self.log.insert('end', tr('realtime.log.line', message=message) + '\n')
+        self.log.insert('end', tr('realtime.log.line', message=message) + '\n', (level,))
         if int(self.log.index('end-1c').split('.')[0]) > 500:
             self.log.delete('1.0', '100.0')
         if follow_tail:
@@ -1188,6 +1451,8 @@ class RealtimeWorkspace:
 
     def apply_config(self, config):
         self.config = validate_config(config)
+        if self.source_preview.editor:
+            self.source_preview.editor.close()
         self._chain_undo = None
         self._replace_index = None
         was_building = self._editor_building
@@ -1210,6 +1475,7 @@ class RealtimeWorkspace:
         self._render_chain()
         self._draw_regions()
         self._editor_building = was_building
+        self._sync_source_preview()
         self._refresh_editor_state()
 
     def _overlay_draft(self):
@@ -1435,6 +1701,7 @@ class RealtimeWorkspace:
                     self.status.set(tr("realtime.target_closed"))
         except Exception as error:
             self.status.set(str(error))
+        self._notify_session()
 
     def selected_window(self):
         index = self.target.current()
@@ -1445,7 +1712,12 @@ class RealtimeWorkspace:
         config = self.store.for_application(selected["application"]) if selected else None
         if config:
             self.apply_config(config)
+        # A previous target's check must never remain presented as current.
+        self.preflight_panel.pack_forget()
+        self._preflight_issues = []
+        self._preflight_signature = None
         self._notify_session()
+        self.source_preview.request()
 
     def _render_chain(self, index=0):
         self.chain.set_items([(step_title(effect['name']), step_subtitle(effect, self.catalog))
@@ -1474,6 +1746,8 @@ class RealtimeWorkspace:
             self.effect_choice.set('')
         self.effect_count.set(tr('realtime.effects.count', shown=len(self._effect_ids), total=len(self.catalog),
                                  unavailable=sum(not item.get('available', True) for item in self.catalog.values())))
+        self.library_button.configure(text=tr('realtime.workspace.library_count', count=len(self.catalog)))
+        self.reset_filters_button.configure(state='normal' if query or category != 'all' or self.favorites_only.get() else 'disabled')
         self._describe_effect_choice()
 
     def _describe_effect_choice(self):
@@ -1482,6 +1756,12 @@ class RealtimeWorkspace:
         issue, blocked = choice_issue(name, self.catalog, self.config['effects'], replacing=self._replace_index)
         self.library_add.configure(state='disabled' if not name or blocked else 'normal',
                                    text=tr('realtime.workflow.replace') if self._replace_index is not None else tr('realtime.editor.add'))
+        if self._replace_index is not None:
+            self.replacement_status.set(tr('realtime.workflow.replacing', index=self._replace_index + 1))
+            self.library_cancel.pack(anchor='e', pady=4)
+        else:
+            self.replacement_status.set(tr('realtime.workspace.adding'))
+            self.library_cancel.pack_forget()
         self.favorite_button.configure(state='normal' if name else 'disabled',
             text=tr('realtime.workflow.unfavorite' if name in self.store.data.get('effect_favorites', []) else 'realtime.workflow.favorite'))
         if 0 <= index < len(self._effect_ids):
@@ -1593,16 +1873,18 @@ class RealtimeWorkspace:
                             and all(any(key == 'pass' + str(n) for key, _, _ in groups) for n in (2, 3)))
         if not any(key == 'resolution' for key, _, _ in groups):
             groups.append(('resolution', tr('realtime.editor.group.resolution'), []))
-        more = CollapsibleSection(self.parameter_frame, tr('realtime.layout.more_parameters'),
-                                  collapsed=not self._section_open.get((effect['name'], 'more'), False), ui=self._ui)
-        more._on_toggle = lambda: self._section_open.__setitem__((effect['name'], 'more'), not more.collapsed)
-        self._parameter_widgets.append(more)
+        # Multi-pass switches stay near common controls, not behind an outer
+        # disclosure. Every native group keeps exactly one expansion level.
+        groups.sort(key=lambda group: 0 if group[0] == 'look' else 1 if group[0] in ('pass2', 'pass3') else 2)
+        fine_heading = None
         for number, (key, title, items) in enumerate(groups):
             section_key = (effect['name'], key)
             expanded = self._section_open.get(section_key, key == 'look' or (number == 0 and key.startswith('native:')))
             primary = key == 'look' or (number == 0 and key.startswith('native:'))
-            section = InspectorSection(self.parameter_frame if primary else more.body, title, collapsed=not expanded, ui=self._ui)
-            Tooltip(section._header, tr('realtime.editor.group_count_hint'))
+            if not primary and key not in ('pass2', 'pass3') and fine_heading is None:
+                fine_heading = self._label(self.parameter_frame, tr('realtime.workspace.fine'), muted=True)
+                fine_heading.pack_configure(pady=(12, 0))
+            section = InspectorSection(self.parameter_frame, title, collapsed=not expanded, ui=self._ui)
             section._on_toggle = lambda k=section_key, s=section: self._section_open.__setitem__(k, not s.collapsed)
             section.pack(fill='x', pady=(8, 0))
             self.parameter_sections[key] = section
@@ -1645,7 +1927,6 @@ class RealtimeWorkspace:
                     choices = [(0, tr('style.default')), (1, tr('style.natural')), (2, tr('style.cinema'))]
                 row = ParameterRow(section.body, item, var, ui=self._ui, choices=choices, chips=style,
                                    on_commit=self._parameter_committed, on_change=self._editor_changed,
-                                   on_reset=lambda name=item['name'], paired=mask: self._reset_parameters([name, paired] if paired else [name]),
                                    label=tr('label.skin_mask') if mask else None,
                                    hint=parameter_hint(item['name']) if is_nr else '',
                                    enabled_variable=enabled_var, allow_percent=is_nr and not item['integer'],
@@ -1658,11 +1939,6 @@ class RealtimeWorkspace:
                     row.pack(fill='x', pady=(4, 8))
                 self._parameter_widgets.append(row)
                 self.parameter_rows[item['name']] = row
-            reset = ChromeButton(section.body, text=tr('realtime.editor.reset_group'), variant='tool', ui=self._ui,
-                                 command=lambda k=key: self._reset_parameters(self._parameter_groups[k][1], scale=k == 'resolution'))
-            reset.pack(anchor='e', pady=(4, 0))
-            self._parameter_widgets.append(reset)
-        more.pack(fill='x', pady=(8, 0))
         self._edit_snapshot = self._parameter_snapshot()
         self._editor_building = was_building
         self._refresh_editor_state()
@@ -1836,7 +2112,7 @@ class RealtimeWorkspace:
         if issues and not blocking:
             self.continue_button.configure(state='normal')
             self.continue_button.pack(side='left', padx=6)
-        self._focus_page('startup', self.check_button)
+        self._focus_page('startup', self.preflight_panel)
         self.diagnostics.append({'event': 'preflight', 'blocking': blocking,
                                  'issues': [dict(code=i.code, message=i.message, blocking=i.blocking, detail=i.detail) for i in issues]})
 
@@ -1925,6 +2201,9 @@ class RealtimeWorkspace:
             self.check_before_start()
 
     def start(self, *, accept_warnings=False):
+        if self._shortcut_changing:
+            self.status.set(tr('realtime.shortcuts.checking'))
+            return
         if self._can_start is not None and not self._can_start():
             self.status.set(tr('diagnostics.wait_deep'))
             return
@@ -1942,6 +2221,9 @@ class RealtimeWorkspace:
                 self.status.set(self.preflight_status.get())
                 return
             self.preflight_panel.pack_forget()
+            # Terminate a potentially blocked PrintWindow before native capture starts.
+            self.source_preview.cancel()
+            self.source_preview.set_target(selected, self.source_preview.key[2] if self.source_preview.key else False, busy=True)
             config = effective_nr_skin(config)
             self._queued_parameter_apply = False
             self._queued_quality_apply = False
@@ -2020,13 +2302,22 @@ class RealtimeWorkspace:
 
     def _notify_session(self):
         summary, busy = self.session_summary()
+        self._sync_source_preview()
         if self.session_text.get() != summary:
             self.session_text.set(summary)
         target_changed = self._target_differs()
         hint = tr('realtime.layout.target_pending' if target_changed else 'realtime.layout.target_running' if busy else 'realtime.layout.target_hint')
         if self.target_hint.get() != hint:
             self.target_hint.set(hint)
-        state = 'disabled' if busy else 'normal'
+        if hasattr(self, 'preset_binding_label'):
+            selected = self.selected_window()
+            bound = self.store.data.get('applications', {}).get(str(selected.get('application', '')).casefold()) if selected else None
+            if bound and bound in self.store.data['presets']:
+                self.preset_binding.set(tr('realtime.workspace.bound', name=bound))
+                self.preset_binding_label.pack(fill='x', pady=(2, 0))
+            else:
+                self.preset_binding_label.pack_forget()
+        state = 'disabled' if busy or self._shortcut_changing or not self.selected_window() else 'normal'
         if getattr(self, '_last_button_state', None) != (busy, state, target_changed):
             self.stop_button.configure(state='normal' if busy else 'disabled')
             self.start_button.configure(text=tr("realtime.start"), state=state)
@@ -2035,12 +2326,19 @@ class RealtimeWorkspace:
         if getattr(self, '_last_output_ready', None) != output_ready:
             for button in self.presentation_buttons.values():
                 button.configure(state='normal' if output_ready else 'disabled')
+            self.tools_section.set_title(tr('realtime.polish.tools' if output_ready else 'realtime.polish.tools_idle'))
+            if self.tools_section.collapsed == output_ready:
+                self.tools_section.toggle()
             self._last_output_ready = output_ready
         if self._on_session_change and getattr(self, '_last_session_summary', None) != (summary, busy):
             self._on_session_change(summary, busy)
         self._last_session_summary = (summary, busy)
+        dialog = getattr(self, '_shortcut_dialog', None)
+        if dialog and dialog.window.winfo_exists():
+            dialog.refresh_status()
         self._refresh_editor_state()
         self._refresh_metrics_summary()
+        self._sync_footer()
 
     def _target_differs(self):
         selected = self.selected_window()
@@ -2057,6 +2355,7 @@ class RealtimeWorkspace:
                 self._pending_undo = self._edit_snapshot
         self._edit_snapshot = snapshot
         self._edit_error = ''
+        self._sync_source_preview()
         self._refresh_editor_state()
 
     def _parameter_snapshot(self):
@@ -2122,6 +2421,27 @@ class RealtimeWorkspace:
         self._undo_parameters, self._pending_undo = before, None
         self._restore_parameter_snapshot(after, commit=False)
         self.status.set(tr('parameter.copied_draft'))
+
+    def _parameter_menu(self):
+        previous = getattr(self, '_parameter_popup', None)
+        if previous:
+            previous.destroy()
+        menu = tk.Menu(self.window, tearoff=False, background=self._ui['panel'], foreground=self._ui['text'],
+                       activebackground=self._ui['select_bg'], activeforeground=self._ui['text'])
+        self._parameter_popup = menu
+        menu.add_command(label=tr('realtime.editor.reset_effect'), command=self._reset_current_effect,
+                         state='normal' if self.parameter_rows else 'disabled')
+        try:
+            menu.tk_popup(self.parameter_more.winfo_rootx(),
+                          self.parameter_more.winfo_rooty() + self.parameter_more.winfo_height())
+        finally:
+            menu.grab_release()
+
+    def _reset_current_effect(self):
+        if self.parameter_rows and messagebox.askokcancel(tr('realtime.editor.reset_effect'),
+                tr('realtime.editor.reset_effect_confirm'), parent=self.window):
+            # Deliberately keep scale/output/protection, other effects and presets.
+            self._reset_parameters(list(self.parameter_rows))
 
     def _reset_parameters(self, names, *, scale=False):
         before = self._parameter_snapshot()
@@ -2216,15 +2536,6 @@ class RealtimeWorkspace:
                              unapplied=row.unapplied or switch.unapplied,
                               pending=row._feedback_state[4] or switch._feedback_state[4],
                              error=row._feedback_state[3] or switch._feedback_state[3])
-        for key, (title, names) in self._parameter_groups.items():
-            count = sum(self.parameter_rows[name].nondefault for name in names
-                        if name not in self.skin_pairs.values() and (name != 'multiPass' or not self.pass_toggles))
-            if key == 'resolution' and self.scale_controls:
-                _, mode, x, y = self.scale_controls
-                count += int(mode.current() != 0 or not all(self._same_parameter(v.get(), 1) for v in (x, y)))
-            if key in ('pass2', 'pass3') and self.pass_toggles:
-                title += ' · ' + tr('realtime.editor.pass_on' if pass_count >= int(key[-1]) else 'realtime.editor.pass_off')
-            self.parameter_sections[key].set_title(title + (f' · {count}' if count else ''))
         undo_state = 'normal' if self._pending_undo is not None or self._undo_parameters is not None else 'disabled'
         if self.undo_button.cget('state') != undo_state:
             self.undo_button.configure(state=undo_state)
@@ -2343,7 +2654,7 @@ class RealtimeWorkspace:
         self.chain_summary_help.set_details(tr('realtime.summary.pending', chain=draft_full) + '\n' + text)
         show_difference = state in ('dirty', 'restart', 'failed', 'invalid') and self.session_summary()[1]
         if show_difference and not self.chain_summary_help.winfo_manager():
-            self.chain_summary_help.pack(fill='x', pady=3, before=self.add_section)
+            self.chain_summary_help.pack(fill='x', pady=3, after=self.chain)
         elif not show_difference and self.chain_summary_help.winfo_manager():
             self.chain_summary_help.pack_forget()
 
@@ -2582,6 +2893,11 @@ class RealtimeWorkspace:
     def _poll(self):
         if self._closed:
             return
+        if self._shortcut_changing and not self._finish_shortcuts():
+            self._after = self.window.after(100, self._poll)
+            return
+        self._sync_source_preview()
+        self.source_preview.poll()
         if self._recovering:
             try:
                 error = self._recovery.get_nowait()
@@ -2627,15 +2943,22 @@ class RealtimeWorkspace:
                 self.diagnostics.append({'time': time.time(), **item})
             if kind == 'ready':
                 self._host_ready = dict(event, _generation=self.client.generation)
+                bindings = effective_bindings(event)
                 registered = event.get('stop_hotkey_registered', event.get('hotkeys', {}).get('stop'))
                 key = ('realtime.safety.protected' if event.get('independent_stop') else 'workbench.emergency_stop') if registered else 'realtime.safety.unavailable'
-                self.stop_hint.set(tr(key))
+                self.stop_hint.set(tr(key).replace(DEFAULT_HOTKEYS['stop'], bindings['stop']))
                 control_key = 'realtime.control.unavailable' if event.get('hotkeys', {}).get('parameters') is False else 'realtime.control.help'
-                self._control_tip.text = tr(control_key)
+                self._control_tip.text = tr(control_key).replace(DEFAULT_HOTKEYS['parameters'], bindings['parameters'])
+                self._shortcut_details = ((event_summary(event) or '') + '\n' + self._control_tip.text
+                    if any(not ok for ok in event.get('hotkeys', {}).values()) else '')
                 if control_key == 'realtime.control.unavailable':
-                    self._write_log(tr(control_key))
+                    self._write_log(self._control_tip.text, 'warning')
+                dialog = getattr(self, '_shortcut_dialog', None)
+                if dialog and dialog.window.winfo_exists():
+                    dialog.refresh_status()
             elif kind in ('fatal', 'exited'):
                 self._host_ready = None
+                self._shortcut_details = ''
                 self.stop_hint.set(tr('realtime.safety.checking'))
             if kind in ('emergency_stop', 'safety_stop'):
                 self.command('stop')  # Clear pending applies/restarts as well as the native session.
@@ -2655,7 +2978,8 @@ class RealtimeWorkspace:
                 self._stop_requested = True
             summary = event_summary(event)
             if summary:
-                self._write_log(summary)
+                self._write_log(summary, 'warning' if kind == 'ready' and any(
+                    not ok for ok in event.get('hotkeys', {}).values()) else 'info')
             if kind == 'capture_fallback':
                 if self._pending_start:
                     self._pending_start = (self._pending_start[0], validate_config(event['config']))
@@ -2671,7 +2995,7 @@ class RealtimeWorkspace:
                 self._monitors = event['monitors']; self._adapters = event['adapters']
                 self.monitor_picker.configure(values=[f"{m['name']} · {m['rect']} · {tr("realtime.hdr_active") if m.get('hdr_active') else 'SDR'}" for m in self._monitors])
                 self.gpu_picker.configure(values=[tr("realtime.automatic")]+[f"{a['index']}: {a['name']}" for a in self._adapters])
-                self.gpu_picker.current(0)
+                self._sync_device_pickers()
             elif kind == 'status':
                 if event.get('run_id') != self._run_id:
                     continue
@@ -2731,12 +3055,16 @@ class RealtimeWorkspace:
                     self._last_metrics = (event.get('run_id'), now, current)
                 continue
             if kind == "catalog":
-                self.catalog = {effect["name"]: effect for effect in event["effects"]}
+                updated = {effect["name"]: effect for effect in event["effects"]}
+                unchanged = updated == self.catalog
+                self.catalog = updated
                 self._catalog_generation = self.client.generation
                 self._filter_effects()
                 selected = self.chain.curselection()
-                self._render_chain(selected[0] if selected else 0)
-                self.status.set(tr('realtime.catalog_loaded', count=len(self.catalog)))
+                if not unchanged:
+                    self._render_chain(selected[0] if selected else 0)
+                # Already recorded by event_summary. Discovery is not an
+                # actionable footer notice and must not overwrite a fault.
                 continue
             if kind == "state":
                 value = event.get("state")
@@ -2790,6 +3118,7 @@ class RealtimeWorkspace:
                         and event.get('run_id', self._run_id) != self._run_id):
                     continue
                 if (kind in ('error', 'fatal', 'exited') and self.session_summary()[1]) or (kind == 'ack' and event.get('id') == self._pending_command):
+                    self._write_log(native_message(event), 'error')
                     self._recover(native_message(event))
                     break
                 if self._live_expected:
@@ -2797,11 +3126,8 @@ class RealtimeWorkspace:
                 self._live_expected = {}
                 self._live_commands.clear()
                 self._queued_parameter_apply = False
+                self._write_log(native_message(event), 'error')
                 self.status.set(native_message(event))
-            elif kind == 'ready':
-                failed = [k for k,v in event.get('hotkeys', {}).items() if not v]
-                if failed:
-                    self.status.set(summary)
         if self._live_expected and time.monotonic() - self._live_sent_at > 5:
             self._live_expected = {}
             self._live_commands.clear()
@@ -2843,6 +3169,7 @@ class RealtimeWorkspace:
             return
         self._splitter_cancel()
         self._closed = True
+        self.source_preview.close()
         if self._on_session_change:
             self._on_session_change(*self.session_summary())
         if self._after:
@@ -2853,7 +3180,15 @@ class RealtimeWorkspace:
         # Non-daemon: let native teardown release cursor/input even when this
         # is also the main application's final window.
         if not self._recovering:
-            threading.Thread(target=self.client.close, daemon=False, name='realtime-shutdown').start()
+            def shutdown():
+                worker = getattr(self, '_shortcut_worker', None)
+                if worker and worker.is_alive():
+                    worker.join()
+                self.client.close()
+            threading.Thread(target=shutdown, daemon=False, name='realtime-shutdown').start()
+        dialog = getattr(self, '_shortcut_dialog', None)
+        if dialog and dialog.window.winfo_exists():
+            dialog.window.destroy()
         self.log.frame.destroy()
         self.window.destroy()
 

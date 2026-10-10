@@ -1,6 +1,8 @@
 """Launch with python -m dlss5tool."""
-from dlss5tool.gui import cli
+import multiprocessing
 
 
 if __name__ == '__main__':
+    multiprocessing.freeze_support()
+    from dlss5tool.gui import cli
     cli()

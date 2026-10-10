@@ -325,9 +325,11 @@ class RealtimePanelSyncTests(unittest.TestCase):
         self.assertNotEqual(ui_icons.LUCIDE['undo'], ui_icons.LUCIDE['retry'])
         for button in (self.ui.undo_button, self.ui.chain_undo_button):
             self.assertEqual(button.cget('icon'), 'undo')
-            self.assertTrue(button._icon_only)
+            self.assertFalse(button._icon_only)
             self.assertIsNotNone(button._icon_image)
-            self.assertFalse(any(button.type(item) == 'text' for item in button.find_all()))
+            self.assertTrue(any(button.type(item) == 'text' for item in button.find_all()))
+        self.assertEqual(self.ui.undo_button.cget('text'), i18n.tr('realtime.polish.undo_parameters'))
+        self.assertEqual(self.ui.chain_undo_button.cget('text'), i18n.tr('realtime.polish.undo_recipe'))
 
     def test_help_only_sections_use_existing_headers_without_empty_rows(self):
         self.catalog()

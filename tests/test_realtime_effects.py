@@ -116,11 +116,12 @@ class EffectWorkflowUiTests(unittest.TestCase):
         self.ui._preview_recipe()
         self.ui._use_recipe()
 
-    def test_default_is_recipe_and_cards_with_full_catalog_collapsed(self):
+    def test_default_is_recipe_and_cards_with_full_catalog_directly_accessible(self):
         self.load_catalog()
         self.assertIsInstance(self.ui.chain, EffectChainCards)
         self.assertTrue(self.ui.add_section.collapsed)
-        self.assertTrue(self.ui.library_section.collapsed)
+        self.assertIs(self.ui.library_section.master, self.ui._pages['workflow'])
+        self.assertFalse(hasattr(self.ui.library_section, 'collapsed'))
         self.assertEqual(len(self.ui.recipe_choice.combo.cget('values')), 4)
         self.assertIn('DLSS NR', self.ui.chain.get(0))
         self.assertEqual(self.ui._guided_ids, [NR])
@@ -156,8 +157,9 @@ class EffectWorkflowUiTests(unittest.TestCase):
         self.choose_recipe('enlarge')
         self.assertEqual(self.ui.collect(), before)
         self.choose_recipe('custom')
-        self.assertFalse(self.ui.add_section.collapsed)
-        self.assertTrue(self.ui.library_section.collapsed)
+        self.root.update()
+        self.assertIs(self.ui.tabs._current, self.ui._pages['workflow'].master.master)
+        self.assertTrue(self.ui.effect_choice.winfo_ismapped())
         self.assertEqual(self.ui.collect(), before)
 
     def test_guided_family_and_variants_retain_exact_native_name(self):
@@ -266,8 +268,6 @@ class EffectWorkflowUiTests(unittest.TestCase):
 
     def test_card_actions_and_recipe_controls_fit_both_themes_at_minimum_size(self):
         self.load_catalog()
-        self.ui.workflow_section.toggle()
-        self.ui.fluency_section.toggle()
         for theme in ('dark', 'light'):
             ui = ui_theme.tokens(theme)
             ui_theme.apply_ttk(self.root, ui)
@@ -278,6 +278,8 @@ class EffectWorkflowUiTests(unittest.TestCase):
                 widgets = [self.ui.recipe_button, self.ui.recipe_choice, self.ui.fg_choice]
                 widgets += self.ui.chain._cards[0][4]
                 for widget in widgets:
+                    self.ui._focus_page('workflow', widget)
+                    self.root.update()
                     pane = self.ui.stage if widget in (self.ui.recipe_button, self.ui.recipe_choice) else self.ui.inspector
                     self.assertGreater(widget.winfo_width(), 15)
                     self.assertGreaterEqual(widget.winfo_rootx(), pane.winfo_rootx())

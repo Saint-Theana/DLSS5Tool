@@ -757,7 +757,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._saved_settings.get("ui_theme", "dark")
         )
         self._ui = ui_theme.tokens(self._ui_theme_name)
-        self._log_open = False
+        self._log_open = self._saved_settings.get("ui_log_open", True)
         self._drop_hover = False
         self._empty_btn_hover = 0.0
         self._empty_btn_target = 0.0
@@ -1181,7 +1181,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _build_workbench_controls(self):
         self._realtime_controls = ttk.Frame(self._status_bar, style='Status.TFrame')
-        self._realtime_stop = ChromeButton(self._realtime_controls, text=tr('realtime.stop') + ' · Ctrl+Alt+F10', variant='danger',
+        self._realtime_stop = ChromeButton(self._realtime_controls, text=tr('realtime.stop'), variant='danger',
                                            command=self._stop_realtime, ui=self._ui)
         self._realtime_stop.pack(side='right', padx=(8, 0))
         self._realtime_stop.configure(state='disabled')
@@ -1190,7 +1190,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._realtime_summary_label = ttk.Label(self._realtime_controls, textvariable=self._realtime_summary,
                                                 style='Status.TLabel', width=26, anchor='w')
         self._realtime_summary_label.pack(side='left', padx=(8, 0))
-        self._realtime_tooltip = Tooltip(self._realtime_summary_label, self._realtime_summary.get() + '\n' + tr('workbench.emergency_stop'))
+        self._realtime_tooltip = Tooltip(self._realtime_summary_label, self._realtime_summary.get())
 
     def _install_caption_mode_button(self):
         from dlss5tool.caption_button import CaptionModeButton
@@ -1210,7 +1210,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _on_realtime_session(self, summary, busy):
         self._realtime_summary.set(summary)
-        self._realtime_tooltip.text = summary + '\n' + tr('workbench.emergency_stop')
+        workspace = getattr(self, '_realtime_workspace', None)
+        hint = workspace.stop_hint.get() if workspace and not workspace._closed else ''
+        self._realtime_tooltip.text = summary + ('\n' + hint if hint else '')
         self._realtime_stop.configure(state='normal' if busy else 'disabled')
         if busy:
             self._realtime_controls.pack(side='left', before=self.eta_label, padx=(4, 0))
@@ -1268,6 +1270,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 self._detached_preview_window.deiconify()
         self._workbench_mode = mode
         self._mode_var.set(mode)
+        self._sync_status_mode()
         if mode == 'local' and self._detached_preview_window is not None:
             self._show_detached_placeholder()
         if self._caption_mode_button:
@@ -1702,6 +1705,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
     def toggle_log_panel(self):
         self._log_open = not self._log_open
         self._sync_log_panel()
+        self._schedule_settings_save()
 
     def _sync_log_panel(self):
         realtime = getattr(self, '_realtime_workspace', None)
@@ -1905,6 +1909,33 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             )
         except Exception:
             pass
+        self._sync_status_mode()
+
+    def _sync_status_mode(self):
+        """Do not show idle local-media status in the realtime workspace.
+
+        Background exports/queues remain visible; switching modes never stops
+        those jobs or replaces their progress with an enhancement status.
+        """
+        relevant = (getattr(self, '_workbench_mode', 'local') != 'realtime'
+                    or self._exporting or self._queue_running)
+        for name, options in (
+                ('_status_dot', dict(side='left', padx=(12, 0), pady=8)),
+                ('_status_host', dict(side='left', padx=(6, 8), pady=6)),
+                ('_status_chips', dict(side='left', padx=(8, 8)))):
+            widget = getattr(self, name, None)
+            if widget is None:
+                continue
+            if relevant:
+                widget.pack(before=self.eta_label, **options)
+            else:
+                widget.pack_forget()
+        metric = getattr(self, '_status_metric', None)
+        if metric is not None:
+            if relevant and getattr(self, '_workbench_mode', 'local') != 'realtime':
+                metric.pack(side='left', padx=(0, 10), before=self.more_btn)
+            else:
+                metric.pack_forget()
 
     @staticmethod
     def _timeline_snapshot(timeline):
@@ -5559,6 +5590,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 getattr(self, "_preview_section", None) and not self._preview_section.collapsed
             ),
             "ui_theme": self._ui_theme_name,
+            "ui_log_open": self._log_open,
             "workbench_mode": self._workbench_mode,
             "ui_language": getattr(
                 self, "_preferred_ui_language", i18n.get_language()

@@ -13,6 +13,13 @@ from dlss5tool.realtime import PresetStore
 
 
 class WorkbenchSettingsTests(unittest.TestCase):
+    def test_log_defaults_open_and_validates_saved_preference(self):
+        self.assertTrue(app_settings.validate({})['ui_log_open'])
+        for value in (None, '', 'false', [], {}):
+            self.assertTrue(app_settings.validate({'ui_log_open': value})['ui_log_open'])
+        for value in (False, True):
+            self.assertIs(app_settings.startup_settings({'ui_log_open': value})['ui_log_open'], value)
+
     def test_legacy_settings_keep_theme_and_default_to_local(self):
         for theme in ('light', 'dark'):
             settings = app_settings.startup_settings({'ui_theme': theme})
@@ -80,6 +87,29 @@ class WorkbenchStartupTests(unittest.TestCase):
         if self.app is not None:
             app, self.app = self.app, None
             app._on_close()
+
+    def test_log_choice_survives_restart_in_both_modes(self):
+        for mode in ('local', 'realtime'):
+            with self.subTest(mode=mode):
+                app_settings.save({'workbench_mode': mode})
+                app = self.open_app()
+                panel = app.log if mode == 'local' else app._realtime_workspace.log
+                self.assertTrue(app._log_open)
+                self.assertEqual(panel.frame.winfo_manager(), 'pack')
+                app.toggle_log_panel()
+                self.assertIsNotNone(app._settings_save_after)
+                self.assertFalse(app._collect_persisted_settings()['ui_log_open'])
+                self.close_app()
+                self.assertFalse(app_settings.load()['ui_log_open'])
+                app = self.open_app()
+                panel = app.log if mode == 'local' else app._realtime_workspace.log
+                self.assertFalse(app._log_open)
+                self.assertFalse(panel.frame.winfo_manager())
+                app.toggle_log_panel()
+                self.close_app()
+                app = self.open_app()
+                self.assertTrue(app._log_open)
+                self.close_app()
 
     def assert_restored(self, mode, theme):
         app = self.app

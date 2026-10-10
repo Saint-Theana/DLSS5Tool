@@ -8,6 +8,7 @@ _NATIVE_ERRORS = {
     'Command belongs to an expired session': 'expired',
     'Only one frame generation effect per chain': 'fg_conflict',
     'Emergency stop hotkey is occupied; use windowed output or release Ctrl+Alt+F10': 'stop_hotkey',
+    'Emergency stop hotkey unavailable; configure shortcuts or use windowed output': 'stop_hotkey',
     'AMD optical flow SDK is not present in this build; choose NVOF or explicitly None': 'amd_flow',
     'Parameter is unavailable or requires a session restart; no live change applied': 'restart',
     'Cannot enqueue scaling start': 'start_failed',
@@ -39,7 +40,7 @@ def event_summary(event):
     """Suppress ACKs, telemetry and protocol internals; never infer rendering success."""
     kind = event.get('event')
     if kind == 'ready':
-        names = {'stop': 'stop', 'compare': 'compare', 'profiler': 'profiler', 'parameters': 'parameters'}
+        names = {'stop': 'stop', 'compare': 'compare', 'profiler': 'profiler', 'parameters': 'overlay_parameters'}
         failed = [tr('realtime.' + names[key]) if key in names else compact(key, 40)
                   for key, ok in event.get('hotkeys', {}).items() if not ok]
         if failed:
@@ -48,6 +49,8 @@ def event_summary(event):
     if kind == 'devices':
         return tr('realtime.log.devices', monitors=len(event.get('monitors', [])),
                   adapters=sum(not a.get('software', False) for a in event.get('adapters', [])))
+    if kind == 'catalog':
+        return tr('realtime.catalog_loaded', count=len(event.get('effects', [])))
     if kind in ('notice', 'log'):
         message = compact(event.get('message', ''))
         return tr('realtime.log.engine', message=message) if message else None

@@ -282,11 +282,16 @@ class ReadinessUiTests(unittest.TestCase):
         for geometry in ('1000x680', '1280x800'):
             self.root.geometry(geometry)
             self.root.update()
-            for button in (self.ui.start_button, self.ui.stop_button, self.ui.check_button, self.ui.locate_button):
+            for button in (self.ui.start_button, self.ui.stop_button, self.ui.locate_button):
                 self.assertTrue(button.winfo_ismapped())
                 self.assertGreater(button.winfo_width(), 20)
                 self.assertLessEqual(button.winfo_rootx() + button.winfo_width(), self.root.winfo_rootx() + self.root.winfo_width())
                 self.assertLessEqual(button.winfo_rooty() + button.winfo_height(), self.root.winfo_rooty() + self.root.winfo_height())
+            self.ui._focus_page('runtime', self.ui.check_button)
+            self.root.update()
+            self.assertTrue(self.ui.check_button.winfo_ismapped())
+            self.assertLessEqual(self.ui.check_button.winfo_rooty() + self.ui.check_button.winfo_height(),
+                                 self.root.winfo_rooty() + self.root.winfo_height())
 
 
 if __name__ == '__main__':

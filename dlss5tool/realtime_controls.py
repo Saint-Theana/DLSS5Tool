@@ -158,17 +158,52 @@ class InlineHelp(ttk.Frame):
         super().destroy()
 
 
+class InspectorGroup(ttk.Frame):
+    """A visible heading, not another disclosure level around related controls."""
+    def __init__(self, parent, title):
+        super().__init__(parent, style='Panel.TFrame')
+        self._header = ttk.Label(self, text=title, style='TLabel', font=ui_theme.UI_FONT_BOLD)
+        self._header.pack(fill='x', pady=(0, 6))
+        self._header.bind('<Configure>', lambda e: self._header.configure(wraplength=max(40, e.width)))
+        self.body = ttk.Frame(self, style='Panel.TFrame')
+        self.body.pack(fill='x')
+
+
 class InspectorSection(CollapsibleSection):
+    def _redraw_header(self):
+        """Wrap long translated/native titles without hiding their switches."""
+        header = self._header
+        width = header.winfo_width()
+        if width <= 1:
+            width = ui_theme.scale_px(header, 360)
+        header.configure(bg=self._ui.get('hover' if self._hover else 'panel', '#161d24'))
+        header.delete('all')
+        text = header.create_text(8, 0, anchor='nw', justify='left',
+            text=('▸' if self._collapsed else '▾') + '  ' + self._title,
+            width=max(40, width - 16), fill=self._ui.get('text', '#e8eef3'), font=ui_theme.UI_FONT)
+        bounds = header.bbox(text)
+        height = max(ui_theme.control_height(header), bounds[3] - bounds[1] + 12)
+        header.move(text, 0, (height - (bounds[3] - bounds[1])) / 2 - bounds[1])
+        if int(header.cget('height')) != height:
+            header.configure(height=height)
+        if str(header.tk.call('focus')) == str(header):
+            header.create_rectangle(1, 1, width - 1, height - 1,
+                                    outline=self._ui.get('accent', '#4aa8b8'))
+
     def add_enable_toggle(self, variable, command, hint):
         """Keep expansion and enabling as separate keyboard-accessible actions."""
         header_row = ttk.Frame(self, style='Panel.TFrame')
         header_row.pack(fill='x', before=self._header)
         self._header.pack_forget()
-        toggle = CheckToggle(header_row, '', variable, command=command, ui=self._ui)
+        toggle = CheckToggle(header_row, tr('realtime.editor.enable_pass'), variable, command=command, ui=self._ui)
         toggle.pack(side='right', padx=(4, 0))
         # Reserve the switch before the canvas (whose requested width may be
         # larger than the narrow inspector) takes the remaining cavity.
         self._header.pack(in_=header_row, side='left', fill='x', expand=True)
+        self._header.configure(width=1)
+        # pack(in_=...) does not reparent the Canvas. Raise it above its newer
+        # sibling container, otherwise the opaque frame hides the pass title.
+        self._header.tk.call('raise', self._header._w, header_row._w)
         Tooltip(toggle, hint)
         return toggle
 
@@ -244,7 +279,7 @@ class ParameterRow(ttk.Frame):
             self._widgets.append(self.reset_button)
         self.label = ttk.Label(header, text=label, style='TLabel', justify='left')
         self.label.bind('<Configure>', lambda e: self.label.configure(wraplength=max(40, e.width)))
-        self._base_help_text = (hint or full_label) + '\n' + tr('realtime.editor.default', value=descriptor['default'])
+        self._base_help_text = hint or full_label
         self.help_text = self._base_help_text
         self._tooltips.append(Tooltip(self.label, self.help_text))
         if self.choices:
