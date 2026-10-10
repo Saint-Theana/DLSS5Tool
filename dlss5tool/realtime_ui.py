@@ -294,7 +294,8 @@ class RealtimeWorkspace:
         parameter_actions = ttk.Frame(effect_page, style='Panel.TFrame')
         parameter_actions.pack(fill='x', pady=(4, 0))
         self.parameter_heading = self._hint(parameter_actions, '', '', heading=True)
-        self.parameter_more = self._button(self.parameter_heading.row, '···', self._parameter_menu, 'tool')
+        self.parameter_more = self._button(self.parameter_heading.row, tr('realtime.editor.more'),
+                                           self._parameter_menu, 'tool', icon='more', icon_only=True)
         self.parameter_more.pack(side='right', padx=(4, 0), before=self.parameter_heading.label)
         self._hover_help(self.parameter_more, tr('realtime.editor.more'))
         self.undo_button = self._button(self.parameter_heading.row, tr('realtime.polish.undo_parameters'), self._undo_parameter_edit, 'tool', icon='undo')
@@ -1891,14 +1892,6 @@ class RealtimeWorkspace:
             self._parameter_groups[key] = (title, [item['name'] for item in items
                                                   if item['name'] != 'multiPass' or not has_pass_switches])
             self._parameter_widgets.append(section)
-            if key == 'look' and self.extended_range is not None:
-                maximum = max(p['max'] for p in ranged)
-                self.range_toggle = CheckToggle(section.body,
-                    tr('parameter.range_toggle', maximum=f'{maximum:.2f}'), self.extended_range,
-                    command=self._toggle_extended_range, ui=self._ui)
-                self.range_toggle.pack(anchor='w', pady=(4, 4))
-                Tooltip(self.range_toggle, tr('parameter.realtime_range_hint'))
-                self._parameter_widgets.append(self.range_toggle)
             if key in ('pass2', 'pass3') and has_pass_switches:
                 count = int(key[-1])
                 enabled = tk.BooleanVar(self.window, value=False)
@@ -1939,6 +1932,14 @@ class RealtimeWorkspace:
                     row.pack(fill='x', pady=(4, 8))
                 self._parameter_widgets.append(row)
                 self.parameter_rows[item['name']] = row
+            if key == 'look' and self.extended_range is not None:
+                maximum = max(p['max'] for p in ranged)
+                self.range_toggle = CheckToggle(section.body,
+                    tr('parameter.range_toggle', maximum=f'{maximum:.2f}'), self.extended_range,
+                    command=self._toggle_extended_range, ui=self._ui)
+                self.range_toggle.pack(anchor='w', pady=(8, 4))
+                Tooltip(self.range_toggle, tr('parameter.realtime_range_hint'))
+                self._parameter_widgets.append(self.range_toggle)
         self._edit_snapshot = self._parameter_snapshot()
         self._editor_building = was_building
         self._refresh_editor_state()

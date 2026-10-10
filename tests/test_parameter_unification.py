@@ -158,16 +158,20 @@ class LocalAdjustmentTests(unittest.TestCase):
         row.enable_toggle.invoke()
         self.assertEqual(self.settings['v_intensity'].get(), .67345)
         self.assertFalse(self.settings['v_use_intensity'].get())
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            self.editor.reset_all()
         self.assertEqual(row.value(), 1)
         self.assertTrue(row.enabled_variable.get())
         self.editor.undo()
         self.assertEqual(row.value(), .67345)
         self.assertFalse(row.enabled_variable.get())
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            self.editor.reset_all()
         self.model.reset_mock()
         out = self.editor.rows['output_mix']
         out.number_text.set('.45'); out._commit_input()
-        out.reset_button.invoke()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            self.editor.reset_all()
         self.editor.undo()
         self.model.assert_not_called()
         self.assertEqual(self.output.call_count, 3)
@@ -179,13 +183,68 @@ class LocalAdjustmentTests(unittest.TestCase):
         self.assertEqual(self.settings['v_intensity'].get(), 1)
         self.assertIn(i18n.tr('label.strength'), row.feedback.cget('text'))
         self.model.assert_not_called()
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            self.editor.reset_all()
         self.assertTrue(self.editor.valid())
         self.model.reset_mock()
         self.editor.undo()
         self.assertEqual(row.variable.get(), 'nan')
         self.assertFalse(self.editor.valid())
         self.model.assert_not_called()
+
+    def test_single_menu_preserves_edits_on_cancel_and_reset_is_undoable(self):
+        row = self.editor.rows['intensity']
+        row.number_text.set('.37'); row._commit_input()
+        row.enable_toggle.invoke()
+        self.settings['v_enable_5x'].set(True)
+        before = self.editor.snapshot()
+        undo = deepcopy(self.editor._undo)
+        self.assertTrue(all(row.reset_button is None for row in self.editor.rows.values()))
+        self.assertEqual(self.editor.summary.cget('text'), '')
+        self.assertFalse(self.editor.summary.winfo_manager())
+        with mock.patch('tkinter.Menu.tk_popup') as popup, mock.patch('tkinter.Menu.grab_release'):
+            self.editor.more_button.invoke()
+        menu = self.editor._menu
+        self.assertGreaterEqual(popup.call_args.args[0], self.editor.winfo_rootx())
+        self.assertLessEqual(popup.call_args.args[0] + menu.winfo_reqwidth(),
+                             self.editor.winfo_rootx() + self.editor.winfo_width())
+        self.assertEqual(menu.index('end'), 2)
+        self.assertEqual(menu.entrycget(0, 'label'), i18n.tr('parameter.copy_from_realtime'))
+        self.assertEqual(menu.entrycget(2, 'label'), i18n.tr('parameter.reset_local'))
+        menu.invoke(0)
+        self.editor._on_copy.assert_called_once()
+        self.model.reset_mock()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=False):
+            menu.invoke(2)
+        self.assertEqual(self.editor.snapshot(), before)
+        self.assertEqual(self.editor._undo, undo)
+        self.model.assert_not_called()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            menu.invoke(2)
+        self.assertTrue(self.settings['v_enable_5x'].get())
+        self.assertEqual(row.value(), 1)
+        self.assertTrue(row.enabled_variable.get())
+        self.editor.undo_button.invoke()
+        self.assertEqual(self.editor.snapshot(), before)
+
+    def test_reopening_editor_keeps_values_switches_and_hides_valid_summary(self):
+        row = self.editor.rows['local_tone']
+        row.number_text.set('.42'); row._commit_input()
+        row.enable_toggle.invoke()
+        before = self.editor.snapshot()
+        self.editor.destroy()
+        self.editor = LocalAdjustments(self.root, self.settings, ui=ui_theme.tokens('dark'),
+            styles={'Default': 0, 'Natural': 1, 'Cinematic': 2}, on_model=self.model,
+            on_output=self.output, on_copy=mock.Mock())
+        self.editor.pack(fill='both', expand=True)
+        self.assertEqual(self.editor.snapshot(), before)
+        row = self.editor.rows['intensity']
+        row.number_text.set('bad'); row._commit_input()
+        self.assertEqual(self.editor.summary.winfo_manager(), 'pack')
+        self.assertEqual(self.editor.summary.cget('text'), i18n.tr('parameter.local_invalid'))
+        self.editor.undo_button.invoke()
+        self.assertEqual(self.editor.snapshot(), before)
+        self.assertFalse(self.editor.summary.winfo_manager())
 
     def test_group_reset_single_callback_and_copy_excludes_composition(self):
         values = from_realtime(config(), catalog(), 1)
@@ -227,13 +286,23 @@ class LocalAdjustmentTests(unittest.TestCase):
                 self.root.update()
                 for name, *_ in FIELDS:
                     row = self.editor.rows[name]
-                    switch, field, reset = row.enable_toggle, row.field, row.reset_button
+                    switch, field = row.enable_toggle, row.field
                     self.assertGreater(field.winfo_width(), 60)
                     self.assertLessEqual(switch.winfo_rootx() + switch.winfo_width(), field.winfo_rootx())
-                    self.assertLessEqual(field.winfo_rootx() + field.winfo_width(), reset.winfo_rootx())
+                    self.assertIsNone(row.reset_button)
+                    self.assertLessEqual(field.winfo_rootx() + field.winfo_width(), row.winfo_rootx() + row.winfo_width())
                     self.assertEqual(switch.winfo_width(), switch.winfo_reqwidth())
                 self.assertLessEqual(self.editor.undo_button.winfo_rootx() + self.editor.undo_button.winfo_width(),
-                                     self.editor.reset_button.winfo_rootx())
+                                     self.editor.more_button.winfo_rootx())
+                self.assertIs(self.editor.pack_slaves()[0], self.editor.actions)
+                self.assertLessEqual(self.editor.actions.winfo_y() + self.editor.actions.winfo_height(),
+                                     self.editor.rows['style'].winfo_y())
+                self.assertEqual(self.editor.undo_button.pack_info()['side'], 'right')
+                self.assertLessEqual(self.editor.heading.winfo_rootx() + self.editor.heading.winfo_width(),
+                                     self.editor.undo_button.winfo_rootx())
+                self.assertEqual(self.editor.more_button.cget('icon'), 'more')
+                self.assertTrue(self.editor.more_button._icon_only)
+                self.assertLessEqual(self.editor.more_button.winfo_width(), ui_theme.scale_px(self.root, 40))
 
 
 class RealtimeSwitchTests(unittest.TestCase):

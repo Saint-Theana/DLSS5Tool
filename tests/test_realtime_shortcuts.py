@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from unittest import mock
 
-from dlss5tool import i18n
+from dlss5tool import i18n, ui_theme
 from dlss5tool.realtime import DEFAULT_CONFIG, PresetStore, RealtimeClient
 from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS, parse_hotkey, validate_hotkeys, native_hotkeys
 from tests import test_realtime_inspector
@@ -95,6 +95,10 @@ class ShortcutUiTests(unittest.TestCase):
 
     def test_reset_is_confirmed_scoped_and_undoable(self):
         self.catalog()
+        self.root.update_idletasks()
+        self.assertEqual(self.ui.parameter_more.cget('icon'), 'more')
+        self.assertTrue(self.ui.parameter_more._icon_only)
+        self.assertLessEqual(self.ui.parameter_more.winfo_width(), ui_theme.scale_px(self.root, 40))
         self.ui.parameters['intensity'][1].set('1.45')
         self.ui._parameter_committed()
         before = deepcopy(self.ui.collect())

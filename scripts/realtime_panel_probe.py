@@ -22,6 +22,7 @@ def main():
     parser.add_argument('--work-dir', type=Path, required=True)
     parser.add_argument('--language', choices=('zh_CN', 'en_US'), default='zh_CN')
     parser.add_argument('--theme', choices=('dark', 'light'), default='dark')
+    parser.add_argument('--mode', choices=('local', 'realtime'), default='realtime')
     parser.add_argument('--scenario', choices=('idle', 'running', 'restart', 'syncing', 'stopped', 'details'), default='idle')
     parser.add_argument('--geometry', default='1000x680')
     parser.add_argument('--inspector-width', type=int, help='Set a user-selected width in logical pixels')
@@ -70,8 +71,24 @@ def main():
         app = gui.App(root)
         root.title('DLSS5Tool · isolated panel preview')
         root.geometry(args.geometry)
-        app._select_workbench_mode('realtime')
+        app._select_workbench_mode(args.mode)
         app._apply_ui_theme(args.theme, persist=False)
+        if args.mode == 'local':
+            def finish_local():
+                editor = app._local_adjustments
+                print(json.dumps(dict(mode='local', language=args.language, theme=args.theme,
+                    callback_errors=errors, native_started=client.start.called,
+                    row_resets=sum(row.reset_button is not None for row in editor.rows.values()),
+                    summary_visible=bool(editor.summary.winfo_ismapped()),
+                    geometry=root.geometry()), ensure_ascii=False), flush=True)
+                app._on_close()
+            faulthandler.cancel_dump_traceback_later()
+            root.after(max(1000, args.hold_seconds * 1000), finish_local)
+            root.protocol('WM_DELETE_WINDOW', finish_local)
+            root.mainloop()
+            if errors or client.start.called:
+                raise SystemExit(1)
+            return
         ui = app._realtime_workspace
         ui._gpu_sampling = True
         descriptors = [parameter('style', label=r'NR Style\n(0 Default, 1 Natural, 2 Cinematic)', default=0, integer=True, step=1),
@@ -80,6 +97,7 @@ def main():
                        parameter('localStructureStrength', label='Local Structure Strength'),
                        parameter('skinStructureStrength', label='Skin Structure Strength'),
                        parameter('useAutoMask', label='Automatic Mask', default=0, maximum=1, integer=True, step=1),
+                       parameter('uiCorrection', label='NR UI Correction', default=0, maximum=1, integer=True, step=1),
                        parameter('inputResolutionPercent', label='Input Resolution (%)', default=100,
                                  minimum=25, maximum=100, integer=True, step=1)]
         descriptors.extend([

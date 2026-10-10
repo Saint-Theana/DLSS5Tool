@@ -127,6 +127,15 @@ class RealtimeLocalizationTests(unittest.TestCase):
                 self.assertNotIn('realtime.error.', message)
                 self.assertEqual(bool(re.search('[\u4e00-\u9fff]', message)), language == 'zh_CN')
 
+    def test_ui_correction_is_explicitly_experimental(self):
+        from dlss5tool.realtime_labels import parameter_hint
+        for language, marker, caveat in (('zh_CN', '实验性', '尚未验证'),
+                                          ('en_US', 'experimental', 'unverified')):
+            i18n.set_language(language)
+            self.assertIn(marker, effect_text('NR UI Correction'))
+            for prefix in ('', 'pass2_', 'pass3_'):
+                self.assertIn(caveat, parameter_hint(prefix + 'uiCorrection'))
+
 
 if __name__ == '__main__':
     unittest.main()

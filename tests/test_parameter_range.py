@@ -103,6 +103,33 @@ class RealtimeRangeTests(unittest.TestCase):
         self.assertEqual(row.slider.cget('to'), 2)
         self.client.start.assert_not_called()
 
+    def test_ui_correction_checkbox_aligns_left_and_retains_values_and_undo(self):
+        data = common.catalog()[NR]
+        names = [prefix + 'uiCorrection' for prefix in ('', 'pass2_', 'pass3_')]
+        data['parameters'].extend(inspector.parameter(name, label='NR UI Correction', default=0,
+            maximum=1, integer=True, step=1) for name in names)
+        self.event(dict(event='catalog', effects=[dict(data, name=NR)]))
+        for language in ('zh_CN', 'en_US'):
+            i18n.set_language(language)
+            self.ui._select_effect()
+            for theme in ('dark', 'light'):
+                self.ui.apply_theme(ui_theme.tokens(theme))
+                self.root.update_idletasks()
+                for name in names:
+                    row = self.ui.parameter_rows[name]
+                    self.assertEqual(row.toggle.pack_info()['side'], 'left')
+                    self.assertEqual(row.toggle.cget('text'), i18n.tr('realtime.effect.nr_ui_correction'))
+                    self.assertFalse(row.label.winfo_manager())
+                    self.assertEqual(row.toggle.pack_info()['padx'], 0)
+                row = self.ui.parameter_rows['uiCorrection']
+                self.assertEqual(row.toggle.winfo_rootx(), self.ui.range_toggle.winfo_rootx())
+        row.toggle.invoke()
+        self.assertEqual(row.value(), 1)
+        self.assertEqual(self.ui.collect()['effects'][0]['parameters']['uiCorrection'], 1)
+        self.ui.undo_button.invoke()
+        self.assertEqual(row.value(), 0)
+        self.client.start.assert_not_called()
+
     def test_loaded_legacy_later_pass_and_disabled_memory_open_range(self):
         self.prepare()
         draft = common.config()
@@ -119,6 +146,16 @@ class RealtimeRangeTests(unittest.TestCase):
         warning.assert_called_once()
         self.assertTrue(self.ui.extended_range.get())
         self.assertEqual(row.value(), 1.6)
+
+    def test_range_toggle_follows_common_rows_and_stays_before_later_passes(self):
+        self.prepare()
+        self.root.update_idletasks()
+        section = self.ui.parameter_sections['look']
+        self.assertIs(section.body.pack_slaves()[-1], self.ui.range_toggle)
+        for name in ('style', 'intensity', 'localToneStrength', 'localStructureStrength', 'skinStructureStrength'):
+            row = self.ui.parameter_rows[name]
+            self.assertLessEqual(row.winfo_y() + row.winfo_height(), self.ui.range_toggle.winfo_y())
+        self.assertLess(section.winfo_y(), self.ui.parameter_sections['pass2'].winfo_y())
 
     def test_range_only_toggle_does_not_apply_draft_or_restart(self):
         self.prepare()
@@ -190,7 +227,8 @@ class LocalRangeTests(unittest.TestCase):
         self.assertTrue(settings['v_enable_5x'].get())
         self.assertEqual(row.value(), 3.5)
         self.assertEqual(row.slider.cget('to'), 5)
-        row.reset_button.invoke()
+        with mock.patch('dlss5tool.local_adjustments.messagebox.askokcancel', return_value=True):
+            editor.reset_all()
         settings['v_enable_5x'].set(False)
         app._on_5x_toggle()
         self.assertEqual(row.slider.cget('to'), 1)

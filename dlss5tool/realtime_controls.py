@@ -302,8 +302,9 @@ class ParameterRow(ttk.Frame):
               and (descriptor['name'].split('_')[-1].lower().startswith(('enable', 'use', 'disable'))
                    or descriptor['name'].endswith('uiCorrection'))):
             self.display = tk.BooleanVar(self)
-            self.toggle = CheckToggle(header, '', self.display, command=self._toggle, ui=ui)
-            self.toggle.pack(side='right', padx=(8, 0))
+            left_toggle = descriptor['name'].endswith('uiCorrection')
+            self.toggle = CheckToggle(header, label if left_toggle else '', self.display, command=self._toggle, ui=ui)
+            self.toggle.pack(side='left' if left_toggle else 'right', padx=0 if left_toggle else (8, 0))
             self._widgets.append(self.toggle)
         else:
             self.number_text = tk.StringVar(self, value=self._format_numeric(variable.get()))
@@ -324,7 +325,8 @@ class ParameterRow(ttk.Frame):
                 self.slider.pack(fill='x')
         # Reserve the numeric/toggle width before giving the title the rest.
         if enabled_variable is None:
-            self.label.pack(side='left', fill='x', expand=True)
+            if self.toggle is None or not descriptor['name'].endswith('uiCorrection'):
+                self.label.pack(side='left', fill='x', expand=True)
         else:
             self.enable_display = tk.BooleanVar(self)
             self.enable_toggle = CheckToggle(header, label, self.enable_display,

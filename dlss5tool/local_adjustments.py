@@ -1,12 +1,12 @@
 """Local-media adapter for the same parameter rows as realtime editing."""
 from copy import deepcopy
 import tkinter as tk
-from tkinter import ttk
+from tkinter import messagebox, ttk
 
-from dlss5tool import app_settings
+from dlss5tool import app_settings, ui_theme
 from dlss5tool.i18n import tr
 from dlss5tool.realtime_controls import ParameterRow
-from dlss5tool.ui_widgets import ChromeButton
+from dlss5tool.ui_widgets import ChromeButton, Tooltip
 
 
 # Common fields come first; composition is separate and never cross-copied.
@@ -32,6 +32,20 @@ class LocalAdjustments(ttk.Frame):
         self._pending = None
         self._composition_enabled = True
         self._ui = dict(ui)
+        self._on_copy = on_copy
+        self._menu = None
+        self.actions = ttk.Frame(self, style='Panel.TFrame')
+        self.actions.pack(fill='x', pady=(4, 8))
+        self.more_button = ChromeButton(self.actions, text=tr('realtime.editor.more'), icon='more',
+                                        icon_only=True, variant='tool', ui=ui, command=self.show_menu)
+        self.more_button.pack(side='right', padx=(4, 0))
+        Tooltip(self.more_button, tr('realtime.editor.more'))
+        self.undo_button = ChromeButton(self.actions, text=tr('realtime.polish.undo_parameters'), variant='tool', ui=ui,
+                                        icon='undo', command=self.undo)
+        self.undo_button.pack(side='right')
+        Tooltip(self.undo_button, tr('realtime.editor.undo_hint'))
+        self.heading = ttk.Label(self.actions, text='DLSS NR', style='TLabel', font=ui_theme.UI_FONT_BOLD)
+        self.heading.pack(side='left')
         style = tk.StringVar(self, value=str(self.styles.get(settings['v_style'].get(), 0)))
         desc = dict(name='style', label=tr('label.style'), default=app_settings.DEFAULTS['style'],
                     min=0, max=2, step=1, integer=True, choices=[(n, text) for text, n in styles.items()])
@@ -50,19 +64,7 @@ class LocalAdjustments(ttk.Frame):
             settings[widget_key], settings[widget_key + '_value'] = row.slider, row.field
             if name == 'output_mix':
                 settings['w_use_output_mix'] = row.enable_toggle
-        actions = ttk.Frame(self, style='Panel.TFrame')
-        actions.pack(fill='x', pady=(2, 4))
-        self.reset_button = ChromeButton(actions, text=tr('realtime.editor.reset_group'), variant='tool', ui=ui,
-                                         command=lambda: self.reset(tuple(self.rows)))
-        self.reset_button.pack(side='right')
-        self.undo_button = ChromeButton(actions, text=tr('realtime.editor.undo'), variant='tool', ui=ui,
-                                        command=self.undo)
-        self.undo_button.pack(side='left')
-        self.copy_button = ChromeButton(self, text=tr('parameter.copy_from_realtime'), variant='tool', ui=ui,
-                                        command=on_copy)
-        self.copy_button.pack(anchor='w', pady=(0, 4))
         self.summary = ttk.Label(self, style='Hint.TLabel', wraplength=300, justify='left')
-        self.summary.pack(fill='x')
         self._building = False
         self._snapshot = self.snapshot()
         self.set_limit(5 if settings['v_enable_5x'].get() else 1)
@@ -75,8 +77,7 @@ class LocalAdjustments(ttk.Frame):
         self._bindings[name] = (actual, actual_enabled, default_enabled)
         row = ParameterRow(self, desc, raw, ui=self._ui, chips=name == 'style',
                            enabled_variable=enabled, allow_percent=name != 'style', hint=hint, range_hint=name != 'style',
-                           on_change=self.changed, on_commit=lambda n=name: self.commit(n),
-                           on_reset=lambda n=name: self.reset((n,)))
+                           on_change=self.changed, on_commit=lambda n=name: self.commit(n))
         row.pack(fill='x', pady=(4, 8))
         self.rows[name] = row
         self._traces.append((actual, actual.trace_add('write', lambda *_, n=name: self.sync(n))))
@@ -173,9 +174,33 @@ class LocalAdjustments(ttk.Frame):
 
     def reset(self, names):
         snapshot = self.snapshot()
+        before = deepcopy(snapshot)
         for name in names:
             snapshot[name] = (str(self.rows[name].descriptor['default']), self._bindings[name][2])
-        self.restore(snapshot, preserve_undo=True)
+        if snapshot != before:
+            self.restore(snapshot, preserve_undo=True)
+
+    def show_menu(self):
+        if self._menu is not None:
+            self._menu.destroy()
+        menu = self._menu = tk.Menu(self, tearoff=False, background=self._ui['panel'],
+            foreground=self._ui['text'], activebackground=self._ui['select_bg'],
+            activeforeground=self._ui['text'])
+        menu.add_command(label=tr('parameter.copy_from_realtime'), command=self._on_copy)
+        menu.add_separator()
+        menu.add_command(label=tr('parameter.reset_local'), command=self.reset_all)
+        menu.update_idletasks()
+        x = max(self.winfo_rootx(), self.more_button.winfo_rootx() + self.more_button.winfo_width()
+                - menu.winfo_reqwidth())
+        try:
+            menu.tk_popup(x, self.more_button.winfo_rooty() + self.more_button.winfo_height())
+        finally:
+            menu.grab_release()
+
+    def reset_all(self):
+        if messagebox.askokcancel(tr('parameter.reset_local'), tr('parameter.reset_local_confirm'),
+                                 parent=self.winfo_toplevel()):
+            self.reset(tuple(self.rows))
 
     def undo(self):
         snapshot = self._pending or self._undo
@@ -199,7 +224,6 @@ class LocalAdjustments(ttk.Frame):
     def refresh(self):
         if self._building:
             return
-        count = 0
         valid = True
         for name, row in self.rows.items():
             try:
@@ -210,12 +234,14 @@ class LocalAdjustments(ttk.Frame):
                 custom, valid, error = True, False, str(exc)
             default_enabled = self._bindings[name][2]
             custom |= row.enabled_variable is not None and row.enabled_variable.get() != default_enabled
-            count += int(custom)
             reason = tr('parameter.composition_requires_processed') if name == 'output_mix' and not self._composition_enabled else ''
             row.set_feedback(nondefault=custom, error=error, reason=reason)
-        self.summary.configure(text=tr('parameter.local_invalid') if not valid else tr('parameter.custom_count', count=count))
+        self.summary.configure(text='' if valid else tr('parameter.local_invalid'))
+        if valid:
+            self.summary.pack_forget()
+        else:
+            self.summary.pack(fill='x')
         self.undo_button.configure(state='normal' if self._undo is not None or self._pending is not None else 'disabled')
-        self.reset_button.configure(state='normal' if count else 'disabled')
 
     def set_limit(self, maximum):
         for name, row in self.rows.items():
@@ -231,10 +257,12 @@ class LocalAdjustments(ttk.Frame):
         self._ui = dict(ui)
         for row in self.rows.values():
             row.apply_theme(ui)
-        for button in (self.reset_button, self.undo_button, self.copy_button):
+        for button in (self.more_button, self.undo_button):
             button.apply_theme(ui)
 
     def destroy(self):
+        if self._menu is not None:
+            self._menu.destroy()
         for var, trace in self._traces:
             var.trace_remove('write', trace)
         self._traces.clear()
