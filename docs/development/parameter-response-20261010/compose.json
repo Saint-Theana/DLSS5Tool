@@ -1,0 +1,14 @@
+{
+  "mode": "compose",
+  "resolution": [
+    2176,
+    3840
+  ],
+  "synchronous_callback_ms": 4230.99799999909,
+  "synchronous_heartbeat_gap_ms": 4231.343900002685,
+  "async_dispatch_ms": 0.2522000031603966,
+  "async_heartbeats": 380,
+  "async_heartbeat_p95_ms": 12.225099999341182,
+  "async_heartbeat_max_ms": 31.641300000046613,
+  "identical_pixels": true
+}

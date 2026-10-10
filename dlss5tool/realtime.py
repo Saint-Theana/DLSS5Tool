@@ -24,8 +24,7 @@ from dlss5tool.realtime_shortcuts import DEFAULT_HOTKEYS, validate_hotkeys, nati
 
 PROTOCOL = 1
 NR = r"DLSSNR\DLSSNR_AI_Filter"
-DEFAULT_QUALITY = {'total': 1.0, 'darken': 1.0, 'brighten': 1.0, 'color': 1.0,
-                   'luminance': 1.0, 'protection': False, 'feather': 12.0, 'regions': []}
+from dlss5tool.appearance import DEFAULT_QUALITY
 DEFAULT_CONFIG = {
     "effects": [{"name": NR, "parameters": {"multiPass": 1}, "scaling_type": 0, "scale": [1, 1]}],
     "capture_method": 0, "windowed": True, "game_mode": False,
@@ -179,21 +178,8 @@ def validate_config(value):
         raise ValueError(tr('realtime.error.game_fullscreen'))
     if result["windowed"] and result["capture_method"] == 1:
         raise ValueError(tr('realtime.error.dd_fullscreen'))
-    q = result['quality']
-    if not isinstance(q, dict) or set(q) - set(DEFAULT_QUALITY):
-        raise ValueError(tr('realtime.error.quality'))
-    result['quality'] = q = dict(deepcopy(DEFAULT_QUALITY), **q)
-    for key in ('total', 'darken', 'brighten', 'color', 'luminance', 'feather'):
-        n = q[key]
-        if type(n) not in (int, float) or not math.isfinite(n) or not 0 <= n <= (256 if key == 'feather' else 2):
-            raise ValueError(tr('realtime.error.quality_value', field=key))
-    if type(q['protection']) is not bool or not isinstance(q['regions'], list) or len(q['regions']) > 4:
-        raise ValueError(tr('realtime.error.regions'))
-    for region in q['regions']:
-        if (not isinstance(region, list) or len(region) != 4 or
-                any(type(n) not in (int, float) or not math.isfinite(n) or not 0 <= n <= 1 for n in region) or
-                region[2] <= region[0] or region[3] <= region[1]):
-            raise ValueError(tr('realtime.error.rectangles'))
+    from dlss5tool.appearance import quality
+    result['quality'] = quality(result['quality'])
     return result
 
 

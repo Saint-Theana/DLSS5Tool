@@ -65,7 +65,7 @@ def validate(settings):
         except ValueError as exc:
             raise ValueError(i18n.tr_for(settings.get('ui_language'), str(exc))) from exc
     files = mod_paths.guidance_files(settings) if mode else {}
-    if mode in (1, 3) and flow_backend(settings) == 'nvofa' and 'nvofa' not in mod_paths.flow_backends(settings):
+    if mode in (1, 3) and flow_backend(settings) == 'nvofa' and not mod_paths.builtin_flow(settings) and 'nvofa' not in mod_paths.flow_backends(settings):
         raise ValueError(i18n.tr_for(settings.get('ui_language'), 'guidance.error.flow_backend_component'))
     return files
 
@@ -182,6 +182,12 @@ class GuidanceSession:
             command = [files['worker']]
             source_python = os.environ.get('DLSS5TOOL_GUIDANCE_PYTHON', '')
             source_root = None
+            if files.get('builtin_nvofa'):
+                if getattr(sys, 'frozen', False):
+                    command = [sys.executable, '--nvofa-worker']
+                else:
+                    source_root = str(mod_paths.app_root())
+                    command = [sys.executable, '-B', '-m', 'dlss5tool.guidance_worker']
             if source_python and not getattr(sys, 'frozen', False):
                 if not os.path.isfile(source_python):
                     raise FileNotFoundError('Configured guidance Python is missing: ' + source_python)

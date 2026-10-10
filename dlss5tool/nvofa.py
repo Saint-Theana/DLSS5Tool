@@ -24,6 +24,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 import ctypes as C
 import contextlib
+import os
 import sys
 
 P=C.c_void_p
@@ -128,7 +129,16 @@ class OpticalFlow:
         elif require_current:
             raise RuntimeError('Torch CUDA context is not current')
         else:
-            check(bind(self.cuda, 'cuDeviceGet', I, C.POINTER(I), I)(C.byref(device), 0), 'probe device')
+            # Driver API does not apply CUDA_VISIBLE_DEVICES. Do not silently
+            # choose another GPU when a remapping cannot be resolved.
+            visible = os.environ.get('CUDA_VISIBLE_DEVICES')
+            ordinal = 0
+            if visible is not None:
+                first = visible.split(',')[0].strip()
+                if not first.isdecimal():
+                    raise RuntimeError('NVOFA requires a numeric CUDA_VISIBLE_DEVICES mapping')
+                ordinal = int(first)
+            check(bind(self.cuda, 'cuDeviceGet', I, C.POINTER(I), I)(C.byref(device), ordinal), 'probe device')
         self.device, self.context = device, P()
         check(bind(self.cuda, 'cuDevicePrimaryCtxRetain', I, C.POINTER(P), I)(
             C.byref(self.context), device), 'retain')

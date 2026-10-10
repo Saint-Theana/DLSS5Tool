@@ -1,15 +1,16 @@
 """Local-media adapter for the same parameter rows as realtime editing."""
 from copy import deepcopy
+import json
 import tkinter as tk
 from tkinter import messagebox, ttk
 
-from dlss5tool import app_settings, ui_theme
+from dlss5tool import app_settings, ui_theme, appearance
 from dlss5tool.i18n import tr
 from dlss5tool.realtime_controls import ParameterRow
 from dlss5tool.ui_widgets import ChromeButton, Tooltip
 
 
-# Common fields come first; composition is separate and never cross-copied.
+# Legacy mix is separate from the portable appearance groups.
 FIELDS = (
     ('intensity', 'strength', 'v_intensity', 'v_use_intensity', 'w_intensity'),
     ('local_tone', 'local_tone', 'v_local_tone', 'v_use_local_tone', 'w_local_tone'),
@@ -20,7 +21,7 @@ FIELDS = (
 
 
 class LocalAdjustments(ttk.Frame):
-    def __init__(self, parent, settings, *, ui, styles, on_model, on_output, on_copy):
+    def __init__(self, parent, settings, *, ui, styles, on_model, on_output, on_copy, on_regions=None):
         super().__init__(parent, style='Panel.TFrame')
         self.settings = settings
         self.styles = dict(styles)
@@ -34,6 +35,9 @@ class LocalAdjustments(ttk.Frame):
         self._ui = dict(ui)
         self._on_copy = on_copy
         self._menu = None
+        self._region_editor = None
+        saved_look = appearance.settings(settings.get('_appearance', {}), strict=False)
+        self._regions = deepcopy(saved_look['nr_quality']['regions'])
         self.actions = ttk.Frame(self, style='Panel.TFrame')
         self.actions.pack(fill='x', pady=(4, 8))
         self.more_button = ChromeButton(self.actions, text=tr('realtime.editor.more'), icon='more',
@@ -64,9 +68,33 @@ class LocalAdjustments(ttk.Frame):
             settings[widget_key], settings[widget_key + '_value'] = row.slider, row.field
             if name == 'output_mix':
                 settings['w_use_output_mix'] = row.enable_toggle
+        for group, fields in (('nr_residual', appearance.RESIDUAL_FIELDS),
+                              ('nr_quality', (*appearance.QUALITY_FIELDS, 'feather', 'protection'))):
+            ttk.Label(self, text=tr('appearance.' + group), style='Kicker.TLabel').pack(fill='x', pady=(8, 3))
+            for key in fields:
+                name = group + '.' + key
+                value = saved_look[group][key]
+                integer = key == 'protection'
+                actual = tk.IntVar(self, value=int(value)) if integer else tk.DoubleVar(self, value=value)
+                settings['v_' + name] = actual
+                desc = dict(name=name, label=tr('appearance.' + key), default=int(value) if integer else appearance.DEFAULTS[group][key],
+                            min=1 if key == 'residualMultiplier' else 0,
+                            max=256 if key == 'feather' else 1 if integer else 2,
+                            step=1 if key in ('feather', 'protection') else .01, integer=integer)
+                if integer:
+                    desc.update(default=0, choices=[(0, tr('parameter.off')), (1, tr('parameter.on'))])
+                self._add_row(name, desc, tk.StringVar(self, value=str(int(value) if integer else value)), actual,
+                              None, tr('appearance.residual_hint' if group == 'nr_residual' else 'appearance.quality_hint'))
+        if on_regions:
+            button = ChromeButton(self, text=tr('realtime.preview.regions'), ui=ui, variant='tool', command=on_regions)
+            button.pack(anchor='w', pady=4)
+            self.region_button = button
+        self.region_summary = ttk.Label(self, style='Hint.TLabel', wraplength=300)
+        self.region_summary.pack(fill='x')
         self.summary = ttk.Label(self, style='Hint.TLabel', wraplength=300, justify='left')
         self._building = False
         self._snapshot = self.snapshot()
+        self._applied_snapshot = self._snapshot
         self.set_limit(5 if settings['v_enable_5x'].get() else 1)
 
     def _add_row(self, name, desc, raw, actual, switch, hint):
@@ -75,7 +103,7 @@ class LocalAdjustments(ttk.Frame):
         else:
             enabled = actual_enabled = default_enabled = None
         self._bindings[name] = (actual, actual_enabled, default_enabled)
-        row = ParameterRow(self, desc, raw, ui=self._ui, chips=name == 'style',
+        row = ParameterRow(self, desc, raw, ui=self._ui, chips=name == 'style' or name.endswith('.protection'),
                            enabled_variable=enabled, allow_percent=name != 'style', hint=hint, range_hint=name != 'style',
                            on_change=self.changed, on_commit=lambda n=name: self.commit(n))
         row.pack(fill='x', pady=(4, 8))
@@ -86,8 +114,28 @@ class LocalAdjustments(ttk.Frame):
         return row
 
     def snapshot(self):
-        return {name: (row.variable.get(), row.enabled_variable.get() if row.enabled_variable is not None else None)
-                for name, row in self.rows.items()}
+        return {**{name: (row.variable.get(), row.enabled_variable.get() if row.enabled_variable is not None else None)
+                   for name, row in self.rows.items()}, '_regions': (json.dumps(self._regions), None)}
+
+    def appearance_settings(self):
+        values = deepcopy(appearance.DEFAULTS)
+        for group, fields in (('nr_residual', appearance.RESIDUAL_FIELDS), ('nr_quality', (*appearance.QUALITY_FIELDS, 'feather', 'protection'))):
+            for key in fields:
+                value = self._bindings[group + '.' + key][0].get()
+                values[group][key] = bool(value) if key == 'protection' else float(value)
+        values['nr_quality']['regions'] = deepcopy(self._regions)
+        return appearance.settings(values)
+
+    def commit_regions(self, regions):
+        appearance.quality({'regions': regions})
+        snapshot = self.snapshot()
+        snapshot['_regions'] = (json.dumps(regions), None)
+        snapshot['nr_quality.protection'] = (str(int(bool(regions))), None)
+        self.restore(snapshot, preserve_undo=True)
+
+    @staticmethod
+    def output_only(names):
+        return all(n == 'output_mix' or n == '_regions' or n.startswith('nr_') for n in names)
 
     def changed(self):
         if self._building or self._syncing:
@@ -116,14 +164,25 @@ class LocalAdjustments(ttk.Frame):
         actual, actual_enabled, _ = self._bindings[name]
         self._syncing = True
         try:
-            actual.set(next(text for text, n in self.styles.items() if n == value) if name == 'style' else value)
+            target = next(text for text, n in self.styles.items() if n == value) if name == 'style' else value
+            if actual.get() != target:
+                actual.set(target)
             if actual_enabled is not None:
-                actual_enabled.set(bool(row.enabled_variable.get()))
-            row.variable.set(str(value))
+                enabled = bool(row.enabled_variable.get())
+                if actual_enabled.get() != enabled:
+                    actual_enabled.set(enabled)
+            if row.variable.get() != str(value):
+                row.variable.set(str(value))
         finally:
             self._syncing = False
 
     def commit(self, name=None, *, notify=True):
+        # Preview polling / autosave reads must not commit an unfinished drag,
+        # consume its undo snapshot, or repeatedly rewrite every Tk variable.
+        if not notify and any(row.slider is not None and row.slider._dragging for row in self.rows.values()):
+            return False
+        if self.snapshot() == self._snapshot == self._applied_snapshot:
+            return True
         names = (name,) if name else tuple(self.rows)
         try:
             values = {n: self.rows[n].value() for n in names}
@@ -138,9 +197,11 @@ class LocalAdjustments(ttk.Frame):
             self._undo = self._pending or self._snapshot
             self._pending = None
             self._snapshot = current
+        self.settings['_appearance'] = self.appearance_settings()
+        self._applied_snapshot = current
         self.refresh()
         if notify and changed:
-            self._callbacks[1 if name == 'output_mix' else 0]()
+            self._callbacks[1 if self.output_only(names) else 0]()
         return True
 
     def restore(self, snapshot, *, preserve_undo=False):
@@ -149,7 +210,7 @@ class LocalAdjustments(ttk.Frame):
         from dlss5tool.parameter_values import parse_number
         for name, (raw, _) in snapshot.items():
             try:
-                if name != 'style' and 1 < parse_number(raw, percent=True) <= 5:
+                if name in {f[0] for f in FIELDS} and 1 < parse_number(raw, percent=True) <= 5:
                     self.settings['v_enable_5x'].set(True)
                     self.set_limit(5)
                     break
@@ -158,6 +219,9 @@ class LocalAdjustments(ttk.Frame):
         self._syncing = True
         try:
             for name, (raw, enabled) in snapshot.items():
+                if name == '_regions':
+                    self._regions = appearance.quality({'regions': json.loads(raw)})['regions']
+                    continue
                 self.rows[name].variable.set(raw)
                 if enabled is not None:
                     self.rows[name].enabled_variable.set(enabled)
@@ -170,12 +234,15 @@ class LocalAdjustments(ttk.Frame):
         self._undo = before if preserve_undo else None
         self.refresh()
         if valid and changed_names:
-            self._callbacks[1 if set(changed_names) == {'output_mix'} else 0]()
+            self._callbacks[1 if self.output_only(changed_names) else 0]()
 
     def reset(self, names):
         snapshot = self.snapshot()
         before = deepcopy(snapshot)
         for name in names:
+            if name == '_regions':
+                snapshot[name] = ('[]', None)
+                continue
             snapshot[name] = (str(self.rows[name].descriptor['default']), self._bindings[name][2])
         if snapshot != before:
             self.restore(snapshot, preserve_undo=True)
@@ -189,6 +256,9 @@ class LocalAdjustments(ttk.Frame):
         menu.add_command(label=tr('parameter.copy_from_realtime'), command=self._on_copy)
         menu.add_separator()
         menu.add_command(label=tr('parameter.reset_local'), command=self.reset_all)
+        menu.add_separator()
+        menu.add_command(label=tr('appearance.save'), command=lambda: self.portable(False))
+        menu.add_command(label=tr('appearance.load'), command=lambda: self.portable(True))
         menu.update_idletasks()
         x = max(self.winfo_rootx(), self.more_button.winfo_rootx() + self.more_button.winfo_width()
                 - menu.winfo_reqwidth())
@@ -200,7 +270,19 @@ class LocalAdjustments(ttk.Frame):
     def reset_all(self):
         if messagebox.askokcancel(tr('parameter.reset_local'), tr('parameter.reset_local_confirm'),
                                  parent=self.winfo_toplevel()):
-            self.reset(tuple(self.rows))
+            self.reset((*self.rows, '_regions'))
+
+    def portable(self, importing):
+        from dlss5tool.appearance_ui import load_preset, save_preset
+        try:
+            if importing:
+                value = load_preset(self.winfo_toplevel())
+                if value:
+                    self.replace_common(value['values'])
+            elif self.valid():
+                save_preset(self.winfo_toplevel(), self.snapshot())
+        except (ValueError, TypeError, KeyError, OSError) as error:
+            messagebox.showerror(tr('parameter.copy_title'), str(error), parent=self)
 
     def undo(self):
         snapshot = self._pending or self._undo
@@ -237,6 +319,7 @@ class LocalAdjustments(ttk.Frame):
             reason = tr('parameter.composition_requires_processed') if name == 'output_mix' and not self._composition_enabled else ''
             row.set_feedback(nondefault=custom, error=error, reason=reason)
         self.summary.configure(text='' if valid else tr('parameter.local_invalid'))
+        self.region_summary.configure(text=tr('realtime.workspace.regions', count=len(self._regions)))
         if valid:
             self.summary.pack_forget()
         else:
@@ -244,12 +327,17 @@ class LocalAdjustments(ttk.Frame):
         self.undo_button.configure(state='normal' if self._undo is not None or self._pending is not None else 'disabled')
 
     def set_limit(self, maximum):
+        if getattr(self, '_maximum', None) == maximum:
+            return
+        self._maximum = maximum
         for name, row in self.rows.items():
-            if name != 'style':
+            if name in {f[0] for f in FIELDS}:
                 row.set_maximum(maximum)
         self.refresh()
 
     def set_composition_enabled(self, enabled):
+        if self._composition_enabled == enabled:
+            return
         self._composition_enabled = enabled
         self.refresh()
 
@@ -259,8 +347,12 @@ class LocalAdjustments(ttk.Frame):
             row.apply_theme(ui)
         for button in (self.more_button, self.undo_button):
             button.apply_theme(ui)
+        if hasattr(self, 'region_button'):
+            self.region_button.apply_theme(ui)
 
     def destroy(self):
+        if self._region_editor:
+            self._region_editor.close()
         if self._menu is not None:
             self._menu.destroy()
         for var, trace in self._traces:

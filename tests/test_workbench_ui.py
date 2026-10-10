@@ -279,6 +279,31 @@ class WorkbenchUiTests(unittest.TestCase):
             ui.export_diagnostics()
             callback.assert_called_once_with()
 
+    def test_realtime_start_refreshes_idle_runtime_paths_and_blocks_export(self):
+        app = self.app
+        app._select_workbench_mode('realtime')
+        ui = app._realtime_workspace
+        ui.client.settings = {'mods_directory': 'old', 'dlss_runtime': 'old.dll'}
+        with mock.patch.object(app, '_collect_host_settings', return_value={
+                'mods_directory': 'new', 'dlss_runtime': '__bundled__'}):
+            self.assertTrue(app._can_start_realtime())
+        self.assertEqual(ui.client.settings['mods_directory'], 'new')
+        ui.client.close.assert_called_once()
+        ui.client.launch.assert_called()
+        ui.client.send.assert_any_call('catalog')
+        self.assertIsNone(ui._host_ready)
+        self.assertIsNone(ui._catalog_generation)
+        app._exporting = True
+        self.assertFalse(app._can_start_realtime())
+        app._exporting = False
+        ui._active = True
+        with mock.patch.object(gui.messagebox, 'showinfo') as info, \
+             mock.patch.object(gui.filedialog, 'asksaveasfilename') as dialog:
+            app.export_dlss()
+            app.start_export_queue()
+        self.assertEqual(info.call_count, 2)
+        dialog.assert_not_called()
+
     def test_deep_export_rechecks_busy_after_save_dialog(self):
         app = self.app
         def choose_path(**kwargs):

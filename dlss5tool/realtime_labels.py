@@ -19,7 +19,8 @@ def effect_text(text):
 
 def parameter_label(item):
     # Upstream calls both distinct backend settings "OF Quality".
-    key = {'amdOpticalFlowMode': 'realtime.parameter.amd_flow',
+    key = {'enableResidualControls': 'appearance.enable_residual',
+           'amdOpticalFlowMode': 'realtime.parameter.amd_flow',
            'nvidiaOpticalFlowQuality': 'realtime.parameter.nvidia_flow'}.get(item['name'])
     return tr(key) if key else effect_text(item.get('label') or item['name'])
 
@@ -96,7 +97,7 @@ def inspector_groups(name, parameters):
                 group = field.split('_')[0]
             elif field in ('enableInputResolutionScaling', 'inputResolutionPercent'):
                 group = 'resolution'
-            elif field in ('residualMultiplier', 'shadowStructureMultiplier', 'reflectionGlowMultiplier'):
+            elif field in ('enableResidualControls', 'residualMultiplier', 'shadowStructureMultiplier', 'reflectionGlowMultiplier'):
                 group = 'detail'
             elif field in ('residualSaturation', 'residualLightness'):
                 group = 'color'

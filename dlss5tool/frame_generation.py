@@ -434,6 +434,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
         if memory and memory['free_bytes'] < estimate + 1024**3:
             raise ValueError('当前显存余量不足此配置，请关闭其他 GPU 任务或自行更改配置；未自动降级')
         hdr = bool(meta['is_hdr'] and config.get('hdr_mode', True))
+        from dlss5tool import appearance
+        appearance.preflight(config, hdr=hdr)
         if gpu_export is None and hdr and not render_only and input_session is None and not view and not meta.get('_is_vfr'):
             from dlss5tool.gpu_export_runtime import eligible,load_components
             if ow*oh>=1920*1080 and eligible(ow,oh,hdr_metadata=meta,
@@ -448,7 +450,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                       color_primaries=meta['color_primaries'], host_auto_fallback=False,
                       host_in_flight=1, guidance_flow_fallback=False)
         direct_enhancement=bool(gpu_export is not None and gpu_export.get('host_library') and enhance
-            and multiplier==1 and scale==1 and (ow,oh)==(w,h) and not view and config.get('output_mix',1)==1)
+            and multiplier==1 and scale==1 and (ow,oh)==(w,h) and not view and config.get('output_mix',1)==1
+            and not appearance.active(config))
         if direct_enhancement:
             config['_gpu_export_host']=str(gpu_export['host_library'])
             config['host_backend']='v2'
@@ -505,6 +508,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             enhancement_pitch=descriptor.pop('pitch')
             shared_enhancement=writer.import_shared_output(**descriptor)
         report.update(width=ow, height=oh, source_rate=str(rate), output_rate=str(rate*multiplier),
+                      appearance_version=appearance.VERSION,
+                      composition_backend='cpu-reference' if appearance.active(config) else 'neutral-bypass',
                       color=meta['profile'] if hdr else 'srgb', output_view=view,
                       runtime_sha256=native.runtime_hash if native else None, log_dir=str(log_dir))
         scene_cuts = []
@@ -599,20 +604,20 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                 if processed is None:
                     raise RuntimeError('DLSS 5 增强失败')
                 if hdr:
-                    rgba = compose_hdr_frame(rgba, processed, view=0, mix=1 if view else config.get('output_mix', 1), profile=meta['profile'])
+                    rgba = compose_hdr_frame(rgba, processed, view=0, mix=1 if view else config.get('output_mix', 1), profile=meta['profile'], settings=config)
                 else:
                     mixed = compose_output_frame(cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR),
-                        cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), view=0, mix=1 if view else config.get('output_mix', 1))
+                        cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), view=0, mix=1 if view else config.get('output_mix', 1), settings=config)
                     rgba = cv2.cvtColor(mixed, cv2.COLOR_BGR2RGBA)
             elif input_session is not None and config.get('_render_stage') == 'output':
                 if hdr:
                     rgba = compose_hdr_frame(mix_source, rgba, view=0,
-                        mix=config.get('output_mix', 1), profile=meta['profile'])
+                        mix=config.get('output_mix', 1), profile=meta['profile'], settings=config)
                 else:
                     rgba = cv2.cvtColor(compose_output_frame(
                         cv2.cvtColor(mix_source, cv2.COLOR_RGBA2BGR),
                         cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR), view=0,
-                        mix=config.get('output_mix', 1)), cv2.COLOR_BGR2RGBA)
+                        mix=config.get('output_mix', 1), settings=config), cv2.COLOR_BGR2RGBA)
             rgba = final_size(rgba)
             if input_session is not None and config.get('_render_stage') == 'output' and reference is not None:
                 reference = final_size(reference)

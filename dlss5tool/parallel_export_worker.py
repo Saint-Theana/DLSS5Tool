@@ -120,7 +120,7 @@ def main():
                 raise RuntimeError(f"DLSS 在第 {queued_index} 帧异步回读失败")
             if queued_index >= args.start:
                 processed = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
-                writer.write(compose_output_frame(queued_frame, processed, view, mix))
+                writer.write(compose_output_frame(queued_frame, processed, view, mix, settings=settings))
                 kept += 1
                 if kept == 1 or kept % 4 == 0 or queued_index + 1 == args.end:
                     # Progress is advisory. A scanner locking this JSON must never
@@ -154,7 +154,7 @@ def main():
                 pending.append((index, frame))
                 processed = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
                 if index >= args.start:
-                    writer.write(compose_output_frame(frame, processed, view, mix))
+                    writer.write(compose_output_frame(frame, processed, view, mix, settings=settings))
                     kept += 1
                     if kept == 1 or kept % 4 == 0 or index + 1 == args.end:
                         _write_json(

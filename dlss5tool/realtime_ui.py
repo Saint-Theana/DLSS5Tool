@@ -2205,13 +2205,13 @@ class RealtimeWorkspace:
         if self._shortcut_changing:
             self.status.set(tr('realtime.shortcuts.checking'))
             return
-        if self._can_start is not None and not self._can_start():
-            self.status.set(tr('diagnostics.wait_deep'))
-            return
         previous_target = self._session_target
         previous_confirmed = self._render_confirmed
         previous_effects = self._applied_effects
         try:
+            if self._can_start is not None and not self._can_start():
+                self.status.set(tr('appearance.busy'))
+                return
             if self._pending_start or self._recovering or self._stop_requested:
                 self.status.set(tr("realtime.start_pending"))
                 return
@@ -2382,6 +2382,12 @@ class RealtimeWorkspace:
     def _restore_parameter_snapshot(self, snapshot, *, commit=True):
         self._editor_building = True
         try:
+            if 'appearance_quality' in snapshot:
+                q = snapshot['appearance_quality']
+                for key, var in self.quality_controls.items():
+                    var.set(q[key])
+                self.regions.delete('1.0', 'end')
+                self.regions.insert('1.0', '\n'.join(' '.join(map(str, r)) for r in q['regions']))
             if self.extended_range is not None and 'extended_range' in snapshot:
                 self.extended_range.set(snapshot['extended_range'])
                 self._update_range_controls()
@@ -2400,28 +2406,56 @@ class RealtimeWorkspace:
         self._edit_snapshot = self._parameter_snapshot()
         if commit:
             self._parameter_committed()
+            if 'appearance_quality' in snapshot:
+                self._quality_committed()
         else:
             self._refresh_editor_state()
 
-    def replace_common_parameters(self, index, candidate):
+    def replace_common_parameters(self, index, candidate, groups=('basic',)):
         """A confirmed copy edits the first pass only; never starts/restarts."""
         from dlss5tool.parameter_transfer import COMMON_FIELDS
         self.collect()  # Validate the previously selected editor before moving.
         # A queued earlier gesture must not submit the newly copied draft.
         self._queued_parameter_apply = False
+        self._queued_quality_apply = False
         self.chain.selection_set(index)
         self._select_effect()
         before = self._parameter_snapshot()
         after = deepcopy(before)
+        if set(groups) & {'quality', 'regions'}:
+            before['appearance_quality'] = deepcopy(self.collect()['quality'])
+            after['appearance_quality'] = deepcopy(candidate['quality'])
         effect = candidate['effects'][index]
-        for _, native, _ in COMMON_FIELDS:
+        for _, native, _ in COMMON_FIELDS if 'basic' in groups else ():
             after['parameters'][native] = str(effect['parameters'][native])
             if native in after['toggles']:
                 after['toggles'][native] = native not in effect.get('disabled_parameters', [])
-        after['parameters']['useAutoMask'] = str(effect['parameters']['useAutoMask'])
+        if 'basic' in groups:
+            after['parameters']['useAutoMask'] = str(effect['parameters']['useAutoMask'])
+        if 'residual' in groups:
+            from dlss5tool.appearance import RESIDUAL_FIELDS
+            for name in RESIDUAL_FIELDS:
+                after['parameters'][name] = str(effect['parameters'][name])
+            if 'enableResidualControls' in after['parameters']:
+                after['parameters']['enableResidualControls'] = str(effect['parameters'].get('enableResidualControls', 0))
         self._undo_parameters, self._pending_undo = before, None
         self._restore_parameter_snapshot(after, commit=False)
         self.status.set(tr('parameter.copied_draft'))
+
+    def _portable_appearance(self, importing):
+        from dlss5tool.appearance_ui import load_preset, save_preset
+        from dlss5tool.parameter_transfer import from_realtime, to_realtime
+        from dlss5tool.appearance import GROUPS
+        try:
+            if importing:
+                value = load_preset(self.window)
+                if value:
+                    index, candidate = to_realtime(value['values'], self.collect(), self.catalog, value['groups'])
+                    self.replace_common_parameters(index, candidate, value['groups'])
+            else:
+                save_preset(self.window, from_realtime(self.collect(), self.catalog, 5, GROUPS))
+        except (ValueError, TypeError, KeyError, OSError) as error:
+            messagebox.showerror(tr('parameter.copy_title'), str(error), parent=self.window)
 
     def _parameter_menu(self):
         previous = getattr(self, '_parameter_popup', None)
@@ -2430,6 +2464,8 @@ class RealtimeWorkspace:
         menu = tk.Menu(self.window, tearoff=False, background=self._ui['panel'], foreground=self._ui['text'],
                        activebackground=self._ui['select_bg'], activeforeground=self._ui['text'])
         self._parameter_popup = menu
+        menu.add_command(label=tr('appearance.save'), command=lambda: self._portable_appearance(False))
+        menu.add_command(label=tr('appearance.load'), command=lambda: self._portable_appearance(True))
         menu.add_command(label=tr('realtime.editor.reset_effect'), command=self._reset_current_effect,
                          state='normal' if self.parameter_rows else 'disabled')
         try:
@@ -2482,6 +2518,15 @@ class RealtimeWorkspace:
         dependency = None
         if name == 'inputResolutionPercent':
             dependency = ('enableInputResolutionScaling', lambda v: v == 1, 'resolution', {})
+        elif name in ('residualMultiplier', 'residualSaturation', 'residualLightness',
+                       'shadowStructureMultiplier', 'reflectionGlowMultiplier'):
+            try:
+                if any(k in self.parameter_rows and self.parameter_rows[k].value() == 1
+                       for k in ('enableResidualControls', 'enableInputResolutionScaling')):
+                    return ''
+            except (ValueError, tk.TclError):
+                pass
+            return tr('appearance.enable_residual_hint')
         elif name in ('amdOpticalFlowMode', 'nvidiaOpticalFlowQuality'):
             amd = name == 'amdOpticalFlowMode'
             dependency = ('opticalFlowMethod', lambda v: v == (1 if amd else 2), 'flow', {'method': 'AMD' if amd else 'NVIDIA'})
@@ -2571,6 +2616,10 @@ class RealtimeWorkspace:
     def _refresh_editor_state(self):
         if self._editor_building or self._closed:
             return
+        # Status/ack polling stays alive, but must not relayout the entire
+        # inspector underneath an active pointer gesture.
+        if self._parameter_dragging():
+            return
         state = 'idle'
         validation_error = ''
         changes = []
@@ -2638,7 +2687,9 @@ class RealtimeWorkspace:
                 draft[index].setdefault('parameters', {})[name] = var.get()
         self.chain.update_subtitles([step_subtitle(effect, self.catalog) for effect in draft])
         key = 'current' if state == 'clean' else 'invalid' if state == 'invalid' else 'pending' if self.session_summary()[1] else 'draft'
-        self.draft_summary.set(tr('realtime.summary.' + key, chain=chain_summary(draft, self.catalog)))
+        draft_text = tr('realtime.summary.' + key, chain=chain_summary(draft, self.catalog))
+        if self.draft_summary.get() != draft_text:
+            self.draft_summary.set(draft_text)
         draft_full = chain_summary(draft, self.catalog, max_items=None)
         if self._pending_start or self._recovering or self._stop_requested or self._native_state in (1, 3):
             text = tr('realtime.summary.waiting')
@@ -2651,7 +2702,8 @@ class RealtimeWorkspace:
         else:
             text = tr('realtime.summary.not_running')
             full = text
-        self.running_summary.set(text)
+        if self.running_summary.get() != text:
+            self.running_summary.set(text)
         self.chain_summary_help.set_details(tr('realtime.summary.pending', chain=draft_full) + '\n' + text)
         show_difference = state in ('dirty', 'restart', 'failed', 'invalid') and self.session_summary()[1]
         if show_difference and not self.chain_summary_help.winfo_manager():
@@ -2698,12 +2750,16 @@ class RealtimeWorkspace:
                 self.apply_quality()
         self._refresh_editor_state()
 
+    def _parameter_dragging(self):
+        return any(row.slider is not None and row.slider._dragging
+                   for row in (*self.parameter_rows.values(), *self.quality_rows.values()))
+
     def _parameter_committed(self):
         self._editor_changed()
         if self._pending_undo is not None:
             self._undo_parameters = self._pending_undo
             self._pending_undo = None
-        self._refresh_parameter_feedback()
+        self.undo_button.configure(state='normal' if self._undo_parameters is not None else 'disabled')
         if self._active and self._render_confirmed and not (self._pending_start or self._stop_requested or self._recovering):
             if self._live_expected or self._overlay_expected:
                 self._queued_parameter_apply = True
@@ -3141,10 +3197,11 @@ class RealtimeWorkspace:
             self._pending_quality = None
             self._queued_quality_apply = False
             self._edit_error = tr('realtime.editor.quality_timeout')
-        if self._queued_parameter_apply and not self._live_expected and not self._overlay_expected:
+        if (self._queued_parameter_apply and not self._live_expected and not self._overlay_expected
+                and not self._parameter_dragging()):
             self._queued_parameter_apply = False
             self._parameter_committed()
-        if self._queued_quality_apply and not self._pending_quality:
+        if self._queued_quality_apply and not self._pending_quality and not self._parameter_dragging():
             self._queued_quality_apply = False
             self._quality_committed()
         if self._pending_start and time.monotonic() - self._pending_since > 30:

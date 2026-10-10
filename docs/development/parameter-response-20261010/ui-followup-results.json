@@ -1,0 +1,112 @@
+[
+  {
+    "node": "tests/test_parameter_response.py::test_worker_latest_only_bounded_and_never_runs_on_ui",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_worker_retirement_and_error_are_revision_scoped",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.72s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_composition_keeps_last_picture_and_exact_full_resolution_result",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.94s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_exporting-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_queue_running-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.72s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_workbench_mode-realtime]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_shared_closing-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.72s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_clear_preview_pending-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[video-different]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_frame-3]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[playing-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.75s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_drag_fast_path_release_undo_and_read_does_not_commit_mid_gesture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.41s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_unchanged_collect_is_read_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.35s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_tk_heartbeat_and_controls_work_during_slow_composition",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.33s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestRealtimeResponse::test_poll_and_pending_receipt_do_not_apply_half_finished_drag",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.14s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestRealtimeResponse::test_quality_gesture_commits_once_and_waits_for_render_confirmation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.07s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_shared_feedback_does_not_compose_in_commit_callback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_compare_async_completion_clears_wait_and_rechecks_latest_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.86s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_legacy_output_edit_pauses_transport_but_keeps_inference_cache",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_scale_units_and_footer_stay_visible_at_narrow_size",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.61s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_bilingual_local_controls_fit_minimum_inspector_width",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.17s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_bilingual_range_tooltips_toggle_and_number_fields_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 3.40s\n"
+  }
+]

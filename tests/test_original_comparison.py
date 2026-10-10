@@ -16,7 +16,8 @@ from dlss5tool.video_export import compose_hdr_frame, resize_original
 
 @pytest.mark.parametrize('scale', [1, 2, 4])
 @pytest.mark.parametrize('hdr', [False, True])
-def test_real_pipeline_keeps_source_and_mix_separate(tmp_path, monkeypatch, scale, hdr):
+@pytest.mark.parametrize('quality', [1, .4])
+def test_real_pipeline_keeps_source_and_mix_separate(tmp_path, monkeypatch, scale, hdr, quality):
     source = tmp_path / 'source.mp4'
     source.write_bytes(b'synthetic')
     monkeypatch.setenv('DLSS5TOOL_FG_LOG_ROOT', str(tmp_path / 'logs'))
@@ -58,13 +59,15 @@ def test_real_pipeline_keeps_source_and_mix_separate(tmp_path, monkeypatch, scal
     manager = rc.RenderCache(32*1024**2)
     manager.inspect = lambda *args, **kwargs: (meta, Fraction(24), 128, 128, 1)
     settings = {'super_resolution_scale': scale, 'frame_generation_multiplier': 1,
-                'output_mix': .5, 'hdr_mode': True}
+                'output_mix': .5, 'hdr_mode': True, 'nr_quality': {'total': quality}}
     try:
         session = manager.session(source, settings)
         processed, original = session.wait(0, threading.Event())
         expected_original = resize_original(pixels, (128*scale, 128*scale))
         expected_sr = SR().process(pixels) if scale > 1 else pixels
         expected_nr = NR().process(expected_sr)
+        from dlss5tool.residual_composition import compose
+        expected_nr = compose(expected_sr, expected_nr, settings, profile=meta['profile'])
         if hdr:
             expected = compose_hdr_frame(expected_sr, expected_nr, mix=.5)
         else:
@@ -109,9 +112,12 @@ def test_generated_timestamps_hold_real_original(tmp_path, monkeypatch, multipli
     monkeypatch.setattr('dlss5tool.nvofa.OpticalFlow', lambda *_args, **_kwargs: flow)
     emitted = []
     fg.export_video(source, None, multiplier=multiplier, input_session=upstream,
-        settings={'_render_stage': 'output'}, frame_sink=lambda i, p, r: emitted.append((p.copy(), r.copy())),
+        settings={'_render_stage': 'output', 'nr_quality': {'total': .5}},
+        frame_sink=lambda i, p, r: emitted.append((p.copy(), r.copy())),
         log_dir=tmp_path/'logs')
     assert factory.call_count == 1, 'the original side must not run a second interpolation model'
+    assert native.process.call_args_list[0].args[0][0, 0, 0] == 60, 'compose BEFORE interpolation'
+    assert native.process.call_args_list[1].args[0][0, 0, 0] == 61
     assert len(emitted) == 2*multiplier
     for i, (_, original) in enumerate(emitted):
         np.testing.assert_array_equal(original, pairs[i//multiplier][1])

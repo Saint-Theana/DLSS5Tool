@@ -1,4 +1,4 @@
-"""Separate frozen enhancement executable. Never imported by the base app."""
+"""Isolated guidance worker; base NVOFA is Torch-free, addon models load lazily."""
 import argparse
 import contextlib
 import json
@@ -62,7 +62,10 @@ class Models:
     def __init__(self, settings):
         import cv2
         import numpy as np
-        import torch
+        native_only = int(settings['guidance_mode']) == 1 and flow_backend(settings, strict=True) == 'nvofa'
+        torch = None
+        if not native_only:
+            import torch
         self.cv2, self.np, self.torch = cv2, np, torch
         self.settings = {**settings, **parameters(settings, strict=True)}
         self.analysis_parameters = analysis_parameters(self.settings)
@@ -75,8 +78,8 @@ class Models:
         self.gpu_flow = None
         self.gpu_slot = None
         requested = settings.get("guidance_device", "auto")
-        self.device = select_device(requested, torch.cuda.is_available() if requested != 'cpu' else False)
-        self.device_name = torch.cuda.get_device_name() if self.device == 'cuda' else 'CPU'
+        self.device = select_device(requested, native_only or (torch.cuda.is_available() if requested != 'cpu' else False))
+        self.device_name = 'NVIDIA Optical Flow (driver)' if native_only else torch.cuda.get_device_name() if self.device == 'cuda' else 'CPU'
         try:
             self.execution_info = execution_contract(settings, self.device)
         except ValueError as exc:
@@ -97,7 +100,7 @@ class Models:
             pool = SharedCacheBudget(settings['guidance_cache_pool'])
         self.raw_cache = RawGuidanceCache(cache_budget_mib(settings) * 1048576, pool=pool)
         self.prev_digest = None
-        if self.device == 'cuda':
+        if self.device == 'cuda' and torch is not None:
             torch.cuda.reset_peak_memory_stats()
         if self.device == "cpu":
             torch.set_num_threads(min(4, os.cpu_count() or 1))
@@ -183,8 +186,9 @@ class Models:
                 if self._nvof is None:
                     # Establish Torch's selected physical context, including
                     # CUDA_VISIBLE_DEVICES remapping, before driver inspection.
-                    self.torch.empty(0, device=self.device)
-                    self._nvof = OpticalFlow(w, h, require_current=True, grid=grid)
+                    if self.torch is not None:
+                        self.torch.empty(0, device=self.device)
+                    self._nvof = OpticalFlow(w, h, require_current=self.torch is not None, grid=grid)
                 return self._nvof.calculate(first, second)
             except Exception as exc:
                 raise ModelConfigurationError('guidance.error.nvofa', str(exc)) from exc
@@ -308,7 +312,7 @@ class Models:
         flow_ms = depth_ms = 0.0
         bounds = self.depth_range
         dual = self.flow_stream is not None and not (self._depth_hit and (reset or self._flow_hit))
-        with torch.inference_mode():
+        with torch.inference_mode() if torch is not None else contextlib.nullcontext():
             if dual:
                 # Prepare both inputs first, launch both models BEFORE any .cpu()
                 # wait. Tensor allocation, consumption and readback stay on each
@@ -349,8 +353,9 @@ class Models:
             'cache_flow_hit': self._flow_hit, 'cache_depth_hit': self._depth_hit,
             'flow_model_calls': int(self.has_flow and not reset and not self._flow_hit),
             'depth_model_calls': int(self.depth is not None and not self._depth_hit),
-            'peak_allocated_mib': torch.cuda.max_memory_allocated() / 1048576 if self.device == 'cuda' else 0,
-            'peak_reserved_mib': torch.cuda.max_memory_reserved() / 1048576 if self.device == 'cuda' else 0}
+            'peak_allocated_mib': torch.cuda.max_memory_allocated() / 1048576 if self.device == 'cuda' and torch is not None else 0,
+            'peak_reserved_mib': torch.cuda.max_memory_reserved() / 1048576 if self.device == 'cuda' and torch is not None else 0,
+            'model_runtime': 'torch' if torch is not None else 'driver-only'}
         self.prev, self.prev_thumb, self.depth_range = small, thumb, bounds
         self.prev_digest = current_digest
         self._cached_flow = self._cached_depth = None
@@ -358,7 +363,7 @@ class Models:
 
     def _serial(self, small, mv, dp, reset, w, h, fw, fh, depth_small=None, dw=None, dh=None):
         bounds = self.depth_range
-        with self.torch.inference_mode():
+        with self.torch.inference_mode() if self.torch is not None else contextlib.nullcontext():
             flow_start = time.perf_counter()
             if self.has_flow and not reset:
                 flow = self._cached_flow if self._flow_hit else self._infer_flow(self._flow_input(small))
@@ -516,6 +521,9 @@ def main():
         conn.send_bytes(json.dumps(value).encode("utf-8"))
     try:
         settings = json.loads(conn.recv_bytes(65536))
+        if settings.get('builtin_nvofa') and not (int(settings.get('guidance_mode', 0)) == 1
+                                                and flow_backend(settings) == 'nvofa'):
+            raise ValueError('Built-in worker only accepts NVOFA flow-only sessions')
         if 'gpu_host_pid' in settings and settings['gpu_host_pid'] != args.parent:
             raise ValueError('Authenticated GPU host does not match the watched parent')
         serve(conn, settings)

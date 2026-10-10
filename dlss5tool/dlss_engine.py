@@ -748,6 +748,9 @@ def run_dlss(rgba_frames, settings=None, reset=True, progress=None):
         live.close_guidance()
     view = settings.get('output_view', 0)
     mix = float(settings.get('output_mix', 1.0))
+    from dlss5tool.residual_composition import compose
+    out = [compose(original, processed, settings, profile=settings.get('color_profile', 'srgb'))
+           for original, processed in zip(rgba_frames, out)]
     if view != 0 or mix < 1.0:
         out = _apply_output_view(out, rgba_frames, view, mix, w, h)
     return out

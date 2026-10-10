@@ -1,0 +1,19 @@
+{
+  "directory_bytes": {
+    "F:\\project\\DLSS5Tool\\runtime\\realtime": 27853779,
+    "F:\\project\\DLSS5Tool\\runtime\\gpu-export": 189687707,
+    "F:\\project\\DLSS5Tool\\mods\\enhancement": 4761794390
+  },
+  "identical_file_candidates": [
+    {
+      "bytes": 5721600,
+      "sha256": "6059b7c24e232309b0bd4136d474078fb2438c26d2c5415a8ad34092869ba2a8",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\fbgemm.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\fbgemm.dll"
+      ],
+      "action": "audit-only; dependency use must be checked"
+    }
+  ],
+  "note": "Separate dependency search roots may require identical files. No removal authorized."
+}

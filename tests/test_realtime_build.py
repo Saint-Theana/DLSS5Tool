@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class RealtimeBuildTests(unittest.TestCase):
     def test_standalone_parameter_localization_never_uses_packaged_resources(self):
-        folder = ROOT / 'tmp/realtime-guidance-20261008'
+        folder = ROOT / 'tmp/mode-sharing-20261010'
         folder.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=folder) as temporary:
             output = Path(temporary)
@@ -21,8 +21,11 @@ class RealtimeBuildTests(unittest.TestCase):
             self.assertNotIn('ResourceContext::', localization)
             self.assertNotIn('ResourceLoader::', localization)
             self.assertIn('StandaloneString(key, false)', localization)
+            rules = (output / 'standalone_parameter_rules.h').read_text(encoding='utf-8')
+            self.assertIn('parameter != "inputResolutionPercent" && getValue("enableResidualControls", 0.0f)', rules)
             overlay = (output / 'OverlayDrawer.cpp').read_text(encoding='utf-8')
             self.assertIn('#include "standalone_parameter_localization.h"', overlay)
+            self.assertIn('#include "standalone_parameter_rules.h"', overlay)
             self.assertNotIn('#include "EffectParameterLocalization.h"', overlay)
             self.assertIn('Realtime::StopHint()', overlay)
             self.assertIn('Realtime::IntroAlpha()', overlay)

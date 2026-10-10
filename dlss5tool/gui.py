@@ -41,6 +41,7 @@ from dlss5tool.guidance_public import depth_enabled, public_mode, still_image_se
 from dlss5tool.preview_comparison import PreviewComparison
 from dlss5tool.guidance_export_ui import GuidanceExportUI
 from dlss5tool.shared_render_preview import SharedRenderPreview
+from dlss5tool.local_preview_composition import LocalPreviewComposition
 from dlss5tool.image_alpha import (
     ALPHA_EXTENSIONS, read_still, inference_color, resize_preview, restore_alpha,
 )
@@ -670,9 +671,9 @@ def _estimate_output_size_mb(duration_seconds, video_bitrate_mbps, audio_mbps=0.
     return duration * (video_rate + audio_rate) / 8.0
 
 
-def _postprocess_and_write(writer, original, processed, view, mix):
+def _postprocess_and_write(writer, original, processed, view, mix, settings=None):
     """CPU post-processing + FFmpeg write stage, run on one ordered worker thread."""
-    writer.write(compose_output_frame(original, processed, view, mix))
+    writer.write(compose_output_frame(original, processed, view, mix, settings=settings))
 
 
 def effective_slider(enabled, value):
@@ -730,7 +731,7 @@ def _normalize_slider_input(
     )
 
 
-def compose_preview_frame(original, processed, output_view=0, output_mix=1.0):
+def compose_preview_frame(original, processed, output_view=0, output_mix=1.0, *, settings=None):
     """Apply the export mix to preview without previewing export-only view layouts."""
     if original is None or processed is None:
         return processed
@@ -740,11 +741,11 @@ def compose_preview_frame(original, processed, output_view=0, output_mix=1.0):
         interpolation = cv2.INTER_AREA if shrinking else cv2.INTER_LINEAR
         original = cv2.resize(original, (pw, ph), interpolation=interpolation)
     mix = float(output_mix) if int(output_view) == 0 else 1.0
-    return compose_output_frame(original, processed, view=0, mix=mix)
+    return compose_output_frame(original, processed, view=0, mix=mix, settings=settings)
 
 
 
-class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
+class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, GuidanceExportUI):
     def __init__(self, root):
         self.root = root
         self._saved_settings = app_settings.startup_settings(app_settings.load())
@@ -1242,7 +1243,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                     self._mode_host, self._saved_settings, ui=self._ui,
                     on_session_change=self._on_realtime_session, inspector_width=self._inspector_width,
                     log_parent=self.root, on_export_diagnostics=self.export_diagnostics,
-                    can_start=lambda: not getattr(self, '_deep_diagnosing', False),
+                    can_start=self._can_start_realtime,
                     on_nr_settings=self._open_realtime_nr_settings,
                     on_copy_local=self._copy_to_realtime)
             except Exception as error:
@@ -1256,6 +1257,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             self._exit_fullscreen()
         if mode == 'realtime':
             # Pause playback, not export jobs. Media, timeline and widgets survive.
+            self._invalidate_local_composition(keep_last=True)
             self.pause()
             self._set_hold_original(False)
             self._hide_detached_placeholder()
@@ -3137,6 +3139,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return changed
 
     def start_export_queue(self):
+        if self._realtime_busy():
+            messagebox.showinfo(tr('dialog.busy'), tr('appearance.busy'), parent=self.root)
+            return
         if getattr(self, '_switching_backend', False):
             return
         if self._queue_running or self._exporting:
@@ -3530,9 +3535,11 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         body.pack(fill="x", padx=0, pady=2)
 
         from dlss5tool.local_adjustments import LocalAdjustments
+        d['_appearance'] = saved
         self._local_adjustments = LocalAdjustments(
             body, d, ui=self._ui, styles=STYLE_CHOICES, on_model=self.on_settings_change,
-            on_output=self.on_output_settings_change, on_copy=self._copy_from_realtime)
+            on_output=self.on_output_settings_change, on_copy=self._copy_from_realtime,
+            on_regions=self._edit_local_regions)
         self._local_adjustments.pack(fill='x')
         self._theme_widgets.append(self._local_adjustments)
         self._slider_committers.append(lambda: self._local_adjustments.commit(notify=False))
@@ -3579,28 +3586,78 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return False
         return True
 
+    def _can_start_realtime(self):
+        if any(getattr(self, key, False) for key in ('_deep_diagnosing', '_exporting', '_queue_running', '_switching_backend')):
+            return False
+        workspace = self._realtime_workspace
+        # Refresh paths only while idle. Changing a runtime recreates the idle
+        # host; it never mutates an active session or its emergency hotkeys.
+        if not workspace.session_summary()[1]:
+            fresh = self._collect_host_settings()
+            keys = ('mods_directory', 'dlss_runtime')
+            if any(workspace.client.settings.get(k, '') != fresh.get(k, '') for k in keys):
+                workspace.client.close()
+                workspace.client.settings.update({k: fresh.get(k, '') for k in keys})
+                workspace._host_ready = None
+                workspace._catalog_generation = None
+                workspace.client.launch()
+                workspace.client.send('catalog')
+        return True
+
+    def _realtime_busy(self):
+        workspace = getattr(self, '_realtime_workspace', None)
+        return bool(workspace and workspace.session_summary()[1])
+
+    def _edit_local_regions(self):
+        from dlss5tool.region_editor import RegionEditor
+        editor = self._local_adjustments
+        if editor._region_editor:
+            editor._region_editor.window.lift()
+            return
+        if getattr(self, 'playing', False):
+            self.toggle_play()
+        frame = self._read_frame(getattr(self, '_frame', 0)) if getattr(self, 'video', None) else None
+        if frame is None:
+            messagebox.showinfo(tr('realtime.preview.regions'), tr('appearance.need_source'), parent=self.root)
+            return
+        image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        source = self.video
+        editor._region_editor = RegionEditor(editor, editor._regions, image=image, ui=self._ui,
+            on_apply=editor.commit_regions,
+            can_apply=lambda: self.video == source and not self._exporting,
+            on_close=lambda: setattr(editor, '_region_editor', None))
+
     def _copy_from_realtime(self):
         from dlss5tool.parameter_transfer import from_realtime, describe
+        from dlss5tool.appearance_ui import choose_groups
         workspace = getattr(self, '_realtime_workspace', None)
         try:
             if workspace is None:
                 raise ValueError(tr('parameter.copy_metadata'))
-            values = from_realtime(workspace.collect(), workspace.catalog, self._dlss_slider_limit())
+            groups = choose_groups(self.root)
+            if not groups:
+                return
+            values = from_realtime(workspace.collect(), workspace.catalog, self._dlss_slider_limit(), groups)
             if messagebox.askyesno(tr('parameter.copy_title'), tr('parameter.copy_confirm', values=describe(values)), parent=self.root):
                 self._local_adjustments.replace_common(values)
         except (ValueError, tk.TclError) as error:
             messagebox.showwarning(tr('parameter.copy_title'), str(error), parent=self.root)
 
     def _copy_to_realtime(self):
-        from dlss5tool.parameter_transfer import to_realtime, describe
+        from dlss5tool.parameter_transfer import to_realtime, describe, portable_preset
+        from dlss5tool.appearance_ui import choose_groups
         workspace = getattr(self, '_realtime_workspace', None)
         if workspace is None or not self._validate_adjustment_draft():
             return
         try:
             snapshot = self._local_adjustments.snapshot()
-            index, candidate = to_realtime(snapshot, workspace.collect(), workspace.catalog)
-            if messagebox.askyesno(tr('parameter.copy_title'), tr('parameter.copy_confirm', values=describe(snapshot)), parent=self.root):
-                workspace.replace_common_parameters(index, candidate)
+            groups = choose_groups(self.root)
+            if not groups:
+                return
+            index, candidate = to_realtime(snapshot, workspace.collect(), workspace.catalog, groups)
+            selected = portable_preset(snapshot, groups)['values']
+            if messagebox.askyesno(tr('parameter.copy_title'), tr('parameter.copy_confirm', values=describe(selected)), parent=self.root):
+                workspace.replace_common_parameters(index, candidate, groups)
         except (ValueError, tk.TclError) as error:
             messagebox.showwarning(tr('parameter.copy_title'), str(error), parent=self.root)
 
@@ -3699,9 +3756,10 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         editor = getattr(self, '_local_adjustments', None)
         if not d['v_enable_5x'].get() and editor is not None:
             from dlss5tool.parameter_values import parse_number
+            from dlss5tool.local_adjustments import FIELDS
             blocked = []
             for name, row in editor.rows.items():
-                if name == 'style':
+                if name not in {field[0] for field in FIELDS}:
                     continue
                 try:
                     if not 0 <= parse_number(row.variable.get(), percent=True) <= 1:
@@ -3730,13 +3788,13 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         editor = getattr(self, '_local_adjustments', None)
         if editor is not None:
             editor.set_limit(limit)
-        for scale_key, input_key in (
+        for scale_key, input_key in (() if editor is not None else (
             ('w_intensity', 'w_intensity_value'),
             ('w_local_tone', 'w_local_tone_value'),
             ('w_local_struct', 'w_local_struct_value'),
             ('w_skin_struct', 'w_skin_struct_value'),
             ('w_outmix', 'w_outmix_value'),
-        ):
+        )):
             d[scale_key].config(to=limit)
             d[input_key].config(to=limit)
         hint = d['w_range_hint']
@@ -3747,6 +3805,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         else:
             hint.config(text="")
             hint.pack_forget()
+        if editor is not None:
+            editor.set_composition_enabled(d['v_outview'].get() == OUTVIEW_NAMES[0])
+            return  # ParameterRow owns enable states, colors, and range hints.
         self._set_slider_enabled(
             d['w_intensity'], d['w_intensity_value'], d['v_use_intensity'].get(),
         )
@@ -4943,7 +5004,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         present = {key: os.path.isfile(path) for key, path in candidates.items()}
         component_error = ''
         try:
-            mod_paths.enhancement_info(host)
+            if not mod_paths.builtin_flow({**host, 'guidance_mode': 3 if depth_enabled() else 1}):
+                mod_paths.enhancement_info(host)
         except (FileNotFoundError, ValueError) as exc:
             present['worker'] = False
             component_error = str(exc)
@@ -4957,9 +5019,12 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         }
         for key, label in d.get('module_summaries', {}).items():
             if key == 'component' and present['worker']:
-                build = mod_paths.component_build(host)
-                if build != 'unknown':
-                    summary[key] = tr('mods.build.' + build)
+                if mod_paths.builtin_flow({**host, 'guidance_mode': 3 if depth_enabled() else 1}):
+                    summary[key] = tr('appearance.builtin_flow')
+                else:
+                    build = mod_paths.component_build(host)
+                    if build != 'unknown':
+                        summary[key] = tr('mods.build.' + build)
             label.config(text=summary[key])
         mode = host['guidance_mode']
         required = ['worker'] + (['flow_weights'] if mode in (1, 3) and host.get('guidance_flow_backend', 'raft') == 'raft' else []) + (['depth_weights'] if mode in (2, 3) else [])
@@ -5239,6 +5304,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             commit()
         d = self._settings
         return {
+            **self._local_adjustments.appearance_settings(),
             'enable_5x': bool(d['v_enable_5x'].get()),
             'intensity': float(d['v_intensity'].get()),
             'use_intensity': bool(d['v_use_intensity'].get()),
@@ -5259,6 +5325,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             remembered['use_auto_mask'], remembered['skin_struct']
         )
         result = {
+            **{k: remembered[k] for k in ('nr_quality', 'nr_residual')},
             'style': STYLE_CHOICES.get(d['v_style'].get(), 0),
             'intensity': effective_slider(
                 remembered['use_intensity'], remembered['intensity']
@@ -5686,6 +5753,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self._cancel_after("_settings_save_after")
         self._cancel_after("_live_debounce")
         self._cancel_after("_output_preview_after")
+        self._invalidate_local_composition()
         self._cancel_after("_scrub_after")
         self._cancel_after("_resize_after")
         self._cancel_after("_preview_cache_resume_after")
@@ -5985,11 +6053,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             if processed is None:
                 return None
             settings = self._collect_settings()
-            original = self._preview_composition_source(frame, original, processed)
-            return compose_preview_frame(
-                original, processed,
-                settings['output_view'], settings['output_mix'],
-            )
+            return self._local_compose_preview(frame, original, processed, settings)
         return None
 
     def _cached_display_dlss(self, frame):
@@ -6151,6 +6215,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def _cache_clear(self, keep_source=False):
         """Invalidate processed frames; only parameter edits can retain decoded sources."""
+        self._invalidate_local_composition(keep_last=keep_source)
         self._viewport_rasters = []
         self._wipe_surface_key = None
         self._wipe_photos = None
@@ -6347,7 +6412,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             and not getattr(self, "_pre_rendering", False)
         ):
             self._schedule_full_preview()
-        self._dlss_pending = bool(fast)
+        self._dlss_pending = bool(fast or getattr(self, '_local_composition_busy', False))
         if view == "compare":
             self._draw_split(frame, cw, ch, fast=fast)
             return
@@ -6496,7 +6561,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             return
         if self._uses_shared_render():
             return  # Shared pipeline supplies its stage and revision after painting.
-        self._show_preview_wait(tr('status.rendering_current'))
+        self._show_preview_wait(tr('status.shared_updating' if getattr(self, '_local_composition_busy', False)
+                                   else 'status.rendering_current'))
 
     def _draw_work_status(self, text):
         """A fixed overlay, independent of the layout and bottom status bar."""
@@ -6570,11 +6636,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                     self._split_dlss = None
                 else:
                     settings = self._collect_settings()
-                    composed_source = self._preview_composition_source(frame, orig, dlss)
-                    self._split_dlss = compose_preview_frame(
-                        composed_source, dlss,
-                        settings['output_view'], settings['output_mix'],
-                    )
+                    self._split_dlss = self._local_compose_preview(frame, orig, dlss, settings)
         elif not fast and self._split_dlss is None:
             orig = self._source_cache_get(frame)
             if orig is None:
@@ -6584,11 +6646,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 self._split_dlss = None
             else:
                 settings = self._collect_settings()
-                composed_source = self._preview_composition_source(frame, orig, dlss)
-                self._split_dlss = compose_preview_frame(
-                    composed_source, dlss,
-                    settings['output_view'], settings['output_mix'],
-                )
+                self._split_dlss = self._local_compose_preview(frame, orig, dlss, settings)
         self._blit_split(cw, ch)
 
     def _blit_split(self, cw, ch):
@@ -7237,7 +7295,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 self._start_paused_prerender(target_size=precise_size)
             return
         self.display_view(quality="full")
-        if wants_dlss and self._cached_dlss(self._frame, precise_size) is not None:
+        if (wants_dlss and self._cached_dlss(self._frame, precise_size) is not None
+                and not getattr(self, '_local_composition_busy', False)):
             width, height = precise_size
             key = "status.precise_upscale" if sr_scale > 1 else "status.precise_preview"
             status = tr(key, scale=sr_scale, width=width, height=height)
@@ -7446,6 +7505,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         self.display_view(quality="fast")
 
     def on_settings_change(self, event=None):
+        self._invalidate_local_composition(keep_last=True)
         if self.playing:
             self.pause()
         self._freeze_preview_cache(resume_ms=None)
@@ -7459,13 +7519,20 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
 
     def on_output_settings_change(self, event=None):
         """Refresh the composed preview while keeping the expensive DLSS cache intact."""
+        if self.playing and not self._uses_shared_render():
+            # Like the NR controls, pin legacy preview to the edited frame.
+            # Its playback composer is synchronous; edits use the async path.
+            self.pause()
+        self._invalidate_local_composition(keep_last=True)
         self._update_dlss_control_states()
         self._schedule_settings_save()
         if self._uses_shared_render():
             self._shared_feedback()
             return
         self._cancel_after("_output_preview_after")
-        self._output_preview_after = self.root.after(16, self._refresh_output_preview)
+        if self.video and self.view_var.get() in ('dlss', 'compare'):
+            self._show_preview_wait(tr('status.shared_updating'))
+        self._output_preview_after = self.root.after(120, self._refresh_output_preview)
 
     def _refresh_output_preview(self):
         self._output_preview_after = None
@@ -8298,7 +8365,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         settings = self._collect_settings()
         preview = compose_preview_frame(
             orig, cached,
-            settings['output_view'], settings['output_mix'],
+            settings['output_view'], settings['output_mix'], settings=settings,
         )
         if view == "compare":
             self._blit_play_split(orig, preview, cw, ch, pending=not exact_frame)
@@ -9620,6 +9687,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
         return candidate
 
     def _begin_export_ui(self, status_text):
+        if self._realtime_busy():
+            raise RuntimeError(tr('appearance.busy'))
         self._clear_preview_wait()
         self._cancel_after('_viewport_repaint_after')
         self.pause()
@@ -9873,6 +9942,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 raise RuntimeError("DLSS 处理失败")
             view = settings["output_view"]
             mix = float(settings["output_mix"])
+            from dlss5tool.residual_composition import compose
+            processed = compose(self._preview_composition_source(0, orig, processed), processed, settings, order='bgr')
             orig = (resize_original(orig, (processed.shape[1], processed.shape[0]))
                     if view else self._preview_composition_source(0, orig, processed))
             composed = compose_output_frame(orig, processed, view, mix)
@@ -9976,6 +10047,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 if processed_rgba is None:
                     raise RuntimeError(f"DLSS 处理第 {index} 帧失败")
                 processed_bgr = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
+                from dlss5tool.residual_composition import compose
+                processed_bgr = compose(upscaled_bgr, processed_bgr, settings, order='bgr')
                 writer.write(compose_output_frame(
                     resize_original(frame, (output_width, output_height)) if view else upscaled_bgr,
                     processed_bgr, view=view, mix=mix,
@@ -10079,7 +10152,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                     raise RuntimeError(f"HDR DLSS 异步回读第 {frame_index} 帧失败")
                 writer.write(compose_hdr_frame(
                     original, processed, view=view, mix=mix,
-                    profile=color_info["profile"],
+                    profile=color_info["profile"], settings=settings,
                 ))
                 written += 1
                 if written == 1 or written % 4 == 0 or written >= total_frames:
@@ -10110,6 +10183,8 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                     dlss_seconds += time.perf_counter() - started
                     if processed is None:
                         raise RuntimeError(f"HDR DLSS 处理第 {index} 帧失败")
+                    from dlss5tool.residual_composition import compose
+                    processed = compose(frame, processed, settings, profile=color_info['profile'])
                     writer.write(compose_hdr_frame(
                         comparison if view else frame, processed, view=view, mix=mix,
                         profile=color_info["profile"],
@@ -10141,6 +10216,9 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                 writer.abort()
 
     def export_dlss(self):
+        if self._realtime_busy():
+            messagebox.showinfo(tr('dialog.busy'), tr('appearance.busy'), parent=self.root)
+            return
         if not self._validate_adjustment_draft():
             return
         if getattr(self, '_switching_backend', False):
@@ -10269,6 +10347,14 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
             else None
         )
         hdr_active = bool(export_settings['hdr_mode'] and color_info.get('is_hdr'))
+        from dlss5tool.appearance import preflight
+        try:
+            preflight(settings, hdr=hdr_active)
+        except ValueError as error:
+            if notify:
+                messagebox.showerror(tr('dialog.export_failed'), str(error), parent=self.root)
+            return {'success': False, 'cancelled': False, 'error': str(error),
+                    'output_path': out_path or '', 'frames': 0}
         if not self._confirm_super_resolution_export(
             w, h, super_resolution_scale, is_hdr=hdr_active, notify=notify,
         ):
@@ -10440,7 +10526,7 @@ class App(SharedRenderPreview, PreviewComparison, GuidanceExportUI):
                             pending_write.result()
                         pending_write = write_pool.submit(
                             _postprocess_and_write,
-                            writer, original_frame, processed_bgr, view, mix,
+                            writer, original_frame, processed_bgr, view, mix, settings,
                         )
                         exported_frames = frame_index + 1
                         now = time.perf_counter()
@@ -10674,6 +10760,11 @@ def main():
 def cli():
     # Required for ProcessLive's spawn worker in a PyInstaller build.
     multiprocessing.freeze_support()
+    if '--nvofa-worker' in sys.argv:
+        sys.argv.remove('--nvofa-worker')
+        from dlss5tool.guidance_worker import main as nvofa_main
+        nvofa_main()
+        return
     if '--frame-generation-check' in sys.argv:
         from dlss5tool.frame_generation import frozen_check_main
         frozen_check_main(sys.argv[sys.argv.index('--frame-generation-check')+1:])

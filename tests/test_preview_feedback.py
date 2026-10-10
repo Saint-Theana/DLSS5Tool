@@ -225,7 +225,10 @@ def test_output_mix_repaints_real_frame_without_recomputing_or_retargeting():
         base.target = 5
         app._render_cache_manager = SimpleNamespace(base=base)
         app._shared_paint = mock.Mock()
-        assert app._shared_interim()
+        deadline = time.monotonic() + 2
+        while not app._shared_interim():
+            assert time.monotonic() < deadline
+            time.sleep(.001)
         assert base.target == 5
         assert app._shared_paint.call_count == 1
         app._draw_work_status.assert_not_called()

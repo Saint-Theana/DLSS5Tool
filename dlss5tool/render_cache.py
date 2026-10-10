@@ -16,10 +16,12 @@ import threading
 import numpy as np
 
 from dlss5tool import paths
+from dlss5tool import appearance
 from dlss5tool.image_sequence import ImageSequence, is_sequence, source_bytes, audio_source
 from dlss5tool.frame_generation import Cancelled, check_cancel, export_video, runtime_files, inspect_source
 
 PIXEL_KEYS = (
+    'nr_quality', 'nr_residual',
     'style', 'preset', 'intensity', 'local_tone', 'local_struct', 'skin_struct', 'use_auto_mask',
     'ui_correction', 'output_mix', 'guidance_mode', 'guidance_edge', 'guidance_flow_direction',
     'guidance_flow_backend', 'guidance_flow_grid', 'guidance_flow_updates', 'guidance_device',
@@ -83,14 +85,15 @@ def render_identity(source, settings):
                 and ('weights' in key or key.endswith('_path'))):
             dependencies.append(file_identity(value))
     pixel['dlss_runtime'] = settings.get('dlss_runtime', '')
-    payload = [5, file_identity(source), pixel, dependencies]
+    pixel.update(appearance.settings(settings))
+    payload = [6, file_identity(source), pixel, dependencies]
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
 class RenderSession:
     def __init__(self, source, settings, limit_bytes, *, pool=None, renderer=None):
         self.source = str(Path(source).resolve())
-        self.settings = dict(settings)
+        self.settings = dict(settings, **appearance.settings(settings))
         self.settings['output_view'] = 0  # compare/difference overlays are consumers
         self.multiplier = int(settings.get('frame_generation_multiplier', 1))
         self.key = render_identity(source, settings)
@@ -421,7 +424,7 @@ class RenderCache:
                     old.close()
             self.sessions.clear()
             latest()
-            base_settings = {**settings, 'frame_generation_multiplier': 1, 'output_mix': 1, 'output_size': None,
+            base_settings = {**appearance.raw_settings(settings), 'frame_generation_multiplier': 1, 'output_mix': 1, 'output_size': None,
                              '_render_stage': 'base'}
             base_key = render_identity(source, base_settings)
             multiplier = int(settings.get('frame_generation_multiplier', 1))
@@ -430,7 +433,7 @@ class RenderCache:
                     from dlss5tool.shared_cache_budget import SharedCacheBudget
                     return SharedCacheBudget(self.pool_name)
                 return None
-            layers = 3 if multiplier > 1 or settings.get('output_mix', 1) != 1 or settings.get('output_size') else 2
+            layers = 3 if multiplier > 1 or settings.get('output_mix', 1) != 1 or settings.get('output_size') or appearance.active(settings) else 2
             base_limit = self.limit//layers
             spatial_settings = {k: settings[k] for k in ('hdr_mode', 'super_resolution_scale', 'render_gpu') if k in settings}
             spatial_settings.update(frame_generation_multiplier=1, guidance_mode=0, output_size=None,

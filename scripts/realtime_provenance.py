@@ -13,8 +13,21 @@ def digest(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
-def stage():
-    output = ROOT / 'runtime/realtime'
+def stage(output=None):
+    output = Path(output) if output is not None else ROOT / 'runtime/realtime'
+    # Do not modify pinned upstream sources. Stage the additive local metadata
+    # alongside the host built with prepare_realtime_build's explicit opt-in.
+    effect = DEPS / 'magpie/src/Effects/DLSSNR/DLSSNR_AI_Filter.hlsl'
+    text = effect.read_text(encoding='utf-8')
+    marker = '//!PARAMETER\n//!GROUP Detail Control\n'
+    descriptor = ('//!PARAMETER\n//!GROUP Detail Control\n'
+                  '//!LABEL Enable Residual Controls (Full Resolution)\n'
+                  '//!DEFAULT 0\n//!MIN 0\n//!MAX 1\n//!STEP 1\nint enableResidualControls;\n\n')
+    if marker not in text:
+        raise ValueError('NR effect metadata changed')
+    target = output / 'effects/DLSSNR/DLSSNR_AI_Filter.hlsl'
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(text.replace(marker, descriptor+marker, 1), encoding='utf-8')
     lock = json.loads((ROOT / 'native/realtime/sources.lock.json').read_text(encoding='utf-8'))
     for name, info in lock['sources'].items():
         receipt = json.loads((DEPS / name / '.dlss5tool-source.json').read_text(encoding='utf-8'))

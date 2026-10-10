@@ -208,7 +208,7 @@ class LocalAdjustmentTests(unittest.TestCase):
         self.assertGreaterEqual(popup.call_args.args[0], self.editor.winfo_rootx())
         self.assertLessEqual(popup.call_args.args[0] + menu.winfo_reqwidth(),
                              self.editor.winfo_rootx() + self.editor.winfo_width())
-        self.assertEqual(menu.index('end'), 2)
+        self.assertEqual(menu.index('end'), 5)
         self.assertEqual(menu.entrycget(0, 'label'), i18n.tr('parameter.copy_from_realtime'))
         self.assertEqual(menu.entrycget(2, 'label'), i18n.tr('parameter.reset_local'))
         menu.invoke(0)
@@ -260,6 +260,21 @@ class LocalAdjustmentTests(unittest.TestCase):
         self.editor.reset(tuple(self.editor.rows))
         self.assertEqual(self.editor.rows['output_mix'].value(), 1)
         self.output.assert_called()
+        self.model.assert_not_called()
+
+    def test_appearance_and_regions_commit_output_only_and_undo_together(self):
+        before = self.editor.snapshot()
+        self.editor.commit_regions([[.1, .2, .8, .9]])
+        self.model.assert_not_called()
+        self.output.assert_called_once()
+        self.assertTrue(self.editor.appearance_settings()['nr_quality']['protection'])
+        self.editor.undo()
+        self.assertEqual(self.editor.snapshot(), before)
+        row = self.editor.rows['nr_residual.residualSaturation']
+        row.number_text.set('1.2345'); row._commit_input()
+        self.assertEqual(self.editor.appearance_settings()['nr_residual']['residualSaturation'], 1.2345)
+        self.editor.set_limit(1)
+        self.assertEqual(row.value(), 1.2345)
         self.model.assert_not_called()
 
     def test_composition_dependency_survives_edit_feedback_and_theme(self):
@@ -322,6 +337,24 @@ class RealtimeSwitchTests(unittest.TestCase):
             self.ui._parameter_modes = {(0, p['name']): 1 for p in self.items}
             self.ui._refresh_editor_state()
             self.client.send.reset_mock()
+
+    def test_group_copy_cancels_queued_quality_and_undo_restores_regions(self):
+        self.prepare(True)
+        before = deepcopy(self.ui.collect())
+        values = from_realtime(before, catalog(), 1, ('quality', 'regions'))
+        values['nr_quality.total'] = ('.4', None)
+        values['nr_quality.protection'] = ('1', None)
+        values['_regions'] = ('[[0, 0, 0.5, 1]]', None)
+        index, candidate = to_realtime(values, before, catalog(), ('quality', 'regions'))
+        self.ui._queued_quality_apply = True
+        self.ui.replace_common_parameters(index, candidate, ('quality', 'regions'))
+        self.assertFalse(self.ui._queued_quality_apply)
+        self.client.send.assert_not_called()
+        self.client.start.assert_not_called()
+        self.assertEqual(self.ui.collect()['quality'], candidate['quality'])
+        self.ui._active = False
+        self.ui._undo_parameter_edit()
+        self.assertEqual(self.ui.collect(), before)
 
     def test_live_off_waits_confirmation_and_preserves_memory_on_reopen(self):
         self.prepare(True)
@@ -390,7 +423,8 @@ class TransferIntegrationTests(unittest.TestCase):
     setUp = workbench.WorkbenchUiTests.setUp
     tearDown = workbench.WorkbenchUiTests.tearDown
 
-    def test_cancel_and_confirm_both_directions_without_start(self):
+    @mock.patch('dlss5tool.appearance_ui.choose_groups', return_value=('basic',))
+    def test_cancel_and_confirm_both_directions_without_start(self, _groups):
         self.app._select_workbench_mode('realtime')
         workspace = self.app._realtime_workspace
         workspace.catalog.update(catalog())

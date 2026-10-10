@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "guidance": {
+    "device": "cuda",
+    "device_name": "NVIDIA Optical Flow (driver)",
+    "precision": "float32",
+    "load_ms": 200.62549999965995,
+    "depth_profile": "fp32",
+    "depth_precision": "float32",
+    "depth_attention": "original",
+    "execution": "serial",
+    "raft_output": "off",
+    "schedule": "serial",
+    "cache_version": "raw_lru_v2_shared",
+    "cache_limit_bytes": 0,
+    "analysis_parameters": {
+      "guidance_flow_edge": 128
+    },
+    "transport": "shared_memory_flow_v2",
+    "output_layout": "flow_only_v2",
+    "flow_grid": 4,
+    "flow_quality": "slow",
+    "flow_temporal_hints": false,
+    "flow_backend": "nvofa",
+    "gpu_flow_capability": null,
+    "gpu_flow_transport": null
+  },
+  "frames": 4,
+  "raw_nr_reused": true,
+  "composition_array_exact": true,
+  "export_cache_hits": 4,
+  "export_new_frames": 0,
+  "scope": "320x192 SDR synthetic, source Python, not frozen/game/HDR/performance acceptance"
+}

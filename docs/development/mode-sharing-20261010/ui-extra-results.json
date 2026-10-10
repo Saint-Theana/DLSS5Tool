@@ -1,0 +1,357 @@
+[
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_capability_and_overlap_warnings_are_not_compatibility_claims",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_every_installed_native_id_remains_reachable_once",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_family_groups_preserve_distinct_operations_and_unknown_algorithms",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_favorites_round_trip_is_local_and_runtime_setting_does_not_erase_it",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.59s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_missing_or_unavailable_recipe_does_not_substitute_backend",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.58s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_recipes_explicit_steps_default_single_pass_and_keep_only_existing_fg",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowTests::test_scaling_sharpening_classification_and_bilingual_subtitles",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_card_actions_and_recipe_controls_fit_both_themes_at_minimum_size",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 3.50s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_default_is_recipe_and_cards_with_full_catalog_directly_accessible",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.55s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_fg_is_independent_draft_only_and_rate_filter_is_not_removed",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.69s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_guided_family_and_variants_retain_exact_native_name",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.60s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_invalid_draft_not_discarded_by_recipe_or_step_change",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_library_favorites_and_search_do_not_change_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.55s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_recipe_and_undo_preserve_live_session_fg_and_other_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.67s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_recipe_preview_missing_and_custom_are_non_mutating",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.71s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_replacement_cancel_and_card_keyboard_keep_editor_selection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_reselecting_fg_preserves_custom_order_and_parameters",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.60s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_selecting_another_card_cancels_old_replacement_target",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.82s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_step_variant_replaces_in_place_and_undo_preserves_parameters",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_effects.py::EffectWorkflowUiTests::test_unavailable_library_and_duplicate_fg_cannot_be_added",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SnapshotGeometryTests::test_borderless_and_custom_nonclient_match_native_crop",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.60s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SnapshotGeometryTests::test_job_result_decodes_then_releases_worker",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.61s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SnapshotGeometryTests::test_letterbox_roundtrip_excludes_margins",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SnapshotGeometryTests::test_native_frame_title_scrollbars_and_maximized_geometry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.60s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SnapshotGeometryTests::test_worker_timeout_and_cancel_terminate_process",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_close_cancels_capture_without_saving_pixels",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.54s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_compact_preset_scope_routes_actions_and_preserves_selections",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_failure_is_preview_only_and_never_calls_start",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.55s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_letterbox_clicks_and_fifth_region_are_rejected",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.61s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_narrow_preset_actions_wrap_below_picker",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.73s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_nr_type_export_and_import_roundtrip_preserve_output",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.66s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_placeholder_follows_source_and_busy_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.59s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_preset_load_closes_old_region_draft_without_applying_it",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.61s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_preset_menu_survives_posting_and_routes_import_and_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_refresh_failure_drops_previous_pixels",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_region_editing_is_draft_until_apply_and_can_move_resize_delete",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_running_cancels_capture_and_retains_only_matching_snapshot",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.54s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_select_requests_once_but_window_list_refresh_does_not_capture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.62s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_source_icons_and_border_fit_both_languages_and_themes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_start_cancels_snapshot_before_starting_native_capture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_target_change_hides_obsolete_preflight",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.59s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_target_identity_and_capture_bounds_invalidate_snapshot",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.54s\n"
+  },
+  {
+    "node": "tests/test_realtime_source_preview.py::SourcePreviewUiTests::test_wrapped_placeholder_keeps_icon_clear_of_text",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.63s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_cancel_is_explicit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_cfr_decimal_timestamp_quantization",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_cut_and_still",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_exact_pipe_and_truncated_output",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.32s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_existing_output_rejected_before_gpu_or_filesystem_writes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.35s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_inspect_source_allows_vfr_only_when_requested",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_inspect_source_reports_counted_timestamp_progress",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.36s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::TimingTests::test_vfr_missing_repeated_or_offset_timestamps_rejected",
+    "returncode": 0,
+    "output": ".                                                                   [100%]\n1 passed, 5 subtests passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::test_vfr_upstream_remains_rejected_for_frame_generation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::NativeProtocolTests::test_gui_uses_inline_export_control",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.47s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::NativeProtocolTests::test_hdr_overwhite_not_silently_clipped",
+    "returncode": 0,
+    "output": ".                                                                     [100%]\n1 passed, 3 subtests passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::NativeProtocolTests::test_motion_and_dimensions_validated",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_export_request_routes_to_fg_for_single_and_queue",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.12s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_inline_preview_toggles_are_independent_and_do_not_change_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.12s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_inline_row_after_upscale_and_shared_selection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.08s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_light_and_dark_layout",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.14s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_main_export_worker_passes_all_settings_and_cancellation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.07s\n"
+  },
+  {
+    "node": "tests/test_frame_generation.py::InlineControlTests::test_settings_validation_and_queue_snapshot",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.08s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_active_composition_keeps_raw_nr_cache",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.79s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_feather_uses_pixel_centers_and_union",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.72s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_hdr_linear_global_and_explicit_fine_control_gate",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.87s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_hsl_and_directional_controls",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.83s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_legacy_mix_remains_separate_and_view_applied_after_quality",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.87s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_malformed_portable_presets_and_unknown_metadata_fail_closed",
+    "returncode": 0,
+    "output": ".                                                                [100%]\n1 passed, 8 subtests passed in 0.78s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_neutral_identity_old_defaults_and_source_alpha",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.83s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_nvofa_worker_does_not_require_addon_or_import_torch",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.75s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_portable_groups_are_explicit_and_lossless",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.77s\n"
+  },
+  {
+    "node": "tests/test_appearance.py::AppearanceTests::test_quality_ranges_mutation_and_cache_stage",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.81s\n"
+  }
+]

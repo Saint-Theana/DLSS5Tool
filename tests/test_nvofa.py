@@ -60,7 +60,7 @@ class NvofaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'nvofa_mixed'):
             flow_backend({**values, 'guidance_mode': 3}, strict=True)
 
-    def test_legacy_manifest_rejects_nvofa_before_worker_weights(self):
+    def test_builtin_nvofa_does_not_depend_on_legacy_addon_capabilities(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             component = root / 'enhancement'
@@ -76,14 +76,14 @@ class NvofaTests(unittest.TestCase):
                         'mods_directory': str(root), 'ui_language': 'en_US'}
             self.assertEqual(mod_paths.flow_backends(settings), ('raft',))
             self.assertNotIn('flow_weights', mod_paths.guidance_candidates(settings))
-            with self.assertRaisesRegex(ValueError, 'complete component'):
-                guidance_client.validate(settings)
+            self.assertTrue(guidance_client.validate(settings)['builtin_nvofa'])
             manifest['flow_backends'] = ['raft', 'nvofa']
             (component / 'enhancement.json').write_text(json.dumps(manifest), encoding='utf-8')
             self.assertEqual(mod_paths.flow_backends(settings), ('raft', 'nvofa'))
             files = guidance_client.validate(settings)
             self.assertNotIn('flow_weights', files)
-            self.assertEqual(files['worker'], str(component / 'guidance_worker.exe'))
+            import sys
+            self.assertEqual(files['worker'], sys.executable)
 
     def test_handshake_all_fields_and_old_worker(self):
         settings = {'guidance_mode': 1, 'guidance_flow_backend': 'nvofa'}

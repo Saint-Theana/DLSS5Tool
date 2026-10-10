@@ -49,6 +49,7 @@ def main() -> None:
     parser.add_argument('--output', type=Path, default=FOLDER)
     parser.add_argument('--case', default='')
     parser.add_argument('--screenshot', action='store_true', help='Save this owned synthetic output only')
+    parser.add_argument('--residual', action='store_true', help='Exercise opt-in full-resolution SDR residual controls')
     parser.add_argument('--watch', type=int)
     args = parser.parse_args()
     if args.watch is not None:
@@ -71,7 +72,7 @@ def main() -> None:
     environment = os.environ.copy()
     nr_path = Path(mod_paths.runtime_path({})).resolve()
     environment.update(DLSS5_REALTIME_STATE_ROOT=str(folder),
-                       DLSS5_REALTIME_EFFECTS_ROOT=str(ROOT / 'runtime/realtime/effects'),
+                       DLSS5_REALTIME_EFFECTS_ROOT=str(host.parent / 'effects' if (host.parent / 'effects').is_dir() else ROOT / 'runtime/realtime/effects'),
                        DLSS5_REALTIME_RUNTIME_ROOT=str(nr_path.parent),
                        DLSS5_REALTIME_NR_PATH=str(nr_path))
     root = tk.Tk()
@@ -166,6 +167,13 @@ def main() -> None:
                 config.update(windowed=not args.fullscreen, game_mode=False)
                 config['effects'] = [{'name': NR if args.effect == 'NR' else 'Bilinear',
                                       'parameters': {}, 'scale': [1, 1], 'scaling_type': 0}]
+                if args.residual:
+                    if args.effect != 'NR':
+                        raise ValueError('--residual requires --effect NR')
+                    config['effects'][0]['parameters'].update(enableResidualControls=1,
+                        enableInputResolutionScaling=0, inputResolutionPercent=50,
+                        residualMultiplier=1.7, residualSaturation=.8, shadowStructureMultiplier=.7)
+                    config['quality'].update(total=.8, protection=True, regions=[[0, 0, .25, .25]])
                 state['config'] = config
                 user.AllowSetForegroundWindow(process.pid)
                 send('start', hwnd=hwnd, pid=os.getpid(), config=config, activate=True)

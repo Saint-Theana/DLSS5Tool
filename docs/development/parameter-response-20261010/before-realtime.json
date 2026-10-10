@@ -1,0 +1,9 @@
+{
+  "mode": "realtime",
+  "samples": 180,
+  "p50_ms": 0.27070000032836106,
+  "p95_ms": 2.283499999975902,
+  "max_ms": 44.70309999851452,
+  "panel_refreshes_during_drag": 80,
+  "final_value": 1.9500000000000002
+}

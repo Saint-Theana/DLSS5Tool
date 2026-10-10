@@ -1,0 +1,727 @@
+[
+  {
+    "node": "tests/test_parameter_response.py::test_worker_latest_only_bounded_and_never_runs_on_ui",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_worker_retirement_and_error_are_revision_scoped",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_composition_keeps_last_picture_and_exact_full_resolution_result",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.88s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_exporting-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.79s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_queue_running-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_workbench_mode-realtime]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_shared_closing-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.71s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_clear_preview_pending-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.71s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[video-different]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[_frame-3]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_local_result_never_repaints_after_lifecycle_change[playing-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_drag_fast_path_release_undo_and_read_does_not_commit_mid_gesture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.28s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_unchanged_collect_is_read_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.27s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestLocalResponse::test_tk_heartbeat_and_controls_work_during_slow_composition",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.28s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestRealtimeResponse::test_poll_and_pending_receipt_do_not_apply_half_finished_drag",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.02s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::TestRealtimeResponse::test_quality_gesture_commits_once_and_waits_for_render_confirmation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.00s\n"
+  },
+  {
+    "node": "tests/test_parameter_response.py::test_shared_feedback_does_not_compose_in_commit_callback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterValueTests::test_all_switches_preserve_memory_and_are_removed_from_native_config",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterValueTests::test_client_boundary_never_sends_switch_metadata",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterValueTests::test_percentage_finite_and_fine_values",
+    "returncode": 0,
+    "output": ".                                                                  [100%]\n1 passed, 6 subtests passed in 0.76s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterValueTests::test_switch_validation_and_unconfirmed_memory",
+    "returncode": 0,
+    "output": ".                                                                    [100%]\n1 passed, 4 subtests passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterTransferTests::test_no_clipping_no_ambiguous_target_and_no_partial_copy",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.77s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::ParameterTransferTests::test_round_trip_preserves_memory_only_first_pass_and_other_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_appearance_and_regions_commit_output_only_and_undo_together",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.36s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_bilingual_local_controls_fit_minimum_inspector_width",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.73s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_composition_dependency_survives_edit_feedback_and_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.29s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_group_reset_single_callback_and_copy_excludes_composition",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.32s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_invalid_draft_reset_and_undo_do_not_feed_renderer",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.27s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_reopening_editor_keeps_values_switches_and_hides_valid_summary",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.47s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_single_menu_preserves_edits_on_cancel_and_reset_is_undoable",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.27s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::LocalAdjustmentTests::test_switch_precision_reset_undo_and_output_only_callback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.31s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::RealtimeSwitchTests::test_copy_draft_cancels_old_queued_apply_and_undo_restores",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.15s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::RealtimeSwitchTests::test_group_copy_cancels_queued_quality_and_undo_restores_regions",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.12s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::RealtimeSwitchTests::test_live_off_waits_confirmation_and_preserves_memory_on_reopen",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.13s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::RealtimeSwitchTests::test_reset_undo_pass_dependency_and_inline_validation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.99s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::TransferIntegrationTests::test_cancel_and_confirm_both_directions_without_start",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.48s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::TransferIntegrationTests::test_invalid_local_draft_blocks_queue_and_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.86s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_copy_obeys_selected_target_range",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_float32_step_tail_does_not_become_display_precision",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_local_load_migrates_high_values_without_opening_for_invalid_data",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_range_schema_presets_native_boundary_and_legacy_detection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_bilingual_range_tooltips_toggle_and_number_fields_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.84s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_default_range_and_native_format_with_unchanged_catalog",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.02s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_loaded_legacy_later_pass_and_disabled_memory_open_range",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.10s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_range_only_toggle_does_not_apply_draft_or_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.95s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_range_toggle_follows_common_rows_and_stays_before_later_passes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.94s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_ui_correction_checkbox_aligns_left_and_retains_values_and_undo",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.79s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_undo_reopens_required_range_and_preserves_high_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.96s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::LocalRangeTests::test_block_closure_without_clipping_and_do_not_rerender_for_range_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.85s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::LocalRangeTests::test_invalid_text_prevents_closure_and_precision_is_not_lost",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_all_parameters_kept_and_control_types_match_metadata",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_bad_numeric_input_does_not_send_or_silently_clamp",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.98s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_compact_numeric_display_and_exact_keyboard_input",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.85s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_dependencies_disable_mouse_keyboard_and_keep_draft_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.11s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_diagnostic_snapshot_keeps_invalid_raw_draft_and_errors_without_commands",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_edit_while_applying_keeps_latest_value_for_next_commit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.89s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_effect_categories_and_descriptions_do_not_edit_chain",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.90s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_group_reset_is_batched_and_undo_restores_values_without_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.89s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_group_reset_with_restart_parameter_does_not_partially_send",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_incomplete_third_party_nr_metadata_keeps_pass_count_accessible",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_invalid_field_keeps_selected_effect_and_blocks_reorder",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.72s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_live_timeout_is_visible_and_stop_cancels_queued_edits",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.72s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_long_labels_reserve_numeric_field_width",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.26s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_native_quality_rejection_without_run_id_is_retryable",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.86s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_only_unapplied_feedback_is_visible_not_default_comparisons",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_optional_pass_switches_default_off_and_preserve_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.90s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_pass_headers_keep_toggle_visible_and_advanced_reset_does_not_disable_passes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.20s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_pass_switch_import_undo_and_restart_follow_existing_editor",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.16s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_quality_timeout_can_retry_and_restart_reason_is_specific",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_quick_quality_edits_wait_for_revision_then_apply_latest_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.80s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_release_submits_once_and_waits_for_matching_native_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_reset_repairs_invalid_input_and_undo_is_one_step",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.69s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_restart_required_and_chain_edits_never_auto_restart_or_partial_send",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_scale_group_reset_and_undo_retain_units_and_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.69s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_scale_units_and_footer_stay_visible_at_narrow_size",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.92s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_search_filters_without_modifying_chain_or_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.70s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_sections_drafts_and_theme_survive_editor_rebuild",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.14s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_sparse_enum_and_style_chips_store_native_numeric_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.86s\n"
+  },
+  {
+    "node": "tests/test_realtime_inspector.py::RealtimeInspectorTests::test_stale_ack_does_not_fail_live_edit_and_retry_waits_for_confirmation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.79s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_both_themes_and_sizes_keep_controls_inside_workbench",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 4.19s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_cancelled_or_failed_export_does_not_leave_busy_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.93s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_caption_click_switches_immediately_without_menu_or_capture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.25s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_closing_cancels_poll_and_closes_native_client_once",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.13s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_diagnostic_gate_and_shared_export_entry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.24s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_export_rechecks_busy_after_save_dialog",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_export_runs_off_ui_thread_and_clears_start_guard",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.02s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_detached_preview_is_hidden_and_restored_without_recreation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.27s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_logs_share_bottom_slot_toggle_and_preserve_separate_scroll",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 3.44s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_manual_theme_change_keeps_mode_badge_and_cancels_highlight",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.61s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_mode_menu_is_explicit_and_does_not_auto_start",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.23s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_mode_theme_inverts_current_choice_instead_of_binding_to_mode",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.58s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_native_titlebars_are_updated_after_client_widgets",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.05s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_no_header_and_keyboard_switch_preserves_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.31s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_palette_changes_do_not_reselect_the_active_ttk_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_player_returns_to_single_row_below_old_1000px_threshold",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.41s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_quick_export_includes_realtime_session_from_local_mode_without_probes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.66s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_does_not_receive_local_playback_shortcuts_or_drops",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.14s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_nr_issue_opens_existing_local_module_editor",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.44s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_start_refreshes_idle_runtime_paths_and_blocks_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.12s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_status_hides_local_idle_chips_but_keeps_background_jobs",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.26s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_reduced_motion_switch_has_static_status_bar_feedback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.47s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_selecting_current_mode_does_not_toggle_theme_or_restart_feedback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.56s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_stop_remains_available_in_local_mode_and_waiting_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.75s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_switch_retains_widgets_media_position_queue_and_realtime_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.25s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_theme_switch_does_not_flush_partial_palette_to_idle_callbacks",
+    "returncode": 0,
+    "output": ".                                                                     [100%]\n1 passed, 3 subtests passed in 3.45s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_transition_cancels_on_rapid_switch_and_keeps_session_and_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.72s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_workspace_creation_failure_leaves_local_mode_usable",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.41s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_badge_has_fixed_geometry_and_no_overlay_in_both_themes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.76s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_failed_switch_keeps_previous_mode_label",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.75s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_hidden_workbench_commits_label_without_animation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.73s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_highlight_expires_but_current_mode_stays_visible",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.74s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_host_destruction_cancels_highlight",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_normal_motion_fades_to_resting_text_without_displacement",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_rapid_switch_reuses_badge_and_cancels_old_timer",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_startup_label_can_be_restored_without_a_highlight",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_workbench_transition.py::WorkbenchTransitionTests::test_theme_update_and_cancel_keep_badge_and_current_mode",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.71s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_apply_failure_leaves_draft_and_visible_retry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_batch_reader_does_not_consume_emergency_event_after_recovery_barrier",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.79s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_batch_reader_never_merges_saves_across_state_events",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_confirming_quality_does_not_erase_saved_restart_edits",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.85s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_consecutive_drag_saves_are_persisted_once_and_all_receipted",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.81s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_external_value_reenables_disabled_slider_and_its_needed_range",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.87s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_fast_parameter_receipts_do_not_make_metrics_flicker",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.90s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_frame_sync_conflict_does_not_overwrite_local_edit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.92s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_help_hover_only_never_expands_or_shifts_parameters",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.97s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_help_keyboard_focus_works_without_hover_and_escape_dismisses",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.07s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_help_only_sections_use_existing_headers_without_empty_rows",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.97s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_help_updates_and_theme_changes_close_stale_tooltips",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_idle_and_clean_hide_apply_but_restart_action_fits_small_window",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.00s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_late_old_session_receipt_cannot_confirm_current_overlay",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.47s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_local_commit_waits_for_overlay_then_sends_latest_value_once",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.29s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_new_session_does_not_label_previous_samples_as_current",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.24s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_overlay_save_preserves_newly_confirmed_quality",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_overlay_updates_in_place_without_manual_apply_or_premature_confirmation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.80s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_recovery_does_not_keep_unconfirmed_overlay_as_rollback_baseline",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_restart_only_edit_is_not_reported_applied_until_new_output",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_same_field_conflict_preserves_local_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_selected_second_effect_scroll_and_widget_identity_survive",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_sparse_native_defaults_do_not_produce_false_conflicts",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.73s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_stop_rejects_late_save_without_replacing_editor",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_stopped_metrics_are_explicitly_historical",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.80s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_timeout_is_retryable_and_stop_discards_pending_confirmation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.85s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_undo_actions_use_distinct_return_arrow_icons",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.88s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_unfinished_unrelated_inputs_and_local_undo_survive",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_panel_sync.py::RealtimePanelSyncTests::test_write_failure_does_not_mutate_widgets_or_ack_success",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  }
+]

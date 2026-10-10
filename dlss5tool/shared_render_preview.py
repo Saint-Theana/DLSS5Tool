@@ -12,6 +12,7 @@ from dlss5tool.video_export import compose_hdr_frame, compose_output_frame, tone
 from dlss5tool.i18n import tr
 from dlss5tool.image_sequence import open_capture
 from dlss5tool.preview_feedback import PreviewFeedback
+from dlss5tool.preview_jobs import LatestPreviewJob
 
 
 class SharedRenderPreview(PreviewFeedback):
@@ -98,7 +99,8 @@ class SharedRenderPreview(PreviewFeedback):
         self._shared_progress_binding = None
         self._show_preview_wait(tr('status.shared_updating'),
                                 key=(self.video, self._shared_revision))
-        self._shared_interim()
+        # Never compose a full-resolution image in a slider/spinbox callback.
+        # Keep the last painted frame until the settled request is ready.
         self._cancel_after('_shared_preview_after')
         self._shared_preview_after = self.root.after(16, self._shared_poll)
 
@@ -109,7 +111,8 @@ class SharedRenderPreview(PreviewFeedback):
         if not base or base.closed or not base.metadata:
             return False
         config = self._shared_config()
-        expected = {**config, 'frame_generation_multiplier': 1, 'output_mix': 1, 'output_size': None}
+        from dlss5tool.appearance import raw_settings
+        expected = {**raw_settings(config), 'frame_generation_multiplier': 1, 'output_mix': 1, 'output_size': None}
         if base.key != render_identity(self.video, expected):
             return False
         multiplier = config['frame_generation_multiplier']
@@ -121,19 +124,43 @@ class SharedRenderPreview(PreviewFeedback):
         processed, reference = pair
         mix_source = getattr(pair, 'mix_source', reference)
         meta = base.metadata.get('hdr_metadata')
-        if meta:
-            processed = compose_hdr_frame(mix_source, processed, mix=config['output_mix'], profile=meta['profile'])
-        else:
-            processed = cv2.cvtColor(compose_output_frame(cv2.cvtColor(mix_source, cv2.COLOR_RGBA2BGR),
-                cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), mix=config['output_mix']), cv2.COLOR_BGR2RGBA)
+        from dlss5tool.appearance import preflight
+        try:
+            preflight(config, hdr=bool(meta))
+        except ValueError:
+            # The normal asynchronous display path reports the preflight error.
+            # Never raise from the immediate slider-feedback Tk callback.
+            return False
+        def compose():
+            if meta:
+                result = compose_hdr_frame(mix_source, processed, mix=config['output_mix'], profile=meta['profile'], settings=config)
+            else:
+                result = cv2.cvtColor(compose_output_frame(cv2.cvtColor(mix_source, cv2.COLOR_RGBA2BGR),
+                    cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), mix=config['output_mix'], settings=config), cv2.COLOR_BGR2RGBA)
+            original = reference
+            size = config.get('output_size')
+            if size and (result.shape[1], result.shape[0]) != tuple(size):
+                def resize(pixels):
+                    work = pixels.astype(np.float32) if pixels.dtype == np.float16 else pixels
+                    return cv2.resize(work, tuple(size), interpolation=cv2.INTER_LANCZOS4).astype(pixels.dtype)
+                result, original = resize(result), resize(original)
+            return result, original
+        job = getattr(self, '_shared_interim_job', None)
+        if job is None:
+            job = self._shared_interim_job = LatestPreviewJob('preview-interim')
+        key = (base, self._frame, getattr(self, '_shared_revision', 0), render_identity(self.video, config))
+        result = job.request(key, compose)
+        if result is None:
+            return False
         self._shared_display_config = config
-        size = config.get('output_size')
-        if size and (processed.shape[1], processed.shape[0]) != tuple(size):
-            def resize(pixels):
-                work = pixels.astype(np.float32) if pixels.dtype == np.float16 else pixels
-                return cv2.resize(work, tuple(size), interpolation=cv2.INTER_LANCZOS4).astype(pixels.dtype)
-            processed, reference = resize(processed), resize(reference)
-        self._shared_paint(base, (processed, reference), self._frame, waiting=True)
+        paint_key = (key, self._hold_original, self.view_var.get(), self._canvas_size(),
+                     getattr(self, 'canvas', None), getattr(self, 'split_x', .5),
+                     getattr(self, '_preview_zoom', 1), getattr(self, '_preview_pan_x', .5),
+                     getattr(self, '_preview_pan_y', .5), getattr(self, 'compare_layout', None).get()
+                     if getattr(self, 'compare_layout', None) is not None else None)
+        if paint_key != getattr(self, '_shared_interim_painted', None):
+            self._shared_paint(base, result, self._frame, waiting=True)
+            self._shared_interim_painted = paint_key
         return True
 
     def _shared_source_preview(self):
@@ -225,6 +252,10 @@ class SharedRenderPreview(PreviewFeedback):
 
     def _shared_retire(self):
         """Detach immediately; close old GPU workers off the UI thread."""
+        job = getattr(self, '_shared_interim_job', None)
+        if job:
+            job.invalidate()
+        self._shared_interim_painted = None
         self._clear_preview_wait()
         self._shared_progress_token = None
         self._shared_progress_binding = None
@@ -249,11 +280,11 @@ class SharedRenderPreview(PreviewFeedback):
         thread.start()
 
     def _shared_ready(self):
+        if time.perf_counter() < getattr(self, '_shared_not_before', 0):
+            return None
         config = self._shared_config()
         key = render_identity(self.video, config)
         self._shared_display_config = config
-        if time.perf_counter() < getattr(self, '_shared_not_before', 0):
-            return None
         retiring = getattr(self, '_shared_retiring', None)
         if retiring and retiring.is_alive():
             return None
@@ -301,6 +332,7 @@ class SharedRenderPreview(PreviewFeedback):
 
     def _shared_display(self):
         if (getattr(self, '_exporting', False) or getattr(self, '_clear_preview_pending', False)
+                or getattr(self, '_workbench_mode', 'local') != 'local'
                 or getattr(self, '_shared_closing', False)):
             return False
         self._cancel_after('_shared_preview_after')
@@ -321,10 +353,14 @@ class SharedRenderPreview(PreviewFeedback):
                 pair = session.request(index)
                 ready = pair is not None
                 if ready:
+                    job = getattr(self, '_shared_interim_job', None)
+                    if job:
+                        job.invalidate()
+                    self._shared_interim_painted = None
                     self._shared_paint(session, pair, index,
                                        waiting=self.playing and getattr(self, '_buffering', False))
                 else:
-                    if not self.playing:
+                    if not self.playing and session.multiplier > 1:
                         self._shared_interim()
                     self._shared_wait_status(tr('status.shared_buffering', frame=index+1))
             if not ready and not self.playing:

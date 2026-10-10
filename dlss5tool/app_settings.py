@@ -9,6 +9,8 @@ import re
 import sys
 
 from dlss5tool import i18n
+from dlss5tool import appearance
+from copy import deepcopy
 from dlss5tool.host_queue import MAX_IN_FLIGHT
 from dlss5tool.performance_profiles import profiles as validate_performance_profiles
 from dlss5tool.guidance_parameters import parameters as guidance_parameters
@@ -22,6 +24,7 @@ DLSS_SLIDER_STEP = 0.01
 
 
 DEFAULTS = {
+    **deepcopy(appearance.DEFAULTS),
     **guidance_parameters({'guidance_edge': 512, 'guidance_flow_range': 5.0}),
     "preview_view": "compare",
     "preview_compare_layout": "wipe",
@@ -144,7 +147,8 @@ def _as_window_geometry(value):
 def validate(values):
     """Return a complete safe configuration, ignoring unknown/corrupt values."""
     source = values if isinstance(values, dict) else {}
-    result = dict(DEFAULTS)
+    result = deepcopy(DEFAULTS)
+    result.update(appearance.settings(source, strict=False))
     preview_view = {
         "原图": "original",
         "DLSS": "dlss",

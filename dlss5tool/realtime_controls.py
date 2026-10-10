@@ -256,6 +256,7 @@ class ParameterRow(ttk.Frame):
         self._widgets = []
         self.slider = self.field = self.toggle = self.choice = None
         self._syncing = False
+        self._drag_changed = False
         self._trace = None
         self._input_trace = None
         self._enable_trace = None
@@ -407,7 +408,9 @@ class ParameterRow(ttk.Frame):
             elif self.toggle:
                 self.display.set(value != 0)
             elif self.field:
-                self.number_text.set(self._format_numeric(self.variable.get()))
+                text = self._format_numeric(self.variable.get())
+                if self.number_text.get() != text:
+                    self.number_text.set(text)
         except (ValueError, tk.TclError):
             if self.field:
                 self.number_text.set(self.variable.get())
@@ -431,10 +434,13 @@ class ParameterRow(ttk.Frame):
     def _commit_input(self):
         if not self._input_enabled():
             return
-        self.variable.set(self.number_text.get())
+        if self.variable.get() != self.number_text.get():
+            self.variable.set(self.number_text.get())
         if self.allow_percent:
             try:
-                self.variable.set(str(self.value()))
+                value = str(self.value())
+                if self.variable.get() != value:
+                    self.variable.set(value)
             except (ValueError, tk.TclError):
                 pass
         self.commit()
@@ -442,6 +448,12 @@ class ParameterRow(ttk.Frame):
     def _changed(self, *_):
         if not self._syncing:
             self._sync_display()
+        # Keep just the thumb and number hot while the pointer is down. Full
+        # panel validation/layout (shared by both modes) runs once on release.
+        if self.slider is not None and self.slider._dragging:
+            self._drag_changed = True
+            return
+        self._drag_changed = False
         self._change()
 
     def _choose(self):
@@ -464,6 +476,9 @@ class ParameterRow(ttk.Frame):
         # AccentSlider emits on press, drag, release and keyboard. Commit only at
         # release (or a keyboard step), never send every pointer movement.
         if self._input_enabled() and not self.slider._dragging:
+            if self._drag_changed:
+                self._drag_changed = False
+                self._change()  # Includes release at the same value as the last move.
             self.commit()
 
     def commit(self):
@@ -506,7 +521,10 @@ class ParameterRow(ttk.Frame):
         self.label.configure(style='TLabel' if self.enabled else 'Hint.TLabel')
 
     def set_maximum(self, maximum):
-        self.maximum = min(maximum, self.descriptor['max'])
+        maximum = min(maximum, self.descriptor['max'])
+        if maximum == self.maximum:
+            return
+        self.maximum = maximum
         if self.slider is not None:
             self.slider.configure(to=self.maximum)
         if self.field is not None:

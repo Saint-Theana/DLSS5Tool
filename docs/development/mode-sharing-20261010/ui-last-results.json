@@ -1,0 +1,22 @@
+[
+  {
+    "node": "tests/test_parameter_unification.py::TransferIntegrationTests::test_cancel_and_confirm_both_directions_without_start",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.63s\n"
+  },
+  {
+    "node": "tests/test_parameter_unification.py::TransferIntegrationTests::test_invalid_local_draft_blocks_queue_and_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.90s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_diagnostic_gate_and_shared_export_entry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.55s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_start_refreshes_idle_runtime_paths_and_blocks_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.62s\n"
+  }
+]

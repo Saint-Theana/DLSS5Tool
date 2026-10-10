@@ -1,0 +1,9 @@
+{
+  "mode": "local",
+  "samples": 180,
+  "p50_ms": 1.0455000010551885,
+  "p95_ms": 2.9116999976395164,
+  "max_ms": 5.197200000111479,
+  "panel_refreshes_during_drag": 0,
+  "final_value": 1.97
+}

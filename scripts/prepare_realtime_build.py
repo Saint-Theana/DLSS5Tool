@@ -40,6 +40,7 @@ def generate(output):
         if separator and prop in ('Header', 'Content', 'Description', 'Text', 'ToolTipService.ToolTip'):
             alias = json.dumps(name + '/' + prop, ensure_ascii=False)
             lines.append(f"    {{ L{alias}, L{value} }},")
+    lines.append('    { L"EffectParam_DLSSNR_DLSSNR_AI_Filter_enableResidualControls_Label", L"全分辨率残差控制" },')
     lines += ["  };", "  for (const auto& [key, value] : strings)",
               "    if (key == name) return winrt::hstring(value);",
               "  return fallbackToKey ? winrt::hstring(name) : winrt::hstring();", "}"]
@@ -55,6 +56,11 @@ def generate(output):
                                 'const auto value = StandaloneString(key, false);')
     localization = localization.replace('#pragma once', '#pragma once\n#include "standalone_resources.h"', 1)
     write_if_changed(output / 'standalone_parameter_localization.h', localization)
+    rules = (MAGPIE / 'src/Magpie.Core/include/EffectParameterRules.h').read_text(encoding='utf-8')
+    rules = replace_once(rules, 'return getValue("enableInputResolutionScaling", 0.0f) != 0.0f;',
+        'return getValue("enableInputResolutionScaling", 0.0f) != 0.0f ||\n'
+        '\t\t\t(parameter != "inputResolutionPercent" && getValue("enableResidualControls", 0.0f) != 0.0f);')
+    write_if_changed(output / 'standalone_parameter_rules.h', rules)
     source = (MAGPIE / "src/Magpie.Core/ScalingWindow.cpp").read_text(encoding="utf-8")
     old = ('ScalingWindow::ScalingWindow() noexcept :\n'
            '\t_resourceLoader(winrt::ResourceLoader::GetForViewIndependentUse(CommonSharedConstants::APP_RESOURCE_MAP_ID)) {}')
@@ -125,12 +131,26 @@ inline std::filesystem::path StandaloneNrRuntimePath() {
     write_if_changed(output / "standalone_paths.h", path_header)
     for name in ("EffectCompiler.cpp", "NgxD3D12Core.cpp", "DLSSNRFilter.cpp", "OverlayDrawer.cpp", "ParameterInputHost.cpp", "Renderer.cpp", "NativeEffectBackendFactory.cpp", "DLSSNRMultiPass.h", "DLSSSRUpscaler.cpp", "GraphicsCaptureFrameSource.cpp", "DesktopDuplicationFrameSource.cpp"):
         text = (MAGPIE / "src/Magpie.Core" / name).read_text(encoding="utf-8")
+        text = text.replace('#include "EffectParameterRules.h"', '#include "standalone_parameter_rules.h"')
         text = text.replace('#include "pch.h"', '#include "pch.h"\n#include "standalone_paths.h"', 1)
         if name == "EffectCompiler.cpp":
             text = text.replace("CommonSharedConstants::EFFECTS_DIR", "StandaloneEffectsDirectory().c_str()")
         else:
             text = text.replace("Win32Helper::GetExePath().parent_path()", "StandaloneRuntimeDirectory()")
         if name == 'DLSSNRFilter.cpp':
+            # Explicit opt-in preserves dormant controls in old presets. Reuse
+            # residual resources at 100% without enabling input downscaling.
+            text = replace_once(text,
+                'getParameter("enableInputResolutionScaling", 0.0f) >= 0.5f,',
+                '(getParameter("enableInputResolutionScaling", 0.0f) >= 0.5f ||\n'
+                '\t\t\t getParameter("enableResidualControls", 0.0f) >= 0.5f),')
+            text = replace_once(text,
+                'getParameter("inputResolutionPercent", 100.0f))), 25, 100)),',
+                '(getParameter("enableInputResolutionScaling", 0.0f) >= 0.5f ?\n'
+                '\t\t\t\t getParameter("inputResolutionPercent", 100.0f) : 100.0f))), 25, 100)),')
+            text = replace_once(text,
+                '(parameterName == "enableInputResolutionScaling" || parameterName == "inputResolutionPercent" ||',
+                '(parameterName == "enableResidualControls" || parameterName == "enableInputResolutionScaling" || parameterName == "inputResolutionPercent" ||')
             text = text.replace('applicationDirectory / L"nvngx_dlssnr.dll"', 'StandaloneNrRuntimePath()')
             text = text.replace('#include "pch.h"', '#include "pch.h"\n#include "quality.h"\n#include "telemetry.h"', 1)
             text = replace_once(text, 'struct DLSSNRFilter::Impl {\n', 'struct DLSSNRFilter::Impl {\n\tRealtime::ResidualComposite veyraComposite;\n')

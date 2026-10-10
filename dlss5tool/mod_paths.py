@@ -188,6 +188,8 @@ def guidance_candidates(settings):
     mode = int(settings.get("guidance_mode", 0))
     if not mode:
         return {}
+    if builtin_flow(settings):
+        return {'worker': sys.executable}
     result = {"worker": str(enhancement_path(settings) / 'guidance_worker.exe')}
     if mode in (1, 3) and settings.get('guidance_flow_backend', 'raft') == 'raft':
         name = 'raft_large_C_T_SKHT_V2-ff5fadd5.pth'
@@ -205,6 +207,8 @@ def guidance_files(settings):
     settings = normalize_public_settings(settings)
     if not int(settings.get('guidance_mode', 0)):
         return {}
+    if builtin_flow(settings):
+        return {'worker': sys.executable, 'builtin_nvofa': True}
     component = enhancement_info(settings)
     result = guidance_candidates(settings)
     result.update(component)
@@ -212,3 +216,8 @@ def guidance_files(settings):
     if missing:
         raise FileNotFoundError(i18n.tr_for(settings.get('ui_language'), 'guidance.error.files_missing', paths='\n'.join(missing)))
     return result
+
+
+def builtin_flow(settings):
+    """Driver-only flow lives in the base app; RAFT still needs the addon."""
+    return int(settings.get('guidance_mode', 0)) == 1 and settings.get('guidance_flow_backend') == 'nvofa'
