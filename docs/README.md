@@ -48,7 +48,8 @@
 
 ## 文档导航
 
-- 本机窗口实时增强：[Magpie / Veyra 联合参考与复用清单（2026-10-03，待实施）](development/MAGPIE_VEYRA_REUSE_CHECKLIST_20261003.md)
+- 本机窗口实时增强：[当前使用说明](REALTIME_USER_GUIDE.md)、[实现与验收台账](development/REALTIME_IMPLEMENTATION_20261003.md)；[Magpie / Veyra 原始研究清单（历史计划）](development/MAGPIE_VEYRA_REUSE_CHECKLIST_20261003.md)
+- 双模式复用与资源协调：[P3 收尾记录](development/P3_CLOSEOUT_20261011.md)、[参数交互优化](development/PARAMETER_RESPONSE_20261010.md)
 - 下一轮研究交接：[光流性能与质量 TODO（用户决策、缓存收益、异步时序安全）](development/TODO_FLOW_PERFORMANCE_20260915.md)
 - GPU 常驻研究：[2026-09-15 原型](development/GPU_PIPELINE_STUDY_20260915.md)；编码合同补测：[2026-09-16 验收（未批准生产接入）](development/ENCODE_ACCEPTANCE_20260916.md)
 - 当前接入进展：[2026-09-17 编码时间戳与SDR GPU转换（候选通过，未切换默认）](development/ENCODER_INTEGRATION_20260917.md)
@@ -57,7 +58,7 @@
 
 - 仓库维护：[卫生守则与空间预算](development/REPOSITORY_HYGIENE.md)、[2026-09-11 临时目录盘点](development/TMP_AUDIT_20260911.md)
 
-- 当前源码版本：[v3.0.0 说明（待发布）](release/RELEASE_NOTES_v3.0.0.md)、[打包与发布状态](release/PACKAGING_INDEX.md)
+- 当前版本：[v3.0.0 更新说明](release/RELEASE_NOTES_v3.0.0.md)、[本地打包与发布状态](release/PACKAGING_INDEX.md)、[更新日志同步验收](release/V300_CHANGELOG_SYNC_20261011.md)。截至 2026-10-11 已完成本地打包，尚未公开发布；分发许可审查仍待完成。
 - 既有功能与历史验证：[NVOFA 集成验证](experiments/NVOFA_INTEGRATION.md)、[深度下线状态](experiments/DEPTH_REFERENCE_STATUS.md)、[实施核对](development/IMPLEMENTATION_READINESS.md)
 
 - 用户指南：[简体中文](USER_GUIDE.md)、[English](USER_GUIDE.en.md)

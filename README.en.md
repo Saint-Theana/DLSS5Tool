@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  Reshape light and detail locally with DLSS 5, bringing a more lifelike look to videos and images.
+  Local image and video processing · Realtime window enhancement, in one workbench for adjustment and comparison.
 </p>
 
 <p align="center">
@@ -15,44 +15,49 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="Source version v3.0.0 (unreleased)" height="20"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="Source version v3.0.0" height="20"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/platform-Windows_x64-0369A1?style=flat&amp;labelColor=475569" alt="Platform: Windows x64" height="20"></a>
   <a href="#2-select-the-runtime-for-your-gpu"><img src="https://img.shields.io/badge/GPU-NVIDIA_RTX-0E7490?style=flat&amp;labelColor=475569" alt="GPU: NVIDIA RTX; select the runtime for your GPU generation" height="20"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0369A1?style=flat&amp;labelColor=475569" alt="Combined source licensed under GPLv3" height="20"></a>
 </p>
 
-The current source version is **v3.0.0 (unreleased)**; see the [release notes in Chinese](docs/release/RELEASE_NOTES_v3.0.0.md). Download links still point to published releases, not a v3.0.0 package.
-
-## In-app preview
-
-<p align="center">
-  <a href="https://www.bilibili.com/video/BV1yhaN6uEWB"><img src="assets/readme-video-cover.png" alt="DLSS5Tool Bilibili introduction video cover; click to watch" width="760"></a>
-</p>
-
-<p align="center"><a href="https://www.bilibili.com/video/BV1yhaN6uEWB">▶ Watch the introduction on Bilibili</a></p>
-
-<p align="center">
-  <a href="https://www.bilibili.com/video/BV1yhaN6uEWB"><img src="img/03.png" alt="DLSS5Tool in-app preview; click to watch the introduction on Bilibili" width="760"></a>
-</p>
-
-<p align="center"><sub>Application screenshot from v2.3.3</sub></p>
+This README describes **v3.0.0**. As of 2026-10-11, local packaging and acceptance checks are complete, but the version has not been publicly released. Check the actual Release assets for availability. See [changes since v2.3.3 (Chinese)](docs/release/RELEASE_NOTES_v3.0.0.md) and the [redistribution restrictions](#license).
 
 ## Features
 
-DLSS5Tool uses **DLSS 5 Neural Rendering** to enhance local videos and images. No game engine integration is needed.
+DLSS5Tool brings **local media processing and realtime window enhancement** into one workbench. No game engine integration or capture card is needed.
 
-- **Enhancement and comparison:** Three styles with strength and detail controls; compare against the original with a wipe, side-by-side view, or frame stepping.
-- **Upscaling and interpolation:** RTX Video 2× / 4× upscaling; export video with 2× / 3× / 4× interpolation (3× / 4× are experimental).
-- **Batch and image sequences:** Queue images and videos with settings per item; turn consecutively numbered images into video.
-- **HDR and GPU export:** HDR10 / HLG 10-bit output, with GPU acceleration when supported.
-- **Optical flow guidance:** Optional RAFT / NVOFA motion estimates provide temporal input for video enhancement.
-- **GPU and updates:** Select a high-performance NVIDIA GPU by default, with multi-GPU selection, diagnostics export, and file-level updates.
+- **Local images and videos:** DLSS 5 neural rendering, original/enhanced wipe or side-by-side comparison, frame stepping, batch export, and image sequences to video.
+- **Local upscaling and interpolation:** RTX Video 2× / 4× upscaling; export video with 2× / 3× / 4× interpolation (3× / 4× are experimental).
+- **Realtime window enhancement:** Select a running window, combine enhancement, scaling and interpolation steps, save presets, and protect fixed regions. Supports windowed and full-screen output.
+- **Smoother adjustment:** Copy supported parameter groups, restore defaults, or undo changes, with pending, updating and applied feedback. Local and realtime settings are saved independently; not every parameter is automatically synchronized.
+- **Optional optical flow:** Lite includes local NVOFA hardware flow. Install Full or the inference add-on only when you need RAFT.
+- **Output and resource management:** Local HDR10 / HLG 10-bit output and conditional GPU export, with coordinated GPU resource use and shared diagnostics across modes.
 
-The working tree now has **Local media / Realtime enhancement** modes in one workbench. A single click on the paired-arrow icon beside the native title-bar buttons switches modes directly, without a selection menu. Ctrl+Tab and More → Work mode are also available; no extra realtime control window is needed. Realtime NR/SR/FG, temporal stabilization and protected regions remain available, without a capture card. While a session is active, its status and Stop appear in the bottom status bar and remain reachable in local mode. This is not yet a released feature; target-game and HDR/multi-display validation remains open. See the [usage guide](docs/REALTIME_USER_GUIDE.md) and [acceptance ledger](docs/development/REALTIME_IMPLEMENTATION_20261003.md).
+Switch modes using the paired-arrow icon in the title bar, `Ctrl+Tab`, or **More → Work mode**. Both modes support Simplified Chinese / English and light / dark themes. Change **More → Language**, then restart the app.
 
-Both workspaces support Simplified Chinese / English and light / dark themes. Change the language under **More → Language**, then restart the app. Technical effect names and unknown third-party descriptions retain their original text.
+## v3.0.0 interface
 
-## Before and after
+### Local media · Compare and adjust
+
+<p align="center">
+  <a href="img/v3.0.0-本地.png"><img src="img/v3.0.0-本地.png" alt="v3.0.0 local media: original/enhanced wipe, timeline, and picture controls (Chinese UI)" width="960"></a>
+</p>
+
+### Realtime enhancement · Source, preset and output
+
+<p align="center">
+  <a href="img/v.3.0.0-实时.png"><img src="img/v.3.0.0-实时.png" alt="v3.0.0 realtime idle configuration: source window, preset, output mode and picture controls (Chinese UI)" width="960"></a>
+</p>
+
+The realtime screenshot shows idle configuration, not active enhancement or a frame-rate demonstration. Click either screenshot for the original image. Both modes support light and dark themes.
+
+<details>
+<summary>View the older introduction video and before/after example</summary>
+
+[▶ Watch the introduction on Bilibili](https://www.bilibili.com/video/BV1yhaN6uEWB) (older-version demonstration; use the v3.0.0 screenshots and guides for current controls).
+
+### Before and after
 
 The images below use the same AI-generated source. The left side is untouched and the right side is the neural-rendered result. This illustrates changes to materials, lighting, and detail; results vary by source.
 <table>
@@ -66,10 +71,16 @@ The images below use the same AI-generated source. The left side is untouched an
   </tr>
 </table>
 
+</details>
+
 ## RAFT / NVOFA optical flow comparison
 
-Enabling optical flow can improve overall video stability and lighting consistency, and reduce flicker, black patches, and flashing shadows. There are two backends: RAFT, which favors quality, and NVOFA, which favors speed.
-Turn on the flow-map preview to see what the model inferred: **color encodes motion direction, brightness encodes displacement magnitude**.
+Optical flow provides motion estimates for video enhancement and may improve temporal stability, depending on the source. Try the NVOFA backend included in Lite first; install the inference add-on to compare RAFT. On the two historical test clips below, NVOFA was faster and the quality gap was small. This is not a performance guarantee for v3.0.0 or other workloads.
+
+<details>
+<summary>Expand flow screenshots and historical measurements (2026-09-10)</summary>
+
+Turn on the flow-map preview to see the motion estimates: **color encodes direction, brightness encodes displacement magnitude**.
 
 <table>
   <tr>
@@ -107,6 +118,8 @@ Steady flow-stage times (input preparation, readback, and size restore, excludin
 
 See the [full methodology, run-to-run variation, no-flow baseline, and reproduction commands (Chinese)](docs/experiments/README_FLOW_BENCHMARK.md) and [public measurements with component hashes](docs/experiments/README_FLOW_BENCHMARK_20260910.json).
 
+</details>
+
 ## Quick start
 
 You need **Windows 10 / 11 x64, a compatible NVIDIA RTX GPU and driver**, and the [Microsoft Visual C++ Redistributable x64](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist). See step 2 for GPU-specific runtimes.
@@ -117,9 +130,9 @@ Get the [portable release](https://github.com/banbanzhige/DLSS5Tool/releases/lat
 
 | Your needs | Package |
 | --- | --- |
-| Enhancement, 2× / 4× super resolution, and frame interpolation | **Lite (recommended)**: `DLSS5Tool-vVERSION-win64.zip` |
-| Optical flow as well | **Full**: all volumes starting with `DLSS5Tool-vVERSION-win64-full.zip.001` |
-| Add model features to an existing lite installation | **Inference add-on**: all volumes starting with `DLSS5Tool-vVERSION-win64-addon.zip.001` |
+| Local enhancement/upscaling/interpolation, realtime window enhancement, and local NVOFA hardware flow | **Lite (recommended)**: `DLSS5Tool-vVERSION-win64.zip` |
+| Local RAFT flow inference components and weights as well | **Full**: all volumes starting with `DLSS5Tool-vVERSION-win64-full.zip.001` |
+| Add RAFT to Lite of the same version | **Inference add-on**: all volumes starting with `DLSS5Tool-vVERSION-win64-addon.zip.001` |
 
 - Full already includes the add-on. Download every volume of the same version into one folder, then open `.001` in 7-Zip to extract.
 - Close the app before extracting the add-on beside `DLSS5Tool.exe`; do not create `mods/mods`.
@@ -143,7 +156,7 @@ mods\nvngx_dlssnr.dll
 
 Use `mods` instead of overwriting the bundled DLL in `_internal`: changing managed files can prevent incremental updates. If you previously set a custom DLL path, check that setting too. The RTX 30-series runtime is a community adaptation, not an NVIDIA support commitment; compatibility depends on the GPU and driver combination.
 
-### 3. Import, compare, and export
+### 3. Local media: import → compare → export
 
 1. Open `DLSS5Tool.exe`, then drop in an image or video, or click **Choose a file**.
 2. Switch to **DLSS** or **Compare**, then choose a style and adjust strength in **Effects**. Press `3` for split comparison.
@@ -152,7 +165,16 @@ Use `mods` instead of overwriting the bundled DLL in `_internal`: changing manag
 
 Start with the default settings and a short clip or single image. See the [user guide](docs/USER_GUIDE.en.md) for detailed controls.
 
-### 4. Turn an image sequence into video (optional)
+### 4. Realtime: select a window → choose a preset → start/stop
+
+1. Open the window you want to enhance, then use the title-bar arrows or `Ctrl+Tab` to switch to **Realtime enhancement**.
+2. Select the source window, choose and load a built-in preset. For a first run, try the detail-enhancement preset with windowed output.
+3. Start enhancement and wait for the actual output before adjusting settings. Follow any prompts to apply changes. The source snapshot is for identifying the window and placing protected regions, not a live enhanced preview.
+4. Stop the session with **Stop enhancement**; the default emergency stop shortcut is `Ctrl+Alt+F10`. Check that it is available before using full-screen output.
+
+Switching back to local media does not automatically stop the realtime session; Stop remains available in the bottom status bar. See the [realtime guide (Chinese)](docs/REALTIME_USER_GUIDE.md) for controls and limitations. Target-game, HDR and multi-display behavior still needs validation in the intended environment.
+
+### 5. Turn an image sequence into video (optional)
 
 Under **Queue → Add image sequence…**, select one frame, such as `frame_0001.png`, to include its full consecutively numbered sequence. Select multiple frames from the same sequence to import only the selected consecutive range. Other complete sequences in the folder are listed for you to opt in. Frames must have matching prefixes, suffixes, extensions, and dimensions.
 
@@ -167,9 +189,10 @@ Re-import if you move or modify the source images. See the [image-sequence guide
 - **Results and speed vary by source and hardware.** Interactive comparison does not mean real-time model processing. High resolutions, 4× scaling, frame interpolation, and optical flow increase processing time and VRAM use.
 - **Frame interpolation:** Export at 2× / 3× / 4×. 3× / 4× are experimental and may show motion errors. Super-resolution and interpolation previews are off by default and do not change the export selection.
 - **GPU export is conditional:** GPU color conversion and direct transfer depend on hardware, components, resolution, and encoding settings. Ineligible configurations keep the existing encoding path; no fixed speedup is guaranteed. Check export logs and Diagnostics for the actual route.
-- **Optical flow is off by default.** New users start with base rendering speed. With Full or the add-on installed, enable a mode under **Models** when needed. The app remembers existing selections and restores an enabled mode after a startup environment check; a failed check turns it off and reports the reason. Lite without the add-on does not run a flow check on first use. On the same NVIDIA GPU, RAFT flow can connect directly to DLSS. Supports SDR and separate HDR analysis copies, but not tiled temporal guidance. Still images skip flow without blocking tiling or changing video preferences.
+- **Local optical flow is off by default.** Enable it under **Models** when needed. NVOFA uses the components bundled with Lite and still requires compatible hardware and drivers. RAFT requires Full or the matching add-on. The app remembers the selection and restores it after a successful environment check; failures report the reason. Flow supports SDR video and separate HDR analysis copies, but not tiled temporal guidance. Still images skip flow without changing video preferences.
+- **Shared controls do not mean everything stays in sync.** Copy only the groups explicitly supported by the UI and confirm the overwrite scope. Switching modes does not automatically overwrite settings, realtime drafts or queued jobs. Rendering and resource release still take time; follow pending, updating and session-status feedback.
 - **DLSS render GPU:** Uses NVIDIA GPUs in high-performance order by default. If the display is on an iGPU, DLSS still runs on the discrete NVIDIA GPU. Multi-GPU systems can pick a device in Settings.
-- **HDR export and preview.** Export writes HDR10 / HLG color tags (BT.2020, PQ/HLG, limited range) and 10-bit HEVC. Preview is tone-mapped to SDR. Dolby Vision / HDR10+ dynamic metadata is not copied. Single HDR still images are not supported; HDR image-sequence requirements are listed above. See [output and quality](docs/USER_GUIDE.en.md#output-and-quality).
+- **Local HDR export and preview.** Export writes HDR10 / HLG color tags (BT.2020, PQ/HLG, limited range) and 10-bit HEVC. Local preview is tone-mapped to SDR. Dolby Vision / HDR10+ dynamic metadata is not copied. Single HDR still images are not supported; HDR image-sequence requirements are listed above. See [output and quality](docs/USER_GUIDE.en.md#output-and-quality).
 
 ## FAQ
 
@@ -185,9 +208,13 @@ Lower playback quality, try smaller media or 2× scaling, and temporarily disabl
 
 **How do I update?**
 
-Use **About → Check for updates**, or download the latest Release. The current official release is **v2.3.3**, with v2.3.2 → v2.3.3 incremental packages for Lite and Full. **No v3.0.0 package or incremental update has been published yet.** Incremental updates support only the previous official release; check the actual release assets. Users with official v2.2.2 / v2.3.0 inference components can reuse them with a compatible Lite package; see the [upgrade guide](docs/release/UPGRADE_v2.3.1.md). Do not replace only the EXE.
+Use **About → Check for updates**, or download a Release. Local acceptance checks are complete for the v3.0.0 archives and both **v2.3.3 → v3.0.0 Lite/Full incremental packages**. They become available through Releases and the updater only after official publication with the required assets. Earlier versions should use complete archives; updates are not automatically chained across versions.
+
+Choose `lite` for Lite, or `full` when inference components are installed. Do not replace only the EXE or mix old components into v3.0.0. The [historical component-reuse guide](docs/release/UPGRADE_v2.3.1.md) applies only to the versions it lists; it is not a v3.0.0 compatibility guarantee.
 
 When a matching payload exists, the updater downloads changed files for the installed edition, verifies them, then asks again before exiting for the standalone helper to install it. Without a matching payload, Lite offers its complete archive; Full directs you to the release page for Full or Lite plus the matching add-on. Versions without the update helper must be upgraded by fully extracting the new release into a new folder. Incremental updates require the matching assets on the release page. See the [update guide](docs/USER_GUIDE.en.md).
+
+If in-app downloading fails but your browser can download the official `.dlssupdate`, select it under **About → Install local update package**. Its source version and edition must match the installation. Import still requires GitHub API access to verify the official SHA-256, followed by another confirmation before installation. Do not extract the update or overwrite files manually. This entry point requires a newer app with the update helper; older clients without it need a complete-archive upgrade first.
 
 **Still having trouble?**
 
@@ -196,6 +223,7 @@ Use **About → Export diagnostics**, then open an [issue](https://github.com/ba
 ## Documentation
 
 - [User guide](docs/USER_GUIDE.en.md): shortcuts, model settings, export details, and troubleshooting
+- [Realtime guide (Chinese)](docs/REALTIME_USER_GUIDE.md): source windows, presets, protected regions, and stopping a session
 - [Changelog](CHANGELOG.md)
 - [Developer guide](docs/development/BUILDING.en.md) · [Contributing](CONTRIBUTING.md) · [Technical documentation index (Chinese)](docs/README.md)
 - [Security reports](SECURITY.md)
