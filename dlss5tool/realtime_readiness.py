@@ -46,7 +46,7 @@ def chain_summary(effects, catalog=None, *, max_items=4):
 
 
 def check_start(config, selected, *, settings, catalog, host, ready=None,
-                runtime_selection=None, target_state=None):
+                runtime_selection=None, target_state=None, devices=None):
     """Check known blockers. Unknown driver/feature availability stays advisory.
 
     config is already validated. ready and runtime_selection must belong to the
@@ -101,4 +101,31 @@ def check_start(config, selected, *, settings, catalog, host, ready=None,
         add('features', 'runtime', blocking=False, files=', '.join(missing), detail=str(feature_root))
     if config['hdr'] and config['capture_method'] != 0:
         add('hdr_capture', 'display')
+    # A snapshot is evidence of enumeration, not proof of hardware backend support.
+    # Unknown/stale snapshots must not invent a compatibility failure.
+    if devices is not None:
+        adapters = devices.get('adapters')
+        monitors = devices.get('monitors')
+        if adapters is not None and config['gpu_index'] >= 0:
+            adapter = next((a for a in adapters if a['index'] == config['gpu_index']), None)
+            if adapter is None:
+                add('gpu_missing', 'display')
+            elif adapter.get('software'):
+                add('gpu_software', 'display')
+            elif any(n.startswith(('DLSS\\', 'DLSSNR\\', 'DLSSFG\\')) for n in names) and adapter.get('vendor') not in (None, 0x10de):
+                add('gpu_vendor', 'display')
+        if monitors is not None:
+            chosen = next((m for m in monitors if m['id'] == config['monitor_id']), None)
+            # Explicit output monitor selection applies to fullscreen only.
+            if not config['windowed'] and config['monitor_mode'] == 3 and chosen is None:
+                add('monitor_missing', 'display')
+            if config['hdr'] and monitors and all(m.get('hdr_active') is False for m in monitors):
+                add('hdr_display', 'display')
+        capabilities = devices.get('capabilities', {})
+        for index, effect in enumerate(config['effects']):
+            method = effect.get('parameters', {}).get('opticalFlowMethod', 0)
+            capability = {1: 'amdoF', 2: 'nvof'}.get(method)
+            if capability and capabilities.get(capability) is False:
+                add('flow_unavailable', 'effects', index=index,
+                    backend='AMD OF' if method == 1 else 'NVOF')
     return issues

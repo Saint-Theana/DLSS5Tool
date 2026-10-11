@@ -1,0 +1,56 @@
+2026-10-11 08:57:36.543|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSSNR\DLSSNR_AI_Filter.hlsl
+2026-10-11 08:57:36.545|info|ScalingOptions.cpp:40|Log|缩放选项
+	IsWindowedMode: true
+	IsDebugMode: false
+	IsBenchmarkMode: false
+	IsTopmostDisabled: true
+	IsFP16Disabled: false
+	IsEffectCacheDisabled: false
+	IsFontCacheDisabled: false
+	IsSaveEffectSources: false
+	IsWarningsAreErrors: false
+	IsStatisticsForDynamicDetectionEnabled: false
+	IsInlineParams: false
+	IsTouchSupportEnabled: false
+	IsAllowScalingMaximized: true
+	IsSimulateExclusiveFullscreen: false
+	Is3DGameMode: false
+	IsCaptureTitleBar: false
+	IsAdjustCursorSpeed: true
+	IsDirectFlipDisabled: false
+	IsHdrCompatibilityEnabled: false
+	cropping: 0,0,0,0
+	graphicsCardId:
+		idx: -1
+		venderId: 0
+		deviceId: 0
+	minFrameRate: 0
+	maxFrameRate: 0
+	frontEdgeSync: true
+	frontEdgeSyncFrameRate: 60
+	frameSyncMode: 0
+	vrr: false
+	cursorScaling: 1
+	captureMethod: 0
+	multiMonitorUsage: 0
+	preferredMonitorId: 
+	cursorInterpolationMode: 0
+	duplicateFrameDetectionMode: 1
+	fullscreenInitialToolbarState: 2
+	windowedInitialToolbarState: 2
+	screenshotsDir: F:\project\DLSS5Tool\tmp\p2-closeout-20261011\matrix\nvof-q1\state\screenshots
+	effects: 
+		DLSSNR\DLSSNR_AI_Filter
+			scalingType: 0
+			scale: 1,1
+			parameters: 
+				antiFlicker: 2
+				multiPass: 1
+				opticalFlowMethod: 2
+				nvidiaOpticalFlowQuality: 1
+2026-10-11 08:57:36.545|info|ScalingWindow.cpp:130|_StartImpl|缩放开始
+	程序版本: dev
+	OS 版本: 10.0.26300
+	管理员: 否
+2026-10-11 08:57:36.555|error|ScalingWindow.cpp:70|CheckCapturePrerequisites|Scaling preflight: query Graphics Capture support failed
+	HRESULT: 0x80070424

@@ -475,9 +475,11 @@ class PresetStore:
 
 
 class RealtimeClient:
-    def __init__(self, settings=None, host=None):
+    def __init__(self, settings=None, host=None, *, state_root=None):
         self.settings = dict(settings or {})
         self.host = Path(host) if host else default_host_path()
+        # Explicit harness isolation; never accepted from portable presets.
+        self.state_root = Path(state_root).resolve() if state_root is not None else None
         self.process = None
         self.events = queue.Queue(maxsize=1024)
         self._writer = threading.Lock()
@@ -551,7 +553,7 @@ class RealtimeClient:
             self.close()
         if not self.host.is_file():
             raise FileNotFoundError(tr('realtime.error.host_missing', path=self.host))
-        state = paths.state_path("realtime").resolve()
+        state = self.state_root if self.state_root is not None else paths.state_path("realtime").resolve()
         state.mkdir(parents=True, exist_ok=True)
         environment = os.environ.copy()
         feature_root = self.settings.get('realtime_runtime_directory') or Path(mod_paths.runtime_path(self.settings)).resolve().parent

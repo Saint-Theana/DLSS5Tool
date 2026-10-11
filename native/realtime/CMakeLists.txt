@@ -83,6 +83,9 @@ set_target_properties(dlss5_realtime_host PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY_RELEASE "${REALTIME_OUTPUT_DIR}"
   RUNTIME_OUTPUT_DIRECTORY_DEBUG "${REALTIME_OUTPUT_DIR}")
 enable_testing()
+add_executable(realtime_test_source EXCLUDE_FROM_ALL "${ROOT}/scripts/realtime_test_source.cpp")
+target_include_directories(realtime_test_source PRIVATE "${DEPS}/json/single_include")
+target_link_libraries(realtime_test_source PRIVATE d3d11 dxgi d3dcompiler user32 shcore)
 add_executable(realtime_hotkeys_tests hotkeys_tests.cpp)
 target_include_directories(realtime_hotkeys_tests PRIVATE "${DEPS}/json/single_include")
 target_compile_definitions(realtime_hotkeys_tests PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)

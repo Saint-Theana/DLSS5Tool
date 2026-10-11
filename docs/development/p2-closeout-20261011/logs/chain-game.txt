@@ -1,0 +1,198 @@
+2026-10-11 09:04:35.762|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSSNR\DLSSNR_AI_Filter.hlsl
+2026-10-11 09:04:35.763|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSS\DLSS_SR.hlsl
+2026-10-11 09:04:35.763|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSSFG\DLSS_FrameGeneration.hlsl
+2026-10-11 09:04:35.764|info|ScalingOptions.cpp:40|Log|缩放选项
+	IsWindowedMode: true
+	IsDebugMode: false
+	IsBenchmarkMode: false
+	IsTopmostDisabled: true
+	IsFP16Disabled: false
+	IsEffectCacheDisabled: false
+	IsFontCacheDisabled: false
+	IsSaveEffectSources: false
+	IsWarningsAreErrors: false
+	IsStatisticsForDynamicDetectionEnabled: false
+	IsInlineParams: false
+	IsTouchSupportEnabled: false
+	IsAllowScalingMaximized: true
+	IsSimulateExclusiveFullscreen: false
+	Is3DGameMode: false
+	IsCaptureTitleBar: false
+	IsAdjustCursorSpeed: true
+	IsDirectFlipDisabled: false
+	IsHdrCompatibilityEnabled: false
+	cropping: 0,0,0,0
+	graphicsCardId:
+		idx: -1
+		venderId: 0
+		deviceId: 0
+	minFrameRate: 0
+	maxFrameRate: 0
+	frontEdgeSync: true
+	frontEdgeSyncFrameRate: 60
+	frameSyncMode: 0
+	vrr: false
+	cursorScaling: 1
+	captureMethod: 0
+	multiMonitorUsage: 0
+	preferredMonitorId: 
+	cursorInterpolationMode: 0
+	duplicateFrameDetectionMode: 1
+	fullscreenInitialToolbarState: 2
+	windowedInitialToolbarState: 2
+	screenshotsDir: F:\project\DLSS5Tool\tmp\p2-closeout-20261011\desktop-matrix\chain-game\state\screenshots
+	effects: 
+		DLSSNR\DLSSNR_AI_Filter
+			scalingType: 0
+			scale: 1,1
+			parameters: 
+				antiFlicker: 2
+				multiPass: 1
+				opticalFlowMethod: 2
+				nvidiaOpticalFlowQuality: 2
+		DLSS\DLSS_SR
+			scalingType: 0
+			scale: 1.5,1.5
+			parameters: 无
+		DLSSFG\DLSS_FrameGeneration
+			scalingType: 0
+			scale: 1,1
+			parameters: 无
+2026-10-11 09:04:35.764|info|ScalingWindow.cpp:130|_StartImpl|缩放开始
+	程序版本: dev
+	OS 版本: 10.0.26300
+	管理员: 否
+2026-10-11 09:04:35.808|info|ScalingWindow.cpp:47|LogRects|源矩形: 133,167,1331,841 (1198x674)
+2026-10-11 09:04:35.808|info|ScalingWindow.cpp:51|LogRects|渲染矩形: 133,145,1331,819 (1198x674)
+2026-10-11 09:04:35.808|info|ScalingWindow.cpp:55|LogRects|缩放窗口矩形: 122,143,1342,830 (1220x687)
+2026-10-11 09:04:35.826|info|DeviceResources.cpp:32|Initialize|DXGI tearing capability: 是
+2026-10-11 09:04:36.068|info|DeviceResources.cpp:237|_TryCreateD3DDevice|已创建 D3D 设备
+	功能级别: 11.1
+2026-10-11 09:04:36.068|info|DeviceResources.cpp:262|_TryCreateD3DDevice|FP16 支持: 是
+2026-10-11 09:04:36.068|info|Renderer.cpp:313|LogAdapter|当前图形适配器: 
+	VendorId: 0x10de
+	DeviceId: 0x2783
+	Description: NVIDIA GeForce RTX 4070 SUPER
+2026-10-11 09:04:36.068|info|Renderer.cpp:1271|_UpdateOverlayRefreshRate|Overlay-only presentation interval: 5.882 ms
+2026-10-11 09:04:36.068|info|AdaptivePresenter.cpp:17|_Initialize|VRR request: enabled=false tearingSupported=true path=DXGI
+2026-10-11 09:04:36.073|info|AdaptivePresenter.cpp:102|_Initialize|Swap-chain maximum frame latency: 1
+2026-10-11 09:04:36.078|info|ReflexController.cpp:73|Configure|Reflex configuration: requestedOn=true Boost=false minimumIntervalUs=0 SetSleepMode=0 queried=true GetSleepStatus=0 actualOn=false; capture-to-present scope
+2026-10-11 09:04:36.078|info|Renderer.cpp:470|Initialize|Frame sync: enabled=true requestedMode=0 backend=1 targetBaseFPS=60
+2026-10-11 09:04:36.080|info|DeviceResources.cpp:32|Initialize|DXGI tearing capability: 是
+2026-10-11 09:04:36.097|info|DeviceResources.cpp:237|_TryCreateD3DDevice|已创建 D3D 设备
+	功能级别: 11.1
+2026-10-11 09:04:36.097|info|DeviceResources.cpp:262|_TryCreateD3DDevice|FP16 支持: 是
+2026-10-11 09:04:36.097|info|Renderer.cpp:1651|_InitFrameSource|当前捕获模式: Graphics Capture
+2026-10-11 09:04:36.097|info|Renderer.cpp:1659|_InitFrameSource|Frame Generation: exact duplicate-frame filtering enabled for captured input
+2026-10-11 09:04:36.184|info|GraphicsCaptureFrameSource.cpp:95|_Initialize|GraphicsCaptureFrameSource 初始化完成
+2026-10-11 09:04:36.184|info|Renderer.cpp:1683|_InitFrameSource|捕获尺寸: 1198x674
+2026-10-11 09:04:36.184|info|Renderer.cpp:3072|_UpdateFrameRateLimits|Frame sync effective base target: 60.000 FPS (existingLimit=0.000)
+2026-10-11 09:04:36.184|info|Renderer.cpp:1754|_BuildEffects|DLSSNR automatic HDR: fp16=false normalizationScale=1 colorValid=false inferred=false
+2026-10-11 09:04:36.184|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSSNR\DLSSNR_AI_Filter.hlsl
+2026-10-11 09:04:36.184|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSSFG\DLSS_FrameGeneration.hlsl
+2026-10-11 09:04:36.184|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\DLSS\DLSS_SR.hlsl
+2026-10-11 09:04:36.191|info|Win32Helper.cpp:553|WriteFile|写入文件: cache\DLSS#DLSS_SR_0000_af700602a35aafce
+2026-10-11 09:04:36.191|info|Win32Helper.cpp:553|WriteFile|写入文件: cache\DLSSNR#DLSSNR_AI_Filter_0000_2c4d2cf74a0af3bb
+2026-10-11 09:04:36.191|info|EffectCacheManager.cpp:310|Save|已保存缓存 cache\DLSS#DLSS_SR_0000_af700602a35aafce
+2026-10-11 09:04:36.191|info|Renderer.cpp:1736|CompileEffect|编译 DLSS\DLSS_SR.hlsl 用时 7.277 毫秒
+2026-10-11 09:04:36.192|info|EffectCacheManager.cpp:310|Save|已保存缓存 cache\DLSSNR#DLSSNR_AI_Filter_0000_2c4d2cf74a0af3bb
+2026-10-11 09:04:36.192|info|Renderer.cpp:1736|CompileEffect|编译 DLSSNR\DLSSNR_AI_Filter.hlsl 用时 8.298 毫秒
+2026-10-11 09:04:36.192|info|Win32Helper.cpp:553|WriteFile|写入文件: cache\DLSSFG#DLSS_FrameGeneration_0000_471cd6aa91009585
+2026-10-11 09:04:36.192|info|EffectCacheManager.cpp:310|Save|已保存缓存 cache\DLSSFG#DLSS_FrameGeneration_0000_471cd6aa91009585
+2026-10-11 09:04:36.192|info|Renderer.cpp:1736|CompileEffect|编译 DLSSFG\DLSS_FrameGeneration.hlsl 用时 8.682 毫秒
+2026-10-11 09:04:36.192|info|Renderer.cpp:1804|_BuildEffects|编译着色器总计用时 8.723 毫秒
+2026-10-11 09:04:38.496|info|NgxD3D12Core.cpp:132|Acquire|NGX D3D12 Core initialized once for Renderer session
+2026-10-11 09:04:38.496|info|NgxD3D12Core.cpp:135|Acquire|NGX D3D12 Core consumer acquired: name=DLSSNR active=1
+2026-10-11 09:04:38.796|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 created=true path=signed-snippet sourceSize=1198x674 sourceFormat=87 colorDownsample=lanczos2-aa residualControls=before-upsample residualUpsample=veyra-bilateral-2x2 inputSize=1198x674 inputResolutionScaling=false inputResolutionPercent=100 residualMultiplier=1 residualSaturation=1 residualLightness=1 shadowStructureMultiplier=1 reflectionGlowMultiplier=1 preset=fixed-0 style=0 intensity=1 localTone=1 localStructure=1 skinStructure=0 opticalFlowMethod=2 opticalFlowQuality=2 autoMask=false uiCorrection=false depth=zero-contract disabled=false experimentalHdrPath=false experimentalHdrScale=1
+2026-10-11 09:04:39.198|info|DLSSNRTemporal.cpp:109|Initialize|DLSSNR anti-flicker: route=2 history=1198x674 tau=80ms lowObservations=0x0
+2026-10-11 09:04:39.198|info|DLSSNRMultiPass.h:79|Initialize|DLSSNR Multi Pass: 1 independent passes initialized
+2026-10-11 09:04:40.072|info|DLSSSRUpscaler.cpp:176|Initialize|DLSS SR initialized (Balanced, preset J): 1198x674 -> 1797x1011, requestedMotion=0 quality=0, depth=zero-contract
+2026-10-11 09:04:40.072|info|Win32Helper.cpp:585|ReadTextFile|读取文本文件: F:\project\DLSS5Tool\runtime\realtime\effects\Bicubic.hlsl
+2026-10-11 09:04:40.182|info|Win32Helper.cpp:553|WriteFile|写入文件: cache\Bicubic_0003_803594278835dbbd
+2026-10-11 09:04:40.183|info|EffectCacheManager.cpp:310|Save|已保存缓存 cache\Bicubic_0003_803594278835dbbd
+2026-10-11 09:04:40.183|info|Renderer.cpp:1736|CompileEffect|编译 Bicubic.hlsl 用时 110.412 毫秒
+2026-10-11 09:04:40.183|info|NgxD3D12Core.cpp:135|Acquire|NGX D3D12 Core consumer acquired: name=DLSSFG active=2
+2026-10-11 09:04:40.266|info|DLSSFrameGenerator.cpp:603|Initialize|DLSS FG_Experimental initialized: backbuffer=1198x674, render=1198x674, multiplier=2x, opticalFlowMethod=0 opticalFlowQuality=0, depth=zero-contract, motionContract=current-to-previous/source-pixels scale=1,1
+2026-10-11 09:04:40.266|info|Renderer.cpp:2474|_InitializeDLSSFrameGenerator|DLSSFG capacity: displayRefresh=170.000 Hz baseTarget=unlimited requested=2x sdkMax=2x active=2x theoreticalOutput=capture-driven
+2026-10-11 09:04:40.316|info|NvidiaOpticalFlowProvider.cpp:631|CreateSession|Frame Guidance NVOF initialized: profile=4M grid=4x4 perf=MEDIUM driverApi=5.0 cost=R8_UINT bidirectional=true input=1198x674 output=300x169 convention=current-to-previous/source-pixels/S10.5-self-test-passed
+2026-10-11 09:04:40.316|info|Renderer.cpp:2758|_CreateSharedTexture|DLSSFG bounded presentation ring initialized: slots=2
+2026-10-11 09:04:40.319|info|FrameSourceBase.cpp:343|_DisableRoundCornerInWin11|已禁用窗口圆角
+2026-10-11 09:04:40.319|info|GraphicsCaptureFrameSource.cpp:572|_InterruptCapture|WGC capture interrupted: session=0 sequence=1 reason=initial start
+2026-10-11 09:04:40.355|info|GraphicsCaptureFrameSource.cpp:529|_StartCapture|WGC session started: session=1 sequence=1 reason=initial start
+2026-10-11 09:04:40.355|info|GraphicsCaptureFrameSource.cpp:531|_StartCapture|WGC delivery: free-threaded frame notification + waitable event
+2026-10-11 09:04:40.355|info|Renderer.cpp:518|Initialize|目标矩形: 133,145,1331,819 (1198x674)
+2026-10-11 09:04:40.358|info|Win32Helper.cpp:526|ReadFile|读取文件: C:\WINDOWS\Fonts\SegUIVar.ttf
+2026-10-11 09:04:40.362|info|GraphicsCaptureFrameSource.cpp:208|_Update|WGC valid capture restored: session=1 sequence=1 content=1202x723 surface=1200x721 rejected=0 timestamp100ns=18340643530 recoveryMs=42.706
+2026-10-11 09:04:40.362|info|Renderer.cpp:3305|_BackendRender|Capture sequence accepted: sequence=1 frameId=1 timestamp100ns=18340643530 historyResetRequested=false
+2026-10-11 09:04:40.362|info|FrameGuidanceService.cpp:627|_Produce|Frame Guidance selected shared provider: method=2 quality=2 instances=1
+2026-10-11 09:04:40.365|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=1 evaluateCount=1 result=0x1 success=1 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.368|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=1 evaluateCount=1 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.368|info|DLSSSRUpscaler.cpp:250|Draw|DLSS SR guidance frameId=1: requested motion=false, bound motion=zero depth=zero, fallback=none
+2026-10-11 09:04:40.369|info|DLSSFrameGenerator.cpp:681|Draw|DLSS FG guidance frameId=1: requested motion=false, produced motion=false, bound motion=zero depth=zero, fallback=interop-or-extent-zero
+2026-10-11 09:04:40.374|warning|ReflexController.cpp:119|ReportFailure|Reflex call failed: operation=D3D12 async generation marker status=-1
+2026-10-11 09:04:40.374|info|ReflexController.cpp:73|Configure|Reflex configuration: requestedOn=false Boost=false minimumIntervalUs=0 SetSleepMode=0 queried=true GetSleepStatus=0 actualOn=false; capture-to-present scope
+2026-10-11 09:04:40.386|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=2 evaluateCount=2 result=0x1 success=2 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.387|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=2 evaluateCount=2 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.414|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=3 evaluateCount=3 result=0x1 success=3 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.414|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=3 evaluateCount=3 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.432|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=4 evaluateCount=4 result=0x1 success=4 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.432|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=4 evaluateCount=4 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.445|info|Win32Helper.cpp:553|WriteFile|写入文件: cache\fonts_zh-hans_144
+2026-10-11 09:04:40.461|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=5 evaluateCount=5 result=0x1 success=5 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.461|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=5 evaluateCount=5 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.470|info|ScalingWindow.cpp:577|_CompleteFrontendRender|First frontend frame submitted by DLSSFG FIFO; showing scaling window
+2026-10-11 09:04:40.485|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=6 evaluateCount=6 result=0x1 success=6 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.485|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=6 evaluateCount=6 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.524|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=7 evaluateCount=7 result=0x1 success=7 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.524|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=7 evaluateCount=7 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:40.545|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=8 evaluateCount=8 result=0x1 success=8 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:40.545|info|DLSSNRFilter.cpp:2434|Draw|DLSSNR timing: frameId=8 evaluateCount=8 slotWait=0.000 ms inputPrepare=0.000 ms guidancePrepare=0.000 ms evaluateCPU=0.000 ms submit=0.000 ms
+2026-10-11 09:04:41.480|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=40.5 FPS, queued=72.2 FPS generatedPublish=37/0 realPublish=36/0 pacing=11.742 ms excludedRingWait=0.477 ms
+2026-10-11 09:04:42.038|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.151 transactionMaxMs=0.438 fenceAvgMs=0.089 fenceMaxMs=0.476 profiling=false
+2026-10-11 09:04:42.129|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.495 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.469 ms fifoAge=7.652 ms beginFrame=0.226 ms draw=0.150 ms endFrame=0.082 ms ringWait=0.161 ms
+2026-10-11 09:04:42.485|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=34.8 FPS, queued=69.6 FPS generatedPublish=35/0 realPublish=35/0 pacing=15.155 ms excludedRingWait=0.399 ms
+2026-10-11 09:04:43.497|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=34.6 FPS, queued=69.2 FPS generatedPublish=35/0 realPublish=35/0 pacing=13.365 ms excludedRingWait=0.406 ms
+2026-10-11 09:04:43.725|info|FrameSourceBase.cpp:520|_IsDuplicateFrame|Capture duplicate readback CPU wait: samples=120 avgMs=0.110 maxMs=0.820
+2026-10-11 09:04:43.726|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=120 evaluateCount=120 result=0x1 success=120 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:43.726|info|DLSSNRFilter.cpp:2441|Draw|DLSSNR timing 120-frame window: frameId=120 evaluateCount=120 slotWait[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] inputPrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] guidancePrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateCPU[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] submit[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateGPU[n=116 avg=3.638 p95=4.539 p99=9.765 max=10.106]
+2026-10-11 09:04:43.762|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.109 transactionMaxMs=0.339 fenceAvgMs=0.082 fenceMaxMs=0.145 profiling=false
+2026-10-11 09:04:43.868|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.078 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.329 ms fifoAge=6.283 ms beginFrame=0.158 ms draw=0.108 ms endFrame=0.054 ms ringWait=0.001 ms
+2026-10-11 09:04:44.510|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=34.5 FPS, queued=69.1 FPS generatedPublish=35/0 realPublish=35/0 pacing=15.018 ms excludedRingWait=0.327 ms
+2026-10-11 09:04:45.446|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.114 transactionMaxMs=0.286 fenceAvgMs=0.091 fenceMaxMs=0.156 profiling=false
+2026-10-11 09:04:45.523|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=37.5 FPS, queued=75.1 FPS generatedPublish=38/0 realPublish=38/0 pacing=12.516 ms excludedRingWait=0.296 ms
+2026-10-11 09:04:45.528|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.175 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.320 ms fifoAge=6.508 ms beginFrame=0.149 ms draw=0.108 ms endFrame=0.054 ms ringWait=0.037 ms
+2026-10-11 09:04:46.534|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=36.6 FPS, queued=73.2 FPS generatedPublish=37/0 realPublish=37/0 pacing=11.560 ms excludedRingWait=0.366 ms
+2026-10-11 09:04:47.078|info|FrameSourceBase.cpp:520|_IsDuplicateFrame|Capture duplicate readback CPU wait: samples=120 avgMs=0.103 maxMs=0.335
+2026-10-11 09:04:47.078|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=240 evaluateCount=240 result=0x1 success=240 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:47.078|info|DLSSNRFilter.cpp:2441|Draw|DLSSNR timing 120-frame window: frameId=240 evaluateCount=240 slotWait[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] inputPrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] guidancePrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateCPU[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] submit[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateGPU[n=120 avg=4.947 p95=5.445 p99=5.486 max=5.499]
+2026-10-11 09:04:47.116|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.110 transactionMaxMs=0.311 fenceAvgMs=0.091 fenceMaxMs=0.153 profiling=false
+2026-10-11 09:04:47.213|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=4.951 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.282 ms fifoAge=6.140 ms beginFrame=0.148 ms draw=0.073 ms endFrame=0.054 ms ringWait=0.015 ms
+2026-10-11 09:04:47.540|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=33.8 FPS, queued=67.6 FPS generatedPublish=34/0 realPublish=34/0 pacing=14.305 ms excludedRingWait=0.368 ms
+2026-10-11 09:04:48.558|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=35.4 FPS, queued=70.8 FPS generatedPublish=36/0 realPublish=36/0 pacing=12.948 ms excludedRingWait=0.317 ms
+2026-10-11 09:04:48.852|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.101 transactionMaxMs=0.327 fenceAvgMs=0.097 fenceMaxMs=0.295 profiling=false
+2026-10-11 09:04:48.955|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.660 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.273 ms fifoAge=7.006 ms beginFrame=0.149 ms draw=0.065 ms endFrame=0.052 ms ringWait=0.026 ms
+2026-10-11 09:04:49.570|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=35.6 FPS, queued=71.1 FPS generatedPublish=36/0 realPublish=36/0 pacing=11.898 ms excludedRingWait=3.915 ms
+2026-10-11 09:04:50.449|info|FrameSourceBase.cpp:520|_IsDuplicateFrame|Capture duplicate readback CPU wait: samples=120 avgMs=0.107 maxMs=0.327
+2026-10-11 09:04:50.451|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=360 evaluateCount=360 result=0x1 success=360 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:50.451|info|DLSSNRFilter.cpp:2441|Draw|DLSSNR timing 120-frame window: frameId=360 evaluateCount=360 slotWait[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] inputPrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] guidancePrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateCPU[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] submit[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateGPU[n=120 avg=5.186 p95=5.637 p99=5.961 max=6.009]
+2026-10-11 09:04:50.487|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.122 transactionMaxMs=0.325 fenceAvgMs=0.093 fenceMaxMs=0.301 profiling=false
+2026-10-11 09:04:50.578|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.174 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.267 ms fifoAge=6.606 ms beginFrame=0.142 ms draw=0.066 ms endFrame=0.052 ms ringWait=0.047 ms
+2026-10-11 09:04:50.599|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=36.9 FPS, queued=73.8 FPS generatedPublish=38/0 realPublish=38/0 pacing=13.712 ms excludedRingWait=0.350 ms
+2026-10-11 09:04:51.622|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=37.1 FPS, queued=74.3 FPS generatedPublish=38/0 realPublish=38/0 pacing=13.193 ms excludedRingWait=0.362 ms
+2026-10-11 09:04:52.086|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.100 transactionMaxMs=0.269 fenceAvgMs=0.101 fenceMaxMs=0.267 profiling=false
+2026-10-11 09:04:52.185|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.487 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.260 ms fifoAge=7.277 ms beginFrame=0.141 ms draw=0.063 ms endFrame=0.050 ms ringWait=0.082 ms
+2026-10-11 09:04:52.640|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=38.3 FPS, queued=76.6 FPS generatedPublish=39/0 realPublish=39/0 pacing=11.347 ms excludedRingWait=14.130 ms
+2026-10-11 09:04:53.640|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=36.0 FPS, queued=72.0 FPS generatedPublish=36/0 realPublish=36/0 pacing=12.916 ms excludedRingWait=0.357 ms
+2026-10-11 09:04:53.678|info|FrameSourceBase.cpp:520|_IsDuplicateFrame|Capture duplicate readback CPU wait: samples=120 avgMs=0.103 maxMs=0.263
+2026-10-11 09:04:53.678|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 frameId=480 evaluateCount=480 result=0x1 success=480 failures=0 opticalFlowMethod=2 opticalFlowQuality=2 path=signed-snippet disabled=false
+2026-10-11 09:04:53.678|info|DLSSNRFilter.cpp:2441|Draw|DLSSNR timing 120-frame window: frameId=480 evaluateCount=480 slotWait[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] inputPrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] guidancePrepare[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateCPU[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] submit[n=120 avg=0.000 p95=0.000 p99=0.000 max=0.000] evaluateGPU[n=120 avg=5.097 p95=5.583 p99=6.070 max=6.115]
+2026-10-11 09:04:53.722|info|Renderer.cpp:3849|_PublishBackendTexture|Backend publication CPU timing: samples=120 transactionAvgMs=0.109 transactionMaxMs=0.366 fenceAvgMs=0.095 fenceMaxMs=0.203 profiling=false
+2026-10-11 09:04:53.809|info|Renderer.cpp:1342|_RecordDLSSFGFrontendTimings|DLSSFG frontend timing: mode=deadline+DXGI completed=120 dropped=0 paceWait=5.093 ms capacityRetry=0.000 ms resourceRetry=0.000 ms cpuWall=0.262 ms fifoAge=6.777 ms beginFrame=0.139 ms draw=0.065 ms endFrame=0.051 ms ringWait=0.104 ms
+2026-10-11 09:04:54.652|info|Renderer.cpp:3905|_PublishBackendTexture|DLSSFG presentation ring: captured=36.6 FPS, queued=73.1 FPS generatedPublish=37/0 realPublish=37/0 pacing=12.424 ms excludedRingWait=1.148 ms
+2026-10-11 09:04:54.762|info|ScalingWindow.cpp:1266|_MessageHandler|缩放结束
+2026-10-11 09:04:54.762|info|ScalingWindow.cpp:1284|_MessageHandler|CursorManager 已析构
+2026-10-11 09:04:54.764|info|FrameSourceBase.cpp:38|~FrameSourceBase|已取消禁用窗口圆角
+2026-10-11 09:04:54.799|info|NgxD3D12Core.cpp:148|Release|NGX D3D12 Core consumer released: name=DLSSFG active=1
+2026-10-11 09:04:54.830|info|NgxD3D12Core.cpp:148|Release|NGX D3D12 Core consumer released: name=DLSSNR active=0
+2026-10-11 09:04:54.852|info|NgxD3D12Core.cpp:211|_Shutdown|NGX D3D12 Core final Shutdown1 completed
+2026-10-11 09:04:54.970|info|ScalingWindow.cpp:1287|_MessageHandler|Renderer 已析构

@@ -1,0 +1,1377 @@
+{
+  "schema_version": 1,
+  "time_utc": "2026-10-11T00:57:33.389855+00:00",
+  "scope": "owned synthetic windows; no game or physical HDR performance claim",
+  "environment": {
+    "devices": {
+      "adapters": [
+        {
+          "device": 10115,
+          "index": 0,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 1,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 2,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 3,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 4,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 140,
+          "index": 5,
+          "name": "Microsoft Basic Render Driver",
+          "software": true,
+          "vendor": 5140
+        }
+      ],
+      "capabilities": {
+        "amdoF": false,
+        "dlss_fg": true,
+        "dlss_nr": true,
+        "dlss_sr": true,
+        "fsr_native": false,
+        "nvof": true,
+        "rtx_video": false,
+        "xess": false
+      },
+      "event": "devices",
+      "monitors": [
+        {
+          "hdr_active": true,
+          "id": "\\\\?\\DISPLAY#LHC90E2#5&28e32352&0&UID4355#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+          "name": "P275MV MAX",
+          "primary": true,
+          "rect": [
+            0,
+            0,
+            3840,
+            2160
+          ]
+        },
+        {
+          "hdr_active": false,
+          "id": "\\\\?\\DISPLAY#LHCFFFF#5&28e32352&0&UID4353#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+          "name": "P2SA2V",
+          "primary": false,
+          "rect": [
+            -2160,
+            -1117,
+            0,
+            2723
+          ]
+        }
+      ],
+      "runtime": {
+        "features": "F:\\project\\DLSS5Tool\\tmp\\Veyra-1.4.4-win64-portable\\runtime\\experimental",
+        "nr": "F:\\project\\DLSS5Tool\\runtime\\nvngx_dlssnr.dll"
+      }
+    },
+    "gpu_driver": "NVIDIA GeForce RTX 4070 SUPER, 617.42, 12282 MiB",
+    "files": {
+      "host": {
+        "path": "F:\\project\\DLSS5Tool\\runtime\\realtime\\dlss5_realtime_host.exe",
+        "sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+        "size": 10394112
+      },
+      "nr": {
+        "path": "F:\\project\\DLSS5Tool\\runtime\\nvngx_dlssnr.dll",
+        "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650",
+        "size": 165840496
+      },
+      "sr": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\Veyra-1.4.4-win64-portable\\runtime\\experimental\\nvngx_dlss.dll",
+        "sha256": "be6e434a94ca32499515eb62ca0e6c274526055d568d0426e4c652dcdfb6ee6e",
+        "size": 58977904
+      },
+      "fg": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\Veyra-1.4.4-win64-portable\\runtime\\experimental\\nvngx_dlssg.dll",
+        "sha256": "135eaf0733c1e37381a8c28abcf7a862404a54132b81787c04e35d09efc5e36f",
+        "size": 7519856
+      }
+    }
+  },
+  "cases": {
+    "nvof-q1": {
+      "status": "failed",
+      "expectation": "render",
+      "reasons": [
+        "native failure",
+        "insufficient real frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 1,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.111914299999853,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.00022219999982553418,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2100.0,
+              "watts": 48.09
+            }
+          ]
+        },
+        {
+          "time": 2.1423020999998243,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2100.0,
+              "watts": 47.98
+            }
+          ]
+        },
+        {
+          "time": 4.23030719999997,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2099.0,
+              "watts": 47.98
+            }
+          ]
+        },
+        {
+          "time": 6.328710599999795,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2099.0,
+              "watts": 47.97
+            }
+          ]
+        },
+        {
+          "time": 8.427032899999858,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2098.0,
+              "watts": 48.01
+            }
+          ]
+        },
+        {
+          "time": 10.523088299999927,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2098.0,
+              "watts": 48.01
+            }
+          ]
+        },
+        {
+          "time": 12.620325299999877,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2096.0,
+              "watts": 48.1
+            }
+          ]
+        },
+        {
+          "time": 14.721817499999815,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2095.0,
+              "watts": 48.09
+            }
+          ]
+        },
+        {
+          "time": 16.81641589999981,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2095.0,
+              "watts": 48.09
+            }
+          ]
+        },
+        {
+          "time": 18.91127829999982,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2095.0,
+              "watts": 48.05
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "6d401232debeec082e0bb0bac9995427c42c59e618f849550259820c9d309fa6"
+    },
+    "nvof-q2": {
+      "status": "failed",
+      "expectation": "render",
+      "reasons": [
+        "native failure",
+        "insufficient real frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 2,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.107488699999976,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.0005911999999170803,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2095.0,
+              "watts": 47.72
+            }
+          ]
+        },
+        {
+          "time": 2.1357768999998825,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2095.0,
+              "watts": 47.96
+            }
+          ]
+        },
+        {
+          "time": 4.236184999999978,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 13.0,
+              "memory_mib": 2095.0,
+              "watts": 47.97
+            }
+          ]
+        },
+        {
+          "time": 6.332558599999857,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2096.0,
+              "watts": 47.98
+            }
+          ]
+        },
+        {
+          "time": 8.4248877,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2096.0,
+              "watts": 48.0
+            }
+          ]
+        },
+        {
+          "time": 10.541619499999797,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2078.0,
+              "watts": 48.03
+            }
+          ]
+        },
+        {
+          "time": 12.641464999999926,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2078.0,
+              "watts": 48.06
+            }
+          ]
+        },
+        {
+          "time": 14.73729329999992,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2078.0,
+              "watts": 48.0
+            }
+          ]
+        },
+        {
+          "time": 16.84843479999995,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2078.0,
+              "watts": 48.05
+            }
+          ]
+        },
+        {
+          "time": 18.95102669999983,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2078.0,
+              "watts": 48.07
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "2c56710c76a1aaaa3ef7144789f6d69f76ad31110efb47132abc3ab3809da880"
+    },
+    "nvof-q3": {
+      "status": "failed",
+      "expectation": "render",
+      "reasons": [
+        "native failure",
+        "insufficient real frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 3,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.10854089999998,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.0001975000000129512,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 17.0,
+              "memory_mib": 2078.0,
+              "watts": 47.76
+            }
+          ]
+        },
+        {
+          "time": 2.1424859000001106,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2078.0,
+              "watts": 48.12
+            }
+          ]
+        },
+        {
+          "time": 4.2440102999999,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2078.0,
+              "watts": 48.15
+            }
+          ]
+        },
+        {
+          "time": 6.3442049000000225,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2078.0,
+              "watts": 48.1
+            }
+          ]
+        },
+        {
+          "time": 8.444360700000061,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2078.0,
+              "watts": 48.11
+            }
+          ]
+        },
+        {
+          "time": 10.543577299999924,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2072.0,
+              "watts": 48.21
+            }
+          ]
+        },
+        {
+          "time": 12.643653699999959,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2083.0,
+              "watts": 48.27
+            }
+          ]
+        },
+        {
+          "time": 14.799038800000062,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2082.0,
+              "watts": 48.14
+            }
+          ]
+        },
+        {
+          "time": 16.903787199999897,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2082.0,
+              "watts": 48.29
+            }
+          ]
+        },
+        {
+          "time": 19.005998699999964,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2077.0,
+              "watts": 48.23
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "c441f190471b33300ec15e26638ada4499376f3f68bd0abf8469d22eb4fa60aa"
+    },
+    "nvof-q4": {
+      "status": "failed",
+      "expectation": "render",
+      "reasons": [
+        "native failure",
+        "insufficient real frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 4,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.123582599999963,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.0016210000001137814,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2082.0,
+              "watts": 48.14
+            }
+          ]
+        },
+        {
+          "time": 2.1438660000001164,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2081.0,
+              "watts": 48.27
+            }
+          ]
+        },
+        {
+          "time": 4.242291100000102,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2100.0,
+              "watts": 48.2
+            }
+          ]
+        },
+        {
+          "time": 6.359335599999895,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2100.0,
+              "watts": 48.14
+            }
+          ]
+        },
+        {
+          "time": 8.47322239999994,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2100.0,
+              "watts": 48.21
+            }
+          ]
+        },
+        {
+          "time": 10.573388600000044,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2099.0,
+              "watts": 48.12
+            }
+          ]
+        },
+        {
+          "time": 12.66844530000003,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2099.0,
+              "watts": 47.97
+            }
+          ]
+        },
+        {
+          "time": 14.769845300000043,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 12.0,
+              "memory_mib": 2096.0,
+              "watts": 48.06
+            }
+          ]
+        },
+        {
+          "time": 16.86818480000011,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2098.0,
+              "watts": 48.22
+            }
+          ]
+        },
+        {
+          "time": 18.96372190000011,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2096.0,
+              "watts": 48.12
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "c619a3a2d1c1c916fed66231adb3f639747133bae7367257c01a56777f235c32"
+    },
+    "nvof-q5": {
+      "status": "failed",
+      "expectation": "render",
+      "reasons": [
+        "native failure",
+        "insufficient real frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 5,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.120591500000046,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.0014819000000443339,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2096.0,
+              "watts": 47.95
+            }
+          ]
+        },
+        {
+          "time": 2.142417900000055,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 13.0,
+              "memory_mib": 2099.0,
+              "watts": 48.26
+            }
+          ]
+        },
+        {
+          "time": 4.23443240000006,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2098.0,
+              "watts": 48.24
+            }
+          ]
+        },
+        {
+          "time": 6.331570600000077,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2097.0,
+              "watts": 48.25
+            }
+          ]
+        },
+        {
+          "time": 8.44835850000004,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2097.0,
+              "watts": 48.22
+            }
+          ]
+        },
+        {
+          "time": 10.562102800000048,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2097.0,
+              "watts": 48.28
+            }
+          ]
+        },
+        {
+          "time": 12.677100100000189,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2097.0,
+              "watts": 48.13
+            }
+          ]
+        },
+        {
+          "time": 14.776305500000035,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2080.0,
+              "watts": 48.15
+            }
+          ]
+        },
+        {
+          "time": 16.876998400000048,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2080.0,
+              "watts": 48.07
+            }
+          ]
+        },
+        {
+          "time": 18.993834100000186,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2081.0,
+              "watts": 48.13
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "e8bb04df8e455f0143bf93d84335819f0ddd387ae9de31172637cc696d5fd2f7"
+    },
+    "chain-balanced": {
+      "status": "failed",
+      "expectation": "fg",
+      "reasons": [
+        "native failure",
+        "insufficient real frames",
+        "no generated frames"
+      ],
+      "host_sha256": "84364eca7afd1478a9a1db199803d004c2917f377e74ba065963ef1ac6702968",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 2,
+              "antiFlicker": 2,
+              "multiPass": 1
+            },
+            "scale": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "DLSS\\DLSS_SR",
+            "parameters": {},
+            "scale": [
+              1.5,
+              1.5
+            ]
+          },
+          {
+            "name": "DLSSFG\\DLSS_FrameGeneration",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 20.1200237999999,
+      "last_metrics": {},
+      "sampled_steady_rates": null,
+      "gpu_sample_count": 10,
+      "gpu_samples": [
+        {
+          "time": 0.00024000000007617928,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2080.0,
+              "watts": 47.87
+            }
+          ]
+        },
+        {
+          "time": 2.1333898000000318,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 27.0,
+              "memory_mib": 2080.0,
+              "watts": 48.09
+            }
+          ]
+        },
+        {
+          "time": 4.234685599999921,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2083.0,
+              "watts": 47.92
+            }
+          ]
+        },
+        {
+          "time": 6.3242791000000125,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2079.0,
+              "watts": 47.87
+            }
+          ]
+        },
+        {
+          "time": 8.440785199999937,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2081.0,
+              "watts": 47.95
+            }
+          ]
+        },
+        {
+          "time": 10.535900099999935,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 9.0,
+              "memory_mib": 2080.0,
+              "watts": 47.94
+            }
+          ]
+        },
+        {
+          "time": 12.633103899999924,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2080.0,
+              "watts": 47.91
+            }
+          ]
+        },
+        {
+          "time": 14.747012399999903,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2078.0,
+              "watts": 48.23
+            }
+          ]
+        },
+        {
+          "time": 16.84944150000001,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2081.0,
+              "watts": 48.2
+            }
+          ]
+        },
+        {
+          "time": 18.940127900000107,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 11.0,
+              "memory_mib": 2080.0,
+              "watts": 48.04
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "event": "error",
+          "code": 67,
+          "message": "实时增强失败（诊断编号 67）"
+        }
+      ],
+      "report_sha256": "4380a508e6d61c69aad8226a408afee01782515598c1e900b17551d3520e686b"
+    }
+  },
+  "pending": [
+    "P2-03: HDR source -> FP16 processing -> physical HDR output / visual acceptance",
+    "P2-04: physical multi-monitor, mixed DPI, cross-GPU and OBS coexistence",
+    "P2-05: selected real game baseline/capture/NR/SR-FG A/B and sustained load"
+  ],
+  "full_p2_accepted": false
+}

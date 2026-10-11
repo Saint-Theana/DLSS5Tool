@@ -7,20 +7,32 @@ from copy import deepcopy
 import ctypes
 from ctypes import wintypes
 import json
+import os
 from pathlib import Path
 import queue
+import subprocess
 import sys
+import threading
 import time
 import tkinter as tk
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from dlss5tool.realtime import DEFAULT_CONFIG, RealtimeClient, NR
+from dlss5tool.realtime import DEFAULT_CONFIG, RealtimeClient, NR, validate_config, sample_gpu_load
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--effect', default='Bilinear')
+    parser.add_argument('--output', type=Path, required=True, help='New, isolated case directory (never reused)')
+    parser.add_argument('--host', type=Path, default=ROOT / 'runtime/realtime/dlss5_realtime_host.exe')
+    parser.add_argument('--config', type=Path, help='Validated control-only config, overrides effect options')
+    parser.add_argument('--screenshot', action='store_true', help='Opt in to an owned-source screenshot')
+    parser.add_argument('--gpu-sampling', action='store_true')
+    parser.add_argument('--source-exe', type=Path, help='Owned realtime_test_source executable')
+    parser.add_argument('--source-position', nargs=2, type=int, default=[80, 80])
+    parser.add_argument('--source-hdr', action='store_true')
+    parser.add_argument('--move-source', nargs=2, type=int, help='Move only our source halfway through the test')
     parser.add_argument('--seconds', type=float, default=15)
     parser.add_argument('--capture', type=int, default=0)
     parser.add_argument('--flow', type=int, default=0)
@@ -43,6 +55,20 @@ def main():
     parser.add_argument('--protocol-test', action='store_true')
     parser.add_argument('--quiet', action='store_true')
     args = parser.parse_args()
+    if (args.source_hdr or args.move_source) and not args.source_exe:
+        parser.error('HDR/moving source requires --source-exe')
+    if not 5 <= args.seconds <= 1800:
+        parser.error('--seconds must be between 5 and 1800')
+    folder = args.output.resolve()
+    folder.mkdir(parents=True, exist_ok=False)
+    if args.source_exe:
+        # Monitor rectangles from the native host are physical pixels. Set this
+        # before Tk creates any HWND, otherwise SetWindowPos/GetWindowRect use
+        # virtualized coordinates at 150% and a "cross-screen" test can lie.
+        dpi_user = ctypes.WinDLL('user32', use_last_error=True)
+        dpi_user.SetProcessDpiAwarenessContext.argtypes = [ctypes.c_void_p]
+        if not dpi_user.SetProcessDpiAwarenessContext(ctypes.c_void_p(-4)):
+            raise ctypes.WinError(ctypes.get_last_error())
     root = tk.Tk()
     root.title('DLSS5Tool realtime synthetic acceptance')
     root.geometry('800x450+80+80')
@@ -53,6 +79,26 @@ def main():
     user.GetAncestor.argtypes = [wintypes.HWND, wintypes.UINT]
     user.GetAncestor.restype = wintypes.HWND
     hwnd = int(user.GetAncestor(root.winfo_id(), 2))
+    source = None
+    source_metadata = None
+    source_moves = []
+    if args.source_exe:
+        root.withdraw()
+        source = subprocess.Popen([str(args.source_exe.resolve()), str(int(args.seconds + 10)),
+            *map(str, args.source_position), str(int(args.source_hdr))], stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, text=True, encoding='utf-8', creationflags=subprocess.CREATE_NO_WINDOW)
+        incoming = queue.Queue()
+        threading.Thread(target=lambda: incoming.put(source.stdout.readline()), daemon=True).start()
+        try:
+            source_metadata = json.loads(incoming.get(timeout=8))
+            if source_metadata.get('pid') != source.pid or not source_metadata.get('hwnd'):
+                raise ValueError('Owned source identity mismatch')
+            hwnd = source_metadata['hwnd']
+        except Exception:
+            source.terminate()
+            source.wait(timeout=3)
+            root.destroy()
+            raise
     config = deepcopy(DEFAULT_CONFIG)
     config['effects'] = [{'name': NR if args.effect == 'NR' else args.effect, 'parameters': {}, 'scale': [args.scale, args.scale]}]
     if args.chain:
@@ -68,7 +114,10 @@ def main():
             config['quality'].update(protection=True, regions=[[0, 0, 1, .22]])
     config.update(windowed=args.windowed, capture_method=args.capture, hdr=args.hdr, gpu_index=args.gpu)
     config.update(game_mode=args.game_mode, disable_topmost=args.no_topmost, sync_mode=args.sync_mode, frame_rate=args.frame_rate)
-    client = RealtimeClient({'realtime_runtime_directory': args.runtime_directory} if args.runtime_directory else {})
+    if args.config:
+        config = validate_config(json.loads(args.config.read_text(encoding='utf-8')))
+    client = RealtimeClient({'realtime_runtime_directory': args.runtime_directory} if args.runtime_directory else {},
+                            host=args.host, state_root=folder / 'state')
     start = time.monotonic()
     events = []
     clicks = []
@@ -77,8 +126,31 @@ def main():
     last_status = 0
     closing = False
     changed_quality = False
+    moved = False
     protocol_checked = False
     parameter_test = None
+    sampling_stop = threading.Event()
+    gpu_samples = queue.Queue(maxsize=1024)
+    sampler = None
+    def sample():
+        while not sampling_stop.is_set():
+            item = dict(time=time.monotonic() - start, **sample_gpu_load())
+            try:
+                gpu_samples.put_nowait(item)
+            except queue.Full:
+                break
+            sampling_stop.wait(2)
+    if args.gpu_sampling:
+        sampler = threading.Thread(target=sample, daemon=True)
+        sampler.start()
+    # Independent of Tk callbacks; only terminates the exact child we created.
+    def deadline():
+        process = client.process
+        if process and process.poll() is None:
+            process.terminate()
+    guard = threading.Timer(args.seconds + 10, deadline)
+    guard.daemon = True
+    guard.start()
 
     def finish():
         nonlocal closing
@@ -86,6 +158,19 @@ def main():
             return
         closing = True
         client.close()
+        if source:
+            user.PostMessageW.argtypes = [wintypes.HWND, wintypes.UINT, wintypes.WPARAM, wintypes.LPARAM]
+            if source.poll() is None:
+                user.PostMessageW(hwnd, 0x0010, 0, 0)  # WM_CLOSE, owned source only
+                try:
+                    source.wait(timeout=3)
+                except subprocess.TimeoutExpired:
+                    source.terminate()
+                    source.wait(timeout=3)
+        sampling_stop.set()
+        if sampler:
+            sampler.join(timeout=4)
+        guard.cancel()
         while not client.events.empty():
             events.append(client.events.get_nowait())
         statuses = [e for e in events if e.get('event') == 'status']
@@ -99,26 +184,40 @@ def main():
             e.get('run_id') == parameter_test['run_id'] and e.get('effects') and
             abs(e['effects'][0].get('parameters', {}).get(parameter_test['name'], float('inf')) - parameter_test['value']) < 1e-5
             for e in statuses))
-        report['command_arguments'] = vars(args)
-        with (ROOT / 'runtime/realtime/dlss5_realtime_host.exe').open('rb') as stream:
+        report['command_arguments'] = {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}
+        report['duration_seconds'] = time.monotonic() - start
+        report['gpu_samples'] = list(gpu_samples.queue)
+        report['runtime_selection'] = client.runtime_selection
+        report['source_metadata'] = source_metadata
+        report['source_moves'] = source_moves
+        report['source_exit_code'] = source.returncode if source else None
+        with client.host.open('rb') as stream:
             report['host_sha256'] = hashlib.file_digest(stream, 'sha256').hexdigest()
-        folder = ROOT / 'tmp/realtime-integration-20261003'
-        folder.mkdir(exist_ok=True)
-        label = args.case or hashlib.sha256(json.dumps(vars(args), sort_keys=True).encode()).hexdigest()[:12]
-        if any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_' for c in label):
-            raise ValueError('Unsafe case name')
-        path = folder / ('probe-' + label + '.json')
+        path = folder / 'report.json'
         path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
         print(json.dumps({'report': str(path), 'rendered': report['rendered'], 'exit_ok': report['exit_ok'], 'failures': len(report['native_failures']), 'quality_confirmed': report['quality_confirmed']}, ensure_ascii=False), flush=True)
         root.destroy()
 
     def tick():
-        nonlocal screenshot_sent, last_status, changed_quality, protocol_checked, parameter_test
+        nonlocal screenshot_sent, last_status, changed_quality, protocol_checked, parameter_test, moved
         elapsed = time.monotonic() - start
         if elapsed > args.seconds:
             finish()
             return
-        if not (args.static_quality and elapsed > 5):
+        if args.move_source and not moved and elapsed > args.seconds / 2:
+            moved = True
+            user.SetWindowPos.argtypes = [wintypes.HWND, wintypes.HWND, ctypes.c_int, ctypes.c_int,
+                                         ctypes.c_int, ctypes.c_int, wintypes.UINT]
+            user.GetDpiForWindow.argtypes = [wintypes.HWND]
+            before = user.GetDpiForWindow(hwnd)
+            ok = user.SetWindowPos(hwnd, None, *args.move_source, 0, 0, 0x0015)  # no size/z-order/activation
+            user.GetWindowRect.argtypes = [wintypes.HWND, ctypes.POINTER(wintypes.RECT)]
+            rect = wintypes.RECT()
+            rect_ok = user.GetWindowRect(hwnd, ctypes.byref(rect))
+            source_moves.append(dict(time=elapsed, ok=bool(ok), before_dpi=before,
+                                     after_dpi=user.GetDpiForWindow(hwnd), position=args.move_source,
+                                     actual_rect=[rect.left, rect.top, rect.right, rect.bottom] if rect_ok else None))
+        if not source and not (args.static_quality and elapsed > 5):
             animate(elapsed)
         if args.static_quality and elapsed > 7 and not changed_quality:
             changed_quality = True
@@ -130,6 +229,7 @@ def main():
             except queue.Empty:
                 break
             events.append(event)
+            event['probe_time'] = elapsed
             if args.protocol_test and not protocol_checked and event.get('event') == 'status' and event.get('metrics', {}).get('submitted', 0) > 0:
                 protocol_checked = True
                 client.send('quality', quality=config['quality'], run_id=event['run_id'] + 100)
@@ -140,7 +240,7 @@ def main():
                 root.after(800, lambda: client.send('compare'))
             if not args.quiet:
                 print(json.dumps({k:v for k,v in event.items() if k not in ('parameter_modes','effects','desired_effects')}, ensure_ascii=False), flush=True)
-        if elapsed > 8 and not screenshot_sent:
+        if args.screenshot and elapsed > 8 and not screenshot_sent:
             screenshot_sent = True
             if client.process and client.process.poll() is None:
                 client.send('screenshot')
@@ -161,13 +261,27 @@ def main():
                            fill='white', font=('Microsoft YaHei UI', 20))
 
     root.protocol('WM_DELETE_WINDOW', finish)
-    root.after(800, lambda: client.start(hwnd, config))
+    def begin():
+        try:
+            client.start(hwnd, config, source.pid if source else os.getpid())
+        except Exception as error:
+            events.append({'event': 'fatal', 'message': str(error)})
+            finish()
+    root.after(800, begin)
     if args.lifecycle:
         root.after(10000, lambda: root.geometry('960x540'))
         root.after(14000, root.iconify)
         root.after(16000, root.deiconify)
-    tick()
-    root.mainloop()
+    try:
+        tick()
+        root.mainloop()
+    finally:
+        client.close()
+        if source and source.poll() is None:
+            source.terminate()
+            source.wait(timeout=3)
+        sampling_stop.set()
+        guard.cancel()
 
 
 if __name__ == '__main__':

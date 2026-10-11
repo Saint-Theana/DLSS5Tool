@@ -2053,7 +2053,8 @@ class RealtimeWorkspace:
     def _preflight_state(self, config):
         selected = self.selected_window()
         return (deepcopy(config), (selected.get('hwnd'), selected.get('pid')) if selected else None,
-                self.client.generation, deepcopy(self._host_ready), self._catalog_generation, dict(self.client.settings))
+                self.client.generation, deepcopy(self._host_ready), self._catalog_generation, dict(self.client.settings),
+                deepcopy(getattr(self, '_device_snapshot', None)))
 
     def _run_preflight(self):
         selected = self.selected_window()
@@ -2067,8 +2068,12 @@ class RealtimeWorkspace:
                 ready = None
             selection = getattr(self.client, 'runtime_selection', None) if ready else None
             catalog = self.catalog if self._catalog_generation == self.client.generation else {}
+            devices = getattr(self, '_device_snapshot', None)
+            if devices is not None and devices.get('_generation') != self.client.generation:
+                devices = None
             issues = check_start(config, selected, settings=self.client.settings, catalog=catalog,
                                  host=self.client.host, ready=ready,
+                                 devices=devices,
                                  runtime_selection=selection if isinstance(selection, dict) else None,
                                  target_state=target_window_state(selected) if selected else None)
         except (OSError, ValueError, TypeError) as error:
@@ -2171,8 +2176,12 @@ class RealtimeWorkspace:
         elif issue.route == 'display':
             if issue.code == 'hotkey':
                 self._focus_page('display', self.output_selector)
+            elif issue.code.startswith('gpu_'):
+                self._focus_page('runtime', self.gpu_picker)
+            elif issue.code in ('monitor_missing', 'hdr_display'):
+                self._focus_page('display', self.monitor_picker)
             else:
-                self._focus_page('display', self.controls['capture_method'][0])
+                self._focus_page('runtime', self.controls['capture_method'][0])
         elif issue.route == 'protection':
             target = self.regions
             for row in self.quality_rows.values():
@@ -3049,6 +3058,7 @@ class RealtimeWorkspace:
                 self.gpu_load.set(tr("realtime.gpu_prefix") + ' · '.join(f"{b['name']}：{label(b['utilization'], '%')} / {label(b['memory_mib'], ' MiB')} / {label(b['watts'], ' W')}" for b in boards) if boards else tr("realtime.gpu_unavailable"))
                 continue
             if kind == 'devices':
+                self._device_snapshot = dict(event, _generation=self.client.generation)
                 self._monitors = event['monitors']; self._adapters = event['adapters']
                 self.monitor_picker.configure(values=[f"{m['name']} · {m['rect']} · {tr("realtime.hdr_active") if m.get('hdr_active') else 'SDR'}" for m in self._monitors])
                 self.gpu_picker.configure(values=[tr("realtime.automatic")]+[f"{a['index']}: {a['name']}" for a in self._adapters])
