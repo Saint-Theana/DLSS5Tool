@@ -2,6 +2,7 @@
 
 Neutral settings bypass conversion. HDR global controls use linear light;
 SDR fine controls operate on normalized stored RGB/HSL, as in the native shader.
+HDR uses linear luminance/chroma differences and never saturates to SDR white.
 """
 import numpy as np
 from dlss5tool import appearance
@@ -67,11 +68,23 @@ def fine_controls(base, output, r):
     return np.where(np.any(delta != 0, axis=-1, keepdims=True), candidate, base)
 
 
-def global_controls(base, output, q):
+def hdr_fine_controls(base, output, r, weights=(.2126, .7152, .0722)):
+    if all(v == 1 for v in r.values()):
+        return output
+    delta = (output-base)*r['residualMultiplier']
+    dy = delta @ np.asarray(weights, np.float32)
+    direction = np.where(dy < 0, r['shadowStructureMultiplier'],
+                         np.where(dy > 0, r['reflectionGlowMultiplier'], 1))
+    delta *= direction[..., None]
+    luma = (delta @ np.asarray(weights, np.float32))[..., None]
+    return base + luma*r['residualLightness'] + (delta-luma)*r['residualSaturation']
+
+
+def global_controls(base, output, q, weights=(.2126, .7152, .0722)):
     raw = output-base
     delta = np.minimum(raw, 0)*q['darken'] + np.maximum(raw, 0)*q['brighten']
     if q['color'] != 1 or q['luminance'] != 1:
-        dy = (delta @ np.array([.2126, .7152, .0722], np.float32))[..., None]
+        dy = (delta @ np.array(weights, np.float32))[..., None]
         delta = dy*q['luminance']+(delta-dy)*q['color']
     delta *= q['total']*(1-protection_mask(base.shape, q)[..., None])
     anchor_delta = np.minimum(raw, 0)
@@ -101,9 +114,12 @@ def compose(original, processed, settings=None, *, order='rgb', profile='srgb'):
         decode, encode = (_pq_eotf, _pq_oetf) if profile == 'hdr10_pq' else (_hlg_eotf, _hlg_oetf)
         if profile != 'scrgb':
             base, output = decode(base), decode(output)
+        weights = (.2627, .6780, .0593) if profile != 'scrgb' else (.2126, .7152, .0722)
+        output = hdr_fine_controls(base, output, values['nr_residual'], weights)
     else:
+        weights = (.2126, .7152, .0722)
         output = fine_controls(base, output, values['nr_residual'])
-    output = global_controls(base, output, values['nr_quality'])
+    output = global_controls(base, output, values['nr_quality'], weights)
     if hdr and profile != 'scrgb':
         output = encode(np.maximum(output, 0))
     if profile != 'scrgb':

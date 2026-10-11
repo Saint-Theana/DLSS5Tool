@@ -127,6 +127,31 @@ class ParameterTransferTests(unittest.TestCase):
 
 
 class LocalAdjustmentTests(unittest.TestCase):
+    def test_render_status_never_confirms_invalid_or_newer_draft(self):
+        editor = self.editor
+        editor.set_operation_state('applied', hdr=True)
+        row = editor.rows['nr_residual.residualSaturation']
+        row.variable.set('nan')
+        editor.changed()
+        editor.set_operation_state('applied')
+        self.assertEqual(editor.diagnostic_snapshot()['state'], 'invalid')
+        row.variable.set('.7')
+        editor.changed()
+        editor.set_operation_state('applied')
+        self.assertEqual(editor.diagnostic_snapshot()['state'], 'dirty')
+        self.assertTrue(editor.commit('nr_residual.residualSaturation'))
+        self.assertEqual(editor.diagnostic_snapshot()['state'], 'idle')
+        self.model.assert_not_called()
+        self.output.assert_called_once()
+        editor.set_operation_state('pending')
+        self.assertEqual(editor.diagnostic_snapshot()['state'], 'pending')
+        editor.set_operation_state('applied')
+        self.assertEqual(editor.diagnostic_snapshot()['state'], 'applied')
+        editor.reset(['nr_residual.residualSaturation'])
+        editor.undo()
+        self.assertEqual(row.value(), .7)
+        self.assertNotEqual(editor.diagnostic_snapshot()['state'], 'applied')
+
     def setUp(self):
         self.root = tk.Tk()
         self.root.geometry('370x760')

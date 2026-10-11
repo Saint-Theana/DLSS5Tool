@@ -1,0 +1,1359 @@
+{
+  "version": 1,
+  "packaging_license_review_complete": false,
+  "distribution_status": "local-validation-only",
+  "sources": {
+    "rapidhash": {
+      "repository": "Nicoshev/rapidhash",
+      "requested_revision": "588978411df8683777429f729be5213eb1bfd5f3",
+      "commit": "588978411df8683777429f729be5213eb1bfd5f3",
+      "archive_sha256": "59f45ac988b94a8dcf7a8a3f1976704657ebda52fc7ebe8d33f3e7d6c5123059"
+    },
+    "fmt": {
+      "repository": "fmtlib/fmt",
+      "requested_revision": "12.1.0",
+      "commit": "407c905e45ad75fc29bf0f9bb7c5c2fd3475976f",
+      "archive_sha256": "0470bba08d31fc470a247d03a2c278000adce19502741fdc28b39c9cad2bda57"
+    },
+    "muparser": {
+      "repository": "beltoforion/muparser",
+      "requested_revision": "v2.3.5",
+      "commit": "fbafd7f8774af2b53f4d2de07c57353fcfc09216",
+      "archive_sha256": "71299e04e312f768331e5d6fa9f5f297a4dfd9a4075b8259ad2ab8edf171cee2"
+    },
+    "nvof_headers": {
+      "repository": "SlimRG/NvidiaOF5",
+      "requested_revision": "99e8d8eb8f269591e5e4bd5a7f3c248bbbc3a3b9",
+      "commit": "99e8d8eb8f269591e5e4bd5a7f3c248bbbc3a3b9",
+      "archive_sha256": "ce27d6d56f239d1fbad68e1329ffe1fd82326ff28617cbd6a3a7f000453e7bb5"
+    },
+    "veyra": {
+      "repository": "Likely7/Veyra-NRVideo",
+      "requested_revision": "v1.4.4",
+      "commit": "6851c2775c978b999e263a9c427ff43461688aa0",
+      "archive_sha256": "00d8fb355f55ff24225da79bd172d9b68b977cfc2581d561549d03bed9313639"
+    },
+    "wil": {
+      "repository": "microsoft/wil",
+      "requested_revision": "v1.0.260126.7",
+      "commit": "cbf677fb0a942557d08fd129f4c106a76247b2ec",
+      "archive_sha256": "43f3f1913b9d640f9a1aaa1821d4087a96b52af5d1055b68378163281ab76b21"
+    },
+    "imgui": {
+      "repository": "ocornut/imgui",
+      "requested_revision": "v1.91.8",
+      "commit": "dbb5eeaadffb6a3ba6a60de1290312e5802dba5a",
+      "archive_sha256": "33944a68e4ad0d96cf3cedcd2d0fcac8ce7cc5df01e333014cad8fb9a52f7cc7"
+    },
+    "yas": {
+      "repository": "niXman/yas",
+      "requested_revision": "7.1.0",
+      "commit": "e70a6e31d32571238a73450304405670f40a4860",
+      "archive_sha256": "b424084b93a823c90064c230b5d027c596439f620cf93294484cb162034404a1"
+    },
+    "spdlog": {
+      "repository": "gabime/spdlog",
+      "requested_revision": "v1.17.0",
+      "commit": "79524ddd08a4ec981b7fea76afd08ee05f83755d",
+      "archive_sha256": "2594162a28f06d12bf38ab4388c002156db9f8d5f7bcb0e1b4e60067dbad6c76"
+    },
+    "nvapi": {
+      "repository": "NVIDIA/nvapi",
+      "requested_revision": "87dca625e83fd89a983e19b904e5f3a580da90d2",
+      "commit": "87dca625e83fd89a983e19b904e5f3a580da90d2",
+      "archive_sha256": "f40c45c4c186f038346c85afb1225971ac4db2f72c02831ad89e3e844121c528"
+    },
+    "json": {
+      "repository": "nlohmann/json",
+      "requested_revision": "v3.12.0",
+      "commit": "55f93686c01528224f448c19128836e7df245f72",
+      "archive_sha256": "0746352e4e9532e7aeabbcbaa79079b6bc6008e9261e4d459c9486a9b48a172e"
+    },
+    "magpie": {
+      "repository": "SAOG0721/Magpie",
+      "requested_revision": "2c017d4be8311fac8584e2ff6187b1f03383bde1",
+      "commit": "2c017d4be8311fac8584e2ff6187b1f03383bde1",
+      "archive_sha256": "32a0727b6868ff86441ef80635eba2dac50da6908263d57a2008fcf1b12822c4"
+    },
+    "phmap": {
+      "repository": "greg7mdp/parallel-hashmap",
+      "requested_revision": "v2.0.0",
+      "commit": "2ec799017610ef831f4dc29c21fb3cce7e4a19b9",
+      "archive_sha256": "3405fbf5d56521c9b296e93325220e16f5b0fb91cb312937f0eb4ca552eabe57"
+    }
+  },
+  "features": [
+    "WGC",
+    "DD",
+    "GDI",
+    "DWM",
+    "DLSSNR",
+    "DLSSSR",
+    "DLSSFG",
+    "NVOF",
+    "VeyraResidual"
+  ],
+  "source_sha256": {
+    "assets/app.ico": "35d247fc11200c259a794d497dbea8034bfc1da80d41005325c6347fb82cd2ee",
+    "native/realtime/app.manifest": "6d2ea8ebcc16153ec4c1ba3b99f51a8d682ecf4aa9e42c8c8a7c46a37de7b615",
+    "native/realtime/app_icon.h": "7a63a4cff0db8071b505ffd10347d881312950b43859d4aac5956e2d0ea2f0f7",
+    "native/realtime/app_icon.rc.in": "50a19aa305a3ba15bb76058b0c22a0ead24884c2ab900c650254b7efb94a1e14",
+    "native/realtime/app_icon_tests.cpp": "7d0125d7bd44b014689dfc816f0f8cf2bf562715b4b3e4492234f187b7223e18",
+    "native/realtime/CMakeLists.txt": "2a44426e121b189703138b75255a3b327f40e4d5e0b0738338fc6195d8d04aa1",
+    "native/realtime/guidance.cpp": "3e02b232672971cd60a732dcb51aca5bec87858a32afaa346ae8756995d70270",
+    "native/realtime/guidance.h": "8a3972a879da0eca43c34b3f55962bd50df37b952b940ac8919247d293fda21e",
+    "native/realtime/guidance_model.h": "fb5ce711e2d44177277af73f91666784d5e2c02630f6c435dfbabab3ac871e51",
+    "native/realtime/guidance_tests.cpp": "5351af87181351702b328ac80d7ff3b4adcce198597c7bdc04213798d1962a73",
+    "native/realtime/hdr_residual.hlsli": "1b53c140c24f61d49346128616004e5d3881afaad6a5e75062a099a923d7f141",
+    "native/realtime/hdr_residual_test.hlsl": "d8e970acfd21721e80d2d1785d42253fece9b83ec272fcac8d4a588b7e26f5b3",
+    "native/realtime/hdr_residual_tests.cpp": "3835ba172d08e9ab1e9344c9980ddb6638733c7e644b269b50c0373aa3b6e020",
+    "native/realtime/host.cpp": "5b96af985085c3c599c4acfa8dc68bdb336670e3519b068ac65f3bb5053cfea6",
+    "native/realtime/hotkeys.h": "e414a8412dc8daa9df1f8da513fe497ff3f4a570662354b8896b91b06fdee863",
+    "native/realtime/hotkeys_tests.cpp": "bf25ce436df976ab35b16128e57a616e6977167196bb0a27770de0fe627bf022",
+    "native/realtime/NOTICE.md": "61537fd16aed108d62cba76611358e4854450a35f60889adf1d6a76fbb16d89f",
+    "native/realtime/quality.cpp": "b7ca5a72a21f229c765b3a387da8edf1f6de4e2c19f936f854fdd15364de81f3",
+    "native/realtime/quality.h": "a22b86c82a06e4f3e497df98306105113bf0efdddc4ba146eb372327e00b773d",
+    "native/realtime/quality_tests.cpp": "08ef96951440a138a49ce10306946669e318d7b2606b8a83dd9bc2768b4f34e2",
+    "native/realtime/safety_state.h": "599f1c9da83e06edeb721b3e33487a983242df7635ca2b0577ffa7bb1bdc463a",
+    "native/realtime/sources.lock.json": "3cf590485e5a28de1bbfbfe70de6c0c87a3402a42dab16df5ca83ebb3e8df505",
+    "native/realtime/telemetry.h": "16643cd2dbdd02327eb22a56b7f018f803ee32d044716bec02576ba845b891c6",
+    "native/realtime/telemetry_tests.cpp": "89597772fa65efb3f32c3fa6af74db5c630d3ea61425ec821d1317c3eada7f40",
+    "scripts/build_realtime.ps1": "1ee4d32fb6d3cd4cc4838e496b2f0622ec8dd2c7c69954b805ff835546a886f0",
+    "scripts/fetch_realtime_sources.py": "629287e1915df05f95b1a71620a93b8001d1230d28b2ea82468f606df4bc0c2b",
+    "scripts/prepare_realtime_build.py": "62e0532cb60ea81c5f0ae41a09d1733a28a734d3fa63d1b2a4eef293535ff407",
+    "scripts/realtime_provenance.py": "966e9d2948924e8a245f85bc3b02f41b62039d30dbdf93307cab51cded6cb655",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx.h": "35d19dba363786d27d11536a4628a430596477f39dbfed5eae482132ae6e794a",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_defs.h": "a9481cbc78d53ee56639f0a573ec095c6c1ea1e5f296d139c20c42bf342c2e1b",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_defs_dlssd.h": "019036e5157c82431cb6aba7c0ff76110dae196300a3ea211d3b75376e137e1d",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_defs_dlssg.h": "c45756c6e97c524365ebaa74362b6b0aadcf57b4320f6e504d09047e0cf16a8c",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_defs_vk.h": "43b821c5d297d86165e6d2f96a476f5c30f2158c7d5a0451425c6b927abfec88",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers.h": "c46628f150c6edee245758c878fc0af2b70f7ce582744729647cdb1969c21895",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_dlssd.h": "be5ecfc8f5ecb17861600485ce9fb617dc56faa5f79ee1525081a54bf4281475",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_dlssd_cuda.h": "32a74447c395586dd8c8c4d1ef29df1a327a040dc12b01a101723dc083c47bf1",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_dlssd_vk.h": "89351368b07b0afa28e0923de1b0276991efb9b5e95922c89047dfcfce70bb7d",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_dlssg.h": "cae8dfbecdeb4cf84de73dec7ef547a017ea9d85830e0bdc5312f10083565fab",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_dlssg_vk.h": "1d66e940bee5483a6e6e57ab9496367e1b1950511e6f09aef41c31086ca21bb0",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_helpers_vk.h": "754697d9faa93913985fc91fceae2073763461710d742a1f262ced2a7b6b62c9",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_params.h": "51a1f94116cf82f95c63a2c197371ed22e08bddb09918d36cc6e2ac712753c80",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_params_dlssd.h": "7e4fc6d5c84b436d31e289f863762a178ab2ef5d8c1ff40b614b01b342385f05",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_params_dlssg.h": "82b1d573b4b48d4cefc26ac01162a45646d99f0b84806dac9db3516cc5f733b5",
+    "third_party/NVIDIA-DLSS/include/nvsdk_ngx_vk.h": "3be54d0103cce02174fd34912c60c9f40c73b5eec919e42613a2268c589c53ad",
+    "third_party/NVIDIA-DLSS/lib/Windows_x86_64/x64/nvsdk_ngx_s.lib": "36eab29264c2a06456ba8415f20086aea36f0cbb314d020085cb288cc06bb9ae",
+    "third_party/NVIDIA-DLSS/LICENSE.txt": "dc2778a3283427285984cdb5b3f7f03eae7d8a06057f672f2999c5ee7fd4f67d",
+    "third_party/realtime/magpie/src/Effects/ACNet.hlsl": "41edb892726f85e6f3cc4c61fdd0326e319671fb86043c51f93179c037c39550",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_3D_AA_Upscale_US.hlsl": "33267e463b64b745455de215f6bedd56042431b62f9ae67abdc0088402755d46",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_3D_Upscale_US.hlsl": "e0a400c06ec5422800b854c42ea2053dc091ee8f93c0b6e7c15ff7ee92fc9eee",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Denoise_Bilateral_Mean.hlsl": "45a5a0b35757efc59b6775ca10745bca51a47278c7c3a60aebe7f974ec3dd057",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Denoise_Bilateral_Median.hlsl": "417202c23ee541cbd12312abbed61a148356352972c9c6966a0658e7d82c1425",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Denoise_Bilateral_Mode.hlsl": "2609c4e3bc2a2b932a2757c0e4b9aab217f048953b36187c910128285994455d",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_L.hlsl": "2419e06a14473b3897980bfcc33fd43d503bb9a4c68d5799476e5b18c8d92561",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_M.hlsl": "74128adcf449befa1166025877473bc0e151de3e15a0f63851dd2ddb9588f269",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_S.hlsl": "9af0664201860e0f4e52567263522e9604cc9f16a376a1b5c3df8339eb6d3e21",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_Soft_L.hlsl": "b94d38a185e95150cbea4cc62aee61a8bffff79c2e24c84c35ea2a9f3ba02c86",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_Soft_M.hlsl": "da441e4de7554bf263e2fce3f5f1b87e616366d832bcddc68ca09c4781ff2988",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_Soft_S.hlsl": "34681645347aa78575684696e36a02854c7b4e87c44d31f6b0690916745570ec",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_Soft_UL.hlsl": "67955ff507dc560dee464e34c560c804785b4ead576349d4184ba67f3b7c8127",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_Soft_VL.hlsl": "70e8fd7c497147b851bd7c51e801251ccdb6215d122e0534dc5782056b132d62",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_UL.hlsl": "fae6630ad96b06ae19de72fc74811dc4d8006df36852e6a6d1b371a0f142bbfc",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Restore_VL.hlsl": "c51a25e11b066d16611f93ee0fe2329306a4411ae8f14ca3f6e871e27dbe78cc",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Thin_HQ.hlsl": "faa4bbc9d02dea020d60894129ab39d41ad16565846170b677450d013d9628d6",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_Denoise_L.hlsl": "9f1e62a8d1fac368a530fe329ca80a6e65a61b29ee9f2205c4ee15eed1a54325",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_Denoise_S.hlsl": "b34c810aebcc56c81ab004b6e4e063a4105d8018a08e539b3ff79c4e40ccc305",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_Denoise_UL.hlsl": "256cadf9f9dae003f3563b95ba6f877af328b36e2c19f8a5e3524b7cd3c4b75a",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_Denoise_VL.hlsl": "3df1e8d46b340600df509471313b94f46513b783b020eef0a36abe6b0f355d25",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_GAN_x2_M.hlsl": "6e85ec033ac7669de851dc90c014ea2648d788ac613a50eda275e60e6fe33fd9",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_GAN_x2_S.hlsl": "0fcb1bcb6f9ba0a8a5b8db89316ade8f0ba927cf6cfe7ae38f3fac2acbd49969",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_GAN_x3_L.hlsl": "26a0aa0687967b15eb65193922ea306166424d18e99d14663899212be574add7",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_L.hlsl": "5b10e82c2f29ea31d4349d7c03ec077e3263341d065acecb672bcf04b6dd8b33",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_S.hlsl": "1b6e528cc5154247edf6420870ee7d71cc777ae506f7d38845b74c15b83824f3",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_UL.hlsl": "b13e204989c550e5630084b0b99a447d2cfa82c7b94328eff84442ccd6a3ab92",
+    "third_party/realtime/magpie/src/Effects/Anime4K/Anime4K_Upscale_VL.hlsl": "9108eee00773ab9750a0341019072f34ec16377572ac85f4d710f1c2568b4ecc",
+    "third_party/realtime/magpie/src/Effects/Bicubic.hlsl": "162ea6a82e2c9296b8b166bcabdcfd092538644928ba742c76d66b58cba1567a",
+    "third_party/realtime/magpie/src/Effects/Bilinear.hlsl": "190963e21fc4786847619dde1ab0c020c7f3da82536db2110952089accaffc08",
+    "third_party/realtime/magpie/src/Effects/CAS/CAS.hlsl": "8000cadf6a0af7ca0aec286701539bcaca6873b83b9369abcc89556e57086989",
+    "third_party/realtime/magpie/src/Effects/CAS/CAS_Scaling.hlsl": "6e4da2e2666e47644b910c1195773c19d84181d093e2a9148ea415ef6b2f8ef5",
+    "third_party/realtime/magpie/src/Effects/Color/HDR_to_SDR.hlsl": "bdad950d5996af40675a27f18d2356e6872e6886b82c9476e5b9608f06ac93bb",
+    "third_party/realtime/magpie/src/Effects/Color/SDR_to_HDR.hlsl": "38b34077daf2fe5b0fbc58fe982c06cdcce7e4573a09496a55ec347a8f20fa2b",
+    "third_party/realtime/magpie/src/Effects/CRT/CRT_Easymode.hlsl": "c77d0374caeec758525b0506fd735b451e96b273872bde548024c5a636bdc99d",
+    "third_party/realtime/magpie/src/Effects/CRT/CRT_Geom.hlsl": "da4f9153dbc777b9b8f5bbdfc0d6fe5f7af829179d59ddb0cd61f25b40900c8a",
+    "third_party/realtime/magpie/src/Effects/CRT/CRT_Hyllian.hlsl": "efc42769ae739270749ed215776b0203b02c7b37675a1ef26869c87f27371e8a",
+    "third_party/realtime/magpie/src/Effects/CRT/CRT_Lottes.hlsl": "c4702bf35bce74ea33ffd48e79c814fdbe7768dfc357bd25fb6be0a2656035ba",
+    "third_party/realtime/magpie/src/Effects/CRT/GTU_v050.hlsl": "5238514c2fd77ce2be669d187c4456eff2f28c6977a45fecfd343138f9fed2cb",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-16x16C-NVL-DN.hlsl": "80c15eb3482c63c11204655cf4cc14c46d73e621900108cead5529067e6eca86",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-16x16C-NVL.hlsl": "cc0f5960e7681068462cad6cd88aae18ea9c30729672fee014d26fa377e7753e",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-2x4C-NVL-DN.hlsl": "850645fc1772529cdb6fd035044a7d6c447689e0a9ae34e8c8606ff602c5dc8f",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-2x4C-NVL.hlsl": "dabc62b24052b68b37013647aff422a5d326df55e300b7b01cdf1c4a2a59bf3e",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-3x4C-NVL-DN.hlsl": "61db0c644b5cc13a86e709925734b799b924c339a93b00f6056bb6c443522725",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-3x4C-NVL.hlsl": "4199e62859d8c6f1a86dfd96716200b295774bbc4275dec00f3fde50859ebe87",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x16C-NVL-DN.hlsl": "103116e578c1ae25bb8b4037f02afa858d237ee84af2031a112759466347d741",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x16C-NVL.hlsl": "534c9f983a67685b82376291d9c8cfa39f366aacda1e5a9ba8c645a094425283",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x4C-NVL-DN.hlsl": "cde36734fc82d6a47bcee123d03f601684591fae2e8137de5f759ddc21ed3e5e",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x4C-NVL.hlsl": "5181974ca4809befa1c9d900cf523316f4041caf352da93af320a370b8ae44b1",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x8C-NVL-DN.hlsl": "901d6f060fbcdcd6dca19fde639bb73a322ab7ec89055edf6ebd1c085c5b3758",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-4x8C-NVL.hlsl": "96db692078fa010e726b4bb94f3e54afcaf485d52ea196f8f9dbc670706180b8",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-6x8C-NVL-DN.hlsl": "117c60c8b3f8aa2cfa8a3cb19f8768b675bb433a8b730b046c7fccfc0d37b60b",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-6x8C-NVL.hlsl": "86fa53e9ad9d89ae03f57b68d0a161d66b124cef4c8420cea46bf28a47a95e04",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x16C-NVL-DN.hlsl": "b475bdaf0005fa61cb065a060624646500e26d70c41e6fceb7838d822570d5ab",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x16C-NVL.hlsl": "17a25a3a8231904bc42ab1df4a9a1acfb44fa86de43470b568485a6dd2258227",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x4C-NVL-DN.hlsl": "aeae2164a7b93b7c6692bd6b6beb423765f8d9299e17df26c147d72413d443db",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x4C-NVL.hlsl": "a64f2ec297e644a53c5ed62f452ea43124933851197e9ce24bb7988ae2cfbb12",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x8C-NVL-DN.hlsl": "69bafab4f35bb0c1eba9a3223e8e711ac289d66efacadef8f0fc0ad2d74046be",
+    "third_party/realtime/magpie/src/Effects/CuNNy/CuNNy-8x8C-NVL.hlsl": "95cabbd22d91aa47865b57d4cb418a3cf56ec40ef62998d3d22d20d1a349ab67",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-3x12-NVL.hlsl": "0d9e6fb4605818243eaff2656889a70d0336ca13e5c79f4e5de649225ca5fd26",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-4x12-NVL.hlsl": "ee3360229edb8f79c2f3e1790d304b8228482469d6e220d109a59fd6488b7d1b",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-4x16-NVL.hlsl": "df0f8c5d233777997d32d6dc064b88e6181c26dbf4987fd1471cf569d700fd81",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-4x24-NVL.hlsl": "65acb3b72231baaafe11b98766cc4be0ae2068c599cbfb8f7307888b2cbd2054",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-4x32-NVL.hlsl": "6a54e9653eaaa9b34778a7dba474f1608981272b54127b7af2c7a1ed8a040efd",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-8x32-NVL.hlsl": "4d2188b2625258f160f5cfca438c1561ec7cebec85ed5db2c406d79740dbe414",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-fast-NVL.hlsl": "8a250e626470b3e3887039c1c39caabe11eea269463b66a133330c208a440d83",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-faster-NVL.hlsl": "12e98cf2035c4379acf3ef89d25ee4375dca580f1f8fbbe7b1e31ec3277459b3",
+    "third_party/realtime/magpie/src/Effects/CuNNy2/CuNNy-veryfast-NVL.hlsl": "e56717aed34fb9919b2e4070295b5d8cb32e0b069a6161f5843eab56fe195716",
+    "third_party/realtime/magpie/src/Effects/Deband.hlsl": "09cc17cb7d956835453a91edec7639230dd677ac366b3faf651a669a7cf834c7",
+    "third_party/realtime/magpie/src/Effects/Diagnostics/FrameGuidance_Confidence.hlsl": "caff61f4481a2cfb0a9fba291c82fd71ab2793926995a0037c933dd0492be6ab",
+    "third_party/realtime/magpie/src/Effects/Diagnostics/FrameGuidance_Motion.hlsl": "8fc28fefa430aee26b66116b87db2ff3fbb0269d34b0fd9d0171fd9f3b69f99c",
+    "third_party/realtime/magpie/src/Effects/DLSS/DLSS_SR.hlsl": "3efd316c1e4db190de5ca88cd9ceef79cf1588387e38d5399483bcadc1a0f30c",
+    "third_party/realtime/magpie/src/Effects/DLSSFG/DLSS_FrameGeneration.hlsl": "bc55ec120dcad61e812090f677fdd9a5dd72cbd2c9e98497ea573d3493a49bca",
+    "third_party/realtime/magpie/src/Effects/DLSSNR/DLSSNR_AI_Filter.hlsl": "6bfdf23153778ef47041822ce11d36cc4d9fd208b6bdadf6c47755ff6094358a",
+    "third_party/realtime/magpie/src/Effects/Effects.vcxproj": "788bfd70ff3a543b2e21f86b78014b0cdb3a51eab068e53400cff6bff025a434",
+    "third_party/realtime/magpie/src/Effects/Effects.vcxproj.filters": "ebcd55c052a382cb870cfe3b57066b483fcc8fc83e29ca2a0757a6be47827d47",
+    "third_party/realtime/magpie/src/Effects/FrameRate_Filter.hlsl": "a0b44cdb0bde54b25974d2752ea602a60e94c91106f0574fd07ccc5f80097e0f",
+    "third_party/realtime/magpie/src/Effects/FSR/FSR_EASU.hlsl": "f8dfbdd21a652a0551836f5f5949655b04c2a2b23bf630b0b641a1a46725ecb6",
+    "third_party/realtime/magpie/src/Effects/FSR/FSR_RCAS.hlsl": "9843072ab16326e0482002033d9ddf0ba315df5c80c23a4497d660a075bdb406",
+    "third_party/realtime/magpie/src/Effects/FSR2/FSR2_SR.hlsl": "51b27d39a9a294341bf06bf579609c8ab5acce155a3adfa8a4fbfb3729be4cb2",
+    "third_party/realtime/magpie/src/Effects/FSR3/FSR3_SR.hlsl": "811076d3ce369e2115f2e7787385b1af18ef6d3b98dba4889c53dd42e1cbcb96",
+    "third_party/realtime/magpie/src/Effects/FSR4/FSR4_SR.hlsl": "4e9be401e94c2c7105c1a18c43e719082cb71b1467191b25bb924ce4459bf6d3",
+    "third_party/realtime/magpie/src/Effects/FSRCNNX/FSRCNNX.hlsl": "777cb5c841295b6f17a7ccdce6c1a3b1e3df9d401e2712f6d3b4e1d493cab590",
+    "third_party/realtime/magpie/src/Effects/FSRCNNX/FSRCNNX_LineArt.hlsl": "d2ea77e48acdada361930ecfa06676d513ff5e5ffbd234e1c36456a7c0999b15",
+    "third_party/realtime/magpie/src/Effects/FXAA/FXAA.hlsli": "6c1b99ae72fac4e9196d90c54f62baca7c8a783ab078efcd25b44418079c44f7",
+    "third_party/realtime/magpie/src/Effects/FXAA/FXAA_High.hlsl": "9d6394619e77d4fdc6b5c6f0f12074a038e4ee6b85505982456ab2279f434cd7",
+    "third_party/realtime/magpie/src/Effects/FXAA/FXAA_Medium.hlsl": "b0c9d43078a47887f9a81061f6b175e827624a997a408c3a502745dd62b24724",
+    "third_party/realtime/magpie/src/Effects/FXAA/FXAA_Ultra.hlsl": "b57cf9364b676e48700258d031649dc9b6e8051dc6180306eb03aa9f7275af69",
+    "third_party/realtime/magpie/src/Effects/ImageAdjustment.hlsl": "3f2e25df84016fec5ac5af70cb90576ab81b79a102572cce9fa894b9e25c419b",
+    "third_party/realtime/magpie/src/Effects/Jinc.hlsl": "c43f72c20422c945accb979dc2629953762a22b0d97ae839146ecb639bc867d3",
+    "third_party/realtime/magpie/src/Effects/k7_modernAnime_FHD_x2.hlsl": "7a86f75f6c42cfc396c02a580bc8240de73a0f9913fe93d3a4d3cf195b6adff4",
+    "third_party/realtime/magpie/src/Effects/Lanczos.hlsl": "85858d996129e117a213afe073e5c0541adcff75a55d139cb5eef4c6dfc66930",
+    "third_party/realtime/magpie/src/Effects/MLAA/MLAA.hlsl": "90d5ff3ffd2bd1d5d20d94d1859847d4518b52a906d5098147bc968936b983cf",
+    "third_party/realtime/magpie/src/Effects/Nearest.hlsl": "ce385ae9872018af7166789e45e5b58668b66ec56f9fe05f8a81c9b94b13754a",
+    "third_party/realtime/magpie/src/Effects/NIS/Coef_Scale.dds": "55d9132c57ca02ec3def9131d7832faa3cbfd1cff7258a0c10ac04983a0e4d76",
+    "third_party/realtime/magpie/src/Effects/NIS/Coef_USM.dds": "8123e98618363b3d90f9e59bc3a43bfbaa6d678c53506ffb876d55bb774a8ae5",
+    "third_party/realtime/magpie/src/Effects/NIS/NIS.hlsl": "22e4f33398987e912c96ff3f8ce4ba1612457f431b60a3c64f592b1759421bbf",
+    "third_party/realtime/magpie/src/Effects/NIS/NIS_Scaler.hlsli": "b0ec367db4b5cc2e99eac00ffb8b2abd3a419e4d49cfdf4b428bae76f46f6bc8",
+    "third_party/realtime/magpie/src/Effects/NIS/NVSharpen.hlsl": "f09fa232b622bd71cd503c8ad8f216ff4d087499d23ec2898277f7760f16e2d3",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns128_win8x4.hlsl": "a1e6b4adee40a7fce7472006f9e265399d31deeaaaf681d768d71f7588d2cccf",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns128_win8x6.hlsl": "2134c9aafe9d4052775d6ec4a9d8e47e2ccb3fcae045f0d24dea0a0c1e4a904d",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns16_win8x4.hlsl": "df293a727aab228f24e2afdcea441fb6990fd4165760734ebfc389c365572d32",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns16_win8x6.hlsl": "7d215f738c9873d309d7da52281ec6bf277d6dec8003062a29176835d3961778",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns256_win8x4.hlsl": "de5197ffd9ff2254fff366cd12fcd932056df631b6b279031b121165e5d64042",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns256_win8x6.hlsl": "d9c9d77382623ac7c1235c093c8e79fc55823177b8f76edff45ed4f8003e57e3",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns32_win8x4.hlsl": "f011b77b37ee62f7a9d8c73b1c67c9b847eb65a92796ac5613fa94d008fa7e9f",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns32_win8x6.hlsl": "80408fc0cf6fa9d2d00ab2841463e106bba94c9146c93086658099d67e1629f0",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns64_win8x4.hlsl": "e193baaed3d1c7a50017412419dd263ba26c5bf58da9dc3cd54a950643a88b8c",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/NNEDI3_nns64_win8x6.hlsl": "01881e54f12fb05ac4677b14cee26e638b3454164230a499745c551d5391cdcc",
+    "third_party/realtime/magpie/src/Effects/NNEDI3/prescalers.hlsli": "fe79a9a8bea8ca7af9a8fe684d13085a1c8996edfc9a55a71fb16d6da992e2d3",
+    "third_party/realtime/magpie/src/Effects/Pixel Art/MMPX.hlsl": "7d37e87b1f29417f6596354d1a745297c1a416821d3a927216f3ec0a813500f8",
+    "third_party/realtime/magpie/src/Effects/Pixel Art/Pixellate.hlsl": "74fd48457bbfdad1a819d5380ef12a93571b4ed490da4febad724427334a75ae",
+    "third_party/realtime/magpie/src/Effects/Pixel Art/SharpBilinear.hlsl": "7233cc9b5f0580b46da3a1500897ae0774ae8ff7f83d483a2789fd902ad5474b",
+    "third_party/realtime/magpie/src/Effects/RAVU/prescalers.hlsli": "fe79a9a8bea8ca7af9a8fe684d13085a1c8996edfc9a55a71fb16d6da992e2d3",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_3x_lut2_f16.dds": "e6e53b8fdefac7bc57ba6ff697a942d1bf52bfdae956fdc866cdcbd8ede8cac7",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_3x_lut3_f16.dds": "17157df3d9dec3b7a9f0d5e9bfe9f4c7fd6ccfc41e18e7d6b0f82f5832d11385",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_3x_lut4_f16.dds": "ecbdd2574b56cf70a222619a1bac164b7948e42fc62785bd62e27f381640deb0",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R2.hlsl": "0c414b2a25aac01148ffa73c96f4809450e57028ff87a34703ee5745a5fd0c02",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R2_RGB.hlsl": "67e0b5da13081c6fb7f0d929e16e046c6538e273a4d9e137deb37352e03c95e9",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R3.hlsl": "770c2f2d2bac463a63b847e6968e67fe30e6a90e715fe2fbba43eebfa68b94e3",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R3_RGB.hlsl": "a78a9394ee142e2e00b9427642801c353f3be1e186c165201bf3327e73ffc5d2",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R4.hlsl": "5f8cc3ec0ab80dfa9e04be5c3cb9b1754c9195a8404930d6960c208a84823766",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_3x_R4_RGB.hlsl": "db2576f4b71104e566df8f2a65efc1562c79a95b2b1e086e4aaa71a79ebee4c3",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_AR_R2.hlsl": "0d884b3d0751b4c14154f101317c093ad14148b688f1ce83606ff3b336d2ed17",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_AR_R3.hlsl": "8f23a617f02812bec40d42955e36bd3e2d614ebdaa9658931a55ecdee6a11822",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_AR_R4.hlsl": "9fe08638824be82a2709daae4945e4aee44f1533c181c808bf5ec9e44a700f2a",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lite_lut2_f16.dds": "2114fc06b281d86c545b5a15a21de926e063578a1e8f87f06b6c31c2127bb4ba",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lite_lut3_f16.dds": "f0483a8ace6a3f82ebb4a04287142c8781c37be9b16259dc7e06990661e0910b",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lite_lut4_f16.dds": "08e7268776c9e8ee62271876904c9d1ec8b3ad6895ecb209a069f7afb266437c",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_R2.hlsl": "cfd94dbb65dd5ebbe485f587cdf769ad7b71153a670e9a784e50fe62d8cca338",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_R3.hlsl": "58e394128698b1ffd6a62b8b528cbdb4d47a9da9dc6778716b5b2966c1e7166c",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Lite_R4.hlsl": "15ed74d2c56fafeeca313879bc9f7f067673a381a420f097f26555089cc02f12",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lut2_f16.dds": "d56b9a04b3a830157d7db7190ceef6fd634456a21f70a44e76dea3ba2edc04f4",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lut3_f16.dds": "64279baf834e051d2c7e3a74fffab8e87d0c0ce1c049f9299c8612643eefac93",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_lut4_f16.dds": "7200041a310bb8e21c32fca26d1a521095fbc76fe866194f47e7b7e441b6a47f",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R2.hlsl": "6915dd381de8d8146068a1f9472ee29b99363244b5ed62340c199d733dad7f69",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R2_RGB.hlsl": "e50ef0423f85d0a149b48f4c635f71b1a5915bf9d07675a5a583a9b807a93dd3",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R3.hlsl": "71f4334ad49b3c63b6fb3a2553d842324fd4a79a2c765ff14c10ed1def6106c2",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R3_RGB.hlsl": "165c15dacdcc5305014f438a02daae37b7ab4edd5291bba4a450365fa7a9a675",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R4.hlsl": "afcca23e789848472d91f44547fa0481716027a7e4045d452b97d267fa7d4339",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_R4_RGB.hlsl": "2bcdc9bdc4d9e12e041323bd6f12f01bec79c92ae33ce511641b90f1b62d8700",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_AR_R2.hlsl": "ad22569342ff94f5abe04e24295ea1c3f2402c64dd4d816e1bad552959cfa727",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_AR_R2_RGB.hlsl": "a9bb80841d4879440de6c9f02c131bc0787674e445bc4cd1e719c65d617306a5",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_AR_R3.hlsl": "075743d6c87b3dac62ed07afc1c748fed38bd2c81fb63ad65a1ade0fbbbc47fa",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_AR_R3_RGB.hlsl": "d3fc93f0d421b498f09ca77754c7661462dcf98557b8957e11f094628f3bcbd9",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_zoom_lut2_ar_f16.dds": "a7892ff98ad7d7a9439d77759ef1a66526f949b6e2d6de0c0f69830ebe704971",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_zoom_lut2_f16.dds": "c3f77176934786c0e37b243fddaa922591543b2967b82731191fea8e3bb03d51",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_zoom_lut3_ar_f16.dds": "a7892ff98ad7d7a9439d77759ef1a66526f949b6e2d6de0c0f69830ebe704971",
+    "third_party/realtime/magpie/src/Effects/RAVU/ravu_zoom_lut3_f16.dds": "102d215afcccec37b79ef0013e1f44e69cdd99cfb85cb875862dff9fac6f99f7",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_R2.hlsl": "b4825bd8d3188f9c1c4ca8a08d138f2a9f6639d2a410b4e58d8b1c03ff55ffdb",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_R2_RGB.hlsl": "492f23a9c83004d688dee0ea61bc8f07e7a3282c2c845de17a2ede53bb9f292f",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_R3.hlsl": "28e1839d0881d531b840b71e969e13aea938d73ddefc720bace11fca028bde56",
+    "third_party/realtime/magpie/src/Effects/RAVU/RAVU_Zoom_R3_RGB.hlsl": "c9cb69ac0274bc9e89f179dc26bb90a24e2643c85edf645364b10344aa2760f4",
+    "third_party/realtime/magpie/src/Effects/RTXVideo/RTXVideo_Denoise.hlsl": "e653932480e364ba3ccac7382aece56267b2c95cd73871733a160723378a44d4",
+    "third_party/realtime/magpie/src/Effects/RTXVideo/RTXVideo_HDR.hlsl": "c403fa84539209f07a6559f25e1f9013bfae5dfe660d63866d4e34851a997570",
+    "third_party/realtime/magpie/src/Effects/RTXVideo/RTXVideo_VSR.hlsl": "71b3e4ea6bf830c8542d4b0ad9ca3078eb1f6499f04ce24d7de897904e01c37f",
+    "third_party/realtime/magpie/src/Effects/SGSR.hlsl": "c21ba6c3153b9d505011f1b41c72f23d7f12fdd7e5a7d77ede01cb046d8a75a0",
+    "third_party/realtime/magpie/src/Effects/Sharpen/AdaptiveSharpen.hlsl": "f52bbf1bfd18c836012eb868c44e2333db040e2b1ecdcc027a6fd35eac537c1c",
+    "third_party/realtime/magpie/src/Effects/Sharpen/FineSharp.hlsl": "dc8adf534f27f24acc894f49f3bdb8089e358d60029948552f90898b6f39ad10",
+    "third_party/realtime/magpie/src/Effects/Sharpen/LCAS.hlsl": "3d030d7ed3b242f02a39a5c197e28d21185b52dda284ac44f497410beb550ffe",
+    "third_party/realtime/magpie/src/Effects/Sharpen/LumaSharpen.hlsl": "f9d40f2dcb9ec3ab9157ae6e36ef0ea7161cb0ebcb0c6ac62a253ac107f66d7d",
+    "third_party/realtime/magpie/src/Effects/SMAA/AreaTex.dds": "16e6cd520c2d885cb142b98334b2516804cbb1f44dcda2922be1d68f0766208c",
+    "third_party/realtime/magpie/src/Effects/SMAA/SearchTex.dds": "891e444b6dde7dd98f6902c805cd04e3469892aa1667c92f764d94789477ef3a",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA.hlsli": "e147bd2661b9f33fad4f6685e98bf41abebe32971aadf1010d88fd01c5821863",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_4x_Experimental.hlsl": "9663d032ed3032292976c162ada1dda2c3441692db9ad561773cb54633c94988",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_4x_NoJitter_Experimental.hlsl": "888c1550ebf42224c1a31916c094c3f764f3a2a34722179e4e2c4444c9bb5935",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_High.hlsl": "b95ac51fa09f7269b0c9548ea0881ffdb38d598ecb30379eaf7956864197cbe1",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_Low.hlsl": "3919af6b1de68d462eae68dcad42cf16965ef4cb0bddd6b2be2fef7b00a34682",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_Medium.hlsl": "d1decb370017be0b7f3eff788fa10e8ded609149127ee9278ec02781312ce37f",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_T2x_Experimental.hlsl": "fabadfb4f6102be964c4a8cc74f9709313a1d77a8ab060d1c1681dd2fb348f01",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_T2x_NoJitter_Experimental.hlsl": "f8b2846bb711bd90f054b94bde1418f4320efbbdd6b9ea12fd5c998efc6383c4",
+    "third_party/realtime/magpie/src/Effects/SMAA/SMAA_Ultra.hlsl": "619b937c4c2e7e426755669c6b990a4cb27bee25062858ac903b98efe333b486",
+    "third_party/realtime/magpie/src/Effects/SSimDownscaler.hlsl": "82564c3e9af68e3ec202e398fb0eee9152de1e89f44fdf61d53ac8db556bd066",
+    "third_party/realtime/magpie/src/Effects/StubDefs.hlsli": "7cdbe42d9c0755fe77b5e3c28621281890aaa8b1e808123776295326a029348b",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_2x.hlsl": "b8e6a30a8920836f3aedaf1f76c9499049d130362a7a4f40d90731c5337dc533",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_3x.hlsl": "34087ec43750b4860fa347412099f6906c1acb054ba26d41440f9daeab9e1fd9",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_4x.hlsl": "3828289541db89d2f3e8f299d7e4a59aeb2cfc70a36364a6d205d8128e6dc075",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_5x.hlsl": "51a884bce12e0105535cf57a128c1f64a95b415dd32f77ccf40610efc1aeaf58",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_6x.hlsl": "a0da1eb8f22b09374554a827586d54472b86033012a09161e8783f5cf71aeb36",
+    "third_party/realtime/magpie/src/Effects/xBRZ/xBRZ_Freescale.hlsl": "4709e2eef4c23d1a1d5d5b44d79540f64bdeedc38b5deb7802b495b07b7576ca",
+    "third_party/realtime/magpie/src/Effects/XeSS/XeSS_SR.hlsl": "87da977054c24738c096f48a7074acadb834a0180dd900daf65e0137c16c8d7f",
+    "third_party/realtime/magpie/src/Effects/XeSSFG/XeSS_FrameGeneration.hlsl": "9302bf2354b541b2247adea3602417cdd9de35a0030b71f4c24658087cc21c8a",
+    "third_party/realtime/magpie/src/Magpie.Core/.gitignore": "dba5d95f59d3540df13ef427d6a1d73e60742ab0f9195fff8a299499d2cb9072",
+    "third_party/realtime/magpie/src/Magpie.Core/AdaptivePresenter.cpp": "86314891b1cf30e4e4a1aed24033b776f4ac3231d2a2390a4b23a60fabd14c83",
+    "third_party/realtime/magpie/src/Magpie.Core/AdaptivePresenter.h": "8a469216288d9cdc535a5752f856285a3a6493f970f0ef63f2e70d52a4c13b64",
+    "third_party/realtime/magpie/src/Magpie.Core/AmdOpticalFlowProvider.cpp": "d209db858ca612197adbe5da61ae81ce867c1ec474122063e56ddf7ab31cdc88",
+    "third_party/realtime/magpie/src/Magpie.Core/AmdOpticalFlowProvider.h": "8a9d092dc79ce815581c2262ff5c8bfc1fd72d6be012c1de1dd092ec57323026",
+    "third_party/realtime/magpie/src/Magpie.Core/BackendDescriptorStore.cpp": "5a3dd6ce4c8a2743af0eb1826700313f72a0a4261a0f070629e1b63cee00cd66",
+    "third_party/realtime/magpie/src/Magpie.Core/BackendDescriptorStore.h": "9ac696ed17847dfe57e8dc94fb94a8523fbe3f08896ebbe83ce799c7c07f150a",
+    "third_party/realtime/magpie/src/Magpie.Core/CompSwapchainPresenter.cpp": "b384abc1bad880dfb142803b117cd3359d0301369fd3f83d113337752e59dc45",
+    "third_party/realtime/magpie/src/Magpie.Core/CompSwapchainPresenter.h": "43a8da3a2b16f14e1b7512581552fc51fe57d5d426ea062a7248bd23effb253f",
+    "third_party/realtime/magpie/src/Magpie.Core/CursorDrawer.cpp": "a3723163d1928ae4a058a20262d6a71df228fca9acadc37fde332d1b1a2bd58d",
+    "third_party/realtime/magpie/src/Magpie.Core/CursorDrawer.h": "dac6a646aac4b6a0bc009273c260d089c10b6da24791e0e07c0fbaaabfa18dbd",
+    "third_party/realtime/magpie/src/Magpie.Core/CursorManager.cpp": "c4c2da789e3cf63eeb2c463f4b39ed09f151d572f6b3b98cb30192308cdf651f",
+    "third_party/realtime/magpie/src/Magpie.Core/CursorManager.h": "c29a67fbce42327174632c1f27e89b8ed5991c4f1785e7eea57ca73b4ef07d35",
+    "third_party/realtime/magpie/src/Magpie.Core/DDS.h": "ed763c012899f139c92b9f93b5fcf9e454f9b256b291e0ce83d25c231cd71e49",
+    "third_party/realtime/magpie/src/Magpie.Core/DDSHelper.cpp": "15d70e88e6153924e8ce2b2682f7769a081912ac5335fa1e75bb729ea939059d",
+    "third_party/realtime/magpie/src/Magpie.Core/DDSHelper.h": "83f5c695e10b419efe24c9c27d96aa4d376b90509ceaadf899716ac8519db068",
+    "third_party/realtime/magpie/src/Magpie.Core/DesktopDuplicationFrameSource.cpp": "cbd2255e18a6a88442365a6435a80a3fb2887423eb8eab329ba85c61d7e3a2a1",
+    "third_party/realtime/magpie/src/Magpie.Core/DesktopDuplicationFrameSource.h": "48ad62175bb7d3dab5045d8ebc329b770a9256de5f45e4d1eb2960925355cb23",
+    "third_party/realtime/magpie/src/Magpie.Core/DeviceResources.cpp": "e1b82fbeed95096ce66ddf0c36f29bc78747b81f070105cffdb6f7ea4b6b80a6",
+    "third_party/realtime/magpie/src/Magpie.Core/DeviceResources.h": "1643248abd7b3900c752247c2bc63ea56b6a7e7783ff98c7a1d3edd84ba8c072",
+    "third_party/realtime/magpie/src/Magpie.Core/DirectXHelper.cpp": "b153454c2f52171f68e8481a2d2bfe49f529640476f5f7ae9dbef01cccc231ee",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSFrameGenerator.cpp": "35900dd519f02bdd531b908c3d410073d592b12fd51901c634f155366c3f5a67",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSFrameGenerator.h": "1cb6d8292d2843f1d6cfbc26c16deaf90738865b0045e27500f30bd8f2a144bf",
+    "third_party/realtime/magpie/src/Magpie.Core/DlssnrAutoHdr.h": "bc8badf967d9b85512bbe3abfbd7036aac935f71efe0fc9f77d1cbd486032b71",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRFilter.cpp": "0f38f8efc71173fb996bc7a14011921e796c08c3a10e08d44605cb82562574a6",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRFilter.h": "204e5c53f1142223531fdab36f09da7c6c80759dbf529051e9a3aea4c7d8b8dd",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRMultiPass.h": "dab984250922826b84143259a4ad034eea2687b271caf957227b6286eb88e1f6",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRTemporal.cpp": "32fec1228a9a61a4fb492b8a0a1674747996ba346a9eb0cae6f92f1f469be267",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRTemporal.h": "3632391e0bf6986c4fb759aa0466946b314f678b0e6daf4ee0334a7843b448ab",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSNRTemporalShader.h": "4bc429c6ce62e5ee43cc6ad94d00822b62de76d308d3e94a55749ef6fbcbd13a",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSSRUpscaler.cpp": "6c945a522222e4b5c7f9dba6bdf1d2558d2c09e2ba833ecd86387c2a35fe3a15",
+    "third_party/realtime/magpie/src/Magpie.Core/DLSSSRUpscaler.h": "82798bfd8b7e64594868b4acc82d6c782f88bd4c7673d8e4f07c0579d2f142bd",
+    "third_party/realtime/magpie/src/Magpie.Core/DwmSharedSurfaceFrameSource.cpp": "5984cbf893fb98ceb65796b512649ba6b7e6618d82f7d8bb381857dc770b18c7",
+    "third_party/realtime/magpie/src/Magpie.Core/DwmSharedSurfaceFrameSource.h": "6329b753e51823f5e065c865b6ad241672638540a5acd56e756a6c71bb70b591",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectCacheManager.cpp": "472599c311ed14fdb4eda9e6cdffb44b858e746dadc2a1c46fe23bc64cf60d5a",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectCacheManager.h": "142ebcc2a6c9a15fa3913649208171399abda6eb507cace7923b6b512a8bca6b",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectCompiler.cpp": "9892c4d063bc3207d333b72dc728b7a4f6821cbe1c5b40a655282b07033c5fde",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectDrawer.cpp": "3892446849b3ccb0c26f171f2845a33ddc43e826ed171ed2296b44aa0df937b2",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectDrawer.h": "a8152190ad612b451fb49e2345601fa24fd4665953d2a12dee36d50310d592fc",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectHelper.h": "e2b59b3d5c5c7b5fb78553133a1cfa813814cba3fb5d93385a0effcd23eabc1e",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectProtocolCatalogC.h": "2d53cbdff4047628de633e646f3e19941ad90498a67d0d37817c8f42fe160a40",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectsProfiler.cpp": "861dd1f48c45db485a1f3c0d5214d911f50bf661b58e103b64fba8cac20b84df",
+    "third_party/realtime/magpie/src/Magpie.Core/EffectsProfiler.h": "7aa584bb9e9c689e2f2bd08806ac228f53f948bf4d85dde1cc523e956122f356",
+    "third_party/realtime/magpie/src/Magpie.Core/ExclModeHelper.cpp": "2d741440ce9c462f9e4b2be5c8bb1d5886b4e3046b3bb4afa0dee5856d83ddbe",
+    "third_party/realtime/magpie/src/Magpie.Core/ExclModeHelper.h": "9fe5f79c3c1266adb7dd3cd680f45e7e2fe2c4d84f1ccd321aaad5c96f38bb04",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceD3D12Interop.cpp": "d7aaba7c7b8dbc91bb5aaee9c479a35d924c23624b16a3df58f5ec5f46e94956",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceD3D12Interop.h": "c0bf33bf0af04af3cc0c46c67a017a7fbb51ede247e6fd650c68e95e5a6ea01e",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceDiagnostics.cpp": "075560e54275b1e80dafa9cb123d09ccbbb56b8c26579b638dfd58dd79afde63",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceDiagnostics.h": "a5328ea8997ee20c766c216362e4fffc326f3039ec5a2f0b23f317c5213e3b90",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidancePerformance.h": "7a46eae40128c07b8aa2e84fa367c0d4a68d9f43df37c883f42c11f2a002ed84",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceProvider.h": "c446ede4d4339dc2b4dbedc13630668e7d5b1d32dd680bfc67a1a91792faf290",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceService.cpp": "f17b5fbff840d2df6eee757cd7cea6f8b7c1a38f2e123b08d469de97cee60f89",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceService.h": "9882f6c1acf1af7720a99a0e6fab50f2010355b7f3f7b0972ebd95684cfdaa2b",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameGuidanceTypes.h": "7a66fcb113003a888058b9ce518c927efd3174a7eac0b58f80f3a466e736b77f",
+    "third_party/realtime/magpie/src/Magpie.Core/FramePacingWait.h": "e700aed422fa60ae3edbebe02ab18acc82135fa4e039724b028856a353b0ffe6",
+    "third_party/realtime/magpie/src/Magpie.Core/FramePresentationTiming.h": "78b02f39e2ea9294ed293cea9635df259b6113b6e9bb3e4beeb2dac8552ed917",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameSourceBase.cpp": "3e7bc050dad06c14b5ed2ccfe1aa160c776b361eb529fc6a3e0d79bdad15a04d",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameSourceBase.h": "f7bf64d8453bac001a6a940882c81dc898df5159f75984016e314fc329a408ee",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameTrace.cpp": "13c0f73a185750ab43bbb18a953e6900643c52960bf098f5b71398eb42afade7",
+    "third_party/realtime/magpie/src/Magpie.Core/FrameTrace.h": "4a6231b52131fb96f7acc59b1e10bb3e86795b843d86cd071ab94d49166df083",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR2Upscaler.cpp": "7b6906571cc19d82a82f7ca3059634fb0a82611b009c419a4b650ce6c9cd2b23",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR2Upscaler.h": "076c4c87b3bd4d9618663d1b3382d49862708dd9d13d82a1a87c4ce78f72f378",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR2ZeroMVUpscaler.cpp": "f77d73bd2c41f82d2b7c93c2a2fd27ddf33944757d5a803b19683483baa8002c",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR2ZeroMVUpscaler.h": "919cae676abf184c57c0bfdd8f9a912c1b59eeeeb6b7d36cef1a4abcf19cc31a",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR3Upscaler.cpp": "f3da56fcada1cfadee1a8408a251f4c9c49efee9e6e6d6abc4c7821f542e2f3f",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR3Upscaler.h": "eb02dc6a69c2e529ac1553f392c42e3e403d697fa970100d732e1e872469e2e8",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR3ZeroMVUpscaler.cpp": "5610e08020a2ae68aa5428becfcd2ef63108e53a4b40559ac3f464d94e09b6b1",
+    "third_party/realtime/magpie/src/Magpie.Core/FSR3ZeroMVUpscaler.h": "580ac7c282f7d042cd16373ec4cfbdbec09b3010bd8741c81a67032e4eed6779",
+    "third_party/realtime/magpie/src/Magpie.Core/GDIFrameSource.cpp": "c803e7548d869ad47c9cee4ff8bf291afa390f9bdb593998075736699c6a46e1",
+    "third_party/realtime/magpie/src/Magpie.Core/GDIFrameSource.h": "80f782259b9e5c0cd0ce00e84ab27ed46121b145fe844c8e213c270b201fa845",
+    "third_party/realtime/magpie/src/Magpie.Core/GraphicsCaptureFrameSource.cpp": "5ba4de0195ff12c3d56807673ff6db4f74899363898a4918489ed546dd1566ab",
+    "third_party/realtime/magpie/src/Magpie.Core/GraphicsCaptureFrameSource.h": "e953edd0d4f053fa2f00f364a2bc94a29ae7748f7de35103cb270a6c39d76c2e",
+    "third_party/realtime/magpie/src/Magpie.Core/GroupAHdrRoutes.cpp": "20e4fa2a7ed5bacf6e88e5c672d511b7e43e876432fc72e2dd8068d857f0d6c8",
+    "third_party/realtime/magpie/src/Magpie.Core/GroupAHdrRoutes.h": "a84ffb27e4319c93b1f860d4fabf98cd8ab367e1ecee8ff63dcfa34f3d2cfb5b",
+    "third_party/realtime/magpie/src/Magpie.Core/GroupBEffectProtocol.h": "b00e614535a16b57c644e05bc59df0a14b1ed08fa1bde538cb30200464da0a2f",
+    "third_party/realtime/magpie/src/Magpie.Core/GroupBHdrRoutes.cpp": "970281df968a0f92276e60c09afd76e0171bb87d57db8fe2bdecc58d595656b3",
+    "third_party/realtime/magpie/src/Magpie.Core/GroupBHdrRoutes.h": "efc5182bb74de5e7e3f4c4832728469724b58b181f84a7ac46f843c556715ccc",
+    "third_party/realtime/magpie/src/Magpie.Core/HalfResOpticalFlow.cpp": "e6e19011f932de93f59bd49185085f2d2a944e01e7fffc8c7134210eee951eeb",
+    "third_party/realtime/magpie/src/Magpie.Core/HalfResOpticalFlow.h": "2ddbf670c538fc6660f90e4a56ab5d54b814cf7946ed82b160d694d089a71d15",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrAdapterDispatcher.cpp": "0071b1c85833820fe3bb8b50b0c3463a497d5387c8d18b0105c3b827c3421e98",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrAdapterDispatcher.h": "0a66ec54f8299d3caeec4bf5bcc8bfbcfe0ecff232eddd408995ac8a26d3cc48",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrCaptureProcessor.cpp": "6aa3f6175f4e37b41b98f8e03bf88c58ff797f3d5ce504544159fa652e535f1f",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrCaptureProcessor.h": "09a53877b5f3f77f374f2f934697d79392a96c141550ead5ee973131048fd0d8",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrColorTransform.cpp": "2221ed2180d91c0b042ba1ca397ea30849ef3b2eb0c9b436bf7601c2200d7d7d",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrColorTransform.h": "393c3602181c5851892f1d26dcc9af1254997d0bea049a7744d4f7ebe46f150a",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrComponentRuntime.h": "1d67acc0486a0af830d7d16b07b37eb0a4022f6422eb542a82a473a0f60aba64",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrDiagnostics.cpp": "d56d095f91a1298232ed51609ae731c2d17c1615392ab9c04cc0d4f549c6a259",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrDiagnostics.h": "701111a8adb09e28ea6451047a77c109feb58bcc425fd41176eba6d764645bdc",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrDisplayPreflight.h": "1440b5a0ff6f99f7aeda0a460a8d58a9a1caa35e38c09a16aeda7bfb4aace7f4",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrEffectBoundary.cpp": "75f166cd9c3c9cddf931b499f445f76c353d51000d1df36894f819a01809a8eb",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrEffectBoundary.h": "f6c9439641c9476597cca41f334d3a5329eb519fbe37a8407bcb213907714d1d",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrFrame.cpp": "b18e6f29b6dee7642232b960a4fe88546ba9d5e724103c06bfec50db5f1bb465",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrFrame.h": "e10ac55e7561e9e0bb391631b4b66d1d03f4bd0d0b32ebe88354e83dae13a2c4",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrProtocol.cpp": "2285e2efab9aea119533067f8277cfea6a4ef6edf5173d3558bf58230debb30d",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrProtocol.h": "7e2ba0d2aa77451463687417583a017e5311b5b3bd2bb0331ea3d94915089b87",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrSourceTestBridge.cpp": "ff8661a9b6978b9964a5c02f97e58fd202a24c13cffa790d2f4df06b716e22b5",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrSourceTestBridge.h": "b8d3f4b441012da3453212a3841f393da451537a1ab615d6b5ee4518cdcc2643",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrSurfaceAdapter.cpp": "612fb532bd07d4a0911ec7c89c15f43fe57e4b29cfcaec85d74b1bda931d7d99",
+    "third_party/realtime/magpie/src/Magpie.Core/HdrSurfaceAdapter.h": "aeef08b5246a9362d7399a9332f9568d712d8567cb1c9ab9e42d2397bc8d7d5a",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiBackend.cpp": "5d35b5c49c28b5284832e1695e934130e1df47ef21250d9961a536567fb41f6f",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiBackend.h": "96cd1dd0e7a088bcccff7d34e35ff65261bb77bd07e736fe4d2d9f9b7a7aa450",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiFontsCacheManager.cpp": "9321b595928c05482416f94d6a5580bdf78715c86e731bcd42bbe0f54570ed7f",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiFontsCacheManager.h": "c9633a2089f8fb7854e872004bd53a94a5437b69a4113eccb4c945c18acb82fe",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiImpl.cpp": "ce4f2c801efce6c65f9d3705bcc9c18ce613931e01d33bda05269d77c9462490",
+    "third_party/realtime/magpie/src/Magpie.Core/ImGuiImpl.h": "ad30de11ad388ddc89e27ba8df2cb47373f6d5c6591321eeedf540b155a79089",
+    "third_party/realtime/magpie/src/Magpie.Core/include/DirectXHelper.h": "88f54cfb93d9f75843139185d6b365e437f3219f17a9ae52d7ff23f2e9973532",
+    "third_party/realtime/magpie/src/Magpie.Core/include/DLSSNRParameters.h": "002cf6a86fde6827953e6a3671e661f1984b9841836e73674920f961b1f082fc",
+    "third_party/realtime/magpie/src/Magpie.Core/include/DLSSNRTemporalState.h": "a4c2036dedb6e4a23f3390fe6fba324ffaace83ed51b807f5f25981b1293d4fd",
+    "third_party/realtime/magpie/src/Magpie.Core/include/DlssOpticalFlowParameters.h": "598f7e8013dfdd2fd98dede07039440d48ba5b85deaf0431c9fd316d861ed6d0",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectCompiler.h": "41a15b8aef32c12d0da34f17d38593731cfba77e8551418348c5740df8224da9",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectDesc.h": "87aed6757cbda1114a44e48a93d8f2fd4ffa1297e0d6c54d2300482af572eab1",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterLocalization.h": "23d7b4405dd161a6430d00eaa0934e8ee7d7f9ad011fdfec9978413ad4a75b21",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterPersistence.h": "2cc1e2aec390287f9b9851ffb9081c1c078ff537e5e405f0249ea3491c64274c",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterResetGesture.h": "19b7a95c874d31739c92363e1475a7e069e9f1a68b5f85f0002603cd24ddd5b0",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterRestart.h": "cc6637c93e736d0e21d92a17d4df1b93fc972f50271e4b3645147b630add770a",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterRules.h": "045197025ceda74adcc6cb34f68cc43a68b576a5d34192420254441b06fb0818",
+    "third_party/realtime/magpie/src/Magpie.Core/include/EffectParameterValue.h": "d10b27207ddb095c7dca1d7aea3340035ed6e83ee3a4acd286399ef1608f74de",
+    "third_party/realtime/magpie/src/Magpie.Core/include/Event.h": "437b86a9cc0431634725ae223de012e0f1ab127c6d753b436a08fc22c0b66e0e",
+    "third_party/realtime/magpie/src/Magpie.Core/include/FramePacingOptions.h": "6bb084922d0cb46681ac21c82d8d8788df308cb1c658a2a2ab778e232a80baa0",
+    "third_party/realtime/magpie/src/Magpie.Core/include/HdrComponents.h": "99112a19c226c2ac6e1c11013b5f4ff5ee3a31fe083e4c07325b5c0ea85b3d93",
+    "third_party/realtime/magpie/src/Magpie.Core/include/NgxRuntimeGuard.h": "654af7648d8243ad4fa6959b5b6344074c779de8358006b1d38d7780d908cbea",
+    "third_party/realtime/magpie/src/Magpie.Core/include/OpticalFlowDefaults.h": "a5bf3894e965a8c1e8b96eadea0f97aaafdb6da9fb4d6c287add04d7f7885b32",
+    "third_party/realtime/magpie/src/Magpie.Core/include/OverlayWindowGeometry.h": "1d1957a97ef4788dea033118212ba5f71256f374db48f667bcf230e1c0018e6d",
+    "third_party/realtime/magpie/src/Magpie.Core/include/pix3.h": "61550a71c1bb9bc34bbd9e9b7ab5b313e5065d563b5cdc1346fdf9c6a4dc4fff",
+    "third_party/realtime/magpie/src/Magpie.Core/include/RTXVideoParameters.h": "5307dc47159fac65a05e222f482115bcf95f81174b9f3df4f8f7baead12db7ae",
+    "third_party/realtime/magpie/src/Magpie.Core/include/ScalingOptions.h": "7fb182b3d3e3918d7aa2d39fe08e7eeed980946ba03b71cb5d514c55e60e1f84",
+    "third_party/realtime/magpie/src/Magpie.Core/include/ScalingRuntime.h": "6914d55ac11d500cc49818263a909d6300343fd0b63bc05706d4c2af6982d6a7",
+    "third_party/realtime/magpie/src/Magpie.Core/include/ScalingSessionLifetime.h": "c7410f3124add18acd67e95cff26d5df7107ddc82c3e9375ef72f92fee600baa",
+    "third_party/realtime/magpie/src/Magpie.Core/include/ScalingWindowOwner.h": "0fff8418cd612837179ab42e5e45be1a250bde4e4c860767b99a4e004db5dade",
+    "third_party/realtime/magpie/src/Magpie.Core/include/SourceWindowGeometry.h": "1f11c55bffe4a9c9e79b0f67d4f61353a31fa5cf998d9496c0bbcdbd6817206d",
+    "third_party/realtime/magpie/src/Magpie.Core/include/Win32Helper.h": "57082cf67293ac9bf4f61f21ceb8981f1fc647ea6820b17f60540a99e93bef3a",
+    "third_party/realtime/magpie/src/Magpie.Core/include/WindowBase.h": "1744dc43683ac07ed3e9ba49c5ad50a76c299cc08737c339fe04e91495cfd32f",
+    "third_party/realtime/magpie/src/Magpie.Core/include/WindowHelper.h": "9b5841ce6554de4ddd709880f422aba2b5129e7b949043f775eb06798c457510",
+    "third_party/realtime/magpie/src/Magpie.Core/include/XeSSFGParameters.h": "895964511c66df9a4e6a62adc25311b6cf89dc09853dfb97f340587ee2efaf7f",
+    "third_party/realtime/magpie/src/Magpie.Core/Magpie.Core.vcxproj": "81900abaecf22619039816e63fa0317c185c96b2a1da9a900b2de6249f5a8378",
+    "third_party/realtime/magpie/src/Magpie.Core/Magpie.Core.vcxproj.filters": "265df18edab1d62dcf3f523d4eb704801821b3a93ca0c5cfbddac03179462eb4",
+    "third_party/realtime/magpie/src/Magpie.Core/MotionVectorRequest.h": "cbe6febfc4a1c67b571ac65d0aa73f523df4eb2bdac09c43500a163aaf7dddee",
+    "third_party/realtime/magpie/src/Magpie.Core/NativeBackendTiming.h": "1d3b3e1f55c3080a2ebbe1fee0be83416b009422dfc7ae69aec9efe4e73d2485",
+    "third_party/realtime/magpie/src/Magpie.Core/NativeEffectBackend.h": "df009ae96d17461933189312d34158c9bc4fab9a155c70d98b373fec19fceab8",
+    "third_party/realtime/magpie/src/Magpie.Core/NativeEffectBackendFactory.cpp": "42dc407f8478fa8b2c6f19520bd09fde037c9f285c4725d431f813e9b24c9082",
+    "third_party/realtime/magpie/src/Magpie.Core/NativeEffectBackendFactory.h": "72875198185752ac4c09a549a88a7cef496ba99af50094b8760b4f16b36c7b61",
+    "third_party/realtime/magpie/src/Magpie.Core/NgxD3D12Core.cpp": "6c10cdec3c9f4b22e94d502d282087c9971df555b19bf6ce4c325d8a21711e18",
+    "third_party/realtime/magpie/src/Magpie.Core/NgxD3D12Core.h": "eaf220c6b206db6e036315cb73ed01491bb6250c88c0660cbb48cff12a5bfe3f",
+    "third_party/realtime/magpie/src/Magpie.Core/NvidiaOpticalFlowProvider.cpp": "7fc7e575a0af3d9d93e9281f032a8c8ec192728d5438015afc78f819583ab9e3",
+    "third_party/realtime/magpie/src/Magpie.Core/NvidiaOpticalFlowProvider.h": "87f70756229942b13666956e4f0c99c47a2226de9382700435829715a8f9bde6",
+    "third_party/realtime/magpie/src/Magpie.Core/OpticalFlowSettings.h": "94b838fdd5740d3515f096c3e6a3fca00ec97377faa576bbfe9e225542b32866",
+    "third_party/realtime/magpie/src/Magpie.Core/OverlayDrawer.cpp": "5c88c304a06ec4b0724f3167529dab27a59e943a2919a3ae9d5f1c6dfe8df81b",
+    "third_party/realtime/magpie/src/Magpie.Core/OverlayDrawer.h": "2af9532aff89dc5dc77aa8d39070396470621970c9212be252be9608057999cc",
+    "third_party/realtime/magpie/src/Magpie.Core/OverlayHelper.cpp": "b9c72288d9cf5623925cac44ef12c45e006596b1d47a0b389532beb2ab1044c8",
+    "third_party/realtime/magpie/src/Magpie.Core/OverlayHelper.h": "a3b8ef9b0408c0dc67a5c0cef5c4aa4843977be85aae9fd0a1ca1efcc44e91da",
+    "third_party/realtime/magpie/src/Magpie.Core/packages.config": "aa713d0a0ff4ab7424cad7e1d4b9719f818504f62a1c341531814aead74ca279",
+    "third_party/realtime/magpie/src/Magpie.Core/ParameterInputHost.cpp": "ef9db8af35612bf76b1d64d9d8f8b5cfdac8c04d5186fb4a2fffd864a4a535c2",
+    "third_party/realtime/magpie/src/Magpie.Core/PassThroughFrames.cpp": "c429b41ea3d9c4815b049dba06e35f9b69f6e55ae29ae602f4eab7af91c43add",
+    "third_party/realtime/magpie/src/Magpie.Core/PassThroughFrames.h": "b3cc33f94ca4387df6dd1cc7ba89fd87a0dc2364bbbae0c31ba497f6c7287f2f",
+    "third_party/realtime/magpie/src/Magpie.Core/pch.cpp": "47a856417f6f257915a7d2b0d564f206a9e2bb51e99e21bb505bcb490a6ee32a",
+    "third_party/realtime/magpie/src/Magpie.Core/pch.h": "3139565e99a5384cbf0bdfe4808f37efb270e706e742fa1742af862b9536b198",
+    "third_party/realtime/magpie/src/Magpie.Core/PresentationFrameRate.h": "e91c66bb7af427dcf0b556952cef76c0bbf3f53fdf2eeb2a049f7f75481d67fa",
+    "third_party/realtime/magpie/src/Magpie.Core/PresenterBase.cpp": "c058d2cd98cd89867591bc015cb3b9a25369cec89e78dc9cf9f486d38112818c",
+    "third_party/realtime/magpie/src/Magpie.Core/PresenterBase.h": "4d539ad2f5f0ef6432a55984349d34fe368d739d44dd83097e7bd4a0eabeca67",
+    "third_party/realtime/magpie/src/Magpie.Core/ReflexController.cpp": "32bf99abf690ffe2de069b48598d3cdd18241a6616c9dbfbef72df4da9fcbe40",
+    "third_party/realtime/magpie/src/Magpie.Core/ReflexController.h": "8b0d8459d5e1eda34fc060464243f9ebfcd26655cef203f076cf518df5f97240",
+    "third_party/realtime/magpie/src/Magpie.Core/Renderer.cpp": "62bba0d4c99529b5c57e37308e5fdae269994b3772a30ec5092843eff980e08a",
+    "third_party/realtime/magpie/src/Magpie.Core/Renderer.h": "f475748c526f9bbd3e191bd4412e8a90a12e54355f98d1ae41ca768c8f909577",
+    "third_party/realtime/magpie/src/Magpie.Core/RTXVideoDenoiser.cpp": "2ce611abea7da9be50bf3483a24c29be63c333454e36489198e7d16277c393d6",
+    "third_party/realtime/magpie/src/Magpie.Core/RTXVideoDenoiser.h": "ed30e48667ebeac2fce5985708f5e42af78a5628714d43821b349a9123f1a980",
+    "third_party/realtime/magpie/src/Magpie.Core/RTXVideoHdr.cpp": "79caecdea8bfeabc64618dd316cc8c3d5b338072a094eff15430e982760d1b49",
+    "third_party/realtime/magpie/src/Magpie.Core/RTXVideoHdr.h": "06b7ab9bbb95d8f667326015edcdf2514d1f34fed7757f59a789774bb3b8616e",
+    "third_party/realtime/magpie/src/Magpie.Core/ScalingOptions.cpp": "734cb8a22470b1366be3a2875dcb86c580c29084c5e584fdca71da1783eb8eac",
+    "third_party/realtime/magpie/src/Magpie.Core/ScalingRuntime.cpp": "c2740d16f35c2cecedde0ec5eceb4fa936c306e6f3c9a721f452f6b3e17231ab",
+    "third_party/realtime/magpie/src/Magpie.Core/ScalingWindow.cpp": "f4c195efa6071fa576213c13a23bf9897ffab85b34a0df4ea85e57d048abb143",
+    "third_party/realtime/magpie/src/Magpie.Core/ScalingWindow.h": "a8ba21d4309779de3a65577f15d7d1d2fe16ac0372742db4d4ff6d3ea824c3d0",
+    "third_party/realtime/magpie/src/Magpie.Core/ScreenshotHelper.cpp": "912836a4de3aee5334fa53417b5003cf6e05bbf7d04028fd50e166af459c4a4c",
+    "third_party/realtime/magpie/src/Magpie.Core/ScreenshotHelper.h": "51753d85dcdf897dd646d20cd37521ab7d01567cbce5d151db4e6a5cfa00d493",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/DuplicateFrameCS.hlsl": "f66d01447c98dc848ae9c70ea723087502101abb57a219bbe1310524f4191c30",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/ImGuiImplPS.hlsl": "bfd2d8d0958d6cc1466e8e70af595a48e522dd7823009ad872928eba9c34971a",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/ImGuiImplVS.hlsl": "eab0383a2b645fd0c8bc8b306e0ccf0a5ea2da49a715ba4d61bb064a89ae60a0",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/MaskedCursorPS.hlsl": "7969dc520afd13ea13a842fbaafd5ecc2a36c44d543da14ae68f410652cb8436",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/MonochromeCursorPS.hlsl": "f653df63be022ec5d8481bb11f40425ce286dabb4beec11a11cc98e15ec86cb3",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/SimplePS.hlsl": "aae5c4aa3abbf7900f940e829bde895fa5906d9d6469c96722ac650770e4b8d2",
+    "third_party/realtime/magpie/src/Magpie.Core/shaders/SimpleVS.hlsl": "32b2aaf5bd9879680a6fbc5d4e118e31cc1fb9b6bac4b251d4caef030e9b6f51",
+    "third_party/realtime/magpie/src/Magpie.Core/SrcTracker.cpp": "a969e9151771c0b8e315263332ea2d0f3f8ce0ca1b57e2669e7ca4d552bbc939",
+    "third_party/realtime/magpie/src/Magpie.Core/SrcTracker.h": "1617c55d7dc65582032b03968449d7c8462f200c25cc1666e0eb698109141fb6",
+    "third_party/realtime/magpie/src/Magpie.Core/StepTimer.cpp": "18994d16884f03f11df77c465b043277d0a2247e1de0653ac332772ebf0b872a",
+    "third_party/realtime/magpie/src/Magpie.Core/StepTimer.h": "d81bceaa770fa5a9b6d1a51663894e976acf14a9432f114966361f88a57434aa",
+    "third_party/realtime/magpie/src/Magpie.Core/TextureHelper.cpp": "ba5abc3efecafd46523415c837c2acf30de5930d8b93e7653fb8a95250753c5d",
+    "third_party/realtime/magpie/src/Magpie.Core/TextureHelper.h": "856c60a27c2c3dc4e1c2b6577e24cd9625719fe61c195f6a3b3f8c6236af8e03",
+    "third_party/realtime/magpie/src/Magpie.Core/Win32Helper.cpp": "9287d8b07ad9505cb5673a9203ec624cf6387595f2053c2fff8826f22d7f258b",
+    "third_party/realtime/magpie/src/Magpie.Core/WindowHelper.cpp": "b9706e4b825bfff736a858779e5b5a49491c432c214b4de9e43b81d0aeaed22f",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGCompatibility.h": "0e89a59facd54580912d4ee458624c0803c1a0cedc9af3cd88eeae18c90f0953",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGPacing.h": "04254eac922bdf9ef006d58de3f346a344eb134802c411a1b4013caf9befd644",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGPatchTransaction.h": "562c307970614375da3fd0ce84738e9cb5a1f1ace2eaddb6846bb0ac5e5a0fe0",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGPresenter.cpp": "da43187245854121aaf450d68a99856ba3f24d14233a48235c1667a066ac4c35",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGPresenter.h": "36fdf29eaaf7718ce970af5cb3cca4f92eece54e12163c2356bcfb98f7598040",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSFGTiming.h": "a0a71ee86be36ed70949febce03be212fa902ee1fb53e40b0ff2e3b134c915c9",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSUpscaler.cpp": "2a4866d2d714cd18c80f4d683b33168e9e51bf26b832e7ac952b78901cc458e0",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSUpscaler.h": "ac2dd93a707fe192cc141a4164a95f9f9f9a2e589a2cd5c25b28570cf410a02c",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSZeroMVUpscaler.cpp": "574508568e0c1de13bcdb053b22dfb23d20aa972cd99877f01b483bf6fa6f948",
+    "third_party/realtime/magpie/src/Magpie.Core/XeSSZeroMVUpscaler.h": "f2337039178c4a45bd5e0a3e0eda68024eab9b01a057dd57066657ce9137623b",
+    "third_party/realtime/magpie/src/Magpie.Core/YasHelper.h": "7020d847becf8b649f03986ad0584cd77695e9dcf09745f472c2ec5ebd05cd25",
+    "third_party/realtime/magpie/src/Magpie.Core/ZeroFrameGuidanceProvider.cpp": "0a86e2f813b9795c043b41f2f3c3786b944d3ce87e2a642eafce4bba27241b22",
+    "third_party/realtime/magpie/src/Magpie.Core/ZeroFrameGuidanceProvider.h": "81a6a48016e373fc72fa614b37f6238164f31f2f2fde9f28750d5aadff08fd51",
+    "third_party/realtime/magpie/src/Shared/CommonDefines.h": "1263300f9bf486a75ced00ff5d0a20ffa5d69ed832903355c2046857c3a9d7f5",
+    "third_party/realtime/magpie/src/Shared/CommonSharedConstants.h": "1c45eedcb3a282d4ca7de6b1e9ed271169520aa5f828eccfc73caba8d217be37",
+    "third_party/realtime/magpie/src/Shared/Logger.cpp": "eae56b4615015c6ae99d28d1478ecf2ef70aedda9fc69fbc0f695bea4f957a8d",
+    "third_party/realtime/magpie/src/Shared/Logger.h": "621fb3fcb54273241cbb77b3009104c6254937cfe22421b54959544ee038e0c0",
+    "third_party/realtime/magpie/src/Shared/Shared.vcxitems": "c7ec94fe951810187ba343c06bb18565f4a23e98495e00144793c00550ff54cc",
+    "third_party/realtime/magpie/src/Shared/SmallVector.cpp": "7fa93ab6e2de53a42ace37556eaf9dbefe627ca9296bd67a8ba53638d8e537a7",
+    "third_party/realtime/magpie/src/Shared/SmallVector.h": "d049ac36fb2816b2a71df9d19e1f0425b24edd713ef58ca79e1e197ab717ebbd",
+    "third_party/realtime/magpie/src/Shared/StrHelper.cpp": "98fb0d429a6cf58af19f9a244b833b71b3b843f9ec81f561e31dda8ac50edd15",
+    "third_party/realtime/magpie/src/Shared/StrHelper.h": "5c8e44dbe68de9b5d1f5980585940c17b7e9798b190a621d9a9ac47ac8f23275",
+    "third_party/realtime/magpie/src/Shared/StrMacros.h": "270c17a62effd6b9b3bc107cfcf0577d9715b6e7ced33f946e1cb03d5c1dde1e",
+    "third_party/realtime/magpie/src/Shared/Version.cpp": "cd45b0bf83b53769e9437963344620e30735c33417221284491ecf2fdaec60b0",
+    "third_party/realtime/magpie/src/Shared/Version.h": "eb1251924b5207661cfcfdb52df2e459cd9c69524e168a336ccf74f6b066016d",
+    "third_party/realtime/veyra/shaders/NrProtection.hlsli": "18d97e8bb5e68719f8f04425f14b3dec4734da11ee995b59756c240bf7d11157",
+    "third_party/realtime/veyra/shaders/NrResidualComposite.hlsl": "afa5563806c5a87257ccad05ed6034c6c59abb38e54c4d3d0f606a39f5333e99"
+  },
+  "files": {
+    "dlss5_realtime_host.exe": {
+      "sha256": "2173118b2e3284e79fdf3d54d978abe0c1118380993906cfd0432a624428dccc",
+      "size": 3318784
+    },
+    "effects/ACNet.hlsl": {
+      "sha256": "41edb892726f85e6f3cc4c61fdd0326e319671fb86043c51f93179c037c39550",
+      "size": 238792
+    },
+    "effects/Anime4K/Anime4K_3D_AA_Upscale_US.hlsl": {
+      "sha256": "33267e463b64b745455de215f6bedd56042431b62f9ae67abdc0088402755d46",
+      "size": 13828
+    },
+    "effects/Anime4K/Anime4K_3D_Upscale_US.hlsl": {
+      "sha256": "e0a400c06ec5422800b854c42ea2053dc091ee8f93c0b6e7c15ff7ee92fc9eee",
+      "size": 13725
+    },
+    "effects/Anime4K/Anime4K_Denoise_Bilateral_Mean.hlsl": {
+      "sha256": "45a5a0b35757efc59b6775ca10745bca51a47278c7c3a60aebe7f974ec3dd057",
+      "size": 3306
+    },
+    "effects/Anime4K/Anime4K_Denoise_Bilateral_Median.hlsl": {
+      "sha256": "417202c23ee541cbd12312abbed61a148356352972c9c6966a0658e7d82c1425",
+      "size": 3777
+    },
+    "effects/Anime4K/Anime4K_Denoise_Bilateral_Mode.hlsl": {
+      "sha256": "2609c4e3bc2a2b932a2757c0e4b9aab217f048953b36187c910128285994455d",
+      "size": 4159
+    },
+    "effects/Anime4K/Anime4K_Restore_L.hlsl": {
+      "sha256": "2419e06a14473b3897980bfcc33fd43d503bb9a4c68d5799476e5b18c8d92561",
+      "size": 75169
+    },
+    "effects/Anime4K/Anime4K_Restore_M.hlsl": {
+      "sha256": "74128adcf449befa1166025877473bc0e151de3e15a0f63851dd2ddb9588f269",
+      "size": 42564
+    },
+    "effects/Anime4K/Anime4K_Restore_S.hlsl": {
+      "sha256": "9af0664201860e0f4e52567263522e9604cc9f16a376a1b5c3df8339eb6d3e21",
+      "size": 20290
+    },
+    "effects/Anime4K/Anime4K_Restore_Soft_L.hlsl": {
+      "sha256": "b94d38a185e95150cbea4cc62aee61a8bffff79c2e24c84c35ea2a9f3ba02c86",
+      "size": 75227
+    },
+    "effects/Anime4K/Anime4K_Restore_Soft_M.hlsl": {
+      "sha256": "da441e4de7554bf263e2fce3f5f1b87e616366d832bcddc68ca09c4781ff2988",
+      "size": 42637
+    },
+    "effects/Anime4K/Anime4K_Restore_Soft_S.hlsl": {
+      "sha256": "34681645347aa78575684696e36a02854c7b4e87c44d31f6b0690916745570ec",
+      "size": 20347
+    },
+    "effects/Anime4K/Anime4K_Restore_Soft_UL.hlsl": {
+      "sha256": "67955ff507dc560dee464e34c560c804785b4ead576349d4184ba67f3b7c8127",
+      "size": 317607
+    },
+    "effects/Anime4K/Anime4K_Restore_Soft_VL.hlsl": {
+      "sha256": "70e8fd7c497147b851bd7c51e801251ccdb6215d122e0534dc5782056b132d62",
+      "size": 152851
+    },
+    "effects/Anime4K/Anime4K_Restore_UL.hlsl": {
+      "sha256": "fae6630ad96b06ae19de72fc74811dc4d8006df36852e6a6d1b371a0f142bbfc",
+      "size": 317505
+    },
+    "effects/Anime4K/Anime4K_Restore_VL.hlsl": {
+      "sha256": "c51a25e11b066d16611f93ee0fe2329306a4411ae8f14ca3f6e871e27dbe78cc",
+      "size": 152816
+    },
+    "effects/Anime4K/Anime4K_Thin_HQ.hlsl": {
+      "sha256": "faa4bbc9d02dea020d60894129ab39d41ad16565846170b677450d013d9628d6",
+      "size": 7627
+    },
+    "effects/Anime4K/Anime4K_Upscale_Denoise_L.hlsl": {
+      "sha256": "9f1e62a8d1fac368a530fe329ca80a6e65a61b29ee9f2205c4ee15eed1a54325",
+      "size": 76709
+    },
+    "effects/Anime4K/Anime4K_Upscale_Denoise_S.hlsl": {
+      "sha256": "b34c810aebcc56c81ab004b6e4e063a4105d8018a08e539b3ff79c4e40ccc305",
+      "size": 21658
+    },
+    "effects/Anime4K/Anime4K_Upscale_Denoise_UL.hlsl": {
+      "sha256": "256cadf9f9dae003f3563b95ba6f877af328b36e2c19f8a5e3524b7cd3c4b75a",
+      "size": 294640
+    },
+    "effects/Anime4K/Anime4K_Upscale_Denoise_VL.hlsl": {
+      "sha256": "3df1e8d46b340600df509471313b94f46513b783b020eef0a36abe6b0f355d25",
+      "size": 152760
+    },
+    "effects/Anime4K/Anime4K_Upscale_GAN_x2_M.hlsl": {
+      "sha256": "6e85ec033ac7669de851dc90c014ea2648d788ac613a50eda275e60e6fe33fd9",
+      "size": 150788
+    },
+    "effects/Anime4K/Anime4K_Upscale_GAN_x2_S.hlsl": {
+      "sha256": "0fcb1bcb6f9ba0a8a5b8db89316ade8f0ba927cf6cfe7ae38f3fac2acbd49969",
+      "size": 78470
+    },
+    "effects/Anime4K/Anime4K_Upscale_GAN_x3_L.hlsl": {
+      "sha256": "26a0aa0687967b15eb65193922ea306166424d18e99d14663899212be574add7",
+      "size": 244201
+    },
+    "effects/Anime4K/Anime4K_Upscale_L.hlsl": {
+      "sha256": "5b10e82c2f29ea31d4349d7c03ec077e3263341d065acecb672bcf04b6dd8b33",
+      "size": 76622
+    },
+    "effects/Anime4K/Anime4K_Upscale_S.hlsl": {
+      "sha256": "1b6e528cc5154247edf6420870ee7d71cc777ae506f7d38845b74c15b83824f3",
+      "size": 21613
+    },
+    "effects/Anime4K/Anime4K_Upscale_UL.hlsl": {
+      "sha256": "b13e204989c550e5630084b0b99a447d2cfa82c7b94328eff84442ccd6a3ab92",
+      "size": 295022
+    },
+    "effects/Anime4K/Anime4K_Upscale_VL.hlsl": {
+      "sha256": "9108eee00773ab9750a0341019072f34ec16377572ac85f4d710f1c2568b4ecc",
+      "size": 152803
+    },
+    "effects/Bicubic.hlsl": {
+      "sha256": "162ea6a82e2c9296b8b166bcabdcfd092538644928ba742c76d66b58cba1567a",
+      "size": 2970
+    },
+    "effects/Bilinear.hlsl": {
+      "sha256": "190963e21fc4786847619dde1ab0c020c7f3da82536db2110952089accaffc08",
+      "size": 254
+    },
+    "effects/CAS/CAS.hlsl": {
+      "sha256": "8000cadf6a0af7ca0aec286701539bcaca6873b83b9369abcc89556e57086989",
+      "size": 8037
+    },
+    "effects/CAS/CAS_Scaling.hlsl": {
+      "sha256": "6e4da2e2666e47644b910c1195773c19d84181d093e2a9148ea415ef6b2f8ef5",
+      "size": 23057
+    },
+    "effects/Color/HDR_to_SDR.hlsl": {
+      "sha256": "bdad950d5996af40675a27f18d2356e6872e6886b82c9476e5b9608f06ac93bb",
+      "size": 897
+    },
+    "effects/Color/SDR_to_HDR.hlsl": {
+      "sha256": "38b34077daf2fe5b0fbc58fe982c06cdcce7e4573a09496a55ec347a8f20fa2b",
+      "size": 776
+    },
+    "effects/CRT/CRT_Easymode.hlsl": {
+      "sha256": "c77d0374caeec758525b0506fd735b451e96b273872bde548024c5a636bdc99d",
+      "size": 6024
+    },
+    "effects/CRT/CRT_Geom.hlsl": {
+      "sha256": "da4f9153dbc777b9b8f5bbdfc0d6fe5f7af829179d59ddb0cd61f25b40900c8a",
+      "size": 10361
+    },
+    "effects/CRT/CRT_Hyllian.hlsl": {
+      "sha256": "efc42769ae739270749ed215776b0203b02c7b37675a1ef26869c87f27371e8a",
+      "size": 7036
+    },
+    "effects/CRT/CRT_Lottes.hlsl": {
+      "sha256": "c4702bf35bce74ea33ffd48e79c814fdbe7768dfc357bd25fb6be0a2656035ba",
+      "size": 8436
+    },
+    "effects/CRT/GTU_v050.hlsl": {
+      "sha256": "5238514c2fd77ce2be669d187c4456eff2f28c6977a45fecfd343138f9fed2cb",
+      "size": 5203
+    },
+    "effects/CuNNy/CuNNy-16x16C-NVL-DN.hlsl": {
+      "sha256": "80c15eb3482c63c11204655cf4cc14c46d73e621900108cead5529067e6eca86",
+      "size": 1122699
+    },
+    "effects/CuNNy/CuNNy-16x16C-NVL.hlsl": {
+      "sha256": "cc0f5960e7681068462cad6cd88aae18ea9c30729672fee014d26fa377e7753e",
+      "size": 1122856
+    },
+    "effects/CuNNy/CuNNy-2x4C-NVL-DN.hlsl": {
+      "sha256": "850645fc1772529cdb6fd035044a7d6c447689e0a9ae34e8c8606ff602c5dc8f",
+      "size": 19382
+    },
+    "effects/CuNNy/CuNNy-2x4C-NVL.hlsl": {
+      "sha256": "dabc62b24052b68b37013647aff422a5d326df55e300b7b01cdf1c4a2a59bf3e",
+      "size": 19373
+    },
+    "effects/CuNNy/CuNNy-3x4C-NVL-DN.hlsl": {
+      "sha256": "61db0c644b5cc13a86e709925734b799b924c339a93b00f6056bb6c443522725",
+      "size": 24619
+    },
+    "effects/CuNNy/CuNNy-3x4C-NVL.hlsl": {
+      "sha256": "4199e62859d8c6f1a86dfd96716200b295774bbc4275dec00f3fde50859ebe87",
+      "size": 24611
+    },
+    "effects/CuNNy/CuNNy-4x16C-NVL-DN.hlsl": {
+      "sha256": "103116e578c1ae25bb8b4037f02afa858d237ee84af2031a112759466347d741",
+      "size": 300577
+    },
+    "effects/CuNNy/CuNNy-4x16C-NVL.hlsl": {
+      "sha256": "534c9f983a67685b82376291d9c8cfa39f366aacda1e5a9ba8c645a094425283",
+      "size": 300625
+    },
+    "effects/CuNNy/CuNNy-4x4C-NVL-DN.hlsl": {
+      "sha256": "cde36734fc82d6a47bcee123d03f601684591fae2e8137de5f759ddc21ed3e5e",
+      "size": 29793
+    },
+    "effects/CuNNy/CuNNy-4x4C-NVL.hlsl": {
+      "sha256": "5181974ca4809befa1c9d900cf523316f4041caf352da93af320a370b8ae44b1",
+      "size": 29825
+    },
+    "effects/CuNNy/CuNNy-4x8C-NVL-DN.hlsl": {
+      "sha256": "901d6f060fbcdcd6dca19fde639bb73a322ab7ec89055edf6ebd1c085c5b3758",
+      "size": 87685
+    },
+    "effects/CuNNy/CuNNy-4x8C-NVL.hlsl": {
+      "sha256": "96db692078fa010e726b4bb94f3e54afcaf485d52ea196f8f9dbc670706180b8",
+      "size": 87685
+    },
+    "effects/CuNNy/CuNNy-6x8C-NVL-DN.hlsl": {
+      "sha256": "117c60c8b3f8aa2cfa8a3cb19f8768b675bb433a8b730b046c7fccfc0d37b60b",
+      "size": 124110
+    },
+    "effects/CuNNy/CuNNy-6x8C-NVL.hlsl": {
+      "sha256": "86fa53e9ad9d89ae03f57b68d0a161d66b124cef4c8420cea46bf28a47a95e04",
+      "size": 124094
+    },
+    "effects/CuNNy/CuNNy-8x16C-NVL-DN.hlsl": {
+      "sha256": "b475bdaf0005fa61cb065a060624646500e26d70c41e6fceb7838d822570d5ab",
+      "size": 574728
+    },
+    "effects/CuNNy/CuNNy-8x16C-NVL.hlsl": {
+      "sha256": "17a25a3a8231904bc42ab1df4a9a1acfb44fa86de43470b568485a6dd2258227",
+      "size": 574557
+    },
+    "effects/CuNNy/CuNNy-8x4C-NVL-DN.hlsl": {
+      "sha256": "aeae2164a7b93b7c6692bd6b6beb423765f8d9299e17df26c147d72413d443db",
+      "size": 50732
+    },
+    "effects/CuNNy/CuNNy-8x4C-NVL.hlsl": {
+      "sha256": "a64f2ec297e644a53c5ed62f452ea43124933851197e9ce24bb7988ae2cfbb12",
+      "size": 50736
+    },
+    "effects/CuNNy/CuNNy-8x8C-NVL-DN.hlsl": {
+      "sha256": "69bafab4f35bb0c1eba9a3223e8e711ac289d66efacadef8f0fc0ad2d74046be",
+      "size": 160524
+    },
+    "effects/CuNNy/CuNNy-8x8C-NVL.hlsl": {
+      "sha256": "95cabbd22d91aa47865b57d4cb418a3cf56ec40ef62998d3d22d20d1a349ab67",
+      "size": 160669
+    },
+    "effects/CuNNy2/CuNNy-3x12-NVL.hlsl": {
+      "sha256": "0d9e6fb4605818243eaff2656889a70d0336ca13e5c79f4e5de649225ca5fd26",
+      "size": 82576
+    },
+    "effects/CuNNy2/CuNNy-4x12-NVL.hlsl": {
+      "sha256": "ee3360229edb8f79c2f3e1790d304b8228482469d6e220d109a59fd6488b7d1b",
+      "size": 101168
+    },
+    "effects/CuNNy2/CuNNy-4x16-NVL.hlsl": {
+      "sha256": "df0f8c5d233777997d32d6dc064b88e6181c26dbf4987fd1471cf569d700fd81",
+      "size": 164325
+    },
+    "effects/CuNNy2/CuNNy-4x24-NVL.hlsl": {
+      "sha256": "65acb3b72231baaafe11b98766cc4be0ae2068c599cbfb8f7307888b2cbd2054",
+      "size": 336424
+    },
+    "effects/CuNNy2/CuNNy-4x32-NVL.hlsl": {
+      "sha256": "6a54e9653eaaa9b34778a7dba474f1608981272b54127b7af2c7a1ed8a040efd",
+      "size": 570521
+    },
+    "effects/CuNNy2/CuNNy-8x32-NVL.hlsl": {
+      "sha256": "4d2188b2625258f160f5cfca438c1561ec7cebec85ed5db2c406d79740dbe414",
+      "size": 1074230
+    },
+    "effects/CuNNy2/CuNNy-fast-NVL.hlsl": {
+      "sha256": "8a250e626470b3e3887039c1c39caabe11eea269463b66a133330c208a440d83",
+      "size": 42032
+    },
+    "effects/CuNNy2/CuNNy-faster-NVL.hlsl": {
+      "sha256": "12e98cf2035c4379acf3ef89d25ee4375dca580f1f8fbbe7b1e31ec3277459b3",
+      "size": 27071
+    },
+    "effects/CuNNy2/CuNNy-veryfast-NVL.hlsl": {
+      "sha256": "e56717aed34fb9919b2e4070295b5d8cb32e0b069a6161f5843eab56fe195716",
+      "size": 20883
+    },
+    "effects/Deband.hlsl": {
+      "sha256": "09cc17cb7d956835453a91edec7639230dd677ac366b3faf651a669a7cf834c7",
+      "size": 3643
+    },
+    "effects/Diagnostics/FrameGuidance_Confidence.hlsl": {
+      "sha256": "caff61f4481a2cfb0a9fba291c82fd71ab2793926995a0037c933dd0492be6ab",
+      "size": 816
+    },
+    "effects/Diagnostics/FrameGuidance_Motion.hlsl": {
+      "sha256": "8fc28fefa430aee26b66116b87db2ff3fbb0269d34b0fd9d0171fd9f3b69f99c",
+      "size": 912
+    },
+    "effects/DLSS/DLSS_SR.hlsl": {
+      "sha256": "3efd316c1e4db190de5ca88cd9ceef79cf1588387e38d5399483bcadc1a0f30c",
+      "size": 894
+    },
+    "effects/DLSSFG/DLSS_FrameGeneration.hlsl": {
+      "sha256": "bc55ec120dcad61e812090f677fdd9a5dd72cbd2c9e98497ea573d3493a49bca",
+      "size": 1182
+    },
+    "effects/DLSSNR/DLSSNR_AI_Filter.hlsl": {
+      "sha256": "74917d636d0dc0256b6bd977849bf8504e0cf6a96d0b60dc4040cec2600588d1",
+      "size": 5905
+    },
+    "effects/Effects.vcxproj": {
+      "sha256": "788bfd70ff3a543b2e21f86b78014b0cdb3a51eab068e53400cff6bff025a434",
+      "size": 23326
+    },
+    "effects/Effects.vcxproj.filters": {
+      "sha256": "ebcd55c052a382cb870cfe3b57066b483fcc8fc83e29ca2a0757a6be47827d47",
+      "size": 20290
+    },
+    "effects/FrameRate_Filter.hlsl": {
+      "sha256": "a0b44cdb0bde54b25974d2752ea602a60e94c91106f0574fd07ccc5f80097e0f",
+      "size": 699
+    },
+    "effects/FSR/FSR_EASU.hlsl": {
+      "sha256": "f8dfbdd21a652a0551836f5f5949655b04c2a2b23bf630b0b641a1a46725ecb6",
+      "size": 16456
+    },
+    "effects/FSR/FSR_RCAS.hlsl": {
+      "sha256": "9843072ab16326e0482002033d9ddf0ba315df5c80c23a4497d660a075bdb406",
+      "size": 7184
+    },
+    "effects/FSR2/FSR2_SR.hlsl": {
+      "sha256": "51b27d39a9a294341bf06bf579609c8ab5acce155a3adfa8a4fbfb3729be4cb2",
+      "size": 892
+    },
+    "effects/FSR3/FSR3_SR.hlsl": {
+      "sha256": "811076d3ce369e2115f2e7787385b1af18ef6d3b98dba4889c53dd42e1cbcb96",
+      "size": 892
+    },
+    "effects/FSR4/FSR4_SR.hlsl": {
+      "sha256": "4e9be401e94c2c7105c1a18c43e719082cb71b1467191b25bb924ce4459bf6d3",
+      "size": 892
+    },
+    "effects/FSRCNNX/FSRCNNX.hlsl": {
+      "sha256": "777cb5c841295b6f17a7ccdce6c1a3b1e3df9d401e2712f6d3b4e1d493cab590",
+      "size": 80869
+    },
+    "effects/FSRCNNX/FSRCNNX_LineArt.hlsl": {
+      "sha256": "d2ea77e48acdada361930ecfa06676d513ff5e5ffbd234e1c36456a7c0999b15",
+      "size": 80858
+    },
+    "effects/FXAA/FXAA.hlsli": {
+      "sha256": "6c1b99ae72fac4e9196d90c54f62baca7c8a783ab078efcd25b44418079c44f7",
+      "size": 6693
+    },
+    "effects/FXAA/FXAA_High.hlsl": {
+      "sha256": "9d6394619e77d4fdc6b5c6f0f12074a038e4ee6b85505982456ab2279f434cd7",
+      "size": 1421
+    },
+    "effects/FXAA/FXAA_Medium.hlsl": {
+      "sha256": "b0c9d43078a47887f9a81061f6b175e827624a997a408c3a502745dd62b24724",
+      "size": 1421
+    },
+    "effects/FXAA/FXAA_Ultra.hlsl": {
+      "sha256": "b57cf9364b676e48700258d031649dc9b6e8051dc6180306eb03aa9f7275af69",
+      "size": 1421
+    },
+    "effects/ImageAdjustment.hlsl": {
+      "sha256": "3f2e25df84016fec5ac5af70cb90576ab81b79a102572cce9fa894b9e25c419b",
+      "size": 2554
+    },
+    "effects/Jinc.hlsl": {
+      "sha256": "c43f72c20422c945accb979dc2629953762a22b0d97ae839146ecb639bc867d3",
+      "size": 3777
+    },
+    "effects/k7_modernAnime_FHD_x2.hlsl": {
+      "sha256": "7a86f75f6c42cfc396c02a580bc8240de73a0f9913fe93d3a4d3cf195b6adff4",
+      "size": 423867
+    },
+    "effects/Lanczos.hlsl": {
+      "sha256": "85858d996129e117a213afe073e5c0541adcff75a55d139cb5eef4c6dfc66930",
+      "size": 2777
+    },
+    "effects/MLAA/MLAA.hlsl": {
+      "sha256": "90d5ff3ffd2bd1d5d20d94d1859847d4518b52a906d5098147bc968936b983cf",
+      "size": 9181
+    },
+    "effects/Nearest.hlsl": {
+      "sha256": "ce385ae9872018af7166789e45e5b58668b66ec56f9fe05f8a81c9b94b13754a",
+      "size": 253
+    },
+    "effects/NIS/Coef_Scale.dds": {
+      "sha256": "55d9132c57ca02ec3def9131d7832faa3cbfd1cff7258a0c10ac04983a0e4d76",
+      "size": 1152
+    },
+    "effects/NIS/Coef_USM.dds": {
+      "sha256": "8123e98618363b3d90f9e59bc3a43bfbaa6d678c53506ffb876d55bb774a8ae5",
+      "size": 1152
+    },
+    "effects/NIS/NIS.hlsl": {
+      "sha256": "22e4f33398987e912c96ff3f8ce4ba1612457f431b60a3c64f592b1759421bbf",
+      "size": 2830
+    },
+    "effects/NIS/NIS_Scaler.hlsli": {
+      "sha256": "b0ec367db4b5cc2e99eac00ffb8b2abd3a419e4d49cfdf4b428bae76f46f6bc8",
+      "size": 37775
+    },
+    "effects/NIS/NVSharpen.hlsl": {
+      "sha256": "f09fa232b622bd71cd503c8ad8f216ff4d087499d23ec2898277f7760f16e2d3",
+      "size": 2652
+    },
+    "effects/NNEDI3/NNEDI3_nns128_win8x4.hlsl": {
+      "sha256": "a1e6b4adee40a7fce7472006f9e265399d31deeaaaf681d768d71f7588d2cccf",
+      "size": 262357
+    },
+    "effects/NNEDI3/NNEDI3_nns128_win8x6.hlsl": {
+      "sha256": "2134c9aafe9d4052775d6ec4a9d8e47e2ccb3fcae045f0d24dea0a0c1e4a904d",
+      "size": 384675
+    },
+    "effects/NNEDI3/NNEDI3_nns16_win8x4.hlsl": {
+      "sha256": "df293a727aab228f24e2afdcea441fb6990fd4165760734ebfc389c365572d32",
+      "size": 41278
+    },
+    "effects/NNEDI3/NNEDI3_nns16_win8x6.hlsl": {
+      "sha256": "7d215f738c9873d309d7da52281ec6bf277d6dec8003062a29176835d3961778",
+      "size": 57549
+    },
+    "effects/NNEDI3/NNEDI3_nns256_win8x4.hlsl": {
+      "sha256": "de5197ffd9ff2254fff366cd12fcd932056df631b6b279031b121165e5d64042",
+      "size": 515519
+    },
+    "effects/NNEDI3/NNEDI3_nns256_win8x6.hlsl": {
+      "sha256": "d9c9d77382623ac7c1235c093c8e79fc55823177b8f76edff45ed4f8003e57e3",
+      "size": 758711
+    },
+    "effects/NNEDI3/NNEDI3_nns32_win8x4.hlsl": {
+      "sha256": "f011b77b37ee62f7a9d8c73b1c67c9b847eb65a92796ac5613fa94d008fa7e9f",
+      "size": 72790
+    },
+    "effects/NNEDI3/NNEDI3_nns32_win8x6.hlsl": {
+      "sha256": "80408fc0cf6fa9d2d00ab2841463e106bba94c9146c93086658099d67e1629f0",
+      "size": 104345
+    },
+    "effects/NNEDI3/NNEDI3_nns64_win8x4.hlsl": {
+      "sha256": "e193baaed3d1c7a50017412419dd263ba26c5bf58da9dc3cd54a950643a88b8c",
+      "size": 135819
+    },
+    "effects/NNEDI3/NNEDI3_nns64_win8x6.hlsl": {
+      "sha256": "01881e54f12fb05ac4677b14cee26e638b3454164230a499745c551d5391cdcc",
+      "size": 197776
+    },
+    "effects/NNEDI3/prescalers.hlsli": {
+      "sha256": "fe79a9a8bea8ca7af9a8fe684d13085a1c8996edfc9a55a71fb16d6da992e2d3",
+      "size": 2644
+    },
+    "effects/Pixel Art/MMPX.hlsl": {
+      "sha256": "7d37e87b1f29417f6596354d1a745297c1a416821d3a927216f3ec0a813500f8",
+      "size": 5063
+    },
+    "effects/Pixel Art/Pixellate.hlsl": {
+      "sha256": "74fd48457bbfdad1a819d5380ef12a93571b4ed490da4febad724427334a75ae",
+      "size": 2864
+    },
+    "effects/Pixel Art/SharpBilinear.hlsl": {
+      "sha256": "7233cc9b5f0580b46da3a1500897ae0774ae8ff7f83d483a2789fd902ad5474b",
+      "size": 1108
+    },
+    "effects/RAVU/prescalers.hlsli": {
+      "sha256": "fe79a9a8bea8ca7af9a8fe684d13085a1c8996edfc9a55a71fb16d6da992e2d3",
+      "size": 2644
+    },
+    "effects/RAVU/ravu_3x_lut2_f16.dds": {
+      "sha256": "e6e53b8fdefac7bc57ba6ff697a942d1bf52bfdae956fdc866cdcbd8ede8cac7",
+      "size": 17408
+    },
+    "effects/RAVU/ravu_3x_lut3_f16.dds": {
+      "sha256": "17157df3d9dec3b7a9f0d5e9bfe9f4c7fd6ccfc41e18e7d6b0f82f5832d11385",
+      "size": 45056
+    },
+    "effects/RAVU/ravu_3x_lut4_f16.dds": {
+      "sha256": "ecbdd2574b56cf70a222619a1bac164b7948e42fc62785bd62e27f381640deb0",
+      "size": 86528
+    },
+    "effects/RAVU/RAVU_3x_R2.hlsl": {
+      "sha256": "0c414b2a25aac01148ffa73c96f4809450e57028ff87a34703ee5745a5fd0c02",
+      "size": 6746
+    },
+    "effects/RAVU/RAVU_3x_R2_RGB.hlsl": {
+      "sha256": "67e0b5da13081c6fb7f0d929e16e046c6538e273a4d9e137deb37352e03c95e9",
+      "size": 7610
+    },
+    "effects/RAVU/RAVU_3x_R3.hlsl": {
+      "sha256": "770c2f2d2bac463a63b847e6968e67fe30e6a90e715fe2fbba43eebfa68b94e3",
+      "size": 9232
+    },
+    "effects/RAVU/RAVU_3x_R3_RGB.hlsl": {
+      "sha256": "a78a9394ee142e2e00b9427642801c353f3be1e186c165201bf3327e73ffc5d2",
+      "size": 10841
+    },
+    "effects/RAVU/RAVU_3x_R4.hlsl": {
+      "sha256": "5f8cc3ec0ab80dfa9e04be5c3cb9b1754c9195a8404930d6960c208a84823766",
+      "size": 13977
+    },
+    "effects/RAVU/RAVU_3x_R4_RGB.hlsl": {
+      "sha256": "db2576f4b71104e566df8f2a65efc1562c79a95b2b1e086e4aaa71a79ebee4c3",
+      "size": 16950
+    },
+    "effects/RAVU/RAVU_Lite_AR_R2.hlsl": {
+      "sha256": "0d884b3d0751b4c14154f101317c093ad14148b688f1ce83606ff3b336d2ed17",
+      "size": 8435
+    },
+    "effects/RAVU/RAVU_Lite_AR_R3.hlsl": {
+      "sha256": "8f23a617f02812bec40d42955e36bd3e2d614ebdaa9658931a55ecdee6a11822",
+      "size": 10445
+    },
+    "effects/RAVU/RAVU_Lite_AR_R4.hlsl": {
+      "sha256": "9fe08638824be82a2709daae4945e4aee44f1533c181c808bf5ec9e44a700f2a",
+      "size": 14502
+    },
+    "effects/RAVU/ravu_lite_lut2_f16.dds": {
+      "sha256": "2114fc06b281d86c545b5a15a21de926e063578a1e8f87f06b6c31c2127bb4ba",
+      "size": 11648
+    },
+    "effects/RAVU/ravu_lite_lut3_f16.dds": {
+      "sha256": "f0483a8ace6a3f82ebb4a04287142c8781c37be9b16259dc7e06990661e0910b",
+      "size": 30080
+    },
+    "effects/RAVU/ravu_lite_lut4_f16.dds": {
+      "sha256": "08e7268776c9e8ee62271876904c9d1ec8b3ad6895ecb209a069f7afb266437c",
+      "size": 57728
+    },
+    "effects/RAVU/RAVU_Lite_R2.hlsl": {
+      "sha256": "cfd94dbb65dd5ebbe485f587cdf769ad7b71153a670e9a784e50fe62d8cca338",
+      "size": 6285
+    },
+    "effects/RAVU/RAVU_Lite_R3.hlsl": {
+      "sha256": "58e394128698b1ffd6a62b8b528cbdb4d47a9da9dc6778716b5b2966c1e7166c",
+      "size": 7461
+    },
+    "effects/RAVU/RAVU_Lite_R4.hlsl": {
+      "sha256": "15ed74d2c56fafeeca313879bc9f7f067673a381a420f097f26555089cc02f12",
+      "size": 11512
+    },
+    "effects/RAVU/ravu_lut2_f16.dds": {
+      "sha256": "d56b9a04b3a830157d7db7190ceef6fd634456a21f70a44e76dea3ba2edc04f4",
+      "size": 10496
+    },
+    "effects/RAVU/ravu_lut3_f16.dds": {
+      "sha256": "64279baf834e051d2c7e3a74fffab8e87d0c0ce1c049f9299c8612643eefac93",
+      "size": 26048
+    },
+    "effects/RAVU/ravu_lut4_f16.dds": {
+      "sha256": "7200041a310bb8e21c32fca26d1a521095fbc76fe866194f47e7b7e441b6a47f",
+      "size": 41600
+    },
+    "effects/RAVU/RAVU_R2.hlsl": {
+      "sha256": "6915dd381de8d8146068a1f9472ee29b99363244b5ed62340c199d733dad7f69",
+      "size": 17439
+    },
+    "effects/RAVU/RAVU_R2_RGB.hlsl": {
+      "sha256": "e50ef0423f85d0a149b48f4c635f71b1a5915bf9d07675a5a583a9b807a93dd3",
+      "size": 17921
+    },
+    "effects/RAVU/RAVU_R3.hlsl": {
+      "sha256": "71f4334ad49b3c63b6fb3a2553d842324fd4a79a2c765ff14c10ed1def6106c2",
+      "size": 23493
+    },
+    "effects/RAVU/RAVU_R3_RGB.hlsl": {
+      "sha256": "165c15dacdcc5305014f438a02daae37b7ab4edd5291bba4a450365fa7a9a675",
+      "size": 24215
+    },
+    "effects/RAVU/RAVU_R4.hlsl": {
+      "sha256": "afcca23e789848472d91f44547fa0481716027a7e4045d452b97d267fa7d4339",
+      "size": 40693
+    },
+    "effects/RAVU/RAVU_R4_RGB.hlsl": {
+      "sha256": "2bcdc9bdc4d9e12e041323bd6f12f01bec79c92ae33ce511641b90f1b62d8700",
+      "size": 41835
+    },
+    "effects/RAVU/RAVU_Zoom_AR_R2.hlsl": {
+      "sha256": "ad22569342ff94f5abe04e24295ea1c3f2402c64dd4d816e1bad552959cfa727",
+      "size": 10701
+    },
+    "effects/RAVU/RAVU_Zoom_AR_R2_RGB.hlsl": {
+      "sha256": "a9bb80841d4879440de6c9f02c131bc0787674e445bc4cd1e719c65d617306a5",
+      "size": 12131
+    },
+    "effects/RAVU/RAVU_Zoom_AR_R3.hlsl": {
+      "sha256": "075743d6c87b3dac62ed07afc1c748fed38bd2c81fb63ad65a1ade0fbbbc47fa",
+      "size": 13154
+    },
+    "effects/RAVU/RAVU_Zoom_AR_R3_RGB.hlsl": {
+      "sha256": "d3fc93f0d421b498f09ca77754c7661462dcf98557b8957e11f094628f3bcbd9",
+      "size": 15240
+    },
+    "effects/RAVU/ravu_zoom_lut2_ar_f16.dds": {
+      "sha256": "a7892ff98ad7d7a9439d77759ef1a66526f949b6e2d6de0c0f69830ebe704971",
+      "size": 373376
+    },
+    "effects/RAVU/ravu_zoom_lut2_f16.dds": {
+      "sha256": "c3f77176934786c0e37b243fddaa922591543b2967b82731191fea8e3bb03d51",
+      "size": 373376
+    },
+    "effects/RAVU/ravu_zoom_lut3_ar_f16.dds": {
+      "sha256": "a7892ff98ad7d7a9439d77759ef1a66526f949b6e2d6de0c0f69830ebe704971",
+      "size": 373376
+    },
+    "effects/RAVU/ravu_zoom_lut3_f16.dds": {
+      "sha256": "102d215afcccec37b79ef0013e1f44e69cdd99cfb85cb875862dff9fac6f99f7",
+      "size": 933248
+    },
+    "effects/RAVU/RAVU_Zoom_R2.hlsl": {
+      "sha256": "b4825bd8d3188f9c1c4ca8a08d138f2a9f6639d2a410b4e58d8b1c03ff55ffdb",
+      "size": 7644
+    },
+    "effects/RAVU/RAVU_Zoom_R2_RGB.hlsl": {
+      "sha256": "492f23a9c83004d688dee0ea61bc8f07e7a3282c2c845de17a2ede53bb9f292f",
+      "size": 8082
+    },
+    "effects/RAVU/RAVU_Zoom_R3.hlsl": {
+      "sha256": "28e1839d0881d531b840b71e969e13aea938d73ddefc720bace11fca028bde56",
+      "size": 9973
+    },
+    "effects/RAVU/RAVU_Zoom_R3_RGB.hlsl": {
+      "sha256": "c9cb69ac0274bc9e89f179dc26bb90a24e2643c85edf645364b10344aa2760f4",
+      "size": 11067
+    },
+    "effects/RTXVideo/RTXVideo_Denoise.hlsl": {
+      "sha256": "e653932480e364ba3ccac7382aece56267b2c95cd73871733a160723378a44d4",
+      "size": 522
+    },
+    "effects/RTXVideo/RTXVideo_HDR.hlsl": {
+      "sha256": "c403fa84539209f07a6559f25e1f9013bfae5dfe660d63866d4e34851a997570",
+      "size": 777
+    },
+    "effects/RTXVideo/RTXVideo_VSR.hlsl": {
+      "sha256": "71b3e4ea6bf830c8542d4b0ad9ca3078eb1f6499f04ce24d7de897904e01c37f",
+      "size": 474
+    },
+    "effects/SGSR.hlsl": {
+      "sha256": "c21ba6c3153b9d505011f1b41c72f23d7f12fdd7e5a7d77ede01cb046d8a75a0",
+      "size": 4596
+    },
+    "effects/Sharpen/AdaptiveSharpen.hlsl": {
+      "sha256": "f52bbf1bfd18c836012eb868c44e2333db040e2b1ecdcc027a6fd35eac537c1c",
+      "size": 8478
+    },
+    "effects/Sharpen/FineSharp.hlsl": {
+      "sha256": "dc8adf534f27f24acc894f49f3bdb8089e358d60029948552f90898b6f39ad10",
+      "size": 13180
+    },
+    "effects/Sharpen/LCAS.hlsl": {
+      "sha256": "3d030d7ed3b242f02a39a5c197e28d21185b52dda284ac44f497410beb550ffe",
+      "size": 2620
+    },
+    "effects/Sharpen/LumaSharpen.hlsl": {
+      "sha256": "f9d40f2dcb9ec3ab9157ae6e36ef0ea7161cb0ebcb0c6ac62a253ac107f66d7d",
+      "size": 8057
+    },
+    "effects/SMAA/AreaTex.dds": {
+      "sha256": "16e6cd520c2d885cb142b98334b2516804cbb1f44dcda2922be1d68f0766208c",
+      "size": 358528
+    },
+    "effects/SMAA/SearchTex.dds": {
+      "sha256": "891e444b6dde7dd98f6902c805cd04e3469892aa1667c92f764d94789477ef3a",
+      "size": 1152
+    },
+    "effects/SMAA/SMAA.hlsli": {
+      "sha256": "e147bd2661b9f33fad4f6685e98bf41abebe32971aadf1010d88fd01c5821863",
+      "size": 35172
+    },
+    "effects/SMAA/SMAA_4x_Experimental.hlsl": {
+      "sha256": "9663d032ed3032292976c162ada1dda2c3441692db9ad561773cb54633c94988",
+      "size": 4578
+    },
+    "effects/SMAA/SMAA_4x_NoJitter_Experimental.hlsl": {
+      "sha256": "888c1550ebf42224c1a31916c094c3f764f3a2a34722179e4e2c4444c9bb5935",
+      "size": 3876
+    },
+    "effects/SMAA/SMAA_High.hlsl": {
+      "sha256": "b95ac51fa09f7269b0c9548ea0881ffdb38d598ecb30379eaf7956864197cbe1",
+      "size": 1377
+    },
+    "effects/SMAA/SMAA_Low.hlsl": {
+      "sha256": "3919af6b1de68d462eae68dcad42cf16965ef4cb0bddd6b2be2fef7b00a34682",
+      "size": 1370
+    },
+    "effects/SMAA/SMAA_Medium.hlsl": {
+      "sha256": "d1decb370017be0b7f3eff788fa10e8ded609149127ee9278ec02781312ce37f",
+      "size": 1373
+    },
+    "effects/SMAA/SMAA_T2x_Experimental.hlsl": {
+      "sha256": "fabadfb4f6102be964c4a8cc74f9709313a1d77a8ab060d1c1681dd2fb348f01",
+      "size": 4285
+    },
+    "effects/SMAA/SMAA_T2x_NoJitter_Experimental.hlsl": {
+      "sha256": "f8b2846bb711bd90f054b94bde1418f4320efbbdd6b9ea12fd5c998efc6383c4",
+      "size": 3766
+    },
+    "effects/SMAA/SMAA_Ultra.hlsl": {
+      "sha256": "619b937c4c2e7e426755669c6b990a4cb27bee25062858ac903b98efe333b486",
+      "size": 1378
+    },
+    "effects/SSimDownscaler.hlsl": {
+      "sha256": "82564c3e9af68e3ec202e398fb0eee9152de1e89f44fdf61d53ac8db556bd066",
+      "size": 10246
+    },
+    "effects/StubDefs.hlsli": {
+      "sha256": "7cdbe42d9c0755fe77b5e3c28621281890aaa8b1e808123776295326a029348b",
+      "size": 1450
+    },
+    "effects/xBRZ/xBRZ_2x.hlsl": {
+      "sha256": "b8e6a30a8920836f3aedaf1f76c9499049d130362a7a4f40d90731c5337dc533",
+      "size": 10749
+    },
+    "effects/xBRZ/xBRZ_3x.hlsl": {
+      "sha256": "34087ec43750b4860fa347412099f6906c1acb054ba26d41440f9daeab9e1fd9",
+      "size": 11600
+    },
+    "effects/xBRZ/xBRZ_4x.hlsl": {
+      "sha256": "3828289541db89d2f3e8f299d7e4a59aeb2cfc70a36364a6d205d8128e6dc075",
+      "size": 15767
+    },
+    "effects/xBRZ/xBRZ_5x.hlsl": {
+      "sha256": "51a884bce12e0105535cf57a128c1f64a95b415dd32f77ccf40610efc1aeaf58",
+      "size": 17943
+    },
+    "effects/xBRZ/xBRZ_6x.hlsl": {
+      "sha256": "a0da1eb8f22b09374554a827586d54472b86033012a09161e8783f5cf71aeb36",
+      "size": 19946
+    },
+    "effects/xBRZ/xBRZ_Freescale.hlsl": {
+      "sha256": "4709e2eef4c23d1a1d5d5b44d79540f64bdeedc38b5deb7802b495b07b7576ca",
+      "size": 12936
+    },
+    "effects/XeSS/XeSS_SR.hlsl": {
+      "sha256": "87da977054c24738c096f48a7074acadb834a0180dd900daf65e0137c16c8d7f",
+      "size": 894
+    },
+    "effects/XeSSFG/XeSS_FrameGeneration.hlsl": {
+      "sha256": "9302bf2354b541b2247adea3602417cdd9de35a0030b71f4c24658087cc21c8a",
+      "size": 1244
+    },
+    "LICENSE-Magpie-GPLv3.txt": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "size": 35149
+    },
+    "licenses/DLSS5Tool-GPLv3.txt": {
+      "sha256": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052",
+      "size": 35150
+    },
+    "licenses/DLSS5Tool-original-MIT.txt": {
+      "sha256": "21f2fa22636754f3217a8b26f6a77a62a4ac77243ed7962433123994defee2cd",
+      "size": 1079
+    },
+    "licenses/fmt-LICENSE.txt": {
+      "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8",
+      "size": 1431
+    },
+    "licenses/imgui-LICENSE.txt": {
+      "sha256": "c80c5789748d955c4a650562baa0d750494e2c7128c2ca66aaebe2e3c4e198bf",
+      "size": 1083
+    },
+    "licenses/json-LICENSE.txt": {
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "size": 1076
+    },
+    "licenses/magpie-LICENSE.txt": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "size": 35149
+    },
+    "licenses/muparser-LICENSE.txt": {
+      "sha256": "3f8478de95e7204280324fe148fd5b15e1599ba007aad1494abffc631e8b81a5",
+      "size": 1285
+    },
+    "licenses/nvapi-LICENSE.txt": {
+      "sha256": "bab44777f0f4d0333479ea0be6e24c084464a8cb64b98f1253fcc3df70f6eccf",
+      "size": 1217
+    },
+    "licenses/NVIDIA-DLSS-SDK.txt": {
+      "sha256": "dc2778a3283427285984cdb5b3f7f03eae7d8a06057f672f2999c5ee7fd4f67d",
+      "size": 27283
+    },
+    "licenses/nvOpticalFlowCommon.h-LICENSE.txt": {
+      "sha256": "c190d599b72a356118ddaee99674504e1f46406dda71215d80c6bacb725914b2",
+      "size": 1200
+    },
+    "licenses/nvOpticalFlowD3D11.h-LICENSE.txt": {
+      "sha256": "243157a8eac027f4ba592bcda0264e742b74ea37c90f1268f51b3e755a1278cb",
+      "size": 1200
+    },
+    "licenses/phmap-LICENSE.txt": {
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "size": 11360
+    },
+    "licenses/rapidhash-LICENSE.txt": {
+      "sha256": "b8e376aed40d481f1a001c20883918c18dae72ba307c8abe4188189deca52316",
+      "size": 1704
+    },
+    "licenses/spdlog-LICENSE.txt": {
+      "sha256": "d678c20826e1392578508e1c78649a1e3c31bda05ef4388d967dbd654461b140",
+      "size": 1323
+    },
+    "licenses/veyra-LICENSE.txt": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "size": 35149
+    },
+    "licenses/wil-LICENSE.txt": {
+      "sha256": "27ebda9d51f0a56b7e281ccd8230a27236dcb51c05f64b07869ecf6e965d68b0",
+      "size": 1162
+    },
+    "licenses/WIL-ThirdPartyNotices.txt": {
+      "sha256": "32403680d9c8b4a4c68c0bf650090dcfc063f99ad8a37d7ff84e00d9709a518f",
+      "size": 4248
+    },
+    "licenses/yas-Boost-1.0.txt": {
+      "sha256": "82c3156427b521d39b5cd9cbe22a56458377472d57756b63bc4e5988ffbcff1f",
+      "size": 1769
+    },
+    "REALTIME-NOTICE.txt": {
+      "sha256": "61537fd16aed108d62cba76611358e4854450a35f60889adf1d6a76fbb16d89f",
+      "size": 4981
+    },
+    "sources.lock.json": {
+      "sha256": "3cf590485e5a28de1bbfbfe70de6c0c87a3402a42dab16df5ca83ebb3e8df505",
+      "size": 3446
+    }
+  }
+}

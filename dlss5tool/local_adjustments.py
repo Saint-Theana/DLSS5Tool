@@ -7,6 +7,7 @@ from tkinter import messagebox, ttk
 from dlss5tool import app_settings, ui_theme, appearance
 from dlss5tool.i18n import tr
 from dlss5tool.realtime_controls import ParameterRow
+from dlss5tool.parameter_contract import PARAMETERS, diagnostic, update_policy
 from dlss5tool.ui_widgets import ChromeButton, Tooltip
 
 
@@ -51,16 +52,14 @@ class LocalAdjustments(ttk.Frame):
         self.heading = ttk.Label(self.actions, text='DLSS NR', style='TLabel', font=ui_theme.UI_FONT_BOLD)
         self.heading.pack(side='left')
         style = tk.StringVar(self, value=str(self.styles.get(settings['v_style'].get(), 0)))
-        desc = dict(name='style', label=tr('label.style'), default=app_settings.DEFAULTS['style'],
-                    min=0, max=2, step=1, integer=True, choices=[(n, text) for text, n in styles.items()])
+        desc = dict(PARAMETERS['style'].descriptor(), choices=[(n, text) for text, n in styles.items()])
         self._add_row('style', desc, style, settings['v_style'], None, tr('parameter.hint.style'))
         for name, label, value_key, switch_key, widget_key in FIELDS:
             if name == 'output_mix':
                 ttk.Label(self, text=tr('parameter.composition'), style='Kicker.TLabel').pack(fill='x', pady=(8, 3))
             variable = tk.StringVar(self, value=str(settings[value_key].get()))
             enabled = tk.BooleanVar(self, value=settings[switch_key].get())
-            desc = dict(name=name, label=tr('label.' + label), default=app_settings.DEFAULTS[name],
-                        min=0, max=5, step=.01, integer=False)
+            desc = PARAMETERS[name].descriptor()
             hint = tr('tooltip.' + label) + '\n' + tr('parameter.switch_hint')
             row = self._add_row(name, desc, variable, settings[value_key],
                                 (enabled, settings[switch_key], app_settings.DEFAULTS[switch_key[2:].replace('outmix', 'output_mix')]
@@ -77,10 +76,7 @@ class LocalAdjustments(ttk.Frame):
                 integer = key == 'protection'
                 actual = tk.IntVar(self, value=int(value)) if integer else tk.DoubleVar(self, value=value)
                 settings['v_' + name] = actual
-                desc = dict(name=name, label=tr('appearance.' + key), default=int(value) if integer else appearance.DEFAULTS[group][key],
-                            min=1 if key == 'residualMultiplier' else 0,
-                            max=256 if key == 'feather' else 1 if integer else 2,
-                            step=1 if key in ('feather', 'protection') else .01, integer=integer)
+                desc = PARAMETERS[name].descriptor()
                 if integer:
                     desc.update(default=0, choices=[(0, tr('parameter.off')), (1, tr('parameter.on'))])
                 self._add_row(name, desc, tk.StringVar(self, value=str(int(value) if integer else value)), actual,
@@ -91,6 +87,10 @@ class LocalAdjustments(ttk.Frame):
             self.region_button = button
         self.region_summary = ttk.Label(self, style='Hint.TLabel', wraplength=300)
         self.region_summary.pack(fill='x')
+        self.operation_status = ttk.Label(self, style='Hint.TLabel', wraplength=300)
+        self.operation_status.pack(fill='x')
+        self._operation_state = 'idle'
+        self._operation_hdr = False
         self.summary = ttk.Label(self, style='Hint.TLabel', wraplength=300, justify='left')
         self._building = False
         self._snapshot = self.snapshot()
@@ -135,7 +135,8 @@ class LocalAdjustments(ttk.Frame):
 
     @staticmethod
     def output_only(names):
-        return all(n == 'output_mix' or n == '_regions' or n.startswith('nr_') for n in names)
+        return all(update_policy('regions' if n == '_regions' else PARAMETERS[n].group,
+                                 mode='local') == 'compose' for n in names)
 
     def changed(self):
         if self._building or self._syncing:
@@ -143,6 +144,8 @@ class LocalAdjustments(ttk.Frame):
         current = self.snapshot()
         if current != self._snapshot and self._pending is None:
             self._pending = deepcopy(self._snapshot)
+        if current != self._snapshot:
+            self._operation_state = 'dirty'
         self.refresh()
 
     def sync(self, name):
@@ -199,6 +202,7 @@ class LocalAdjustments(ttk.Frame):
             self._snapshot = current
         self.settings['_appearance'] = self.appearance_settings()
         self._applied_snapshot = current
+        self._operation_state = 'idle'
         self.refresh()
         if notify and changed:
             self._callbacks[1 if self.output_only(names) else 0]()
@@ -303,6 +307,25 @@ class LocalAdjustments(ttk.Frame):
         except (ValueError, tk.TclError):
             return False
 
+    def set_operation_state(self, state, *, hdr=None):
+        if hdr is not None:
+            self._operation_hdr = hdr
+        # A completion for committed values cannot validate a newer raw draft.
+        if not self.valid():
+            state = 'invalid'
+        elif self.snapshot() != self._applied_snapshot:
+            state = 'dirty'
+        self._operation_state = state
+        text = tr('parameter.state.' + state)
+        if self._operation_hdr:
+            text += ' · ' + tr('appearance.hdr_residual_hint')
+        if self.operation_status.cget('text') != text:
+            self.operation_status.configure(text=text)
+
+    def diagnostic_snapshot(self):
+        return diagnostic(mode='local', state=self._operation_state if self.valid() else 'invalid',
+                          hdr=self._operation_hdr)
+
     def refresh(self):
         if self._building:
             return
@@ -325,6 +348,10 @@ class LocalAdjustments(ttk.Frame):
         else:
             self.summary.pack(fill='x')
         self.undo_button.configure(state='normal' if self._undo is not None or self._pending is not None else 'disabled')
+        state = self._operation_state
+        if valid and state == 'invalid':
+            state = 'dirty' if self.snapshot() != self._applied_snapshot else 'idle'
+        self.set_operation_state(state if valid else 'invalid')
 
     def set_limit(self, maximum):
         if getattr(self, '_maximum', None) == maximum:

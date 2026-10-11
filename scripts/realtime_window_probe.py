@@ -53,6 +53,7 @@ def main():
     parser.add_argument('--sync-mode', type=int, default=0)
     parser.add_argument('--frame-rate', type=float, default=60)
     parser.add_argument('--protocol-test', action='store_true')
+    parser.add_argument('--residual-test', action='store_true', help='Owned NR first-pass five-control live receipts')
     parser.add_argument('--quiet', action='store_true')
     args = parser.parse_args()
     if (args.source_hdr or args.move_source) and not args.source_exe:
@@ -116,6 +117,12 @@ def main():
     config.update(game_mode=args.game_mode, disable_topmost=args.no_topmost, sync_mode=args.sync_mode, frame_rate=args.frame_rate)
     if args.config:
         config = validate_config(json.loads(args.config.read_text(encoding='utf-8')))
+    residual_values = dict(residualMultiplier=1.4, shadowStructureMultiplier=.6,
+                           reflectionGlowMultiplier=1.3, residualSaturation=.7, residualLightness=1.2)
+    if args.residual_test:
+        if config['effects'][0]['name'] != NR:
+            raise ValueError('Residual probe requires NR as the first effect')
+        config['effects'][0]['parameters']['enableResidualControls'] = 1
     client = RealtimeClient({'realtime_runtime_directory': args.runtime_directory} if args.runtime_directory else {},
                             host=args.host, state_root=folder / 'state')
     start = time.monotonic()
@@ -129,6 +136,7 @@ def main():
     moved = False
     protocol_checked = False
     parameter_test = None
+    residual_run = None
     sampling_stop = threading.Event()
     gpu_samples = queue.Queue(maxsize=1024)
     sampler = None
@@ -180,6 +188,12 @@ def main():
                   'exit_ok': any(e.get('event') == 'exited' and e.get('returncode') == 0 for e in events)}
         report['quality_confirmed'] = any(e.get('quality_revision', 0) >= 2 and e.get('quality_revision') == e.get('quality_applied_revision') for e in statuses)
         report['parameter_test'] = parameter_test
+        report['residual_values'] = residual_values if args.residual_test else None
+        report['residual_run'] = residual_run
+        report['residual_confirmed'] = bool(residual_run is not None and any(
+            e.get('run_id') == residual_run and e.get('effects') and
+            all(abs(e['effects'][0].get('parameters', {}).get(k, float('inf')) - v) < 1e-5
+                for k, v in residual_values.items()) for e in statuses))
         report['parameter_confirmed'] = bool(parameter_test and any(
             e.get('run_id') == parameter_test['run_id'] and e.get('effects') and
             abs(e['effects'][0].get('parameters', {}).get(parameter_test['name'], float('inf')) - parameter_test['value']) < 1e-5
@@ -199,7 +213,7 @@ def main():
         root.destroy()
 
     def tick():
-        nonlocal screenshot_sent, last_status, changed_quality, protocol_checked, parameter_test, moved
+        nonlocal screenshot_sent, last_status, changed_quality, protocol_checked, parameter_test, moved, residual_run
         elapsed = time.monotonic() - start
         if elapsed > args.seconds:
             finish()
@@ -230,6 +244,12 @@ def main():
                 break
             events.append(event)
             event['probe_time'] = elapsed
+            if args.residual_test and residual_run is None and event.get('event') == 'status' and event.get('metrics', {}).get('submitted', 0) > 0:
+                live = {p['name'] for p in event.get('parameter_modes', []) if p['mode'] == 1}
+                if residual_values.keys() <= live:
+                    residual_run = event['run_id']
+                    for name, value in residual_values.items():
+                        client.send('set_parameter', effect=0, name=name, value=value, run_id=residual_run)
             if args.protocol_test and not protocol_checked and event.get('event') == 'status' and event.get('metrics', {}).get('submitted', 0) > 0:
                 protocol_checked = True
                 client.send('quality', quality=config['quality'], run_id=event['run_id'] + 100)

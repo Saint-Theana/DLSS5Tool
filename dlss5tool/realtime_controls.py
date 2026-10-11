@@ -6,6 +6,7 @@ from tkinter import ttk
 from dlss5tool import ui_theme
 from dlss5tool.i18n import tr
 from dlss5tool.parameter_values import parse_number, format_number, clean_step
+from dlss5tool.parameter_contract import feedback_state
 from dlss5tool.realtime_labels import effect_text, parameter_label
 from dlss5tool.ui_widgets import (AccentSlider, CheckToggle, ChipGroup,
                                   ChromeButton, ChromeCombobox, ChromeSpinbox, CollapsibleSection, Tooltip)
@@ -491,10 +492,12 @@ class ParameterRow(ttk.Frame):
             return
         self._commit()
 
-    def set_feedback(self, *, reason='', nondefault=False, unapplied=False, error='', pending=False):
+    def set_feedback(self, *, reason='', nondefault=False, unapplied=False, error='', pending=False, restart=False):
+        operation = feedback_state(reason=reason, error=error, pending=pending, unapplied=unapplied, restart=restart)
         state = (reason, nondefault, unapplied, error, pending)
-        if state == self._feedback_state:
+        if state == self._feedback_state and operation == getattr(self, 'operation_state', None):
             return
+        self.operation_state = operation
         self._feedback_state = state
         self.enabled = not reason
         self.disabled_reason = reason
@@ -508,7 +511,8 @@ class ParameterRow(ttk.Frame):
             self.reset_button.configure(state='normal' if nondefault else 'disabled')
         labels = []
         if unapplied:
-            labels.append(tr('realtime.editor.syncing' if pending else 'realtime.editor.unapplied'))
+            labels.append(tr('parameter.state.restart' if operation == 'restart' else
+                             'realtime.editor.syncing' if pending else 'realtime.editor.unapplied'))
         if reason:
             labels.append(reason)
         if error:

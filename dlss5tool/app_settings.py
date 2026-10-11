@@ -10,6 +10,7 @@ import sys
 
 from dlss5tool import i18n
 from dlss5tool import appearance
+from dlss5tool.parameter_contract import PARAMETERS
 from copy import deepcopy
 from dlss5tool.host_queue import MAX_IN_FLIGHT
 from dlss5tool.performance_profiles import profiles as validate_performance_profiles
@@ -17,10 +18,10 @@ from dlss5tool.guidance_parameters import parameters as guidance_parameters
 from dlss5tool.guidance_public import normalize_public_settings
 
 
-DLSS_SLIDER_MIN = 0.0
+DLSS_SLIDER_MIN = PARAMETERS['intensity'].minimum
 DLSS_STANDARD_MAX = 1.0
-DLSS_SLIDER_MAX = 5.0
-DLSS_SLIDER_STEP = 0.01
+DLSS_SLIDER_MAX = PARAMETERS['intensity'].maximum
+DLSS_SLIDER_STEP = PARAMETERS['intensity'].step
 
 
 DEFAULTS = {
@@ -30,18 +31,18 @@ DEFAULTS = {
     "preview_compare_layout": "wipe",
     "guidance_preview_view": "flow",
     "guidance_compare_target": "flow",
-    "style": 0,
+    "style": PARAMETERS['style'].default,
     "enable_5x": False,
-    "intensity": 1.0,
+    "intensity": PARAMETERS['intensity'].default,
     "use_intensity": True,
-    "local_tone": 1.0,
+    "local_tone": PARAMETERS['local_tone'].default,
     "use_local_tone": True,
-    "local_struct": 1.0,
+    "local_struct": PARAMETERS['local_struct'].default,
     "use_local_struct": True,
     "use_auto_mask": True,
-    "skin_struct": 1.0,
+    "skin_struct": PARAMETERS['skin_struct'].default,
     "output_view": 0,
-    "output_mix": 1.0,
+    "output_mix": PARAMETERS['output_mix'].default,
     "use_output_mix": True,
     "export_mode": "single",
     "parallel_workers": 4,

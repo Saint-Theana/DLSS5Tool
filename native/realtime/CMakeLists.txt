@@ -83,6 +83,12 @@ set_target_properties(dlss5_realtime_host PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY_RELEASE "${REALTIME_OUTPUT_DIR}"
   RUNTIME_OUTPUT_DIRECTORY_DEBUG "${REALTIME_OUTPUT_DIR}")
 enable_testing()
+add_executable(realtime_hdr_residual_tests hdr_residual_tests.cpp)
+target_compile_definitions(realtime_hdr_residual_tests PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN
+  HDR_TEST_SHADER=L"${CMAKE_CURRENT_LIST_DIR}/hdr_residual_test.hlsl")
+target_link_libraries(realtime_hdr_residual_tests PRIVATE d3d11 d3dcompiler windowsapp)
+add_test(NAME realtime_hdr_residual_warp COMMAND realtime_hdr_residual_tests)
+add_test(NAME realtime_hdr_residual_gpu COMMAND realtime_hdr_residual_tests hardware)
 add_executable(realtime_test_source EXCLUDE_FROM_ALL "${ROOT}/scripts/realtime_test_source.cpp")
 target_include_directories(realtime_test_source PRIVATE "${DEPS}/json/single_include")
 target_link_libraries(realtime_test_source PRIVATE d3d11 dxgi d3dcompiler user32 shcore)

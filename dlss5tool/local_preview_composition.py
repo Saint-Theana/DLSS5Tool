@@ -10,7 +10,11 @@ from dlss5tool.render_cache import file_identity
 
 
 class LocalPreviewComposition:
-    def _invalidate_local_composition(self, *, keep_last=False):
+    def _invalidate_local_composition(self, *, keep_last=False, reason='source_or_session', record=True):
+        from dlss5tool.parameter_contract import invalidation
+        if record:
+            self._last_parameter_invalidation = {'reason': reason,
+                'layers': list(invalidation(reason)) if reason in appearance.GROUPS else ['source', 'nr', 'composition', 'fg']}
         job = getattr(self, '_local_composition_job', None)
         if job:
             job.invalidate()
@@ -27,9 +31,11 @@ class LocalPreviewComposition:
         position = (file_identity(self.video), int(frame))
         mix = float(settings.get('output_mix', 1)) if not settings.get('output_view', 0) else 1.
         if mix == 1 and not appearance.active(settings):
-            self._invalidate_local_composition()
+            self._invalidate_local_composition(record=False)
             self._dlss_pending = False
             self._local_composition_last = (position, processed)
+            from dlss5tool.preview_feedback import PreviewFeedback
+            PreviewFeedback._set_parameter_status(self, 'applied')
             return processed
         look = appearance.settings(settings)
         key = (position, id(original), id(processed), mix, json.dumps(look, sort_keys=True))
@@ -57,6 +63,8 @@ class LocalPreviewComposition:
             self._local_composition_busy = False
             self._dlss_pending = False
             self._clear_preview_wait()
+            from dlss5tool.preview_feedback import PreviewFeedback
+            PreviewFeedback._set_parameter_status(self, 'failed')
             self.set_status(tr('status.shared_failed', error=str(error).splitlines()[0]))
             if getattr(self, '_local_composition_error', None) != key:
                 self.logln('[预览] ' + str(error))
@@ -66,6 +74,8 @@ class LocalPreviewComposition:
         if result is not None:
             self._dlss_pending = False
             self._clear_preview_wait()
+            from dlss5tool.preview_feedback import PreviewFeedback
+            PreviewFeedback._set_parameter_status(self, 'applied')
             self._local_composition_last = (position, result)
             return result
         self._dlss_pending = True

@@ -9,6 +9,7 @@ import cv2
 from dlss5tool.image_sequence import open_capture
 
 from dlss5tool import ui_theme
+from dlss5tool.parameter_contract import comparison_command
 from dlss5tool.i18n import tr
 from dlss5tool.guidance_parameters import analysis_edge
 from dlss5tool.guidance_public import depth_enabled, public_targets, normalize_public_settings, still_image_settings
@@ -227,7 +228,8 @@ class PreviewComparison:
             self._sync_comparison_controls()
             self.display_view()
         else:
-            self.view_var.set(selection)
+            action = comparison_command('processed' if selection == 'dlss' else selection)
+            self.view_var.set('dlss' if action == 'processed' else action)
             self.on_view_change()
 
     def _comparison_changed(self):

@@ -1,0 +1,267 @@
+[
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_manifest_metadata_and_color_identity[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_manifest_metadata_and_color_identity[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_reader_preserves_precision_seek_eof_and_close[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.47s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_reader_preserves_precision_seek_eof_and_close[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.43s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_preview_tonemaps_uint16_without_modifying_input[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.44s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_preview_tonemaps_uint16_without_modifying_input[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.43s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_analysis_proxy_uses_hdr_reader_and_never_changes_source[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.43s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_analysis_proxy_uses_hdr_reader_and_never_changes_source[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.50s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_production_renderer_precision_and_explicit_sdr_conversion[hdr10_pq-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.48s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_production_renderer_precision_and_explicit_sdr_conversion[hdr10_pq-False]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.50s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_production_renderer_precision_and_explicit_sdr_conversion[hdr10_hlg-True]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.53s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_production_renderer_precision_and_explicit_sdr_conversion[hdr10_hlg-False]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.53s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_async_preview_seek[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.49s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_async_preview_seek[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.50s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_changed_source_and_wrong_color_contract_rejected[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.35s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_changed_source_and_wrong_color_contract_rejected[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.36s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_unknown_profile_rejected[linear]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_unknown_profile_rejected[scrgb]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_unknown_profile_rejected[auto]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_unknown_profile_rejected[None]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_hdr_mixed_depth_alpha_gray_and_size_rejected[shape0-uint8]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_hdr_mixed_depth_alpha_gray_and_size_rejected[shape1-uint16]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_hdr_mixed_depth_alpha_gray_and_size_rejected[shape2-uint16]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_hdr_mixed_depth_alpha_gray_and_size_rejected[shape3-uint16]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.33s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_pq-change0]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_pq-change1]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_pq-change2]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_pq-change3]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.35s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_hlg-change0]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_hlg-change1]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.35s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_hlg-change2]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_invalid_hdr_manifest_rejected[hdr10_hlg-change3]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.34s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_queue_preserves_hdr_contract[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_queue_preserves_hdr_contract[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.67s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_render_cancellation_closes_hdr_reader[hdr10_pq]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.39s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_render_cancellation_closes_hdr_reader[hdr10_hlg]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.38s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_import_dialog_recovers_from_sdr_error_and_imports_hdr[hdr10_pq-light-zh_CN]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.93s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_import_dialog_recovers_from_sdr_error_and_imports_hdr[hdr10_pq-dark-en_US]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.94s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_import_dialog_recovers_from_sdr_error_and_imports_hdr[hdr10_hlg-light-zh_CN]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.94s\n"
+  },
+  {
+    "node": "tests/test_hdr_image_sequence.py::test_import_dialog_recovers_from_sdr_error_and_imports_hdr[hdr10_hlg-dark-en_US]",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.93s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_copy_obeys_selected_target_range",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.77s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_float32_step_tail_does_not_become_display_precision",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_local_load_migrates_high_values_without_opening_for_invalid_data",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::NumberRangeTests::test_range_schema_presets_native_boundary_and_legacy_detection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_bilingual_range_tooltips_toggle_and_number_fields_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.62s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_default_range_and_native_format_with_unchanged_catalog",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.80s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_loaded_legacy_later_pass_and_disabled_memory_open_range",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.97s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_range_only_toggle_does_not_apply_draft_or_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.81s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_range_toggle_follows_common_rows_and_stays_before_later_passes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.82s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_ui_correction_checkbox_aligns_left_and_retains_values_and_undo",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.50s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::RealtimeRangeTests::test_undo_reopens_required_range_and_preserves_high_values",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::LocalRangeTests::test_block_closure_without_clipping_and_do_not_rerender_for_range_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.67s\n"
+  },
+  {
+    "node": "tests/test_parameter_range.py::LocalRangeTests::test_invalid_text_prevents_closure_and_precision_is_not_lost",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.66s\n"
+  }
+]

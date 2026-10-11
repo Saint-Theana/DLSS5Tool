@@ -7505,7 +7505,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         self.display_view(quality="fast")
 
     def on_settings_change(self, event=None):
-        self._invalidate_local_composition(keep_last=True)
+        self._invalidate_local_composition(keep_last=True, reason='basic')
         if self.playing:
             self.pause()
         self._freeze_preview_cache(resume_ms=None)
@@ -7523,7 +7523,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
             # Like the NR controls, pin legacy preview to the edited frame.
             # Its playback composer is synchronous; edits use the async path.
             self.pause()
-        self._invalidate_local_composition(keep_last=True)
+        self._invalidate_local_composition(keep_last=True, reason='quality')
         self._update_dlss_control_states()
         self._schedule_settings_save()
         if self._uses_shared_render():
@@ -9184,6 +9184,16 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
                 if getattr(job, "state", "") in {"completed", "failed", "cancelled", "interrupted"}
             ],
         }
+        editor = getattr(self, '_local_adjustments', None)
+        if editor is not None:
+            context['parameter_contract'] = editor.diagnostic_snapshot()
+            context['parameter_contract']['last_invalidation'] = getattr(self, '_last_parameter_invalidation', None)
+            context['parameter_contract']['generation'] = getattr(self, '_prefetch_gen', None)
+            if context['preview']['shared_render']:
+                context['parameter_contract']['generation'] = getattr(self, '_shared_revision', None)
+            context['parameter_contract']['runtime'] = {
+                'configured': mod_paths.runtime_info(context['settings']), 'active_host': active_host,
+                'meaning': 'configured selection and current host status; not a loaded-module claim'}
         if realtime is not None and not realtime._closed:
             context['realtime'] = realtime.diagnostic_snapshot()
             context['_diagnostic_io'] = {'realtime_logs': str(paths.state_path('realtime') / 'logs')}

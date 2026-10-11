@@ -17,6 +17,7 @@ import numpy as np
 
 from dlss5tool import paths
 from dlss5tool import appearance
+from dlss5tool.parameter_contract import COMPOSITION_VERSION
 from dlss5tool.image_sequence import ImageSequence, is_sequence, source_bytes, audio_source
 from dlss5tool.frame_generation import Cancelled, check_cancel, export_video, runtime_files, inspect_source
 
@@ -86,7 +87,10 @@ def render_identity(source, settings):
             dependencies.append(file_identity(value))
     pixel['dlss_runtime'] = settings.get('dlss_runtime', '')
     pixel.update(appearance.settings(settings))
-    payload = [6, file_identity(source), pixel, dependencies]
+    # Raw NR survives a composition implementation revision. A neutral public
+    # identity still aliases its base session (used by interim previews).
+    composition_version = COMPOSITION_VERSION if appearance.active(settings) or settings.get('output_mix', 1) != 1 else 0
+    payload = [6, composition_version, file_identity(source), pixel, dependencies]
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 

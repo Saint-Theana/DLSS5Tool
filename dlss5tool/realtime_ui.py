@@ -8,6 +8,7 @@ import time
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog, simpledialog, scrolledtext
 from dlss5tool import ui_theme, paths, mod_paths, support_diagnostics
+from dlss5tool import parameter_contract
 from dlss5tool.i18n import tr
 from dlss5tool.realtime_labels import (effect_text, parameter_label, effect_title, inspector_groups,
                                      EFFECT_CATEGORIES, effect_category, effect_description, parameter_hint)
@@ -434,9 +435,7 @@ class RealtimeWorkspace:
                            ('color', tr("realtime.quality.color")), ('luminance', tr("realtime.quality.luminance")), ('feather', tr("realtime.quality.feather"))):
             var = tk.StringVar(value=str(self.config['quality'][key]))
             self.quality_controls[key] = var
-            descriptor = dict(name=key, label=label, default=DEFAULT_CONFIG['quality'][key],
-                              min=0, max=256 if key == 'feather' else 2,
-                              step=1 if key == 'feather' else .05, integer=False)
+            descriptor = parameter_contract.PARAMETERS['nr_quality.' + key].descriptor(name=key)
             row = ParameterRow(quality_page if key == 'feather' else self.residual_section.body, descriptor, var, ui=self._ui,
                                on_commit=self._quality_committed, on_change=self._editor_changed,
                                hint=tr('realtime.quality.total_hint') if key == 'total' else '')
@@ -1412,7 +1411,16 @@ class RealtimeWorkspace:
     def diagnostic_snapshot(self):
         """Read raw drafts without validation, saving or sending commands."""
         selection = getattr(self.client, 'runtime_selection', None)
+        ready = self._host_ready
+        if ready and ready.get('_generation') != self.client.generation:
+            ready = None
         return deepcopy({
+            'parameter_contract': parameter_contract.diagnostic(mode='realtime',
+                state={'clean': 'applied', 'applying': 'pending', 'waiting': 'pending'}.get(self._editor_state, self._editor_state),
+                hdr=bool(self.controls['hdr'][0].get()), ready=ready,
+                nr=any(e['name'].replace('/', '\\') == NR for e in self.config['effects']),
+                generation=self.client.generation, reset=getattr(self, '_last_parameter_invalidation', None),
+                runtime=selection if isinstance(selection, dict) else None),
             'session': {'phase': self.session_summary()[0], 'busy': self.session_summary()[1],
                         'run_id': self._run_id, 'generation': self.client.generation,
                         'render_confirmed': self._render_confirmed, 'target': self._session_target,
@@ -1856,8 +1864,9 @@ class RealtimeWorkspace:
                 self._describe_guided()
                 self._describe_effect_choice()
             choice.bind('<<ComboboxSelected>>', change_variant)
-        groups = inspector_groups(effect['name'], desc.get('parameters', []))
         is_nr = effect['name'].replace('/', '\\') == NR
+        groups = inspector_groups(effect['name'], [parameter_contract.native_descriptor(p) if is_nr else p
+                                                   for p in desc.get('parameters', [])])
         names = {p['name'] for p in desc.get('parameters', [])}
         if is_nr:
             self.skin_pairs = {strength: mask for strength, mask in NR_SKIN_PAIRS
@@ -2265,6 +2274,8 @@ class RealtimeWorkspace:
 
     def command(self, name):
         try:
+            if name == 'compare':
+                name = parameter_contract.comparison_command(name)
             if name == 'stop':
                 self._overlay_expected.clear()
                 self._queued_parameter_apply = False
@@ -2529,6 +2540,12 @@ class RealtimeWorkspace:
             dependency = ('enableInputResolutionScaling', lambda v: v == 1, 'resolution', {})
         elif name in ('residualMultiplier', 'residualSaturation', 'residualLightness',
                        'shadowStructureMultiplier', 'reflectionGlowMultiplier'):
+            hdr = bool(self.controls['hdr'][0].get())
+            ready = self._host_ready
+            if ready and ready.get('_generation') != self.client.generation:
+                ready = None
+            if not parameter_contract.capabilities(mode='realtime', hdr=hdr, ready=ready)['residual']:
+                return tr('appearance.hdr_residual_unavailable')
             try:
                 if any(k in self.parameter_rows and self.parameter_rows[k].value() == 1
                        for k in ('enableResidualControls', 'enableInputResolutionScaling')):
@@ -2583,7 +2600,8 @@ class RealtimeWorkspace:
                                          or (name in self.parameter_toggles and not self.parameter_toggles[name].get())),
                              unapplied=running and (not same_effect or not self._same_parameter(expected, actual)),
                               pending=((index, name) in self._overlay_expected or (index, name) in self._live_expected),
-                             error=error)
+                             error=error, restart=parameter_contract.update_policy('basic', mode='realtime',
+                                 native_mode=self._parameter_modes.get((index, name))) == 'restart')
         for strength, mask in self.skin_pairs.items():
             row, switch = self.parameter_rows[strength], self.parameter_rows[mask]
             row.set_feedback(reason=row.disabled_reason,
@@ -2616,7 +2634,8 @@ class RealtimeWorkspace:
                 previous = actual.get('parameters', {}).get(name, default)
                 if self._same_parameter(value, previous):
                     continue
-                if name not in descriptors or self._parameter_modes.get((index, name)) != 1:
+                if name not in descriptors or parameter_contract.update_policy('basic', mode='realtime',
+                        native_mode=self._parameter_modes.get((index, name))) != 'live':
                     restart = True
                 else:
                     changes.append((index, name, value))
@@ -2764,6 +2783,12 @@ class RealtimeWorkspace:
                    for row in (*self.parameter_rows.values(), *self.quality_rows.values()))
 
     def _parameter_committed(self):
+        before = (self._pending_undo or self._edit_snapshot or {}).get('parameters', {})
+        after = self._parameter_snapshot().get('parameters', {})
+        changed = {name for name, value in after.items() if not self._same_parameter(value, before.get(name))}
+        self._last_parameter_invalidation = {'reason': 'parameter_edit',
+            'layers': list(parameter_contract.invalidation('residual' if changed and
+                changed <= set(parameter_contract.RESIDUAL) else 'basic'))}
         self._editor_changed()
         if self._pending_undo is not None:
             self._undo_parameters = self._pending_undo
@@ -2776,6 +2801,8 @@ class RealtimeWorkspace:
                 self.live_parameters()
 
     def _quality_committed(self):
+        self._last_parameter_invalidation = {'reason': 'quality',
+            'layers': list(parameter_contract.invalidation('quality'))}
         self._editor_changed()
         if (self._active and self._render_confirmed
                 and self._editor_state not in ('invalid', 'restart', 'waiting')):

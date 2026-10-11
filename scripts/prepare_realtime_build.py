@@ -138,6 +138,27 @@ inline std::filesystem::path StandaloneNrRuntimePath() {
         else:
             text = text.replace("Win32Helper::GetExePath().parent_path()", "StandaloneRuntimeDirectory()")
         if name == 'DLSSNRFilter.cpp':
+            text = text.replace('// Resolution scaling and residual reconstruction are SDR RGBA8 features.',
+                '// Downscaling is SDR-only; full-resolution residual controls also support signed FP16 HDR.')
+            text = text.replace('// Preserve the active HDR protocol while validating live SDR parameters.',
+                '// Preserve the active HDR protocol while validating live parameters.')
+            # Full-resolution HDR gets its own signed-linear fine-control path.
+            # Never run the SDR downsampling/HSL kernels on FP16 HDR textures.
+            hdr_helper = (ROOT / 'native/realtime/hdr_residual.hlsli').read_text(encoding='utf-8')
+            text = replace_once(text, 'float3 RGBToHSL(float3 color) {', hdr_helper + '\nfloat3 RGBToHSL(float3 color) {')
+            text = replace_once(text, 'float3 ApplyResidualControls(float3 original, float3 residual) {',
+                '''float3 ApplyResidualControls(float3 original, float3 residual) {
+    if (Padding0 != 0) return ApplyHdrResidualControls(original, residual, ResidualMultiplier,
+        ShadowStructureMultiplier, ReflectionGlowMultiplier, ResidualSaturation, ResidualLightness);''')
+            text = replace_once(text,
+                'impl->useResolutionScaling = !experimentalHdrPath && settings.enableInputResolutionScaling;',
+                'impl->useResolutionScaling = settings.enableInputResolutionScaling;')
+            text = replace_once(text, 'settings.inputResolutionPercent, 25u, 100u);',
+                'experimentalHdrPath ? 100u : settings.inputResolutionPercent, 25u, 100u);')
+            begin = text.index('static bool CompositeResidual(')
+            text = text[:begin] + replace_once(text[begin:],
+                '\t\t.targetHeight = impl.height,',
+                '\t\t.targetHeight = impl.height,\n\t\t.padding0 = impl.experimentalHdrPath ? 1u : 0u,')
             # Explicit opt-in preserves dormant controls in old presets. Reuse
             # residual resources at 100% without enabling input downscaling.
             text = replace_once(text,
@@ -151,6 +172,10 @@ inline std::filesystem::path StandaloneNrRuntimePath() {
             text = replace_once(text,
                 '(parameterName == "enableInputResolutionScaling" || parameterName == "inputResolutionPercent" ||',
                 '(parameterName == "enableResidualControls" || parameterName == "enableInputResolutionScaling" || parameterName == "inputResolutionPercent" ||')
+            begin = text.index('\tif (_settings.experimentalHdr.enabled &&')
+            end = text.index('\tif (parameterName == "style"', begin)
+            text = text[:begin] + ('\tif (_settings.experimentalHdr.enabled && parameterName == "inputResolutionPercent")\n'
+                '\t\treturn EffectParameterApplyMode::Unavailable;\n') + text[end:]
             text = text.replace('applicationDirectory / L"nvngx_dlssnr.dll"', 'StandaloneNrRuntimePath()')
             text = text.replace('#include "pch.h"', '#include "pch.h"\n#include "quality.h"\n#include "telemetry.h"', 1)
             text = replace_once(text, 'struct DLSSNRFilter::Impl {\n', 'struct DLSSNRFilter::Impl {\n\tRealtime::ResidualComposite veyraComposite;\n')

@@ -6,7 +6,15 @@ from dlss5tool.i18n import tr
 
 
 class PreviewFeedback:
+    def _set_parameter_status(self, state):
+        editor = getattr(self, '_local_adjustments', None)
+        if editor is not None:
+            meta = getattr(self, '_video_color_info', None) or {}
+            config = self._preview_effect_settings() if hasattr(self, '_preview_effect_settings') else {}
+            editor.set_operation_state(state, hdr=bool(meta.get('is_hdr') and config.get('hdr_mode')))
+
     def _show_preview_wait(self, stage, key=None):
+        PreviewFeedback._set_parameter_status(self, 'pending')
         if key is None:
             key = (getattr(self, 'video', None), getattr(self, '_frame', 0))
         if getattr(self, '_preview_wait_key', None) != key:
@@ -37,6 +45,8 @@ class PreviewFeedback:
         self._preview_wait_after = self.root.after(200, self._tick_preview_wait)
 
     def _clear_preview_wait(self):
+        if getattr(self, '_preview_wait_key', None) is not None:
+            PreviewFeedback._set_parameter_status(self, 'idle')
         if getattr(self, '_preview_wait_after', None) is not None:
             self._cancel_after('_preview_wait_after')
         if getattr(self, '_preview_wait_key', None) is not None:

@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import threading
 
@@ -17,6 +18,7 @@ sys.path.insert(0, str(ROOT))
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--hdr', action='store_true', help='HDR10/PQ full-precision NR/cache/export probe')
     args = parser.parse_args()
     root = args.output.resolve()
     if root.exists():
@@ -28,7 +30,7 @@ def main():
     import cv2
     import numpy as np
     from dlss5tool.render_cache import RenderCache, encode_cached
-    from dlss5tool.video_export import compose_output_frame
+    from dlss5tool.video_export import compose_output_frame, compose_hdr_frame, find_ffmpeg, probe_video_stream, classify_color_info
     from dlss5tool.guidance_client import preflight
     settings = {'host_backend': 'v2', 'dlss_runtime': '__bundled__', 'intensity': .5,
                 'guidance_mode': 1, 'guidance_flow_backend': 'nvofa', 'guidance_device': 'cuda',
@@ -39,17 +41,32 @@ def main():
                 'nr_quality': {'total': .6, 'protection': True, 'feather': 6,
                                'regions': [[.1, .1, .4, .8]]}}
     info = preflight(settings)
-    source = root/'source.avi'
-    writer = cv2.VideoWriter(str(source), cv2.VideoWriter_fourcc(*'MJPG'), 24, (320, 192))
-    if not writer.isOpened():
-        raise RuntimeError('Synthetic writer failed')
     rng = np.random.default_rng(17)
-    pixels = rng.integers(25, 220, (192, 320, 3), dtype=np.uint8)
-    try:
-        for i in range(4):
-            writer.write(np.roll(pixels, i*2, axis=1))
-    finally:
-        writer.release()
+    if args.hdr:
+        settings['hdr_mode'] = True
+        settings['nr_residual'].update(shadowStructureMultiplier=.7, reflectionGlowMultiplier=1.2, residualLightness=.8)
+        source = root/'source.mp4'
+        pixels = rng.integers(12000, 50000, (192, 320, 3), dtype=np.uint16)
+        command = [str(find_ffmpeg()), '-hide_banner', '-loglevel', 'error', '-f', 'rawvideo',
+            '-pixel_format', 'rgb48le', '-video_size', '320x192', '-framerate', '24', '-i', 'pipe:0',
+            '-c:v', 'libx265', '-preset', 'ultrafast', '-x265-params',
+            'log-level=error:lossless=1:colorprim=bt2020:transfer=smpte2084:colormatrix=bt2020nc',
+            '-pix_fmt', 'yuv420p10le', '-color_trc', 'smpte2084',
+            '-color_primaries', 'bt2020', '-colorspace', 'bt2020nc', str(source)]
+        subprocess.run(command, input=b''.join(np.roll(pixels, i*2, axis=1).tobytes() for i in range(4)),
+                       check=True, timeout=30, creationflags=subprocess.CREATE_NO_WINDOW)
+        assert probe_video_stream(find_ffmpeg(), source)['is_hdr'], 'Fixture lost HDR transfer metadata'
+    else:
+        source = root/'source.avi'
+        writer = cv2.VideoWriter(str(source), cv2.VideoWriter_fourcc(*'MJPG'), 24, (320, 192))
+        if not writer.isOpened():
+            raise RuntimeError('Synthetic writer failed')
+        pixels = rng.integers(25, 220, (192, 320, 3), dtype=np.uint8)
+        try:
+            for i in range(4):
+                writer.write(np.roll(pixels, i*2, axis=1))
+        finally:
+            writer.release()
     manager = RenderCache(128*1024**2)
     cancel = threading.Event()
     timer = threading.Timer(120, cancel.set)
@@ -59,9 +76,15 @@ def main():
         for i in range(4):
             rendered = session.wait(i, cancel)
             raw = manager.base.wait(i, cancel)
-            expected = compose_output_frame(cv2.cvtColor(raw.mix_source, cv2.COLOR_RGBA2BGR),
-                cv2.cvtColor(raw[0], cv2.COLOR_RGBA2BGR), mix=.8, settings=settings)
-            np.testing.assert_array_equal(cv2.cvtColor(rendered[0], cv2.COLOR_RGBA2BGR), expected)
+            if args.hdr:
+                expected = compose_hdr_frame(raw.mix_source, raw[0], mix=.8, profile='hdr10_pq', settings=settings)
+                np.testing.assert_array_equal(rendered[0], expected)
+                assert rendered[0].dtype == np.float16 and np.isfinite(rendered[0]).all()
+                assert session.metadata['hdr_metadata']['is_hdr']
+            else:
+                expected = compose_output_frame(cv2.cvtColor(raw.mix_source, cv2.COLOR_RGBA2BGR),
+                    cv2.cvtColor(raw[0], cv2.COLOR_RGBA2BGR), mix=.8, settings=settings)
+                np.testing.assert_array_equal(cv2.cvtColor(rendered[0], cv2.COLOR_RGBA2BGR), expected)
         base = manager.base
         changed = dict(settings, nr_quality={'total': .25})
         next_session = manager.session(source, changed)
@@ -84,10 +107,13 @@ def main():
             capture.release()
         assert decoded == 4
         assert result['cache_hits'] == 4 and result['new_frames'] == 0
+        exported = classify_color_info(probe_video_stream(find_ffmpeg(), root/'export.mp4'))
+        assert exported['is_hdr'] == args.hdr
         report = {'status': 'passed', 'guidance': info, 'frames': decoded,
+                  'hdr': args.hdr, 'output_color': exported,
                   'raw_nr_reused': True, 'composition_array_exact': True,
                   'export_cache_hits': result['cache_hits'], 'export_new_frames': result['new_frames'],
-                  'scope': '320x192 SDR synthetic, source Python, not frozen/game/HDR/performance acceptance'}
+                  'scope': '320x192 synthetic ' + ('HDR10/PQ' if args.hdr else 'SDR') + ', source Python, not frozen/game/performance acceptance'}
         (root/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
         print(json.dumps(report, ensure_ascii=False, indent=2))
     finally:

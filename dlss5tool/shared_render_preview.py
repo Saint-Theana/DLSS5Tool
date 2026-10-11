@@ -232,7 +232,10 @@ class SharedRenderPreview(PreviewFeedback):
                 or not hasattr(self, '_export_settings')):
             return False
         config = self._preview_effect_settings()
-        return config['super_resolution_scale'] > 1 or config['frame_generation_multiplier'] > 1
+        # HDR must be composed in linear light before preview tone mapping,
+        # including NR-only playback. The legacy preview is already SDR BGR.
+        hdr = bool(config.get('hdr_mode') and (getattr(self, '_video_color_info', None) or {}).get('is_hdr'))
+        return hdr or config['super_resolution_scale'] > 1 or config['frame_generation_multiplier'] > 1
 
     def _shared_config(self):
         from dlss5tool.gui import _resolve_output_size
@@ -369,6 +372,7 @@ class SharedRenderPreview(PreviewFeedback):
         except Exception as error:
             self.pause()
             self._clear_preview_wait()
+            PreviewFeedback._set_parameter_status(self, 'failed')
             self._cancel_after('_scrub_after')
             self.set_status(tr('status.shared_failed', error=str(error).splitlines()[0]))
             if getattr(self, '_shared_last_error', None) != str(error):
@@ -384,6 +388,7 @@ class SharedRenderPreview(PreviewFeedback):
     def _shared_paint(self, session, pair, index, waiting=False):
         if not waiting:
             self._clear_preview_wait()
+            PreviewFeedback._set_parameter_status(self, 'applied')
         processed, reference = pair
         config = self._shared_display_config
         meta = (session.metadata or {}).get('hdr_metadata')

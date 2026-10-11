@@ -165,6 +165,17 @@ ScalingOptions options(const json& config) {
     o.hdrComponents = BuildHdrComponentPlan(o.effects);
     if (o.hdrComponents.error != HdrComponentError::None) throw std::runtime_error("Invalid HDR effect chain");
     o.IsHdrCompatibilityEnabled(config.value("hdr", false));
+    if (config.value("hdr", false)) {
+        for (const auto& effect : o.effects) {
+            if (effect.name != "DLSSNR\\DLSSNR_AI_Filter") continue;
+            const auto value = [&](const char* key, float fallback) {
+                const auto it = effect.parameters.find(key);
+                return it == effect.parameters.end() ? fallback : it->second;
+            };
+            if (value("enableInputResolutionScaling", 0) >= .5f && value("inputResolutionPercent", 100) != 100)
+                throw std::runtime_error("HDR NR residual controls require 100% input resolution; no automatic SDR fallback");
+        }
+    }
     o.IsWindowedMode(config.value("windowed", false));
     o.initialWindowedScaleFactor = config.value("window_scale", 1.0f);
     if (!std::isfinite(o.initialWindowedScaleFactor) || o.initialWindowedScaleFactor < 1 || o.initialWindowedScaleFactor > 4)
@@ -350,6 +361,7 @@ int main(int argc, char** argv) {
         Realtime::controlAvailable = parametersKey;
         Realtime::ConfigureStopHint(hotkeyBindings[0].label, hotkeyBindings[3].label);
         emit({{"event", "ready"}, {"protocol", 1}, {"stop_hotkey_registered", hotkey},
+            {"appearance_hdr_residual_version", 1},
             {"hotkey_bindings", labels}, {"configurable_hotkeys", true},
             {"independent_stop", Realtime::supervisedStop.load()},
             {"hotkeys", {{"stop", hotkey}, {"compare", compareKey}, {"profiler", profilerKey}, {"parameters", parametersKey}}},

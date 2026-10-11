@@ -1,0 +1,140 @@
+Start testing: Oct 11 11:36 中国标准时间
+----------------------------------------------------------
+1/8 Testing: realtime_hdr_residual_warp
+1/8 Test: realtime_hdr_residual_warp
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_hdr_residual_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_hdr_residual_warp" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+HDR residual: 7 cases, signed/highlight/zero/odd extent/alpha passed
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_hdr_residual_warp" end time: Oct 11 11:36 中国标准时间
+"realtime_hdr_residual_warp" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: realtime_hdr_residual_gpu
+2/8 Test: realtime_hdr_residual_gpu
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_hdr_residual_tests.exe" "hardware"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_hdr_residual_gpu" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+HDR residual: 7 cases, signed/highlight/zero/odd extent/alpha passed
+<end of output>
+Test time =   0.32 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_hdr_residual_gpu" end time: Oct 11 11:36 中国标准时间
+"realtime_hdr_residual_gpu" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: realtime_hotkeys
+3/8 Test: realtime_hotkeys
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_hotkeys_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_hotkeys" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_hotkeys" end time: Oct 11 11:36 中国标准时间
+"realtime_hotkeys" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: realtime_app_icon
+4/8 Test: realtime_app_icon
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_app_icon_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_app_icon" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+GDI 4 -> 4
+Output icons: create, 96/144/192 DPI, release, 30 restarts; GDI 4 -> 4
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_app_icon" end time: Oct 11 11:36 中国标准时间
+"realtime_app_icon" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: realtime_guidance
+5/8 Test: realtime_guidance
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_guidance_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_guidance" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_guidance" end time: Oct 11 11:36 中国标准时间
+"realtime_guidance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: realtime_telemetry
+6/8 Test: realtime_telemetry
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_telemetry_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_telemetry" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_telemetry" end time: Oct 11 11:36 中国标准时间
+"realtime_telemetry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: realtime_quality_gpu
+7/8 Test: realtime_quality_gpu
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_quality_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_quality_gpu" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+identity passed
+zero strength exact base passed
+valid zero residual passed
+protected region exact base passed
+inward feather edge passed
+odd extent low resolution passed
+shadow safe overdrive passed
+signed HDR passed
+HDR highlight unclipped passed
+darken suppression passed
+GPU quality cases: 10 passed
+<end of output>
+Test time =   0.54 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_quality_gpu" end time: Oct 11 11:36 中国标准时间
+"realtime_quality_gpu" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: realtime_temporal_warp
+8/8 Test: realtime_temporal_warp
+Command: "F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build/Release/realtime_temporal_tests.exe"
+Directory: F:/project/DLSS5Tool/tmp/mode-contract-closeout-20261011/build
+"realtime_temporal_warp" start time: Oct 11 11:36 中国标准时间
+Output:
+----------------------------------------------------------
+D3D11 debug layer: not installed; validation skipped
+A/B/F/G production HLSL WARP tests passed: signed EMA, conditional persistence, attack/release, motion/reset/rejection, half-resolution reduction, guided reconstruction, tap validation, detail, odd extents and recurrent variance.
+<end of output>
+Test time =   1.48 sec
+----------------------------------------------------------
+Test Passed.
+"realtime_temporal_warp" end time: Oct 11 11:36 中国标准时间
+"realtime_temporal_warp" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Oct 11 11:36 中国标准时间

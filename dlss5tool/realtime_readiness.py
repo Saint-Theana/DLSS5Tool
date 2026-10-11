@@ -101,6 +101,18 @@ def check_start(config, selected, *, settings, catalog, host, ready=None,
         add('features', 'runtime', blocking=False, files=', '.join(missing), detail=str(feature_root))
     if config['hdr'] and config['capture_method'] != 0:
         add('hdr_capture', 'display')
+    if config['hdr']:
+        from dlss5tool.parameter_contract import RESIDUAL, capabilities
+        for index, effect in enumerate(config['effects']):
+            if effect['name'].replace('/', '\\') != NR:
+                continue
+            params = effect.get('parameters', {})
+            enabled = params.get('enableResidualControls') or params.get('enableInputResolutionScaling')
+            if enabled and any(params.get(k, 1) != 1 for k in RESIDUAL) and not capabilities(
+                    mode='realtime', hdr=True, ready=ready)['residual']:
+                add('hdr_residual', 'effects', index=index)
+            if params.get('enableInputResolutionScaling') and params.get('inputResolutionPercent', 100) != 100:
+                add('hdr_resolution', 'effects', index=index)
     # A snapshot is evidence of enumeration, not proof of hardware backend support.
     # Unknown/stale snapshots must not invent a compatibility failure.
     if devices is not None:

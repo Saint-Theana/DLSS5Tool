@@ -2,16 +2,15 @@
 from copy import deepcopy
 import math
 from dlss5tool.i18n import tr
+from dlss5tool.parameter_contract import PARAMETERS, QUALITY, RESIDUAL, GROUPS
 
 VERSION = 1
-QUALITY_FIELDS = ('total', 'darken', 'brighten', 'color', 'luminance')
-DEFAULT_QUALITY = dict.fromkeys(QUALITY_FIELDS, 1.0) | {
-    'protection': False, 'feather': 12.0, 'regions': []}
-RESIDUAL_FIELDS = ('residualMultiplier', 'shadowStructureMultiplier',
-                   'reflectionGlowMultiplier', 'residualSaturation', 'residualLightness')
-DEFAULT_RESIDUAL = dict.fromkeys(RESIDUAL_FIELDS, 1.0)
+QUALITY_FIELDS = QUALITY
+DEFAULT_QUALITY = {k: PARAMETERS['nr_quality.' + k].default for k in QUALITY_FIELDS} | {
+    'protection': False, 'feather': PARAMETERS['nr_quality.feather'].default, 'regions': []}
+RESIDUAL_FIELDS = RESIDUAL
+DEFAULT_RESIDUAL = {k: PARAMETERS['nr_residual.' + k].default for k in RESIDUAL_FIELDS}
 DEFAULTS = {'nr_quality': DEFAULT_QUALITY, 'nr_residual': DEFAULT_RESIDUAL}
-GROUPS = ('basic', 'residual', 'quality', 'regions')
 
 
 def number(value, low, high, name):
@@ -26,7 +25,8 @@ def quality(value=None):
         raise ValueError(tr('realtime.error.quality'))
     result = deepcopy(DEFAULT_QUALITY) | deepcopy(value)
     for key in (*QUALITY_FIELDS, 'feather'):
-        result[key] = number(result[key], 0, 256 if key == 'feather' else 2, key)
+        spec = PARAMETERS['nr_quality.' + key]
+        result[key] = number(result[key], spec.minimum, spec.maximum, key)
     if type(result['protection']) is not bool:
         raise ValueError(tr('realtime.error.regions'))
     rects = result['regions']
@@ -46,7 +46,8 @@ def residual(value=None):
     value = {} if value is None else value
     if not isinstance(value, dict) or set(value) - DEFAULT_RESIDUAL.keys():
         raise ValueError('Invalid NR residual fields')
-    return {k: number(value.get(k, 1.0), 1 if k == 'residualMultiplier' else 0, 2, k)
+    return {k: number(value.get(k, PARAMETERS['nr_residual.' + k].default),
+                      PARAMETERS['nr_residual.' + k].minimum, PARAMETERS['nr_residual.' + k].maximum, k)
             for k in RESIDUAL_FIELDS}
 
 
@@ -74,8 +75,5 @@ def raw_settings(values):
 
 
 def preflight(values, *, hdr=False):
-    checked = settings(values)
-    if hdr and any(v != 1 for v in checked['nr_residual'].values()):
-        from dlss5tool.i18n import tr
-        raise ValueError(tr('appearance.hdr_residual_unavailable'))
-    return checked
+    # HDR fine controls are linear-light residual operations, not SDR HSL.
+    return settings(values)

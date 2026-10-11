@@ -1,0 +1,2780 @@
+{
+  "effect": "NR",
+  "config": {
+    "effects": [
+      {
+        "name": "DLSSNR\\DLSSNR_AI_Filter",
+        "parameters": {
+          "opticalFlowMethod": 0,
+          "antiFlicker": 0,
+          "enableResidualControls": 1
+        },
+        "scale": [
+          1,
+          1
+        ]
+      }
+    ],
+    "capture_method": 0,
+    "windowed": true,
+    "game_mode": false,
+    "hdr": false,
+    "monitor_mode": 0,
+    "monitor_id": "",
+    "gpu_index": -1,
+    "sync_enabled": true,
+    "sync_mode": 0,
+    "frame_rate": 60,
+    "capture_title_bar": false,
+    "disable_topmost": false,
+    "capture_fallback": true,
+    "window_scale": 1.0,
+    "gpu_priority": 0,
+    "quality": {
+      "total": 1.0,
+      "darken": 1.0,
+      "brighten": 1.0,
+      "color": 1.0,
+      "luminance": 1.0,
+      "protection": false,
+      "feather": 12,
+      "regions": []
+    }
+  },
+  "events": [
+    {
+      "appearance_hdr_residual_version": 1,
+      "configurable_hotkeys": true,
+      "event": "ready",
+      "hotkey_bindings": {
+        "compare": "Ctrl+Alt+C",
+        "parameters": "Ctrl+Alt+P",
+        "profiler": "Ctrl+Alt+F",
+        "stop": "Ctrl+Alt+F10"
+      },
+      "hotkeys": {
+        "compare": false,
+        "parameters": false,
+        "profiler": false,
+        "stop": true
+      },
+      "independent_stop": true,
+      "magpie_commit": "2c017d4be8311fac8584e2ff6187b1f03383bde1",
+      "protocol": 1,
+      "stop_hotkey_registered": true,
+      "task_switch_hook": true,
+      "_generation": 1,
+      "probe_time": 1.006599499999993
+    },
+    {
+      "event": "state",
+      "run_id": 0,
+      "state": 1,
+      "_generation": 1,
+      "probe_time": 1.006599499999993
+    },
+    {
+      "event": "ack",
+      "id": 1,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 1.006599499999993
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.0,
+        "output_hwnd": 0,
+        "phase": 1,
+        "stop_alpha": 0.0,
+        "toolbar_alpha": 0.0
+      },
+      "metrics": {
+        "age_samples": 0,
+        "captured": 0,
+        "dequeue_to_submit_ms_p50": null,
+        "dequeue_to_submit_ms_p95": null,
+        "dequeue_to_submit_ms_p99": null,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 0,
+        "publication_cpu_ms_p95": null,
+        "real": 0,
+        "source_timestamp_delta_ms": 0.0,
+        "submitted": 0
+      },
+      "parameter_modes": [],
+      "parameter_revision": 1,
+      "quality_applied_revision": 0,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 1,
+      "_generation": 1,
+      "probe_time": 1.0226999999999862
+    },
+    {
+      "event": "ack",
+      "id": 2,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 1.0226999999999862
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.0,
+        "output_hwnd": 0,
+        "phase": 1,
+        "stop_alpha": 0.0,
+        "toolbar_alpha": 0.0
+      },
+      "metrics": {
+        "age_samples": 0,
+        "captured": 0,
+        "dequeue_to_submit_ms_p50": null,
+        "dequeue_to_submit_ms_p95": null,
+        "dequeue_to_submit_ms_p99": null,
+        "discarded_capture": 0,
+        "generated": 0,
+        "nr_evaluations": 0,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": null,
+        "processed": 0,
+        "publication_cpu_ms_p95": null,
+        "real": 0,
+        "source_timestamp_delta_ms": 0.0,
+        "submitted": 0
+      },
+      "parameter_modes": [],
+      "parameter_revision": 2,
+      "quality_applied_revision": 0,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 1,
+      "_generation": 1,
+      "probe_time": 2.0306480999997802
+    },
+    {
+      "event": "ack",
+      "id": 3,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 2.0306480999997802
+    },
+    {
+      "event": "state",
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 2.865293500000007
+    },
+    {
+      "event": "notice",
+      "message": "缩放已开始，再次按下缩放快捷键停止",
+      "_generation": 1,
+      "probe_time": 2.925837700000102
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 1.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 1.0,
+        "toolbar_alpha": 1.0
+      },
+      "metrics": {
+        "age_samples": 7,
+        "captured": 8,
+        "dequeue_to_submit_ms_p50": 16.2389,
+        "dequeue_to_submit_ms_p95": 43.8948,
+        "dequeue_to_submit_ms_p99": 43.8948,
+        "discarded_capture": 15,
+        "generated": 0,
+        "nr_evaluations": 8,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 3.674112,
+        "processed": 8,
+        "publication_cpu_ms_p95": 0.2133,
+        "real": 7,
+        "source_timestamp_delta_ms": 17.778,
+        "submitted": 7
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 2,
+      "quality_applied_revision": 1,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 3.035027899999932
+    },
+    {
+      "event": "ack",
+      "id": 4,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.035027899999932
+    },
+    {
+      "event": "ack",
+      "id": 5,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.065049899999849
+    },
+    {
+      "event": "ack",
+      "id": 6,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.065049899999849
+    },
+    {
+      "event": "ack",
+      "id": 7,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.065049899999849
+    },
+    {
+      "event": "ack",
+      "id": 8,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.065049899999849
+    },
+    {
+      "event": "ack",
+      "id": 9,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 3.065049899999849
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 1.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 1.0,
+        "toolbar_alpha": 1.0
+      },
+      "metrics": {
+        "age_samples": 67,
+        "captured": 68,
+        "dequeue_to_submit_ms_p50": 16.2964,
+        "dequeue_to_submit_ms_p95": 17.0338,
+        "dequeue_to_submit_ms_p99": 43.8948,
+        "discarded_capture": 125,
+        "generated": 0,
+        "nr_evaluations": 68,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 3.689472,
+        "processed": 68,
+        "publication_cpu_ms_p95": 0.164,
+        "real": 67,
+        "source_timestamp_delta_ms": 17.0931,
+        "submitted": 67
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 1,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 4.0424370999999155
+    },
+    {
+      "event": "ack",
+      "id": 10,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 4.0424370999999155
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 1.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 1.0,
+        "toolbar_alpha": 1.0
+      },
+      "metrics": {
+        "age_samples": 128,
+        "captured": 129,
+        "dequeue_to_submit_ms_p50": 16.2964,
+        "dequeue_to_submit_ms_p95": 17.1557,
+        "dequeue_to_submit_ms_p99": 17.4407,
+        "discarded_capture": 237,
+        "generated": 0,
+        "nr_evaluations": 129,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 3.689472,
+        "processed": 129,
+        "publication_cpu_ms_p95": 0.1896,
+        "real": 128,
+        "source_timestamp_delta_ms": 16.6315,
+        "submitted": 128
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 1,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 5.049720800000159
+    },
+    {
+      "event": "ack",
+      "id": 11,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 5.049720800000159
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 1.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 1.0,
+        "toolbar_alpha": 1.0
+      },
+      "metrics": {
+        "age_samples": 189,
+        "captured": 190,
+        "dequeue_to_submit_ms_p50": 16.3345,
+        "dequeue_to_submit_ms_p95": 17.0716,
+        "dequeue_to_submit_ms_p99": 18.214,
+        "discarded_capture": 349,
+        "generated": 0,
+        "nr_evaluations": 190,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 3.9936,
+        "processed": 190,
+        "publication_cpu_ms_p95": 0.1949,
+        "real": 189,
+        "source_timestamp_delta_ms": 15.5767,
+        "submitted": 189
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 1,
+      "quality_revision": 1,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 6.071116000000075
+    },
+    {
+      "event": "ack",
+      "id": 12,
+      "ok": true,
+      "quality_revision": 1,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 6.071116000000075
+    },
+    {
+      "event": "ack",
+      "id": 13,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 7.017749600000116
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 1.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 1.0,
+        "toolbar_alpha": 1.0
+      },
+      "metrics": {
+        "age_samples": 250,
+        "captured": 251,
+        "dequeue_to_submit_ms_p50": 16.3799,
+        "dequeue_to_submit_ms_p95": 17.0716,
+        "dequeue_to_submit_ms_p99": 18.214,
+        "discarded_capture": 461,
+        "generated": 0,
+        "nr_evaluations": 251,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 4.096,
+        "processed": 251,
+        "publication_cpu_ms_p95": 0.1896,
+        "real": 250,
+        "source_timestamp_delta_ms": 14.322,
+        "submitted": 250
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 2,
+      "quality_revision": 2,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 7.080937000000176
+    },
+    {
+      "event": "ack",
+      "id": 14,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 7.080937000000176
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.21666663885116577,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 0.21666663885116577,
+        "toolbar_alpha": 0.21666663885116577
+      },
+      "metrics": {
+        "age_samples": 311,
+        "captured": 312,
+        "dequeue_to_submit_ms_p50": 16.416,
+        "dequeue_to_submit_ms_p95": 17.0716,
+        "dequeue_to_submit_ms_p99": 17.4966,
+        "discarded_capture": 573,
+        "generated": 0,
+        "nr_evaluations": 312,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 4.215808,
+        "processed": 312,
+        "publication_cpu_ms_p95": 0.1907,
+        "real": 311,
+        "source_timestamp_delta_ms": 13.4308,
+        "submitted": 311
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 2,
+      "quality_revision": 2,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 8.109470899999906
+    },
+    {
+      "event": "ack",
+      "id": 15,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 8.109470899999906
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 0.0,
+        "toolbar_alpha": 0.0
+      },
+      "metrics": {
+        "age_samples": 373,
+        "captured": 374,
+        "dequeue_to_submit_ms_p50": 16.4056,
+        "dequeue_to_submit_ms_p95": 17.0871,
+        "dequeue_to_submit_ms_p99": 17.7636,
+        "discarded_capture": 686,
+        "generated": 0,
+        "nr_evaluations": 374,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 4.299776,
+        "processed": 374,
+        "publication_cpu_ms_p95": 0.1946,
+        "real": 373,
+        "source_timestamp_delta_ms": 17.747,
+        "submitted": 373
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 2,
+      "quality_revision": 2,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 9.133899500000098
+    },
+    {
+      "event": "ack",
+      "id": 16,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 9.133899500000098
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 0.0,
+        "toolbar_alpha": 0.0
+      },
+      "metrics": {
+        "age_samples": 434,
+        "captured": 435,
+        "dequeue_to_submit_ms_p50": 16.4117,
+        "dequeue_to_submit_ms_p95": 17.0338,
+        "dequeue_to_submit_ms_p99": 17.4966,
+        "discarded_capture": 798,
+        "generated": 0,
+        "nr_evaluations": 435,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 4.263936,
+        "processed": 435,
+        "publication_cpu_ms_p95": 0.1802,
+        "real": 434,
+        "source_timestamp_delta_ms": 16.4925,
+        "submitted": 434
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 2,
+      "quality_revision": 2,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 10.14568509999981
+    },
+    {
+      "event": "ack",
+      "id": 17,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 10.14568509999981
+    },
+    {
+      "apply_failed": false,
+      "desired_effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "status",
+      "guidance": {
+        "control_hwnd": 0,
+        "control_mode": 0,
+        "feedback_hwnd": 12456600,
+        "intro_alpha": 0.0,
+        "output_hwnd": 13308282,
+        "phase": 2,
+        "stop_alpha": 0.0,
+        "toolbar_alpha": 0.0
+      },
+      "metrics": {
+        "age_samples": 494,
+        "captured": 495,
+        "dequeue_to_submit_ms_p50": 16.416,
+        "dequeue_to_submit_ms_p95": 17.0338,
+        "dequeue_to_submit_ms_p99": 17.4966,
+        "discarded_capture": 908,
+        "generated": 0,
+        "nr_evaluations": 495,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 4.431872,
+        "processed": 495,
+        "publication_cpu_ms_p95": 0.1913,
+        "real": 494,
+        "source_timestamp_delta_ms": 16.3165,
+        "submitted": 494
+      },
+      "parameter_modes": [
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableResidualControls"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "enableInputResolutionScaling"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "inputResolutionPercent"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualSaturation"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "residualLightness"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "shadowStructureMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "reflectionGlowMultiplier"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "opticalFlowMethod"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "amdOpticalFlowMode"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "nvidiaOpticalFlowQuality"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "multiPass"
+        },
+        {
+          "effect": 0,
+          "mode": 2,
+          "name": "antiFlicker"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass2_uiCorrection"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_style"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_intensity"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localToneStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_localStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_skinStructureStrength"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_useAutoMask"
+        },
+        {
+          "effect": 0,
+          "mode": 1,
+          "name": "pass3_uiCorrection"
+        }
+      ],
+      "parameter_revision": 10,
+      "quality_applied_revision": 2,
+      "quality_revision": 2,
+      "run_id": 0,
+      "state": 2,
+      "_generation": 1,
+      "probe_time": 11.15918980000015
+    },
+    {
+      "event": "ack",
+      "id": 18,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1,
+      "probe_time": 11.15918980000015
+    },
+    {
+      "event": "state",
+      "run_id": 0,
+      "state": 3,
+      "_generation": 1
+    },
+    {
+      "event": "ack",
+      "id": 19,
+      "ok": true,
+      "quality_revision": 2,
+      "run_id": 0,
+      "_generation": 1
+    },
+    {
+      "effects": [
+        {
+          "name": "DLSSNR\\DLSSNR_AI_Filter",
+          "parameters": {
+            "antiFlicker": 0.0,
+            "enableResidualControls": 1.0,
+            "multiPass": 1.0,
+            "opticalFlowMethod": 0.0,
+            "reflectionGlowMultiplier": 1.3000000715255737,
+            "residualLightness": 1.2000000476837158,
+            "residualMultiplier": 1.399999976158142,
+            "residualSaturation": 0.699999988079071,
+            "shadowStructureMultiplier": 0.6000000238418579
+          },
+          "scale": [
+            1.0,
+            1.0
+          ],
+          "scaling_type": 0
+        }
+      ],
+      "event": "settings",
+      "_generation": 1
+    },
+    {
+      "event": "state",
+      "run_id": 1,
+      "state": 0,
+      "_generation": 1
+    },
+    {
+      "event": "exited",
+      "returncode": 0,
+      "_generation": 1
+    }
+  ],
+  "source_clicks": [],
+  "rendered": true,
+  "native_failures": [],
+  "exit_ok": true,
+  "quality_confirmed": true,
+  "parameter_test": null,
+  "residual_values": {
+    "residualMultiplier": 1.4,
+    "shadowStructureMultiplier": 0.6,
+    "reflectionGlowMultiplier": 1.3,
+    "residualSaturation": 0.7,
+    "residualLightness": 1.2
+  },
+  "residual_run": 0,
+  "residual_confirmed": true,
+  "parameter_confirmed": false,
+  "command_arguments": {
+    "effect": "NR",
+    "output": "tmp\\mode-contract-closeout-20261011\\realtime-sdr-final",
+    "host": "tmp\\mode-contract-closeout-20261011\\candidate\\dlss5_realtime_host.exe",
+    "config": null,
+    "screenshot": false,
+    "gpu_sampling": false,
+    "source_exe": "tmp\\mode-contract-closeout-20261011\\build\\Release\\realtime_test_source.exe",
+    "source_position": [
+      80,
+      80
+    ],
+    "source_hdr": false,
+    "move_source": null,
+    "seconds": 12.0,
+    "capture": 0,
+    "flow": 0,
+    "windowed": true,
+    "lifecycle": false,
+    "resolution": 100,
+    "protect": false,
+    "runtime_directory": null,
+    "scale": 1,
+    "anti_flicker": 0,
+    "case": null,
+    "chain": false,
+    "static_quality": true,
+    "hdr": false,
+    "gpu": -1,
+    "game_mode": false,
+    "no_topmost": false,
+    "sync_mode": 0,
+    "frame_rate": 60,
+    "protocol_test": false,
+    "residual_test": true,
+    "quiet": true
+  },
+  "duration_seconds": 12.252933400000074,
+  "gpu_samples": [],
+  "runtime_selection": {
+    "path": "F:\\project\\DLSS5Tool\\runtime\\nvngx_dlssnr.dll",
+    "source": "bundled",
+    "fallback": false,
+    "ambiguous": false,
+    "feature_directory": "F:\\project\\DLSS5Tool\\runtime",
+    "meaning": "paths passed to host, not proof of loaded modules"
+  },
+  "source_metadata": {
+    "color_space": 0,
+    "dpi": 144,
+    "format": 28,
+    "hdr": false,
+    "hwnd": 6755102,
+    "linear_range": [
+      0.0,
+      1.0
+    ],
+    "pid": 16440
+  },
+  "source_moves": [],
+  "source_exit_code": 0,
+  "host_sha256": "49e18c8cc1a7a5a0c1d1ae3f7e1d7f69d4974b2903bbae3bc171516600fc037d"
+}

@@ -5,16 +5,11 @@ from dlss5tool.i18n import tr
 from dlss5tool.parameter_values import parse_number, format_number
 from dlss5tool.realtime import NR, validate_config, nr_extended_range
 from dlss5tool import appearance
+from dlss5tool.parameter_contract import BASIC, PARAMETERS, native_descriptor
 import json
 
 
-COMMON_FIELDS = (
-    ('style', 'style', 'style'),
-    ('intensity', 'intensity', 'strength'),
-    ('local_tone', 'localToneStrength', 'local_tone'),
-    ('local_struct', 'localStructureStrength', 'local_structure'),
-    ('skin_struct', 'skinStructureStrength', 'skin_mask'),
-)
+COMMON_FIELDS = tuple((p.key, p.native, p.label.removeprefix('label.')) for p in BASIC)
 
 
 def nr_target(config, catalog):
@@ -22,7 +17,7 @@ def nr_target(config, catalog):
     if len(matches) != 1:
         raise ValueError(tr('parameter.copy_one_nr'))
     index, effect = matches[0]
-    descriptors = {p['name']: p for p in catalog.get(effect['name'], {}).get('parameters', [])}
+    descriptors = {p['name']: native_descriptor(p) for p in catalog.get(effect['name'], {}).get('parameters', [])}
     if not {'style', 'intensity', 'localToneStrength', 'localStructureStrength', 'skinStructureStrength', 'useAutoMask'} <= descriptors.keys():
         raise ValueError(tr('parameter.copy_metadata'))
     return index, effect, descriptors
@@ -41,7 +36,9 @@ def from_realtime(config, catalog, local_limit, groups=('basic',)):
     params = effect.get('parameters', {})
     for local, native, label in COMMON_FIELDS if 'basic' in groups else ():
         value = params.get(native, descriptors[native]['default'])
-        value = checked(value, 0, 2 if local == 'style' else local_limit, label, integer=local == 'style')
+        spec = PARAMETERS[local]
+        value = checked(value, spec.minimum, spec.maximum if spec.integer else min(spec.maximum, local_limit),
+                        label, integer=spec.integer)
         enabled = (None if local == 'style' else
                    bool(params.get('useAutoMask', descriptors['useAutoMask']['default'])) if local == 'skin_struct'
                    else native not in effect.get('disabled_parameters', []))
@@ -86,6 +83,11 @@ def to_realtime(snapshot, config, catalog, groups=('basic',)):
         values = appearance.residual({k: parse_number(snapshot['nr_residual.' + k][0]) for k in appearance.RESIDUAL_FIELDS})
         if not set(values) <= descriptors.keys():
             raise ValueError(tr('parameter.copy_metadata'))
+        for key, value in values.items():
+            desc = descriptors[key]
+            if not desc['min'] <= value <= desc['max']:
+                raise ValueError(tr('parameter.copy_range', name=tr('appearance.' + key),
+                                    minimum=desc['min'], maximum=desc['max']))
         params.update(values)
         if 'enableResidualControls' in descriptors:
             params['enableResidualControls'] = 1
@@ -158,8 +160,10 @@ def portable_preset(snapshot, groups):
                         raise ValueError('Invalid protection switch')
                 else:
                     (appearance.quality if group == 'nr_quality' else appearance.residual)({name: v})
-            elif not 0 <= v <= (2 if key == 'style' else 5) or (key == 'style' and v != int(v)):
-                raise ValueError('Invalid basic NR value')
+            else:
+                spec = PARAMETERS[key]
+                if not spec.minimum <= v <= spec.maximum or (spec.integer and v != int(v)):
+                    raise ValueError('Invalid basic NR value')
             pair[0] = str(v)  # Canonical numbers also round-trip percentage input.
         if key in {k for k, _, _ in COMMON_FIELDS if k != 'style'}:
             if type(enabled) is not bool:

@@ -26,6 +26,22 @@ class RealtimeInspectorTests(unittest.TestCase):
         self.root.update_idletasks()
         test_realtime_ui.RealtimeUiTests.tearDown(self)
 
+    def test_hdr_residual_capability_is_generation_scoped(self):
+        self.catalog()
+        self.items.append(parameter('enableResidualControls', default=1, maximum=1, integer=True))
+        self.event({'event': 'catalog', 'effects': [dict(name=NR, parameters=self.items, available=True)]})
+        self.ui.controls['hdr'][0].set(True)
+        self.ui._host_ready = {'_generation': self.client.generation, 'appearance_hdr_residual_version': 1}
+        self.assertEqual(self.ui._parameter_dependency('residualMultiplier'), '')
+        self.ui._host_ready['_generation'] = -999
+        self.assertEqual(self.ui._parameter_dependency('residualMultiplier'), i18n.tr('appearance.hdr_residual_unavailable'))
+        before = self.ui._parameter_snapshot()
+        self.client.send.reset_mock()
+        report = self.ui.diagnostic_snapshot()['parameter_contract']
+        self.assertFalse(report['capabilities']['residual'])
+        self.assertEqual(self.ui._parameter_snapshot(), before)
+        self.client.send.assert_not_called()
+
     def catalog(self):
         self.items = [
             parameter('style', label=r'NR Style\n(0 Default, 1 Natural, 2 Cinematic)', default=0, integer=True, step=1),

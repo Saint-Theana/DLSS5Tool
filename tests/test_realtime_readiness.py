@@ -13,6 +13,19 @@ from tests.test_realtime_inspector import parameter
 
 
 class ReadinessTests(unittest.TestCase):
+    def test_hdr_fine_controls_require_capability_only_when_enabled(self):
+        config = validate_config({'hdr': True, 'effects': [{'name': NR,
+            'parameters': {'residualMultiplier': 1.5}}]})
+        self.assertNotIn('hdr_residual', [i.code for i in self.check(config=config)])
+        params = config['effects'][0]['parameters']
+        params['enableResidualControls'] = 1
+        self.assertIn('hdr_residual', [i.code for i in self.check(config=config)])
+        self.assertNotIn('hdr_residual', [i.code for i in self.check(config=config,
+            ready={'appearance_hdr_residual_version': 1})])
+        params.update(enableInputResolutionScaling=1, inputResolutionPercent=50)
+        self.assertIn('hdr_resolution', [i.code for i in self.check(config=config,
+            ready={'appearance_hdr_residual_version': 1})])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

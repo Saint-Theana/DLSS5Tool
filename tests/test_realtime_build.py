@@ -12,9 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class RealtimeBuildTests(unittest.TestCase):
     def test_standalone_parameter_localization_never_uses_packaged_resources(self):
-        folder = ROOT / 'tmp/mode-sharing-20261010'
-        folder.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=folder) as temporary:
+        with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary)
             generate(output)
             localization = (output / 'standalone_parameter_localization.h').read_text(encoding='utf-8')

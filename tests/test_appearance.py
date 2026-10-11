@@ -49,13 +49,14 @@ class AppearanceTests(unittest.TestCase):
             result = fine_controls(base, base+delta, appearance.residual({field: 0}))
             np.testing.assert_array_equal(result, base)
 
-    def test_hdr_linear_global_and_explicit_fine_control_gate(self):
+    def test_hdr_linear_global_and_fine_controls(self):
         base, output = np.full((3, 5, 4), .4, np.float16), np.full((3, 5, 4), .6, np.float16)
         for profile in ('hdr10_pq', 'hdr10_hlg'):
             result = compose_hdr_frame(base, output, profile=profile, settings={'nr_quality': {'total': 0}})
             np.testing.assert_array_equal(result, base)
-            with self.assertRaises(ValueError):
-                compose_hdr_frame(base, output, profile=profile, settings={'nr_residual': {'residualMultiplier': 2}})
+            result = compose_hdr_frame(base, output, profile=profile, settings={'nr_residual': {'residualMultiplier': 2}})
+            self.assertTrue(np.isfinite(result).all())
+            self.assertTrue((result[..., :3] > output[..., :3]).all())
         self.assertIs(compose(base, output, {}), output)
 
     def test_legacy_mix_remains_separate_and_view_applied_after_quality(self):
@@ -171,9 +172,7 @@ class AppearanceTests(unittest.TestCase):
         nr.process.side_effect = lambda rgba, **kw: cv2.cvtColor(np.full((128, 128, 3), 120, np.uint8), cv2.COLOR_BGR2RGBA)
         capture = mock.Mock()
         capture.read.side_effect = [(True, np.full((128, 128, 3), 20, np.uint8)), (False, None)]
-        task = Path(__file__).resolve().parents[1]/'tmp/mode-sharing-20261010'
-        task.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=task) as tmp:
+        with tempfile.TemporaryDirectory() as tmp:
             source, target = Path(tmp)/'in.avi', Path(tmp)/'out.mp4'
             source.touch()
             with mock.patch.object(fg, 'open_capture', return_value=capture), \

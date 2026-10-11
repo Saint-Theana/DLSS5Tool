@@ -474,6 +474,10 @@ def compose_hdr_frame(original, processed, view=0, mix=1.0, profile="hdr10_pq", 
         if width > 1:
             result[:, max(width // 2 - 1, 0), :3] = 1.0
         return result.astype(np.float16)
+    if profile == 'scrgb':
+        result = original_f.copy()
+        result[..., :3] += (processed_f[..., :3]-original_f[..., :3])*mix
+        return result.astype(np.float16)
     decode = _pq_eotf if profile == "hdr10_pq" else _hlg_eotf
     encode = _pq_oetf if profile == "hdr10_pq" else _hlg_oetf
     original_linear = decode(original_f[..., :3])
