@@ -1,0 +1,31 @@
+{
+  "version": "v3.0.0",
+  "changes": {
+    "lite": [
+      "CHANGELOG.md"
+    ],
+    "addon": [],
+    "full": [
+      "CHANGELOG.md"
+    ]
+  },
+  "updates": [
+    {
+      "from": "v2.3.3",
+      "edition": "lite",
+      "files": 1865
+    },
+    {
+      "from": "v2.3.3",
+      "edition": "full",
+      "files": 4279
+    }
+  ],
+  "changelog": {
+    "size": 40676,
+    "sha256": "3a3abb826d72b73094f1afe70bfb2425bcc58b2b9e55ab6ddc8afa3230d304df"
+  },
+  "archives_and_volumes_verified": true,
+  "release_notes_identical": true,
+  "upload_check_passed": true
+}

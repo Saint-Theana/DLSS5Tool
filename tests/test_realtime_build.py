@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 import zipfile
 from scripts.fetch_realtime_sources import SOURCES, validate_archive
-from scripts.realtime_packaging import validate_runtime
+from scripts.realtime_packaging import validate_runtime, validate_feature_runtimes
 from scripts.prepare_realtime_build import generate
 import tempfile
 
@@ -11,6 +11,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RealtimeBuildTests(unittest.TestCase):
+    def test_bundled_chain_requires_sr_as_well_as_nr_and_fg(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            runtime = Path(temporary)
+            for name in ('nvngx_dlssnr.dll', 'nvngx_dlssg.dll'):
+                (runtime / name).write_bytes(b'fixture')
+            with self.assertRaisesRegex(ValueError, 'nvngx_dlss.dll'):
+                validate_feature_runtimes(runtime)
+            (runtime / 'nvngx_dlss.dll').touch()
+            with self.assertRaisesRegex(ValueError, 'nvngx_dlss.dll'):
+                validate_feature_runtimes(runtime)
+            (runtime / 'nvngx_dlss.dll').write_bytes(b'fixture')
+            validate_feature_runtimes(runtime)
+
     def test_standalone_parameter_localization_never_uses_packaged_resources(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary)

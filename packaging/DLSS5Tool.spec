@@ -4,6 +4,7 @@
 import os
 import shutil
 import sys
+import hashlib
 
 from PyInstaller.utils.hooks import collect_all
 
@@ -28,6 +29,16 @@ realtime_root = os.path.join(project_root, 'runtime', 'realtime')
 realtime_manifest = validate_runtime(realtime_root, local_candidate=os.environ.get('DLSS5_LOCAL_CANDIDATE') == '1')
 for name in ['build-manifest.json', *realtime_manifest['files']]:
     datas.append((os.path.join(realtime_root, name), os.path.join('realtime', os.path.dirname(name))))
+
+# Realtime DLSS SR searches beside the bundled NR/FG runtimes, not the SDK tree.
+# This official release DLL matches the previously accepted P2 SR/FG chain.
+sr_source = os.path.join(project_root, 'third_party', 'NVIDIA-DLSS',
+                         'lib', 'Windows_x86_64', 'rel', 'nvngx_dlss.dll')
+with open(sr_source, 'rb') as sr_file:
+    sr_sha = hashlib.file_digest(sr_file, 'sha256').hexdigest()
+if sr_sha != 'be6e434a94ca32499515eb62ca0e6c274526055d568d0426e4c652dcdfb6ee6e':
+    raise SystemExit('Realtime DLSS SR provider does not match the verified release hash')
+binaries.append((sr_source, '.'))
 datas.append((os.path.join(project_root, 'licenses', 'DLSS5Tool-original-MIT.txt'), 'licenses'))
 
 # Frozen builds require full FFmpeg + ffprobe below; source fallback is unused.
@@ -87,7 +98,6 @@ for filename, required in (
         raise SystemExit(f"Missing required runtime file: {source}")
 
 # Frame generation uses the pinned official provider; never collect the SDK tree.
-import hashlib
 from dlss5tool.frame_generation import runtime_files, PINNED_RUNTIME
 fg_worker, fg_provider = runtime_files()
 with fg_provider.open('rb') as provider_file:

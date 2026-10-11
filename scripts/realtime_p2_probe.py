@@ -44,6 +44,10 @@ def inventory(host, folder, runtime_directory=None):
     folder.mkdir(parents=True, exist_ok=False)
     nr = Path(mod_paths.runtime_path({})).resolve()
     runtime = Path(runtime_directory).resolve() if runtime_directory else nr.parent
+    if runtime_directory:
+        nr = runtime / 'nvngx_dlssnr.dll'
+        if not nr.is_file():
+            raise FileNotFoundError(nr)
     environment = dict(os.environ, DLSS5_REALTIME_STATE_ROOT=str(folder),
         DLSS5_REALTIME_EFFECTS_ROOT=str(host.parent / 'effects'),
         DLSS5_REALTIME_RUNTIME_ROOT=str(runtime), DLSS5_REALTIME_NR_PATH=str(nr))

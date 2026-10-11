@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "time_utc": "2026-10-11T09:12:05.882315+00:00",
+  "scope": "owned synthetic windows; no game or physical HDR performance claim",
+  "environment": {
+    "devices": {
+      "adapters": [
+        {
+          "device": 10115,
+          "index": 0,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 1,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 2,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 3,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 10115,
+          "index": 4,
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "software": false,
+          "vendor": 4318
+        },
+        {
+          "device": 140,
+          "index": 5,
+          "name": "Microsoft Basic Render Driver",
+          "software": true,
+          "vendor": 5140
+        }
+      ],
+      "capabilities": {
+        "amdoF": false,
+        "dlss_fg": true,
+        "dlss_nr": true,
+        "dlss_sr": true,
+        "fsr_native": false,
+        "nvof": true,
+        "rtx_video": false,
+        "xess": false
+      },
+      "event": "devices",
+      "monitors": [
+        {
+          "hdr_active": true,
+          "id": "\\\\?\\DISPLAY#LHC90E2#5&28e32352&0&UID4355#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+          "name": "P275MV MAX",
+          "primary": true,
+          "rect": [
+            0,
+            0,
+            3840,
+            2160
+          ]
+        },
+        {
+          "hdr_active": false,
+          "id": "\\\\?\\DISPLAY#LHCFFFF#5&28e32352&0&UID4353#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}",
+          "name": "P2SA2V",
+          "primary": false,
+          "rect": [
+            -2160,
+            -1117,
+            0,
+            2723
+          ]
+        }
+      ],
+      "runtime": {
+        "features": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal",
+        "nr": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlssnr.dll"
+      }
+    },
+    "gpu_driver": "NVIDIA GeForce RTX 4070 SUPER, 617.42, 12282 MiB",
+    "files": {
+      "host": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal\\realtime\\dlss5_realtime_host.exe",
+        "sha256": "2173118b2e3284e79fdf3d54d978abe0c1118380993906cfd0432a624428dccc",
+        "size": 3318784
+      },
+      "nr": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlssnr.dll",
+        "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650",
+        "size": 165840496
+      },
+      "sr": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlss.dll",
+        "sha256": "be6e434a94ca32499515eb62ca0e6c274526055d568d0426e4c652dcdfb6ee6e",
+        "size": 58977904
+      },
+      "fg": {
+        "path": "F:\\project\\DLSS5Tool\\tmp\\release-v300-20261011\\base\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlssg.dll",
+        "sha256": "135eaf0733c1e37381a8c28abcf7a862404a54132b81787c04e35d09efc5e36f",
+        "size": 7519856
+      }
+    }
+  },
+  "cases": {
+    "nvof-q2": {
+      "status": "passed",
+      "expectation": "render",
+      "reasons": [],
+      "host_sha256": "2173118b2e3284e79fdf3d54d978abe0c1118380993906cfd0432a624428dccc",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "multiPass": 1,
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 2,
+              "antiFlicker": 2
+            },
+            "scaling_type": 0,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60.0,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 10.2285023000004,
+      "last_metrics": {
+        "age_samples": 192,
+        "captured": 192,
+        "dequeue_to_submit_ms_p50": 5.271099996948243,
+        "dequeue_to_submit_ms_p95": 11.4097,
+        "dequeue_to_submit_ms_p99": 16.768,
+        "discarded_capture": 1,
+        "generated": 0,
+        "nr_evaluations": 192,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 7.233536,
+        "processed": 192,
+        "publication_cpu_ms_p95": 0.2078,
+        "real": 192,
+        "source_timestamp_delta_ms": 0.0139,
+        "submitted": 192
+      },
+      "source_metadata": null,
+      "source_moves": [],
+      "native_evidence": {
+        "log_sha256": "415b33395d93ac3e0b04cea815b9d2f953cf0337d726d2a9a0438ef0e16072be",
+        "hdr": {},
+        "initialization": [
+          "2026-10-11 17:12:09.977|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 created=true path=signed-snippet sourceSize=1198x674 sourceFormat=87 colorDownsample=lanczos2-aa residualControls=before-upsample residualUpsample=veyra-bilateral-2x2 inputSize=1198x674 inputResolutionScaling=false inputResolutionPercent=100 residualMultiplier=1 residualSaturation=1 residualLightness=1 shadowStructureMultiplier=1 reflectionGlowMultiplier=1 preset=fixed-0 style=0 intensity=1 localTone=1 localStructure=1 skinStructure=0 opticalFlowMethod=2 opticalFlowQuality=2 autoMask=false uiCorrection=false depth=zero-contract disabled=false experimentalHdrPath=false experimentalHdrScale=1",
+          "2026-10-11 17:12:10.382|info|NvidiaOpticalFlowProvider.cpp:631|CreateSession|Frame Guidance NVOF initialized: profile=4M grid=4x4 perf=MEDIUM driverApi=5.0 cost=R8_UINT bidirectional=true input=1198x674 output=300x169 convention=current-to-previous/source-pixels/S10.5-self-test-passed"
+        ],
+        "warnings": []
+      },
+      "sampled_steady_rates": {
+        "real": 35.347387949154566,
+        "generated": 0.0,
+        "submitted": 35.347387949154566
+      },
+      "gpu_sample_count": 5,
+      "gpu_samples": [
+        {
+          "time": 0.0002553999984229449,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 10.0,
+              "memory_mib": 2407.0,
+              "watts": 47.32
+            }
+          ]
+        },
+        {
+          "time": 2.1098305999985314,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2436.0,
+              "watts": 51.2
+            }
+          ]
+        },
+        {
+          "time": 4.231159999999363,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 24.0,
+              "memory_mib": 2941.0,
+              "watts": 56.68
+            }
+          ]
+        },
+        {
+          "time": 6.332361199998559,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 15.0,
+              "memory_mib": 2941.0,
+              "watts": 72.1
+            }
+          ]
+        },
+        {
+          "time": 8.42358189999868,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 34.0,
+              "memory_mib": 2941.0,
+              "watts": 66.63
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "report_sha256": "d9351b3386ab66155692abe91089e8354067de208a3447fe7c3bd5191886ced0"
+    },
+    "chain-balanced": {
+      "status": "passed",
+      "expectation": "fg",
+      "reasons": [],
+      "host_sha256": "2173118b2e3284e79fdf3d54d978abe0c1118380993906cfd0432a624428dccc",
+      "config": {
+        "effects": [
+          {
+            "name": "DLSSNR\\DLSSNR_AI_Filter",
+            "parameters": {
+              "opticalFlowMethod": 2,
+              "nvidiaOpticalFlowQuality": 2,
+              "antiFlicker": 2,
+              "multiPass": 1
+            },
+            "scale": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "DLSS\\DLSS_SR",
+            "parameters": {},
+            "scale": [
+              1.5,
+              1.5
+            ]
+          },
+          {
+            "name": "DLSSFG\\DLSS_FrameGeneration",
+            "parameters": {},
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        "capture_method": 0,
+        "windowed": true,
+        "game_mode": false,
+        "hdr": false,
+        "monitor_mode": 0,
+        "monitor_id": "",
+        "gpu_index": -1,
+        "sync_enabled": true,
+        "sync_mode": 0,
+        "frame_rate": 60,
+        "capture_title_bar": false,
+        "disable_topmost": true,
+        "capture_fallback": true,
+        "window_scale": 1.0,
+        "gpu_priority": 0,
+        "quality": {
+          "total": 1.0,
+          "darken": 1.0,
+          "brighten": 1.0,
+          "color": 1.0,
+          "luminance": 1.0,
+          "protection": false,
+          "feather": 12.0,
+          "regions": []
+        }
+      },
+      "duration_seconds": 10.344230500002595,
+      "last_metrics": {
+        "age_samples": 146,
+        "captured": 149,
+        "dequeue_to_submit_ms_p50": 21.0233,
+        "dequeue_to_submit_ms_p95": 31.636600003051758,
+        "dequeue_to_submit_ms_p99": 34.88129999694824,
+        "discarded_capture": 1,
+        "generated": 147,
+        "nr_evaluations": 149,
+        "nr_failures": 0,
+        "nr_gpu_ms_p95": 5.684224,
+        "processed": 297,
+        "publication_cpu_ms_p95": 0.1688,
+        "real": 146,
+        "source_timestamp_delta_ms": 5.800000003051758,
+        "submitted": 293
+      },
+      "source_metadata": null,
+      "source_moves": [],
+      "native_evidence": {
+        "log_sha256": "159fe97a964dcf029df69dc46654c8b83924f3eb88cbd078d7410a53ccace68e",
+        "hdr": {},
+        "initialization": [
+          "2026-10-11 17:12:21.646|info|DLSSNRFilter.cpp:75|LogDlssnrStatus|DLSSNR STATUS: Feature=18 created=true path=signed-snippet sourceSize=1198x674 sourceFormat=87 colorDownsample=lanczos2-aa residualControls=before-upsample residualUpsample=veyra-bilateral-2x2 inputSize=1198x674 inputResolutionScaling=false inputResolutionPercent=100 residualMultiplier=1 residualSaturation=1 residualLightness=1 shadowStructureMultiplier=1 reflectionGlowMultiplier=1 preset=fixed-0 style=0 intensity=1 localTone=1 localStructure=1 skinStructure=0 opticalFlowMethod=2 opticalFlowQuality=2 autoMask=false uiCorrection=false depth=zero-contract disabled=false experimentalHdrPath=false experimentalHdrScale=1",
+          "2026-10-11 17:12:23.018|info|NvidiaOpticalFlowProvider.cpp:631|CreateSession|Frame Guidance NVOF initialized: profile=4M grid=4x4 perf=MEDIUM driverApi=5.0 cost=R8_UINT bidirectional=true input=1198x674 output=300x169 convention=current-to-previous/source-pixels/S10.5-self-test-passed"
+        ],
+        "warnings": [
+          "ReflexController.cpp:119|ReportFailure|Reflex call failed: operation=D3D12 async generation marker status=-1"
+        ]
+      },
+      "sampled_steady_rates": {
+        "real": 34.612947829867835,
+        "generated": 34.85842972937045,
+        "submitted": 69.47137755923828
+      },
+      "gpu_sample_count": 5,
+      "gpu_samples": [
+        {
+          "time": 0.00021980000019539148,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 5.0,
+              "memory_mib": 2407.0,
+              "watts": 47.23
+            }
+          ]
+        },
+        {
+          "time": 2.098868900000525,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2436.0,
+              "watts": 51.07
+            }
+          ]
+        },
+        {
+          "time": 4.250024000000849,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 1.0,
+              "memory_mib": 2706.0,
+              "watts": 53.16
+            }
+          ]
+        },
+        {
+          "time": 6.341965000003256,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 35.0,
+              "memory_mib": 3345.0,
+              "watts": 76.88
+            }
+          ]
+        },
+        {
+          "time": 8.431631300001754,
+          "available": true,
+          "scope": "whole-board-not-process",
+          "boards": [
+            {
+              "name": "NVIDIA GeForce RTX 4070 SUPER",
+              "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+              "utilization": 35.0,
+              "memory_mib": 3345.0,
+              "watts": 75.5
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "report_sha256": "c32bc3c2647b4fd2d06e75e0cd9fa4775e8378543932391509fd3179301cb5a0"
+    }
+  },
+  "pending": [
+    "P2-03: HDR source -> FP16 processing -> output functional evidence is per-case; visual HDR acceptance still required",
+    "P2-04: mixed DPI, physical cross-GPU and OBS coexistence; same-DPI monitor smoke is per-case only",
+    "P2-05: selected real game baseline/capture/NR/SR-FG A/B and sustained load"
+  ],
+  "full_p2_accepted": false
+}

@@ -1,0 +1,103 @@
+{
+  "version": "v3.0.0",
+  "built_at": "2026-10-11 20:31:32",
+  "component_sha256": "f376f68ddef901c23a5809336304d438c9dd30cc73fbfdeb5c17948808dd6b0d",
+  "models": {
+    "raft_large_C_T_SKHT_V2-ff5fadd5.pth": {
+      "size": 21106607,
+      "sha256": "ff5fadd56d26b40647388883af1547351ea17868b765c05b27231e72dd16a322"
+    }
+  },
+  "editions": {
+    "lite": {
+      "name": "DLSS5Tool-v3.0.0-win64-lite.zip",
+      "size": 588040687,
+      "sha256": "e9d3c1636eb3122f1f3f4ffa313eaa368936a8b6c735eeda4c22b6d747d45408",
+      "unpacked_bytes": 1032092528,
+      "file_count": 1865,
+      "crc_verified": true,
+      "volumes": [],
+      "github_name": "DLSS5Tool-v3.0.0-win64.zip"
+    },
+    "addon": {
+      "name": "DLSS5Tool-v3.0.0-win64-addon.zip",
+      "size": 3053866457,
+      "sha256": "60a490a9a9cf9e7d761e6c2abfb63759d77df3f0915e9ca5f4b783146ab6ba62",
+      "unpacked_bytes": 4781669865,
+      "file_count": 2415,
+      "crc_verified": true,
+      "volumes": [
+        {
+          "name": "DLSS5Tool-v3.0.0-win64-addon.zip.001",
+          "size": 1992294400,
+          "sha256": "ef2f165f0a90619069c9ef9cd25d3b5dec9f9e4c403cfb2be02eeddc11aa7d3c"
+        },
+        {
+          "name": "DLSS5Tool-v3.0.0-win64-addon.zip.002",
+          "size": 1061572057,
+          "sha256": "6b7bad88309cc7069f0bbdecf0adcec97da3a43614fed3add8e5d58c8143722d"
+        }
+      ]
+    },
+    "full": {
+      "name": "DLSS5Tool-v3.0.0-win64-full.zip",
+      "size": 3641904633,
+      "sha256": "68e918222bd01e11ecbf6aee46c45351f05af5773fbafe5a85a15dd24203fabc",
+      "unpacked_bytes": 5813758272,
+      "file_count": 4279,
+      "crc_verified": true,
+      "volumes": [
+        {
+          "name": "DLSS5Tool-v3.0.0-win64-full.zip.001",
+          "size": 1992294400,
+          "sha256": "dbf054f96f3e9b7e569ce0e19b74aa8b2ec6c528ebba15e9755fe7d1f4f74667"
+        },
+        {
+          "name": "DLSS5Tool-v3.0.0-win64-full.zip.002",
+          "size": 1649610233,
+          "sha256": "d407d6a1191b2781191fe194d51cd5de5f5aa9cafab05499b5c36790264d0105"
+        }
+      ]
+    }
+  },
+  "full_equals_lite_plus_addon": true,
+  "license_review": "Publisher review required; RAFT weights only; depth architecture retained",
+  "github_portable_asset": "DLSS5Tool-v3.0.0-win64.zip",
+  "incremental_updates": {
+    "mode": "required",
+    "target": "v3.0.0",
+    "first_updater_version": "v2.2.0",
+    "required_baselines": [
+      "v2.3.3"
+    ],
+    "assets": [
+      {
+        "changed_files": 221,
+        "edition": "lite",
+        "from": "v2.3.3",
+        "payload_bytes": 97719616,
+        "published": false,
+        "removed_files": 15,
+        "sha256": "6494976c91e24bb1a8eb517433b412a17bc7781e85b60495e7820a748218305a",
+        "size": 55410348,
+        "to": "v3.0.0",
+        "name": "DLSS5Tool-v2.3.3-to-v3.0.0-win64-lite.dlssupdate"
+      },
+      {
+        "changed_files": 268,
+        "edition": "full",
+        "from": "v2.3.3",
+        "payload_bytes": 133783523,
+        "published": false,
+        "removed_files": 15,
+        "sha256": "515cad54a9c7a16669ac7b2859f9feb719805b1de00995dcecacd749d0ba5239",
+        "size": 89769829,
+        "to": "v3.0.0",
+        "name": "DLSS5Tool-v2.3.3-to-v3.0.0-win64-full.dlssupdate"
+      }
+    ]
+  },
+  "published": false,
+  "gpu_export_distribution_review_complete": false,
+  "local_candidate": true
+}

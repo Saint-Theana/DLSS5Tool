@@ -28,6 +28,8 @@ class ReleasePackagingTests(unittest.TestCase):
     def test_frame_generation_payload_and_nvofa_are_included(self):
         spec = (ROOT / 'packaging/DLSS5Tool.spec').read_text(encoding='utf-8')
         self.assertIn('dlssg_video_worker.exe', spec)
+        self.assertIn("'rel', 'nvngx_dlss.dll'", spec)
+        self.assertIn('Realtime DLSS SR provider does not match the verified release hash', spec)
         self.assertIn('PINNED_RUNTIME', spec)
         tree = ast.parse(spec)
         analysis = next(node for node in ast.walk(tree) if isinstance(node, ast.Call)

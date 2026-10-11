@@ -22,6 +22,10 @@
     {
       "version": "v2.3.3",
       "packages": "dist/v2.3.3-release-20260924/official-baseline-20260924"
+    },
+    {
+      "version": "v3.0.0",
+      "packages": "dist/v3.0.0-changelog-20261011/editions"
     }
   ]
 }

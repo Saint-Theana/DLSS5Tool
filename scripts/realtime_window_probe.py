@@ -123,7 +123,15 @@ def main():
         if config['effects'][0]['name'] != NR:
             raise ValueError('Residual probe requires NR as the first effect')
         config['effects'][0]['parameters']['enableResidualControls'] = 1
-    client = RealtimeClient({'realtime_runtime_directory': args.runtime_directory} if args.runtime_directory else {},
+    runtime_settings = {}
+    if args.runtime_directory:
+        runtime_root = Path(args.runtime_directory).resolve(strict=True)
+        nr_runtime = runtime_root / 'nvngx_dlssnr.dll'
+        if not nr_runtime.is_file():
+            raise FileNotFoundError(nr_runtime)
+        runtime_settings = {'realtime_runtime_directory': str(runtime_root),
+                            'dlss_runtime': str(nr_runtime)}
+    client = RealtimeClient(runtime_settings,
                             host=args.host, state_root=folder / 'state')
     start = time.monotonic()
     events = []

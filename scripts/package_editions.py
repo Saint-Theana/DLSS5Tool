@@ -20,10 +20,11 @@ sys.path.insert(0, str(ROOT))
 from dlss5tool.app_version import APP_VERSION
 from scripts.check_release_contents import forbidden_contents
 from scripts.release_updates import plan_updates, build_updates, verify_upload_updates
-from scripts.realtime_packaging import validate_runtime
+from scripts.realtime_packaging import validate_runtime, validate_feature_runtimes
 
-# CUDA RAFT worker with GPU flow; rebuilt for v2.2.2. See FLOW_GPU_INTEGRATION_20260915.md.
-WORKER_SHA = '17650318624cbf75604ee550bbd73203cb434f4dc59e82cacde1c84685d8aec0'
+# CUDA RAFT worker rebuilt from v3.0.0 source; frozen RAFT handshake verified.
+# Build inputs and final edition acceptance: docs/release/V300_PACKAGING_20261011.md.
+WORKER_SHA = 'f376f68ddef901c23a5809336304d438c9dd30cc73fbfdeb5c17948808dd6b0d'
 MODELS = ('raft_large_C_T_SKHT_V2-ff5fadd5.pth',)
 
 
@@ -136,6 +137,7 @@ def main():
     for realtime in (base / '_internal/realtime', base / 'realtime'):
         if realtime.exists():
             validate_runtime(realtime, local_candidate=args.local_candidate)
+            validate_feature_runtimes(realtime.parent)
     if not (base / 'DLSS5Update.exe').is_file():
         raise ValueError('Base package lacks the standalone update helper; rebuild it before packaging editions')
     if sha(component / 'guidance_worker.exe') != WORKER_SHA:

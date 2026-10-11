@@ -1,0 +1,21 @@
+{
+  "updates": [
+    {
+      "from": "v2.3.3",
+      "to": "v3.0.0",
+      "edition": "lite",
+      "changed_files": 221,
+      "target_files": 1865,
+      "streamed_overlay_exact": true
+    },
+    {
+      "from": "v2.3.3",
+      "to": "v3.0.0",
+      "edition": "full",
+      "changed_files": 268,
+      "target_files": 4279,
+      "streamed_overlay_exact": true
+    }
+  ],
+  "actual_install_performed": false
+}

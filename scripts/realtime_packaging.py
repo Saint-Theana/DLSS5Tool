@@ -4,6 +4,15 @@ import json
 from pathlib import Path
 
 
+def validate_feature_runtimes(directory):
+    """Required bundled realtime chain; never fall back to a developer DLL."""
+    directory = Path(directory)
+    for name in ('nvngx_dlssnr.dll', 'nvngx_dlss.dll', 'nvngx_dlssg.dll'):
+        path = directory / name
+        if not path.is_file() or path.stat().st_size == 0:
+            raise ValueError(f'Missing realtime feature runtime: {path}')
+
+
 def validate_runtime(directory, *, local_candidate=False):
     directory = Path(directory)
     manifest = json.loads((directory / 'build-manifest.json').read_text(encoding='utf-8'))

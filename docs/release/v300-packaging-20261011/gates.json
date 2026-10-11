@@ -1,0 +1,26 @@
+{
+  "version": "v3.0.0",
+  "source_commit": "a1476dc",
+  "source_contains_packaging_fixes": true,
+  "tests": {
+    "command": ".venv/Scripts/python.exe -B -m unittest tests.test_release_packaging tests.test_package_editions tests.test_release_updates tests.test_delta_update tests.test_update_helper tests.test_gui_updates tests.test_updater tests.test_i18n tests.test_realtime_build",
+    "count": 114,
+    "elapsed_seconds": 52.925,
+    "result": "passed"
+  },
+  "application_file_version": "3.0.0",
+  "application_product_version": "3.0.0",
+  "application_sha256": "a3de86299e9829d3f1fad05ef11a6b2caac06ce3949ceb2cd85244999ff95f4b",
+  "helper_sha256": "c7f7c63117b348ee9a6f0b6b846c55dd2a28612a3e19e59c6e4e0e1ef2641f66",
+  "icon_frames_per_executable": 11,
+  "icon_matches_source": true,
+  "release_notes_three_copies_identical": true,
+  "release_notes_sha256": "ad7f57cc00a42d134c7e0be56ba32d645db6e338cea94a687ffa2df30aa812fe",
+  "incremental_upload_gate": "passed",
+  "incremental_source_version": "v2.3.3",
+  "incremental_editions": ["lite", "full"],
+  "next_version_preflight": {"target": "v3.0.1", "baseline": "v3.0.0", "result": "passed"},
+  "clean_machine_verified": false,
+  "published": false,
+  "local_candidate": true
+}
