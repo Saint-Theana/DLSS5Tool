@@ -6,6 +6,7 @@ from dlss5tool import mod_paths
 from dlss5tool.i18n import tr
 from dlss5tool.realtime import NR
 from dlss5tool.realtime_labels import effect_title
+from dlss5tool.optical_flow_contract import REALTIME_METHODS
 
 
 @dataclass(frozen=True)
@@ -136,8 +137,8 @@ def check_start(config, selected, *, settings, catalog, host, ready=None,
         capabilities = devices.get('capabilities', {})
         for index, effect in enumerate(config['effects']):
             method = effect.get('parameters', {}).get('opticalFlowMethod', 0)
-            capability = {1: 'amdoF', 2: 'nvof'}.get(method)
+            capability, backend = REALTIME_METHODS.get(method, (None, None))
             if capability and capabilities.get(capability) is False:
                 add('flow_unavailable', 'effects', index=index,
-                    backend='AMD OF' if method == 1 else 'NVOF')
+                    backend=backend)
     return issues

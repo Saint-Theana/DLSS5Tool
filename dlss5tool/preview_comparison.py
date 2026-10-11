@@ -356,6 +356,8 @@ class PreviewComparison:
         self._guidance_display_signature = signature
 
     def _request_guidance_preview(self, key):
+        if hasattr(self, '_local_gpu_allowed') and not self._local_gpu_allowed():
+            return
         if self._guidance_preview_busy or getattr(self, '_clear_preview_pending', False):
             return
         previous = getattr(self, '_play_dlss_thread', None)

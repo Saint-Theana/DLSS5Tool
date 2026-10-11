@@ -26,6 +26,7 @@ import ctypes as C
 import contextlib
 import os
 import sys
+from dlss5tool.optical_flow_contract import align_size, output_shape, S10_5_SCALE
 
 P=C.c_void_p
 U=C.c_uint32
@@ -63,29 +64,17 @@ class Copy2D(C.Structure):
 
 
 
-def align_size(width, height):
-    if width <= 0 or height <= 0:
-        raise ValueError('Positive dimensions required')
-    return ((int(width) + 15) // 16 * 16, (int(height) + 15) // 16 * 16)
-
-
-def output_shape(width, height, grid=4):
-    if grid not in (1, 2, 4):
-        raise ValueError('NVOFA grid must be 1, 2, or 4')
-    return (int(height) + grid - 1) // grid, (int(width) + grid - 1) // grid
-
-
 def decode_flow(values, width, height):
     import cv2
     import numpy as np
     if values.dtype != np.int16 or values.ndim != 3 or values.shape[2] != 2:
         raise ValueError('Expected S10.5 int16 HxWx2')
-    return cv2.resize(values.astype(np.float32) / 32.0, (width, height),
+    return cv2.resize(values.astype(np.float32) / S10_5_SCALE, (width, height),
                       interpolation=cv2.INTER_LINEAR)
 
 
 class OpticalFlow:
-    """Synchronous, thread-confined session. Uses Torch's current CUDA context."""
+    """Thread-confined driver session; optionally uses an existing CUDA context."""
     def __init__(self, w, h, *, require_current=False, grid=4):
         import numpy as np
         self.np = np

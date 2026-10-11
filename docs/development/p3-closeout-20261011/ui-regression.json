@@ -1,0 +1,592 @@
+[
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_deep_diagnostics_cannot_enter_during_release",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_export_blocks_realtime_without_cancelling_or_changing_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.10s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_export_reserves_before_wait_and_cleans_failed_admission",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.10s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_realtime_stopping_blocks_all_local_gpu_entry_points",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.30s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_release_failure_does_not_claim_gpu_idle",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.33s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_release_yields_ui_and_requires_explicit_retry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.46s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_backend_shows_only_active_processing_controls",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.86s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_busy_states_lock_all_guidance_controls",
+    "returncode": 0,
+    "output": ".                                                                    [100%]\n1 passed, 4 subtests passed in 1.96s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_compact_iterations_and_consistent_section_insets",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.79s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_compare_layout_is_shared_and_side_by_side_draws_two_labeled_views",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_comparison_menu_replaces_all_top_controls_and_legend",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.73s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_component_editor_shortcut_reveals_settings_paths",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_context_switches_view_choices_and_preserves_each_selection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_display_changes_do_not_reload_or_invalidate_enhancement",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.70s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_dlss_menu_has_no_guidance_options_and_keeps_export_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_edits_reach_preview_export_queue_and_saved_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.93s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_export_dialog_cancel_has_no_side_effects",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.75s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_extended_queue_range_and_actual_session_label",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_failed_activation_is_inline_and_persists_off_in_both_themes",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.19s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_failed_gpu_activation_can_be_reconfigured_for_cpu_while_off",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.92s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_guidance_canvas_uses_active_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.92s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_guidance_export_footer_is_fixed_and_mode_aware",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_guidance_tab_stops_dlss_prerender_and_leaving_resumes_it",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.84s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_help_buttons_are_removed_but_control_tooltips_remain",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.88s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_invalid_numeric_input_restores_previous_value",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.90s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_late_result_from_old_settings_never_replaces_display",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.85s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_leaving_guidance_does_not_start_ordinary_cache_for_shared_or_original",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_long_explanations_stay_on_hover",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.72s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_modes_disable_only_inactive_controls_and_preserve_values",
+    "returncode": 0,
+    "output": ".                                                                    [100%]\n1 passed, 4 subtests passed in 1.99s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_mousewheel_routes_to_guidance_without_changing_selection",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_navigation_uses_one_guidance_page_and_does_not_change_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.79s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_paused_playback_does_not_accept_inflight_next_frame",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.79s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_real_wheel_events_do_not_edit_any_guidance_field",
+    "returncode": 0,
+    "output": ". [100%]\n1 passed, 120 subtests passed in 2.20s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_seek_holds_complete_pair_with_fixed_waiting_overlay",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.81s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_settings_controls_move_without_duplicates_and_scroll_correctly",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_stale_guidance_frame_is_not_displayed_or_compared",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.89s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_status_height_is_stable",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.76s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_still_flow_toggle_keyboard_persistence_and_busy_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.89s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_unavailable_guidance_never_starts_inference",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.74s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_waiting_playback_keeps_canvas_and_frame_until_complete_pair_ready",
+    "returncode": 0,
+    "output": ".                                                                    [100%]\n1 passed, 4 subtests passed in 1.82s\n"
+  },
+  {
+    "node": "tests/test_gui_guidance_tab.py::GuidanceTabTests::test_zero_fast_toggle_tracks_guidance_and_persists_off_default",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.91s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_real_frame_published_before_next_frame_is_requested",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.42s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_strength_preserves_spatial_mix_preserves_enhancement",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.49s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_inspection_is_cached_by_source_not_effect_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.39s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_metadata_lookup_does_not_seek_producer_back_to_zero",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.40s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_original_first_frame_does_not_need_render_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.41s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_stale_source_decode_cannot_paint_new_video",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.40s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_compare_source_preview_keeps_split_instead_of_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.39s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_compare_source_preview_pending_when_split_missing",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.40s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_compare_source_preview_does_not_overwrite_ready_paint",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.38s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_held_original_still_uses_source_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.38s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_rapid_changes_acknowledge_immediately_and_debounce_setup",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.36s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_stale_configuration_cannot_start_new_pipeline",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::test_output_mix_repaints_real_frame_without_recomputing_or_retargeting",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.41s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_compare_source_preview_does_not_overwrite_ready_paint",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_compare_source_preview_keeps_split_instead_of_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_compare_source_preview_pending_when_split_missing",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.37s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_held_original_still_uses_source_fit",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.39s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_original_first_frame_does_not_need_render_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.43s\n"
+  },
+  {
+    "node": "tests/test_preview_feedback.py::CompareSharedSourceTests::test_stale_source_decode_cannot_paint_new_video",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.39s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_active_shared_pixel_changes_refresh_once",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_disabled_fg_multiplier_and_legacy_hdr_size_are_export_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_display_gestures_preserve_paused_and_playing_producers",
+    "returncode": 0,
+    "output": ".                                                  [100%]\n1 passed, 22 subtests passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_effect_toggle_syncs_export_key_before_next_export_event",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_equivalent_output_size_does_not_restart_shared_preview",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_export_and_queue_guard_prevents_preview_session_mutation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_export_only_settings_and_duplicate_events_never_stop_preview",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_fg_multiplier_transitions_enter_and_leave_shared_pipeline",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_gesture_release_cannot_resume_an_unrelated_held_freeze",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_inflight_worker_output_survives_display_gestures",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_original_to_processed_starts_missing_producer",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_shared_display_gestures_preserve_session_and_playback_clock",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_view_change_preserves_pending_render_timer",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_viewport_cache_miss_uses_nonblocking_display",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_interaction_continuity.py::PreviewContinuityTests::test_widget_state_refresh_records_key_for_real_export_callback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportJobTests::test_create_copies_mutable_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.08s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportJobTests::test_media_kind_is_inferred_for_images",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.08s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportJobTests::test_retry_resets_runtime_state_but_keeps_snapshot",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.08s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportJobTests::test_shared_pool_is_runtime_only",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.08s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportQueuePersistenceTests::test_invalid_rows_are_ignored",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.09s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportQueuePersistenceTests::test_legacy_image_job_infers_kind_when_field_is_missing",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.08s\n"
+  },
+  {
+    "node": "tests/test_export_queue.py::ExportQueuePersistenceTests::test_roundtrip_and_running_job_recovery",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.09s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_abnormal_exit_disables_automatic_fullscreen_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.52s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_compatible_capture_and_unfinished_parameter_draft_are_preserved",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.52s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_dd_selection_keeps_windowed_mode_and_explains_fallback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_effect_editor_localizes_metadata_without_changing_parameter_ids",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.55s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_embedded_without_toplevel_or_automatic_capture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_emergency_during_recovery_never_restarts_fullscreen",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.54s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_emergency_stop_cancels_pending_edits_and_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.59s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_english_workspace_static_controls_and_session_use_english",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.91s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_failed_cursor_recovery_is_visible",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.61s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_fresh_store_defaults_to_windowed_without_overwriting_existing_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.86s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_idle_footer_explains_start_without_redundant_apply_action",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.71s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_initialization_is_not_rendering_success",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.72s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_log_summarizes_protocol_without_losing_diagnostic_details",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.63s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_minimized_session_is_still_stoppable",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_mousewheel_handles_tcl_popdown_strings_and_destroyed_widgets",
+    "returncode": 0,
+    "output": ".                                                                   [100%]\n1 passed, 5 subtests passed in 1.52s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_mousewheel_still_scrolls_inspector_and_handles_empty_canvas",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_output_mode_survives_saved_session_reload",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.58s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_output_selector_is_visible_and_keyboard_operable",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_parameter_shortcut_conflict_explains_main_window_fallback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.52s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_preset_restores_output_selection_and_scale_without_migration",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.63s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_previous_running_status_cannot_confirm_queued_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_quality_waits_for_matching_ack_and_gpu_revision",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.51s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_refresh_never_silently_retargets_disappeared_window",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.59s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_region_coordinates_follow_resized_canvas",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.78s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_restart_required_edit_is_not_partially_sent",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.56s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_running_native_error_requests_recovery",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.71s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_running_output_change_waits_for_explicit_restart",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.60s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_stale_status_does_not_confirm_new_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.68s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_stale_status_during_stop_cannot_report_success",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.77s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_start_ack_failure_requests_recovery",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.57s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_stop_during_recovery_cancels_restart_without_second_teardown",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.53s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_stop_hint_reports_protected_and_unavailable_states",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.52s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_stopped_live_edit_sends_nothing",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.48s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_summary_is_running_target_not_editor_target_or_status_message",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.50s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_user_log_deduplicates_status_and_retains_bounded_tail",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.64s\n"
+  },
+  {
+    "node": "tests/test_realtime_ui.py::RealtimeUiTests::test_windowed_choice_resolves_conflicts_without_starting",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.48s\n"
+  }
+]

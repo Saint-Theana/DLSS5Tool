@@ -41,6 +41,7 @@ from dlss5tool.guidance_public import depth_enabled, public_mode, still_image_se
 from dlss5tool.preview_comparison import PreviewComparison
 from dlss5tool.guidance_export_ui import GuidanceExportUI
 from dlss5tool.shared_render_preview import SharedRenderPreview
+from dlss5tool.gpu_resources import GpuResourceGuard, describe as describe_gpu_conflict
 from dlss5tool.local_preview_composition import LocalPreviewComposition
 from dlss5tool.image_alpha import (
     ALPHA_EXTENSIONS, read_still, inference_color, resize_preview, restore_alpha,
@@ -745,7 +746,7 @@ def compose_preview_frame(original, processed, output_view=0, output_mix=1.0, *,
 
 
 
-class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, GuidanceExportUI):
+class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, PreviewComparison, GuidanceExportUI):
     def __init__(self, root):
         self.root = root
         self._saved_settings = app_settings.startup_settings(app_settings.load())
@@ -3139,8 +3140,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         return changed
 
     def start_export_queue(self):
-        if self._realtime_busy():
-            messagebox.showinfo(tr('dialog.busy'), tr('appearance.busy'), parent=self.root)
+        if not self._gpu_admit('queue'):
             return
         if getattr(self, '_switching_backend', False):
             return
@@ -3187,6 +3187,9 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
                 self._confirmed_super_resolution_plans.add(
                     (plan_width, plan_height, plan_scale, plan_hdr)
                 )
+        # Confirmation dialogs pump Tk; recheck before reserving the queue.
+        if not self._gpu_admit('queue'):
+            return
         self._prepare_queue_jobs_for_start()
         self.pause()
         self._queue_running = True
@@ -3587,7 +3590,12 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         return True
 
     def _can_start_realtime(self):
-        if any(getattr(self, key, False) for key in ('_deep_diagnosing', '_exporting', '_queue_running', '_switching_backend')):
+        item = self._gpu_conflict('realtime')
+        self._gpu_start_reason = describe_gpu_conflict(item)
+        if item is not None:
+            if item.owner == 'preview':
+                self._release_preview_for_realtime()
+                self._gpu_start_reason = tr('resources.releasing')
             return False
         workspace = self._realtime_workspace
         # Refresh paths only while idle. Changing a runtime recreates the idle
@@ -4726,6 +4734,9 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
             self._update_host_control_states()
 
     def _on_mod_settings_change(self):
+        if self._realtime_busy() or self._gpu_thread_alive(getattr(self, '_gpu_release_thread', None)):
+            self.set_status(tr('resources.preview_wait'))
+            return
         if self._exporting or self._queue_running or self._switching_backend or self._diagnosing:
             return
         if getattr(self, '_render_cache_manager', None):
@@ -5712,6 +5723,10 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         self._select_workbench_mode('realtime')
 
     def _on_close(self):
+        if self._gpu_thread_alive(getattr(self, '_gpu_release_thread', None)):
+            self.root.after(50, self._on_close)
+            return
+        self._cancel_after('_gpu_release_after')
         if getattr(self, '_module_reload_thread', None) is not None:
             self._close_after_module_reload = True
             self.set_status(tr('guidance.closing'))
@@ -5965,6 +5980,8 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
             return None
 
     def _live_dlss_image(self, frame, source_bgr=None, settings=None, target_size=None):
+        if not self._local_gpu_allowed():
+            return None
         if getattr(self, '_module_reload_thread', None) is not None:
             return None
         settings = settings or self._collect_settings()
@@ -7238,6 +7255,8 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
 
     def _schedule_full_preview(self):
         self._cancel_after("_scrub_after")
+        if not self._local_gpu_allowed():
+            return
         if getattr(self, "_preview_cache_frozen", False):
             # Interaction owns the resume timer. Restarting it here would let a
             # paused timeline drag refill the cache while the pointer is down.
@@ -7775,6 +7794,9 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         if not self.video:
             messagebox.showwarning(tr("dialog.hint"), tr("message.import_first"))
             return
+        if self.view_var.get() != 'original' and not self._local_gpu_allowed():
+            self.set_status(tr('resources.preview_wait'))
+            return
         if self._is_image or self.nframes <= 1:
             self.display_view(quality="full")
             return
@@ -7859,7 +7881,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
 
     def _preview_session_active(self):
         return bool(
-            (self.playing or self._pre_rendering)
+            self._local_gpu_allowed() and (self.playing or self._pre_rendering)
             and getattr(self, '_module_reload_thread', None) is None
             and not getattr(self, '_clear_preview_pending', False)
             and not getattr(self, "_preview_cache_frozen", False)
@@ -8393,6 +8415,8 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         self._blit_split(cw, ch)
 
     def _start_prefetch(self, preview_size=None):
+        if not self._local_gpu_allowed():
+            return False
         if self._uses_shared_render():
             return False
         retiring = getattr(self, '_shared_retiring', None)
@@ -9075,10 +9099,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         """Default to an inexpensive snapshot; probes require explicit consent."""
         if self._diagnosing:
             return
-        realtime = getattr(self, '_realtime_workspace', None)
-        realtime_busy = realtime is not None and not realtime._closed and realtime.session_summary()[1]
-        if deep and (self._exporting or self._queue_running or self._switching_backend or realtime_busy):
-            messagebox.showinfo(tr("dialog.busy"), tr('diagnostics.stop_before_deep'), parent=self.root)
+        if deep and not self._gpu_admit('diagnostics'):
             return
         if deep and not messagebox.askyesno(tr('diagnostics.deep'), tr('diagnostics.deep_confirm'), parent=self.root):
             return
@@ -9106,11 +9127,9 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         # have started while the user was choosing a destination.
         if self._diagnosing:
             return
-        realtime = getattr(self, '_realtime_workspace', None)
-        realtime_busy = realtime is not None and not realtime._closed and realtime.session_summary()[1]
-        if deep and (self._exporting or self._queue_running or self._switching_backend or realtime_busy):
-            messagebox.showinfo(tr("dialog.busy"), tr('diagnostics.stop_before_deep'), parent=self.root)
+        if deep and not self._gpu_admit('diagnostics'):
             return
+        realtime = getattr(self, '_realtime_workspace', None)
         try:
             ui_log = self.log.get("end-501l", "end")
         except Exception:
@@ -9160,6 +9179,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
                 guidance_info = {}
         context = {
             'workbench_mode': self._workbench_mode,
+            'gpu_resources': self._gpu_resource_snapshot(),
             "settings": self._collect_settings(include_cache_pool=deep),
             "export_settings": self._collect_export_settings(),
             "preview_super_resolution": self._preview_effect_enabled("super_resolution"),
@@ -9697,18 +9717,28 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
         return candidate
 
     def _begin_export_ui(self, status_text):
-        if self._realtime_busy():
-            raise RuntimeError(tr('appearance.busy'))
-        self._clear_preview_wait()
-        self._cancel_after('_viewport_repaint_after')
-        self.pause()
-        self._cancel_after("_preview_cache_resume_after")
-        self._preview_cache_frozen = False
-        self._wait_play_dlss()
-        if self._fullscreen:
-            self._exit_fullscreen()
-        self._export_cancel_event.clear()
+        item = self._gpu_conflict('export')
+        if item is not None:
+            raise RuntimeError(describe_gpu_conflict(item))
+        # Reserve before callbacks/waits; nested Tk events must see the owner.
         self._exporting = True
+        try:
+            self._clear_preview_wait()
+            self._cancel_after('_viewport_repaint_after')
+            self.pause()
+            session = getattr(self, '_shared_session', None)
+            if session is not None:
+                session.set_prefetch(False)
+            self._cancel_after("_preview_cache_resume_after")
+            self._preview_cache_frozen = False
+            if self._wait_play_dlss() is False:
+                raise RuntimeError(tr('resources.preview_wait'))
+            if self._fullscreen:
+                self._exit_fullscreen()
+            self._export_cancel_event.clear()
+        except Exception:
+            self._exporting = False
+            raise
         self._update_action_labels()
         self._update_host_control_states()
         self._update_queue_action_states()
@@ -9941,7 +9971,13 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
             out_path = self._unique_target_path(out_path)
         if out_path != default_out and notify:
             self.logln(tr("log.target_renamed", name=os.path.basename(out_path)))
-        self._begin_export_ui(tr("status.exporting_image"))
+        try:
+            self._begin_export_ui(tr("status.exporting_image"))
+        except RuntimeError as error:
+            if notify:
+                messagebox.showinfo(tr('dialog.busy'), str(error), parent=self.root)
+            return {'success': False, 'cancelled': False, 'error': str(error),
+                    'output_path': out_path, 'frames': 0}
         success = False
         error_message = ""
         started_at = self._export_t0
@@ -10226,8 +10262,7 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
                 writer.abort()
 
     def export_dlss(self):
-        if self._realtime_busy():
-            messagebox.showinfo(tr('dialog.busy'), tr('appearance.busy'), parent=self.root)
+        if not self._gpu_admit('export'):
             return
         if not self._validate_adjustment_draft():
             return
@@ -10401,7 +10436,13 @@ class App(SharedRenderPreview, LocalPreviewComposition, PreviewComparison, Guida
             pipeline_name = tr('queue.upscale', scale=super_resolution_scale)
         else:
             pipeline_name = tr('status.export_cpu_gpu')
-        self._begin_export_ui(tr('status.exporting_pipeline', pipeline=pipeline_name))
+        try:
+            self._begin_export_ui(tr('status.exporting_pipeline', pipeline=pipeline_name))
+        except RuntimeError as error:
+            if notify:
+                messagebox.showinfo(tr('dialog.busy'), str(error), parent=self.root)
+            return {'success': False, 'cancelled': False, 'error': str(error),
+                    'output_path': out_path, 'frames': 0}
         success = False
         cancelled = False
         started_at = self._export_t0

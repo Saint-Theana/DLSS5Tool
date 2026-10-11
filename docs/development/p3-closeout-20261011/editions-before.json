@@ -1,0 +1,796 @@
+{
+  "schema": 2,
+  "directory_bytes": {
+    "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite": 1039298606,
+    "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full": 5820823576,
+    "F:\\project\\DLSS5Tool\\mods\\enhancement": 4761794390
+  },
+  "identical_file_candidates": [
+    {
+      "bytes": 1028845568,
+      "sha256": "e5ef440198e9f9ca8fa5e475328c78506431b5b18b7c51a384bb9c6418de8766",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\torch_cuda.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_cuda.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 674667520,
+      "sha256": "b199d1ff892a81b7fd3d57ba1781549609b41500b36008fef326038393ad46c7",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cublasLt64_12.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cublasLt64_12.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 513926688,
+      "sha256": "ebc2c1f74366b029a4350f7f9a3b109ccd5aa9b4ae02527950793dd29f7b74fb",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_precompiled64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_precompiled64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 379535872,
+      "sha256": "f4688daa6163c47a0b5293926ec7ae367de6b4af54ea201638b308831b322a0e",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cusparse64_12.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusparse64_12.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 282445872,
+      "sha256": "f202e8ff36209ac4292fe2ef79d4539487495b3b948f0c978cc63298f43a1850",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_adv64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_adv64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 276121600,
+      "sha256": "f4fea9227b14843894ad5436725f9638b172171142c95291fc6ae7a493248221",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cufft64_11.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cufft64_11.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 256088064,
+      "sha256": "12d113f693fd307b9aa50fac1d52ddc4a724dcf2efb6d664e371ba805b834df7",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\torch_cpu.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_cpu.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 225683456,
+      "sha256": "3d4f7a66b5f352db56d4bb5962bb453a42d5feb2d831779f4a0bebc9971c36fb",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cusolver64_11.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusolver64_11.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 165840496,
+      "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\nvngx_dlssnr.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\nvngx_dlssnr.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 157071360,
+      "sha256": "c3377f10606ff0606be2f08401d54aff6c37f137b78d6b6e21be356a5b4d6cc2",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cusolverMg64_11.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusolverMg64_11.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 148234240,
+      "sha256": "b1383f5d07470d503edecdaee4bddc5891e986e916a698299b357f79cfe445fd",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\ffmpeg.EXE",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\ffmpeg.EXE"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 148097536,
+      "sha256": "012bddded3cbc5204055210d7ff4f0b3f7521bca441a694939856d01909f5756",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\ffprobe.exe",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\ffprobe.exe"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 126508576,
+      "sha256": "851d8f4191a24b322b0be738d191a3159455f0da4db47a19f5cc7ad6e55edf61",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_ops64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_ops64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 113716224,
+      "sha256": "9513540e4ec4c51ee9e7304138c2cc255c29a8c181f9e80c38efa25738becd99",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cublas64_12.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cublas64_12.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 102456900,
+      "sha256": "50efb4d94c3397aff3b0d61a5abd748b4dd31d9d3f2ab7be05b171d36a510f79",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\gcc.tar.xz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\gcc.tar.xz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 87638016,
+      "sha256": "2ce797a0f88d7f067180338fb227f7b1928ea727bd9a4d7a1d022f7c52af71a3",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 86794240,
+      "sha256": "5464ea01b079d78042374dc7819684910c8e9d5c63000e2d2d5aa02298ecf2ae",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.alt.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.alt.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 86728192,
+      "sha256": "02d2d7ef4690bf1a55dda1d3ac94c86ce8d16920071c87bcd3e70e94ef346e93",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 86293504,
+      "sha256": "f1e76ab01cf4d33af780adf8ada1a26c5eaeecc55d2cbe8a5e288195e8f9b0dd",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\cv2\\cv2.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\cv2\\cv2.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\cv2\\cv2.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\cv2\\cv2.pyd"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 77860352,
+      "sha256": "959d3cb44527ec884db8dc20772520b584dbe7d622d11b0530e6326417078b3e",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\nvJitLink_120_0.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvJitLink_120_0.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 71955968,
+      "sha256": "3465fd1b46e551339b8f44c455756a0f2cba8bd846562eb659040d48edb7aaac",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\curand64_10.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\curand64_10.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 56823328,
+      "sha256": "458175f12771a35de0ea39c04250d727c2424d42a7ffe0bc987ae81204748fba",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_heuristic64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_heuristic64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 30876160,
+      "sha256": "7aabff029d1fa47cf56ede4dbbe05dc62da3208f07cd16471d4c966a33f9aa31",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 20495360,
+      "sha256": "327b2e0bcffce2882e0dc04cdeb4eaa6382ed4dba29871b6176fa157782f484a",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 20201008,
+      "sha256": "93ab6351ca0f2b6ca842f83d284e56c427525778c14657229801a13cf8121bd8",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_runtime_compiled64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_runtime_compiled64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 19266048,
+      "sha256": "777704d8914bb99e5d78f3a0e7424031b5376621f2e7c60e83b84e77fcc7e2d7",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\avcodec-62-984de33114b7fa384296817dec999c9d.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 19140144,
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\nvngx_vsr.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\nvngx_vsr.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 17665024,
+      "sha256": "05e66a29cb8e858194c34494f92ee649467098faefc77edea2eb7ddd4d05677c",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\torch_python.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_python.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 15256061,
+      "sha256": "1a910473313a329316025fa4563160deae378884e4b8ee573d1d03ac006b2e61",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\mingw-w64.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\mingw-w64.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 12968334,
+      "sha256": "d60931937426130ddad9f1975c010543f0da99e67edb1c6070656b7947f633b6",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\libvpl.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\libvpl.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 12746240,
+      "sha256": "57b1a6cad779aa841985cbdc22539802dd0c15f5832f1783bf38e72e09929f60",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libx265-efe48a158520a59ef99c0a0b3eb835ae.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libx265-efe48a158520a59ef99c0a0b3eb835ae.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 11710924,
+      "sha256": "464beb5e7bf0c311e68b45ae2f04e9cc2af88851abb4082231742a74d97b524c",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\ffmpeg.tar.xz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\ffmpeg.tar.xz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 10472813,
+      "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\opus.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\opus.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 10197493,
+      "sha256": "184162d3db3a4448882b17230413b4938ca252eef6b3c5e2f1236b2fcf497881",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\libsvtav1.tar.bz2",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\libsvtav1.tar.bz2"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 9359310,
+      "sha256": "e5e9c6d3c9eed0da8d6f6cac1a295879ecbabccd5211e16e4750ebe080584534",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\DLSS5Update.exe",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\DLSS5Update.exe"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 8949248,
+      "sha256": "48cda40c9c326434d84493cc5a1a51ac8b66e60ccd3204a1f1f996e50b88eebf",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torchvision\\_C.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\_C.pyd"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 7890944,
+      "sha256": "2e3e5cce3aea38c603680ca3da5d161fad123ce23a803bb692a56aff608989be",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\PIL\\_avif.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\PIL\\_avif.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\PIL\\_avif.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_avif.cp313-win_amd64.pyd"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 7673344,
+      "sha256": "c4dd99c98ddcdb013e820dbd68a30e26472894f1d788e2862376e0404542f045",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 7519856,
+      "sha256": "135eaf0733c1e37381a8c28abcf7a862404a54132b81787c04e35d09efc5e36f",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\nvngx_dlssg.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\nvngx_dlssg.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 6356480,
+      "sha256": "a7afa2a40cbd3f922a33d8bf71c13cb26ca707c7016a9bc5fcde36759ba668f5",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc-builtins64_128.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc-builtins64_128.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 6252371,
+      "sha256": "4a75f111f35d636314b92d4b8ef06a44cf04b54e51c133b0dcefefe20e8fd0d9",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\DLSS5Tool.exe",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\DLSS5Tool.exe"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 6171648,
+      "sha256": "dd65708285bdab2a782e7200d169ecc6c89166e1aba0be668f3b64bf4b89ec2e",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torchvision\\nvjpeg64_12.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\nvjpeg64_12.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 6099960,
+      "sha256": "69fd86ea29370697c203f7e12830084f920f490766a8e3045af52c036a9ad529",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\python313.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\python313.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\python313.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\python313.dll"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 5921103,
+      "sha256": "88dd96a8c0464eca144fc791ae60cd31cd8ee78321e67397e25fc095c4a19aa6",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\libiconv.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\libiconv.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 5890560,
+      "sha256": "26e5bd7b01ad8874db7842c03f4ee0fa1466f1192f2f245c1cdccc8acb81ebd2",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 5721600,
+      "sha256": "6059b7c24e232309b0bd4136d474078fb2438c26d2c5415a8ad34092869ba2a8",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\bin\\fbgemm.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\fbgemm.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\fbgemm.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\fbgemm.dll"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 5635379,
+      "sha256": "7a479a3c66b9f5d5542a4c6a1b7d3768a983b1e5c14c60a9396edc9b649e015c",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\vpx.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\vpx.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 5231472,
+      "sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\libcrypto-3.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\libcrypto-3.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\libcrypto-3.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\libcrypto-3.dll"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 4618272,
+      "sha256": "3f03dec3b81f137f049e1d1c06ff469248eef54ff9424b3b9045fc0f69559d1a",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_cnn64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_cnn64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 4483664,
+      "sha256": "d026870a2c503d1b6e38a793170823ceca83d776f9b887f63fb0bb5c93d5c525",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cupti64_2025.1.1.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cupti64_2025.1.1.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 3847680,
+      "sha256": "b9837d7cdea6dcc58f76d3ae6ea36789ef2ff8991f480ce89cef47ea01f1edd0",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 3833512,
+      "sha256": "93a852c2b3efafee3723efd4636de855b46f9fe1efddd607e1f42f60fc8f2136",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\webp.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\webp.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2845184,
+      "sha256": "a3494c5304c387518e0d5136ed9bf5e5fc1a3b227ce3f380357149ee09717ff2",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2812416,
+      "sha256": "12a301f7ac1d75039047188004e2ab37da46f712bb6fd6b328403f62ac054cd8",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\bin\\protoc.exe",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\protoc.exe"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2660352,
+      "sha256": "80c66b5220c554aa61b72cce0e9322547d111f81179792dde4d9a645255d0e5a",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2632704,
+      "sha256": "88756e8e0e3f6180e518da25d379597c861e2d20d716ef001894789b515c1777",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2600960,
+      "sha256": "e0be857ba4f86709addb42c5e81fef2f565faf52c13fdb982f393ff74d92a0ca",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2420256,
+      "sha256": "a933efeb280a3252297f92d79f7e83003bcbc6f665872d11645d1dbbab9cb598",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_graph64_9.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_graph64_9.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2267648,
+      "sha256": "f3a909470ddc2d85ed21eda3d0fb795404382727c59efa502e3b71cb5ef1aebc",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2174976,
+      "sha256": "e94673a471a0b6fd5e92e8b6cdbdfe16e2e91bcf5689e9e4c9b391ab43788d85",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd"
+      ],
+      "copies": 4,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2139136,
+      "sha256": "959ebc1340f7dfcbcf8e299a26281738d73b53c2da0a3ceb1a1df80ac0c41b4b",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 2022912,
+      "sha256": "134b9ba046e46a4391a63d391635a0fc2ba12769295ffc0ffd9b2e78f1376472",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\swscale-9-0c9886c118598c54e159ef2267ff99f3.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\swscale-9-0c9886c118598c54e159ef2267ff99f3.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1841144,
+      "sha256": "137972bf582984df7ffe8983fa66d92dba6cc5887fe6784ffe1165bab57304b0",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\tcl86t.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\tcl86t.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1833442,
+      "sha256": "40b1ea0453e0309f0eba934e0ddf533f8f6295966679e8894e8f1c1c8d5e1210",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\x265.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\x265.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1613680,
+      "sha256": "d9d66ed25f1a0ea725fa3a41b22cfd5d182c19dbe4771d9c90ca02ad7466f6a1",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\lib\\libiomp5md.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\libiomp5md.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1590776,
+      "sha256": "ddc6b69c3897ddf3ea9fdfb4b4a6b9c3a667958d4dbf6b4bbcc50c93eb341370",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\tk86t.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\tk86t.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1583608,
+      "sha256": "441363c5b15394ca4b117200800722d48042c04407d03aac0d1a0a967b7c68e4",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\sqlite3.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\sqlite3.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1524133,
+      "sha256": "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\lame.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\lame.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1502830,
+      "sha256": "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\zlib.tar.gz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\zlib.tar.gz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1399388,
+      "sha256": "fc6ce2a7c9d81c8032d82e7cac368abc103674e2995e537580af8545f39aad82",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\base_library.zip",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\base_library.zip"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1231573,
+      "sha256": "3bfc2ee3ff26ef4563bedcd89ffab31d04db61f80e221ff508ff8443878cfc0b",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch\\testing\\_internal\\common_methods_invocations.py",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\testing\\_internal\\common_methods_invocations.py"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1217030,
+      "sha256": "e099f53253f6c247580c554d53a13f1040638f2066edc3c740e4c2f15174ce22",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\dav1d.tar.bz2",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\dav1d.tar.bz2"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1212698,
+      "sha256": "6c070c5cdeb9c0e845729a40dc26065985d84f424459bf560a9c86d96d65d682",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\mods\\enhancement\\_internal\\torch-2.8.0+cu128.dist-info\\RECORD",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch-2.8.0+cu128.dist-info\\RECORD"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1145856,
+      "sha256": "ff4aae43357698825fa5392764d3b680e36c1846b75677bdbf313d8c141ece6d",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1141248,
+      "sha256": "6ce5f4ff92ada49d6f23a8e4134555028a60cbf22ac4bb5ac78b12a2727676ec",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\av.libs\\libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\av.libs\\libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    },
+    {
+      "bytes": 1070096,
+      "sha256": "28eb403f51f0f7405249132cecfe82ea5c0ef97f1b32c5a65828814ae0d34775",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-full\\_internal\\licenses\\GPU-export\\sources\\png.tar.xz",
+        "F:\\project\\DLSS5Tool\\dist\\v2.3.3-release-20260924\\official-baseline-20260924\\DLSS5Tool-v2.3.3-win64-lite\\_internal\\licenses\\GPU-export\\sources\\png.tar.xz"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    }
+  ],
+  "skipped_links": [],
+  "pe_imports": [],
+  "min_duplicate_bytes": 1048576,
+  "measurement": "logical installed bytes; separate editions are alternatives, not additive savings",
+  "safe_removal_bytes": 0,
+  "note": "Separate dependency search roots may require identical files. No removal authorized."
+}

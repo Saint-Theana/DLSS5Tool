@@ -69,6 +69,8 @@ class GuidanceExportUI:
             self.set_status(tr('status.cancelling_export'))
 
     def _start_guidance_export(self):
+        if hasattr(self, '_gpu_admit') and not self._gpu_admit('export'):
+            return
         if not self.video or self._exporting or self._queue_running or self._switching_backend or self._diagnosing:
             return
         target = 'flow' if self._guidance_export_target.get() == tr('view.flow') else 'depth'
@@ -95,6 +97,8 @@ class GuidanceExportUI:
                                            initialfile=default + extension, defaultextension=extension,
                                            filetypes=[('MP4' if video else 'PNG', '*' + extension)])
         if not path:
+            return
+        if hasattr(self, '_gpu_admit') and not self._gpu_admit('export'):
             return
         if os.path.normcase(os.path.realpath(path)) == os.path.normcase(os.path.realpath(source)):
             messagebox.showerror(tr('tab.guidance'), tr('guidance.export.source_error'))

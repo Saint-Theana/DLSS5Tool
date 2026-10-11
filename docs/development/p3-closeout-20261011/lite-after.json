@@ -1,0 +1,1948 @@
+{
+  "schema": 2,
+  "directory_bytes": {
+    "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0": 963316178
+  },
+  "identical_file_candidates": [],
+  "skipped_links": [],
+  "pe_imports": [
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\DLSS5Tool.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "COMCTL32.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-console-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-datetime-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-debug-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-errorhandling-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-fibers-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-fibers-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-file-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-file-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-file-l2-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-handle-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-heap-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-interlocked-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-libraryloader-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-localization-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-memory-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-namedpipe-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-processenvironment-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-processthreads-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-processthreads-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-profile-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-string-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-synch-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-synch-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-sysinfo-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-sysinfo-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-timezone-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-core-util-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-conio-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-convert-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-environment-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-filesystem-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-heap-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-locale-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-math-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-private-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-process-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-runtime-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-stdio-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-string-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-time-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\api-ms-win-crt-utility-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\dlssg_video_worker.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VERSION.dll",
+        "bcrypt.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\dlssnr_host.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\dlssnr_host_v2.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "D3DCOMPILER_47.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\ffmpeg.EXE",
+      "imports": [
+        "ADVAPI32.dll",
+        "AVICAP32.dll",
+        "CFGMGR32.dll",
+        "CRYPT32.dll",
+        "DWrite.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "SETUPAPI.dll",
+        "SHELL32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "VERSION.dll",
+        "WINMM.dll",
+        "WS2_32.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcrypt.dll",
+        "d2d1.dll",
+        "msvcrt.dll",
+        "ncrypt.dll",
+        "ntdll.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\ffprobe.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "AVICAP32.dll",
+        "CFGMGR32.dll",
+        "CRYPT32.dll",
+        "DWrite.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "SETUPAPI.dll",
+        "SHELL32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "VERSION.dll",
+        "WINMM.dll",
+        "WS2_32.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcrypt.dll",
+        "d2d1.dll",
+        "msvcrt.dll",
+        "ncrypt.dll",
+        "ntdll.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\libcrypto-3.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "bcrypt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\libffi-8.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\libssl-3.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "libcrypto-3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\MSVCP140.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlssg.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VERSION.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\nvngx_dlssnr.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VERSION.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\nvngx_vsr.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "nvcuda.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\pyexpat.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\python3.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\python313.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VERSION.dll",
+        "WS2_32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-process-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "bcrypt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\select.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tcl86t.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "NETAPI32.dll",
+        "USER32.dll",
+        "USERENV.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "zlib1.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tk86t.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "COMCTL32.dll",
+        "COMDLG32.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\unicodedata.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\VCRUNTIME140.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\VCRUNTIME140_1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\vsr_host.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\zlib1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_asyncio.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_bz2.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_ctypes.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libffi-8.dll",
+        "ole32.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_decimal.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_elementtree.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_hashlib.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libcrypto-3.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_lzma.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_multiprocessing.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_overlapped.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_queue.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_socket.pyd",
+      "imports": [
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "RPCRT4.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_ssl.pyd",
+      "imports": [
+        "CRYPT32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libcrypto-3.dll",
+        "libssl-3.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_tkinter.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll",
+        "tcl86t.dll",
+        "tk86t.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_uuid.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "RPCRT4.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\_wmi.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "PROPSYS.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "ole32.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\bitstream.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\buffer.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\device.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avdevice-62-bf7a3ffbb6a4b577f24a39ea98a958d5.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\dictionary.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\error.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\format.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\frame.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\index.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\logging.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\opaque.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\packet.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\plane.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\rational.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\stream.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\utils.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\_core.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avdevice-62-bf7a3ffbb6a4b577f24a39ea98a958d5.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll",
+        "swresample-6-0158536d5c4197d7d623445553ce9472.dll",
+        "swscale-9-0c9886c118598c54e159ef2267ff99f3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\codeccontext.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\fifo.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\format.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\frame.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\layout.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\plane.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\resampler.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\audio\\stream.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\codec\\codec.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\codec\\context.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\codec\\hwaccel.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\container\\core.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\container\\input.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\container\\output.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\container\\pyio.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\container\\streams.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\filter\\context.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\filter\\filter.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\filter\\graph.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\filter\\link.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\filter\\loudnorm.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\sidedata\\encparams.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\sidedata\\motionvectors.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\sidedata\\sidedata.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\subtitles\\codeccontext.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\subtitles\\stream.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\subtitles\\subtitle.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\codeccontext.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\format.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\frame.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\plane.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\reformatter.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll",
+        "swscale-9-0c9886c118598c54e159ef2267ff99f3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av\\video\\stream.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll",
+        "libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll",
+        "libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll",
+        "libmp3lame-0-da02696cc34a9bbc1d1d4f67a85cfbef.dll",
+        "libopencore-amrnb-0-b8933128305cd084d40426d0d2c0d9ef.dll",
+        "libopencore-amrwb-0-49da3acfc50704f92538d74aca03c3b8.dll",
+        "libopus-0-4369edc456631a3cc933d7918747e5d2.dll",
+        "libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll",
+        "libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll",
+        "libwebp-4bf4e57964c7a01c09ce39470d6b67ca.dll",
+        "libwebpmux-9cf6581f8709616d9591befbb1a2264b.dll",
+        "libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll",
+        "libx265-efe48a158520a59ef99c0a0b3eb835ae.dll",
+        "msvcrt.dll",
+        "ole32.dll",
+        "swresample-6-0158536d5c4197d7d623445553ce9472.dll",
+        "zlib1-79e0c4f9db71cb511398c504b832d395.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\avdevice-62-bf7a3ffbb6a4b577f24a39ea98a958d5.dll",
+      "imports": [
+        "AVICAP32.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "msvcrt.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\avfilter-11-aef80fc767dc77e0319469b5bdcdf998.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll",
+        "msvcrt.dll",
+        "ole32.dll",
+        "swresample-6-0158536d5c4197d7d623445553ce9472.dll",
+        "swscale-9-0c9886c118598c54e159ef2267ff99f3.dll",
+        "zlib1-79e0c4f9db71cb511398c504b832d395.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\avformat-62-b6d6bb16ff0b7753371e2d0b285c9dc0.dll",
+      "imports": [
+        "CRYPT32.dll",
+        "KERNEL32.dll",
+        "Secur32.dll",
+        "WS2_32.dll",
+        "avcodec-62-984de33114b7fa384296817dec999c9d.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll",
+        "msvcrt.dll",
+        "ncrypt.dll",
+        "zlib1-79e0c4f9db71cb511398c504b832d395.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "USER32.dll",
+        "bcrypt.dll",
+        "libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll",
+        "libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libdav1d-959ebc1340f7dfcbcf8e299a26281738.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libgcc_s_seh-1-4c0a762e4178b574f72d1ef1f8bb5fc9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libiconv-2-6ce5f4ff92ada49d6f23a8e413455502.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libmp3lame-0-da02696cc34a9bbc1d1d4f67a85cfbef.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libopencore-amrnb-0-b8933128305cd084d40426d0d2c0d9ef.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libopencore-amrwb-0-49da3acfc50704f92538d74aca03c3b8.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libopus-0-4369edc456631a3cc933d7918747e5d2.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libsharpyuv-8b869e30854bf3db317a2a93d0782c3d.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "libgcc_s_seh-1-4c0a762e4178b574f72d1ef1f8bb5fc9.dll",
+        "libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libSvtAv1Enc-c4dd99c98ddcdb013e820dbd68a30e26.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libvpl-969a52d626b0390fc34f6a4fb0b08d7e.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "libgcc_s_seh-1-4c0a762e4178b574f72d1ef1f8bb5fc9.dll",
+        "libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll",
+        "msvcrt.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libvpx-1-d869f8b2cb42d58b35545ffbfb0f7509.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libwebp-4bf4e57964c7a01c09ce39470d6b67ca.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "libsharpyuv-8b869e30854bf3db317a2a93d0782c3d.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libwebpmux-9cf6581f8709616d9591befbb1a2264b.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "libwebp-4bf4e57964c7a01c09ce39470d6b67ca.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libwinpthread-1-02332fab016bf884a2a7a7b2ece22ffe.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libx264-165-f3a909470ddc2d85ed21eda3d0fb7954.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\libx265-efe48a158520a59ef99c0a0b3eb835ae.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "libstdc++-6-2d5c346d47ad531ef9f5185db0e8cef3.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\swresample-6-0158536d5c4197d7d623445553ce9472.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\swscale-9-0c9886c118598c54e159ef2267ff99f3.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "avutil-60-cc1777f859dcfd98b8019bdf459e774e.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\av.libs\\zlib1-79e0c4f9db71cb511398c504b832d395.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\cv2\\cv2.pyd",
+      "imports": [
+        "ADVAPI32.dll",
+        "COMDLG32.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "MF.dll",
+        "MFPlat.DLL",
+        "MFReadWrite.dll",
+        "OLEAUT32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "d3d11.dll",
+        "dxgi.dll",
+        "ole32.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "Secur32.dll",
+        "USER32.dll",
+        "WS2_32.dll",
+        "bcrypt.dll",
+        "msvcrt.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\gpu-export\\encoder.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\gpu-export\\enhancement.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "D3DCOMPILER_47.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\gpu-export\\frame-worker.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "D3DCOMPILER_47.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VERSION.dll",
+        "bcrypt.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\fft\\_pocketfft_umath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\linalg\\_umath_linalg.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\bit_generator.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\mtrand.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_bounded_integers.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_common.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_generator.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_mt19937.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_pcg64.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_philox.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\random\\_sfc64.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\_core\\_multiarray_tests.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_avif.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd",
+      "imports": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_imagingcms.cp313-win_amd64.pyd",
+      "imports": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_imagingmath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_imagingtk.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "PSAPI.DLL",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\PIL\\_webp.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\realtime\\dlss5_realtime_host.exe",
+      "imports": [
+        "CoreMessaging.dll",
+        "D3DCOMPILER_47.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "KERNEL32.dll",
+        "MAGNIFICATION.dll",
+        "OLEAUT32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "api-ms-win-core-com-l1-1-0.dll",
+        "api-ms-win-core-com-l1-1-1.dll",
+        "api-ms-win-core-console-l1-1-0.dll",
+        "api-ms-win-core-console-l2-1-0.dll",
+        "api-ms-win-core-console-l2-2-0.dll",
+        "api-ms-win-core-console-l3-2-0.dll",
+        "api-ms-win-core-datetime-l1-1-0.dll",
+        "api-ms-win-core-debug-l1-1-0.dll",
+        "api-ms-win-core-errorhandling-l1-1-0.dll",
+        "api-ms-win-core-fibers-l1-1-0.dll",
+        "api-ms-win-core-file-l1-1-0.dll",
+        "api-ms-win-core-file-l1-2-0.dll",
+        "api-ms-win-core-file-l1-2-2.dll",
+        "api-ms-win-core-file-l2-1-0.dll",
+        "api-ms-win-core-handle-l1-1-0.dll",
+        "api-ms-win-core-heap-l1-1-0.dll",
+        "api-ms-win-core-heap-l2-1-0.dll",
+        "api-ms-win-core-heap-obsolete-l1-1-0.dll",
+        "api-ms-win-core-interlocked-l1-1-0.dll",
+        "api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+        "api-ms-win-core-largeinteger-l1-1-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-1.dll",
+        "api-ms-win-core-localization-l1-2-0.dll",
+        "api-ms-win-core-memory-l1-1-0.dll",
+        "api-ms-win-core-namedpipe-l1-1-0.dll",
+        "api-ms-win-core-processenvironment-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-1.dll",
+        "api-ms-win-core-profile-l1-1-0.dll",
+        "api-ms-win-core-psapi-l1-1-0.dll",
+        "api-ms-win-core-registry-l1-1-0.dll",
+        "api-ms-win-core-rtlsupport-l1-1-0.dll",
+        "api-ms-win-core-string-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "api-ms-win-core-sysinfo-l1-2-0.dll",
+        "api-ms-win-core-threadpool-l1-2-0.dll",
+        "api-ms-win-core-timezone-l1-1-0.dll",
+        "api-ms-win-core-util-l1-1-0.dll",
+        "api-ms-win-core-winrt-error-l1-1-0.dll",
+        "api-ms-win-core-winrt-error-l1-1-1.dll",
+        "api-ms-win-core-winrt-l1-1-0.dll",
+        "api-ms-win-mm-time-l1-1-0.dll",
+        "api-ms-win-ntuser-sysparams-l1-1-0.dll",
+        "api-ms-win-security-base-l1-1-0.dll",
+        "api-ms-win-shcore-scaling-l1-1-1.dll",
+        "d3d11.dll",
+        "d3d12.dll",
+        "dcomp.dll",
+        "dwmapi.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tkinterdnd2\\tkdnd\\win-arm64\\libtkdnd2.10.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tkinterdnd2\\tkdnd\\win-x64\\libtkdnd2.10.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tkinterdnd2\\tkdnd\\win-x64-tcl9\\libtkdnd2.10.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tkinterdnd2\\tkdnd\\win-x86\\libtkdnd2.10.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p3-closeout-20261011\\candidate\\DLSS5Tool-v3.0.0\\_internal\\tkinterdnd2\\tkdnd\\win-x86-tcl9\\libtkdnd2.10.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    }
+  ],
+  "min_duplicate_bytes": 1048576,
+  "measurement": "logical installed bytes; separate editions are alternatives, not additive savings",
+  "safe_removal_bytes": 0,
+  "note": "Separate dependency search roots may require identical files. No removal authorized."
+}

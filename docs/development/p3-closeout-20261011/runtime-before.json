@@ -1,0 +1,1548 @@
+{
+  "schema": 2,
+  "directory_bytes": {
+    "F:\\project\\DLSS5Tool\\runtime\\realtime": 20778791,
+    "F:\\project\\DLSS5Tool\\runtime\\gpu-export": 189687707,
+    "F:\\project\\DLSS5Tool\\mods\\enhancement": 4761794390
+  },
+  "identical_file_candidates": [
+    {
+      "bytes": 5721600,
+      "sha256": "6059b7c24e232309b0bd4136d474078fb2438c26d2c5415a8ad34092869ba2a8",
+      "paths": [
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\fbgemm.dll",
+        "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\fbgemm.dll"
+      ],
+      "copies": 2,
+      "action": "audit-only; dependency use must be checked"
+    }
+  ],
+  "skipped_links": [],
+  "pe_imports": [
+    {
+      "path": "F:\\project\\DLSS5Tool\\runtime\\realtime\\dlss5_realtime_host.exe",
+      "imports": [
+        "CoreMessaging.dll",
+        "D3DCOMPILER_47.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "KERNEL32.dll",
+        "MAGNIFICATION.dll",
+        "OLEAUT32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "api-ms-win-core-com-l1-1-0.dll",
+        "api-ms-win-core-com-l1-1-1.dll",
+        "api-ms-win-core-console-l1-1-0.dll",
+        "api-ms-win-core-console-l2-1-0.dll",
+        "api-ms-win-core-console-l2-2-0.dll",
+        "api-ms-win-core-console-l3-2-0.dll",
+        "api-ms-win-core-datetime-l1-1-0.dll",
+        "api-ms-win-core-debug-l1-1-0.dll",
+        "api-ms-win-core-errorhandling-l1-1-0.dll",
+        "api-ms-win-core-fibers-l1-1-0.dll",
+        "api-ms-win-core-file-l1-1-0.dll",
+        "api-ms-win-core-file-l1-2-0.dll",
+        "api-ms-win-core-file-l1-2-2.dll",
+        "api-ms-win-core-file-l2-1-0.dll",
+        "api-ms-win-core-handle-l1-1-0.dll",
+        "api-ms-win-core-heap-l1-1-0.dll",
+        "api-ms-win-core-heap-l2-1-0.dll",
+        "api-ms-win-core-heap-obsolete-l1-1-0.dll",
+        "api-ms-win-core-interlocked-l1-1-0.dll",
+        "api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+        "api-ms-win-core-largeinteger-l1-1-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-1.dll",
+        "api-ms-win-core-localization-l1-2-0.dll",
+        "api-ms-win-core-memory-l1-1-0.dll",
+        "api-ms-win-core-namedpipe-l1-1-0.dll",
+        "api-ms-win-core-processenvironment-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-1.dll",
+        "api-ms-win-core-profile-l1-1-0.dll",
+        "api-ms-win-core-psapi-l1-1-0.dll",
+        "api-ms-win-core-registry-l1-1-0.dll",
+        "api-ms-win-core-rtlsupport-l1-1-0.dll",
+        "api-ms-win-core-string-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "api-ms-win-core-sysinfo-l1-2-0.dll",
+        "api-ms-win-core-threadpool-l1-2-0.dll",
+        "api-ms-win-core-timezone-l1-1-0.dll",
+        "api-ms-win-core-util-l1-1-0.dll",
+        "api-ms-win-core-winrt-error-l1-1-0.dll",
+        "api-ms-win-core-winrt-error-l1-1-1.dll",
+        "api-ms-win-core-winrt-l1-1-0.dll",
+        "api-ms-win-mm-time-l1-1-0.dll",
+        "api-ms-win-ntuser-sysparams-l1-1-0.dll",
+        "api-ms-win-security-base-l1-1-0.dll",
+        "api-ms-win-shcore-scaling-l1-1-1.dll",
+        "d3d11.dll",
+        "d3d12.dll",
+        "dcomp.dll",
+        "dwmapi.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\runtime\\gpu-export\\encoder.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\runtime\\gpu-export\\enhancement.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "D3DCOMPILER_47.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\runtime\\gpu-export\\frame-worker.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "D3DCOMPILER_47.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VERSION.dll",
+        "bcrypt.dll",
+        "d3d12.dll",
+        "dxgi.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\guidance_worker.exe",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-console-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-datetime-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-debug-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-errorhandling-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-fibers-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-fibers-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-file-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-file-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-file-l2-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-handle-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-heap-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-interlocked-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-libraryloader-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-localization-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-memory-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-namedpipe-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-processenvironment-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-processthreads-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-processthreads-l1-1-1.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-profile-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-string-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-synch-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-synch-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-sysinfo-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-sysinfo-l1-2-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-timezone-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-core-util-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-conio-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-convert-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-environment-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-filesystem-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-heap-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-locale-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-math-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-private-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-process-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-runtime-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-stdio-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-string-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-time-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\api-ms-win-crt-utility-l1-1-0.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\libcrypto-3.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "bcrypt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\libffi-8.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\libssl-3.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "libcrypto-3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\msvcp140.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\pyexpat.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\python3.dll",
+      "imports": []
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\python313.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VERSION.dll",
+        "WS2_32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-process-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "bcrypt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\select.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\sqlite3.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\unicodedata.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\vcruntime140.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\vcruntime140_1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_asyncio.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_bz2.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_ctypes.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libffi-8.dll",
+        "ole32.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_decimal.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_elementtree.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_hashlib.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libcrypto-3.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_lzma.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_multiprocessing.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_overlapped.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_queue.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_socket.pyd",
+      "imports": [
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "RPCRT4.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_sqlite3.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll",
+        "sqlite3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_ssl.pyd",
+      "imports": [
+        "CRYPT32.dll",
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "libcrypto-3.dll",
+        "libssl-3.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_uuid.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "RPCRT4.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\_wmi.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "OLEAUT32.dll",
+        "PROPSYS.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "ole32.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\cv2\\cv2.pyd",
+      "imports": [
+        "ADVAPI32.dll",
+        "COMDLG32.dll",
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "MF.dll",
+        "MFPlat.DLL",
+        "MFReadWrite.dll",
+        "OLEAUT32.dll",
+        "SHLWAPI.dll",
+        "USER32.dll",
+        "d3d11.dll",
+        "dxgi.dll",
+        "ole32.dll",
+        "python3.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\cv2\\opencv_videoio_ffmpeg500_64.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "Secur32.dll",
+        "USER32.dll",
+        "WS2_32.dll",
+        "bcrypt.dll",
+        "msvcrt.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\markupsafe\\_speedups.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\fft\\_pocketfft_umath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\linalg\\_umath_linalg.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\bit_generator.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\mtrand.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_bounded_integers.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_common.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_generator.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_mt19937.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_pcg64.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_philox.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\random\\_sfc64.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\_core\\_multiarray_tests.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy\\_core\\_multiarray_umath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+        "msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy.libs\\libscipy_openblas64_-327b2e0bcffce2882e0dc04cdeb4eaa6.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "api-ms-win-crt-conio-l1-1-0.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_avif.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imaging.cp313-win_amd64.pyd",
+      "imports": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imagingcms.cp313-win_amd64.pyd",
+      "imports": [
+        "GDI32.dll",
+        "KERNEL32.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imagingft.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imagingmath.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_imagingtk.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "PSAPI.DLL",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\PIL\\_webp.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "python313.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\_C.cp313-win_amd64.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "torch_python.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\asmjit.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\fbgemm.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "asmjit.dll",
+        "libiomp5md.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\bin\\protoc.exe",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\asmjit.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\c10.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "dbghelp.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\c10_cuda.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "c10.dll",
+        "cudart64_12.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\caffe2_nvrtc.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "nvcuda.dll",
+        "nvrtc64_120_0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cublas64_12.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cublasLt64_12.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cublasLt64_12.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudart64_12.dll",
+      "imports": [
+        "api-ms-win-core-console-l1-1-0.dll",
+        "api-ms-win-core-debug-l1-1-0.dll",
+        "api-ms-win-core-errorhandling-l1-1-0.dll",
+        "api-ms-win-core-file-l1-1-0.dll",
+        "api-ms-win-core-handle-l1-1-0.dll",
+        "api-ms-win-core-heap-l1-1-0.dll",
+        "api-ms-win-core-interlocked-l1-1-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-0.dll",
+        "api-ms-win-core-localization-l1-2-0.dll",
+        "api-ms-win-core-processenvironment-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-1.dll",
+        "api-ms-win-core-profile-l1-1-0.dll",
+        "api-ms-win-core-rtlsupport-l1-1-0.dll",
+        "api-ms-win-core-string-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-1-0.dll",
+        "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "api-ms-win-security-systemfunctions-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn64_9.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_adv64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll",
+        "cudnn_ops64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_cnn64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll",
+        "cudnn_ops64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_precompiled64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_engines_runtime_compiled64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_graph64_9.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_heuristic64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cudnn_ops64_9.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cudnn_graph64_9.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cufft64_11.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cufftw64_11.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cufft64_11.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cupti64_2025.1.1.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "USER32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "bcrypt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\curand64_10.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusolver64_11.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cublas64_12.dll",
+        "cublasLt64_12.dll",
+        "cusparse64_12.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusolverMg64_11.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "cublas64_12.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\cusparse64_12.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "nvJitLink_120_0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\fbgemm.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "asmjit.dll",
+        "libiomp5md.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\libiomp5md.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "WINTRUST.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "imagehlp.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\libiompstubs5md.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvJitLink_120_0.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc-builtins64_128.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.alt.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\nvrtc64_120_0.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "SHELL32.dll",
+        "USER32.dll",
+        "ole32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\shm.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "c10.dll",
+        "torch_cpu.dll",
+        "torch_cuda.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "torch_cuda.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_cpu.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-process-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "c10.dll",
+        "cudart64_12.dll",
+        "cupti64_2025.1.1.dll",
+        "fbgemm.dll",
+        "libiomp5md.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_cuda.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "c10.dll",
+        "c10_cuda.dll",
+        "cublas64_12.dll",
+        "cublasLt64_12.dll",
+        "cudnn64_9.dll",
+        "cufft64_11.dll",
+        "cusolver64_11.dll",
+        "cusparse64_12.dll",
+        "torch_cpu.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_global_deps.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\torch_python.dll",
+      "imports": [
+        "python313.dll",
+        "shm.dll",
+        "torch_cpu.dll",
+        "torch_cuda.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\uv.dll",
+      "imports": [
+        "ADVAPI32.dll",
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "PSAPI.DLL",
+        "USER32.dll",
+        "USERENV.dll",
+        "VCRUNTIME140.dll",
+        "WS2_32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torch\\lib\\zlibwapi.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "msvcrt.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\cudart64_12.dll",
+      "imports": [
+        "api-ms-win-core-console-l1-1-0.dll",
+        "api-ms-win-core-debug-l1-1-0.dll",
+        "api-ms-win-core-errorhandling-l1-1-0.dll",
+        "api-ms-win-core-file-l1-1-0.dll",
+        "api-ms-win-core-handle-l1-1-0.dll",
+        "api-ms-win-core-heap-l1-1-0.dll",
+        "api-ms-win-core-interlocked-l1-1-0.dll",
+        "api-ms-win-core-libraryloader-l1-2-0.dll",
+        "api-ms-win-core-localization-l1-2-0.dll",
+        "api-ms-win-core-processenvironment-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-0.dll",
+        "api-ms-win-core-processthreads-l1-1-1.dll",
+        "api-ms-win-core-profile-l1-1-0.dll",
+        "api-ms-win-core-rtlsupport-l1-1-0.dll",
+        "api-ms-win-core-string-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-1-0.dll",
+        "api-ms-win-core-sysinfo-l1-1-0.dll",
+        "api-ms-win-security-systemfunctions-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\image.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "c10.dll",
+        "c10_cuda.dll",
+        "cudart64_12.dll",
+        "jpeg8.dll",
+        "libpng16.dll",
+        "libwebp.dll",
+        "nvjpeg64_12.dll",
+        "torch_cpu.dll",
+        "torch_cuda.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\jpeg8.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\libpng16.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "zlib.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\libsharpyuv.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\libwebp.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll",
+        "libsharpyuv.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\nvjpeg64_12.dll",
+      "imports": [
+        "KERNEL32.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\zlib.dll",
+      "imports": [
+        "KERNEL32.dll",
+        "VCRUNTIME140.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll"
+      ]
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\mods\\enhancement\\_internal\\torchvision\\_C.pyd",
+      "imports": [
+        "KERNEL32.dll",
+        "MSVCP140.dll",
+        "VCRUNTIME140.dll",
+        "VCRUNTIME140_1.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "c10.dll",
+        "c10_cuda.dll",
+        "cudart64_12.dll",
+        "torch_cpu.dll",
+        "torch_cuda.dll"
+      ]
+    }
+  ],
+  "min_duplicate_bytes": 1048576,
+  "measurement": "logical installed bytes; separate editions are alternatives, not additive savings",
+  "safe_removal_bytes": 0,
+  "note": "Separate dependency search roots may require identical files. No removal authorized."
+}

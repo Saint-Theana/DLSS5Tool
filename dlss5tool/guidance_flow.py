@@ -1,6 +1,6 @@
 """Torch-free flow backend selection and acknowledgement contract."""
+from dlss5tool.optical_flow_contract import GRIDS
 BACKENDS = ('raft', 'nvofa')
-GRIDS = (1, 2, 4)
 
 
 def flow_backend(settings, *, strict=False):

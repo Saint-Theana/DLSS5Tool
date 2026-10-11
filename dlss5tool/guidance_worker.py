@@ -421,6 +421,8 @@ def serve(conn, settings, model_factory=Models):
         load_start = time.perf_counter()
         models = model_factory(settings)
         reply({'ok': True, 'device': models.device, 'device_name': models.device_name,
+               'model_runtime': 'torch' if getattr(models, 'torch', None) is not None else 'driver-only',
+               'torch_imported': any(name == 'torch' or name.startswith('torch.') for name in sys.modules),
                **flow_contract(settings),
                **({'analysis_parameters': models.analysis_parameters} if hasattr(models, 'analysis_parameters') else {}),
                'precision': getattr(models, 'precision', 'float32'),

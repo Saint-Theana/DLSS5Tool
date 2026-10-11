@@ -1410,11 +1410,15 @@ class RealtimeWorkspace:
 
     def diagnostic_snapshot(self):
         """Read raw drafts without validation, saving or sending commands."""
+        from dlss5tool.optical_flow_contract import descriptor
         selection = getattr(self.client, 'runtime_selection', None)
         ready = self._host_ready
         if ready and ready.get('_generation') != self.client.generation:
             ready = None
         return deepcopy({
+            'flow_contracts': [dict(descriptor('d3d11'), effect_index=index, scope='configured-not-probed')
+                for index, effect in enumerate((self._running_config or self.config).get('effects', []))
+                if effect.get('parameters', {}).get('opticalFlowMethod') == 2],
             'parameter_contract': parameter_contract.diagnostic(mode='realtime',
                 state={'clean': 'applied', 'applying': 'pending', 'waiting': 'pending'}.get(self._editor_state, self._editor_state),
                 hdr=bool(self.controls['hdr'][0].get()), ready=ready,
@@ -2228,7 +2232,8 @@ class RealtimeWorkspace:
         previous_effects = self._applied_effects
         try:
             if self._can_start is not None and not self._can_start():
-                self.status.set(tr('appearance.busy'))
+                owner = getattr(self._can_start, '__self__', None)
+                self.status.set(getattr(owner, '_gpu_start_reason', '') or tr('appearance.busy'))
                 return
             if self._pending_start or self._recovering or self._stop_requested:
                 self.status.set(tr("realtime.start_pending"))

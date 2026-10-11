@@ -1,0 +1,282 @@
+[
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_deep_diagnostics_cannot_enter_during_release",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.92s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_export_blocks_realtime_without_cancelling_or_changing_settings",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.15s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_export_reserves_before_wait_and_cleans_failed_admission",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.12s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_realtime_stopping_blocks_all_local_gpu_entry_points",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.29s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_release_failure_does_not_claim_gpu_idle",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.25s\n"
+  },
+  {
+    "node": "tests/test_gpu_resource_ui.py::ResourceUiTests::test_release_yields_ui_and_requires_explicit_retry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.32s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_both_themes_and_sizes_keep_controls_inside_workbench",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 3.99s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_cancelled_or_failed_export_does_not_leave_busy_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.81s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_caption_click_switches_immediately_without_menu_or_capture",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.18s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_closing_cancels_poll_and_closes_native_client_once",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.05s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_diagnostic_gate_and_shared_export_entry",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.16s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_export_rechecks_busy_after_save_dialog",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.65s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_deep_export_runs_off_ui_thread_and_clears_start_guard",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.81s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_detached_preview_is_hidden_and_restored_without_recreation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.20s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_logs_share_bottom_slot_toggle_and_preserve_separate_scroll",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 3.29s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_manual_theme_change_keeps_mode_badge_and_cancels_highlight",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.53s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_mode_menu_is_explicit_and_does_not_auto_start",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.11s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_mode_theme_inverts_current_choice_instead_of_binding_to_mode",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.55s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_native_titlebars_are_updated_after_client_widgets",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.93s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_no_header_and_keyboard_switch_preserves_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.26s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_palette_changes_do_not_reselect_the_active_ttk_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 1.91s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_player_returns_to_single_row_below_old_1000px_threshold",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.34s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_quick_export_includes_realtime_session_from_local_mode_without_probes",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.56s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_does_not_receive_local_playback_shortcuts_or_drops",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.04s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_nr_issue_opens_existing_local_module_editor",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.45s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_start_refreshes_idle_runtime_paths_and_blocks_export",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.08s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_realtime_status_hides_local_idle_chips_but_keeps_background_jobs",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.16s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_reduced_motion_switch_has_static_status_bar_feedback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.45s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_selecting_current_mode_does_not_toggle_theme_or_restart_feedback",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.42s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_stop_remains_available_in_local_mode_and_waiting_state",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.60s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_switch_retains_widgets_media_position_queue_and_realtime_draft",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.18s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_theme_switch_does_not_flush_partial_palette_to_idle_callbacks",
+    "returncode": 0,
+    "output": ".                                                                     [100%]\n1 passed, 3 subtests passed in 2.78s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_transition_cancels_on_rapid_switch_and_keeps_session_and_theme",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 2.48s\n"
+  },
+  {
+    "node": "tests/test_workbench_ui.py::WorkbenchUiTests::test_workspace_creation_failure_leaves_local_mode_usable",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 2.10s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::PreviewToggleTests::test_buffer_target_respects_small_cache_capacity",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::PreviewToggleTests::test_defaults_and_persistence_validation",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::PreviewToggleTests::test_disabled_preview_legacy_size_remains_source",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::PreviewToggleTests::test_independent_switch_matrix_does_not_change_export",
+    "returncode": 0,
+    "output": ".                                                                    [100%]\n1 passed, 4 subtests passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::PreviewToggleTests::test_toggle_during_export_does_not_retire_export_session",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::ClockTests::test_audio_is_master_and_late_paint_does_not_rewind_sound",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.66s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::ClockTests::test_cache_hole_pauses_audio_and_resume_waits_for_window",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.67s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::ClockTests::test_fractional_rate_uses_scanned_rate_not_ui_estimate",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::ClockTests::test_initial_buffer_does_not_start_sound",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.62s\n"
+  },
+  {
+    "node": "tests/test_preview_switches.py::ClockTests::test_no_audio_duration_is_not_multiplied",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.66s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_default_and_saved_choice",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.70s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_disabled_mode_rejects_forward_work_after_current_frame_is_cached",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.77s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_disabled_preview_renders_current_frame_once_without_handoff",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 0.66s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_pause_immediately_disables_shared_fill_ahead",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_playback_still_buffers_with_automatic_prerender_off",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_shared_display_applies_idle_policy_before_request",
+    "returncode": 0,
+    "output": ".                                                                     [100%]\n1 passed, 3 subtests passed in 0.66s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_shared_policy_reaches_spatial_and_enhancement_workers",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.71s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_shared_producer_stops_at_required_real_frame_and_can_resume",
+    "returncode": 0,
+    "output": ".                                                                     [100%]\n1 passed, 3 subtests passed in 0.98s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_shared_switch_off_preserves_session_and_playback",
+    "returncode": 0,
+    "output": ".                                                                      [100%]\n1 passed, 2 subtests passed in 0.65s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_switch_off_during_playback_preserves_worker_and_clock",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.64s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_switch_off_retires_queued_tasks_and_keeps_completed_cache",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.63s\n"
+  },
+  {
+    "node": "tests/test_auto_prerender.py::AutoPrerenderTests::test_switch_on_resumes_forward_cache_from_current_position",
+    "returncode": 0,
+    "output": ".                                                                        [100%]\n1 passed in 0.69s\n"
+  }
+]

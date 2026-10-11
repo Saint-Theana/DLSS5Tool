@@ -12,6 +12,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ReleasePackagingTests(unittest.TestCase):
+    def test_frozen_lite_uses_one_full_ffmpeg_and_self_worker(self):
+        spec = (ROOT/'packaging/DLSS5Tool.spec').read_text(encoding='utf-8')
+        tree = ast.parse(spec)
+        analysis = next(node for node in ast.walk(tree) if isinstance(node, ast.Call)
+                        and isinstance(node.func, ast.Name) and node.func.id == 'Analysis')
+        excludes = ast.literal_eval(next(key.value for key in analysis.keywords if key.arg == 'excludes'))
+        self.assertIn('imageio_ffmpeg', excludes)
+        self.assertNotIn('dlss5tool.guidance_worker', excludes)
+        self.assertIn('Full FFmpeg and ffprobe are required', spec)
+        launcher = (ROOT/'gui.py').read_text(encoding='utf-8')
+        self.assertLess(launcher.index('--nvofa-worker'), launcher.index('installation_lock'))
+        self.assertIn('--nvofa-selftest', launcher)
+
     def test_frame_generation_payload_and_nvofa_are_included(self):
         spec = (ROOT / 'packaging/DLSS5Tool.spec').read_text(encoding='utf-8')
         self.assertIn('dlssg_video_worker.exe', spec)

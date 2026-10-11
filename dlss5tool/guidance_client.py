@@ -249,11 +249,14 @@ class GuidanceSession:
                 self.transport = FLOW_TRANSPORT
             self.info = {key: ready.get(key) for key in ('device', 'device_name', 'precision', 'load_ms',
                 'depth_profile', 'depth_precision', 'depth_attention', 'execution', 'raft_output', 'schedule',
-                'cache_version', 'cache_limit_bytes', 'analysis_parameters')}
+                'cache_version', 'cache_limit_bytes', 'analysis_parameters', 'model_runtime', 'torch_imported')}
             self.info['transport'] = self.transport
             self.info['output_layout'] = layout
             self.info.update({key: ready.get(key) for key in ('flow_grid', 'flow_quality', 'flow_temporal_hints')})
             self.info['flow_backend'] = ready.get('flow_backend', 'raft')
+            if self.info['flow_backend'] == 'nvofa':
+                from dlss5tool.optical_flow_contract import descriptor
+                self.info['flow_contract'] = descriptor('cuda')
             self.info['gpu_flow_capability'] = ready.get('gpu_flow_transport')
             self.info['gpu_flow_transport'] = None
         except Exception as exc:

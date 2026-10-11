@@ -274,15 +274,24 @@ class SharedRenderPreview(PreviewFeedback):
         self._shared_setup_thread = None
         self._shared_setup_result = None
         self._shared_error_key = None
+        previous = getattr(self, '_shared_retiring', None)
+        self._shared_retire_error = None
         def close():
-            if setup:
-                setup.join()
-            manager.close()
+            try:
+                if previous:
+                    previous.join()
+                if setup:
+                    setup.join()
+                manager.close()
+            except Exception as error:
+                self._shared_retire_error = str(error)
         thread = threading.Thread(target=close, name='close-render-cache', daemon=True)
         self._shared_retiring = thread
         thread.start()
 
     def _shared_ready(self):
+        if hasattr(self, '_local_gpu_allowed') and not self._local_gpu_allowed():
+            return None
         if time.perf_counter() < getattr(self, '_shared_not_before', 0):
             return None
         config = self._shared_config()
@@ -337,6 +346,9 @@ class SharedRenderPreview(PreviewFeedback):
         if (getattr(self, '_exporting', False) or getattr(self, '_clear_preview_pending', False)
                 or getattr(self, '_workbench_mode', 'local') != 'local'
                 or getattr(self, '_shared_closing', False)):
+            return False
+        if hasattr(self, '_local_gpu_allowed') and not self._local_gpu_allowed():
+            self._shared_wait_status(tr('resources.preview_wait'))
             return False
         self._cancel_after('_shared_preview_after')
         try:

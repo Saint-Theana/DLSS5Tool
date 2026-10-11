@@ -30,7 +30,8 @@ for name in ['build-manifest.json', *realtime_manifest['files']]:
     datas.append((os.path.join(realtime_root, name), os.path.join('realtime', os.path.dirname(name))))
 datas.append((os.path.join(project_root, 'licenses', 'DLSS5Tool-original-MIT.txt'), 'licenses'))
 
-for package in ("tkinterdnd2", "imageio_ffmpeg"):
+# Frozen builds require full FFmpeg + ffprobe below; source fallback is unused.
+for package in ("tkinterdnd2",):
     package_datas, package_binaries, package_hiddenimports = collect_all(package)
     datas += package_datas
     binaries += package_binaries
@@ -139,7 +140,7 @@ a = Analysis(
     hooksconfig={},
     runtime_hooks=[],
     # Repository-only tools must never enter the main application's PYZ.
-    excludes=["torch", "torchvision", "depth_anything_v2", "guidance_worker",
+    excludes=["torch", "torchvision", "depth_anything_v2", "guidance_worker", "imageio_ffmpeg",
               "amd_devtest", "amd_devtest_ui", "scripts", "tests",
               "dlss5tool.amd_devtest", "dlss5tool.amd_devtest_ui"],
     noarchive=False,

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "cycles": [
+    {
+      "cycle": 0,
+      "host_pid": 40432,
+      "host_exited": true,
+      "release_callback_ms": 0.6216000001586508,
+      "event_pumps": 1,
+      "release_total_ms": 162.36170000047423
+    },
+    {
+      "cycle": 1,
+      "host_pid": 3628,
+      "host_exited": true,
+      "release_callback_ms": 0.32300000020768493,
+      "event_pumps": 14,
+      "release_total_ms": 107.17149999982212
+    },
+    {
+      "cycle": 2,
+      "host_pid": 3456,
+      "host_exited": true,
+      "release_callback_ms": 0.4193999993731268,
+      "event_pumps": 18,
+      "release_total_ms": 100.92070000064268
+    }
+  ],
+  "tk_errors": [],
+  "scope": "actual NVOFA/NR hosts, production local release guard; no global VRAM claim"
+}
