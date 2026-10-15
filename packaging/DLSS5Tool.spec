@@ -85,6 +85,9 @@ if gpu_components:
 
 for filename, required in (
     ("dlssnr_host_v2.dll", True),
+    # Optional local-media GPU residual bridge; CPU composition remains the
+    # safe fallback when a build does not include the native realtime module.
+    ("dlss5_quality.dll", False),
     ("nvngx_dlssnr.dll", True),
     ("dlssnr_host.dll", False),
     ("vsr_host.dll", True),

@@ -3,6 +3,7 @@ from copy import deepcopy
 import unittest
 import numpy as np
 from dlss5tool import appearance, app_settings
+from dlss5tool import residual_composition as residual
 from dlss5tool.residual_composition import compose, protection_mask, fine_controls, _hsl, _rgb
 from dlss5tool.video_export import compose_output_frame, compose_hdr_frame
 from dlss5tool.parameter_transfer import portable_preset, read_portable, from_realtime, to_realtime
@@ -90,6 +91,30 @@ class AppearanceTests(unittest.TestCase):
         mask = protection_mask((5, 7), q)
         self.assertAlmostEqual(mask[0, 0], .15625)
         self.assertEqual(mask[2, 3], 1)
+
+    def test_parallel_composition_preserves_region_coordinates(self):
+        rng = np.random.default_rng(4)
+        original = (rng.random((64, 80, 4)) * 255).astype(np.uint8)
+        processed = (rng.random((64, 80, 4)) * 255).astype(np.uint8)
+        settings = {
+            'nr_quality': {
+                'total': 1.35, 'darken': 1.2, 'brighten': .9,
+                'color': .8, 'luminance': 1.1, 'protection': True,
+                'feather': 7., 'regions': [[.15, .2, .7, .8]],
+            },
+            'nr_residual': {
+                'residualMultiplier': 1.2,
+                'shadowStructureMultiplier': .6,
+                'reflectionGlowMultiplier': 1.1,
+                'residualSaturation': .7,
+                'residualLightness': 1.15,
+            },
+        }
+        with mock.patch.object(residual, 'COMPOSITION_PARALLEL_MIN_PIXELS', 0):
+            parallel = residual.compose(original, processed, settings, order='bgr')
+        with mock.patch.object(residual, 'COMPOSITION_PARALLEL_MIN_PIXELS', 10**9):
+            serial = residual.compose(original, processed, settings, order='bgr')
+        np.testing.assert_array_equal(parallel, serial)
 
     def test_malformed_portable_presets_and_unknown_metadata_fail_closed(self):
         saved = portable_preset(from_realtime(config(), catalog(), 1), ('basic',))

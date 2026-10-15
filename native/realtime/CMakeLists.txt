@@ -113,6 +113,19 @@ target_include_directories(realtime_quality_tests PRIVATE "${GENERATED}")
 target_compile_definitions(realtime_quality_tests PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
 target_link_libraries(realtime_quality_tests PRIVATE d3d11 windowsapp)
 add_test(NAME realtime_quality_gpu COMMAND realtime_quality_tests)
+
+# Local media uses the same ResidualComposite shader through CPU-pointer shared
+# memory.  This is an optional bridge; Python falls back to NumPy when the DLL
+# is absent or device creation/dispatch fails.
+add_library(dlss5_quality SHARED quality_bridge.cpp quality.cpp "${GENERATED}/shaders/VeyraResidualCS.h")
+target_include_directories(dlss5_quality PRIVATE "${GENERATED}" "${CMAKE_CURRENT_LIST_DIR}")
+target_compile_definitions(dlss5_quality PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
+target_link_libraries(dlss5_quality PRIVATE d3d11 windowsapp)
+set_target_properties(dlss5_quality PROPERTIES
+  # The realtime manifest intentionally rejects DLLs under runtime/realtime;
+  # keep this optional local-media bridge beside the existing host runtimes.
+  RUNTIME_OUTPUT_DIRECTORY_RELEASE "${ROOT}/runtime"
+  RUNTIME_OUTPUT_DIRECTORY_DEBUG "${ROOT}/runtime")
 add_executable(realtime_temporal_tests "${DEPS}/magpie/tests/DLSSNRTemporalTests.cpp")
 target_include_directories(realtime_temporal_tests PRIVATE "${CORE}" "${CORE}/include")
 target_compile_options(realtime_temporal_tests PRIVATE /UNDEBUG)

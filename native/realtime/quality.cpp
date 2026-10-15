@@ -3,6 +3,15 @@
 #include "shaders/VeyraResidualCS.h"
 
 namespace Realtime {
+void ResidualComposite::Reset() noexcept {
+    shader = nullptr;
+    constants = nullptr;
+    result = nullptr;
+    uav = nullptr;
+    for (auto& view : views) view = nullptr;
+    textures = {};
+}
+
 bool ResidualComposite::Draw(ID3D11Device* device, ID3D11DeviceContext* context,
     ID3D11Texture2D* base, ID3D11Texture2D* nrInput,
     ID3D11Texture2D* nrOutput, ID3D11Texture2D* output, bool hdr, bool applyControls, bool residualInput) noexcept {

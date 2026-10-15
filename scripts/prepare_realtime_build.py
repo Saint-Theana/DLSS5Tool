@@ -22,8 +22,68 @@ def replace_once(source, old, new):
 def generate(output):
     output.mkdir(parents=True, exist_ok=True)
     shader = (ROOT / 'third_party/realtime/veyra/shaders/NrResidualComposite.hlsl').read_text(encoding='utf-8')
-    shader = replace_once(shader, 'float4 regions[4];}', 'float4 regions[4];float residualInput;float3 padding;}')
+    shader = replace_once(
+        shader,
+        'float4 regions[4];}',
+        'float4 regions[4];float residualInput;float residualMultiplier;'
+        'float residualSaturation;float residualLightness;'
+        'float shadowStructureMultiplier;float reflectionGlowMultiplier;float2 padding;}',
+    )
     shader = replace_once(shader, '(nrFinal[q].rgb-low)*weight', '(nrFinal[q].rgb-(residualInput>0.5?float3(0,0,0):low))*weight')
+    # The realtime path normally receives a residual that has already gone
+    # through its low-resolution controls.  The local media bridge receives
+    # raw NR output instead, so keep the same fine-control formulas in this
+    # shared shader.  Neutral values are exact identity and therefore do not
+    # change the realtime path.
+    fine_controls = r'''
+float3 NrToLinear(float3 color) {
+    return float3(
+        color.r <= 0.04045 ? color.r / 12.92 : pow(max(color.r + 0.055, 0.0) / 1.055, 2.4),
+        color.g <= 0.04045 ? color.g / 12.92 : pow(max(color.g + 0.055, 0.0) / 1.055, 2.4),
+        color.b <= 0.04045 ? color.b / 12.92 : pow(max(color.b + 0.055, 0.0) / 1.055, 2.4));
+}
+float3 NrRgbToHsl(float3 rgb) {
+    float hi=max(rgb.r,max(rgb.g,rgb.b)), lo=min(rgb.r,min(rgb.g,rgb.b));
+    float d=hi-lo, safe=max(d,1e-6), light=(hi+lo)*0.5;
+    float hue=hi==rgb.r?(rgb.g-rgb.b)/safe:hi==rgb.g?(rgb.b-rgb.r)/safe+2:(rgb.r-rgb.g)/safe+4;
+    hue=frac(hue/6.0+1.0);
+    float sat=d/max(1.0-abs(2.0*light-1.0),1e-6);
+    return float3(d>1e-6?hue:0,saturate(d>1e-6?sat:0),light);
+}
+float NrHue(float p,float q,float t) {
+    t=frac(t+1.0);
+    return t<1.0/6.0?p+(q-p)*6.0*t:t<0.5?q:t<2.0/3.0?p+(q-p)*(2.0/3.0-t)*6.0:p;
+}
+float3 NrHslToRgb(float3 hsl) {
+    float h=hsl.x,s=hsl.y,l=hsl.z,q=l<0.5?l*(1+s):l+s-l*s,p=2*l-q;
+    return saturate(s<=1e-6?float3(l,l,l):float3(NrHue(p,q,h+1.0/3.0),NrHue(p,q,h),NrHue(p,q,h-1.0/3.0)));
+}
+float3 NrApplyFine(float3 original,float3 residual) {
+    residual*=residualMultiplier;
+    float3 candidate=signedHdr>0.5?original+residual:saturate(original+residual);
+    bool nonNeutral=abs(residualSaturation-1.0)>=1e-6 || abs(residualLightness-1.0)>=1e-6 ||
+        abs(shadowStructureMultiplier-1.0)>=1e-6 || abs(reflectionGlowMultiplier-1.0)>=1e-6;
+    if(nonNeutral) {
+        float3 classification=signedHdr>0.5?residual:NrToLinear(candidate)-NrToLinear(original);
+        float dy=dot(classification,float3(0.2126,0.7152,0.0722));
+        float directional=dy<0?shadowStructureMultiplier:(dy>0?reflectionGlowMultiplier:1);
+        residual*=directional;
+        candidate=signedHdr>0.5?original+residual:saturate(original+residual);
+        if(signedHdr<=0.5 && (abs(residualSaturation-1.0)>=1e-6 || abs(residualLightness-1.0)>=1e-6)) {
+            float3 oldHsl=NrRgbToHsl(original), newHsl=NrRgbToHsl(candidate);
+            newHsl.y=saturate(oldHsl.y+(newHsl.y-oldHsl.y)*residualSaturation);
+            newHsl.z=saturate(oldHsl.z+(newHsl.z-oldHsl.z)*residualLightness);
+            candidate=NrHslToRgb(newHsl);
+        }
+        return candidate;
+    }
+    return candidate;
+}
+'''
+    shader = replace_once(shader, '[numthreads(16,16,1)] void main', fine_controls + '\n[numthreads(16,16,1)] void main')
+    shader = replace_once(shader, 'float3 rawDelta=delta;', 'delta=NrApplyFine(base.rgb,delta)-base.rgb;float3 rawDelta=delta;')
+    shader = shader.replace('float unused;', 'float signedHdr;')
+    shader = shader.replace('unused>0.5?result:max(0,result)', 'signedHdr>0.5?result:max(0,result)')
     write_if_changed(output / 'VeyraResidual.hlsl', shader)
     lines = ["// Generated from Magpie resw resources; GPL-3.0.", "#pragma once",
              "#include <winrt/base.h>", "#include <string_view>", "#include <utility>",

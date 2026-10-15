@@ -28,6 +28,9 @@ class RealtimeBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary)
             generate(output)
+            shader = (output / 'VeyraResidual.hlsl').read_text(encoding='utf-8')
+            self.assertIn('float residualMultiplier;', shader)
+            self.assertIn('NrApplyFine', shader)
             localization = (output / 'standalone_parameter_localization.h').read_text(encoding='utf-8')
             self.assertNotIn('ResourceContext::', localization)
             self.assertNotIn('ResourceLoader::', localization)

@@ -13,10 +13,18 @@ struct QualitySettings {
     float total = 1, darken = 1, brighten = 1, color = 1, luminance = 1;
     float protectionEnabled = 0, featherPixels = 12, signedHdr = 0;
     std::array<std::array<float, 4>, 4> regions{};
+    // The residual controls are neutral for the realtime host (which already
+    // applies them in its low-resolution pass), but are used by the local
+    // media bridge where the shader receives the raw NR output directly.
     float residualInput = 0;
-    std::array<float, 3> padding{};
+    float residualMultiplier = 1;
+    float residualSaturation = 1;
+    float residualLightness = 1;
+    float shadowStructureMultiplier = 1;
+    float reflectionGlowMultiplier = 1;
+    std::array<float, 2> padding{};
 };
-static_assert(sizeof(QualitySettings) == 112);
+static_assert(sizeof(QualitySettings) == 128);
 inline std::mutex qualityMutex;
 inline QualitySettings qualitySettings;
 inline std::atomic<uint64_t> qualityRevision = 0, appliedQualityRevision = 0;
@@ -35,6 +43,7 @@ public:
         ID3D11Texture2D* base, ID3D11Texture2D* nrInput,
         ID3D11Texture2D* nrOutput, ID3D11Texture2D* output, bool hdr,
         bool applyControls = true, bool residualInput = false) noexcept;
+    void Reset() noexcept;
 private:
     winrt::com_ptr<ID3D11ComputeShader> shader;
     winrt::com_ptr<ID3D11Buffer> constants;
