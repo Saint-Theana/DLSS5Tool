@@ -23,13 +23,14 @@ int main() {
     assert(ReadMetrics().ageSamples == 0); // never reuse another run's dequeue
     CaptureDrained(5);
     CaptureDrained(0);
-    NrEvaluated(true); NrEvaluated(false);
+    NrEvaluated(true); NrEvaluated(false); QualityGpu(1.5);
     m = ReadMetrics();
     assert(m.droppedCapture == 4 && m.nrEvaluations == 1 && m.nrFailures == 1);
+    assert(m.qualityGpuSamples == 1 && m.qualityGpuP95 == 1.5);
     for (uint64_t i = 2; i < 602; ++i) {
-        Captured(i); Submitted(i, 0, false, 1); Processed(1); NrGpu(2);
+        Captured(i); Submitted(i, 0, false, 1); Processed(1); NrGpu(2); QualityGpu(3);
     }
     m = ReadMetrics();
     assert(m.ageSamples == 512 && m.processSamples == 512);
-    assert(m.nrGpuP95 == 2 && m.processP95 == 1);
+    assert(m.nrGpuP95 == 2 && m.qualityGpuP95 == 3 && m.processP95 == 1);
 }

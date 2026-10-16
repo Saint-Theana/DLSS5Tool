@@ -3145,10 +3145,15 @@ class RealtimeWorkspace:
                     gen_text = tr("realtime.unavailable") if generated is None or previous.get('generated') is None else f"{max(0,(generated-previous['generated'])/seconds):.1f}"
                     gpu = current.get('nr_gpu_ms_p95')
                     gpu_text = f'{gpu:.1f} ms' if gpu is not None else tr("realtime.unavailable")
+                    quality_gpu = current.get('quality_gpu_ms_p95')
+                    quality_gpu_text = (f'{quality_gpu:.1f} ms' if quality_gpu is not None
+                                       else tr("realtime.unavailable"))
                     self.metrics.set(tr('realtime.metrics', capture=rates['captured'], nr=rates['nr_evaluations'],
                                         real=rates['real'], generated=gen_text, submitted=rates['submitted'],
-                                        age=age_text, gpu=gpu_text, discarded=current.get('discarded_capture', 0)))
-                    self._metrics_compact = tr('realtime.metrics_compact', real=rates['real'], gpu=gpu_text)
+                                        age=age_text, gpu=gpu_text, quality_gpu=quality_gpu_text,
+                                        discarded=current.get('discarded_capture', 0)))
+                    self._metrics_compact = tr('realtime.metrics_compact', real=rates['real'], gpu=gpu_text,
+                                                quality_gpu=quality_gpu_text)
                     self._metrics_run_id = event.get('run_id')
                 if sample_due:
                     self._last_metrics = (event.get('run_id'), now, current)

@@ -59,28 +59,42 @@ float3 NrHslToRgb(float3 hsl) {
     return saturate(s<=1e-6?float3(l,l,l):float3(NrHue(p,q,h+1.0/3.0),NrHue(p,q,h),NrHue(p,q,h-1.0/3.0)));
 }
 float3 NrApplyFine(float3 original,float3 residual) {
-    residual*=residualMultiplier;
-    float3 candidate=signedHdr>0.5?original+residual:saturate(original+residual);
+    float3 adjusted=residual*residualMultiplier;
+    float3 result=original+adjusted;
     bool nonNeutral=abs(residualSaturation-1.0)>=1e-6 || abs(residualLightness-1.0)>=1e-6 ||
         abs(shadowStructureMultiplier-1.0)>=1e-6 || abs(reflectionGlowMultiplier-1.0)>=1e-6;
     if(nonNeutral) {
-        float3 classification=signedHdr>0.5?residual:NrToLinear(candidate)-NrToLinear(original);
+        float3 candidate=original+adjusted;
+        if(signedHdr<=0.5) candidate=saturate(candidate);
+        float3 classification=signedHdr>0.5?adjusted:NrToLinear(candidate)-NrToLinear(original);
         float dy=dot(classification,float3(0.2126,0.7152,0.0722));
         float directional=dy<0?shadowStructureMultiplier:(dy>0?reflectionGlowMultiplier:1);
-        residual*=directional;
-        candidate=signedHdr>0.5?original+residual:saturate(original+residual);
+        adjusted*=directional;
+        result=original+adjusted;
         if(signedHdr<=0.5 && (abs(residualSaturation-1.0)>=1e-6 || abs(residualLightness-1.0)>=1e-6)) {
+            candidate=original+adjusted;
+            candidate=saturate(candidate);
             float3 oldHsl=NrRgbToHsl(original), newHsl=NrRgbToHsl(candidate);
             newHsl.y=saturate(oldHsl.y+(newHsl.y-oldHsl.y)*residualSaturation);
             newHsl.z=saturate(oldHsl.z+(newHsl.z-oldHsl.z)*residualLightness);
-            candidate=NrHslToRgb(newHsl);
+            result=NrHslToRgb(newHsl);
         }
-        return candidate;
     }
-    return candidate;
+    return signedHdr>0.5?result:saturate(result);
 }
 '''
     shader = replace_once(shader, '[numthreads(16,16,1)] void main', fine_controls + '\n[numthreads(16,16,1)] void main')
+    # Full-resolution NR needs no reconstruction: avoid four texture taps and
+    # the interpolation arithmetic when its pixels already match the base.
+    begin = shader.index('    float2 pos=')
+    end = shader.index('    float3 rawDelta=delta;', begin)
+    reconstruction = shader[begin:end].replace('float3 delta=0;', 'delta=0;')
+    shader = shader[:begin] + '''    float3 delta=0;
+    if(w==nw&&h==nh) {
+        int2 q=int2(id.xy);
+        delta=nrFinal[q].rgb-(residualInput>0.5?float3(0,0,0):nrInput[q].rgb);
+    } else {
+''' + ''.join('    ' + line for line in reconstruction.splitlines(keepends=True)) + '    }\n' + shader[end:]
     shader = replace_once(shader, 'float3 rawDelta=delta;', 'delta=NrApplyFine(base.rgb,delta)-base.rgb;float3 rawDelta=delta;')
     shader = shader.replace('float unused;', 'float signedHdr;')
     shader = shader.replace('unused>0.5?result:max(0,result)', 'signedHdr>0.5?result:max(0,result)')

@@ -31,6 +31,8 @@ class RealtimeBuildTests(unittest.TestCase):
             shader = (output / 'VeyraResidual.hlsl').read_text(encoding='utf-8')
             self.assertIn('float residualMultiplier;', shader)
             self.assertIn('NrApplyFine', shader)
+            self.assertIn('if(w==nw&&h==nh)', shader)
+            self.assertIn('nrFinal[q].rgb-(residualInput>0.5?float3(0,0,0):nrInput[q].rgb)', shader)
             localization = (output / 'standalone_parameter_localization.h').read_text(encoding='utf-8')
             self.assertNotIn('ResourceContext::', localization)
             self.assertNotIn('ResourceLoader::', localization)

@@ -132,9 +132,9 @@ def main():
                 ui._running_config = effective_nr_skin(ui.collect())
                 ui._applied_effects = deepcopy(ui._running_config['effects'])
                 ui._parameter_modes = {(0, item['name']): 1 for item in descriptors}
-                ui._metrics_compact = i18n.tr('realtime.metrics_compact', real=60, gpu='8.2 ms')
+                ui._metrics_compact = i18n.tr('realtime.metrics_compact', real=60, gpu='8.2 ms', quality_gpu='1.1 ms')
                 ui.metrics.set(i18n.tr('realtime.metrics', capture=60, nr=60, real=60, generated='0.0',
-                                      submitted=60, age='10.1 ms', gpu='8.2 ms', discarded=0))
+                                      submitted=60, age='10.1 ms', gpu='8.2 ms', quality_gpu='1.1 ms', discarded=0))
                 ui.gpu_load.set(i18n.tr('realtime.gpu_prefix') + 'Example GPU · 42% / 3200 MiB / 120 W')
                 ui.status.set(i18n.tr('realtime.running'))
             if args.scenario == 'restart':

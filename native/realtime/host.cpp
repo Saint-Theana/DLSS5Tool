@@ -485,6 +485,7 @@ int main(int argc, char** argv) {
                                 {"nr_evaluations", metrics.nrEvaluations}, {"nr_failures", metrics.nrFailures},
                                 {"discarded_capture", metrics.droppedCapture},
                                 {"nr_gpu_ms_p95", metrics.gpuSamples ? json(metrics.nrGpuP95) : json(nullptr)},
+                                {"quality_gpu_ms_p95", metrics.qualityGpuSamples ? json(metrics.qualityGpuP95) : json(nullptr)},
                                 {"dequeue_to_submit_ms_p50", metrics.ageSamples ? json(metrics.ageP50) : json(nullptr)},
                                 {"dequeue_to_submit_ms_p95", metrics.ageSamples ? json(metrics.ageP95) : json(nullptr)},
                                 {"dequeue_to_submit_ms_p99", metrics.ageSamples ? json(metrics.ageP99) : json(nullptr)},

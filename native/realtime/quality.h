@@ -45,11 +45,24 @@ public:
         bool applyControls = true, bool residualInput = false) noexcept;
     void Reset() noexcept;
 private:
+    struct TimingSlot {
+        winrt::com_ptr<ID3D11Query> disjoint;
+        winrt::com_ptr<ID3D11Query> begin;
+        winrt::com_ptr<ID3D11Query> end;
+        bool pending = false;
+    };
+    bool EnsureTiming(ID3D11Device* device) noexcept;
+    void PollTiming(ID3D11DeviceContext* context) noexcept;
+
     winrt::com_ptr<ID3D11ComputeShader> shader;
     winrt::com_ptr<ID3D11Buffer> constants;
     winrt::com_ptr<ID3D11Texture2D> result;
     winrt::com_ptr<ID3D11UnorderedAccessView> uav;
+    winrt::com_ptr<ID3D11UnorderedAccessView> outputUav;
+    ID3D11Texture2D* outputTexture = nullptr;
     std::array<winrt::com_ptr<ID3D11ShaderResourceView>, 3> views;
     std::array<ID3D11Texture2D*, 3> textures{};
+    std::array<TimingSlot, 4> timing;
+    size_t timingCursor = 0;
 };
 }

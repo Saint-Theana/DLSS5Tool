@@ -27,13 +27,16 @@ struct Metrics {
     uint32_t ageSamples = 0, processSamples = 0;
     double latestAge = 0;
     uint64_t validAges = 0;
-    uint64_t nrEvaluations = 0, nrFailures = 0, gpuSamples = 0, droppedCapture = 0;
+    uint64_t nrEvaluations = 0, nrFailures = 0, gpuSamples = 0,
+        qualityGpuSamples = 0, droppedCapture = 0;
     double nrGpuP95 = 0;
+    double qualityGpuP95 = 0;
 };
 inline std::mutex metricsMutex;
 inline Metrics counters;
 inline std::array<double, 512> ages{}, durations{};
 inline std::array<double, 512> gpuDurations{};
+inline std::array<double, 512> qualityGpuDurations{};
 inline std::optional<uint64_t> lastRealId;
 inline std::array<std::pair<uint64_t, double>, 128> dequeued{};
 inline double Qpc100ns() {
@@ -51,6 +54,10 @@ inline void Captured(uint64_t frameId) {
 inline void CaptureDrained(uint32_t count) { std::lock_guard lock(metricsMutex); counters.droppedCapture += count > 0 ? count-1 : 0; }
 inline void NrEvaluated(bool ok) { std::lock_guard lock(metricsMutex); if(ok) ++counters.nrEvaluations; else ++counters.nrFailures; }
 inline void NrGpu(double ms) { std::lock_guard lock(metricsMutex); gpuDurations[counters.gpuSamples++ % gpuDurations.size()] = ms; }
+inline void QualityGpu(double ms) {
+    std::lock_guard lock(metricsMutex);
+    qualityGpuDurations[counters.qualityGpuSamples++ % qualityGpuDurations.size()] = ms;
+}
 inline void Processed(double milliseconds) {
     std::lock_guard lock(metricsMutex);
     durations[counters.processed++ % durations.size()] = milliseconds;
@@ -88,6 +95,8 @@ inline Metrics ReadMetrics() {
     result.ageP99 = percentile(ages, result.ageSamples, .99);
     result.processP95 = percentile(durations, result.processSamples, .95);
     result.nrGpuP95 = percentile(gpuDurations, uint32_t(std::min<uint64_t>(result.gpuSamples, gpuDurations.size())), .95);
+    result.qualityGpuP95 = percentile(qualityGpuDurations,
+        uint32_t(std::min<uint64_t>(result.qualityGpuSamples, qualityGpuDurations.size())), .95);
     return result;
 }
 }
