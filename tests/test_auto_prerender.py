@@ -172,6 +172,7 @@ def check_shared_display_applies_idle_policy_before_request(enabled, playing):
     calls = []
     session = SimpleNamespace(multiplier=2,
         set_progress=Mock(),
+        set_prefetch_ahead=lambda value: calls.append(('prefetch_ahead', value)),
         set_prefetch=lambda value: calls.append(('prefetch', value)),
         request=lambda index: calls.append(('request', index)))
     app._shared_ready = lambda: session
@@ -179,7 +180,7 @@ def check_shared_display_applies_idle_policy_before_request(enabled, playing):
     app._shared_interim = Mock()
     app._draw_work_status = Mock()
     app._shared_display()
-    assert calls == [('prefetch', enabled or playing), ('request', 4)]
+    assert calls == [('prefetch_ahead', 24), ('prefetch', enabled or playing), ('request', 4)]
 
 
 def check_shared_producer_stops_at_required_real_frame_and_can_resume(multiplier, index, required_sources):

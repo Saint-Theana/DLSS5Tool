@@ -21,6 +21,14 @@ from dlss5tool.parameter_contract import COMPOSITION_VERSION
 from dlss5tool.image_sequence import ImageSequence, is_sequence, source_bytes, audio_source
 from dlss5tool.frame_generation import Cancelled, check_cancel, export_video, runtime_files, inspect_source
 
+# Shared preview should keep a short, responsive look-ahead.  Export still
+# consumes frames sequentially and therefore does not need the old 120-frame
+# burst, which could leave the producer waiting while the UI was composing NR.
+# Keep the generic cache/export behavior backwards compatible.  The shared
+# preview adapter supplies its smaller user-facing value explicitly.
+DEFAULT_PREFETCH_AHEAD = 120
+MAX_PREFETCH_AHEAD = 48
+
 PIXEL_KEYS = (
     'nr_quality', 'nr_residual',
     'style', 'preset', 'intensity', 'local_tone', 'local_struct', 'skin_struct', 'use_auto_mask',
@@ -118,6 +126,7 @@ class RenderSession:
         self.restart = False
         self.suspended = False
         self.prefetch = True
+        self.prefetch_ahead = DEFAULT_PREFETCH_AHEAD
         self.upstream = None
         self.progress = None
         self.thread = None
@@ -170,6 +179,19 @@ class RenderSession:
             self.condition.notify_all()
         if self.upstream:
             self.upstream.set_prefetch(enabled)
+
+    def set_prefetch_ahead(self, frames):
+        """Bound fill-ahead independently from the on/off prefetch policy."""
+        try:
+            value = int(frames)
+        except (TypeError, ValueError):
+            value = DEFAULT_PREFETCH_AHEAD
+        value = max(2, min(MAX_PREFETCH_AHEAD, value))
+        with self.condition:
+            self.prefetch_ahead = value
+            self.condition.notify_all()
+        if self.upstream:
+            self.upstream.set_prefetch_ahead(value)
 
     def _start(self):
         if self.closed or self.error:
@@ -285,7 +307,7 @@ class RenderSession:
                             continue
                         # One extra real frame supplies the right endpoint.
                         capacity = max(2*self.multiplier, self._allowance() // max(self.frame_bytes, 1))
-                        ahead = min(capacity-1, max(2*self.multiplier, 120))
+                        ahead = min(capacity-1, max(2*self.multiplier, self.prefetch_ahead))
                         if not self.frame_bytes or source_index*self.multiplier <= self.target+ahead+self.multiplier:
                             break
                         self.condition.wait(.1)
@@ -418,9 +440,13 @@ class RenderCache:
         with self.lock:
             latest()
             current = self.sessions.get(key)
-            if current is not None and not current.closed:
+            if current is not None and not current.closed and not current.error:
                 self.sessions.move_to_end(key)
                 return current
+            if current is not None and current.error and not current.closed:
+                # A failed worker must never be handed back to a later preview
+                # or export request.  Retire it before rebuilding the same key.
+                current.close()
             # SR + NR and FG have separate identities. Changing only the FG
             # multiplier retires the FG worker, not the full-quality SR/NR cache.
             for old in self.sessions.values():
@@ -443,7 +469,8 @@ class RenderCache:
             spatial_settings.update(frame_generation_multiplier=1, guidance_mode=0, output_size=None,
                                     _render_stage='spatial')
             spatial_key = render_identity(source, spatial_settings)
-            if self.spatial is None or self.spatial.key != spatial_key or self.spatial.closed:
+            if (self.spatial is None or self.spatial.key != spatial_key
+                    or self.spatial.closed or self.spatial.error):
                 if self.base:
                     self.base.close()
                     self.base = None
@@ -457,7 +484,8 @@ class RenderCache:
                                              pool=lease(), renderer=spatial_renderer)
             else:
                 self.spatial.set_limit(base_limit)
-            if self.base is None or self.base.key != base_key or self.base.closed:
+            if (self.base is None or self.base.key != base_key
+                    or self.base.closed or self.base.error):
                 if self.base:
                     self.base.close()
                 latest()
@@ -517,8 +545,50 @@ def encode_cached(session, output, settings, cancel, progress):
     sequence = ImageSequence.load(session.source) if is_sequence(session.source) else None
     if sequence:
         sequence.validate(lambda: check_cancel(cancel))
+
+    # Cache rendering and final encoding are two parts of one export.  They
+    # can overlap (the encoder consumes frames while the cache producer is
+    # still running), so forwarding both raw fractions to the UI makes the
+    # progress bar jump back to zero whenever encoding starts.  Keep one
+    # monotonic fraction for each part and expose their combined 50/50
+    # progress instead.  The lock is needed because render callbacks arrive
+    # from the cache worker while encode callbacks run on this thread.
+    progress_lock = threading.Lock()
+    render_fraction = 0.0
+    encode_fraction = 0.0
+
+    def report_combined(stage, message, fraction):
+        nonlocal render_fraction, encode_fraction
+        try:
+            value = max(0.0, min(float(fraction), 1.0))
+        except (TypeError, ValueError):
+            value = 0.0
+        with progress_lock:
+            if stage == 'render':
+                render_fraction = max(render_fraction, value)
+            else:
+                encode_fraction = max(encode_fraction, value)
+            combined = 0.5 * (render_fraction + encode_fraction)
+        progress(message, combined)
+
+    def report_render(message, fraction=0, counts=None):
+        # Timestamp inspection also supplies counts, but it is only a small
+        # preflight step.  Keep it within the first 5% of the render half so
+        # its 100% completion does not make the actual frame render appear
+        # complete before rendering has started.
+        if counts and counts[1]:
+            try:
+                inspected = float(counts[0]) / float(counts[1])
+            except (TypeError, ValueError, ZeroDivisionError):
+                inspected = 0.0
+            fraction = min(max(inspected, 0.0), 1.0) * 0.05
+        report_combined('render', message, fraction)
+
+    def report_encode(message, fraction=0, counts=None):
+        report_combined('encode', message, fraction)
+
     session.set_prefetch(True)
-    session.set_progress(progress)
+    session.set_progress(report_render)
     metadata = session.wait_metadata(cancel)
     hdr = metadata['hdr_metadata']
     rate = Fraction(metadata['output_rate'])
@@ -564,7 +634,10 @@ def encode_cached(session, output, settings, cancel, progress):
                     result = compose_output_frame(cv2.cvtColor(reference, cv2.COLOR_RGBA2BGR), result, view=view, mix=1)
             writer.write(result)
             from dlss5tool.i18n import tr
-            progress(tr('status.shared_export', hit=hit, done=i+1, total=total), (i+1)/total)
+            report_encode(
+                tr('status.shared_export', hit=hit, done=i+1, total=total),
+                (i+1) / total,
+            )
         writer.finish()
         check_cancel(cancel)
         if sequence:

@@ -364,6 +364,8 @@ class SharedRenderPreview(PreviewFeedback):
                 index = min(max(0, index), max(0, self.nframes*session.multiplier-1))
                 self._shared_output_index = index
                 self._shared_bind_progress(session)
+                if hasattr(session, 'set_prefetch_ahead'):
+                    session.set_prefetch_ahead(self._preview_prefetch())
                 session.set_prefetch(self.playing or self._preview_auto_prerender())
                 pair = session.request(index)
                 ready = pair is not None
@@ -474,6 +476,8 @@ class SharedRenderPreview(PreviewFeedback):
                     self._shared_buffer()
                 return
             session.set_prefetch(True)
+            if hasattr(session, 'set_prefetch_ahead'):
+                session.set_prefetch_ahead(self._preview_prefetch())
             self._shared_bind_progress(session)
             fps = float(Fraction(session.metadata['output_rate']))
             total = session.metadata['source_frames']*session.multiplier

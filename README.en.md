@@ -15,13 +15,13 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="Source version v3.0.0" height="20"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.1-0E7490?style=flat&amp;labelColor=475569" alt="Source version v3.0.1" height="20"></a>
   <a href="#quick-start"><img src="https://img.shields.io/badge/platform-Windows_x64-0369A1?style=flat&amp;labelColor=475569" alt="Platform: Windows x64" height="20"></a>
   <a href="#2-select-the-runtime-for-your-gpu"><img src="https://img.shields.io/badge/GPU-NVIDIA_RTX-0E7490?style=flat&amp;labelColor=475569" alt="GPU: NVIDIA RTX; select the runtime for your GPU generation" height="20"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0369A1?style=flat&amp;labelColor=475569" alt="Combined source licensed under GPLv3" height="20"></a>
 </p>
 
-This README describes **v3.0.0**. As of 2026-10-11, local packaging and acceptance checks are complete, but the version has not been publicly released. Check the actual Release assets for availability. See [changes since v2.3.3 (Chinese)](docs/release/RELEASE_NOTES_v3.0.0.md) and the [redistribution restrictions](#license).
+This README describes **v3.0.1**. The source is versioned, while public packages and incremental update assets still require v3.0.1 packaging acceptance. Check the actual Release assets for availability. See the [v3.0.1 release notes](docs/release/RELEASE_NOTES_v3.0.1.md) and the [redistribution restrictions](#license).
 
 ## Features
 
@@ -36,7 +36,7 @@ DLSS5Tool brings **local media processing and realtime window enhancement** into
 
 Switch modes using the paired-arrow icon in the title bar, `Ctrl+Tab`, or **More → Work mode**. Both modes support Simplified Chinese / English and light / dark themes. Change **More → Language**, then restart the app.
 
-## v3.0.0 interface
+## Current version interface
 
 ### Local media · Compare and adjust
 
@@ -208,9 +208,9 @@ Lower playback quality, try smaller media or 2× scaling, and temporarily disabl
 
 **How do I update?**
 
-Use **About → Check for updates**, or download a Release. Local acceptance checks are complete for the v3.0.0 archives and both **v2.3.3 → v3.0.0 Lite/Full incremental packages**. They become available through Releases and the updater only after official publication with the required assets. Earlier versions should use complete archives; updates are not automatically chained across versions.
+Use **About → Check for updates**, or download a Release. Public v3.0.1 archives and incremental assets require packaging acceptance first, then become available through Releases and the updater after official publication. Earlier versions should use complete archives; updates are not automatically chained across versions.
 
-Choose `lite` for Lite, or `full` when inference components are installed. Do not replace only the EXE or mix old components into v3.0.0. The [historical component-reuse guide](docs/release/UPGRADE_v2.3.1.md) applies only to the versions it lists; it is not a v3.0.0 compatibility guarantee.
+Choose `lite` for Lite, or `full` when inference components are installed. Do not replace only the EXE or mix old components into v3.0.1. The [historical component-reuse guide](docs/release/UPGRADE_v2.3.1.md) applies only to the versions it lists.
 
 When a matching payload exists, the updater downloads changed files for the installed edition, verifies them, then asks again before exiting for the standalone helper to install it. Without a matching payload, Lite offers its complete archive; Full directs you to the release page for Full or Lite plus the matching add-on. Versions without the update helper must be upgraded by fully extracting the new release into a new folder. Incremental updates require the matching assets on the release page. See the [update guide](docs/USER_GUIDE.en.md).
 

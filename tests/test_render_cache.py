@@ -160,6 +160,74 @@ def test_multiplier_change_reuses_upstream_and_other_pixels_invalidate():
             manager.close()
 
 
+def test_failed_session_is_rebuilt_for_same_request():
+    def failing_renderer(source, output, **kwargs):
+        raise RuntimeError('synthetic render failure')
+
+    manager = rc.RenderCache(100000)
+    with mock.patch.object(rc, 'export_video', failing_renderer):
+        try:
+            first = manager.session('source', {'frame_generation_multiplier': 1})
+            with pytest.raises(RuntimeError, match='synthetic render failure'):
+                first.wait_metadata(threading.Event())
+            assert first.error is not None
+            second = manager.session('source', {'frame_generation_multiplier': 1})
+            assert second is not first
+            assert first.closed
+            assert second.error is None
+        finally:
+            manager.close()
+
+
+def test_failed_upstream_layers_are_rebuilt_for_same_request():
+    manager = rc.RenderCache(100000)
+    settings = {'frame_generation_multiplier': 2, 'output_mix': .75}
+    try:
+        first = manager.session('source', settings)
+        old_base, old_spatial = manager.base, manager.spatial
+        # The output worker can observe an upstream failure after its own
+        # request has already been cached by the manager.
+        first.error = RuntimeError('synthetic upstream failure')
+        old_base.error = RuntimeError('synthetic upstream failure')
+        second = manager.session('source', settings)
+        assert second is not first
+        assert manager.base is not old_base
+        assert manager.spatial is old_spatial
+    finally:
+        manager.close()
+
+
+def test_prefetch_ahead_is_bounded_and_configurable():
+    entered_limit = threading.Event()
+    rendered = []
+    def bounded_renderer(source, output, *, frame_sink, metadata_sink,
+                         render_gate, cancel, **kwargs):
+        metadata_sink({'source_frames': 200})
+        pixels = np.zeros((2, 2, 4), np.uint8)
+        for index in range(200):
+            if index == 26:
+                entered_limit.set()
+            render_gate(index)
+            rendered.append(index)
+            frame_sink(index, pixels, pixels)
+        return {}
+
+    session = rc.RenderSession('source', {}, 100000, renderer=bounded_renderer)
+    try:
+        session.set_prefetch_ahead(24)
+        session.request(0)
+        assert entered_limit.wait(3)
+        time.sleep(.1)
+        assert rendered == list(range(26))
+        session.set_prefetch_ahead(48)
+        deadline = time.monotonic() + 3
+        while len(rendered) < 50 and time.monotonic() < deadline:
+            time.sleep(.01)
+        assert len(rendered) >= 50
+    finally:
+        session.close()
+
+
 class Writer:
     instances = []
     def __init__(self, path, *args, **kwargs):

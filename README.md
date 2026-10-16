@@ -15,13 +15,13 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.0-0E7490?style=flat&amp;labelColor=475569" alt="源码版本 v3.0.0" height="20"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/source-v3.0.1-0E7490?style=flat&amp;labelColor=475569" alt="源码版本 v3.0.1" height="20"></a>
   <a href="#快速开始"><img src="https://img.shields.io/badge/platform-Windows_x64-0369A1?style=flat&amp;labelColor=475569" alt="平台 Windows x64" height="20"></a>
   <a href="#2-选择显卡运行库"><img src="https://img.shields.io/badge/GPU-NVIDIA_RTX-0E7490?style=flat&amp;labelColor=475569" alt="显卡 NVIDIA RTX；请按代际选择运行库" height="20"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-0369A1?style=flat&amp;labelColor=475569" alt="当前组合源码采用 GPLv3 许可证" height="20"></a>
 </p>
 
-本文介绍 **v3.0.0**。截至 2026-10-11，本版已完成本地打包与验收，尚未公开发布；是否可下载以 Releases 实际附件为准。相对 v2.3.3 的变化见 [更新说明](docs/release/RELEASE_NOTES_v3.0.0.md)，分发限制见[许可证](#许可证)。
+本文介绍 **v3.0.1**。本版已完成源码定版，公开下载包和增量更新附件待打包验收；是否可下载以 Releases 实际附件为准。变化见 [更新说明](docs/release/RELEASE_NOTES_v3.0.1.md)，分发限制见[许可证](#许可证)。
 
 ## 功能概览
 
@@ -36,7 +36,7 @@ DLSS5Tool 将 **本地媒体处理与实时窗口增强** 放在同一个工作�
 
 点击右上角双向箭头、按 `Ctrl+Tab` 或通过「更多 → 工作模式」切换模式。界面支持简体中文 / English、浅色 / 暗色主题；通过「更多 → 语言」切换语言，重启后生效。
 
-## v3.0.0 界面
+## 当前版本界面
 
 ### 本地媒体 · 对比与调参
 
@@ -208,9 +208,9 @@ mods\nvngx_dlssnr.dll
 
 **如何更新？**
 
-通过「关于 → 检查更新」，或直接下载 Release。v3.0.0 已完成本地整包及 **v2.3.3 → v3.0.0 的 lite／full 两种增量包**验收；只有正式发布且附件齐全后，才可通过发布页或更新器获取。更早版本使用整包升级，不自动串联多个增量包。
+通过「关于 → 检查更新」，或直接下载 Release。v3.0.1 的公开整包及增量附件需完成打包验收后提供；正式发布且附件齐全后，才可通过发布页或更新器获取。更早版本使用整包升级，不自动串联多个增量包。
 
-轻量版对应 `lite` 更新包，已安装附加组件的版本对应 `full`。不要只替换 EXE，也不要把旧版本组件直接混入 v3.0.0；[历史省流量升级说明](docs/release/UPGRADE_v2.3.1.md)仅适用于其中明确列出的版本，不代表旧组件已通过 v3.0.0 兼容验证。
+轻量版对应 `lite` 更新包，已安装附加组件的版本对应 `full`。不要只替换 EXE，也不要把旧版本组件直接混入 v3.0.1；[历史省流量升级说明](docs/release/UPGRADE_v2.3.1.md)仅适用于其中明确列出的版本。
 
 有匹配包时，更新器只下载当前安装形态的变化文件，校验后再次确认退出，由独立助手安装。没有匹配包时，轻量版可下载整包，完整版引导到发布页选择完整版或同版本轻量版＋附加包。没有更新助手的旧版请手动将新版完整解压到新目录；增量更新需发布页提供对应附件。详见[更新说明](docs/USER_GUIDE.md)。
 
