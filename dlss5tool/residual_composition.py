@@ -143,31 +143,42 @@ def _composition_adapter(settings):
     return luid
 
 
-def _native_quality_values(values):
+def _native_quality_values(values, profile='srgb'):
     q, r = values['nr_quality'], values['nr_residual']
     regions = [float(v) for region in q.get('regions', []) for v in region]
     regions.extend([0.0] * (16 - len(regions)))
     return [
         float(q['total']), float(q['darken']), float(q['brighten']), float(q['color']),
         float(q['luminance']), 1.0 if q.get('protection') else 0.0,
-        float(q.get('feather', 12.0)), 0.0,
+        float(q.get('feather', 12.0)), float(profile != 'srgb'),
         *regions,
         0.0,  # residualInput: local media passes raw NR output, not a residual texture.
         float(r['residualMultiplier']), float(r['residualSaturation']),
         float(r['residualLightness']), float(r['shadowStructureMultiplier']),
-        float(r['reflectionGlowMultiplier']), 0.0, 0.0,
+        float(r['reflectionGlowMultiplier']), float(profile in ('hdr10_pq', 'hdr10_hlg')), 0.0,
     ]
 
 
-def _native_compose(original, processed, values, *, order, adapter_luid=None):
-    """Run the shared D3D11 residual shader for an SDR frame when worthwhile."""
-    if original.dtype != np.uint8 or original.shape[0] * original.shape[1] < NATIVE_COMPOSITION_MIN_PIXELS:
+def _native_compose(original, processed, values, *, order, adapter_luid=None, profile='srgb'):
+    """One optional D3D11 shader, same size threshold and fallback for SDR/HDR."""
+    types = (np.uint8,) if profile == 'srgb' else (np.float16, np.float32, np.uint16)
+    if original.dtype not in types or original.shape[0] * original.shape[1] < NATIVE_COMPOSITION_MIN_PIXELS:
         return None
     bridge = _native_bridge(adapter_luid)
     if bridge is None:
         return None
     try:
-        return _native_compose_frame(original, processed, values, order=order, bridge=bridge)
+        if profile != 'srgb':
+            try:
+                version = bridge.library.dlss5_quality_version
+                version.argtypes, version.restype = [], ctypes.c_int
+                if version() < 2:
+                    release_native_composer()
+                    return None
+            except (AttributeError, OSError, TypeError):
+                release_native_composer()
+                return None
+        return _native_compose_frame(original, processed, values, order=order, bridge=bridge, profile=profile)
     except BaseException:
         # A failed preview may retain its exception traceback (and this owner).
         # Release now, rather than relying on collection of that traceback.
@@ -175,25 +186,34 @@ def _native_compose(original, processed, values, *, order, adapter_luid=None):
         raise
 
 
-def _native_compose_frame(original, processed, values, *, order, bridge):
+def _native_compose_frame(original, processed, values, *, order, bridge, profile='srgb'):
     library, handle = bridge.library, bridge.handle
     h, w = original.shape[:2]
     # The native shader keeps alpha and always consumes RGBA.  BGR callers are
     # converted to RGB around the dispatch so the luma weights stay correct.
-    base = np.empty((h, w, 4), dtype=np.uint8)
+    hdr = profile != 'srgb'
+    base = np.empty((h, w, 4), dtype=np.float32 if hdr else np.uint8)
     nr = np.empty_like(base)
     channels = slice(None, None, -1) if order == 'bgr' else slice(None)
-    base[..., :3] = np.ascontiguousarray(original[..., :3][..., channels])
-    nr[..., :3] = np.ascontiguousarray(processed[..., :3][..., channels])
-    base[..., 3] = 255
-    nr[..., 3] = 255
+    base[..., :3] = original[..., :3][..., channels]
+    nr[..., :3] = processed[..., :3][..., channels]
+    divisor = np.iinfo(original.dtype).max if original.dtype.kind == 'u' else 1.0
+    encode = None
+    if hdr:
+        base[..., :3] /= divisor
+        nr[..., :3] /= divisor
+        if profile != 'scrgb':
+            from dlss5tool.video_export import _pq_eotf, _pq_oetf, _hlg_eotf, _hlg_oetf
+            decode, encode = (_pq_eotf, _pq_oetf) if profile == 'hdr10_pq' else (_hlg_eotf, _hlg_oetf)
+            base[..., :3], nr[..., :3] = decode(base[..., :3]), decode(nr[..., :3])
+    base[..., 3] = nr[..., 3] = 1 if hdr else 255
     result = np.empty_like(base)
-    payload = (ctypes.c_float * 32)(*_native_quality_values(values))
+    payload = (ctypes.c_float * 32)(*_native_quality_values(values, profile))
     try:
         ok = library.dlss5_quality_compose(
             handle,
             ctypes.c_void_p(base.ctypes.data), ctypes.c_void_p(nr.ctypes.data),
-            ctypes.c_void_p(result.ctypes.data), w, h, 0, payload, 32,
+            ctypes.c_void_p(result.ctypes.data), w, h, 2 if hdr else 0, payload, 32,
         )
     except (OSError, ctypes.ArgumentError, ValueError):
         ok = 0
@@ -201,6 +221,13 @@ def _native_compose_frame(original, processed, values, *, order, bridge):
         release_native_composer()
         return None
     rgb = result[..., :3]
+    if hdr:
+        if encode is not None:
+            rgb = encode(np.maximum(rgb, 0))
+        if profile != 'scrgb':
+            rgb = np.clip(rgb, 0, 1)
+        if divisor != 1:
+            rgb = np.rint(rgb*divisor)
     if order == 'bgr':
         rgb = rgb[..., ::-1]
     output = processed.copy()
@@ -314,14 +341,15 @@ def compose(original, processed, settings=None, *, order='rgb', profile='srgb'):
         # Identity must preserve even PQ near-black codes and signed/over-white
         # scRGB exactly, without a lossy decode/encode or a native dispatch.
         return original
-    if (not hdr and original.dtype == np.uint8
+    if (original.dtype in ((np.uint8,) if not hdr else (np.float16, np.float32, np.uint16))
             and original.shape[0] * original.shape[1] >= NATIVE_COMPOSITION_MIN_PIXELS
             and _native_library_path() is not None):
         try:
             adapter_luid = _composition_adapter(settings)
         except (OSError, RuntimeError, ValueError, KeyError, TypeError):
             adapter_luid = None
-        native = (_native_compose(original, processed, values, order=order, adapter_luid=adapter_luid)
+        native = (_native_compose(original, processed, values, order=order,
+                                  adapter_luid=adapter_luid, profile=profile)
                   if adapter_luid is not None else None)
         if native is not None:
             return native

@@ -22,7 +22,8 @@ struct QualitySettings {
     float residualLightness = 1;
     float shadowStructureMultiplier = 1;
     float reflectionGlowMultiplier = 1;
-    std::array<float, 2> padding{};
+    float lumaRec2100 = 0; // Local PQ/HLG; realtime neutral/scRGB stays Rec.709.
+    float padding = 0;
 };
 static_assert(sizeof(QualitySettings) == 128);
 inline std::mutex qualityMutex;

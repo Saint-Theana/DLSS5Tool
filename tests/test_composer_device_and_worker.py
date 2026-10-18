@@ -135,7 +135,35 @@ def test_missing_selected_adapter_falls_back_to_cpu():
     source = np.full((8, 8, 3), 30, np.uint8)
     output = np.full_like(source, 60)
     with mock.patch.object(rc, '_composition_adapter', side_effect=ValueError('missing')), \
+            mock.patch.object(rc, 'NATIVE_COMPOSITION_MIN_PIXELS', 1), \
+            mock.patch.object(rc, '_native_library_path', return_value='quality.dll'), \
             mock.patch.object(rc, '_native_compose') as native:
         result = rc.compose(source, output, {'nr_quality': {'total': .5}})
     native.assert_not_called()
     assert np.array_equal(result, np.full_like(source, 45))
+
+
+@pytest.mark.parametrize('profile,dtype', [('srgb',np.uint8),('hdr10_pq',np.float16),
+    ('hdr10_hlg',np.float16),('scrgb',np.float32)])
+def test_all_profiles_share_threshold_and_fallback(profile,dtype):
+    source = np.full((10,10,4), .2 if dtype != np.uint8 else 30, dtype)
+    output = source.copy()
+    settings = {'nr_quality': {'total': .7}, '_composition_adapter': {'luid_high':0,'luid_low':7}}
+    with mock.patch.object(rc, '_native_library_path', return_value='quality.dll'), \
+            mock.patch.object(rc, '_native_compose', return_value=None) as native:
+        result=rc.compose(source,output,settings,profile=profile)
+        native.assert_not_called()
+        with mock.patch.object(rc,'NATIVE_COMPOSITION_MIN_PIXELS',1):
+            result=rc.compose(source,output,settings,profile=profile)
+        assert native.call_args.kwargs['adapter_luid'] == (0,7)
+        assert native.call_args.kwargs['profile'] == profile
+        assert np.allclose(result,source,atol=.0001)
+
+
+def test_hdr_payload_declares_linear_math_and_primaries():
+    values=rc.appearance.preflight({'nr_quality': {'total': .7}})
+    for profile in ('srgb','scrgb','hdr10_pq','hdr10_hlg'):
+        payload=rc._native_quality_values(values,profile)
+        assert len(payload)==32
+        assert payload[7]==(profile!='srgb')
+        assert payload[30]==(profile in ('hdr10_pq','hdr10_hlg'))

@@ -51,7 +51,7 @@ task build directory. It fails if exact pinned patch sites no longer match.
 | GraphicsCaptureFrameSource.cpp | Count discarded old WGC captures |
 | DesktopDuplicationFrameSource.cpp | First-frame metadata handling, capture timestamps and diagnostic logging |
 | SrcTracker.cpp | Forced include for standalone build's missing WindowHelper declaration |
-| NrResidualComposite.hlsl | Accept controlled signed residual without double-applying global controls |
+| NrResidualComposite.hlsl | Accept controlled signed residual without double-applying global controls; local HDR luminance/chroma fine controls and explicit Rec.709/Rec.2100 weights |
 
 Our C++ host, quality bridge, telemetry and tests are GPL-3.0-only.
 The Python control protocol contains settings/events, never per-frame pixel buffers.

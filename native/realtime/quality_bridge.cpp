@@ -74,14 +74,13 @@ public:
         int value_count) noexcept {
         if (!base || !processed || !output || !values || value_count < 32 ||
             width <= 0 || height <= 0 || width > 16384 || height > 16384 ||
-            (format_id != 0 && format_id != 1)) return false;
-        const DXGI_FORMAT format = format_id == 1
-            ? DXGI_FORMAT_R16G16B16A16_FLOAT
-            : DXGI_FORMAT_R8G8B8A8_UNORM;
+            (format_id < 0 || format_id > 2)) return false;
+        const DXGI_FORMAT format = format_id == 2 ? DXGI_FORMAT_R32G32B32A32_FLOAT
+            : format_id == 1 ? DXGI_FORMAT_R16G16B16A16_FLOAT : DXGI_FORMAT_R8G8B8A8_UNORM;
         if (!EnsureTextures(static_cast<UINT>(width), static_cast<UINT>(height), format))
             return false;
 
-        const size_t row_pitch = static_cast<size_t>(width) * (format_id == 1 ? 8u : 4u);
+        const size_t row_pitch = static_cast<size_t>(width) * (format_id == 2 ? 16u : format_id == 1 ? 8u : 4u);
         context->UpdateSubresource(base_texture.get(), 0, nullptr, base, row_pitch, 0);
         context->UpdateSubresource(nr_texture.get(), 0, nullptr, processed, row_pitch, 0);
 
@@ -159,6 +158,9 @@ private:
 };
 
 } // namespace
+
+// v2 adds exact adapter selection and linear HDR fine/global controls.
+extern "C" __declspec(dllexport) int dlss5_quality_version() noexcept { return 2; }
 
 extern "C" __declspec(dllexport) void* dlss5_quality_create() noexcept {
     auto* bridge = new (std::nothrow) Bridge();

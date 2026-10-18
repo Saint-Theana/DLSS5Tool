@@ -27,7 +27,7 @@ def generate(output):
         'float4 regions[4];}',
         'float4 regions[4];float residualInput;float residualMultiplier;'
         'float residualSaturation;float residualLightness;'
-        'float shadowStructureMultiplier;float reflectionGlowMultiplier;float2 padding;}',
+        'float shadowStructureMultiplier;float reflectionGlowMultiplier;float lumaRec2100;float padding;}',
     )
     shader = replace_once(shader, '(nrFinal[q].rgb-low)*weight', '(nrFinal[q].rgb-(residualInput>0.5?float3(0,0,0):low))*weight')
     # The realtime path normally receives a residual that has already gone
@@ -36,6 +36,9 @@ def generate(output):
     # shared shader.  Neutral values are exact identity and therefore do not
     # change the realtime path.
     fine_controls = r'''
+float3 NrLumaWeights() {
+    return lumaRec2100>0.5?float3(0.2627,0.6780,0.0593):float3(0.2126,0.7152,0.0722);
+}
 float3 NrToLinear(float3 color) {
     return float3(
         color.r <= 0.04045 ? color.r / 12.92 : pow(max(color.r + 0.055, 0.0) / 1.055, 2.4),
@@ -60,6 +63,16 @@ float3 NrHslToRgb(float3 hsl) {
 }
 float3 NrApplyFine(float3 original,float3 residual) {
     float3 adjusted=residual*residualMultiplier;
+    if(signedHdr>0.5) {
+        if(residualMultiplier==1 && residualSaturation==1 && residualLightness==1 &&
+           shadowStructureMultiplier==1 && reflectionGlowMultiplier==1) return original+residual;
+        // Match hdr_fine_controls: classify in linear light, then split the
+        // directed residual into luminance/chroma. Never use SDR HSL/clipping.
+        float dy=dot(adjusted,NrLumaWeights());
+        adjusted*=dy<0?shadowStructureMultiplier:(dy>0?reflectionGlowMultiplier:1);
+        float luma=dot(adjusted,NrLumaWeights());
+        return original+luma*residualLightness+(adjusted-luma)*residualSaturation;
+    }
     float3 result=original+adjusted;
     bool nonNeutral=abs(residualSaturation-1.0)>=1e-6 || abs(residualLightness-1.0)>=1e-6 ||
         abs(shadowStructureMultiplier-1.0)>=1e-6 || abs(reflectionGlowMultiplier-1.0)>=1e-6;
@@ -83,6 +96,8 @@ float3 NrApplyFine(float3 original,float3 residual) {
     return signedHdr>0.5?result:saturate(result);
 }
 '''
+    # Both global controls and reconstruction use the same declared primaries.
+    shader = shader.replace('float3(0.2126,0.7152,0.0722)', 'NrLumaWeights()')
     shader = replace_once(shader, '[numthreads(16,16,1)] void main', fine_controls + '\n[numthreads(16,16,1)] void main')
     # Full-resolution NR needs no reconstruction: avoid four texture taps and
     # the interpolation arithmetic when its pixels already match the base.

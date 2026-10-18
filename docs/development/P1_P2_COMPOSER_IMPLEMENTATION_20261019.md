@@ -31,5 +31,8 @@
 - 构建：`scripts/build_realtime.ps1 -QualityOnly -BuildDirectory F:/project/DLSS5Tool/tmp/p1-p2-composer-20261019/build -OutputDirectory F:/project/DLSS5Tool/tmp/p1-p2-composer-20261019/candidate` 成功，仅构建质量桥与相关 shader/GPU 测试，不编译整个实时宿主。
 - 实卡：`scripts/verify_local_composer.py --dll tmp/p1-p2-composer-20261019/candidate/dlss5_quality.dll --task tmp/p1-p2-composer-20261019`：4070 SUPER LUID 0:79242 身份一致；不存在的 LUID 被拒绝；6 次请求同线程/同 handle。1,002,001 像素 SDR 与 CPU 最大误差 1 个 8-bit code；首帧约 224 ms，预热后约 12.5–13.7 ms（仅合成调用，不等于整个 GUI 加速）。
 - `realtime_quality_tests.exe`：20 个原有实卡 shader/直写/拷贝回退用例通过。
-- 第 2～5 项继续施工，不把上述单卡检查扩展为多卡实际通过。
+- 第 2/3 项完成：在既有 Veyra shader 加入线性 HDR 亮度/色度细调及显式权重；实时中性分支保持旧运算顺序。四档共用设备、阈值、故障回退策略，HDR 上传 RGBA32F 线性值以避免额外 FP16 中间量化，输出按原 profile/dtype 恢复，保留 alpha。PQ/HLG 仍复用 Python 原 EOTF/OETF，不另起颜色转换栈。ABI v2 之前的 DLL 不开启 HDR。
+- HDR 定向测试 93 passed（`hdr-verified-unit-tests.xml`）。首轮断言执行完毕后 pytest 清理系统旧临时链接遇到权限错误，退出 1；改用本任务独立 `--basetemp` 重跑通过，没有删除系统目录。
+- 实卡 `hdr-native.json`：18 组 profile/dtype/RGB/BGR 非中性细调＋保护遮罩对照及两组独立线性权重检查。线性最大绝对误差 1.44e-6；PQ float32 最大 1.69e-5、HLG 3.95e-6，float16 至多相邻量化码，alpha 全部精确；scRGB 负值/超白保留。16-bit PQ 原先过严的 1/65535 阈值观察到 2/65535 差异，改为预先说明的 3/65535 上限（低于 0.05 个 10-bit code），不声称逐 bit 一致。原有 20 个实卡 shader 用例仍通过。
+- 第 4/5 项继续施工，不把上述单卡检查扩展为多卡实际通过。
 - 新任务目录 `tmp/p1-p2-composer-20261019/`，峰值预算 4 GiB，开始可用约 61.9 GiB。

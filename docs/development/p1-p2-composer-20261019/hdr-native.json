@@ -1,0 +1,195 @@
+{
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "dll": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\candidate\\dlss5_quality.dll",
+  "dll_sha256": "fb461f7497856050ba3e051f3da65360cb7dc14bf309024d6b8f225387c2cd93",
+  "cases": [
+    {
+      "profile": "srgb",
+      "dtype": "uint8",
+      "order": "rgb",
+      "max_error": 1.0,
+      "limit": 1,
+      "alpha_exact": true
+    },
+    {
+      "profile": "srgb",
+      "dtype": "uint8",
+      "order": "bgr",
+      "max_error": 1.0,
+      "limit": 1,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "float16",
+      "order": "rgb",
+      "max_error": 0.00048828125,
+      "limit": 0.0005,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "float16",
+      "order": "bgr",
+      "max_error": 0.00048828125,
+      "limit": 0.0005,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "float32",
+      "order": "rgb",
+      "max_error": 1.6868114471435547e-05,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "float32",
+      "order": "bgr",
+      "max_error": 1.6748905181884766e-05,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "uint16",
+      "order": "rgb",
+      "max_error": 2.0,
+      "limit": 3,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "dtype": "uint16",
+      "order": "bgr",
+      "max_error": 2.0,
+      "limit": 3,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "float16",
+      "order": "rgb",
+      "max_error": 0.00048828125,
+      "limit": 0.0005,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "float16",
+      "order": "bgr",
+      "max_error": 0.00048828125,
+      "limit": 0.0005,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "float32",
+      "order": "rgb",
+      "max_error": 3.9478763937950134e-06,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "float32",
+      "order": "bgr",
+      "max_error": 3.5762786865234375e-06,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "uint16",
+      "order": "rgb",
+      "max_error": 1.0,
+      "limit": 3,
+      "alpha_exact": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "dtype": "uint16",
+      "order": "bgr",
+      "max_error": 1.0,
+      "limit": 3,
+      "alpha_exact": true
+    },
+    {
+      "profile": "scrgb",
+      "dtype": "float16",
+      "order": "rgb",
+      "max_error": 0.0009765625,
+      "limit": 0.004,
+      "alpha_exact": true
+    },
+    {
+      "profile": "scrgb",
+      "dtype": "float16",
+      "order": "bgr",
+      "max_error": 0.0001220703125,
+      "limit": 0.004,
+      "alpha_exact": true
+    },
+    {
+      "profile": "scrgb",
+      "dtype": "float32",
+      "order": "rgb",
+      "max_error": 1.430511474609375e-06,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "profile": "scrgb",
+      "dtype": "float32",
+      "order": "bgr",
+      "max_error": 9.5367431640625e-07,
+      "limit": 5e-05,
+      "alpha_exact": true
+    },
+    {
+      "linear_weights": [
+        0.2126,
+        0.7152,
+        0.0722
+      ],
+      "max_error": 1.430511474609375e-06,
+      "limit": 1e-05
+    },
+    {
+      "linear_weights": [
+        0.2627,
+        0.678,
+        0.0593
+      ],
+      "max_error": 9.5367431640625e-07,
+      "limit": 1e-05
+    }
+  ],
+  "invalid_adapter_rejected": true,
+  "persistent_same_thread": true,
+  "persistent_same_handle": true,
+  "composition_ms": [
+    221.38780000022962,
+    12.078400000973488,
+    11.315699999613571,
+    10.96510000024864,
+    11.002000001099077,
+    11.18029999997816
+  ],
+  "sdr_max_code_error": 1
+}
