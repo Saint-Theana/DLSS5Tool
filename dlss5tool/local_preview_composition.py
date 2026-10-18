@@ -17,7 +17,7 @@ class LocalPreviewComposition:
                 'layers': list(invalidation(reason)) if reason in appearance.GROUPS else ['source', 'nr', 'composition', 'fg']}
         job = getattr(self, '_local_composition_job', None)
         if job:
-            job.invalidate()
+            job.invalidate(release=reason not in appearance.GROUPS)
         self._cancel_after('_local_composition_after')
         self._local_composition_request = None
         self._local_composition_inputs = None
@@ -38,6 +38,12 @@ class LocalPreviewComposition:
             PreviewFeedback._set_parameter_status(self, 'applied')
             return processed
         look = appearance.settings(settings)
+        # Appearance validation intentionally excludes execution settings. Keep
+        # the GPU contract separately, including NR's actual automatic choice.
+        look['render_gpu'] = settings.get('render_gpu', 'auto')
+        adapter = getattr(getattr(self, '_live', None), 'adapter_info', {})
+        if 'luid_high' in adapter and 'luid_low' in adapter:
+            look['_composition_adapter'] = dict(adapter)
         key = (position, id(original), id(processed), mix, json.dumps(look, sort_keys=True))
         # Retain the identity-bearing inputs until the next request. No frame
         # copies here, and no id reuse can accidentally hit the previous result.
@@ -53,7 +59,9 @@ class LocalPreviewComposition:
             return compose_preview_frame(base, processed, output_mix=mix, settings=look)
         job = getattr(self, '_local_composition_job', None)
         if job is None:
-            job = self._local_composition_job = LatestPreviewJob('preview-appearance')
+            from dlss5tool.residual_composition import release_native_composer
+            job = self._local_composition_job = LatestPreviewJob(
+                'preview-appearance', persistent=True, cleanup=release_native_composer)
         self._local_composition_request = key
         last = getattr(self, '_local_composition_last', None)
         previous = last[1] if last is not None and last[0] == position else original

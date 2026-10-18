@@ -1,0 +1,31 @@
+{
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "dll": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\candidate\\dlss5_quality.dll",
+  "cases": [],
+  "invalid_adapter_rejected": true,
+  "persistent_same_thread": true,
+  "persistent_same_handle": true,
+  "composition_ms": [
+    223.60369999842078,
+    13.741000000663917,
+    12.612399999852641,
+    12.455199999749311,
+    12.912500000311411,
+    12.669100000493927
+  ],
+  "sdr_max_code_error": 1
+}

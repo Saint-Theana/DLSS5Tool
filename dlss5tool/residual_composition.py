@@ -34,8 +34,9 @@ class _NativeBridge:
     The finalizer retains the DLL, never this owner. It runs when a short-lived
     worker exits, with an atexit fallback only for a main-thread bridge.
     """
-    def __init__(self, path, library, handle):
+    def __init__(self, path, library, handle, adapter_luid=None):
         self.path, self.library, self.handle = path, library, handle
+        self.adapter_luid = adapter_luid
         self._release = weakref.finalize(self, _destroy_native_bridge, library, handle)
         # Daemon workers may still be inside the DLL at interpreter shutdown.
         # Never run their cleanup from the main atexit thread while in use.
@@ -49,6 +50,7 @@ def release_native_composer():
     """Release only this thread's idle composer; never another worker's device."""
     bridge = getattr(_native_state, 'bridge', None)
     _native_state.bridge = None
+    _native_state.adapter = None
     if bridge is not None:
         bridge.close()
 
@@ -64,12 +66,13 @@ def _native_library_path():
     return None
 
 
-def _native_bridge():
+def _native_bridge(adapter_luid=None):
     """Return one D3D11 bridge per worker thread, or None when unavailable."""
     path = _native_library_path()
     cached = getattr(_native_state, 'bridge', None)
     if cached is not None:
-        if path is not None and cached.path == path and cached._release.alive:
+        if (path is not None and cached.path == path and cached._release.alive
+                and cached.adapter_luid == adapter_luid):
             return cached
         release_native_composer()
     if path is None:
@@ -86,11 +89,27 @@ def _native_bridge():
             ctypes.POINTER(ctypes.c_float), ctypes.c_int,
         ]
         library.dlss5_quality_compose.restype = ctypes.c_int
-        handle = library.dlss5_quality_create()
+        if adapter_luid is None:
+            handle = library.dlss5_quality_create()
+        else:
+            # Older optional DLLs cannot honor this contract: use CPU, not
+            # their default-adapter entry point.
+            library.dlss5_quality_create_on_adapter.argtypes = [ctypes.c_int32, ctypes.c_uint32]
+            library.dlss5_quality_create_on_adapter.restype = ctypes.c_void_p
+            library.dlss5_quality_adapter.argtypes = [ctypes.c_void_p,
+                ctypes.POINTER(ctypes.c_int32), ctypes.POINTER(ctypes.c_uint32)]
+            library.dlss5_quality_adapter.restype = ctypes.c_int
+            handle = library.dlss5_quality_create_on_adapter(*adapter_luid)
         if not handle:
             return None
         try:
-            bridge = _NativeBridge(path, library, handle)
+            if adapter_luid is not None:
+                high, low = ctypes.c_int32(), ctypes.c_uint32()
+                if (not library.dlss5_quality_adapter(handle, ctypes.byref(high), ctypes.byref(low))
+                        or (high.value, low.value) != adapter_luid):
+                    _destroy_native_bridge(library, handle)
+                    return None
+            bridge = _NativeBridge(path, library, handle, adapter_luid)
         except BaseException:
             _destroy_native_bridge(library, handle)
             raise
@@ -98,6 +117,30 @@ def _native_bridge():
         return bridge
     except (AttributeError, OSError, TypeError, ValueError):
         return None
+
+
+def _composition_adapter(settings):
+    """Use NR's actual identity when provided, otherwise its selection policy.
+
+    Cache enumeration only on this worker, not globally across sessions. An
+    unavailable explicit choice never turns into an automatic/default choice.
+    """
+    actual = settings.get('_composition_adapter')
+    if actual is not None:
+        return int(actual['luid_high']), int(actual['luid_low'])
+    from dlss5tool import dlss_engine
+    requested = settings.get('render_gpu', dlss_engine.RENDER_GPU_AUTO)
+    cached = getattr(_native_state, 'adapter', None)
+    if cached is not None and cached[0] == requested:
+        return cached[1]
+    records = dlss_engine.available_render_adapters()
+    chosen = (records[0] if requested == dlss_engine.RENDER_GPU_AUTO and records else
+              next((r for r in records if r['id'] == requested), None))
+    if chosen is None:
+        raise ValueError('Composition GPU is unavailable')
+    luid = int(chosen['luid_high']), int(chosen['luid_low'])
+    _native_state.adapter = requested, luid
+    return luid
 
 
 def _native_quality_values(values):
@@ -116,11 +159,11 @@ def _native_quality_values(values):
     ]
 
 
-def _native_compose(original, processed, values, *, order):
+def _native_compose(original, processed, values, *, order, adapter_luid=None):
     """Run the shared D3D11 residual shader for an SDR frame when worthwhile."""
     if original.dtype != np.uint8 or original.shape[0] * original.shape[1] < NATIVE_COMPOSITION_MIN_PIXELS:
         return None
-    bridge = _native_bridge()
+    bridge = _native_bridge(adapter_luid)
     if bridge is None:
         return None
     try:
@@ -271,8 +314,15 @@ def compose(original, processed, settings=None, *, order='rgb', profile='srgb'):
         # Identity must preserve even PQ near-black codes and signed/over-white
         # scRGB exactly, without a lossy decode/encode or a native dispatch.
         return original
-    if not hdr:
-        native = _native_compose(original, processed, values, order=order)
+    if (not hdr and original.dtype == np.uint8
+            and original.shape[0] * original.shape[1] >= NATIVE_COMPOSITION_MIN_PIXELS
+            and _native_library_path() is not None):
+        try:
+            adapter_luid = _composition_adapter(settings)
+        except (OSError, RuntimeError, ValueError, KeyError, TypeError):
+            adapter_luid = None
+        native = (_native_compose(original, processed, values, order=order, adapter_luid=adapter_luid)
+                  if adapter_luid is not None else None)
         if native is not None:
             return native
     divisor = np.iinfo(original.dtype).max if original.dtype.kind == 'u' else 1.0

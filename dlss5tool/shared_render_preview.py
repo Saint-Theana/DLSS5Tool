@@ -147,7 +147,9 @@ class SharedRenderPreview(PreviewFeedback):
             return result, original
         job = getattr(self, '_shared_interim_job', None)
         if job is None:
-            job = self._shared_interim_job = LatestPreviewJob('preview-interim')
+            from dlss5tool.residual_composition import release_native_composer
+            job = self._shared_interim_job = LatestPreviewJob(
+                'preview-interim', persistent=True, cleanup=release_native_composer)
         key = (base, self._frame, getattr(self, '_shared_revision', 0), render_identity(self.video, config))
         result = job.request(key, compose)
         if result is None:

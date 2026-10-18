@@ -121,11 +121,12 @@ add_library(dlss5_quality SHARED quality_bridge.cpp quality.cpp "${GENERATED}/sh
 target_include_directories(dlss5_quality PRIVATE "${GENERATED}" "${CMAKE_CURRENT_LIST_DIR}")
 target_compile_definitions(dlss5_quality PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
 target_link_libraries(dlss5_quality PRIVATE d3d11 windowsapp)
+set(QUALITY_OUTPUT_DIR "${ROOT}/runtime" CACHE PATH "Local composer candidate output")
 set_target_properties(dlss5_quality PROPERTIES
   # The realtime manifest intentionally rejects DLLs under runtime/realtime;
   # keep this optional local-media bridge beside the existing host runtimes.
-  RUNTIME_OUTPUT_DIRECTORY_RELEASE "${ROOT}/runtime"
-  RUNTIME_OUTPUT_DIRECTORY_DEBUG "${ROOT}/runtime")
+  RUNTIME_OUTPUT_DIRECTORY_RELEASE "${QUALITY_OUTPUT_DIR}"
+  RUNTIME_OUTPUT_DIRECTORY_DEBUG "${QUALITY_OUTPUT_DIR}")
 add_executable(realtime_temporal_tests "${DEPS}/magpie/tests/DLSSNRTemporalTests.cpp")
 target_include_directories(realtime_temporal_tests PRIVATE "${CORE}" "${CORE}/include")
 target_compile_options(realtime_temporal_tests PRIVATE /UNDEBUG)

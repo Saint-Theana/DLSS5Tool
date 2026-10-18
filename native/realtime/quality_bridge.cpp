@@ -10,6 +10,7 @@
 #include "quality.h"
 
 #include <d3d11.h>
+#include <dxgi1_4.h>
 #include <winrt/base.h>
 
 #include <algorithm>
@@ -18,17 +19,28 @@
 #include <new>
 
 #pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "dxgi.lib")
 
 namespace {
 
 class Bridge final {
 public:
-    bool Initialize() noexcept {
+    bool Initialize(const LUID* requested = nullptr) noexcept {
+        // Same exact-LUID selection as host_v2/OpenAdapterByLuid. Never
+        // substitute a different/default card for an explicit request.
+        winrt::com_ptr<IDXGIAdapter> adapter;
+        if (requested) {
+            winrt::com_ptr<IDXGIFactory4> factory;
+            if (FAILED(CreateDXGIFactory1(__uuidof(IDXGIFactory4), factory.put_void())) ||
+                FAILED(factory->EnumAdapterByLuid(*requested, __uuidof(IDXGIAdapter), adapter.put_void())))
+                return false;
+        }
+        const auto driver = adapter ? D3D_DRIVER_TYPE_UNKNOWN : D3D_DRIVER_TYPE_HARDWARE;
         const D3D_FEATURE_LEVEL levels[] = {
             D3D_FEATURE_LEVEL_11_1, D3D_FEATURE_LEVEL_11_0,
         };
         HRESULT result = D3D11CreateDevice(
-            nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr,
+            adapter.get(), driver, nullptr,
             D3D11_CREATE_DEVICE_BGRA_SUPPORT,
             levels, ARRAYSIZE(levels), D3D11_SDK_VERSION,
             device.put(), nullptr, context.put());
@@ -39,14 +51,23 @@ public:
             context = nullptr;
             const D3D_FEATURE_LEVEL fallback = D3D_FEATURE_LEVEL_11_0;
             result = D3D11CreateDevice(
-                nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr,
+                adapter.get(), driver, nullptr,
                 D3D11_CREATE_DEVICE_BGRA_SUPPORT,
                 &fallback, 1, D3D11_SDK_VERSION,
                 device.put(), nullptr, context.put());
         }
         if (FAILED(result)) return false;
-        return device != nullptr && context != nullptr;
+        if (!device || !context) return false;
+        winrt::com_ptr<IDXGIDevice> dxgi;
+        winrt::com_ptr<IDXGIAdapter> actual;
+        DXGI_ADAPTER_DESC desc{};
+        if (FAILED(device->QueryInterface(__uuidof(IDXGIDevice), dxgi.put_void())) ||
+            FAILED(dxgi->GetAdapter(actual.put())) || FAILED(actual->GetDesc(&desc))) return false;
+        luid = desc.AdapterLuid;
+        return !requested || (luid.HighPart == requested->HighPart && luid.LowPart == requested->LowPart);
     }
+
+    LUID luid{};
 
     bool Compose(const void* base, const void* processed, void* output,
         int width, int height, int format_id, const float* values,
@@ -146,6 +167,26 @@ extern "C" __declspec(dllexport) void* dlss5_quality_create() noexcept {
         return nullptr;
     }
     return bridge;
+}
+
+extern "C" __declspec(dllexport) void* dlss5_quality_create_on_adapter(
+    int32_t luid_high, uint32_t luid_low) noexcept {
+    const LUID requested{luid_low, luid_high};
+    auto* bridge = new (std::nothrow) Bridge();
+    if (!bridge || !bridge->Initialize(&requested)) {
+        delete bridge;
+        return nullptr;
+    }
+    return bridge;
+}
+
+extern "C" __declspec(dllexport) int dlss5_quality_adapter(
+    void* handle, int32_t* high, uint32_t* low) noexcept {
+    if (!handle || !high || !low) return 0;
+    const auto* bridge = static_cast<Bridge*>(handle);
+    *high = bridge->luid.HighPart;
+    *low = bridge->luid.LowPart;
+    return 1;
 }
 
 extern "C" __declspec(dllexport) void dlss5_quality_destroy(void* handle) noexcept {

@@ -5759,6 +5759,14 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         if retiring and retiring.is_alive():
             self.root.after(50, self._on_close)
             return
+        preview_jobs = [getattr(self, name, None) for name in
+                        ('_local_composition_job', '_shared_interim_job')]
+        for job in preview_jobs:
+            if job:
+                job.close()
+        if any(job and job.is_alive() for job in preview_jobs):
+            self.root.after(20, self._on_close)
+            return
         transition = getattr(self, '_mode_transition', None)
         if transition:
             transition.cancel()
