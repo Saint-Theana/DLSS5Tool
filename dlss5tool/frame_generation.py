@@ -482,6 +482,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             from dlss5tool.dlss_host_process import ProcessLive
             _emit_progress(progress, i18n.tr('status.init_enhancement'), 0)
             nr = ProcessLive(process_w, process_h, config)
+            if getattr(nr, 'adapter_info', None):
+                config['_composition_adapter'] = dict(nr.adapter_info)
         if input_session is None:
             capture = FFmpegHDRVideoReader(source, w, h, meta) if meta['is_hdr'] else open_capture(source)
         writer_class=FFmpegVideoWriter
@@ -561,6 +563,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             if render_gate:
                 render_gate(index)
             mix_source = None
+            composition_encoded = False
             if input_session is not None:
                 if index >= total:
                     break
@@ -613,12 +616,21 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                     processed = appearance.bypass_frame(rgba, bypass)
                 if processed is None:
                     raise RuntimeError('DLSS 5 增强失败')
-                if hdr:
+                if (not native and writer is not None and not render_only and not view
+                        and (ow,oh)==(process_w,process_h)):
+                    from dlss5tool.residual_composition import compose_to_gpu_writer
+                    composition_encoded = compose_to_gpu_writer(rgba,processed,config,writer,
+                        profile=meta['profile'] if hdr else 'srgb',mix=config.get('output_mix',1))
+                    if composition_encoded:
+                        report['composition_gpu_frames'] = report.get('composition_gpu_frames',0)+1
+                        report['composition_backend'] = 'native-shared-gpu'
+                if composition_encoded:
+                    rgba = processed  # No FG or CPU consumer; only scene-source bookkeeping remains.
+                elif hdr:
                     rgba = compose_hdr_frame(rgba, processed, view=0, mix=1 if view else config.get('output_mix', 1), profile=meta['profile'], settings=config)
                 else:
-                    mixed = compose_output_frame(cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR),
-                        cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), view=0, mix=1 if view else config.get('output_mix', 1), settings=config)
-                    rgba = cv2.cvtColor(mixed, cv2.COLOR_BGR2RGBA)
+                    from dlss5tool.video_export import compose_sdr_rgba
+                    rgba = compose_sdr_rgba(rgba,processed,mix=1 if view else config.get('output_mix',1),settings=config)
             elif input_session is not None and config.get('_render_stage') == 'output':
                 if appearance.enhancement_bypass(config) == 'source':
                     rgba = mix_source
@@ -626,10 +638,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                     rgba = compose_hdr_frame(mix_source, rgba, view=0,
                         mix=config.get('output_mix', 1), profile=meta['profile'], settings=config)
                 else:
-                    rgba = cv2.cvtColor(compose_output_frame(
-                        cv2.cvtColor(mix_source, cv2.COLOR_RGBA2BGR),
-                        cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR), view=0,
-                        mix=config.get('output_mix', 1), settings=config), cv2.COLOR_BGR2RGBA)
+                    from dlss5tool.video_export import compose_sdr_rgba
+                    rgba = compose_sdr_rgba(mix_source,rgba,mix=config.get('output_mix',1),settings=config)
             rgba = final_size(rgba)
             if input_session is not None and config.get('_render_stage') == 'output' and reference is not None:
                 reference = final_size(reference)
@@ -663,7 +673,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                 report['cut_holds' if cut else 'generated_frames'] += multiplier-1
             # Real frames do not depend on a future frame. Publish immediately;
             # the next iteration inserts the intervening generated frames.
-            if shared_enhancement is None:
+            if shared_enhancement is None and not composition_encoded:
                 write(rgba, reference, mix_source=(mix_source
                       if config.get('_render_stage') == 'base' and scale > 1 else None))
             previous, previous_proxy = rgba.copy(), proxy.copy()
@@ -698,6 +708,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
     finally:
         cleanup_errors = []
         actions = []
+        from dlss5tool.residual_composition import release_native_composer
+        actions.append(release_native_composer)
         if shared_output:
             actions.append(shared_output.close)
         if shared_enhancement:

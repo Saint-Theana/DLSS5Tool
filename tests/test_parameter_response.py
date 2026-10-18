@@ -283,7 +283,7 @@ def test_legacy_output_edit_pauses_transport_but_keeps_inference_cache():
 def test_shared_interim_composition_is_nonblocking_and_discards_old_revision():
     from tests.test_preview_feedback import app_stub as shared_stub, renderer
     from dlss5tool import render_cache as rc
-    from dlss5tool.shared_render_preview import compose_output_frame
+    from dlss5tool.shared_render_preview import compose_sdr_rgba
     app = shared_stub()
     config = {'frame_generation_multiplier': 2, 'output_mix': .25}
     app._shared_config = lambda: dict(config)
@@ -293,12 +293,14 @@ def test_shared_interim_composition_is_nonblocking_and_discards_old_revision():
     def slow(*args, **kwargs):
         entered.set()
         assert release.wait(3)
-        return compose_output_frame(*args, **kwargs)
+        return compose_sdr_rgba(*args, **kwargs)
     try:
         base.wait(0, threading.Event())
         app._render_cache_manager = SimpleNamespace(base=base)
         app._shared_paint = mock.Mock()
-        with mock.patch('dlss5tool.shared_render_preview.compose_output_frame', side_effect=slow):
+        # Instrument the direct RGBA path, now that redundant BGR roundtrips
+        # have been removed. The retirement/non-blocking assertions are unchanged.
+        with mock.patch('dlss5tool.shared_render_preview.compose_sdr_rgba', side_effect=slow):
             try:
                 assert not app._shared_interim()
                 assert entered.wait(1)

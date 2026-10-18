@@ -674,9 +674,14 @@ def _estimate_output_size_mb(duration_seconds, video_bitrate_mbps, audio_mbps=0.
     return duration * (video_rate + audio_rate) / 8.0
 
 
-def _postprocess_and_write(writer, original, processed, view, mix, settings=None):
-    """CPU post-processing + FFmpeg write stage, run on one ordered worker thread."""
-    writer.write(compose_output_frame(original, processed, view, mix, settings=settings))
+def _postprocess_and_write(writer, original, processed, view, mix, settings=None, *, order='bgr'):
+    """Ordered single-slot composition/encode; CPU or same-card GPU consumer."""
+    from dlss5tool.video_export import write_composed_frame
+    try:
+        return write_composed_frame(writer,original,processed,view,mix,settings=settings,order=order)
+    except BaseException:
+        release_native_composer()
+        raise
 
 
 def effective_slider(enabled, value):
@@ -10087,6 +10092,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             self.logln(f"[导出] 编码器: {writer.encoder_name}")
             sr_live = ProcessSuperResolution(width, height, scale, is_hdr=False)
             live = ProcessLive(output_width, output_height, dlss_settings, _on_guidance_ready=self._guidance_started)
+            settings = dict(settings, _composition_adapter=live.adapter_info) if live.adapter_info else settings
             memory_after = query_gpu_memory(cache_seconds=0)
             if memory_before and memory_after:
                 measured = max(
@@ -10112,19 +10118,21 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 started = time.perf_counter()
                 upscaled_rgba = sr_live.process(rgba)
                 super_resolution_seconds += time.perf_counter() - started
-                upscaled_bgr = cv2.cvtColor(upscaled_rgba, cv2.COLOR_RGBA2BGR)
                 started = time.perf_counter()
                 processed_rgba = live.process(upscaled_rgba, reset=(index == 0))
                 dlss_seconds += time.perf_counter() - started
                 if processed_rgba is None:
                     raise RuntimeError(f"DLSS 处理第 {index} 帧失败")
-                processed_bgr = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
-                from dlss5tool.residual_composition import compose
-                processed_bgr = compose(upscaled_bgr, processed_bgr, settings, order='bgr')
-                writer.write(compose_output_frame(
-                    resize_original(frame, (output_width, output_height)) if view else upscaled_bgr,
-                    processed_bgr, view=view, mix=mix,
-                ))
+                if not view:
+                    from dlss5tool.video_export import write_composed_frame
+                    write_composed_frame(writer,upscaled_rgba,processed_rgba,mix=mix,settings=settings,order='rgb')
+                else:
+                    upscaled_bgr = cv2.cvtColor(upscaled_rgba, cv2.COLOR_RGBA2BGR)
+                    processed_bgr = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
+                    from dlss5tool.residual_composition import compose
+                    processed_bgr = compose(upscaled_bgr, processed_bgr, settings, order='bgr')
+                    writer.write(compose_output_frame(resize_original(frame,(output_width,output_height)),
+                                                     processed_bgr,view=view,mix=mix))
                 written = index + 1
                 if written == 1 or written % 2 == 0 or written >= total_frames:
                     self.set_progress(
@@ -10145,6 +10153,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 "in_flight": live.max_in_flight,
             }
         finally:
+            release_native_composer()
             if live is not None:
                 live.close()
             if sr_live is not None:
@@ -10199,6 +10208,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             if scale > 1:
                 sr_live = ProcessSuperResolution(width, height, scale, is_hdr=True)
             live = ProcessLive(process_width, process_height, hdr_settings, _on_guidance_ready=self._guidance_started)
+            settings = dict(settings, _composition_adapter=live.adapter_info) if live.adapter_info else settings
             if settings.get('guidance_mode'):
                 self.logln(tr('guidance.hdr_hint'))
             self.logln(
@@ -10222,10 +10232,9 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 dlss_seconds += time.perf_counter() - wait_started
                 if processed is None:
                     raise RuntimeError(f"HDR DLSS 异步回读第 {frame_index} 帧失败")
-                writer.write(compose_hdr_frame(
-                    original, processed, view=view, mix=mix,
-                    profile=color_info["profile"], settings=settings,
-                ))
+                from dlss5tool.video_export import write_composed_frame
+                write_composed_frame(writer,original,processed,view=view,mix=mix,
+                                     profile=color_info['profile'],settings=settings)
                 written += 1
                 if written == 1 or written % 4 == 0 or written >= total_frames:
                     self.set_progress(written, max(total_frames, written), "HDR 严格导出")
@@ -10255,12 +10264,13 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                     dlss_seconds += time.perf_counter() - started
                     if processed is None:
                         raise RuntimeError(f"HDR DLSS 处理第 {index} 帧失败")
-                    from dlss5tool.residual_composition import compose
-                    processed = compose(frame, processed, settings, profile=color_info['profile'])
-                    writer.write(compose_hdr_frame(
-                        comparison if view else frame, processed, view=view, mix=mix,
-                        profile=color_info["profile"],
-                    ))
+                    if not view:
+                        from dlss5tool.video_export import write_composed_frame
+                        write_composed_frame(writer,frame,processed,mix=mix,profile=color_info['profile'],settings=settings)
+                    else:
+                        from dlss5tool.residual_composition import compose
+                        processed = compose(frame,processed,settings,profile=color_info['profile'])
+                        writer.write(compose_hdr_frame(comparison,processed,view=view,mix=mix,profile=color_info['profile']))
                     written += 1
                 index += 1
             while pending:
@@ -10280,6 +10290,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         finally:
             if reader is not None:
                 reader.close()
+            release_native_composer()
             if live is not None:
                 live.close()
             if sr_live is not None:
@@ -10598,12 +10609,11 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                         frame_index, original_frame = pending_dlss.popleft()
                         if processed_rgba is None:
                             raise RuntimeError(f"DLSS 处理第 {frame_index} 帧失败")
-                        processed_bgr = cv2.cvtColor(processed_rgba, cv2.COLOR_RGBA2BGR)
                         if pending_write is not None:
                             pending_write.result()
                         pending_write = write_pool.submit(
                             _postprocess_and_write,
-                            writer, original_frame, processed_bgr, view, mix, settings,
+                            writer, original_frame, processed_rgba, view, mix, settings, order='rgb',
                         )
                         exported_frames = frame_index + 1
                         now = time.perf_counter()
@@ -10632,6 +10642,8 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                                     )
                                 )
                             live.update(settings)
+                            if live.adapter_info:
+                                settings = dict(settings, _composition_adapter=live.adapter_info)
                             self.logln(
                                 f"[DLSS 主机] {live.backend}；"
                                 f"GPU 队列 {live.max_in_flight} 帧；"
@@ -10643,7 +10655,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                             if not live.enqueue(rgba, reset=(i == 0)):
                                 raise RuntimeError(f"DLSS 异步提交第 {i} 帧失败")
                             dlss_seconds += time.perf_counter() - dlss_started
-                            pending_dlss.append((i, fr))
+                            pending_dlss.append((i, rgba))
                             if len(pending_dlss) >= live.max_in_flight:
                                 wait_started = time.perf_counter()
                                 consume_processed(live.dequeue())
@@ -10651,7 +10663,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                         else:
                             o = live.process(rgba, reset=(i == 0))
                             dlss_seconds += time.perf_counter() - dlss_started
-                            pending_dlss.append((i, fr))
+                            pending_dlss.append((i, rgba))
                             consume_processed(o)
                     while pending_dlss:
                         self._raise_if_export_cancelled()
@@ -10660,6 +10672,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                         dlss_seconds += time.perf_counter() - wait_started
                     if pending_write is not None:
                         pending_write.result()
+                    write_pool.submit(release_native_composer).result()
                 self._raise_if_export_cancelled()
                 writer.finish()
                 success = True

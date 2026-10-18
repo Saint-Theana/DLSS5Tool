@@ -1,0 +1,393 @@
+{
+  "cases": [
+    {
+      "profile": "srgb",
+      "route": "generic",
+      "result": {
+        "experimental": true,
+        "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+        "source": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-source-srgb.mp4",
+        "output": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-generic-srgb.mp4",
+        "multiplier": 1,
+        "spatial_scale": 1,
+        "enhance": true,
+        "status": "complete",
+        "real_frames": 6,
+        "generated_frames": 0,
+        "cut_holds": 0,
+        "endpoint_holds": 0,
+        "width": 1280,
+        "height": 800,
+        "source_rate": "30",
+        "output_rate": "30",
+        "enhancement_bypassed": false,
+        "enhancement_bypass": null,
+        "appearance_version": 1,
+        "composition_backend": "native-shared-gpu",
+        "color": "srgb",
+        "output_view": 0,
+        "runtime_sha256": null,
+        "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-srgb-logs",
+        "composition_gpu_frames": 6,
+        "cleanup_errors": []
+      },
+      "handoff_events": [
+        {
+          "readbacks": 0,
+          "gpu_frames": 1
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 2
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 3
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 4
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 5
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 6
+        }
+      ],
+      "output": {
+        "width": 1280,
+        "height": 800,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "0.200000",
+        "nb_frames": "6",
+        "fps": 30.0,
+        "frames": 6,
+        "color_primaries": "bt709",
+        "color_space": "bt709",
+        "color_transfer": "unknown",
+        "color_range": "tv",
+        "pixel_format": "yuv420p",
+        "profile": "srgb",
+        "is_hdr": false,
+        "label": "SDR / sRGB"
+      },
+      "memory_after": {
+        "private_bytes": 73678848,
+        "working_set_bytes": 79446016,
+        "free_physical_bytes": 49509916672,
+        "free_commit_bytes": 43784323072
+      }
+    },
+    {
+      "profile": "hdr10_pq",
+      "route": "generic",
+      "result": {
+        "experimental": true,
+        "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+        "source": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-source-hdr10_pq.mp4",
+        "output": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-generic-hdr10_pq.mp4",
+        "multiplier": 1,
+        "spatial_scale": 1,
+        "enhance": true,
+        "status": "complete",
+        "real_frames": 6,
+        "generated_frames": 0,
+        "cut_holds": 0,
+        "endpoint_holds": 0,
+        "width": 1280,
+        "height": 800,
+        "source_rate": "30",
+        "output_rate": "30",
+        "enhancement_bypassed": false,
+        "enhancement_bypass": null,
+        "appearance_version": 1,
+        "composition_backend": "native-shared-gpu",
+        "color": "hdr10_pq",
+        "output_view": 0,
+        "runtime_sha256": null,
+        "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-hdr10_pq-logs",
+        "composition_gpu_frames": 6,
+        "cleanup_errors": []
+      },
+      "handoff_events": [
+        {
+          "readbacks": 0,
+          "gpu_frames": 1
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 2
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 3
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 4
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 5
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 6
+        }
+      ],
+      "output": {
+        "width": 1280,
+        "height": 800,
+        "pix_fmt": "yuv420p10le",
+        "color_range": "tv",
+        "color_space": "bt2020nc",
+        "color_transfer": "smpte2084",
+        "color_primaries": "bt2020",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "0.200000",
+        "nb_frames": "6",
+        "fps": 30.0,
+        "frames": 6,
+        "pixel_format": "yuv420p10le",
+        "profile": "hdr10_pq",
+        "is_hdr": true,
+        "label": "HDR10 / PQ"
+      },
+      "memory_after": {
+        "private_bytes": 76296192,
+        "working_set_bytes": 80961536,
+        "free_physical_bytes": 49652006912,
+        "free_commit_bytes": 43927879680
+      }
+    },
+    {
+      "profile": "hdr10_pq",
+      "route": "gui",
+      "result": {
+        "frames": 6,
+        "dlss_seconds": 0.06364090000170108,
+        "super_resolution_seconds": 0.0,
+        "encoder": "NVENC HEVC HDR GPU",
+        "audio_mode": "源视频无音轨",
+        "host_backend": "v2",
+        "in_flight": 1
+      },
+      "handoff_events": [
+        {
+          "readbacks": 0,
+          "gpu_frames": 1
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 2
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 3
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 4
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 5
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 6
+        }
+      ],
+      "output": {
+        "width": 1280,
+        "height": 800,
+        "pix_fmt": "yuv420p10le",
+        "color_range": "tv",
+        "color_space": "bt2020nc",
+        "color_transfer": "smpte2084",
+        "color_primaries": "bt2020",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "0.200000",
+        "nb_frames": "6",
+        "fps": 30.0,
+        "frames": 6,
+        "pixel_format": "yuv420p10le",
+        "profile": "hdr10_pq",
+        "is_hdr": true,
+        "label": "HDR10 / PQ"
+      },
+      "memory_after": {
+        "private_bytes": 75350016,
+        "working_set_bytes": 80691200,
+        "free_physical_bytes": 49626185728,
+        "free_commit_bytes": 43913293824
+      }
+    },
+    {
+      "profile": "hdr10_hlg",
+      "route": "generic",
+      "result": {
+        "experimental": true,
+        "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+        "source": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-source-hdr10_hlg.mp4",
+        "output": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-generic-hdr10_hlg.mp4",
+        "multiplier": 1,
+        "spatial_scale": 1,
+        "enhance": true,
+        "status": "complete",
+        "real_frames": 6,
+        "generated_frames": 0,
+        "cut_holds": 0,
+        "endpoint_holds": 0,
+        "width": 1280,
+        "height": 800,
+        "source_rate": "30",
+        "output_rate": "30",
+        "enhancement_bypassed": false,
+        "enhancement_bypass": null,
+        "appearance_version": 1,
+        "composition_backend": "native-shared-gpu",
+        "color": "hdr10_hlg",
+        "output_view": 0,
+        "runtime_sha256": null,
+        "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\pipeline-installed-hdr10_hlg-logs",
+        "composition_gpu_frames": 6,
+        "cleanup_errors": []
+      },
+      "handoff_events": [
+        {
+          "readbacks": 0,
+          "gpu_frames": 1
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 2
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 3
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 4
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 5
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 6
+        }
+      ],
+      "output": {
+        "width": 1280,
+        "height": 800,
+        "pix_fmt": "yuv420p10le",
+        "color_range": "tv",
+        "color_space": "bt2020nc",
+        "color_transfer": "arib-std-b67",
+        "color_primaries": "bt2020",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "0.200000",
+        "nb_frames": "6",
+        "fps": 30.0,
+        "frames": 6,
+        "pixel_format": "yuv420p10le",
+        "profile": "hdr10_hlg",
+        "is_hdr": true,
+        "label": "HDR / HLG"
+      },
+      "memory_after": {
+        "private_bytes": 74518528,
+        "working_set_bytes": 80470016,
+        "free_physical_bytes": 49649700864,
+        "free_commit_bytes": 43931230208
+      }
+    },
+    {
+      "profile": "hdr10_hlg",
+      "route": "gui",
+      "result": {
+        "frames": 6,
+        "dlss_seconds": 0.06370219999917026,
+        "super_resolution_seconds": 0.0,
+        "encoder": "NVENC HEVC HDR GPU",
+        "audio_mode": "源视频无音轨",
+        "host_backend": "v2",
+        "in_flight": 1
+      },
+      "handoff_events": [
+        {
+          "readbacks": 0,
+          "gpu_frames": 1
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 2
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 3
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 4
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 5
+        },
+        {
+          "readbacks": 0,
+          "gpu_frames": 6
+        }
+      ],
+      "output": {
+        "width": 1280,
+        "height": 800,
+        "pix_fmt": "yuv420p10le",
+        "color_range": "tv",
+        "color_space": "bt2020nc",
+        "color_transfer": "arib-std-b67",
+        "color_primaries": "bt2020",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "duration": "0.200000",
+        "nb_frames": "6",
+        "fps": 30.0,
+        "frames": 6,
+        "pixel_format": "yuv420p10le",
+        "profile": "hdr10_hlg",
+        "is_hdr": true,
+        "label": "HDR / HLG"
+      },
+      "memory_after": {
+        "private_bytes": 75177984,
+        "working_set_bytes": 80936960,
+        "free_physical_bytes": 49617367040,
+        "free_commit_bytes": 43900215296
+      }
+    }
+  ],
+  "memory_before": {
+    "private_bytes": 41230336,
+    "working_set_bytes": 60805120,
+    "free_physical_bytes": 49575063552,
+    "free_commit_bytes": 43900502016
+  },
+  "memory_after": {
+    "private_bytes": 75177984,
+    "working_set_bytes": 80936960,
+    "free_physical_bytes": 49617367040,
+    "free_commit_bytes": 43900215296
+  }
+}

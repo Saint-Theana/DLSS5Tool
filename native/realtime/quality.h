@@ -23,7 +23,7 @@ struct QualitySettings {
     float shadowStructureMultiplier = 1;
     float reflectionGlowMultiplier = 1;
     float lumaRec2100 = 0; // Local PQ/HLG; realtime neutral/scRGB stays Rec.709.
-    float padding = 0;
+    float outputTransfer = 0; // GPU sink only: 1 PQ, 2 HLG. CPU path stays linear.
 };
 static_assert(sizeof(QualitySettings) == 128);
 inline std::mutex qualityMutex;
@@ -43,7 +43,8 @@ public:
     bool Draw(ID3D11Device* device, ID3D11DeviceContext* context,
         ID3D11Texture2D* base, ID3D11Texture2D* nrInput,
         ID3D11Texture2D* nrOutput, ID3D11Texture2D* output, bool hdr,
-        bool applyControls = true, bool residualInput = false) noexcept;
+        bool applyControls = true, bool residualInput = false,
+        const QualitySettings* localSettings = nullptr) noexcept;
     void Reset() noexcept;
 private:
     struct TimingSlot {

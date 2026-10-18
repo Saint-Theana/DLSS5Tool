@@ -1,0 +1,573 @@
+{
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "runs": [
+    {
+      "profile": "srgb",
+      "gpu_handoff": false,
+      "run": 0,
+      "ms": [
+        249.22760000117705,
+        19.216200000300887,
+        17.624799998884555,
+        17.2699000013381,
+        18.120400000043446,
+        17.993100000239792,
+        18.5354000004736,
+        18.626000000949716,
+        18.464699998730794,
+        18.13190000029863,
+        18.17979999941599,
+        18.817299998772796
+      ],
+      "warm_median_ms": 18.322249999073392,
+      "memory_after": {
+        "private_bytes": 159023104,
+        "working_set_bytes": 185204736,
+        "free_physical_bytes": 49530896384,
+        "free_commit_bytes": 43815206912
+      },
+      "encoder_pid": 48476,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "srgb",
+      "gpu_handoff": true,
+      "run": 1,
+      "ms": [
+        304.9867000008817,
+        4.537400000117486,
+        2.5645999994594604,
+        2.748099999735132,
+        2.755599998636171,
+        2.5246999994124053,
+        2.5389000002178364,
+        2.624900000228081,
+        2.898700000514509,
+        2.701800000068033,
+        2.5593999998818617,
+        2.5698999997985084
+      ],
+      "warm_median_ms": 2.5974000000132946,
+      "memory_after": {
+        "private_bytes": 160686080,
+        "working_set_bytes": 187965440,
+        "free_physical_bytes": 49525137408,
+        "free_commit_bytes": 43807182848
+      },
+      "encoder_pid": 46400,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "srgb",
+      "gpu_handoff": true,
+      "run": 2,
+      "ms": [
+        300.45090000021446,
+        4.601200000251993,
+        2.4312999994435813,
+        2.3499999988416675,
+        2.3934000000735978,
+        2.362600000196835,
+        2.6443000006111106,
+        2.3057000016706297,
+        2.476899999237503,
+        2.2457999984908383,
+        2.277499999763677,
+        2.2681999998894753
+      ],
+      "warm_median_ms": 2.3341500009337324,
+      "memory_after": {
+        "private_bytes": 160182272,
+        "working_set_bytes": 187871232,
+        "free_physical_bytes": 49517277184,
+        "free_commit_bytes": 43800682496
+      },
+      "encoder_pid": 5832,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "srgb",
+      "gpu_handoff": false,
+      "run": 3,
+      "ms": [
+        246.00769999960903,
+        20.39119999972172,
+        18.174200000430574,
+        19.368400000530528,
+        18.58900000115682,
+        18.696399998589186,
+        18.101899999237503,
+        17.723299999488518,
+        17.710000000079162,
+        17.426399999749265,
+        17.615500000829343,
+        17.78310000008787
+      ],
+      "warm_median_ms": 17.753199999788194,
+      "memory_after": {
+        "private_bytes": 157958144,
+        "working_set_bytes": 187691008,
+        "free_physical_bytes": 49512644608,
+        "free_commit_bytes": 43809730560
+      },
+      "encoder_pid": 47792,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "gpu_handoff": false,
+      "run": 0,
+      "ms": [
+        690.0934000004781,
+        460.4555999994773,
+        456.6993000007642,
+        458.80570000008447,
+        455.6682999991608,
+        451.48800000060874,
+        455.9926000001724,
+        449.64970000000903,
+        456.466100000398,
+        459.6144000006461,
+        462.9420000001119,
+        453.65920000040205
+      ],
+      "warm_median_ms": 455.8304499996666,
+      "memory_after": {
+        "private_bytes": 174694400,
+        "working_set_bytes": 204410880,
+        "free_physical_bytes": 49371500544,
+        "free_commit_bytes": 43646849024
+      },
+      "encoder_pid": 33500,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "gpu_handoff": true,
+      "run": 1,
+      "ms": [
+        595.9299999994982,
+        298.2298000006267,
+        301.6898999994737,
+        296.97959999975865,
+        290.6807999988814,
+        296.94349999954284,
+        300.42649999995774,
+        305.72940000092785,
+        298.4006999995472,
+        293.1480000006559,
+        292.19379999995,
+        291.8344999998226
+      ],
+      "warm_median_ms": 295.04575000009936,
+      "memory_after": {
+        "private_bytes": 179339264,
+        "working_set_bytes": 205230080,
+        "free_physical_bytes": 49491439616,
+        "free_commit_bytes": 43780337664
+      },
+      "encoder_pid": 45960,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "gpu_handoff": true,
+      "run": 2,
+      "ms": [
+        604.3816999990668,
+        296.03789999964647,
+        290.5738999997993,
+        290.45079999923473,
+        292.7211999995052,
+        288.21790000074543,
+        291.688699999213,
+        294.38070000105654,
+        287.7661000002263,
+        295.1236999997491,
+        288.4840000006079,
+        288.51100000065344
+      ],
+      "warm_median_ms": 290.0998499999332,
+      "memory_after": {
+        "private_bytes": 179486720,
+        "working_set_bytes": 205500416,
+        "free_physical_bytes": 49496403968,
+        "free_commit_bytes": 43783106560
+      },
+      "encoder_pid": 10504,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_pq",
+      "gpu_handoff": false,
+      "run": 3,
+      "ms": [
+        679.0713999998843,
+        453.20079999873997,
+        446.4648000011948,
+        446.7444000001706,
+        444.8467999991408,
+        448.256699999547,
+        443.3083000003535,
+        448.8837999997486,
+        446.3868000002549,
+        447.2218000009889,
+        447.54180000018096,
+        450.97509999868635
+      ],
+      "warm_median_ms": 447.3818000005849,
+      "memory_after": {
+        "private_bytes": 180715520,
+        "working_set_bytes": 206635008,
+        "free_physical_bytes": 49527975936,
+        "free_commit_bytes": 43810979840
+      },
+      "encoder_pid": 44916,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "gpu_handoff": false,
+      "run": 0,
+      "ms": [
+        611.0375999996904,
+        385.0927000003139,
+        388.9240999997128,
+        381.59530000120867,
+        379.5141999999032,
+        374.12079999921843,
+        375.6524000000354,
+        380.85080000018934,
+        379.04709999929764,
+        381.1736999996356,
+        377.503899999283,
+        376.0426999997435
+      ],
+      "warm_median_ms": 378.27549999929033,
+      "memory_after": {
+        "private_bytes": 179220480,
+        "working_set_bytes": 206307328,
+        "free_physical_bytes": 49485496320,
+        "free_commit_bytes": 43782770688
+      },
+      "encoder_pid": 11080,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "gpu_handoff": true,
+      "run": 1,
+      "ms": [
+        560.0959000003058,
+        264.01330000044254,
+        260.1836000012554,
+        259.4398999990517,
+        263.32230000116397,
+        267.4387000006391,
+        265.7330000001821,
+        255.62990000071295,
+        260.97269999991113,
+        261.86389999929816,
+        265.8296999998129,
+        255.45640000018466
+      ],
+      "warm_median_ms": 262.59310000023106,
+      "memory_after": {
+        "private_bytes": 177467392,
+        "working_set_bytes": 206360576,
+        "free_physical_bytes": 49473654784,
+        "free_commit_bytes": 43783057408
+      },
+      "encoder_pid": 44372,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "gpu_handoff": true,
+      "run": 2,
+      "ms": [
+        565.5420999992202,
+        265.56580000033136,
+        261.09269999869866,
+        267.2923999998602,
+        266.1380999998073,
+        259.45750000028056,
+        266.3966000000073,
+        264.44900000024063,
+        261.4691999988281,
+        262.6529999997729,
+        263.32060000095225,
+        265.0704000006954
+      ],
+      "warm_median_ms": 263.88480000059644,
+      "memory_after": {
+        "private_bytes": 178356224,
+        "working_set_bytes": 207507456,
+        "free_physical_bytes": 49506373632,
+        "free_commit_bytes": 43827097600
+      },
+      "encoder_pid": 44476,
+      "encoder_closed": true,
+      "bridge_released": true
+    },
+    {
+      "profile": "hdr10_hlg",
+      "gpu_handoff": false,
+      "run": 3,
+      "ms": [
+        614.8506999998062,
+        382.762699999148,
+        377.0201999996061,
+        377.41900000037276,
+        377.38100000024133,
+        377.0920999995724,
+        378.6426000006031,
+        384.8925000002055,
+        376.96320000031847,
+        373.20250000084343,
+        373.7221999999747,
+        382.3570999993535
+      ],
+      "warm_median_ms": 377.23654999990686,
+      "memory_after": {
+        "private_bytes": 178057216,
+        "working_set_bytes": 206811136,
+        "free_physical_bytes": 49499123712,
+        "free_commit_bytes": 43830747136
+      },
+      "encoder_pid": 33444,
+      "encoder_closed": true,
+      "bridge_released": true
+    }
+  ],
+  "lifetime": [
+    {
+      "private_bytes": 225427456,
+      "working_set_bytes": 216981504,
+      "free_physical_bytes": 49496686592,
+      "free_commit_bytes": 43792400384,
+      "native_lifetime": [
+        13,
+        13,
+        0
+      ]
+    },
+    {
+      "private_bytes": 251392000,
+      "working_set_bytes": 226344960,
+      "free_physical_bytes": 49482723328,
+      "free_commit_bytes": 43765690368,
+      "native_lifetime": [
+        14,
+        14,
+        0
+      ]
+    },
+    {
+      "private_bytes": 277827584,
+      "working_set_bytes": 226811904,
+      "free_physical_bytes": 49478234112,
+      "free_commit_bytes": 43730284544,
+      "native_lifetime": [
+        15,
+        15,
+        0
+      ]
+    },
+    {
+      "private_bytes": 294764544,
+      "working_set_bytes": 227172352,
+      "free_physical_bytes": 49512448000,
+      "free_commit_bytes": 43751772160,
+      "native_lifetime": [
+        16,
+        16,
+        0
+      ]
+    },
+    {
+      "private_bytes": 318693376,
+      "working_set_bytes": 226689024,
+      "free_physical_bytes": 49514512384,
+      "free_commit_bytes": 43725443072,
+      "native_lifetime": [
+        17,
+        17,
+        0
+      ]
+    },
+    {
+      "private_bytes": 347705344,
+      "working_set_bytes": 227770368,
+      "free_physical_bytes": 49509269504,
+      "free_commit_bytes": 43696377856,
+      "native_lifetime": [
+        18,
+        18,
+        0
+      ]
+    },
+    {
+      "private_bytes": 371847168,
+      "working_set_bytes": 227409920,
+      "free_physical_bytes": 49512546304,
+      "free_commit_bytes": 43672326144,
+      "native_lifetime": [
+        19,
+        19,
+        0
+      ]
+    },
+    {
+      "private_bytes": 398057472,
+      "working_set_bytes": 228450304,
+      "free_physical_bytes": 49507966976,
+      "free_commit_bytes": 43645362176,
+      "native_lifetime": [
+        20,
+        20,
+        0
+      ]
+    },
+    {
+      "private_bytes": 424960000,
+      "working_set_bytes": 228618240,
+      "free_physical_bytes": 49507696640,
+      "free_commit_bytes": 43618254848,
+      "native_lifetime": [
+        21,
+        21,
+        0
+      ]
+    },
+    {
+      "private_bytes": 451117056,
+      "working_set_bytes": 229294080,
+      "free_physical_bytes": 49512550400,
+      "free_commit_bytes": 43598090240,
+      "native_lifetime": [
+        22,
+        22,
+        0
+      ]
+    },
+    {
+      "private_bytes": 424804352,
+      "working_set_bytes": 229445632,
+      "free_physical_bytes": 49512583168,
+      "free_commit_bytes": 43622469632,
+      "native_lifetime": [
+        23,
+        23,
+        0
+      ]
+    },
+    {
+      "private_bytes": 442462208,
+      "working_set_bytes": 255631360,
+      "free_physical_bytes": 49483886592,
+      "free_commit_bytes": 43602202624,
+      "native_lifetime": [
+        24,
+        24,
+        0
+      ]
+    },
+    {
+      "private_bytes": 467554304,
+      "working_set_bytes": 272072704,
+      "free_physical_bytes": 49475624960,
+      "free_commit_bytes": 43587371008,
+      "native_lifetime": [
+        25,
+        25,
+        0
+      ]
+    },
+    {
+      "private_bytes": 422985728,
+      "working_set_bytes": 279711744,
+      "free_physical_bytes": 49472946176,
+      "free_commit_bytes": 43637014528,
+      "native_lifetime": [
+        26,
+        26,
+        0
+      ]
+    },
+    {
+      "private_bytes": 450764800,
+      "working_set_bytes": 297340928,
+      "free_physical_bytes": 49453907968,
+      "free_commit_bytes": 43610562560,
+      "native_lifetime": [
+        27,
+        27,
+        0
+      ]
+    },
+    {
+      "private_bytes": 407351296,
+      "working_set_bytes": 288903168,
+      "free_physical_bytes": 49464393728,
+      "free_commit_bytes": 43652280320,
+      "native_lifetime": [
+        28,
+        28,
+        0
+      ]
+    }
+  ],
+  "post_warm_private_range_bytes": 148860928,
+  "post_warm_private_end_minus_start": 88657920,
+  "warmup_cycles": 4,
+  "settled_memory": [
+    {
+      "private_bytes": 407621632,
+      "working_set_bytes": 288915456,
+      "free_physical_bytes": 49469014016,
+      "free_commit_bytes": 43660365824
+    },
+    {
+      "private_bytes": 407654400,
+      "working_set_bytes": 288935936,
+      "free_physical_bytes": 49494867968,
+      "free_commit_bytes": 43686866944
+    },
+    {
+      "private_bytes": 253493248,
+      "working_set_bytes": 238608384,
+      "free_physical_bytes": 49555210240,
+      "free_commit_bytes": 43854512128
+    }
+  ],
+  "settled_minus_first_closed_private_bytes": 28065792
+}

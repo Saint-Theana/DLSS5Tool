@@ -1,0 +1,122 @@
+{
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "runs": [],
+  "lifetime": [
+    {
+      "private_bytes": 218480640,
+      "working_set_bytes": 210501632,
+      "free_physical_bytes": 49425252352,
+      "free_commit_bytes": 43611353088
+    },
+    {
+      "private_bytes": 245211136,
+      "working_set_bytes": 220106752,
+      "free_physical_bytes": 49445281792,
+      "free_commit_bytes": 43609595904
+    },
+    {
+      "private_bytes": 272715776,
+      "working_set_bytes": 220819456,
+      "free_physical_bytes": 49433509888,
+      "free_commit_bytes": 43571146752
+    },
+    {
+      "private_bytes": 297730048,
+      "working_set_bytes": 221208576,
+      "free_physical_bytes": 49435549696,
+      "free_commit_bytes": 43546726400
+    },
+    {
+      "private_bytes": 324243456,
+      "working_set_bytes": 221667328,
+      "free_physical_bytes": 49427951616,
+      "free_commit_bytes": 43508609024
+    },
+    {
+      "private_bytes": 349777920,
+      "working_set_bytes": 222269440,
+      "free_physical_bytes": 49453654016,
+      "free_commit_bytes": 43511951360
+    },
+    {
+      "private_bytes": 379015168,
+      "working_set_bytes": 223571968,
+      "free_physical_bytes": 49431306240,
+      "free_commit_bytes": 43460571136
+    },
+    {
+      "private_bytes": 402153472,
+      "working_set_bytes": 222982144,
+      "free_physical_bytes": 49435193344,
+      "free_commit_bytes": 43443003392
+    },
+    {
+      "private_bytes": 420806656,
+      "working_set_bytes": 224419840,
+      "free_physical_bytes": 49423360000,
+      "free_commit_bytes": 43410661376
+    },
+    {
+      "private_bytes": 439324672,
+      "working_set_bytes": 224866304,
+      "free_physical_bytes": 49426751488,
+      "free_commit_bytes": 43398778880
+    },
+    {
+      "private_bytes": 456335360,
+      "working_set_bytes": 224944128,
+      "free_physical_bytes": 49423908864,
+      "free_commit_bytes": 43377754112
+    },
+    {
+      "private_bytes": 419581952,
+      "working_set_bytes": 224124928,
+      "free_physical_bytes": 49397817344,
+      "free_commit_bytes": 43392765952
+    },
+    {
+      "private_bytes": 439447552,
+      "working_set_bytes": 250900480,
+      "free_physical_bytes": 49362464768,
+      "free_commit_bytes": 43360600064
+    },
+    {
+      "private_bytes": 465227776,
+      "working_set_bytes": 267812864,
+      "free_physical_bytes": 49346408448,
+      "free_commit_bytes": 43336876032
+    },
+    {
+      "private_bytes": 422215680,
+      "working_set_bytes": 267743232,
+      "free_physical_bytes": 49349550080,
+      "free_commit_bytes": 43380539392
+    },
+    {
+      "private_bytes": 431628288,
+      "working_set_bytes": 293052416,
+      "free_physical_bytes": 49323307008,
+      "free_commit_bytes": 43372666880
+    }
+  ],
+  "post_warm_private_range_bytes": 140984320,
+  "post_warm_private_end_minus_start": 107384832
+}

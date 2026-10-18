@@ -65,7 +65,8 @@ void ResidualComposite::PollTiming(ID3D11DeviceContext* context) noexcept {
 
 bool ResidualComposite::Draw(ID3D11Device* device, ID3D11DeviceContext* context,
     ID3D11Texture2D* base, ID3D11Texture2D* nrInput,
-    ID3D11Texture2D* nrOutput, ID3D11Texture2D* output, bool hdr, bool applyControls, bool residualInput) noexcept {
+    ID3D11Texture2D* nrOutput, ID3D11Texture2D* output, bool hdr, bool applyControls, bool residualInput,
+    const QualitySettings* localSettings) noexcept {
     if (!base || !nrInput || !nrOutput || !output) return false;
     if (!shader) {
         if (FAILED(device->CreateComputeShader(VeyraResidualCS, sizeof(VeyraResidualCS), nullptr, shader.put()))) return false;
@@ -108,7 +109,7 @@ bool ResidualComposite::Draw(ID3D11Device* device, ID3D11DeviceContext* context,
             textures[i] = inputs[i];
         }
     }
-    auto settings = applyControls ? GetQuality() : QualitySettings{};
+    auto settings = applyControls ? (localSettings ? *localSettings : GetQuality()) : QualitySettings{};
     settings.signedHdr = hdr ? 1.0f : 0.0f;
     settings.residualInput = residualInput ? 1.0f : 0.0f;
     context->UpdateSubresource(constants.get(), 0, nullptr, &settings, 0, 0);

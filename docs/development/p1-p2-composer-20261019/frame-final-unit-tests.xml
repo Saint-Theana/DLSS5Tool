@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="26" time="3.170" timestamp="2026-10-19T03:57:54.218973+08:00" hostname="QQQ"><testcase classname="tests.test_frame_generation.TimingTests" name="test_cancel_is_explicit" time="0.001" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_cfr_decimal_timestamp_quantization" time="0.001" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_cut_and_still" time="0.002" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_exact_pipe_and_truncated_output" time="0.000" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_existing_output_rejected_before_gpu_or_filesystem_writes" time="0.002" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_inspect_source_allows_vfr_only_when_requested" time="0.004" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_inspect_source_reports_counted_timestamp_progress" time="0.001" /><testcase classname="tests.test_frame_generation.TimingTests" name="test_vfr_missing_repeated_or_offset_timestamps_rejected" time="0.001" /><testcase classname="tests.test_frame_generation" name="test_vfr_upstream_remains_rejected_for_frame_generation" time="0.023" /><testcase classname="tests.test_frame_generation.NativeProtocolTests" name="test_gui_uses_inline_export_control" time="0.145" /><testcase classname="tests.test_frame_generation.NativeProtocolTests" name="test_hdr_overwhite_not_silently_clipped" time="0.001" /><testcase classname="tests.test_frame_generation.NativeProtocolTests" name="test_motion_and_dimensions_validated" time="0.000" /><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_export_request_routes_to_fg_for_single_and_queue" time="0.639" /><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_inline_preview_toggles_are_independent_and_do_not_change_export" time="0.008"><failure message="_tkinter.TclError: Can't find a usable init.tcl in the following directories: &#10;    {C:\Users\PC\AppData\Local\Programs\Python\Python313\tcl\tcl8.6}&#10;&#10;C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl: couldn't read file &quot;C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl&quot;: No error&#10;couldn't read file &quot;C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl&quot;: No error&#10;    while executing&#10;&quot;source C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl&quot;&#10;    (&quot;uplevel&quot; body line 1)&#10;    invoked from within&#10;&quot;uplevel #0 [list source $tclfile]&quot;&#10;&#10;&#10;This probably means that Tcl wasn't installed properly.">self = &lt;tests.test_frame_generation.InlineControlTests testMethod=test_inline_preview_toggles_are_independent_and_do_not_change_export&gt;
+
+    def setUp(self):
+        import tkinter as tk
+        from dlss5tool import gui, ui_theme, app_settings
+&gt;       self.root = tk.Tk()
+                    ^^^^^^^
+
+tests\test_frame_generation.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;tkinter.Tk object .&gt;, screenName = None, baseName = '__main__'
+className = 'Tk', useTk = True, sync = False, use = None
+
+    def __init__(self, screenName=None, baseName=None, className='Tk',
+                 useTk=True, sync=False, use=None):
+        """Return a new top level widget on screen SCREENNAME. A new Tcl interpreter will
+        be created. BASENAME will be used for the identification of the profile file (see
+        readprofile).
+        It is constructed from sys.argv[0] without extensions if None is given. CLASSNAME
+        is the name of the widget class."""
+        self.master = None
+        self.children = {}
+        self._tkloaded = False
+        # to avoid recursions in the getattr code in case of failure, we
+        # ensure that self.tk is always _something_.
+        self.tk = None
+        if baseName is None:
+            import os
+            baseName = os.path.basename(sys.argv[0])
+            baseName, ext = os.path.splitext(baseName)
+            if ext not in ('.py', '.pyc'):
+                baseName = baseName + ext
+        interactive = False
+&gt;       self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       _tkinter.TclError: Can't find a usable init.tcl in the following directories: 
+E           {C:\Users\PC\AppData\Local\Programs\Python\Python313\tcl\tcl8.6}
+E       
+E       C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl: couldn't read file "C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl": No error
+E       couldn't read file "C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl": No error
+E           while executing
+E       "source C:/Users/PC/AppData/Local/Programs/Python/Python313/tcl/tcl8.6/init.tcl"
+E           ("uplevel" body line 1)
+E           invoked from within
+E       "uplevel #0 [list source $tclfile]"
+E       
+E       
+E       This probably means that Tcl wasn't installed properly.
+
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\tkinter\__init__.py:2459: TclError</failure></testcase><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_inline_row_after_upscale_and_shared_selection" time="0.374" /><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_light_and_dark_layout" time="0.412" /><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_main_export_worker_passes_all_settings_and_cancellation" time="0.371" /><testcase classname="tests.test_frame_generation.InlineControlTests" name="test_settings_validation_and_queue_snapshot" time="0.384" /></testsuite></testsuites>

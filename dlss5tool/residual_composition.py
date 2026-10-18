@@ -21,7 +21,14 @@ NATIVE_COMPOSITION_MIN_PIXELS = 1_000_000
 _native_state = threading.local()
 
 
-def _destroy_native_bridge(library, handle):
+def _destroy_native_bridge(library, handle, bindings=()):
+    for binding in bindings:
+        try:
+            binding[-1].close()
+        except (OSError, RuntimeError, ValueError):
+            pass  # Encoder may already have been cancelled/closed.
+    if bindings:
+        bindings.clear()
     try:
         library.dlss5_quality_destroy(handle)
     except (OSError, ctypes.ArgumentError):
@@ -37,7 +44,8 @@ class _NativeBridge:
     def __init__(self, path, library, handle, adapter_luid=None):
         self.path, self.library, self.handle = path, library, handle
         self.adapter_luid = adapter_luid
-        self._release = weakref.finalize(self, _destroy_native_bridge, library, handle)
+        self.gpu_bindings = []  # One current consumer, never a growing lease cache.
+        self._release = weakref.finalize(self, _destroy_native_bridge, library, handle, self.gpu_bindings)
         # Daemon workers may still be inside the DLL at interpreter shutdown.
         # Never run their cleanup from the main atexit thread while in use.
         self._release.atexit = threading.current_thread() is threading.main_thread()
@@ -186,9 +194,15 @@ def _native_compose(original, processed, values, *, order, adapter_luid=None, pr
         raise
 
 
-def _native_compose_frame(original, processed, values, *, order, bridge, profile='srgb'):
-    library, handle = bridge.library, bridge.handle
+def _native_inputs(original, processed, *, order, profile):
     h, w = original.shape[:2]
+    # These immutable snapshots already match the shader's wire contract.
+    # Borrow them for the synchronous upload instead of making two full copies.
+    if (order == 'rgb' and original.shape[-1] == processed.shape[-1] == 4
+            and original.flags.c_contiguous and processed.flags.c_contiguous
+            and ((profile == 'srgb' and original.dtype == processed.dtype == np.uint8)
+                 or (profile == 'scrgb' and original.dtype == processed.dtype == np.float32))):
+        return original, processed, 255 if profile == 'srgb' else 1, None
     # The native shader keeps alpha and always consumes RGBA.  BGR callers are
     # converted to RGB around the dispatch so the luma weights stay correct.
     hdr = profile != 'srgb'
@@ -207,6 +221,14 @@ def _native_compose_frame(original, processed, values, *, order, bridge, profile
             decode, encode = (_pq_eotf, _pq_oetf) if profile == 'hdr10_pq' else (_hlg_eotf, _hlg_oetf)
             base[..., :3], nr[..., :3] = decode(base[..., :3]), decode(nr[..., :3])
     base[..., 3] = nr[..., 3] = 1 if hdr else 255
+    return base, nr, divisor, encode
+
+
+def _native_compose_frame(original, processed, values, *, order, bridge, profile='srgb'):
+    library, handle = bridge.library, bridge.handle
+    h, w = original.shape[:2]
+    hdr = profile != 'srgb'
+    base, nr, divisor, encode = _native_inputs(original, processed, order=order, profile=profile)
     result = np.empty_like(base)
     payload = (ctypes.c_float * 32)(*_native_quality_values(values, profile))
     try:
@@ -235,6 +257,78 @@ def _native_compose_frame(original, processed, values, *, order, bridge, profile
     if output.shape[-1] > 3 and original.shape[-1] > 3:
         output[..., 3] = original[..., 3]
     return output
+
+
+def compose_to_gpu_writer(original, processed, settings, writer, *,
+                          order='rgb', profile='srgb', view=0, mix=1):
+    """Optional same-card completed-buffer handoff to the existing encoder.
+
+    False means no encoded frame was submitted; caller retains its normal CPU
+    path. Once write_device starts, errors propagate (never retry a frame).
+    The encoder's synchronous ACK owns this single slot until consumption ends.
+    """
+    if (view or mix != 1 or not settings or not appearance.active(settings)
+            or profile not in ('srgb', 'hdr10_pq', 'hdr10_hlg')
+            or original.shape != processed.shape or original.dtype != processed.dtype
+            or original.shape[0]*original.shape[1] < NATIVE_COMPOSITION_MIN_PIXELS
+            or original.dtype not in ((np.uint8,) if profile == 'srgb' else (np.float16, np.float32))
+            or not hasattr(writer, 'import_shared_output') or not hasattr(writer, 'write_device')
+            or (getattr(writer,'width',0),getattr(writer,'height',0)) != (original.shape[1],original.shape[0])
+            or _native_library_path() is None):
+        return False
+    values = appearance.preflight(settings,hdr=profile!='srgb')
+    if appearance.source_only(values): return False
+    importing = False
+    try:
+        luid = _composition_adapter(settings)
+        combined = ((luid[0] & 0xffffffff)<<32) | luid[1]
+        if combined != getattr(writer,'adapter_luid',None): return False
+        bridge = _native_bridge(luid)
+        if bridge is None: return False
+        lib, handle = bridge.library, bridge.handle
+        prepare, dispatch = lib.dlss5_quality_gpu_prepare, lib.dlss5_quality_compose_gpu
+        prepare.argtypes = [ctypes.c_void_p,ctypes.c_int,ctypes.c_int,ctypes.c_int,ctypes.POINTER(ctypes.c_uint64)]
+        prepare.restype = ctypes.c_int
+        dispatch.argtypes = [ctypes.c_void_p,ctypes.c_void_p,ctypes.c_void_p,ctypes.c_int,ctypes.c_int,
+                            ctypes.c_int,ctypes.POINTER(ctypes.c_float),ctypes.c_int]
+        dispatch.restype = ctypes.c_int
+        hdr = profile != 'srgb'
+        # compose_hdr_frame's final-view writer contract is RGBA16F, even
+        # when its input happens to be float32.
+        format_id = 1 if hdr else 0
+        binding = bridge.gpu_bindings[0] if bridge.gpu_bindings else None
+        if binding is None or binding[:3] != (writer,original.shape,format_id):
+            if binding is not None:
+                binding[-1].close()
+                bridge.gpu_bindings.clear()
+            descriptor = (ctypes.c_uint64*4)()
+            if not prepare(handle,original.shape[1],original.shape[0],format_id,descriptor):
+                release_native_composer(); return False
+            importing = True
+            lease = writer.import_shared_output(producer_pid=os.getpid(),handle=int(descriptor[0]),
+                allocation=int(descriptor[1]),size=int(descriptor[2]),producer_luid=combined)
+            importing = False
+            binding = (writer,original.shape,format_id,int(descriptor[3]),lease)
+            bridge.gpu_bindings.append(binding)
+        base,nr,_,_ = _native_inputs(original,processed,order=order,profile=profile)
+        payload = _native_quality_values(values,profile)
+        payload[31] = {'srgb':0,'hdr10_pq':1,'hdr10_hlg':2}[profile]
+        if hdr and format_id == 1:
+            payload[31] += 4  # Explicit nearest-even float16 output quantization.
+        if not dispatch(handle,ctypes.c_void_p(base.ctypes.data),ctypes.c_void_p(nr.ctypes.data),
+                        original.shape[1],original.shape[0],2 if hdr else 0,(ctypes.c_float*32)(*payload),32):
+            release_native_composer(); return False
+    except (AttributeError,OSError,RuntimeError,ValueError,ctypes.ArgumentError):
+        release_native_composer()
+        if importing:
+            # The isolated writer may have terminated on an import failure.
+            # Do not pretend it can continue encoding via a CPU fallback.
+            raise
+        return False
+    lease = binding[-1]
+    writer.write_device(lease.pointer.value,lease.size,'rgba16f' if format_id==1 else 'rgba32f' if hdr else 'rgba',
+                        combined,binding[3],strict_hdr=False)
+    return True
 
 
 def protection_mask(shape, q, *, full_shape=None, row_offset=0):

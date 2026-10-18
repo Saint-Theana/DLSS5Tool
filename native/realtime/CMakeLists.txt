@@ -117,10 +117,10 @@ add_test(NAME realtime_quality_gpu COMMAND realtime_quality_tests)
 # Local media uses the same ResidualComposite shader through CPU-pointer shared
 # memory.  This is an optional bridge; Python falls back to NumPy when the DLL
 # is absent or device creation/dispatch fails.
-add_library(dlss5_quality SHARED quality_bridge.cpp quality.cpp "${GENERATED}/shaders/VeyraResidualCS.h")
+add_library(dlss5_quality SHARED quality_bridge.cpp quality_gpu_output.cpp quality.cpp "${GENERATED}/shaders/VeyraResidualCS.h")
 target_include_directories(dlss5_quality PRIVATE "${GENERATED}" "${CMAKE_CURRENT_LIST_DIR}")
 target_compile_definitions(dlss5_quality PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
-target_link_libraries(dlss5_quality PRIVATE d3d11 windowsapp)
+target_link_libraries(dlss5_quality PRIVATE d3d11 d3d12 dxgi windowsapp)
 set(QUALITY_OUTPUT_DIR "${ROOT}/runtime" CACHE PATH "Local composer candidate output")
 set_target_properties(dlss5_quality PROPERTIES
   # The realtime manifest intentionally rejects DLLs under runtime/realtime;

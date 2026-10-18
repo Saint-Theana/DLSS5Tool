@@ -8,6 +8,7 @@
 // worker thread and falls back to its reference implementation on any error.
 
 #include "quality.h"
+#include "quality_gpu_output.h"
 
 #include <d3d11.h>
 #include <dxgi1_4.h>
@@ -17,14 +18,33 @@
 #include <cstdint>
 #include <cstring>
 #include <new>
+#include <memory>
+#include <atomic>
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
 
 namespace {
+std::atomic<uint64_t> created_bridges{0}, destroyed_bridges{0}, retained_device_refs{0};
 
 class Bridge final {
 public:
+    Bridge() noexcept { ++created_bridges; }
+    ~Bridge() noexcept {
+        // D3D11 defers destruction of objects referenced by the immediate
+        // context. Explicitly unbind, release, and flush deferred destruction
+        // before dropping the device, including rapid preview/session churn.
+        if (context) context->ClearState();
+        composite.Reset();
+        gpu_output.reset();
+        readback = nullptr; nr_texture = nullptr; base_texture = nullptr;
+        if (context) context->Flush();
+        context = nullptr;
+        auto* last = device.detach();
+        retained_device_refs = last ? last->Release() : 0;
+        ++destroyed_bridges;
+    }
+
     bool Initialize(const LUID* requested = nullptr) noexcept {
         // Same exact-LUID selection as host_v2/OpenAdapterByLuid. Never
         // substitute a different/default card for an explicit request.
@@ -68,6 +88,28 @@ public:
     }
 
     LUID luid{};
+    uint64_t cpu_readbacks = 0, gpu_frames = 0;
+
+    bool PrepareGpu(int width, int height, int format_id, uint64_t* descriptor) noexcept {
+        if (!descriptor || width <= 0 || height <= 0 || width > 16384 || height > 16384 ||
+            format_id < 0 || format_id > 2) return false;
+        if (!gpu_output) gpu_output.reset(new (std::nothrow) QualityGpuOutput());
+        const auto format = format_id == 2 ? DXGI_FORMAT_R32G32B32A32_FLOAT :
+            format_id == 1 ? DXGI_FORMAT_R16G16B16A16_FLOAT : DXGI_FORMAT_R8G8B8A8_UNORM;
+        if (!gpu_output || !gpu_output->Prepare(device.get(), luid, width, height, format)) {
+            gpu_output.reset(); return false;
+        }
+        gpu_output->Descriptor(descriptor);
+        return true;
+    }
+
+    bool ComposeGpu(const void* base, const void* processed, int width, int height,
+        int format_id, const float* values, int value_count) noexcept {
+        if (!gpu_output || !Dispatch(base, processed, width, height, format_id, values, value_count,
+                gpu_output->Texture()) || !gpu_output->Publish(context.get())) return false;
+        ++gpu_frames;
+        return true;
+    }
 
     bool Compose(const void* base, const void* processed, void* output,
         int width, int height, int format_id, const float* values,
@@ -81,16 +123,7 @@ public:
             return false;
 
         const size_t row_pitch = static_cast<size_t>(width) * (format_id == 2 ? 16u : format_id == 1 ? 8u : 4u);
-        context->UpdateSubresource(base_texture.get(), 0, nullptr, base, row_pitch, 0);
-        context->UpdateSubresource(nr_texture.get(), 0, nullptr, processed, row_pitch, 0);
-
-        Realtime::QualitySettings settings{};
-        std::memcpy(&settings, values,
-            std::min<size_t>(sizeof(settings), static_cast<size_t>(value_count) * sizeof(float)));
-        const bool hdr = settings.signedHdr > 0.5f;
-        Realtime::SetQuality(settings);
-        if (!composite.Draw(device.get(), context.get(), base_texture.get(),
-                base_texture.get(), nr_texture.get(), readback.get(), hdr, true, false))
+        if (!EnsureReadback() || !Dispatch(base, processed, width, height, format_id, values, value_count, readback.get()))
             return false;
 
         D3D11_MAPPED_SUBRESOURCE mapped{};
@@ -103,10 +136,36 @@ public:
                 source + static_cast<size_t>(row) * mapped.RowPitch, row_pitch);
         }
         context->Unmap(readback.get(), 0);
+        ++cpu_readbacks;
         return true;
     }
 
 private:
+    bool Dispatch(const void* base, const void* processed, int width, int height, int format_id,
+        const float* values, int value_count, ID3D11Texture2D* output) noexcept {
+        if (!base || !processed || !output || !values || value_count < 32 || width <= 0 || height <= 0 ||
+            width > 16384 || height > 16384 || format_id < 0 || format_id > 2) return false;
+        const auto format = format_id == 2 ? DXGI_FORMAT_R32G32B32A32_FLOAT :
+            format_id == 1 ? DXGI_FORMAT_R16G16B16A16_FLOAT : DXGI_FORMAT_R8G8B8A8_UNORM;
+        if (!EnsureTextures(width, height, format)) return false;
+        const UINT pitch = width * (format_id == 2 ? 16u : format_id == 1 ? 8u : 4u);
+        context->UpdateSubresource(base_texture.get(), 0, nullptr, base, pitch, 0);
+        context->UpdateSubresource(nr_texture.get(), 0, nullptr, processed, pitch, 0);
+        Realtime::QualitySettings settings{};
+        std::memcpy(&settings, values, std::min<size_t>(sizeof(settings), size_t(value_count)*sizeof(float)));
+        return composite.Draw(device.get(), context.get(), base_texture.get(), base_texture.get(),
+            nr_texture.get(), output, settings.signedHdr > 0.5f, true, false, &settings);
+    }
+
+    bool EnsureReadback() noexcept {
+        if (readback) return true;
+        D3D11_TEXTURE2D_DESC staging{};
+        base_texture->GetDesc(&staging);
+        staging.Usage = D3D11_USAGE_STAGING; staging.BindFlags = 0;
+        staging.CPUAccessFlags = D3D11_CPU_ACCESS_READ;
+        return SUCCEEDED(device->CreateTexture2D(&staging, nullptr, readback.put()));
+    }
+
     bool EnsureTextures(UINT width, UINT height, DXGI_FORMAT format) noexcept {
         if (base_texture && width_ == width && height_ == height && format_ == format)
             return true;
@@ -131,15 +190,6 @@ private:
             return false;
         }
 
-        D3D11_TEXTURE2D_DESC staging = input;
-        staging.Usage = D3D11_USAGE_STAGING;
-        staging.BindFlags = 0;
-        staging.CPUAccessFlags = D3D11_CPU_ACCESS_READ;
-        if (FAILED(device->CreateTexture2D(&staging, nullptr, readback.put()))) {
-            base_texture = nullptr;
-            nr_texture = nullptr;
-            return false;
-        }
         width_ = width;
         height_ = height;
         format_ = format;
@@ -152,6 +202,7 @@ private:
     winrt::com_ptr<ID3D11Texture2D> nr_texture;
     winrt::com_ptr<ID3D11Texture2D> readback;
     Realtime::ResidualComposite composite;
+    std::unique_ptr<QualityGpuOutput> gpu_output;
     UINT width_ = 0;
     UINT height_ = 0;
     DXGI_FORMAT format_ = DXGI_FORMAT_UNKNOWN;
@@ -160,7 +211,33 @@ private:
 } // namespace
 
 // v2 adds exact adapter selection and linear HDR fine/global controls.
-extern "C" __declspec(dllexport) int dlss5_quality_version() noexcept { return 2; }
+extern "C" __declspec(dllexport) int dlss5_quality_version() noexcept { return 3; }
+
+extern "C" __declspec(dllexport) void dlss5_quality_lifetime(uint64_t* values) noexcept {
+    if (!values) return;
+    values[0]=created_bridges.load(); values[1]=destroyed_bridges.load();
+    values[2]=retained_device_refs.load();
+}
+
+extern "C" __declspec(dllexport) int dlss5_quality_gpu_prepare(
+    void* handle, int width, int height, int format_id, uint64_t* descriptor) noexcept {
+    auto* bridge = static_cast<Bridge*>(handle);
+    return bridge && bridge->PrepareGpu(width, height, format_id, descriptor) ? 1 : 0;
+}
+
+extern "C" __declspec(dllexport) int dlss5_quality_compose_gpu(void* handle,
+    const void* base, const void* processed, int width, int height, int format_id,
+    const float* values, int value_count) noexcept {
+    auto* bridge = static_cast<Bridge*>(handle);
+    return bridge && bridge->ComposeGpu(base, processed, width, height, format_id, values, value_count) ? 1 : 0;
+}
+
+extern "C" __declspec(dllexport) int dlss5_quality_stats(void* handle, uint64_t* readbacks, uint64_t* gpu_frames) noexcept {
+    if (!handle || !readbacks || !gpu_frames) return 0;
+    auto* bridge = static_cast<Bridge*>(handle);
+    *readbacks = bridge->cpu_readbacks; *gpu_frames = bridge->gpu_frames;
+    return 1;
+}
 
 extern "C" __declspec(dllexport) void* dlss5_quality_create() noexcept {
     auto* bridge = new (std::nothrow) Bridge();

@@ -27,7 +27,7 @@ def generate(output):
         'float4 regions[4];}',
         'float4 regions[4];float residualInput;float residualMultiplier;'
         'float residualSaturation;float residualLightness;'
-        'float shadowStructureMultiplier;float reflectionGlowMultiplier;float lumaRec2100;float padding;}',
+        'float shadowStructureMultiplier;float reflectionGlowMultiplier;float lumaRec2100;float outputTransfer;}',
     )
     shader = replace_once(shader, '(nrFinal[q].rgb-low)*weight', '(nrFinal[q].rgb-(residualInput>0.5?float3(0,0,0):low))*weight')
     # The realtime path normally receives a residual that has already gone
@@ -38,6 +38,36 @@ def generate(output):
     fine_controls = r'''
 float3 NrLumaWeights() {
     return lumaRec2100>0.5?float3(0.2627,0.6780,0.0593):float3(0.2126,0.7152,0.0722);
+}
+// Same ST2084/HLG normalization as video_export's CPU reference. Only used
+// when a same-card GPU sink consumes the output, never by realtime/CPU paths.
+float3 NrEncodeOutput(float3 radiance) {
+    if(outputTransfer<0.5) return radiance;
+    float3 x=max(radiance,0);
+    float mode=outputTransfer>=4?outputTransfer-4:outputTransfer;
+    precise float3 coded;
+    if(mode<1.5) {
+        precise float3 v=pow(x,2610.0/16384.0);
+        precise float3 numerator=3424.0/4096.0+(2413.0/128.0)*v;
+        precise float3 denominator=1.0+(2392.0/128.0)*v;
+        coded=saturate(pow(numerator/max(denominator,1e-7),2523.0/32.0));
+    } else {
+        float a=0.17883277,b=1.0-4.0*a,c=0.5-a*log(4.0*a);
+        float3 low=sqrt(3.0*x),high=a*log(max(12.0*x-b,1e-7))+c;
+        coded=saturate(float3(x.r<=1.0/12.0?low.r:high.r,x.g<=1.0/12.0?low.g:high.g,x.b<=1.0/12.0?low.b:high.b));
+    }
+    // Typed RGBA16F UAV stores may truncate; CPU astype(float16) rounds to
+    // nearest-even. Explicitly quantize before storing to keep that contract.
+    if(outputTransfer>=4) {
+        // f32tof16 is permitted to truncate too. Find the adjacent half values
+        // explicitly and select the nearest, choosing even at an exact tie.
+        uint3 lo=f32tof16(coded);
+        lo-=uint3(f16tof32(lo)>coded);
+        precise float3 midpoint=(f16tof32(lo)+f16tof32(lo+1))*0.5;
+        bool3 up=(coded>midpoint)|((coded==midpoint)&((lo&1)!=0));
+        return f16tof32(lo+uint3(up));
+    }
+    return coded;
 }
 float3 NrToLinear(float3 color) {
     return float3(
@@ -113,6 +143,9 @@ float3 NrApplyFine(float3 original,float3 residual) {
     shader = replace_once(shader, 'float3 rawDelta=delta;', 'delta=NrApplyFine(base.rgb,delta)-base.rgb;float3 rawDelta=delta;')
     shader = shader.replace('float unused;', 'float signedHdr;')
     shader = shader.replace('unused>0.5?result:max(0,result)', 'signedHdr>0.5?result:max(0,result)')
+    shader = replace_once(shader, 'outputTex[id.xy]=base;', 'outputTex[id.xy]=float4(NrEncodeOutput(base.rgb),base.a);')
+    shader = replace_once(shader, 'float4(signedHdr>0.5?result:max(0,result),base.a)',
+                          'float4(NrEncodeOutput(signedHdr>0.5?result:max(0,result)),base.a)')
     write_if_changed(output / 'VeyraResidual.hlsl', shader)
     lines = ["// Generated from Magpie resw resources; GPL-3.0.", "#pragma once",
              "#include <winrt/base.h>", "#include <string_view>", "#include <utility>",

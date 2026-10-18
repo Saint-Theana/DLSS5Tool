@@ -650,6 +650,51 @@ def probe_audio_codecs(ffmpeg, source):
     ]
 
 
+def compose_sdr_rgba(original, processed, mix=1.0, *, settings=None):
+    """RGBA equivalent of the established final-view BGR composition path.
+
+    Keep RGB order throughout the graph. As before BGR->RGBA conversion,
+    the display/FG frame is opaque; source alpha in image composition itself
+    remains managed by residual_composition.compose.
+    """
+    from dlss5tool.residual_composition import compose
+    mix = max(0.0,min(_MAX_OUTPUT_MIX,float(mix)))
+    if mix <= 0:
+        from dlss5tool import appearance
+        appearance.preflight(settings or {})
+        result = original
+    else:
+        result = compose(original,processed,settings)
+        if mix != 1 and result is not original:
+            result = cv2.addWeighted(original,1-mix,result,mix,0)
+    if not np.all(result[...,3] == 255):
+        result = result.copy()
+        result[...,3] = 255
+    return result
+
+
+def write_composed_frame(writer, original, processed, view=0, mix=1.0, *, settings=None,
+                         profile='srgb', order=None):
+    """Same-card GPU sink when available; otherwise the original CPU contract."""
+    from dlss5tool.residual_composition import compose_to_gpu_writer
+    order = order or ('bgr' if profile == 'srgb' else 'rgb')
+    if compose_to_gpu_writer(original, processed, settings, writer,
+                             view=view, mix=mix, profile=profile, order=order):
+        return True
+    if profile != 'srgb':
+        writer.write(compose_hdr_frame(original,processed,view=view,mix=mix,settings=settings,profile=profile))
+    else:
+        if order == 'rgb' and not view:
+            rgba = compose_sdr_rgba(original,processed,mix=mix,settings=settings)
+            writer.write(np.ascontiguousarray(rgba[...,:3][...,::-1]))
+            return False
+        if order == 'rgb':
+            original = np.ascontiguousarray(original[...,:3][...,::-1])
+            processed = np.ascontiguousarray(processed[...,:3][...,::-1])
+        writer.write(compose_output_frame(original,processed,view=view,mix=mix,settings=settings))
+    return False
+
+
 def compose_output_frame(original, processed, view=0, mix=1.0, *, settings=None):
     """Create the selected export view from original/processed BGR frames."""
     if view == 0 and float(mix) <= 0:

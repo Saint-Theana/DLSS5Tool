@@ -1,0 +1,15 @@
+{
+  "removed_target_count": 101,
+  "before_bytes": 9807617,
+  "remaining_bytes_at_cleanup": 148074,
+  "remaining_files": [
+    "F:/project/DLSS5Tool/tmp/p1-p2-composer-20261019/TASK.md",
+    "F:/project/DLSS5Tool/tmp/p1-p2-composer-20261019/rollback/dlss5_quality.dll"
+  ],
+  "free_before_bytes": 66495643648,
+  "free_after_bytes": 66507657216,
+  "free_delta_bytes": 12013568,
+  "evidence_retained": "F:/project/DLSS5Tool/docs/development/p1-p2-composer-20261019",
+  "rollback_review_date": "2026-10-26",
+  "note": "TASK.md received the cleanup record after the first size measurement. The one previous DLL is retained intentionally. No SDK, model, environment or pre-existing tmp directory was removed."
+}

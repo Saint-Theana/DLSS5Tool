@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 
 from dlss5tool.render_cache import RenderCache, render_identity, file_identity
-from dlss5tool.video_export import compose_hdr_frame, compose_output_frame, tone_map_hdr_preview
+from dlss5tool.video_export import compose_hdr_frame, compose_output_frame, compose_sdr_rgba, tone_map_hdr_preview
 from dlss5tool.i18n import tr
 from dlss5tool.image_sequence import open_capture
 from dlss5tool.preview_feedback import PreviewFeedback
@@ -135,8 +135,7 @@ class SharedRenderPreview(PreviewFeedback):
             if meta:
                 result = compose_hdr_frame(mix_source, processed, mix=config['output_mix'], profile=meta['profile'], settings=config)
             else:
-                result = cv2.cvtColor(compose_output_frame(cv2.cvtColor(mix_source, cv2.COLOR_RGBA2BGR),
-                    cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), mix=config['output_mix'], settings=config), cv2.COLOR_BGR2RGBA)
+                result = compose_sdr_rgba(mix_source,processed,mix=config['output_mix'],settings=config)
             original = reference
             size = config.get('output_size')
             if size and (result.shape[1], result.shape[0]) != tuple(size):

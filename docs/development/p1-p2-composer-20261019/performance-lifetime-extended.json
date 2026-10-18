@@ -1,0 +1,575 @@
+{
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "size": [
+    1920,
+    1080
+  ],
+  "runs": [],
+  "lifetime": [
+    {
+      "private_bytes": 222978048,
+      "working_set_bytes": 211099648,
+      "free_physical_bytes": 49447002112,
+      "free_commit_bytes": 43631943680,
+      "native_lifetime": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "private_bytes": 240660480,
+      "working_set_bytes": 220073984,
+      "free_physical_bytes": 49441062912,
+      "free_commit_bytes": 43619594240,
+      "native_lifetime": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "private_bytes": 257568768,
+      "working_set_bytes": 220905472,
+      "free_physical_bytes": 49433358336,
+      "free_commit_bytes": 43596369920,
+      "native_lifetime": [
+        3,
+        3,
+        0
+      ]
+    },
+    {
+      "private_bytes": 283291648,
+      "working_set_bytes": 221212672,
+      "free_physical_bytes": 49436352512,
+      "free_commit_bytes": 43571326976,
+      "native_lifetime": [
+        4,
+        4,
+        0
+      ]
+    },
+    {
+      "private_bytes": 310157312,
+      "working_set_bytes": 221732864,
+      "free_physical_bytes": 49449680896,
+      "free_commit_bytes": 43558150144,
+      "native_lifetime": [
+        5,
+        5,
+        0
+      ]
+    },
+    {
+      "private_bytes": 319062016,
+      "working_set_bytes": 222134272,
+      "free_physical_bytes": 49450942464,
+      "free_commit_bytes": 43552997376,
+      "native_lifetime": [
+        6,
+        6,
+        0
+      ]
+    },
+    {
+      "private_bytes": 335851520,
+      "working_set_bytes": 222420992,
+      "free_physical_bytes": 49429770240,
+      "free_commit_bytes": 43513368576,
+      "native_lifetime": [
+        7,
+        7,
+        0
+      ]
+    },
+    {
+      "private_bytes": 344666112,
+      "working_set_bytes": 222818304,
+      "free_physical_bytes": 49439739904,
+      "free_commit_bytes": 43516489728,
+      "native_lifetime": [
+        8,
+        8,
+        0
+      ]
+    },
+    {
+      "private_bytes": 354799616,
+      "working_set_bytes": 223195136,
+      "free_physical_bytes": 49433653248,
+      "free_commit_bytes": 43501240320,
+      "native_lifetime": [
+        9,
+        9,
+        0
+      ]
+    },
+    {
+      "private_bytes": 361910272,
+      "working_set_bytes": 223465472,
+      "free_physical_bytes": 49452703744,
+      "free_commit_bytes": 43512713216,
+      "native_lifetime": [
+        10,
+        10,
+        0
+      ]
+    },
+    {
+      "private_bytes": 387895296,
+      "working_set_bytes": 223768576,
+      "free_physical_bytes": 49428590592,
+      "free_commit_bytes": 43463000064,
+      "native_lifetime": [
+        11,
+        11,
+        0
+      ]
+    },
+    {
+      "private_bytes": 414031872,
+      "working_set_bytes": 224247808,
+      "free_physical_bytes": 49424670720,
+      "free_commit_bytes": 43444330496,
+      "native_lifetime": [
+        12,
+        12,
+        0
+      ]
+    },
+    {
+      "private_bytes": 439582720,
+      "working_set_bytes": 224374784,
+      "free_physical_bytes": 49434415104,
+      "free_commit_bytes": 43436744704,
+      "native_lifetime": [
+        13,
+        13,
+        0
+      ]
+    },
+    {
+      "private_bytes": 455643136,
+      "working_set_bytes": 224665600,
+      "free_physical_bytes": 49405005824,
+      "free_commit_bytes": 43389681664,
+      "native_lifetime": [
+        14,
+        14,
+        0
+      ]
+    },
+    {
+      "private_bytes": 423976960,
+      "working_set_bytes": 225497088,
+      "free_physical_bytes": 49410691072,
+      "free_commit_bytes": 43418820608,
+      "native_lifetime": [
+        15,
+        15,
+        0
+      ]
+    },
+    {
+      "private_bytes": 441815040,
+      "working_set_bytes": 251564032,
+      "free_physical_bytes": 49405145088,
+      "free_commit_bytes": 43430010880,
+      "native_lifetime": [
+        16,
+        16,
+        0
+      ]
+    },
+    {
+      "private_bytes": 468041728,
+      "working_set_bytes": 268537856,
+      "free_physical_bytes": 49399042048,
+      "free_commit_bytes": 43403444224,
+      "native_lifetime": [
+        17,
+        17,
+        0
+      ]
+    },
+    {
+      "private_bytes": 422739968,
+      "working_set_bytes": 268431360,
+      "free_physical_bytes": 49366155264,
+      "free_commit_bytes": 43423809536,
+      "native_lifetime": [
+        18,
+        18,
+        0
+      ]
+    },
+    {
+      "private_bytes": 438345728,
+      "working_set_bytes": 276533248,
+      "free_physical_bytes": 49364668416,
+      "free_commit_bytes": 43404689408,
+      "native_lifetime": [
+        19,
+        19,
+        0
+      ]
+    },
+    {
+      "private_bytes": 459063296,
+      "working_set_bytes": 285777920,
+      "free_physical_bytes": 49351094272,
+      "free_commit_bytes": 43385491456,
+      "native_lifetime": [
+        20,
+        20,
+        0
+      ]
+    },
+    {
+      "private_bytes": 421306368,
+      "working_set_bytes": 284999680,
+      "free_physical_bytes": 49371029504,
+      "free_commit_bytes": 43438243840,
+      "native_lifetime": [
+        21,
+        21,
+        0
+      ]
+    },
+    {
+      "private_bytes": 440492032,
+      "working_set_bytes": 294465536,
+      "free_physical_bytes": 49347813376,
+      "free_commit_bytes": 43406307328,
+      "native_lifetime": [
+        22,
+        22,
+        0
+      ]
+    },
+    {
+      "private_bytes": 449044480,
+      "working_set_bytes": 294633472,
+      "free_physical_bytes": 49336152064,
+      "free_commit_bytes": 43389001728,
+      "native_lifetime": [
+        23,
+        23,
+        0
+      ]
+    },
+    {
+      "private_bytes": 466808832,
+      "working_set_bytes": 294666240,
+      "free_physical_bytes": 49340153856,
+      "free_commit_bytes": 43373256704,
+      "native_lifetime": [
+        24,
+        24,
+        0
+      ]
+    },
+    {
+      "private_bytes": 425459712,
+      "working_set_bytes": 270036992,
+      "free_physical_bytes": 49375436800,
+      "free_commit_bytes": 43422556160,
+      "native_lifetime": [
+        25,
+        25,
+        0
+      ]
+    },
+    {
+      "private_bytes": 432578560,
+      "working_set_bytes": 277893120,
+      "free_physical_bytes": 49347350528,
+      "free_commit_bytes": 43397111808,
+      "native_lifetime": [
+        26,
+        26,
+        0
+      ]
+    },
+    {
+      "private_bytes": 451428352,
+      "working_set_bytes": 286879744,
+      "free_physical_bytes": 49331875840,
+      "free_commit_bytes": 43371118592,
+      "native_lifetime": [
+        27,
+        27,
+        0
+      ]
+    },
+    {
+      "private_bytes": 467501056,
+      "working_set_bytes": 286142464,
+      "free_physical_bytes": 49343295488,
+      "free_commit_bytes": 43365847040,
+      "native_lifetime": [
+        28,
+        28,
+        0
+      ]
+    },
+    {
+      "private_bytes": 459231232,
+      "working_set_bytes": 286261248,
+      "free_physical_bytes": 49343172608,
+      "free_commit_bytes": 43375882240,
+      "native_lifetime": [
+        29,
+        29,
+        0
+      ]
+    },
+    {
+      "private_bytes": 459558912,
+      "working_set_bytes": 286318592,
+      "free_physical_bytes": 49315954688,
+      "free_commit_bytes": 43347259392,
+      "native_lifetime": [
+        30,
+        30,
+        0
+      ]
+    },
+    {
+      "private_bytes": 477392896,
+      "working_set_bytes": 286674944,
+      "free_physical_bytes": 49297391616,
+      "free_commit_bytes": 43310919680,
+      "native_lifetime": [
+        31,
+        31,
+        0
+      ]
+    },
+    {
+      "private_bytes": 477491200,
+      "working_set_bytes": 286736384,
+      "free_physical_bytes": 49313533952,
+      "free_commit_bytes": 43329449984,
+      "native_lifetime": [
+        32,
+        32,
+        0
+      ]
+    },
+    {
+      "private_bytes": 424656896,
+      "working_set_bytes": 278495232,
+      "free_physical_bytes": 49293451264,
+      "free_commit_bytes": 43343876096,
+      "native_lifetime": [
+        33,
+        33,
+        0
+      ]
+    },
+    {
+      "private_bytes": 425074688,
+      "working_set_bytes": 286965760,
+      "free_physical_bytes": 49247342592,
+      "free_commit_bytes": 43292045312,
+      "native_lifetime": [
+        34,
+        34,
+        0
+      ]
+    },
+    {
+      "private_bytes": 433881088,
+      "working_set_bytes": 303034368,
+      "free_physical_bytes": 49278799872,
+      "free_commit_bytes": 43341107200,
+      "native_lifetime": [
+        35,
+        35,
+        0
+      ]
+    },
+    {
+      "private_bytes": 451579904,
+      "working_set_bytes": 303583232,
+      "free_physical_bytes": 49308725248,
+      "free_commit_bytes": 43353501696,
+      "native_lifetime": [
+        36,
+        36,
+        0
+      ]
+    },
+    {
+      "private_bytes": 469291008,
+      "working_set_bytes": 311705600,
+      "free_physical_bytes": 49281519616,
+      "free_commit_bytes": 43314466816,
+      "native_lifetime": [
+        37,
+        37,
+        0
+      ]
+    },
+    {
+      "private_bytes": 477417472,
+      "working_set_bytes": 311685120,
+      "free_physical_bytes": 49307021312,
+      "free_commit_bytes": 43341373440,
+      "native_lifetime": [
+        38,
+        38,
+        0
+      ]
+    },
+    {
+      "private_bytes": 427843584,
+      "working_set_bytes": 311906304,
+      "free_physical_bytes": 49303015424,
+      "free_commit_bytes": 43389845504,
+      "native_lifetime": [
+        39,
+        39,
+        0
+      ]
+    },
+    {
+      "private_bytes": 425222144,
+      "working_set_bytes": 319500288,
+      "free_physical_bytes": 49309876224,
+      "free_commit_bytes": 43405225984,
+      "native_lifetime": [
+        40,
+        40,
+        0
+      ]
+    },
+    {
+      "private_bytes": 434118656,
+      "working_set_bytes": 319729664,
+      "free_physical_bytes": 49312636928,
+      "free_commit_bytes": 43400122368,
+      "native_lifetime": [
+        41,
+        41,
+        0
+      ]
+    },
+    {
+      "private_bytes": 452141056,
+      "working_set_bytes": 320057344,
+      "free_physical_bytes": 49314897920,
+      "free_commit_bytes": 43388379136,
+      "native_lifetime": [
+        42,
+        42,
+        0
+      ]
+    },
+    {
+      "private_bytes": 470138880,
+      "working_set_bytes": 328044544,
+      "free_physical_bytes": 49302941696,
+      "free_commit_bytes": 43367014400,
+      "native_lifetime": [
+        43,
+        43,
+        0
+      ]
+    },
+    {
+      "private_bytes": 424210432,
+      "working_set_bytes": 327651328,
+      "free_physical_bytes": 49313447936,
+      "free_commit_bytes": 43421409280,
+      "native_lifetime": [
+        44,
+        44,
+        0
+      ]
+    },
+    {
+      "private_bytes": 424599552,
+      "working_set_bytes": 335949824,
+      "free_physical_bytes": 49304244224,
+      "free_commit_bytes": 43419934720,
+      "native_lifetime": [
+        45,
+        45,
+        0
+      ]
+    },
+    {
+      "private_bytes": 442355712,
+      "working_set_bytes": 335880192,
+      "free_physical_bytes": 49318789120,
+      "free_commit_bytes": 43417006080,
+      "native_lifetime": [
+        46,
+        46,
+        0
+      ]
+    },
+    {
+      "private_bytes": 461242368,
+      "working_set_bytes": 344797184,
+      "free_physical_bytes": 49288818688,
+      "free_commit_bytes": 43376410624,
+      "native_lifetime": [
+        47,
+        47,
+        0
+      ]
+    },
+    {
+      "private_bytes": 476672000,
+      "working_set_bytes": 344559616,
+      "free_physical_bytes": 49303490560,
+      "free_commit_bytes": 43371958272,
+      "native_lifetime": [
+        48,
+        48,
+        0
+      ]
+    }
+  ],
+  "post_warm_private_range_bytes": 53280768,
+  "post_warm_private_end_minus_start": 51212288,
+  "warmup_cycles": 24,
+  "settled_memory": [
+    {
+      "private_bytes": 443473920,
+      "working_set_bytes": 327888896,
+      "free_physical_bytes": 49321054208,
+      "free_commit_bytes": 43406372864
+    },
+    {
+      "private_bytes": 331046912,
+      "working_set_bytes": 269660160,
+      "free_physical_bytes": 49364197376,
+      "free_commit_bytes": 43505233920
+    },
+    {
+      "private_bytes": 225067008,
+      "working_set_bytes": 244121600,
+      "free_physical_bytes": 49406480384,
+      "free_commit_bytes": 43624243200
+    }
+  ]
+}

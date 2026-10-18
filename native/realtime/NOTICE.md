@@ -52,8 +52,12 @@ task build directory. It fails if exact pinned patch sites no longer match.
 | DesktopDuplicationFrameSource.cpp | First-frame metadata handling, capture timestamps and diagnostic logging |
 | SrcTracker.cpp | Forced include for standalone build's missing WindowHelper declaration |
 | NrResidualComposite.hlsl | Accept controlled signed residual without double-applying global controls; local HDR luminance/chroma fine controls and explicit Rec.709/Rec.2100 weights |
+| DLSSNRFilter.cpp CreateSharedTexture / shared fence pattern | Adapted in quality_gpu_output.cpp for the local bridge's single-slot D3D11 -> D3D12 shared output; reuse existing CUDA/NVENC import and ACK, not a new encoder |
 
 Our C++ host, quality bridge, telemetry and tests are GPL-3.0-only.
+The local GPU sink shader also implements the existing CPU PQ/HLG output
+transfer formulas and explicit nearest-even half output quantization. Ordinary
+CPU and neutral realtime composition do not enable that output conversion.
 The Python control protocol contains settings/events, never per-frame pixel buffers.
 Runtime DLLs are not patched, re-signed, downloaded or copied by this build.
 

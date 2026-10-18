@@ -1,0 +1,59 @@
+{
+  "dll_sha256": "1980db891eb20c9eda9710bb05a554a560da1064e949f697028fdaebbae0e37e",
+  "adapter": {
+    "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "name": "NVIDIA GeForce RTX 4070 SUPER",
+    "preference_index": 0,
+    "vendor_id": 4318,
+    "device_id": 10115,
+    "subsys_id": 662904531,
+    "revision": 161,
+    "dedicated_video_memory": 12579766272,
+    "luid_high": 0,
+    "luid_low": 79242,
+    "d3d12_feature_level": "12_0",
+    "cuda_index": 0,
+    "pci_bus_id": "0000:01:00.0"
+  },
+  "cases": [
+    {
+      "profile": "srgb",
+      "pixel_error": 1.0,
+      "frames": 6,
+      "native_cpu_readbacks": 0,
+      "native_gpu_frames": 6,
+      "encoded_mean_error_in_10_or_8_bit_codes": 0.0,
+      "encoded_p999_error": 0.0,
+      "outputs": [
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-srgb-cpu.mp4",
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-srgb-gpu.mp4"
+      ]
+    },
+    {
+      "profile": "hdr10_pq",
+      "pixel_error": 0.00048828125,
+      "frames": 6,
+      "native_cpu_readbacks": 0,
+      "native_gpu_frames": 6,
+      "encoded_mean_error_in_10_or_8_bit_codes": 0.0,
+      "encoded_p999_error": 0.0,
+      "outputs": [
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-hdr10_pq-cpu.mp4",
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-hdr10_pq-gpu.mp4"
+      ]
+    },
+    {
+      "profile": "hdr10_hlg",
+      "pixel_error": 0.00048828125,
+      "frames": 6,
+      "native_cpu_readbacks": 0,
+      "native_gpu_frames": 6,
+      "encoded_mean_error_in_10_or_8_bit_codes": 0.0,
+      "encoded_p999_error": 0.0,
+      "outputs": [
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-hdr10_hlg-cpu.mp4",
+        "F:\\project\\DLSS5Tool\\tmp\\p1-p2-composer-20261019\\handoff-transport-hdr10_hlg-gpu.mp4"
+      ]
+    }
+  ]
+}
