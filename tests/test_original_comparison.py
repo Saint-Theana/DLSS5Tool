@@ -80,12 +80,23 @@ def test_real_pipeline_keeps_source_and_mix_separate(tmp_path, monkeypatch, scal
         assert not pair.mix_source.flags.writeable
         assert base.bytes == pair.nbytes
         assert base.bytes <= base.limit
-        # A mix-only change must reuse both inference stages, including SR pixels.
+        # Nonzero mix edits keep raw NR; entering source-only mode retires it,
+        # but keeps the same SR pixels. Re-enabling must not reuse bypass frames.
+        spatial = manager.spatial
+        manager.session(source, {**settings, 'output_mix': .75})
+        assert manager.base is base
         next_session = manager.session(source, {**settings, 'output_mix': 0})
         next_processed, next_original = next_session.wait(0, threading.Event())
-        assert manager.base is base
+        assert base.closed and manager.base is not base
+        assert manager.base.settings['_nr_bypass'] == 'source'
+        assert manager.spatial is spatial
         np.testing.assert_array_equal(next_processed, expected_sr)
         np.testing.assert_array_equal(next_original, expected_original)
+        bypass = manager.base
+        restored = manager.session(source, settings)
+        np.testing.assert_array_equal(restored.wait(0, threading.Event())[0], expected)
+        assert bypass.closed and manager.base is not bypass
+        assert manager.spatial is spatial
     finally:
         manager.close()
 

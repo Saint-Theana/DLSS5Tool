@@ -436,6 +436,8 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
         hdr = bool(meta['is_hdr'] and config.get('hdr_mode', True))
         from dlss5tool import appearance
         appearance.preflight(config, hdr=hdr)
+        bypass = appearance.enhancement_bypass(config) if enhance else None
+        needs_nr = bool(enhance and bypass is None)
         if gpu_export is None and hdr and not render_only and input_session is None and not view and not meta.get('_is_vfr'):
             from dlss5tool.gpu_export_runtime import eligible,load_components
             if ow*oh>=1920*1080 and eligible(ow,oh,hdr_metadata=meta,
@@ -449,7 +451,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
         config.update(frame_format='rgba16f' if hdr else 'rgba8', color_profile=meta['profile'] if hdr else 'srgb',
                       color_primaries=meta['color_primaries'], host_auto_fallback=False,
                       host_in_flight=1, guidance_flow_fallback=False)
-        direct_enhancement=bool(gpu_export is not None and gpu_export.get('host_library') and enhance
+        direct_enhancement=bool(gpu_export is not None and gpu_export.get('host_library') and needs_nr
             and multiplier==1 and scale==1 and (ow,oh)==(w,h) and not view and config.get('output_mix',1)==1
             and not appearance.active(config))
         if direct_enhancement:
@@ -476,7 +478,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             from dlss5tool.super_resolution import ProcessSuperResolution
             _emit_progress(progress, i18n.tr('status.init_super_resolution'), 0)
             sr = ProcessSuperResolution(w, h, scale, is_hdr=hdr)
-        if enhance and (input_session is None or config.get('_render_stage') == 'base'):
+        if needs_nr and (input_session is None or config.get('_render_stage') == 'base'):
             from dlss5tool.dlss_host_process import ProcessLive
             _emit_progress(progress, i18n.tr('status.init_enhancement'), 0)
             nr = ProcessLive(process_w, process_h, config)
@@ -508,6 +510,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             enhancement_pitch=descriptor.pop('pitch')
             shared_enhancement=writer.import_shared_output(**descriptor)
         report.update(width=ow, height=oh, source_rate=str(rate), output_rate=str(rate*multiplier),
+                      enhancement_bypassed=bool(enhance and bypass), enhancement_bypass=bypass,
                       appearance_version=appearance.VERSION,
                       composition_backend='cpu-reference' if appearance.active(config) else 'neutral-bypass',
                       color=meta['profile'] if hdr else 'srgb', output_view=view,
@@ -593,14 +596,21 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                 publish_metadata()
             if not need_reference:
                 reference = None
+            if config.get('_render_stage') == 'base':
+                # Keep SR-only pixels as the composition input even when NR is
+                # absent. The labelled original remains the source reference.
+                mix_source = rgba
             if shared_enhancement:
                 nr.process_device(rgba,reset=index==0 or cut)
                 writer.write_device(shared_enhancement.pointer.value,shared_enhancement.size,
                     'rgba16f' if hdr else 'rgba',writer.adapter_luid,enhancement_pitch,strict_hdr=False)
-            elif nr:
+            elif nr or (bypass == 'native-zero' and (input_session is None or config.get('_render_stage') == 'base')):
                 mix_source = rgba
-                _emit_progress(progress, i18n.tr('status.enhancement_frame', frame=index+1), index/max(total, 1))
-                processed = nr.process(rgba, reset=index == 0 or cut)
+                if nr:
+                    _emit_progress(progress, i18n.tr('status.enhancement_frame', frame=index+1), index/max(total, 1))
+                    processed = nr.process(rgba, reset=index == 0 or cut)
+                else:
+                    processed = appearance.bypass_frame(rgba, bypass)
                 if processed is None:
                     raise RuntimeError('DLSS 5 增强失败')
                 if hdr:
@@ -610,7 +620,9 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
                         cv2.cvtColor(processed, cv2.COLOR_RGBA2BGR), view=0, mix=1 if view else config.get('output_mix', 1), settings=config)
                     rgba = cv2.cvtColor(mixed, cv2.COLOR_BGR2RGBA)
             elif input_session is not None and config.get('_render_stage') == 'output':
-                if hdr:
+                if appearance.enhancement_bypass(config) == 'source':
+                    rgba = mix_source
+                elif hdr:
                     rgba = compose_hdr_frame(mix_source, rgba, view=0,
                         mix=config.get('output_mix', 1), profile=meta['profile'], settings=config)
                 else:

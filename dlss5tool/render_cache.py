@@ -31,6 +31,7 @@ DEFAULT_PREFETCH_AHEAD = 120
 MAX_PREFETCH_AHEAD = 48
 
 PIXEL_KEYS = (
+    '_nr_bypass',
     'nr_quality', 'nr_residual',
     'style', 'preset', 'intensity', 'local_tone', 'local_struct', 'skin_struct', 'use_auto_mask',
     'ui_correction', 'output_mix', 'guidance_mode', 'guidance_edge', 'guidance_flow_direction',
@@ -96,10 +97,11 @@ def render_identity(source, settings):
             dependencies.append(file_identity(value))
     pixel['dlss_runtime'] = settings.get('dlss_runtime', '')
     pixel.update(appearance.settings(settings))
+    pixel['_nr_bypass'] = settings.get('_nr_bypass')
     # Raw NR survives a composition implementation revision. A neutral public
     # identity still aliases its base session (used by interim previews).
     composition_version = COMPOSITION_VERSION if appearance.active(settings) or settings.get('output_mix', 1) != 1 else 0
-    payload = [6, composition_version, file_identity(source), pixel, dependencies]
+    payload = [7, composition_version, file_identity(source), pixel, dependencies]
     return hashlib.sha256(json.dumps(payload, sort_keys=True, default=str).encode()).hexdigest()
 
 
@@ -457,6 +459,8 @@ class RenderCache:
             latest()
             base_settings = {**appearance.raw_settings(settings), 'frame_generation_multiplier': 1, 'output_mix': 1, 'output_size': None,
                              '_render_stage': 'base'}
+            # raw_settings retains source/native-zero execution identity;
+            # re-enabling NR creates a fresh producer and temporal history.
             base_key = render_identity(source, base_settings)
             multiplier = int(settings.get('frame_generation_multiplier', 1))
             def lease():
@@ -492,6 +496,7 @@ class RenderCache:
                 latest()
                 spatial = self.spatial
                 def base_renderer(*args, **kwargs):
+                    kwargs['enhance'] = base_settings['_nr_bypass'] != 'source'
                     return export_video(*args, **kwargs, input_session=spatial)
                 self.base = RenderSession(source, base_settings, base_limit, pool=lease(), renderer=base_renderer)
                 self.base.upstream = spatial

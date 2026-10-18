@@ -1,0 +1,521 @@
+{
+  "pid": 3140,
+  "memory_before": {
+    "private_bytes": 31285248,
+    "working_set_bytes": 46297088,
+    "free_physical_bytes": 48819552256,
+    "free_commit_bytes": 43126157312
+  },
+  "memory_after": {
+    "private_bytes": 36864000,
+    "working_set_bytes": 53850112,
+    "free_physical_bytes": 48703594496,
+    "free_commit_bytes": 42965954560
+  },
+  "profiles": [
+    {
+      "profile": "srgb",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba8",
+        "color_profile": "srgb",
+        "color_primaries": "bt709",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        }
+      ],
+      "pid": 12992,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "hdr10_pq",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "hdr10_pq",
+        "color_primaries": "bt2020",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 4032,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "hdr10_hlg",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "hdr10_hlg",
+        "color_primaries": "bt2020",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 35256,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "scrgb",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "scrgb",
+        "color_primaries": "bt709",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 35108,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    }
+  ]
+}

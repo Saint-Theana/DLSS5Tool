@@ -1,0 +1,202 @@
+[
+  {
+    "order": 0,
+    "persistent_thread": false,
+    "frame_call_ms": [
+      310.9058999998524,
+      220.10229999978037,
+      217.62370000033116,
+      219.042000000627,
+      218.45259999918198,
+      219.58679999988817
+    ],
+    "warm_frame_mean_ms": 218.96147999996174,
+    "native_api_ms": {
+      "dlss5_quality_create": [
+        258.25650000024325,
+        169.3887999999788,
+        166.5725000002567,
+        166.08429999996588,
+        166.2888999999268,
+        168.27220000050147
+      ],
+      "dlss5_quality_compose": [
+        43.6163000003944,
+        41.80429999996704,
+        41.800000000876025,
+        43.91140000006999,
+        43.195299999752024,
+        42.360599999483384
+      ],
+      "dlss5_quality_destroy": [
+        9.784699999727309,
+        9.125000000494765,
+        9.959300000446092,
+        9.548500000164495,
+        9.736700000757992,
+        9.405199999491742
+      ]
+    },
+    "before_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "after_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "private_bytes": 88694784,
+      "working_set_bytes": 91488256,
+      "free_physical_bytes": 50378084352,
+      "free_commit_bytes": 44931776512
+    }
+  },
+  {
+    "order": 1,
+    "persistent_thread": true,
+    "frame_call_ms": [
+      217.5811999995858,
+      11.88799999999901,
+      11.087699999734468,
+      10.889799999858951,
+      11.08230000045296,
+      10.967199999868171
+    ],
+    "warm_frame_mean_ms": 11.182999999982712,
+    "native_api_ms": {
+      "dlss5_quality_create": [
+        165.99940000014612
+      ],
+      "dlss5_quality_compose": [
+        42.514099999607424,
+        2.7198999996471684,
+        1.9191999999748077,
+        1.7559000007167924,
+        2.038200000242796,
+        1.8490000002202578
+      ],
+      "dlss5_quality_destroy": [
+        9.097500000279979
+      ]
+    },
+    "before_probe_cleanup": {
+      "created": 1,
+      "destroyed": 0,
+      "live": 1,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "after_probe_cleanup": {
+      "created": 1,
+      "destroyed": 1,
+      "live": 0,
+      "private_bytes": 87990272,
+      "working_set_bytes": 91938816,
+      "free_physical_bytes": 50373419008,
+      "free_commit_bytes": 44928036864
+    }
+  },
+  {
+    "order": 2,
+    "persistent_thread": true,
+    "frame_call_ms": [
+      216.55479999935778,
+      12.402800000018033,
+      10.706300000492774,
+      10.808299999553128,
+      10.831599999619357,
+      10.879100000238395
+    ],
+    "warm_frame_mean_ms": 11.125619999984337,
+    "native_api_ms": {
+      "dlss5_quality_create": [
+        166.09620000053837
+      ],
+      "dlss5_quality_compose": [
+        41.31560000041645,
+        3.3484000005046255,
+        1.7515999998067855,
+        1.7772999999579042,
+        1.7567999993843841,
+        1.760899999680987
+      ],
+      "dlss5_quality_destroy": [
+        9.883800000352494
+      ]
+    },
+    "before_probe_cleanup": {
+      "created": 1,
+      "destroyed": 0,
+      "live": 1,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "after_probe_cleanup": {
+      "created": 1,
+      "destroyed": 1,
+      "live": 0,
+      "private_bytes": 91164672,
+      "working_set_bytes": 94281728,
+      "free_physical_bytes": 50366455808,
+      "free_commit_bytes": 44920217600
+    }
+  },
+  {
+    "order": 3,
+    "persistent_thread": false,
+    "frame_call_ms": [
+      219.81679999953485,
+      219.6860000003653,
+      216.7381999997815,
+      218.29729999990377,
+      220.85470000001806,
+      218.88959999978397
+    ],
+    "warm_frame_mean_ms": 218.89315999997052,
+    "native_api_ms": {
+      "dlss5_quality_create": [
+        169.19469999993453,
+        168.591199999355,
+        166.0636999995404,
+        168.10050000003685,
+        166.65649999958987,
+        167.22909999953117
+      ],
+      "dlss5_quality_compose": [
+        41.57349999968574,
+        41.992800000116404,
+        41.60370000045077,
+        41.08300000007148,
+        44.91950000010547,
+        42.455500000869506
+      ],
+      "dlss5_quality_destroy": [
+        9.50139999986277,
+        9.404800000083924,
+        8.845100000144157,
+        9.745700000166835,
+        9.584000000359083,
+        9.263799999644107
+      ]
+    },
+    "before_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "after_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "private_bytes": 90951680,
+      "working_set_bytes": 95645696,
+      "free_physical_bytes": 50366656512,
+      "free_commit_bytes": 44919820288
+    }
+  }
+]

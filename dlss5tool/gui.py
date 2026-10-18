@@ -5814,6 +5814,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         self._raise_if_export_cancelled()
 
     def _hash_settings_dict(self, s):
+        from dlss5tool.appearance import enhancement_bypass
         return (
             s['style'], s['intensity'], s['local_tone'], s['local_struct'],
             s['use_auto_mask'], s['skin_struct'],
@@ -5823,6 +5824,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             s.get('dlss_runtime'), guidance_client.contract(s),
             s.get('guidance_skip_still_flow', True),
             normalize_scale(s.get('super_resolution_scale', 1)),
+            enhancement_bypass(s),
         )
 
     def _settings_hash(self):
@@ -7545,6 +7547,14 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
 
     def on_output_settings_change(self, event=None):
         """Refresh the composed preview while keeping the expensive DLSS cache intact."""
+        from dlss5tool.appearance import enhancement_bypass
+        live = getattr(self, '_live', None)
+        if (not self._uses_shared_render() and live is not None
+                and enhancement_bypass(live.settings) != enhancement_bypass(self._collect_settings())):
+            # Only crossing a bypass boundary invalidates raw NR pixels.
+            # Ordinary look edits still use composition-only updates.
+            self.on_settings_change(event)
+            return
         if self.playing and not self._uses_shared_render():
             # Like the NR controls, pin legacy preview to the edited frame.
             # Its playback composer is synchronous; edits use the async path.

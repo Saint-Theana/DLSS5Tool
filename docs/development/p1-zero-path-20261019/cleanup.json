@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-19",
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p1-zero-path-20261019",
+  "budget_bytes_less_than": 268435456,
+  "before_file_count": 1180,
+  "before_file_bytes": 10784609,
+  "explicit_top_level_targets_removed": 59,
+  "removed_categories": {
+    "pytest_directories_including_cache": 7,
+    "native_log_directories": 18,
+    "synthetic_mp4_files": 24,
+    "archived_raw_json_xml_copies": 10
+  },
+  "deletion_scope": "Only individually resolved child paths strictly inside the registered task root; root and TASK.md retained",
+  "task_or_tmp_parent_reparse_points": 0,
+  "descendant_reparse_points": 0,
+  "recorded_pids_checked": [3140,4032,4372,12992,14616,16192,21308,23540,35108,35256,39608,41716,42912,45992],
+  "recorded_pids_alive": [],
+  "visible_python_or_fg_workers_at_cleanup": [],
+  "raw_archives_sha256_checked": 10,
+  "free_bytes_before_deletion": 66497597440,
+  "free_bytes_after_deletion": 66510856192,
+  "observed_free_delta_bytes": 13258752,
+  "free_space_caveat": "Volume-level observation includes allocation granularity and may include concurrent writes; not a task-wide free-space claim",
+  "remaining_names": ["TASK.md"],
+  "remaining_bytes_at_deletion_before_task_log_update": 1177,
+  "remaining_after_task_log_update_bytes_less_than": 8192,
+  "retention_reason": "Small task registration, provenance, reproduction and cleanup audit only",
+  "review_date": "2026-10-26",
+  "recovery": "Synthetic media and test fixtures are reproducible with scripts/tests. Raw evidence was archived and verified before permanent deletion; no recycle-bin recovery promise.",
+  "user_data_persistent_dependencies_models_release_assets_or_backups_removed": false
+}

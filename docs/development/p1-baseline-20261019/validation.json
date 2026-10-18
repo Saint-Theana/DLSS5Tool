@@ -1,0 +1,86 @@
+{
+  "source_commit": "6e05ff6",
+  "date": "2026-10-19",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+    "driver": "617.42",
+    "vram_mib_nvidia_smi": 12282,
+    "luid": "00000000:0001358A",
+    "cuda_ordinal": 0,
+    "pci_bus_id": "0000:01:00.0",
+    "python": "3.13.3",
+    "numpy": "2.5.2",
+    "opencv": "5.0.0",
+    "ffmpeg": "7.1.1-full_build",
+    "r2_counter_powershell": "7.6.5"
+  },
+  "binary_sha256": {
+    "runtime/dlss5_quality.dll": "E81F1A00A67DCD8227C7D27FB9AC884D8BA1D4F0107E980380E8A0FE659D9E0C",
+    "runtime/dlssnr_host_v2.dll": "C8AD631F8F78B2DEDEC6AEC418C7A570D6FC5BF1B9FFA9F3514BCB0EDD58FC13",
+    "runtime/vsr_host.dll": "5E66DDC8B4C56F2B77DAED782CC8429B607D32BBA358EFB488FBD4C03AE515B7",
+    "runtime/dlssg_video_worker.exe": "7E6C281608BE2E8A6D63A574A3EAE8621C6C38635260E150571EF20F422C4659"
+  },
+  "media_validation_method": "ffprobe -v error -select_streams v:0 -count_frames -show_entries stream=width,height,avg_frame_rate,nb_read_frames,codec_name -of json; SHA256 of entire MP4 via Get-FileHash",
+  "media_groups": [
+    {
+      "files": ["gui_sr_nr-r1.mp4", "gui_sr_nr-r2.mp4"],
+      "bytes_each": 1927644,
+      "sha256_each": "00FF6A9F94C60472A9E4CA29727EA0BC8648DA722EB6B8C3F3647E3E3C44DD4B",
+      "codec": "h264", "width": 1920, "height": 1080,
+      "decoded_frames_each": 32, "avg_frame_rate": "30/1"
+    },
+    {
+      "files": ["nr-r1.mp4", "nr-r2.mp4"],
+      "bytes_each": 1729599,
+      "sha256_each": "69E7BFA79EC397724BF381A4AA2964F48CC93C136C8D8C81FC6983FC9E6296EF",
+      "codec": "h264", "width": 1920, "height": 1080,
+      "decoded_frames_each": 32, "avg_frame_rate": "30/1"
+    },
+    {
+      "files": ["sr_fg_only-r1.mp4", "sr_fg_only-r2.mp4", "sr_fg_total_zero-r1.mp4", "sr_fg_total_zero-r2.mp4", "sr_fg_basic_zero-r1.mp4", "sr_fg_basic_zero-r2.mp4"],
+      "bytes_each": 2732365,
+      "sha256_each": "69D07FD6C33E92899F16049468DED98AB69D24F1066DC750ABB5E476435859A5",
+      "codec": "h264", "width": 1920, "height": 1080,
+      "decoded_frames_each": 64, "avg_frame_rate": "60/1"
+    },
+    {
+      "files": ["sr_nr_fg-r1.mp4", "sr_nr_fg-r2.mp4"],
+      "bytes_each": 3129010,
+      "sha256_each": "D98A5A421B290FAC3BF03FD7E67B4805692FF5536EAE0AF2B4ABAA75F0287BD0",
+      "codec": "h264", "width": 1920, "height": 1080,
+      "decoded_frames_each": 64, "avg_frame_rate": "60/1"
+    },
+    {
+      "files": ["source-1920x1080.mp4"],
+      "bytes_each": 742220,
+      "sha256_each": "2AA4A81E987062033C62E6ABA29A63099D135D3D09590404683EE1BD901A1E26",
+      "codec": "h264", "width": 1920, "height": 1080,
+      "decoded_frames_each": 32, "avg_frame_rate": "30/1"
+    },
+    {
+      "files": ["source-960x540.mp4"],
+      "bytes_each": 327924,
+      "sha256_each": "A195CD676B9151751508B4818CD69A4997AA99B13C79BECF94B96F47AB867786",
+      "codec": "h264", "width": 960, "height": 540,
+      "decoded_frames_each": 32, "avg_frame_rate": "30/1"
+    }
+  ],
+  "raw_output_comparisons": {
+    "reference": "sr_fg_only from the same round",
+    "rounds": ["r1", "r2"],
+    "frames_each": 64,
+    "sr_fg_total_zero_different_frames_each_round": 0,
+    "sr_fg_basic_zero_different_frames_each_round": 0,
+    "sr_nr_fg_different_frames_each_round": 64,
+    "scope": "Single synthetic SDR source only, real/generated/endpoint frames, no universal HDR or temporal-history safety claim"
+  },
+  "processing_profiles_complete": 12,
+  "gpu_counter_successful_profiles": 6,
+  "gpu_counter_failed_profiles": 6,
+  "gpu_counter_meaning": "Paused inventory for PID/LUID attribution; not active utilization evidence",
+  "recorded_unique_pids_checked_after_probes": 52,
+  "recorded_pids_alive_at_check": [],
+  "cim_process_commandline_inventory": "Access denied; used recorded PID Get-Process check only",
+  "production_code_modified": false,
+  "full_regression_run": false
+}

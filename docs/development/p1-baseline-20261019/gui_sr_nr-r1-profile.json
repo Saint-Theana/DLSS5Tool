@@ -1,0 +1,279 @@
+{
+  "case": "gui_sr_nr",
+  "label": "r1",
+  "settings": {
+    "host_backend": "v2",
+    "host_auto_fallback": false,
+    "host_submission": "merged",
+    "host_persistent_buffers": true,
+    "host_zero_fast_path": true,
+    "host_in_flight": 1,
+    "render_gpu": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "guidance_mode": 0,
+    "style": 0,
+    "intensity": 0.7,
+    "local_tone": 1.0,
+    "local_struct": 1.0,
+    "skin_struct": 0.5,
+    "use_auto_mask": false,
+    "output_mix": 1.0,
+    "output_view": 0,
+    "nvenc_preset": "p5",
+    "quality_profile": "high",
+    "rate_control": "quality",
+    "video_bitrate_mbps": 20,
+    "super_resolution_scale": 2,
+    "nr_quality": {
+      "total": 0.75
+    }
+  },
+  "adapters": [
+    {
+      "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+      "name": "NVIDIA GeForce RTX 4070 SUPER",
+      "preference_index": 0,
+      "vendor_id": 4318,
+      "device_id": 10115,
+      "subsys_id": 662904531,
+      "revision": 161,
+      "dedicated_video_memory": 12579766272,
+      "luid_high": 0,
+      "luid_low": 79242,
+      "d3d12_feature_level": "12_0",
+      "cuda_index": 0,
+      "pci_bus_id": "0000:01:00.0"
+    }
+  ],
+  "source": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\source-960x540.mp4",
+  "output": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\gui_sr_nr-r1.mp4",
+  "memory_before": {
+    "private_bytes": 61964288,
+    "working_set_bytes": 88694784,
+    "free_physical_bytes": 49051631616,
+    "free_commit_bytes": 43340992512
+  },
+  "scope": "Production serial frame_generation entry; gui_sr_nr uses actual GUI SDR upscale method. No GUI/cache-layer throughput claim.",
+  "result": {
+    "frames": 32,
+    "super_resolution_seconds": 0.25047559999984514,
+    "dlss_seconds": 0.40439490000244405,
+    "encoder": "H.264 NVENC (GPU)",
+    "audio_mode": "源视频无音轨",
+    "host_backend": "v2",
+    "in_flight": 1
+  },
+  "status": "complete",
+  "elapsed_seconds": 17.21101540000018,
+  "memory_after": {
+    "private_bytes": 177188864,
+    "working_set_bytes": 151560192,
+    "free_physical_bytes": 48902963200,
+    "free_commit_bytes": 43125121024
+  },
+  "stages": {
+    "encoder.initialize": {
+      "calls": 1,
+      "total_ms": 1219.9813999995968,
+      "mean_ms": 1219.9813999995968,
+      "after_first_4_mean_ms": 1219.9813999995968,
+      "after_first_4_median_ms": 1219.9813999995968
+    },
+    "sr.initialize": {
+      "calls": 1,
+      "total_ms": 1907.7614000007088,
+      "mean_ms": 1907.7614000007088,
+      "after_first_4_mean_ms": 1907.7614000007088,
+      "after_first_4_median_ms": 1907.7614000007088
+    },
+    "nr.initialize": {
+      "calls": 1,
+      "total_ms": 7117.35839999983,
+      "mean_ms": 7117.35839999983,
+      "after_first_4_mean_ms": 7117.35839999983,
+      "after_first_4_median_ms": 7117.35839999983
+    },
+    "source.read": {
+      "calls": 33,
+      "total_ms": 62.36390000049141,
+      "mean_ms": 1.8898151515300428,
+      "after_first_4_mean_ms": 1.4915448275509147,
+      "after_first_4_median_ms": 1.5057999999044114
+    },
+    "cpu.cvtColor": {
+      "calls": 96,
+      "total_ms": 100.04920000301354,
+      "mean_ms": 1.0421791666980578,
+      "after_first_4_mean_ms": 0.5780880435098801,
+      "after_first_4_median_ms": 0.5718000002161716
+    },
+    "sr.process": {
+      "calls": 32,
+      "total_ms": 241.52170000525075,
+      "mean_ms": 7.547553125164086,
+      "after_first_4_mean_ms": 6.113200000169984,
+      "after_first_4_median_ms": 6.0375500002010085
+    },
+    "nr.copy_input": {
+      "calls": 32,
+      "total_ms": 20.039199998791446,
+      "mean_ms": 0.6262249999622327,
+      "after_first_4_mean_ms": 0.5372678570958149,
+      "after_first_4_median_ms": 0.5196999995860097
+    },
+    "nr.rpc": {
+      "calls": 32,
+      "total_ms": 323.2343999989098,
+      "mean_ms": 10.101074999965931,
+      "after_first_4_mean_ms": 9.706471428574202,
+      "after_first_4_median_ms": 9.648650000144698
+    },
+    "nr.copy_output": {
+      "calls": 32,
+      "total_ms": 50.615200004358485,
+      "mean_ms": 1.5817250001362027,
+      "after_first_4_mean_ms": 1.5133357144350157,
+      "after_first_4_median_ms": 1.4847500001451408
+    },
+    "nr.process": {
+      "calls": 32,
+      "total_ms": 395.1238999998168,
+      "mean_ms": 12.347621874994275,
+      "after_first_4_mean_ms": 11.79477499999848,
+      "after_first_4_median_ms": 11.692049999965093
+    },
+    "compose.acquire": {
+      "calls": 32,
+      "total_ms": 249.55850000333157,
+      "mean_ms": 7.798703125104112,
+      "after_first_4_mean_ms": 0.8427142857791685,
+      "after_first_4_median_ms": 0.8428000001003966
+    },
+    "compose.dll_upload_dispatch_readback": {
+      "calls": 32,
+      "total_ms": 194.48240000292571,
+      "mean_ms": 6.077575000091429,
+      "after_first_4_mean_ms": 4.135657142991737,
+      "after_first_4_median_ms": 4.021100000045408
+    },
+    "compose.total": {
+      "calls": 64,
+      "total_ms": 1688.7653000030696,
+      "mean_ms": 26.386957812547962,
+      "after_first_4_mean_ms": 22.083685000052355,
+      "after_first_4_median_ms": 20.863049999661598
+    },
+    "audit.hash": {
+      "calls": 32,
+      "total_ms": 81.51810000163096,
+      "mean_ms": 2.5474406250509674,
+      "after_first_4_mean_ms": 2.5469392857887994,
+      "after_first_4_median_ms": 2.5217000002157874
+    },
+    "encoder.write": {
+      "calls": 32,
+      "total_ms": 27.977700001429184,
+      "mean_ms": 0.874303125044662,
+      "after_first_4_mean_ms": 0.8258250000251012,
+      "after_first_4_median_ms": 0.8094999998320418
+    },
+    "encoder.finish": {
+      "calls": 1,
+      "total_ms": 363.8684000006833,
+      "mean_ms": 363.8684000006833,
+      "after_first_4_mean_ms": 363.8684000006833,
+      "after_first_4_median_ms": 363.8684000006833
+    },
+    "nr.close": {
+      "calls": 1,
+      "total_ms": 120.41990000034275,
+      "mean_ms": 120.41990000034275,
+      "after_first_4_mean_ms": 120.41990000034275,
+      "after_first_4_median_ms": 120.41990000034275
+    },
+    "sr.close": {
+      "calls": 1,
+      "total_ms": 3052.9035999998086,
+      "mean_ms": 3052.9035999998086,
+      "after_first_4_mean_ms": 3052.9035999998086,
+      "after_first_4_median_ms": 3052.9035999998086
+    }
+  },
+  "steady_source_fps": 14.487556999483983,
+  "components": [
+    {
+      "stage": "encoder",
+      "pid": 40860,
+      "encoder": "H.264 NVENC (GPU)",
+      "nvenc": true
+    },
+    {
+      "stage": "sr",
+      "pid": 44580
+    },
+    {
+      "stage": "nr",
+      "pid": 42868,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      }
+    }
+  ],
+  "raw_output_hashes": [
+    "f6a437d6167bc5c93cc0af154ff93ec83e3b4eaf0de769233b4228bd2612e15b",
+    "ae7adf878e277b31e079538bf6f62a75c35fffaa64bdf0798d9708bf813cbf07",
+    "0a74d80d4cbd7fccdf892fd2c4f3f64a9ab1f05facebf807f5e3f836d38b2f53",
+    "c56a15fc929b8f4015ca9fd7780f1ef964b41ad28ed4bd3bf5bfce308f03f169",
+    "a3fceb268a518904536acfe28b1f96cdb1959d4e0576002c1c24c4f944ce014d",
+    "4b519c0f2b8decc7ec24c0180422d1e3ca460f138fedb8f4815e0e57f21e8b3c",
+    "ed5c17730ee6e66baaede0f024ec256309132dcfc3876f077888184b7a4d136e",
+    "3c5ad5db9004c184c829e6980084812c76b92362fe3be9aaa96000057473f72f",
+    "7fc47a05bcd00d2885d739d0e752a489b6f0998cf2e1ad12f6711ce8bcebc825",
+    "c1561cdbf82c6d1298dcbae1699009366fc05ae96639a7998bda8aed7155474f",
+    "5a01e2b2bb71104d866f85efd22b54e2c26eba10884187e5fb889a5f5cbc4c6d",
+    "2eb0479f299983b1becee1f108949bdf0c759570234ec6ed702305676f5f983b",
+    "591ef80e92d2cd4224dfd4bf76bc01850525ee5bbe7756e6569aa78066566dad",
+    "4d2ed86d0ff33864690bd344e1584ad56f3786313d144aa4e4374278cddd335b",
+    "d2697a7d90b62c3eee7fc00b2a1cc5653eb540e71def27547399ef9a1c105678",
+    "11410f1313bac017e6081c2789ec9e7bf5cb3f70079b5328601beeffef3e5fe2",
+    "a9539e9ec37dde9b3abb80de339a6c8ab1a08e6d8107c2e7c4b7809bf7396a62",
+    "25fe7426026a161f4d25c8e4fe2b4506198f7f99e8bb429682c882f45091de79",
+    "1d6131142d3dcf581d045d5503bc3713ec88977bedcd95dbf1883f2c6e83874a",
+    "f6720af1f7c692f3735fedca3c937408a0c10ea7befcfb7967e694225d61d989",
+    "dd494fe3ceb613f877e0fb8a607071ab98743bf4558d518b386eb34f31e01a2a",
+    "3170a842671f8fab78ce2ee1fbc4f08efc0fd113b5d9ec447eaf85cafeb76346",
+    "ac91aa40609841af98a1a75e947929b96d3b2a1d1b0dadfe9118b7fb7c2128e2",
+    "612568d89f5a7cb06e16626fc04d938b50c67375a0671ff25756b048ce33fe2e",
+    "f6905bcabf98942236cc8843a04ccec166ab3422611a6302c6e5e5f63f173143",
+    "54fb5b6ab8c6e77b93345056dd429aeceb001fdc6e9d14c6565c8740f2a3f262",
+    "9699b5fab8d9bc3ef2e3e54b4018b0258981e05b238eca1765f8f71e823416d3",
+    "b107b5236ceade22d2ecf59223c438a861a573ba9d6516874a751c9de955bc25",
+    "703df042f12e0bf5bcc6b44374d54662669e9724145bbad039e8f526db986671",
+    "0df2f2b7473c628564fdb44ff8944fb5bd1ea06e59ebac4815d233c5d0d6ff3e",
+    "58ebf8fa00d557acf3fcd58b582a8d88681248ae50a0e9026e09bc3869f75025",
+    "498f077b6423b21c16f4e05b1e5b5471586be2c0daaa2e840f02dfdc85c795ab"
+  ],
+  "gpu_counter_inventory": {
+    "samples": [],
+    "pids": [
+      4604,
+      40860,
+      42868,
+      44580
+    ],
+    "error": "Get-Counter : The 'Get-Counter' command was found in the module 'Microsoft.PowerShell.Diagnostics', but the module coul\r\nd not be loaded. For more information, run 'Import-Module Microsoft.PowerShell.Diagnostics'.\r\nAt line:1 char:35\r\n+ $ErrorActionPreference='Stop'; $c=Get-Counter -Counter @('\\GPU Engine ...\r\n+                                   ~~~~~~~~~~~\r\n    + CategoryInfo          : ObjectNotFound: (Get-Counter:String) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule\r\n \r\n",
+    "meaning": "Paused inventory for PID/LUID attribution; not active utilization evidence"
+  },
+  "counter_pause_seconds": 0.5806500999997297
+}

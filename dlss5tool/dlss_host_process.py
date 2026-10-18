@@ -19,6 +19,7 @@ import numpy as np
 
 from dlss5tool import dlss_engine
 from dlss5tool import guidance_client
+from dlss5tool import appearance
 from dlss5tool.guidance_visualization import guidance_images
 
 
@@ -398,6 +399,60 @@ class _HostSession:
             pass
 
 
+class _BypassSession:
+    """Owned synchronous result, without a host, guidance or IPC buffers."""
+    backend = 'bypass'
+    adapter_info = {}
+    max_in_flight = 1
+    supports_async = False
+    tiled = False
+
+    def __init__(self, width, height, settings, reason):
+        if int(width) <= 0 or int(height) <= 0:
+            raise ValueError('Frame dimensions must be positive')
+        self.shape = (int(height), int(width), 4)
+        self.settings = dict(settings)
+        self.reason = reason
+        self._closed = False
+        self._input = None
+
+    def copy_input(self, rgba):
+        if self._closed:
+            raise HostProcessError('DLSS session is closed')
+        if rgba.shape != self.shape or rgba.dtype != dlss_engine.frame_dtype(self.settings):
+            raise ValueError('Input does not match the frame contract')
+        self._input = rgba
+
+    def copy_output(self):
+        try:
+            return appearance.bypass_frame(self._input, self.reason)
+        finally:
+            self._input = None
+
+    def process(self, rgba, reset=False):
+        self.copy_input(rgba)
+        return self.copy_output()
+
+    def close_guidance(self):
+        pass  # No guidance resources were created.
+
+    def request(self, operation, **payload):
+        if self._closed:
+            raise HostProcessError('DLSS session is closed')
+        if operation == 'process':
+            return {'has_output': True}
+        if operation == 'pending':
+            return {'pending': 0}
+        if operation == 'update':
+            self.settings = dict(payload['settings'])
+            return {}
+        raise HostProcessError('Zero-effect bypass has no native GPU output')
+
+    def close(self):
+        self._closed = True
+        self._input = None
+
+
 class ProcessLive:
     """Drop-in Live-compatible proxy with transaction-like backend replacement."""
 
@@ -409,8 +464,23 @@ class ProcessLive:
         self.settings = guidance_client.normalize_public_settings(settings)
         self.preference = str(self.settings.get("host_backend", "auto"))
         self._live_factory = _live_factory
-        self._session = self._start_session(self._w, self._h, self.settings)
+        self._reset_next = True
+        self._session = self._make_session(self._w, self._h, self.settings)
         self._sync_metadata()
+
+    def _make_session(self, width, height, settings):
+        reason = appearance.enhancement_bypass(settings)
+        if reason is not None:
+            return _BypassSession(width, height, settings, reason)
+        return self._start_session(width, height, settings)
+
+    @property
+    def bypass_reason(self):
+        return getattr(self._session, 'reason', None)
+
+    @property
+    def enhancement_bypassed(self):
+        return self.bypass_reason is not None
 
     @staticmethod
     def _auto_candidates(settings):
@@ -468,13 +538,14 @@ class ProcessLive:
 
     def _replace(self, width, height, settings):
         # Build first so a failed backend switch leaves the current session usable.
-        replacement = self._start_session(width, height, settings)
+        replacement = self._make_session(width, height, settings)
         previous = self._session
         self._session = replacement
         self._w, self._h = int(width), int(height)
         self.settings = guidance_client.normalize_public_settings(settings)
         self.preference = str(self.settings.get("host_backend", "auto"))
         self._sync_metadata()
+        self._reset_next = True
         previous.close()
 
     def update(self, settings):
@@ -482,8 +553,11 @@ class ProcessLive:
         updated.update(settings or {})
         updated = guidance_client.normalize_public_settings(updated)
         new_preference = str(updated.get("host_backend", self.preference))
+        bypass_changed = self.bypass_reason != appearance.enhancement_bypass(updated)
+        if bypass_changed and self.pending:
+            raise HostProcessError('Drain pending frames before changing enhancement bypass')
         if (
-            self._requires_replacement(new_preference)
+            bypass_changed or self._requires_replacement(new_preference)
             or dlss_engine.frame_contract(updated) != dlss_engine.frame_contract(self.settings)
             or guidance_client.contract(updated) != guidance_client.contract(self.settings)
             or updated.get("dlss_runtime", "") != self.settings.get("dlss_runtime", "")
@@ -509,7 +583,8 @@ class ProcessLive:
 
     def process(self, rgba, reset=False):
         self._session.copy_input(rgba)
-        response = self._session.request("process", reset=bool(reset))
+        response = self._session.request("process", reset=bool(reset or self._reset_next))
+        self._reset_next = not response['has_output']
         self._notify_guidance_ready()
         return self._session.copy_output() if response["has_output"] else None
 
@@ -517,8 +592,11 @@ class ProcessLive:
         return self._session.request('gpu_output_create')['descriptor']
 
     def process_device(self,rgba,reset=False):
+        if self.enhancement_bypassed:
+            raise HostProcessError('Zero-effect bypass has no native GPU output')
         self._session.copy_input(rgba)
-        response=self._session.request('process_gpu_output',reset=bool(reset))
+        response=self._session.request('process_gpu_output',reset=bool(reset or self._reset_next))
+        self._reset_next = not response['has_output']
         self._notify_guidance_ready()
         if not response['has_output']:raise HostProcessError('DLSS GPU output failed')
 
@@ -530,19 +608,35 @@ class ProcessLive:
         """
         if max(rgba.shape[:2]) > 1280:
             raise ValueError('Guidance preview exceeds inference limit')
-        if previous is not None:
-            self._session.copy_input(previous)
-            self._session.request('guidance_preview', reset=True, display=False)
-        self._session.copy_input(rgba)
-        response = self._session.request('guidance_preview', reset=previous is None, display=True)
-        self._notify_guidance_ready()
-        return response['images'], response['reset']
+        # Explicit guidance inspection is separate from invisible enhancement
+        # work. Do not return fabricated zero flow for a bypassed output session.
+        temporary = self.enhancement_bypassed
+        session = self._start_session(self._w, self._h, self.settings) if temporary else self._session
+        try:
+            if previous is not None:
+                session.copy_input(previous)
+                session.request('guidance_preview', reset=True, display=False)
+            session.copy_input(rgba)
+            response = session.request('guidance_preview', reset=previous is None, display=True)
+            if temporary:
+                info = dict(getattr(session, 'guidance_info', {}))
+                if info and self._on_guidance_ready:
+                    self._on_guidance_ready(info)
+            else:
+                self._notify_guidance_ready()
+            return response['images'], response['reset']
+        finally:
+            self._reset_next = True
+            if temporary:
+                session.close()
 
     def enqueue(self, rgba, reset=False):
         if not self.supports_async:
             raise RuntimeError("当前主机设置不支持异步帧队列")
         self._session.copy_input(rgba)
-        response = self._session.request("enqueue", reset=bool(reset))
+        response = self._session.request("enqueue", reset=bool(reset or self._reset_next))
+        if response['accepted']:
+            self._reset_next = False
         self._notify_guidance_ready()
         return bool(response["accepted"])
 

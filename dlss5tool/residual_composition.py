@@ -265,6 +265,12 @@ def compose(original, processed, settings=None, *, order='rgb', profile='srgb'):
     values = appearance.preflight(settings, hdr=hdr)
     if original.shape != processed.shape or original.dtype != processed.dtype:
         raise ValueError('NR composition requires matching frames')
+    if hdr and profile not in ('hdr10_pq', 'hdr10_hlg', 'scrgb'):
+        raise ValueError('Unsupported HDR composition profile')
+    if appearance.source_only(values):
+        # Identity must preserve even PQ near-black codes and signed/over-white
+        # scRGB exactly, without a lossy decode/encode or a native dispatch.
+        return original
     if not hdr:
         native = _native_compose(original, processed, values, order=order)
         if native is not None:

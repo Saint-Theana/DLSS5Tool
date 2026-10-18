@@ -137,7 +137,13 @@ def main():
                 raise RuntimeError(f"视频在第 {index} 帧提前结束")
             rgba = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
             if live is None:
-                live = dlss_engine.Live(width, height, settings)
+                from dlss5tool import appearance
+                reason = appearance.enhancement_bypass(settings)
+                if reason is None:
+                    live = dlss_engine.Live(width, height, settings)
+                else:
+                    from dlss5tool.dlss_host_process import _BypassSession
+                    live = _BypassSession(width, height, settings, reason)
             dlss_started = time.perf_counter()
             if live.supports_async:
                 if not live.enqueue(rgba, reset=(index == process_start)):

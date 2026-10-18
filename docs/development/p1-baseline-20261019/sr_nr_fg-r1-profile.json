@@ -1,0 +1,383 @@
+{
+  "case": "sr_nr_fg",
+  "label": "r1",
+  "settings": {
+    "host_backend": "v2",
+    "host_auto_fallback": false,
+    "host_submission": "merged",
+    "host_persistent_buffers": true,
+    "host_zero_fast_path": true,
+    "host_in_flight": 1,
+    "render_gpu": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "guidance_mode": 0,
+    "style": 0,
+    "intensity": 0.7,
+    "local_tone": 1.0,
+    "local_struct": 1.0,
+    "skin_struct": 0.5,
+    "use_auto_mask": false,
+    "output_mix": 1.0,
+    "output_view": 0,
+    "nvenc_preset": "p5",
+    "quality_profile": "high",
+    "rate_control": "quality",
+    "video_bitrate_mbps": 20,
+    "super_resolution_scale": 2,
+    "nr_quality": {
+      "total": 0.75
+    }
+  },
+  "adapters": [
+    {
+      "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+      "name": "NVIDIA GeForce RTX 4070 SUPER",
+      "preference_index": 0,
+      "vendor_id": 4318,
+      "device_id": 10115,
+      "subsys_id": 662904531,
+      "revision": 161,
+      "dedicated_video_memory": 12579766272,
+      "luid_high": 0,
+      "luid_low": 79242,
+      "d3d12_feature_level": "12_0",
+      "cuda_index": 0,
+      "pci_bus_id": "0000:01:00.0"
+    }
+  ],
+  "source": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\source-960x540.mp4",
+  "output": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\sr_nr_fg-r1.mp4",
+  "memory_before": {
+    "private_bytes": 61763584,
+    "working_set_bytes": 88383488,
+    "free_physical_bytes": 48889057280,
+    "free_commit_bytes": 43181146112
+  },
+  "scope": "Production serial frame_generation entry; gui_sr_nr uses actual GUI SDR upscale method. No GUI/cache-layer throughput claim.",
+  "result": {
+    "experimental": true,
+    "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+    "source": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\source-960x540.mp4",
+    "output": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\sr_nr_fg-r1.mp4",
+    "multiplier": 2,
+    "spatial_scale": 2,
+    "enhance": true,
+    "status": "complete",
+    "real_frames": 32,
+    "generated_frames": 31,
+    "cut_holds": 0,
+    "endpoint_holds": 1,
+    "width": 1920,
+    "height": 1080,
+    "source_rate": "30",
+    "output_rate": "60",
+    "appearance_version": 1,
+    "composition_backend": "cpu-reference",
+    "color": "srgb",
+    "output_view": 0,
+    "runtime_sha256": "135eaf0733c1e37381a8c28abcf7a862404a54132b81787c04e35d09efc5e36f",
+    "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\sr_nr_fg-r1-logs",
+    "cleanup_errors": []
+  },
+  "status": "complete",
+  "elapsed_seconds": 26.639694899999995,
+  "memory_after": {
+    "private_bytes": 184029184,
+    "working_set_bytes": 156569600,
+    "free_physical_bytes": 48499675136,
+    "free_commit_bytes": 42804817920
+  },
+  "stages": {
+    "source.inspect": {
+      "calls": 1,
+      "total_ms": 1185.494800000015,
+      "mean_ms": 1185.494800000015,
+      "after_first_4_mean_ms": 1185.494800000015,
+      "after_first_4_median_ms": 1185.494800000015
+    },
+    "fg.initialize": {
+      "calls": 1,
+      "total_ms": 4443.033399999877,
+      "mean_ms": 4443.033399999877,
+      "after_first_4_mean_ms": 4443.033399999877,
+      "after_first_4_median_ms": 4443.033399999877
+    },
+    "sr.initialize": {
+      "calls": 1,
+      "total_ms": 2291.116000000329,
+      "mean_ms": 2291.116000000329,
+      "after_first_4_mean_ms": 2291.116000000329,
+      "after_first_4_median_ms": 2291.116000000329
+    },
+    "nr.initialize": {
+      "calls": 1,
+      "total_ms": 7755.043400000432,
+      "mean_ms": 7755.043400000432,
+      "after_first_4_mean_ms": 7755.043400000432,
+      "after_first_4_median_ms": 7755.043400000432
+    },
+    "encoder.initialize": {
+      "calls": 1,
+      "total_ms": 439.01329999971495,
+      "mean_ms": 439.01329999971495,
+      "after_first_4_mean_ms": 439.01329999971495,
+      "after_first_4_median_ms": 439.01329999971495
+    },
+    "source.read": {
+      "calls": 33,
+      "total_ms": 45.46320000099513,
+      "mean_ms": 1.3776727273028828,
+      "after_first_4_mean_ms": 0.9048379310868392,
+      "after_first_4_median_ms": 0.9101000005102833
+    },
+    "cpu.cvtColor": {
+      "calls": 254,
+      "total_ms": 211.0650000086025,
+      "mean_ms": 0.830964566963002,
+      "after_first_4_mean_ms": 0.6416524000342179,
+      "after_first_4_median_ms": 0.628550000328687
+    },
+    "sr.process": {
+      "calls": 32,
+      "total_ms": 221.55670000120153,
+      "mean_ms": 6.923646875037548,
+      "after_first_4_mean_ms": 5.377546428625075,
+      "after_first_4_median_ms": 5.338099999789847
+    },
+    "cpu.analysis": {
+      "calls": 64,
+      "total_ms": 0.39680000372754876,
+      "mean_ms": 0.006200000058242949,
+      "after_first_4_mean_ms": 0.006181666716050434,
+      "after_first_4_median_ms": 0.0059000003602704965
+    },
+    "nr.copy_input": {
+      "calls": 32,
+      "total_ms": 21.22740000140766,
+      "mean_ms": 0.6633562500439893,
+      "after_first_4_mean_ms": 0.5788714286479392,
+      "after_first_4_median_ms": 0.5545000003621681
+    },
+    "nr.rpc": {
+      "calls": 32,
+      "total_ms": 333.40359999874636,
+      "mean_ms": 10.418862499960824,
+      "after_first_4_mean_ms": 10.041682142822797,
+      "after_first_4_median_ms": 9.781200000361423
+    },
+    "nr.copy_output": {
+      "calls": 32,
+      "total_ms": 51.918699999077944,
+      "mean_ms": 1.6224593749711858,
+      "after_first_4_mean_ms": 1.542624999923906,
+      "after_first_4_median_ms": 1.5154499997152016
+    },
+    "nr.process": {
+      "calls": 32,
+      "total_ms": 407.83189999456226,
+      "mean_ms": 12.74474687483007,
+      "after_first_4_mean_ms": 12.202649999835558,
+      "after_first_4_median_ms": 11.962799999764684
+    },
+    "compose.acquire": {
+      "calls": 32,
+      "total_ms": 271.03669999814883,
+      "mean_ms": 8.469896874942151,
+      "after_first_4_mean_ms": 0.8931571428547613,
+      "after_first_4_median_ms": 0.8309499994538783
+    },
+    "compose.dll_upload_dispatch_readback": {
+      "calls": 32,
+      "total_ms": 205.58510000046226,
+      "mean_ms": 6.424534375014446,
+      "after_first_4_mean_ms": 4.367742857149486,
+      "after_first_4_median_ms": 4.322699999647739
+    },
+    "compose.total": {
+      "calls": 32,
+      "total_ms": 1760.9375000029104,
+      "mean_ms": 55.02929687509095,
+      "after_first_4_mean_ms": 45.29901785726257,
+      "after_first_4_median_ms": 45.178049999776704
+    },
+    "fg.process": {
+      "calls": 32,
+      "total_ms": 841.769500004375,
+      "mean_ms": 26.30529687513672,
+      "after_first_4_mean_ms": 25.24420357157656,
+      "after_first_4_median_ms": 25.120849999893835
+    },
+    "audit.hash": {
+      "calls": 64,
+      "total_ms": 166.298199999801,
+      "mean_ms": 2.5984093749968906,
+      "after_first_4_mean_ms": 2.5990566666678205,
+      "after_first_4_median_ms": 2.561250000326254
+    },
+    "encoder.write": {
+      "calls": 64,
+      "total_ms": 58.56650000350783,
+      "mean_ms": 0.9151015625548098,
+      "after_first_4_mean_ms": 0.8956116667225918,
+      "after_first_4_median_ms": 0.8523000001332548
+    },
+    "cpu.resize": {
+      "calls": 125,
+      "total_ms": 574.8133999995844,
+      "mean_ms": 4.598507199996675,
+      "after_first_4_mean_ms": 4.597989256190202,
+      "after_first_4_median_ms": 3.696699999636621
+    },
+    "flow.calculate": {
+      "calls": 31,
+      "total_ms": 862.6706000013655,
+      "mean_ms": 27.828083871011792,
+      "after_first_4_mean_ms": 27.200914814919223,
+      "after_first_4_median_ms": 26.850500000364264
+    },
+    "encoder.finish": {
+      "calls": 1,
+      "total_ms": 344.00339999956486,
+      "mean_ms": 344.00339999956486,
+      "after_first_4_mean_ms": 344.00339999956486,
+      "after_first_4_median_ms": 344.00339999956486
+    },
+    "fg.close": {
+      "calls": 1,
+      "total_ms": 159.39650000018446,
+      "mean_ms": 159.39650000018446,
+      "after_first_4_mean_ms": 159.39650000018446,
+      "after_first_4_median_ms": 159.39650000018446
+    },
+    "nr.close": {
+      "calls": 1,
+      "total_ms": 113.1985000001805,
+      "mean_ms": 113.1985000001805,
+      "after_first_4_mean_ms": 113.1985000001805,
+      "after_first_4_median_ms": 113.1985000001805
+    },
+    "sr.close": {
+      "calls": 1,
+      "total_ms": 3058.410599999661,
+      "mean_ms": 3058.410599999661,
+      "after_first_4_mean_ms": 3058.410599999661,
+      "after_first_4_median_ms": 3058.410599999661
+    }
+  },
+  "steady_source_fps": 5.772093465943225,
+  "components": [
+    {
+      "stage": "fg",
+      "pid": 3188,
+      "luid": 79242,
+      "native_log": "adapter[0]: NVIDIA GeForce RTX 4070 SUPER vendor=10DE device=2783 luid=00000000:0001358A vram=11997 MiB flags=0x6\nadapter[1]: Microsoft Basic Render Driver vendor=1414 device=008C luid=00000000:00015A49 vram=0 MiB flags=0x7\nadapter[2]: NVIDIA GeForce RTX 4070 SUPER vendor=10DE device=2783 luid=00000000:0003008F vram=11997 MiB flags=0x6\nadapter[3]: NVIDIA GeForce RTX 4070 SUPER vendor=10DE device=2783 luid=00000000:00027187 vram=11997 MiB flags=0x6\nadapter[4]: NVIDIA GeForce RTX 4070 SUPER vendor=10DE device=2783 luid=00000000:0002940A vram=11997 MiB flags=0x6\nadapter[5]: NVIDIA GeForce RTX 4070 SUPER vendor=10DE device=2783 luid=00000000:0002C5A3 vram=11997 MiB flags=0x6\nselected adapter: NVIDIA GeForce RTX 4070 SUPER policy=auto-nvidia luid=00000000:0001358A feature_level=0xC000\n[2026-10-19 02:04:42] [NGXSafeInitializeLog:148] App logging hooks successfully initialized\n\n[2026-10-19 02:04:42] [NGXLoadLibrary:326] error: failed to load NGXCore: 126 (F:\\project\\DLSS5Tool\\runtime\\_nvngx.dll)\n\n[2026-10-19 02:04:42] [NGXLoadLibrary:326] error: failed to load NGXCore: 126 (F:\\project\\DLSS5Tool\\runtime\\nvngx.dll)\n\n[2026-10-19 02:04:42] [NGXGetPathUsingQAI:147] Attempting to read from Parameters\\NGXCore\\NGXPath\n\n[2026-10-19 02:04:42] [NGXGetPathUsingQAI:171] Path to driverStore found using QAI: C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\n\n[2026-10-19 02:04:42] [NGXLoadCoreLibrary:279] Loading C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll succeeded\n\n[2026-10-19 02:04:42] [NGXSafeInitializeLog:139] App logging hooks successfully initialized\n\n[2026-10-19 02:04:42] [NGXGetPathUsingQAI:512] Path to driverStore found using QAI: C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\n\n[2026-10-19 02:04:42] [NGXGetPath:1046] using path for models: C:\\ProgramData\\NVIDIA\\NGX\\models\n\n[2026-10-19 02:04:42] [NGXGetPath:1046] using path for models: C:\\ProgramData\\NVIDIA\\NGX\\models\n\n[2026-10-19 02:04:42] [ModifyExistingFolderDACL:196] unable to set named security info, error: 参数错误。\n\n\n\n[2026-10-19 02:04:42] [ModifyExistingFolderDACL:215] cannot update access control list for NGX cache, must work with existing access rights\n\n[2026-10-19 02:04:42] [NGXCreateModelsFolder:1073] model folder created: C:\\ProgramData\\NVIDIA\\NGX\\models\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [dlss]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658702=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658701=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9FEB50=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9FF4BC=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9FD524=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_86A5718=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DF510=1.3.106\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9CB0B8=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9E26B0=2.1.28\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D48D0=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E99B5EC=1.2.109\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DFA64=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_866D3C8=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9FD6C0=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9CF688=2.2.15\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D6F08=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9BF564=2.1.201\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DB4F4=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D2F5C=1.2.110\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D7388=1.0.108\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9F5618=2.1.29\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DAE68=1.2.109\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D8C54=1.2.109\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D3EF0=2.1.28\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9FACDC=2.1.201\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_8669AB4=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_F7361DC=2.1.28\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9C3560=2.1.201\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9B0430=2.1.28\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_844E6FC=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_86B0DB4=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DB490=2.3.4\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_86AA7B4=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=310.9.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [dlisp]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9CF688=2.1.15\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658701=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E99B5EC=1.2.102\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658702=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=310.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D8C54=1.2.106\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9D2F5C=1.2.106\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DF510=1.3.101\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DAE68=1.2.106\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_8669AB4=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_g_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_pcl_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_reflex_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_common_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [dlssg]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658701=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_86AA7B4=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658702=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DB490=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_844E6FC=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_5FA3A53=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=310.9.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_d_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [dlssd]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658701=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_B9DB490=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658702=0.0.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=310.9.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [dlss_override]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=310.9.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_sdk_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_deepdvc_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_nis_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_deepdvc_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_nvperf_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [truehdr]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=1.1.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [vsr]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658703=1.6.0\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_sdk_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_g_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_common_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_nis_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_dlss_d_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_nvperf_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_pcl_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1145] [sl_reflex_override_0]\n\n[2026-10-19 02:04:42] [NGXLoadConfig:1151] app_E658700=2.14.16\n\n[2026-10-19 02:04:42] [`anonymous-namespace'::LoadMappingFileData:269] listItem.engineVersion .* listItem.genericCMSId 86aa7b4\n\n[2026-10-19 02:04:42] [`anonymous-namespace'::LoadMappingFileData:283]  project id 3F9D696D4363312194B0ECB2671E899F cms id B9FBD50\n\n[2026-10-19 02:04:42] [`anonymous-namespace'::LoadMappingFileData:269] listItem.engineVersion .* listItem.genericCMSId 8618954\n\n[2026-10-19 02:04:42] [`anonymous-namespace'::LoadMappingFileData:269] listItem.engineVersion .* listItem.genericCMSId b9b05cc\n\n[2026-10-19 02:04:42] [`anonymous-namespace'::LoadMappingFileData:269] listItem.engineVersion .* listItem.genericCMSId 876232c\n\n[2026-10-19 02:04:42] [MapProjectId:1879] Found cms id 876232c for engine: custom engineVersion DLSS5Tool-Experimental-Video projectID 3bfc79f4-8b20-4815-b317-e9da984d942f\n\n[2026-10-19 02:04:42] [NGXDRSInit:182] NvAPI_DRS_FindApplicationByName -166\n\n[2026-10-19 02:04:43] [NGXInitContext:245] called from module dlssg_video_worker.exe at F:\\project\\DLSS5Tool\\runtime\n\n[2026-10-19 02:04:43] [NGXLoadConfig:1145] [streamline-ota]\n\n[2026-10-19 02:04:43] [NGXLoadConfig:1151] app_84D32F0=1\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dldenoiser, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXReportStatusFeedback:1103] Override shared memory was opened successfully\n\n[2026-10-19 02:04:43] [NGXReportStatusFeedback:1115] Override shared memory was mapped successfully\n\n[2026-10-19 02:04:43] [NGXReportStatusFeedback:1144] Override feedback found available slot 0\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlss, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlss failed to load (cmsid 141959980) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlss\\versions\\0\\files, name: 160_876232C.bin)\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlss failed to load (cmsid 241534723) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlss\\versions\\0\\files, name: 160_E658703.bin)\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1499] app 876232C feature dlss snippet: F:\\project\\DLSS5Tool\\third_party\\NVIDIA-DLSS\\lib\\Windows_x86_64\\rel/nvngx_dlss.dll version: 310.7.0\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlinpainting, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlisr, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlslowmo, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlvsr, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlcolorize, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlstyletransfer, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlvdenoiser, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlisp, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlresolve, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlssg, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlssg failed to load (cmsid 141959980) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlssg\\versions\\0\\files, name: 160_876232C.bin)\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlssg failed to load (cmsid 241534723) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlssg\\versions\\0\\files, name: 160_E658703.bin)\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1420] Found dlssg driver fallback snippet at C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1499] app 876232C feature dlssg snippet: F:\\project\\DLSS5Tool\\third_party\\NVIDIA-DLSS\\lib\\Windows_x86_64\\rel/nvngx_dlssg.dll version: 310.7.0\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature deepdvc, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlssd, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlssd failed to load (cmsid 141959980) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlssd\\versions\\0\\files, name: 160_876232C.bin)\n\n[2026-10-19 02:04:43] [NGXSecureLoadFeature:1384] Feature dlssd failed to load (cmsid 241534723) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\dlssd\\versions\\0\\files, name: 160_E658703.bin)\n\n[2026-10-19 02:04:44] [NGXSecureLoadFeature:1499] app 876232C feature dlssd snippet: F:\\project\\DLSS5Tool\\third_party\\NVIDIA-DLSS\\lib\\Windows_x86_64\\rel/nvngx_dlssd.dll version: 310.7.0\n\n[2026-10-19 02:04:44] [NGXContextDenyListData::IsFeatureDenied:676] Feature truehdr, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:44] [NGXContextDenyListData::IsFeatureDenied:676] Feature latewarp, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:44] [NGXContextDenyListData::IsFeatureDenied:676] Feature vsr, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:44] [NGXSecureLoadFeature:1384] Feature vsr failed to load (cmsid 141959980) from cache (location: C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\0\\files, name: 160_876232C.bin)\n\n[2026-10-19 02:04:44] [NGXSecureLoadFeature:1375] Found vsr snippet at C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\n\n[2026-10-19 02:04:44] [NGXSecureLoadFeature:1499] app 876232C feature vsr snippet: C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files/160_E658703.bin version: 1.6.0\n\n[2026-10-19 02:04:44] [NGXContextDenyListData::IsFeatureDenied:676] Feature fgx, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:44] [NGXContextDenyListData::IsFeatureDenied:676] Feature dlssnr, denial value 0 for Cms ID 876232c\n\n[2026-10-19 02:04:44] [NGXLoadAndValidateSnippet:1586] nvLoadSignedLibraryW() failed on snippet 'F:\\project\\DLSS5Tool\\runtime/nvngx_dlssnr.dll' missing or corrupted - last error 没有验证对象的数字签名。\n\n\n\n[2026-10-19 02:04:44] [NGXLoadMetaDataViaGetFileVersionInfo:1420] swscanf_s() failed on snippet 'F:\\project\\DLSS5Tool\\runtime/nvngx_dlssnr.dll' missing or corrupted\n\n[2026-10-19 02:04:44] [`anonymous-namespace'::SnippetLocationInfo::load:720] Error: NGXLoadFromPath failed for F:\\project\\DLSS5Tool\\runtime: 0xBAD00000\n\n[2026-10-19 02:04:44] [tid:8992][NGXInitLog:232] App logging hooks successfully initialized\n\n[2026-10-19 02:04:44] [tid:8992][NGXInitLog:238] Build v310.7.0 CL 37997616\n\n[2026-10-19 02:04:44] [tid:8992][NGXInitLog:240] Built with APP_NAME = default\n\n[2026-10-"
+    },
+    {
+      "stage": "sr",
+      "pid": 39184
+    },
+    {
+      "stage": "nr",
+      "pid": 14960,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      }
+    },
+    {
+      "stage": "encoder",
+      "pid": 44996,
+      "encoder": "H.264 NVENC (GPU)",
+      "nvenc": true
+    }
+  ],
+  "raw_output_hashes": [
+    "f6a437d6167bc5c93cc0af154ff93ec83e3b4eaf0de769233b4228bd2612e15b",
+    "dead254a129a6c9172e578e5053b8089f9597dac3f95fc3b3b6d02d3176e25af",
+    "ae7adf878e277b31e079538bf6f62a75c35fffaa64bdf0798d9708bf813cbf07",
+    "1a876edaca93dfee622fffd66e54dc644c5ba7f0ce179ba9d117f368ddd782cc",
+    "0a74d80d4cbd7fccdf892fd2c4f3f64a9ab1f05facebf807f5e3f836d38b2f53",
+    "098f634848cde77812d00c54850c9fa8c013ec2e866088b375339211c52893a9",
+    "c56a15fc929b8f4015ca9fd7780f1ef964b41ad28ed4bd3bf5bfce308f03f169",
+    "6d43f5cc15366f0d8b2d2263ee0cf06cd8c4fd2edfd6a85cf551d11da573f369",
+    "a3fceb268a518904536acfe28b1f96cdb1959d4e0576002c1c24c4f944ce014d",
+    "251a3566710af4ef6c69860440e47635e11c9ee97a272ac4786489573cd1e66a",
+    "4b519c0f2b8decc7ec24c0180422d1e3ca460f138fedb8f4815e0e57f21e8b3c",
+    "b03c97cbce6fd29838e06493b7ac89d9132688d7ccc8791ba6d57467352b1d21",
+    "ed5c17730ee6e66baaede0f024ec256309132dcfc3876f077888184b7a4d136e",
+    "d42bd6c915b8fcc5828fab583533c49e5b379b7ee4d425a1767c686923352101",
+    "3c5ad5db9004c184c829e6980084812c76b92362fe3be9aaa96000057473f72f",
+    "466793e6fe5e5f5d9b4fb2e4d5ac5f74ccf4814f7bccad32f135aa5498364997",
+    "7fc47a05bcd00d2885d739d0e752a489b6f0998cf2e1ad12f6711ce8bcebc825",
+    "ff566576998c28c7d530dad044c054af332ef3428cf51650c441bbd42cb3f9c6",
+    "c1561cdbf82c6d1298dcbae1699009366fc05ae96639a7998bda8aed7155474f",
+    "d6fdf3711780967c1da1dfc4a20f552f940789264bccff175bfa470d684bfcec",
+    "5a01e2b2bb71104d866f85efd22b54e2c26eba10884187e5fb889a5f5cbc4c6d",
+    "cc4e0d702513040b266297d2689e5ce6724255fca155d68023fa6963e6a09977",
+    "2eb0479f299983b1becee1f108949bdf0c759570234ec6ed702305676f5f983b",
+    "b5b3869838f490219eecdd38d920003bb5fab24eac4cd1101b859235dcc70431",
+    "591ef80e92d2cd4224dfd4bf76bc01850525ee5bbe7756e6569aa78066566dad",
+    "734dd282a42054f61a9685aa836dd26f7a0cc71c01b725aed4c9f53efad18992",
+    "4d2ed86d0ff33864690bd344e1584ad56f3786313d144aa4e4374278cddd335b",
+    "153bc787cc328046ebfd1241997e955d19dd755461a1cb4f4526cc7fb5fae923",
+    "d2697a7d90b62c3eee7fc00b2a1cc5653eb540e71def27547399ef9a1c105678",
+    "899a5d6a9d1eb68a6f8c92839a25cc03a84e7cce3cdcafc1b48d8829fb3a95ad",
+    "11410f1313bac017e6081c2789ec9e7bf5cb3f70079b5328601beeffef3e5fe2",
+    "3e659d76fa62d4baa2b630fce5b88cdc38456a63ef7b0e304bc7c7a515b518eb",
+    "a9539e9ec37dde9b3abb80de339a6c8ab1a08e6d8107c2e7c4b7809bf7396a62",
+    "622950553bfd6b854527c6710f57ec01f5e36ecb8590e42f9d8cbcfddf00863e",
+    "25fe7426026a161f4d25c8e4fe2b4506198f7f99e8bb429682c882f45091de79",
+    "3d9d834ba67ac695e808b7410a9d5aabba0771d7a4bba5193586996c063b7a54",
+    "1d6131142d3dcf581d045d5503bc3713ec88977bedcd95dbf1883f2c6e83874a",
+    "d468e66c074cb20680e408907326629a08659c4359cbcd2d6220be8d47e43921",
+    "f6720af1f7c692f3735fedca3c937408a0c10ea7befcfb7967e694225d61d989",
+    "9b30d6ea9727b326072f95b29d53532688abebdf60a8534be08458cbd52154a2",
+    "dd494fe3ceb613f877e0fb8a607071ab98743bf4558d518b386eb34f31e01a2a",
+    "78259706bde045becffbccd5387d60e57a42c6e93346dcf24c917abaf23e3ba1",
+    "3170a842671f8fab78ce2ee1fbc4f08efc0fd113b5d9ec447eaf85cafeb76346",
+    "c4ad057ef2b5b7d47ea0bed9338d446e072ceb2a19765ebf03d59fc8a4990760",
+    "ac91aa40609841af98a1a75e947929b96d3b2a1d1b0dadfe9118b7fb7c2128e2",
+    "7dd12cf2c4de459c7acbd4226c10b38b6da9b5f1229b668f61da5e12c00b9ec1",
+    "612568d89f5a7cb06e16626fc04d938b50c67375a0671ff25756b048ce33fe2e",
+    "cdfc2deee48e0061ae21dd4a19822584c83dcc486c41d0de2cb3c08cfa8f1e50",
+    "f6905bcabf98942236cc8843a04ccec166ab3422611a6302c6e5e5f63f173143",
+    "61521fc012c96c4b17a837559133c2f105d44aa026db07bd2983dda7ffa5dbf0",
+    "54fb5b6ab8c6e77b93345056dd429aeceb001fdc6e9d14c6565c8740f2a3f262",
+    "a57bc8a5bcd4c28be60b62010749acc7eac1110e4c84dfa8e445e9f598da408a",
+    "9699b5fab8d9bc3ef2e3e54b4018b0258981e05b238eca1765f8f71e823416d3",
+    "7c2ae65230b6c59f7552f92ae59d083d195459989550d1122657e1936558977e",
+    "b107b5236ceade22d2ecf59223c438a861a573ba9d6516874a751c9de955bc25",
+    "7b6ce1a45f8ef36412617d1fa0e1d56199c2f1b945cbff38ce81d7ff1246d988",
+    "703df042f12e0bf5bcc6b44374d54662669e9724145bbad039e8f526db986671",
+    "c387b1105b525636a22a2d5286e8c1b028c2a5e89fa0685d7ab0035ce7097d6b",
+    "0df2f2b7473c628564fdb44ff8944fb5bd1ea06e59ebac4815d233c5d0d6ff3e",
+    "e14e6ec67e16ff1fa38c84286005c47d2ab23644cbb70c74505eb058f999bbf0",
+    "58ebf8fa00d557acf3fcd58b582a8d88681248ae50a0e9026e09bc3869f75025",
+    "94d471528b4991809b9f05c3a14bad5c7e56f6c80ccbb0a209d6d2ded4ad8e52",
+    "498f077b6423b21c16f4e05b1e5b5471586be2c0daaa2e840f02dfdc85c795ab",
+    "498f077b6423b21c16f4e05b1e5b5471586be2c0daaa2e840f02dfdc85c795ab"
+  ],
+  "gpu_counter_inventory": {
+    "samples": [],
+    "pids": [
+      3188,
+      5796,
+      14960,
+      39184,
+      44996
+    ],
+    "error": "Get-Counter : The 'Get-Counter' command was found in the module 'Microsoft.PowerShell.Diagnostics', but the module coul\r\nd not be loaded. For more information, run 'Import-Module Microsoft.PowerShell.Diagnostics'.\r\nAt line:1 char:35\r\n+ $ErrorActionPreference='Stop'; $c=Get-Counter -Counter @('\\GPU Engine ...\r\n+                                   ~~~~~~~~~~~\r\n    + CategoryInfo          : ObjectNotFound: (Get-Counter:String) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : CouldNotAutoloadMatchingModule\r\n \r\n",
+    "meaning": "Paused inventory for PID/LUID attribution; not active utilization evidence"
+  },
+  "counter_pause_seconds": 0.6131851000000097
+}

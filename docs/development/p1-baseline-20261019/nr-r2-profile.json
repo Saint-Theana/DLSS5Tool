@@ -1,0 +1,499 @@
+{
+  "case": "nr",
+  "label": "r2",
+  "settings": {
+    "host_backend": "v2",
+    "host_auto_fallback": false,
+    "host_submission": "merged",
+    "host_persistent_buffers": true,
+    "host_zero_fast_path": true,
+    "host_in_flight": 1,
+    "render_gpu": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+    "guidance_mode": 0,
+    "style": 0,
+    "intensity": 0.7,
+    "local_tone": 1.0,
+    "local_struct": 1.0,
+    "skin_struct": 0.5,
+    "use_auto_mask": false,
+    "output_mix": 1.0,
+    "output_view": 0,
+    "nvenc_preset": "p5",
+    "quality_profile": "high",
+    "rate_control": "quality",
+    "video_bitrate_mbps": 20,
+    "super_resolution_scale": 1
+  },
+  "adapters": [
+    {
+      "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+      "name": "NVIDIA GeForce RTX 4070 SUPER",
+      "preference_index": 0,
+      "vendor_id": 4318,
+      "device_id": 10115,
+      "subsys_id": 662904531,
+      "revision": 161,
+      "dedicated_video_memory": 12579766272,
+      "luid_high": 0,
+      "luid_low": 79242,
+      "d3d12_feature_level": "12_0",
+      "cuda_index": 0,
+      "pci_bus_id": "0000:01:00.0"
+    }
+  ],
+  "source": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\source-1920x1080.mp4",
+  "output": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\nr-r2.mp4",
+  "memory_before": {
+    "private_bytes": 61575168,
+    "working_set_bytes": 88166400,
+    "free_physical_bytes": 48879771648,
+    "free_commit_bytes": 43180232704
+  },
+  "scope": "Production serial frame_generation entry; gui_sr_nr uses actual GUI SDR upscale method. No GUI/cache-layer throughput claim.",
+  "result": {
+    "experimental": true,
+    "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+    "source": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\source-1920x1080.mp4",
+    "output": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\nr-r2.mp4",
+    "multiplier": 1,
+    "spatial_scale": 1,
+    "enhance": true,
+    "status": "complete",
+    "real_frames": 32,
+    "generated_frames": 0,
+    "cut_holds": 0,
+    "endpoint_holds": 0,
+    "width": 1920,
+    "height": 1080,
+    "source_rate": "30",
+    "output_rate": "30",
+    "appearance_version": 1,
+    "composition_backend": "neutral-bypass",
+    "color": "srgb",
+    "output_view": 0,
+    "runtime_sha256": null,
+    "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p1-baseline-20261019\\nr-r2-logs",
+    "cleanup_errors": []
+  },
+  "status": "complete",
+  "elapsed_seconds": 15.36414060000061,
+  "memory_after": {
+    "private_bytes": 93249536,
+    "working_set_bytes": 106020864,
+    "free_physical_bytes": 48762486784,
+    "free_commit_bytes": 43074064384
+  },
+  "stages": {
+    "source.inspect": {
+      "calls": 1,
+      "total_ms": 1214.2529000002469,
+      "mean_ms": 1214.2529000002469,
+      "after_first_4_mean_ms": 1214.2529000002469,
+      "after_first_4_median_ms": 1214.2529000002469
+    },
+    "nr.initialize": {
+      "calls": 1,
+      "total_ms": 6141.297600000144,
+      "mean_ms": 6141.297600000144,
+      "after_first_4_mean_ms": 6141.297600000144,
+      "after_first_4_median_ms": 6141.297600000144
+    },
+    "encoder.initialize": {
+      "calls": 1,
+      "total_ms": 351.95999999996275,
+      "mean_ms": 351.95999999996275,
+      "after_first_4_mean_ms": 351.95999999996275,
+      "after_first_4_median_ms": 351.95999999996275
+    },
+    "source.read": {
+      "calls": 33,
+      "total_ms": 129.53279999965162,
+      "mean_ms": 3.9252363636258067,
+      "after_first_4_mean_ms": 2.952768965487535,
+      "after_first_4_median_ms": 3.04249999953754
+    },
+    "cpu.cvtColor": {
+      "calls": 160,
+      "total_ms": 137.20249999551015,
+      "mean_ms": 0.8575156249719385,
+      "after_first_4_mean_ms": 0.6255134615119646,
+      "after_first_4_median_ms": 0.6073499998819898
+    },
+    "cpu.analysis": {
+      "calls": 64,
+      "total_ms": 0.33489999714220176,
+      "mean_ms": 0.005232812455346902,
+      "after_first_4_mean_ms": 0.005168333276136157,
+      "after_first_4_median_ms": 0.0050499997996666934
+    },
+    "nr.copy_input": {
+      "calls": 32,
+      "total_ms": 19.757900001422968,
+      "mean_ms": 0.6174343750444677,
+      "after_first_4_mean_ms": 0.5474035714477006,
+      "after_first_4_median_ms": 0.5273500000839704
+    },
+    "nr.rpc": {
+      "calls": 32,
+      "total_ms": 333.9971000013975,
+      "mean_ms": 10.437409375043671,
+      "after_first_4_mean_ms": 10.038939285777815,
+      "after_first_4_median_ms": 9.5744499999455
+    },
+    "nr.copy_output": {
+      "calls": 32,
+      "total_ms": 48.38379999910103,
+      "mean_ms": 1.5119937499719072,
+      "after_first_4_mean_ms": 1.4451142857134462,
+      "after_first_4_median_ms": 1.4232000003175926
+    },
+    "nr.process": {
+      "calls": 32,
+      "total_ms": 403.33670000018174,
+      "mean_ms": 12.60427187500568,
+      "after_first_4_mean_ms": 12.068132142888187,
+      "after_first_4_median_ms": 11.542350000127044
+    },
+    "compose.total": {
+      "calls": 32,
+      "total_ms": 1.6968999998425716,
+      "mean_ms": 0.05302812499508036,
+      "after_first_4_mean_ms": 0.05094999999398299,
+      "after_first_4_median_ms": 0.050999999530176865
+    },
+    "audit.hash": {
+      "calls": 32,
+      "total_ms": 82.63599999645521,
+      "mean_ms": 2.5823749998892254,
+      "after_first_4_mean_ms": 2.5774499998598395,
+      "after_first_4_median_ms": 2.5513499999760825
+    },
+    "encoder.write": {
+      "calls": 32,
+      "total_ms": 27.458800000204064,
+      "mean_ms": 0.858087500006377,
+      "after_first_4_mean_ms": 0.8156178571425698,
+      "after_first_4_median_ms": 0.7978000003276975
+    },
+    "cpu.resize": {
+      "calls": 94,
+      "total_ms": 473.258299994086,
+      "mean_ms": 5.034662765894532,
+      "after_first_4_mean_ms": 5.042947777716715,
+      "after_first_4_median_ms": 3.7651500001629756
+    },
+    "encoder.finish": {
+      "calls": 1,
+      "total_ms": 326.39410000047064,
+      "mean_ms": 326.39410000047064,
+      "after_first_4_mean_ms": 326.39410000047064,
+      "after_first_4_median_ms": 326.39410000047064
+    },
+    "nr.close": {
+      "calls": 1,
+      "total_ms": 104.93560000031721,
+      "mean_ms": 104.93560000031721,
+      "after_first_4_mean_ms": 104.93560000031721,
+      "after_first_4_median_ms": 104.93560000031721
+    }
+  },
+  "steady_source_fps": 22.793455152414253,
+  "components": [
+    {
+      "stage": "nr",
+      "pid": 3452,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      }
+    },
+    {
+      "stage": "encoder",
+      "pid": 22540,
+      "encoder": "H.264 NVENC (GPU)",
+      "nvenc": true
+    }
+  ],
+  "raw_output_hashes": [
+    "5cee8ed3e7c64b38b253263954a127104a31e6e2adbf5ec1ced7ebbe32006e02",
+    "756ab230df7ce8917767506f1088d7c29ff442edc3d85f94ba0974daea0dea7a",
+    "3510193025df6b0f58d02cff3ca54cdfd90b9e016c335f9b34297abeff7cf632",
+    "ae2390bb3267d0b3bcfe609eaffce5ae41e8095fdbadbf7ebd79ba6162447eb5",
+    "96c35131c49d899438cc31f67d1a2e8f43ae2a0b353728b7d09dfc0c280a2598",
+    "543c49f4352bcafd820e949eb5a505102a2f302f5e29c4f6f877b220fe85e058",
+    "b0baf49c0a4167ae4e7863ea3c4e118684247257724337eb6f74fd97d25f1d0b",
+    "d5fbf9922d67ffd6a38f3cfa3b83dda0cfced706f538a55704fa53cc93fd254a",
+    "00de7f315f2c92d35c19dc0cd10ccc7148a6b708c800e0ba3123adbaffe0dd0d",
+    "9dc234fe6aec37094b6a743c8bc55171074d41a8e540f022d202de4aa37b035e",
+    "83c73e04ea988c8c10d2b54f4089b94894ea354f2827be09769efec1ef11a243",
+    "95faaf1b7d792530a6ad64b5bf772a6ab4f1d9f425cdfcebe6dcd903e22b2f4f",
+    "d3634a8aa7700c038c09f29d6acf859dd8259b7763802471e379631880f29204",
+    "2031fa2606ce8db0cab23f30a6c205e01de6f8071a57051f0c1890f901937e0b",
+    "6c5a0abab23d16ba2fa8cc576d337fdd72f3fe90bc9ac73fb2e05fef9be9d10d",
+    "377b0fd223a7a0039c2444ea0f04555b61c6f39daa4560564da244bee855dd1b",
+    "757590ffab234e9eefbd5e060d822833c19f65bf86d4fc7192b606b7c9690084",
+    "0086de5fd08af22666815f222b50ed8e9a4cde1de603e2ce24b74960e488da65",
+    "fc9157d42c8a049eee68c8f174c3f49d481cc2458d88bc9fa2ad48585b8ff365",
+    "b10534c4a4df8e6d2b0cf667368f2438a58dab52b5f99c254d794f1d43073386",
+    "0d6cbfed6263891950ebbe1f5bfadb5cc8fbdb9e9a5f4853d001502296c00586",
+    "2f1e924ca0acc8de6e1b0e24ff33393b86f6b3095d4f2b4e60c514511a64e2f6",
+    "17f87c59a5aba513b08fd5df01f15bbb8f9fb3394d8fc4b52b1aec881227e1e8",
+    "c5f083fd257dad751a7d71b1752dd1cb69e1605678486b7922e6d78366eccbb4",
+    "b6afffdc937bcb6e71f9dec81b369aa6443299e63eb841b94a070b5bd27c759b",
+    "eecad8dcd37463b6ab0bce650d93e4e0a2a6a810b37082b3535e2143327f8376",
+    "780b8e745730c2f83109007722d392bb3e5364a1b8bc9b9ced41feda0829936d",
+    "a3210177491b99e8dca2019492f920eda99579d380471ef0224504b6558eeff1",
+    "fdbf9a6defdc0c585685f665c7574ccac41b9aec11c2087d28378ac9d0f7fab2",
+    "28879c602684a2cf010a9323134e9c2c0ec9c6e8edca3e4870b09e53a15a3cd5",
+    "246ccbc4e4381544299ebb8bd20bb964ed37778b317fb3f8ee75509214a72c09",
+    "cf6a9c4f5cd6b2d6b3cbd2e3b87607632e80c5340e5b26b2fba454315233433c"
+  ],
+  "gpu_counter_inventory": {
+    "samples": [
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_22540_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_3452_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_0_engtype_3d)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_10_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_11_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_12_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_13_engtype_security_1)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_1_engtype_legacyoverlay)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_2_engtype_videodecode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_3_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_4_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_5_engtype_security)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_6_engtype_videoencode)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_7_engtype_ofa_0)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_8_engtype_vr)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy",
+        "Path": "\\\\qqq\\gpu engine(pid_6068_luid_0x00000000_0x0001358a_phys_0_eng_9_engtype_copy)\\utilization percentage",
+        "CookedValue": 0.0
+      },
+      {
+        "InstanceName": "pid_22540_luid_0x00000000_0x0001358a_phys_0",
+        "Path": "\\\\qqq\\gpu process memory(pid_22540_luid_0x00000000_0x0001358a_phys_0)\\dedicated usage",
+        "CookedValue": 283463680.0
+      },
+      {
+        "InstanceName": "pid_3452_luid_0x00000000_0x0001358a_phys_0",
+        "Path": "\\\\qqq\\gpu process memory(pid_3452_luid_0x00000000_0x0001358a_phys_0)\\dedicated usage",
+        "CookedValue": 534671360.0
+      },
+      {
+        "InstanceName": "pid_6068_luid_0x00000000_0x0001358a_phys_0",
+        "Path": "\\\\qqq\\gpu process memory(pid_6068_luid_0x00000000_0x0001358a_phys_0)\\dedicated usage",
+        "CookedValue": 24576.0
+      }
+    ],
+    "pids": [
+      3452,
+      6068,
+      22540
+    ],
+    "error": null,
+    "meaning": "Paused inventory for PID/LUID attribution; not active utilization evidence"
+  },
+  "counter_pause_seconds": 5.621840399999201
+}

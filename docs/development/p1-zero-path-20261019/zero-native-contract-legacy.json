@@ -1,0 +1,129 @@
+{
+  "pid": 41716,
+  "memory_before": {
+    "private_bytes": 32407552,
+    "working_set_bytes": 46616576,
+    "free_physical_bytes": 48739950592,
+    "free_commit_bytes": 43023966208
+  },
+  "memory_after": {
+    "private_bytes": 34840576,
+    "working_set_bytes": 51912704,
+    "free_physical_bytes": 48857284608,
+    "free_commit_bytes": 43132792832
+  },
+  "profiles": [
+    {
+      "profile": "srgb",
+      "settings": {
+        "host_backend": "legacy",
+        "host_auto_fallback": false,
+        "frame_format": "rgba8",
+        "color_profile": "srgb",
+        "color_primaries": "bt709",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 0,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 1,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "style": 2,
+          "matches_native_zero_fast_path": true,
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        }
+      ],
+      "pid": 39608,
+      "adapter": {},
+      "status": "complete"
+    }
+  ]
+}

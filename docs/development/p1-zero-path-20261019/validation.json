@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-19",
+  "base_commit": "6e05ff6",
+  "production_scope": "Unified local SDR/PQ/HLG/scRGB zero-effect policy, sessions, render/cache/preview/export consumers",
+  "tests": {
+    "distinct_cases_verified": 285,
+    "subtests_verified": 59,
+    "combined_run": {"passed": 283, "errors_during_tk_setup": 2, "assertion_failures": 0},
+    "independent_rechecks": [
+      {"test": "tests/test_parameter_response.py::TestLocalResponse::test_unchanged_collect_is_read_only", "passed": 1},
+      {"test": "tests/test_parameter_response.py::TestLocalResponse::test_tk_heartbeat_and_controls_work_during_slow_composition", "passed": 1}
+    ],
+    "earlier_tk_setup_and_dialog_rechecks": "ui-results.xml: 5 passed; not additional unique-case credit",
+    "full_regression": false
+  },
+  "native_contract": {
+    "v2_profiles": ["srgb", "hdr10_pq", "hdr10_hlg", "scrgb"],
+    "legacy_profiles": ["srgb"],
+    "styles": [0, 1, 2],
+    "frames_per_style": 3,
+    "samples_matching_fast_path": 45,
+    "sample_mismatches": 0,
+    "alpha_exact": true,
+    "scrgb_native_zero_behavior": "Float RGB clamped to [0,1]; source-only composition bypass instead preserves the entire source range"
+  },
+  "accepted_pipeline_evidence": "zero-verified-pipeline.json",
+  "rejected_as_hdr_evidence": {
+    "file": "zero-pipeline.json",
+    "reason": "Initial synthetic HEVC fixtures lost transfer/primaries metadata and were processed as SDR; not accepted as HDR coverage"
+  },
+  "pipeline": {
+    "profiles": ["srgb", "hdr10_pq", "hdr10_hlg"],
+    "modes_per_profile": ["plain", "quality-zero", "basic-zero"],
+    "source": {"width": 256, "height": 256, "rate": "30/1", "frames": 8},
+    "output": {"width": 512, "height": 512, "rate": "60/1", "frames": 16},
+    "nr_hosts_created": 0,
+    "raw_frames_different_from_plain": 0,
+    "output_file_hashes_equal_within_each_profile": true,
+    "hdr_processing_dtype": "float16",
+    "hdr_first_channel_distinct_values": 1024,
+    "hdr_codec": "hevc Main 10",
+    "hdr_pixel_format": "yuv420p10le",
+    "ffprobe_count_frames_verified_files": 12,
+    "output_file_sha256_each_mode": {
+      "srgb": "7EA7810565E7A8242F6E1058313CFF599A575291BE0DE967552BADA367F53062",
+      "hdr10_pq": "87C2CABA997A7FE5AB2CD0BDC60D4C2DC05E5B07B52F82CA28CDECE1C32800F7",
+      "hdr10_hlg": "859F8768DC80947E5C560C6EA52C704C4DFAB1CE1A4362C977765AD7D3D0D103"
+    },
+    "source_file_sha256": {
+      "srgb": "AF376E6E8934D51DE1EDDA74C957185CBBFF0347B5EC71EF9A26A8745127CAA1",
+      "hdr10_pq": "3FD392381602C027DFA1B88F8BADB9A83DDD07BB6E80F14A4BFE3582207778C7",
+      "hdr10_hlg": "53C219C1E45553EB452C1078DBA0BEF3DDFDF04226E07A9F1AD839BF46A0D6EC"
+    },
+    "limits": "Synthetic short sequences, no audio; not a long-duration memory, multi-GPU, metadata-extension or all-driver certification. scRGB covered by native and array/cache interfaces, not a claimed video codec."
+  },
+  "environment": {"gpu": "RTX 4070 SUPER", "driver": "617.42", "python": "3.13.3", "numpy": "2.5.2", "opencv": "5.0.0"},
+  "build_or_package_created": false,
+  "git_commit_created": false
+}

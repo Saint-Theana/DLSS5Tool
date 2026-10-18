@@ -1,0 +1,257 @@
+{
+  "pid": 4372,
+  "memory_before": {
+    "private_bytes": 31813632,
+    "working_set_bytes": 46694400,
+    "free_physical_bytes": 48837767168,
+    "free_commit_bytes": 43021045760
+  },
+  "memory_after": {
+    "private_bytes": 36593664,
+    "working_set_bytes": 53534720,
+    "free_physical_bytes": 48958844928,
+    "free_commit_bytes": 43164782592
+  },
+  "profiles": [
+    {
+      "profile": "srgb",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba8",
+        "color_profile": "srgb",
+        "color_primaries": "bt709",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 254.0
+        }
+      ],
+      "pid": 21308,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "hdr10_pq",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "hdr10_pq",
+        "color_primaries": "bt2020",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 1.7285346984863281e-06,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 14616,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "hdr10_hlg",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "hdr10_hlg",
+        "color_primaries": "bt2020",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 0,
+          "max_rgb_error": 0.0,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 7.331371307373047e-06,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 45992,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    },
+    {
+      "profile": "scrgb",
+      "settings": {
+        "host_backend": "v2",
+        "host_auto_fallback": false,
+        "frame_format": "rgba16f",
+        "color_profile": "scrgb",
+        "color_primaries": "bt709",
+        "intensity": 0.0,
+        "local_tone": 0.0,
+        "local_struct": 0.0,
+        "skin_struct": 0.0,
+        "use_auto_mask": false,
+        "guidance_mode": 0,
+        "host_in_flight": 1
+      },
+      "frames": [
+        {
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        },
+        {
+          "different_rgb_values": 163627,
+          "max_rgb_error": 4.5,
+          "alpha_exact": true,
+          "finite": true,
+          "min_rgb": 0.0,
+          "max_rgb": 1.0
+        }
+      ],
+      "pid": 23540,
+      "adapter": {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79242,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      },
+      "status": "complete"
+    }
+  ]
+}

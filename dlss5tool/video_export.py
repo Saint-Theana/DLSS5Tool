@@ -452,12 +452,17 @@ def resize_original(frame, size):
 
 def compose_hdr_frame(original, processed, view=0, mix=1.0, profile="hdr10_pq", *, settings=None):
     """Compose RGBA16F while blending PQ/HLG in linear-light space."""
-    from dlss5tool.residual_composition import compose
-    processed = compose(original, processed, settings, profile=profile)
     view = int(view)
     if view == 0:
         mix = max(0.0, min(_MAX_OUTPUT_MIX, float(mix)))
         if mix <= 0.0:
+            from dlss5tool import appearance
+            appearance.preflight(settings or {}, hdr=True)
+            return np.ascontiguousarray(original, dtype=np.float16)
+    from dlss5tool.residual_composition import compose
+    processed = compose(original, processed, settings, profile=profile)
+    if view == 0:
+        if processed is original:
             return np.ascontiguousarray(original, dtype=np.float16)
         if mix == 1.0:
             return np.ascontiguousarray(processed, dtype=np.float16)
@@ -647,6 +652,10 @@ def probe_audio_codecs(ffmpeg, source):
 
 def compose_output_frame(original, processed, view=0, mix=1.0, *, settings=None):
     """Create the selected export view from original/processed BGR frames."""
+    if view == 0 and float(mix) <= 0:
+        from dlss5tool import appearance
+        appearance.preflight(settings or {})
+        return original
     from dlss5tool.residual_composition import compose
     processed = compose(original, processed, settings, order='bgr')
     width = original.shape[1]
@@ -660,6 +669,8 @@ def compose_output_frame(original, processed, view=0, mix=1.0, *, settings=None)
         if width > 1:
             frame[:, max(width // 2 - 1, 0)] = [255, 255, 255]
         return frame
+    if processed is original:
+        return original
     mix = max(0.0, min(_MAX_OUTPUT_MIX, float(mix)))
     if mix == 1.0:
         return processed
