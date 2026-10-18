@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 import ctypes
 import os
 import threading
+import weakref
 
 import numpy as np
 from dlss5tool import appearance
@@ -18,6 +19,38 @@ COMPOSITION_PARALLEL_MIN_PIXELS = 1_000_000
 COMPOSITION_MAX_WORKERS = 4
 NATIVE_COMPOSITION_MIN_PIXELS = 1_000_000
 _native_state = threading.local()
+
+
+def _destroy_native_bridge(library, handle):
+    try:
+        library.dlss5_quality_destroy(handle)
+    except (OSError, ctypes.ArgumentError):
+        pass
+
+
+class _NativeBridge:
+    """Own a native allocation even when its thread-local cache disappears.
+
+    The finalizer retains the DLL, never this owner. It runs when a short-lived
+    worker exits, with an atexit fallback only for a main-thread bridge.
+    """
+    def __init__(self, path, library, handle):
+        self.path, self.library, self.handle = path, library, handle
+        self._release = weakref.finalize(self, _destroy_native_bridge, library, handle)
+        # Daemon workers may still be inside the DLL at interpreter shutdown.
+        # Never run their cleanup from the main atexit thread while in use.
+        self._release.atexit = threading.current_thread() is threading.main_thread()
+
+    def close(self):
+        self._release()
+
+
+def release_native_composer():
+    """Release only this thread's idle composer; never another worker's device."""
+    bridge = getattr(_native_state, 'bridge', None)
+    _native_state.bridge = None
+    if bridge is not None:
+        bridge.close()
 
 
 def _native_library_path():
@@ -34,11 +67,13 @@ def _native_library_path():
 def _native_bridge():
     """Return one D3D11 bridge per worker thread, or None when unavailable."""
     path = _native_library_path()
+    cached = getattr(_native_state, 'bridge', None)
+    if cached is not None:
+        if path is not None and cached.path == path and cached._release.alive:
+            return cached
+        release_native_composer()
     if path is None:
         return None
-    cached = getattr(_native_state, 'bridge', None)
-    if cached is not None and cached[0] == path:
-        return cached[1]
     try:
         library = ctypes.CDLL(path)
         library.dlss5_quality_create.argtypes = []
@@ -54,8 +89,12 @@ def _native_bridge():
         handle = library.dlss5_quality_create()
         if not handle:
             return None
-        bridge = (library, handle)
-        _native_state.bridge = (path, bridge)
+        try:
+            bridge = _NativeBridge(path, library, handle)
+        except BaseException:
+            _destroy_native_bridge(library, handle)
+            raise
+        _native_state.bridge = bridge
         return bridge
     except (AttributeError, OSError, TypeError, ValueError):
         return None
@@ -84,7 +123,17 @@ def _native_compose(original, processed, values, *, order):
     bridge = _native_bridge()
     if bridge is None:
         return None
-    library, handle = bridge
+    try:
+        return _native_compose_frame(original, processed, values, order=order, bridge=bridge)
+    except BaseException:
+        # A failed preview may retain its exception traceback (and this owner).
+        # Release now, rather than relying on collection of that traceback.
+        release_native_composer()
+        raise
+
+
+def _native_compose_frame(original, processed, values, *, order, bridge):
+    library, handle = bridge.library, bridge.handle
     h, w = original.shape[:2]
     # The native shader keeps alpha and always consumes RGBA.  BGR callers are
     # converted to RGB around the dispatch so the luma weights stay correct.
@@ -106,11 +155,7 @@ def _native_compose(original, processed, values, *, order):
     except (OSError, ctypes.ArgumentError, ValueError):
         ok = 0
     if not ok:
-        try:
-            library.dlss5_quality_destroy(handle)
-        except (OSError, ctypes.ArgumentError):
-            pass
-        _native_state.bridge = None
+        release_native_composer()
         return None
     rgb = result[..., :3]
     if order == 'bgr':

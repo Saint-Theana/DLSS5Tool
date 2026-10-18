@@ -8,6 +8,7 @@ from collections import OrderedDict
 from contextlib import nullcontext
 import hashlib
 import numpy as np
+from dlss5tool.memory_budget import cache_limit_bytes
 
 CACHE_VERSION = 'raw_lru_v2_shared'
 
@@ -33,6 +34,7 @@ class RawGuidanceCache:
         self.generation = pool.generation if pool else 0
         self.pending_bytes = 0
         self.limit_bytes = max(0, int(limit_bytes))
+        self.requested_limit_bytes = self.limit_bytes
         self.bytes = 0
         self.hits = self.misses = self.evictions = 0
         self._items = OrderedDict()
@@ -48,7 +50,8 @@ class RawGuidanceCache:
 
     def put(self, key, value):
         with self.pool.locked() if self.pool else nullcontext():
-            if self.pool:self.limit_bytes = self.pool.allowance_locked(respect_demand=True)
+            self.limit_bytes = (self.pool.allowance_locked(respect_demand=True) if self.pool else
+                                cache_limit_bytes(self.requested_limit_bytes, self.bytes))
             self._trim()
             if self.pool and value.nbytes > self.limit_bytes and value.nbytes <= self.pool.limit_bytes:
                 self.pending_bytes = value.nbytes
@@ -97,6 +100,9 @@ class RawGuidanceCache:
                 if self.pending_bytes > self.pool.limit_bytes:self.pending_bytes=0
                 self.limit_bytes=self.pool.allowance_locked(respect_demand=True)
                 self._trim();self.pool.publish_locked(self.bytes,self.pending_bytes)
+        else:
+            self.limit_bytes = cache_limit_bytes(self.requested_limit_bytes, self.bytes)
+            self._trim()
 
     def close(self):
         self.clear()

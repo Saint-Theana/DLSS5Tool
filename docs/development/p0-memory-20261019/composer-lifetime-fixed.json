@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-19",
+  "source_head": "254aa16",
+  "state": "uncommitted source fix",
+  "native_dll_sha256": "e81f1a00a67dcd8227c7d27fb9ac884d8ba1d4f0107e980380e8a0fe659d9e0c",
+  "tests": {
+    "passed": 125,
+    "skipped_in_base_environment": 2,
+    "torch_supplement_passed": 2,
+    "total_unique_passed": 127,
+    "subtests_passed": 35
+  },
+  "preview_threads": {
+    "mode": "native",
+    "lifetime": "preview-threads",
+    "dll": "F:\\project\\DLSS5Tool\\runtime\\dlss5_quality.dll",
+    "requested_cycles": 6,
+    "samples": [
+      {
+        "cycle": 1,
+        "created": 1,
+        "destroyed": 1,
+        "live": 0,
+        "private_bytes": 75735040,
+        "working_set_bytes": 68435968,
+        "free_physical_bytes": 49747767296,
+        "free_commit_bytes": 43282526208
+      },
+      {
+        "cycle": 2,
+        "created": 2,
+        "destroyed": 2,
+        "live": 0,
+        "private_bytes": 80908288,
+        "working_set_bytes": 80142336,
+        "free_physical_bytes": 49734590464,
+        "free_commit_bytes": 43275104256
+      },
+      {
+        "cycle": 3,
+        "created": 3,
+        "destroyed": 3,
+        "live": 0,
+        "private_bytes": 83120128,
+        "working_set_bytes": 85004288,
+        "free_physical_bytes": 49732861952,
+        "free_commit_bytes": 43292545024
+      },
+      {
+        "cycle": 4,
+        "created": 4,
+        "destroyed": 4,
+        "live": 0,
+        "private_bytes": 82153472,
+        "working_set_bytes": 85508096,
+        "free_physical_bytes": 49724608512,
+        "free_commit_bytes": 43284672512
+      },
+      {
+        "cycle": 5,
+        "created": 5,
+        "destroyed": 5,
+        "live": 0,
+        "private_bytes": 86605824,
+        "working_set_bytes": 85962752,
+        "free_physical_bytes": 49715838976,
+        "free_commit_bytes": 43253325824
+      },
+      {
+        "cycle": 6,
+        "created": 6,
+        "destroyed": 6,
+        "live": 0,
+        "private_bytes": 86302720,
+        "working_set_bytes": 85995520,
+        "free_physical_bytes": 49717444608,
+        "free_commit_bytes": 43252654080
+      }
+    ],
+    "verify_pixels": false,
+    "release_each_cycle": false,
+    "baseline": {
+      "private_bytes": 31141888,
+      "working_set_bytes": 43655168,
+      "free_physical_bytes": 49761771520,
+      "free_commit_bytes": 43315052544
+    },
+    "before_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "after_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "private_bytes": 86302720,
+      "working_set_bytes": 85995520,
+      "free_physical_bytes": 49717444608,
+      "free_commit_bytes": 43252654080
+    }
+  },
+  "explicit_cleanup_pixels": {
+    "mode": "native",
+    "lifetime": "persistent-thread",
+    "dll": "F:\\project\\DLSS5Tool\\runtime\\dlss5_quality.dll",
+    "requested_cycles": 6,
+    "samples": [
+      {
+        "cycle": 1,
+        "created": 1,
+        "destroyed": 1,
+        "live": 0,
+        "private_bytes": 81354752,
+        "working_set_bytes": 77242368,
+        "free_physical_bytes": 49714626560,
+        "free_commit_bytes": 43258695680
+      },
+      {
+        "cycle": 2,
+        "created": 2,
+        "destroyed": 2,
+        "live": 0,
+        "private_bytes": 83230720,
+        "working_set_bytes": 87531520,
+        "free_physical_bytes": 49711333376,
+        "free_commit_bytes": 43260407808
+      },
+      {
+        "cycle": 3,
+        "created": 3,
+        "destroyed": 3,
+        "live": 0,
+        "private_bytes": 84697088,
+        "working_set_bytes": 87945216,
+        "free_physical_bytes": 49709023232,
+        "free_commit_bytes": 43258200064
+      },
+      {
+        "cycle": 4,
+        "created": 4,
+        "destroyed": 4,
+        "live": 0,
+        "private_bytes": 88924160,
+        "working_set_bytes": 92368896,
+        "free_physical_bytes": 49715634176,
+        "free_commit_bytes": 43265200128
+      },
+      {
+        "cycle": 5,
+        "created": 5,
+        "destroyed": 5,
+        "live": 0,
+        "private_bytes": 88141824,
+        "working_set_bytes": 92905472,
+        "free_physical_bytes": 49711267840,
+        "free_commit_bytes": 43260866560
+      },
+      {
+        "cycle": 6,
+        "created": 6,
+        "destroyed": 6,
+        "live": 0,
+        "private_bytes": 89653248,
+        "working_set_bytes": 97767424,
+        "free_physical_bytes": 49702051840,
+        "free_commit_bytes": 43254362112
+      }
+    ],
+    "verify_pixels": true,
+    "release_each_cycle": true,
+    "baseline": {
+      "private_bytes": 39067648,
+      "working_set_bytes": 53104640,
+      "free_physical_bytes": 49767944192,
+      "free_commit_bytes": 43350974464
+    },
+    "before_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "native_dispatches": 6,
+      "failed_dispatches": 0
+    },
+    "pixels": {
+      "comparisons": 6,
+      "max_rgb_code_error": 1,
+      "alpha_exact": true
+    },
+    "after_probe_cleanup": {
+      "created": 6,
+      "destroyed": 6,
+      "live": 0,
+      "private_bytes": 89653248,
+      "working_set_bytes": 97771520,
+      "free_physical_bytes": 49702035456,
+      "free_commit_bytes": 43254362112
+    }
+  }
+}

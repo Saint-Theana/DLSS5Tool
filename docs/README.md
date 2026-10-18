@@ -51,6 +51,8 @@
 - 本机窗口实时增强：[当前使用说明](REALTIME_USER_GUIDE.md)、[实现与验收台账](development/REALTIME_IMPLEMENTATION_20261003.md)；[Magpie / Veyra 原始研究清单（历史计划）](development/MAGPIE_VEYRA_REUSE_CHECKLIST_20261003.md)
 - 双模式复用与资源协调：[P3 收尾记录](development/P3_CLOSEOUT_20261011.md)、[参数交互优化](development/PARAMETER_RESPONSE_20261010.md)
 - 下一轮研究交接：[光流性能与质量 TODO（用户决策、缓存收益、异步时序安全）](development/TODO_FLOW_PERFORMANCE_20260915.md)
+- 当前待办排序：[2026-10-19：内存与退出释放、GPU 吞吐、本地 GPU 合成及后续研究](development/TODO_PRIORITIES_20261019.md)
+- 下一步交接（未开始）：[本地 GPU 合成后续：同卡、HDR 公式、接入与免读回](development/TODO_LOCAL_GPU_COMPOSITION_20261016.md)
 - GPU 常驻研究：[2026-09-15 原型](development/GPU_PIPELINE_STUDY_20260915.md)；编码合同补测：[2026-09-16 验收（未批准生产接入）](development/ENCODE_ACCEPTANCE_20260916.md)
 - 当前接入进展：[2026-09-17 编码时间戳与SDR GPU转换（候选通过，未切换默认）](development/ENCODER_INTEGRATION_20260917.md)
 - 后续落地：[2026-09-19 真实插帧与音视频封装接入（显式候选，HDR转换未完成）](development/GPU_EXPORT_INTEGRATION_20260919.md)

@@ -14,6 +14,7 @@ import time
 import uuid
 
 import numpy as np
+from dlss5tool.memory_budget import bounded_frame_count, memory_headroom_bytes
 from dlss5tool import i18n
 from dlss5tool import paths
 
@@ -124,6 +125,8 @@ def select_in_flight(width, height, scale, requested, *, is_hdr=False, guidance=
     """
     requested = clamp_in_flight(requested)
     ow, oh = target_size(width, height, scale)
+    slot_bytes = (2 * ow * oh + int(width) * int(height)) * (8 if is_hdr else 4)
+    requested = max(1, bounded_frame_count(requested, slot_bytes))
     if ow * oh <= 3840 * 2160:
         return requested
     available = (gpu_memory or {}).get('free_bytes', 0)
@@ -316,6 +319,12 @@ class ProcessSuperResolution:
         if self.scale == 1:
             raise ValueError("超分会话只接受 2× 或 4×")
         self.output_width, self.output_height = validate_dimensions(self.width, self.height, self.scale)
+        need = estimate_resources(self.width, self.height, self.scale, self.is_hdr,
+                                  in_flight=1)['recommended_ram_bytes']
+        headroom = memory_headroom_bytes()
+        if headroom is not None and need > headroom:
+            raise SuperResolutionError(i18n.tr('message.ram_headroom',
+                required=format_bytes(need), available=format_bytes(headroom)))
         self.dtype = np.float16 if self.is_hdr else np.uint8
         self.timeout = operation_timeout(
             self.output_width, self.output_height, minimum=timeout,

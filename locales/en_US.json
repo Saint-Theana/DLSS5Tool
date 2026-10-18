@@ -922,6 +922,8 @@
   "message.vsr_components_missing": "RTX Video super-resolution components are incomplete: {missing}.\n\nRebuild or install a release that includes the RTX Video SDK runtime.",
   "message.super_resolution_plan": "About to run {scale}× RTX Video super resolution → DLSS 5\n\nTarget size: {width}×{height}\nPer frame: {frame_memory}\nKnown VRAM minimum: {gpu_minimum}\nRecommended free VRAM: {gpu_recommended}\nEstimated system memory: {ram_recommended}",
   "message.gpu_free": "\nCurrent free GPU memory: {value}",
+  "message.ram_headroom": "Insufficient system memory for this upscale: estimated {required}, with {available} available after reserving memory for the system and active processing. Close other tasks or clear the preview cache and retry.",
+  "message.decode_ram_headroom": "Insufficient system memory to continue decoding ahead. This export has stopped; free memory and retry.",
   "message.over_8192": "\n\nOne target dimension exceeds 8192. DLSS5Tool does not impose a limit, but RTX VSR or the video encoder may reject this size.",
   "message.super_resolution_continue": "\n\nInitialization or allocation failure will stop only the current processing session. Continue?",
   "message.input_image_unreadable": "Unable to read the image. Check the input file.",

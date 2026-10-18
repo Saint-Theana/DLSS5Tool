@@ -66,6 +66,19 @@ class RuntimeDiscoveryTests(unittest.TestCase):
 
 
 class SessionPolicyTests(unittest.TestCase):
+    def test_ram_pressure_rejected_before_shared_memory_or_child_start(self):
+        with mock.patch.object(super_resolution, 'memory_headroom_bytes', return_value=1), \
+                mock.patch.object(super_resolution.shared_memory, 'SharedMemory') as buffers, \
+                mock.patch.object(super_resolution.multiprocessing, 'get_context') as context:
+            with self.assertRaises(super_resolution.SuperResolutionError):
+                super_resolution.ProcessSuperResolution(1920, 1080, 2)
+            buffers.assert_not_called()
+            context.assert_not_called()
+
+    def test_in_flight_slots_respect_ram_before_existing_gpu_policy(self):
+        with mock.patch.object(super_resolution, 'bounded_frame_count', return_value=2):
+            self.assertEqual(super_resolution.select_in_flight(1920, 1080, 2, 16), 2)
+
     def test_impossible_plans_rejected_before_shared_memory_or_gpu(self):
         for width, height, scale in [(11637,5120,2),(11637,5120,4),(4608,4608,4),(0,512,2),(-3,512,2)]:
             with self.subTest(size=(width,height,scale)), mock.patch.object(

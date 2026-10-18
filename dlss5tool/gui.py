@@ -47,6 +47,8 @@ from dlss5tool.image_alpha import (
     ALPHA_EXTENSIONS, read_still, inference_color, resize_preview, restore_alpha,
 )
 from dlss5tool.shared_cache_budget import SharedCacheBudget
+from dlss5tool.memory_budget import bounded_frame_count, cache_limit_bytes, system_memory
+from dlss5tool.residual_composition import release_native_composer
 from dlss5tool import mod_paths
 from dlss5tool import export_queue as export_queue_state
 from dlss5tool import updater
@@ -3961,7 +3963,9 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
 
     def _available_frame_cache_bytes(self):
         pool = getattr(self, '_shared_cache_pool', None)
-        if pool is None:return self._preview_cache_bytes()
+        if pool is None:
+            used = self._dlss_cache_bytes + self._source_cache_bytes
+            return cache_limit_bytes(self._preview_cache_bytes(), used)
         with pool.locked():return pool.allowance_locked(respect_demand=True)
 
     def _publish_frame_cache_locked(self):
@@ -5798,6 +5802,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             self._shared_cache_pool.close()
             self._shared_cache_pool = None
         self._close_super_resolution()
+        release_native_composer()
         if self._detached_preview_window is not None:
             ui_theme.release_app_icon(self._detached_preview_window)
         ui_theme.release_app_icon(self.root)
@@ -5944,6 +5949,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                     pass
                 self._live = None
         self._cache_clear()
+        release_native_composer()
         self._last_dlss_frame = -1
 
     def _source_size(self, source_bgr=None):
@@ -6191,7 +6197,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             with pool.locked():
                 self._evict_preview_cache_accounted(pool.allowance_locked(respect_demand=True))
                 self._publish_frame_cache_locked()
-        else:self._evict_preview_cache_accounted(self._preview_cache_bytes())
+        else:self._evict_preview_cache_accounted(self._available_frame_cache_bytes())
 
     def _evict_preview_cache_accounted(self, budget):
         budget = max(budget, 0)
@@ -6318,6 +6324,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         if pool:
             pool.invalidate_guidance()
         self._cache_clear()
+        release_native_composer()
         self._last_dlss_frame = -1
         self._play_orig = None
         self._split_frame = -1
@@ -9180,6 +9187,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         context = {
             'workbench_mode': self._workbench_mode,
             'gpu_resources': self._gpu_resource_snapshot(),
+            'system_memory': system_memory(),
             "settings": self._collect_settings(include_cache_pool=deep),
             "export_settings": self._collect_export_settings(),
             "preview_super_resolution": self._preview_effect_enabled("super_resolution"),
@@ -10717,6 +10725,12 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                         break
                     if tone_map_hdr:
                         frame = tone_map_hdr_preview(frame, color_info)
+                    capacity = bounded_frame_count(buffer_size, frame.nbytes)
+                    if not capacity:
+                        raise MemoryError(tr('message.decode_ram_headroom'))
+                    with frame_queue.not_full:
+                        frame_queue.maxsize = capacity
+                        frame_queue.not_full.notify_all()
                     if not put_with_stop((index, frame)):
                         return
                     index += 1

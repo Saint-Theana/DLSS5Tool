@@ -17,6 +17,7 @@ import numpy as np
 
 from dlss5tool import paths
 from dlss5tool import appearance
+from dlss5tool.memory_budget import cache_limit_bytes
 from dlss5tool.parameter_contract import COMPOSITION_VERSION
 from dlss5tool.image_sequence import ImageSequence, is_sequence, source_bytes, audio_source
 from dlss5tool.frame_generation import Cancelled, check_cancel, export_video, runtime_files, inspect_source
@@ -147,7 +148,7 @@ class RenderSession:
 
     def _allowance(self):
         if self.pool is None:
-            return self.limit
+            return cache_limit_bytes(self.limit, self.bytes)
         with self.pool.locked():
             return min(self.limit, self.pool.allowance_locked(respect_demand=True))
 
@@ -337,7 +338,7 @@ class RenderSession:
                     while (index > self.target and self.cache
                            and self.bytes + size > self._allowance()):
                         if size > self._allowance():
-                            raise RuntimeError('缓存预算不足一个全精度帧对，请增加缓存预算')
+                            raise RuntimeError('缓存预算或系统内存余量不足一个全精度帧对，请释放内存或调整缓存预算')
                         others = [i for i in self.cache if i < self.target]
                         if others:
                             victim = max(others, key=lambda i: abs(i-self.target))
@@ -351,7 +352,7 @@ class RenderSession:
                         self.bytes -= _pair_bytes(old)
                     allowance = self._trim(size)
                     if size > allowance:
-                        raise RuntimeError('缓存预算不足一个全精度帧对，请增加缓存预算；未降低分辨率')
+                        raise RuntimeError('缓存预算或系统内存余量不足一个全精度帧对，请释放内存或调整缓存预算；未降低分辨率')
                     a, b = np.array(processed, copy=True), np.array(reference, copy=True)
                     a.flags.writeable = b.flags.writeable = False
                     blend = (b if mix_source is None or mix_source is reference else

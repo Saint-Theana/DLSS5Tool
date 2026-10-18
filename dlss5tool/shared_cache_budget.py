@@ -11,6 +11,7 @@ import mmap
 import os
 import struct
 import uuid
+from dlss5tool.memory_budget import cache_limit_bytes
 
 MAGIC = b'D5CACHE2'
 SIZE = 4096
@@ -79,7 +80,8 @@ class SharedCacheBudget:
     def allowance_locked(self, respect_demand=False):
         other=sum(max(size,demand) if respect_demand else size for i in range(SLOTS)
                   for pid,size,demand in [self.read(i)] if pid and i!=self.slot)
-        return max(0,self.limit_bytes-other)
+        used=sum(self.read(i)[1] for i in range(SLOTS))
+        return max(0,cache_limit_bytes(self.limit_bytes,used)-other)
 
     def reap_locked(self):
         for i in range(SLOTS):
@@ -99,7 +101,8 @@ class SharedCacheBudget:
             self.reap_locked()
             used=sum(self.read(i)[1] for i in range(SLOTS))
             own=self.read(self.slot)[1]
-            return {'limit_bytes':self.limit_bytes,'used_bytes':used,'other_bytes':used-own}
+            return {'limit_bytes':self.limit_bytes,'used_bytes':used,'other_bytes':used-own,
+                    'effective_limit_bytes':cache_limit_bytes(self.limit_bytes,used)}
 
     def set_limit(self,size):
         with self.locked():struct.pack_into('<Q',self.mapping,8,max(0,int(size)))

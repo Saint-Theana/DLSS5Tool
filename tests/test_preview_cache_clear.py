@@ -2,7 +2,7 @@
 import queue
 import threading
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from dlss5tool.gui import App
 
@@ -154,6 +154,19 @@ class ClearPreviewCacheTests(unittest.TestCase):
         app._exporting = False
         app._poll_clear_preview_cache()
         self.assertFalse(app._clear_preview_pending)
+
+    def test_composer_is_released_only_after_worker_retirement(self):
+        app = self.make_app()
+        worker = Mock()
+        app._play_dlss_thread = worker
+        worker.is_alive.return_value = True
+        with patch('dlss5tool.gui.release_native_composer') as release:
+            app.clear_preview_cache()
+            app._poll_clear_preview_cache()
+            release.assert_not_called()
+            worker.is_alive.return_value = False
+            app._poll_clear_preview_cache()
+            release.assert_called_once_with()
 
 
 if __name__ == '__main__':
