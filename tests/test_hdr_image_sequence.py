@@ -71,6 +71,53 @@ def test_reader_preserves_precision_seek_eof_and_close(hdr_sequence):
         past_end.close()
 
 
+@pytest.mark.parametrize('state', ['eof', 'closed', 'seek-past-end'])
+def test_known_sequence_end_needs_no_frame_memory(hdr_sequence, state):
+    from dlss5tool import memory_budget
+    sequence, manifest = hdr_sequence
+    start = len(sequence.files) if state == 'seek-past-end' else 0
+    reader = FFmpegHDRVideoReader(manifest, 128, 128, sequence.metadata, start_frame=start)
+    try:
+        if state == 'closed':
+            reader.close()
+        elif state == 'eof':
+            for _ in sequence.files:
+                assert reader.read() is not None
+        with mock.patch.object(memory_budget, 'memory_headroom_bytes', return_value=0):
+            assert reader.read() is None
+            assert reader.read() is None
+    finally:
+        reader.close()
+
+
+def test_hdr_export_finishes_when_pressure_arrives_after_last_frame(hdr_sequence, tmp_path):
+    from dlss5tool import frame_generation as fg, memory_budget, super_resolution
+    sequence, manifest = hdr_sequence
+    pressure = {'active': False}
+    writers = []
+    def make_writer(output, *args, **kwargs):
+        Path(output).write_bytes(b'synthetic encoded result')
+        writer = mock.Mock()
+        count = 0
+        def write(frame):
+            nonlocal count
+            count += 1
+            if count == len(sequence.files):
+                pressure['active'] = True
+        writer.write.side_effect = write
+        writers.append(writer)
+        return writer
+    with mock.patch.object(memory_budget, 'memory_headroom_bytes',
+                           side_effect=lambda: 0 if pressure['active'] else 4*1024**3), \
+            mock.patch.object(super_resolution, 'query_gpu_memory', return_value=None), \
+            mock.patch.object(fg, 'FFmpegVideoWriter', side_effect=make_writer):
+        report = fg.export_video(manifest, tmp_path/'out.mp4', multiplier=1,
+                                 enhance=False, log_dir=tmp_path/'logs')
+    assert report['status'] == 'complete' and report['real_frames'] == len(sequence.files)
+    writers[0].finish.assert_called_once_with()
+    writers[0].abort.assert_not_called()
+
+
 def test_preview_tonemaps_uint16_without_modifying_input(hdr_sequence):
     sequence, manifest = hdr_sequence
     cap = open_capture(manifest)

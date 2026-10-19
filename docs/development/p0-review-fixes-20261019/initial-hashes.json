@@ -1,0 +1,46 @@
+[
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\dlss_host_process.py",
+    "Hash": "80BB5603C14C955103DA728F2A7DA76E87381160449D83D0AD824791FB4591E1"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\dlss_engine.py",
+    "Hash": "724F8DB2EDA86EEAC3861252B30D43C8A3905B647DDA06B1AF097FE3D9D4F155"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\host_queue.py",
+    "Hash": "C1210CA01DBFABF715E252760D638CDCDAE8A1D3B328C4FB11C53355DE68F427"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py",
+    "Hash": "DD3174DB8E6EE249BF460E782BBCDD31774D070BB9EEF57CBB2DE00EC0E19231"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\frame_generation.py",
+    "Hash": "4BDA4F9C1C8E646C3C3DED30B0524389D28ACAA791CD50EA777C523A2740A087"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\super_resolution.py",
+    "Hash": "1566209BBE7A9AE0292F8AC5F3671A91EAF17574E1D8E128784D00BF04C6A28E"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\dlss5tool\\video_export.py",
+    "Hash": "4B736C581147ADAAD9EA0C23FC0F5A9A9A14357F54706117943CD513E533C382"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\tests\\test_p0_memory_boundaries.py",
+    "Hash": "359869B36A0FFB73CDFAD303F50DBF18D3236DB4C5EE91C29034E6BAF32C2DE4"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\tests\\test_host_queue.py",
+    "Hash": "CAAC5C78FA0BE181881E21F90015A40B5B0E9C878DBDA754CD8B88CC32525AFA"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\tests\\test_hdr_image_sequence.py",
+    "Hash": "323B39C02267241FC25C499C3AD7698DD771B4C3BECC6C5F73D1317906EED638"
+  },
+  {
+    "Path": "F:\\project\\DLSS5Tool\\docs\\release\\RELEASE_NOTES_v3.0.1.md",
+    "Hash": "81219F153105161F4F5DDF4F14CD29E658AAC6F7C75C50F47E805BF2DE95AE8C"
+  }
+]

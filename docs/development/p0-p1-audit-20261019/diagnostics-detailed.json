@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "source_version": "3.0.2",
+  "python": "3.13.3",
+  "numpy": "2.5.2",
+  "p0_shared_allocation_failure": {
+    "error": "audit: second shared allocation failed",
+    "allocated_bytes": 256,
+    "close_calls_after_failure": 0,
+    "unlink_calls_after_failure": 0,
+    "mapping_open_after_failure": true,
+    "partial_owner_close_error": "AttributeError: 'ProcessSuperResolution' object has no attribute '_process'"
+  },
+  "p0_retained_error": {
+    "error": "audit: renderer failed after frame allocation",
+    "synthetic_frame_bytes": 65536,
+    "retained_before_close": true,
+    "retained_after_close": true,
+    "retained_after_clearing_traceback": false,
+    "cache_reported_bytes": 0
+  },
+  "p0_zero_headroom_slots": {
+    "bounded_frame_count": 0,
+    "selected_in_flight": 1,
+    "host_attempted_shared_allocation": true,
+    "attempted_shared_bytes": 16588800,
+    "case": "1920x1080 HDR, scale=1; no VSR constructor admission"
+  },
+  "p1_multiple_gpu_query": {
+    "simulated_driver_rows": [
+      "GPU A, 24576, 20000",
+      "GPU B, 8192, 500"
+    ],
+    "snapshot": {
+      "name": "GPU A",
+      "total_bytes": 25769803776,
+      "free_bytes": 20971520000
+    },
+    "risk_from_first_gpu": "low",
+    "risk_if_using_gpu_b": "high",
+    "query_parameters": [
+      "cache_seconds"
+    ]
+  },
+  "p1_hdr_cpu_preparation": {
+    "width": 1920,
+    "height": 1080,
+    "dtype": "float16",
+    "input_pair_bytes": 33177600,
+    "method": "one warmup, five sequential CPU preparation calls per profile; allocation peak measured separately; no DLL, GPU or encoder",
+    "profiles": {
+      "hdr10_pq": {
+        "samples_ms": [
+          272.23809999850346,
+          279.4702999999572,
+          270.5156000010902,
+          275.07450000121025,
+          275.54310000050464
+        ],
+        "median_ms": 275.07450000121025,
+        "prepared_pair_bytes": 66355200,
+        "python_numpy_traced_peak_bytes": 190772484,
+        "separate_breakdown": {
+          "total_ms": 279.001300001255,
+          "eotf_calls_ms": [
+            108.24729999876581,
+            106.53880000245408
+          ],
+          "other_preparation_ms": 64.21520000003511
+        }
+      },
+      "hdr10_hlg": {
+        "samples_ms": [
+          246.51869999797782,
+          244.38659999941592,
+          247.89080000118702,
+          246.1449000002176,
+          245.51440000141156
+        ],
+        "median_ms": 246.1449000002176,
+        "prepared_pair_bytes": 66355200,
+        "python_numpy_traced_peak_bytes": 271709952,
+        "separate_breakdown": {
+          "total_ms": 249.55989999943995,
+          "eotf_calls_ms": [
+            93.11800000068615,
+            91.52499999981956
+          ],
+          "other_preparation_ms": 64.91689999893424
+        }
+      }
+    }
+  }
+}

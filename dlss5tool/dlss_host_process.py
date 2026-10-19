@@ -10,6 +10,7 @@ commands and acknowledgements.
 
 import multiprocessing
 from multiprocessing import shared_memory
+from dlss5tool.memory_budget import require_memory_headroom
 import os
 import tempfile
 import traceback
@@ -20,6 +21,7 @@ import numpy as np
 from dlss5tool import dlss_engine
 from dlss5tool import guidance_client
 from dlss5tool import appearance
+from dlss5tool.host_queue import configured_in_flight
 from dlss5tool.guidance_visualization import guidance_images
 
 
@@ -214,6 +216,7 @@ class _HostSession:
         self._closed = False
         self._process = None
         self._connection = None
+        self._child_connection = None
         self._input_memory = None
         self._output_memory = None
         self._input_frame = None
@@ -231,6 +234,10 @@ class _HostSession:
         frame_bytes = self.width * self.height * 4 * np.dtype(self.dtype).itemsize
         if frame_bytes <= 0:
             raise ValueError("DLSS 帧尺寸必须大于零")
+        # Two IPC frames, native upload/readback per slot and caller output/
+        # composition frames. Pure NR/HDR also needs admission without VSR.
+        slots = configured_in_flight(settings)
+        require_memory_headroom(frame_bytes * (4 + 2 * slots))
         try:
             self._input_memory = _open_shared_memory(
                 create=True, size=frame_bytes, track=True,
@@ -247,12 +254,11 @@ class _HostSession:
                 buffer=self._output_memory.buf,
             )
             context = multiprocessing.get_context("spawn")
-            parent_connection, child_connection = context.Pipe(duplex=True)
-            self._connection = parent_connection
+            self._connection, self._child_connection = context.Pipe(duplex=True)
             self._process = context.Process(
                 target=_host_worker_main,
                 args=(
-                    child_connection, self.width, self.height, dict(settings),
+                    self._child_connection, self.width, self.height, dict(settings),
                     self._input_memory.name, self._output_memory.name,
                     self.log_path, live_factory,
                 ),
@@ -260,7 +266,8 @@ class _HostSession:
                 daemon=True,
             )
             self._process.start()
-            child_connection.close()
+            self._child_connection.close()
+            self._child_connection = None
             response = self._receive(_CREATE_TIMEOUT, "initialize")
             self._check_response(response)
             self._apply_metadata(response)
@@ -364,7 +371,10 @@ class _HostSession:
             if self._process.is_alive() and hasattr(self._process, "kill"):
                 self._process.kill()
                 self._process.join(timeout=_STOP_TIMEOUT)
-        if self._process is not None and not self._process.is_alive():
+            if self._process.is_alive():
+                self._closed = False
+                raise HostProcessError('DLSS 工作进程尚未退出，暂不释放共享帧，请重试关闭')
+        if self._process is not None and self._process.pid is not None:
             self._process.join(timeout=0)
         if self._connection is not None:
             try:
@@ -372,6 +382,12 @@ class _HostSession:
             except OSError:
                 pass
             self._connection = None
+        if self._child_connection is not None:
+            try:
+                self._child_connection.close()
+            except OSError:
+                pass
+            self._child_connection = None
         self._input_frame = None
         self._output_frame = None
         for memory in (self._input_memory, self._output_memory):
@@ -513,6 +529,9 @@ class ProcessLive:
                     width, height, worker_settings,
                     live_factory=self._live_factory,
                 )
+            except MemoryError:
+                # RAM exhaustion must not trigger another backend allocation.
+                raise
             except Exception as exception:
                 failures.append("%s: %s" % (backend, exception))
                 if backend == "v2" and dlss_engine.is_render_adapter_error(exception):

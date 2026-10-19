@@ -130,6 +130,8 @@ class ProcessGpuVideoWriter:
         try:
             self.output_path=Path(args[0] if args else kwargs['output_path']).resolve()
             if self.output_path.exists():raise FileExistsError(self.output_path)
+            from dlss5tool.memory_budget import require_memory_headroom
+            require_memory_headroom(width*height*32)  # IPC plus owned upload frame.
             self._transaction=Path(tempfile.mkdtemp(prefix='.'+self.output_path.stem+'.gpu-',dir=self.output_path.parent))
             self._candidate=self._transaction/self.output_path.name
             if args:args=(str(self._candidate),*args[1:])

@@ -1,6 +1,7 @@
 """Bounded latest-only CPU preview work. Never calls Tk or waits for rendering."""
 import threading
 import time
+from dlss5tool.deferred_error import ErrorSnapshot
 
 
 class LatestPreviewJob:
@@ -37,7 +38,7 @@ class LatestPreviewJob:
             return None
         value, error = result
         if error is not None:
-            raise error
+            raise error.exception() from None
         return value
 
     def ready(self):
@@ -99,7 +100,7 @@ class LatestPreviewJob:
             try:
                 result = (compute(), None)
             except Exception as error:
-                result = (None, error)
+                result = (None, ErrorSnapshot(error))
             with self._lock:
                 if token is self._token:
                     self._result = result

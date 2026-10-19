@@ -98,3 +98,20 @@ def bounded_frame_count(requested, frame_bytes):
     if headroom is None:
         return requested
     return min(requested, headroom // (4 * max(1, int(frame_bytes))))
+
+
+def require_memory_headroom(required_bytes):
+    """Reject known upcoming frame allocations before creating their owners.
+
+    This checks RAM and commit after the shared system reserve. It does not
+    reserve memory globally or change policy when the OS snapshot is unknown.
+    """
+    required = max(0, int(required_bytes))
+    available = memory_headroom_bytes()
+    if available is not None and required > available:
+        from dlss5tool.i18n import tr
+        def size(value):
+            return (f'{value/_GIB:.2f} GiB' if value >= _GIB else
+                    f'{value/1024**2:.0f} MiB')
+        raise MemoryError(tr('message.ram_headroom', required=size(required),
+                             available=size(available)))

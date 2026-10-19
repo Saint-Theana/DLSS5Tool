@@ -126,7 +126,9 @@ def select_in_flight(width, height, scale, requested, *, is_hdr=False, guidance=
     requested = clamp_in_flight(requested)
     ow, oh = target_size(width, height, scale)
     slot_bytes = (2 * ow * oh + int(width) * int(height)) * (8 if is_hdr else 4)
-    requested = max(1, bounded_frame_count(requested, slot_bytes))
+    requested = bounded_frame_count(requested, slot_bytes)
+    if not requested:
+        return 0
     if ow * oh <= 3840 * 2160:
         return requested
     available = (gpu_memory or {}).get('free_bytes', 0)
@@ -138,7 +140,8 @@ def select_in_flight(width, height, scale, requested, *, is_hdr=False, guidance=
     return 1
 
 
-def estimate_resources(width, height, scale, is_hdr=False, *, in_flight=None):
+def estimate_resources(width, height, scale, is_hdr=False, *, in_flight=None,
+                       use_super_resolution=True, use_enhancement=True):
     """Estimate known buffers; model/driver workspaces remain runtime-dependent."""
     width, height = int(width), int(height)
     scale = normalize_scale(scale)
@@ -150,17 +153,17 @@ def estimate_resources(width, height, scale, is_hdr=False, *, in_flight=None):
 
     # VSR owns one packed RGB input/output texture. DLSS owns color/output per
     # slot plus one zero-motion and one zero-depth target-resolution texture.
-    vsr_gpu = (source_pixels + output_pixels) * 4
-    dlss_gpu = output_pixels * (2 * in_flight * frame_bpp + 8)
+    vsr_gpu = (source_pixels + output_pixels) * 4 if use_super_resolution else 0
+    dlss_gpu = output_pixels * (2 * in_flight * frame_bpp + 8) if use_enhancement else 0
     known_gpu = vsr_gpu + dlss_gpu
 
     # Shared VSR input/output + its upload/readback + DLSS shared input/output,
     # plus two application-side target frames used for compose/write overlap.
-    shared = (source_pixels + output_pixels) * frame_bpp
-    staging = (source_pixels + output_pixels) * 4
+    shared = (source_pixels + output_pixels) * frame_bpp if use_super_resolution else 0
+    staging = (source_pixels + output_pixels) * 4 if use_super_resolution else 0
     # DLSS upload/readback staging is allocated per queue slot, unlike IPC.
-    dlss_staging = output_pixels * frame_bpp * 2 * in_flight
-    dlss_shared = output_pixels * frame_bpp * 2
+    dlss_staging = output_pixels * frame_bpp * 2 * in_flight if use_enhancement else 0
+    dlss_shared = output_pixels * frame_bpp * 2 if use_enhancement else 0
     application_frames = output_pixels * frame_bpp * 2
     known_ram = shared + staging + dlss_staging + dlss_shared + application_frames
     recommended_gpu = int(known_gpu * 1.35 + 1536 * _MIB)
@@ -312,6 +315,11 @@ class ProcessSuperResolution:
     """One disposable VSR process with fixed source and target shared buffers."""
 
     def __init__(self, width, height, scale, is_hdr=False, timeout=60.0):
+        self._closed = False
+        self._process = self._connection = self._child_connection = None
+        self._input_memory = self._output_memory = None
+        self._input_frame = self._output_frame = None
+        self.log_path = None
         self.width = int(width)
         self.height = int(height)
         self.scale = normalize_scale(scale)
@@ -332,33 +340,32 @@ class ProcessSuperResolution:
         self.log_path = os.path.join(
             tempfile.gettempdir(), f"dlss5tool-vsr-{uuid.uuid4().hex}.log",
         )
-        self._closed = False
         item_size = np.dtype(self.dtype).itemsize
         input_bytes = self.width * self.height * 4 * item_size
         output_bytes = self.output_width * self.output_height * 4 * item_size
-        self._input_memory = shared_memory.SharedMemory(create=True, size=input_bytes)
-        self._output_memory = shared_memory.SharedMemory(create=True, size=output_bytes)
-        self._input_frame = np.ndarray(
-            (self.height, self.width, 4), dtype=self.dtype, buffer=self._input_memory.buf,
-        )
-        self._output_frame = np.ndarray(
-            (self.output_height, self.output_width, 4), dtype=self.dtype,
-            buffer=self._output_memory.buf,
-        )
-        context = multiprocessing.get_context("spawn")
-        parent, child = context.Pipe(duplex=True)
-        self._connection = parent
-        self._process = context.Process(
-            target=_worker_main,
-            args=(
-                child, self.width, self.height, self.scale, self.is_hdr,
-                self._input_memory.name, self._output_memory.name, self.log_path,
-            ),
-            name="rtx-vsr-host", daemon=True,
-        )
         try:
+            self._input_memory = shared_memory.SharedMemory(create=True, size=input_bytes)
+            self._output_memory = shared_memory.SharedMemory(create=True, size=output_bytes)
+            self._input_frame = np.ndarray(
+                (self.height, self.width, 4), dtype=self.dtype, buffer=self._input_memory.buf,
+            )
+            self._output_frame = np.ndarray(
+                (self.output_height, self.output_width, 4), dtype=self.dtype,
+                buffer=self._output_memory.buf,
+            )
+            context = multiprocessing.get_context("spawn")
+            self._connection, self._child_connection = context.Pipe(duplex=True)
+            self._process = context.Process(
+                target=_worker_main,
+                args=(
+                    self._child_connection, self.width, self.height, self.scale, self.is_hdr,
+                    self._input_memory.name, self._output_memory.name, self.log_path,
+                ),
+                name="rtx-vsr-host", daemon=True,
+            )
             self._process.start()
-            child.close()
+            self._child_connection.close()
+            self._child_connection = None
             self._receive("initialize")
         except BaseException:
             self.close()
@@ -410,22 +417,41 @@ class ProcessSuperResolution:
         if self._closed:
             return
         self._closed = True
-        try:
-            if self._process is not None and self._process.is_alive():
+        process = self._process
+        if process is not None and process.is_alive():
+            try:
                 self._connection.send({"operation": "close"})
                 if self._connection.poll(2.0):
                     self._connection.recv()
-                self._process.join(timeout=3.0)
-                if self._process.is_alive():
-                    self._process.terminate()
-                    self._process.join(timeout=2.0)
-        except (BrokenPipeError, EOFError, OSError):
-            pass
-        try:
-            self._connection.close()
-        except (AttributeError, OSError):
-            pass
-        for memory in (getattr(self, "_input_memory", None), getattr(self, "_output_memory", None)):
+            except (BrokenPipeError, EOFError, OSError):
+                pass
+            # A broken pipe must not skip reaping the owner process.
+            process.join(timeout=3.0)
+            if process.is_alive():
+                process.terminate()
+                process.join(timeout=2.0)
+            if process.is_alive():
+                process.kill()
+                process.join(timeout=2.0)
+            if process.is_alive():
+                self._closed = False
+                raise SuperResolutionError('超分子进程尚未退出，暂不释放共享帧，请重试关闭')
+        if process is not None:
+            if process.pid is not None:
+                process.join(timeout=0)
+            process.close()
+            self._process = None
+        for name in ('_connection', '_child_connection'):
+            connection = getattr(self, name)
+            if connection is not None:
+                try:
+                    connection.close()
+                except OSError:
+                    pass
+                setattr(self, name, None)
+        self._input_frame = self._output_frame = None
+        for name in ('_input_memory', '_output_memory'):
+            memory = getattr(self, name)
             if memory is not None:
                 try:
                     memory.close()
@@ -435,10 +461,12 @@ class ProcessSuperResolution:
                     memory.unlink()
                 except (FileNotFoundError, OSError):
                     pass
-        try:
-            os.remove(self.log_path)
-        except OSError:
-            pass
+                setattr(self, name, None)
+        if self.log_path is not None:
+            try:
+                os.remove(self.log_path)
+            except OSError:
+                pass
 
     def __enter__(self):
         return self

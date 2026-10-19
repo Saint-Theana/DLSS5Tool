@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-19",
+  "distinct_tests_with_pass_record": 193,
+  "new_regression_tests": 24,
+  "new_test_identities": [
+    "tests.test_hdr_image_sequence::test_hdr_export_finishes_when_pressure_arrives_after_last_frame[hdr10_hlg]",
+    "tests.test_hdr_image_sequence::test_hdr_export_finishes_when_pressure_arrives_after_last_frame[hdr10_pq]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-closed]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-eof]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-seek-past-end]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-closed]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-eof]",
+    "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-seek-past-end]",
+    "tests.test_host_queue.HostQueueTests::test_effective_queue_limits_match_native_configuration",
+    "tests.test_host_queue.HostQueueTests::test_negotiated_capacity_can_be_lower_than_backend_ceiling",
+    "tests.test_p0_review_regressions::test_cached_output_stage_does_not_charge_upstream_sr_or_nr",
+    "tests.test_p0_review_regressions::test_cleanup_only_failure_is_reported_after_all_resources_are_attempted",
+    "tests.test_p0_review_regressions::test_enabled_processing_stage_is_charged_before_creation[fg]",
+    "tests.test_p0_review_regressions::test_enabled_processing_stage_is_charged_before_creation[nr]",
+    "tests.test_p0_review_regressions::test_enabled_processing_stage_is_charged_before_creation[sr]",
+    "tests.test_p0_review_regressions::test_exit_retains_pending_owners_when_retry_still_fails",
+    "tests.test_p0_review_regressions::test_gui_export_cleanup_keeps_primary_failure_and_retries_failed_owner[hdr]",
+    "tests.test_p0_review_regressions::test_gui_export_cleanup_keeps_primary_failure_and_retries_failed_owner[sdr]",
+    "tests.test_p0_review_regressions::test_host_admission_matches_backend_capacity[legacy-True]",
+    "tests.test_p0_review_regressions::test_host_admission_matches_backend_capacity[v2-False]",
+    "tests.test_p0_review_regressions::test_pending_cleanup_prevents_allocating_another_export[hdr]",
+    "tests.test_p0_review_regressions::test_pending_cleanup_prevents_allocating_another_export[sdr]",
+    "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[False]",
+    "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[True]"
+  ],
+  "unresolved_failures": [],
+  "batches": {
+    "red": {
+      "case_count": 15,
+      "passed": 1,
+      "failures": [
+        "tests.test_p0_review_regressions::test_gui_export_cleanup_keeps_primary_failure_and_retries_failed_owner[sdr]",
+        "tests.test_p0_review_regressions::test_gui_export_cleanup_keeps_primary_failure_and_retries_failed_owner[hdr]",
+        "tests.test_p0_review_regressions::test_cleanup_only_failure_is_reported_after_all_resources_are_attempted",
+        "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[False]",
+        "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[True]",
+        "tests.test_p0_review_regressions::test_host_admission_matches_backend_capacity[legacy-True]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-eof]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-closed]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_pq-seek-past-end]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-eof]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-closed]",
+        "tests.test_hdr_image_sequence::test_known_sequence_end_needs_no_frame_memory[hdr10_hlg-seek-past-end]",
+        "tests.test_hdr_image_sequence::test_hdr_export_finishes_when_pressure_arrives_after_last_frame[hdr10_pq]",
+        "tests.test_hdr_image_sequence::test_hdr_export_finishes_when_pressure_arrives_after_last_frame[hdr10_hlg]"
+      ],
+      "junit_tests_including_subtests": 15
+    },
+    "focused": {
+      "case_count": 108,
+      "passed": 104,
+      "failures": [
+        "tests.test_p0_review_regressions::test_gui_export_cleanup_keeps_primary_failure_and_retries_failed_owner[hdr]",
+        "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[False]",
+        "tests.test_p0_review_regressions::test_plain_export_fits_without_unused_processing_components[True]",
+        "tests.test_hdr_image_sequence::test_import_dialog_recovers_from_sdr_error_and_imports_hdr[hdr10_pq-dark-en_US]"
+      ],
+      "junit_tests_including_subtests": 113
+    },
+    "core": {
+      "case_count": 112,
+      "passed": 112,
+      "failures": [],
+      "junit_tests_including_subtests": 125
+    },
+    "consumers": {
+      "case_count": 76,
+      "passed": 74,
+      "failures": [
+        "tests.test_frame_generation.InlineControlTests::test_light_and_dark_layout",
+        "tests.test_frame_generation.InlineControlTests::test_main_export_worker_passes_all_settings_and_cancellation"
+      ],
+      "junit_tests_including_subtests": 93
+    },
+    "tk-rerun": {
+      "case_count": 1,
+      "passed": 1,
+      "failures": [],
+      "junit_tests_including_subtests": 1
+    },
+    "layout-rerun": {
+      "case_count": 1,
+      "passed": 1,
+      "failures": [],
+      "junit_tests_including_subtests": 1
+    },
+    "export-worker-rerun": {
+      "case_count": 1,
+      "passed": 1,
+      "failures": [],
+      "junit_tests_including_subtests": 1
+    },
+    "upstream": {
+      "case_count": 1,
+      "passed": 1,
+      "failures": [],
+      "junit_tests_including_subtests": 1
+    }
+  },
+  "notes": [
+    "red is the expected before-fix comparison: 14 failures and 1 pass.",
+    "focused had three synthetic-fixture configuration errors, corrected without weakening assertions, and one Tk initialization failure.",
+    "consumers had two Tk initialization failures; all three affected Tk cases passed in isolated processes.",
+    "Counts deduplicate testcase identities; JUnit suite counts also include subtests.",
+    "No full regression, build, packaging, native GPU load or real OOM was run."
+  ]
+}

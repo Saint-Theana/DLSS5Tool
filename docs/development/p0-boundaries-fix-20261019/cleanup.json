@@ -1,0 +1,27 @@
+{
+  "TaskRoot": "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019",
+  "Targets": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\pytest-consumers",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\pytest-core",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\pytest-new",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\consumer-tests.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\core-tests.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\diagnostics-final.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\diagnostics-fixed.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\error-text-tests.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\new-tests.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\tk-rerun.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-boundaries-fix-20261019\\verification-summary.json"
+  ],
+  "DeletedFiles": 176,
+  "DeletedLogicalBytes": 2294940,
+  "FreeBeforeBytes": 63831773184,
+  "FreeAfterBytes": 63834230784,
+  "ObservedFreeDeltaBytes": 2457600,
+  "Remaining": [
+    {
+      "Name": "TASK.md",
+      "Length": 1348
+    }
+  ]
+}

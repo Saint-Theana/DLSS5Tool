@@ -12,7 +12,7 @@ from dlss5tool import guidance_client
 from dlss5tool.guidance_public import normalize_public_settings
 from dlss5tool import i18n
 from dlss5tool import paths
-from dlss5tool.host_queue import clamp_in_flight, LEGACY_MAX_IN_FLIGHT
+from dlss5tool.host_queue import clamp_in_flight, configured_in_flight, LEGACY_MAX_IN_FLIGHT, MAX_IN_FLIGHT
 from dlss5tool.guidance_color import analysis_rgba8
 
 BASE = str(paths.runtime_root())
@@ -358,8 +358,8 @@ def _host_config(settings):
 def _configure_host(lib, settings):
     if hasattr(lib, "dlssnr_configure"):
         zero_fast, persistent, merged, in_flight, fallback, *_ = _host_config(settings)
-        if not hasattr(lib, "dlssnr_queue_capacity"):
-            in_flight = min(in_flight, LEGACY_MAX_IN_FLIGHT)
+        in_flight = configured_in_flight(settings, capacity=(
+            MAX_IN_FLIGHT if hasattr(lib, "dlssnr_queue_capacity") else LEGACY_MAX_IN_FLIGHT))
         lib.dlssnr_configure(
             int(zero_fast), int(persistent), int(merged),
             in_flight, int(fallback),
@@ -504,12 +504,12 @@ class Live:
             int(self._lib.dlssnr_capabilities())
             if hasattr(self._lib, "dlssnr_capabilities") else 0
         )
-        requested = clamp_in_flight(self.settings.get("host_in_flight", 2))
         self.tiled = bool(capabilities & 4)
         self.supports_optional_depth = bool(capabilities & 8)
         capacity = (max(1, int(self._lib.dlssnr_queue_capacity()))
                     if hasattr(self._lib, "dlssnr_queue_capacity") else LEGACY_MAX_IN_FLIGHT)
-        self.max_in_flight = min(requested, capacity) if capabilities & 2 and not self.tiled else 1
+        self.max_in_flight = (configured_in_flight(self.settings, capacity=capacity)
+                              if capabilities & 2 and not self.tiled else 1)
         self.supports_async = self.max_in_flight > 1
 
     def update(self, settings):

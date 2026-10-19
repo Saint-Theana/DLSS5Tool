@@ -13,6 +13,7 @@ from dlss5tool.i18n import tr
 from dlss5tool.image_sequence import open_capture
 from dlss5tool.preview_feedback import PreviewFeedback
 from dlss5tool.preview_jobs import LatestPreviewJob
+from dlss5tool.deferred_error import ErrorSnapshot
 
 
 class SharedRenderPreview(PreviewFeedback):
@@ -312,10 +313,11 @@ class SharedRenderPreview(PreviewFeedback):
                 return None
             self._shared_setup_thread = None
             result_key, result, error, revision = self._shared_setup_result
+            self._shared_setup_result = None
             if result_key == key and revision == getattr(self, '_shared_revision', 0):
                 if error:
                     self._shared_error_key, self._shared_error = key, str(error)
-                    raise error
+                    raise error.exception() from None
                 self._shared_session = result
                 self._shared_output_index = self._frame * result.multiplier
                 self._shared_clock = None
@@ -336,7 +338,7 @@ class SharedRenderPreview(PreviewFeedback):
                 result, error = manager.session(source, config,
                     is_current=lambda: revision == getattr(self, '_shared_revision', 0)), None
             except Exception as exc:
-                result, error = None, exc
+                result, error = None, ErrorSnapshot(exc)
             # This worker only writes Python state; never invokes Tk.
             self._shared_setup_result = (key, result, error, revision)
         self._shared_setup_thread = threading.Thread(target=setup_worker, name='prepare-render-cache', daemon=True)

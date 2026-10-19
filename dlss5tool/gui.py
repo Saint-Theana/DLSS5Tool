@@ -47,7 +47,7 @@ from dlss5tool.image_alpha import (
     ALPHA_EXTENSIONS, read_still, inference_color, resize_preview, restore_alpha,
 )
 from dlss5tool.shared_cache_budget import SharedCacheBudget
-from dlss5tool.memory_budget import bounded_frame_count, cache_limit_bytes, system_memory
+from dlss5tool.memory_budget import bounded_frame_count, cache_limit_bytes, system_memory, require_memory_headroom
 from dlss5tool.residual_composition import release_native_composer
 from dlss5tool import mod_paths
 from dlss5tool import export_queue as export_queue_state
@@ -59,6 +59,7 @@ from dlss5tool.host_queue import MAX_IN_FLIGHT, clamp_in_flight
 from dlss5tool import performance_profiles
 from dlss5tool.preview_decoder import PreviewDecoder
 from dlss5tool.dlss_host_process import ProcessLive
+from dlss5tool.deferred_error import ErrorSnapshot
 from dlss5tool.parallel_export import export_parallel
 from dlss5tool.preview_audio import PreviewAudio, ms_to_frame
 from dlss5tool.super_resolution import (
@@ -5750,6 +5751,11 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 tr("dialog.exporting"), tr("message.wait_export_close"),
             )
             return
+        try:
+            self._cleanup_video_export()
+        except Exception as error:
+            self.set_status(str(error))
+            return
         if self._update_downloading:
             if not messagebox.askyesno(
                 tr("dialog.downloading_update"), tr("message.cancel_download_exit"),
@@ -10061,17 +10067,44 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         return result
 
     # ---------- export ----------
+    def _cleanup_video_export(self, actions=(), *, error=None):
+        """Attempt every cleanup, keeping only failed owners for a later retry."""
+        pending = getattr(self, '_pending_export_cleanup', [])
+        self._pending_export_cleanup = []
+        failures = []
+        for label, action in [*pending, *actions]:
+            try:
+                action()
+            except Exception as cleanup:
+                self._pending_export_cleanup.append((label, action))
+                failures.append((label, ErrorSnapshot(cleanup)))
+        if not failures:
+            return
+        message = '; '.join(f'{label}: {failure}' for label, failure in failures)
+        try:
+            self.logln('[导出清理] ' + message)
+        except Exception:
+            pass
+        if error is not None:
+            if hasattr(error, 'add_note'):
+                error.add_note(message)
+            return
+        raise failures[0][1].exception()
+
     def _export_sdr_upscaled_video(
         self, source_path, color_info, out_path, total_frames, fps, width, height,
         settings, export_settings, view, mix,
     ):
         """Run fixed VSR -> Feature 18 -> encode with one bounded target frame."""
+        self._cleanup_video_export()
         scale = normalize_scale(export_settings.get('super_resolution_scale', 1))
         output_width, output_height = super_resolution_target_size(width, height, scale)
         dlss_settings = dict(settings)
         # This path processes synchronously; extra in-flight textures cannot
         # improve throughput until VSR/DLSS scheduling is pipelined.
         dlss_settings['host_in_flight'] = 1
+        require_memory_headroom(estimate_resources(width, height, scale,
+                                in_flight=1)['recommended_ram_bytes'])
         writer = None
         sr_live = None
         live = None
@@ -10153,19 +10186,21 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 "in_flight": live.max_in_flight,
             }
         finally:
-            release_native_composer()
+            actions = [('composer', release_native_composer)]
             if live is not None:
-                live.close()
+                actions.append(('NR', live.close))
             if sr_live is not None:
-                sr_live.close()
+                actions.append(('VSR', sr_live.close))
             if writer is not None and not completed:
-                writer.abort()
+                actions.append(('encoder', writer.abort))
+            self._cleanup_video_export(actions, error=sys.exc_info()[1])
 
     def _export_hdr_video(
         self, source_path, color_info, out_path, total_frames, fps, width, height,
         settings, export_settings, view, mix,
     ):
         """Run the strict PQ/HLG RGBA16F path in its own disposable host."""
+        self._cleanup_video_export()
         color_info = dict(color_info or {})
         if not color_info.get("is_hdr"):
             raise RuntimeError("HDR 导出请求与源视频色彩元数据不一致")
@@ -10179,11 +10214,15 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             "host_backend": "v2",
             "host_auto_fallback": False,
         }
+        require_memory_headroom(estimate_resources(width, height, scale,
+                                is_hdr=True, in_flight=1)['recommended_ram_bytes'])
         hdr_settings['host_in_flight'] = select_in_flight(
             width, height, scale, settings.get('host_in_flight', 2), is_hdr=True,
             guidance=bool(settings.get('guidance_mode')),
             gpu_memory=query_gpu_memory(),
         )
+        if not hdr_settings['host_in_flight']:
+            raise MemoryError(tr('message.frame_ram_headroom'))
         reader = None
         writer = None
         live = None
@@ -10288,15 +10327,17 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 "in_flight": live.max_in_flight,
             }
         finally:
+            actions = []
             if reader is not None:
-                reader.close()
-            release_native_composer()
+                actions.append(('reader', reader.close))
+            actions.append(('composer', release_native_composer))
             if live is not None:
-                live.close()
+                actions.append(('NR', live.close))
             if sr_live is not None:
-                sr_live.close()
+                actions.append(('VSR', sr_live.close))
             if writer is not None and not completed:
-                writer.abort()
+                actions.append(('encoder', writer.abort))
+            self._cleanup_video_export(actions, error=sys.exc_info()[1])
 
     def export_dlss(self):
         if not self._gpu_admit('export'):
@@ -10489,6 +10530,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             export_settings['mode'] = 'single'
         error_message = ""
         try:
+            self._cleanup_video_export()
             if export_settings['rate_control'] == 'quality':
                 encoding_note = QUALITY_PROFILE_NAMES.get(
                     export_settings['quality_profile'], "高质量（推荐）"

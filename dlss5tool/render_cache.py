@@ -17,6 +17,7 @@ import numpy as np
 
 from dlss5tool import paths
 from dlss5tool import appearance
+from dlss5tool.deferred_error import ErrorSnapshot
 from dlss5tool.memory_budget import cache_limit_bytes
 from dlss5tool.parameter_contract import COMPOSITION_VERSION
 from dlss5tool.image_sequence import ImageSequence, is_sequence, source_bytes, audio_source
@@ -135,6 +136,16 @@ class RenderSession:
         self.thread = None
         self.stop = threading.Event()
         self.hits = self.new_frames = self.replayed_frames = 0
+
+    @property
+    def error(self):
+        # Never let a consumer attach its traceback to persistent cache state.
+        return self._error.exception() if self._error is not None else None
+
+    @error.setter
+    def error(self, error):
+        self._error = (error if isinstance(error, ErrorSnapshot) else
+                       ErrorSnapshot(error) if error is not None else None)
 
     def set_progress(self, progress):
         self.progress = progress
@@ -411,6 +422,7 @@ class RenderSession:
         with self.condition:
             self.cache.clear()
             self.bytes = 0
+            self.error = None
             self._publish()
         if self.pool is not None and (not self.thread or not self.thread.is_alive()):
             self.pool.close()

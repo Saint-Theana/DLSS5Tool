@@ -438,6 +438,18 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
         appearance.preflight(config, hdr=hdr)
         bypass = appearance.enhancement_bypass(config) if enhance else None
         needs_nr = bool(enhance and bypass is None)
+        creates_nr = needs_nr and (input_session is None or config.get('_render_stage') == 'base')
+        from dlss5tool.memory_budget import require_memory_headroom
+        from dlss5tool.super_resolution import estimate_resources
+        plan = estimate_resources(w, h, 1 if input_session else scale, hdr, in_flight=1,
+            use_super_resolution=scale > 1 and input_session is None,
+            use_enhancement=creates_nr)
+        fg_frames = ow*oh*(8 if hdr else 4)*4 if multiplier > 1 else 0
+        decode_frames = w*h*(48 if meta['is_hdr'] else 3) if input_session is None else 0
+        resize_frames = ow*oh*(8 if hdr else 4)*2 if (ow, oh) != (process_w, process_h) else 0
+        # The shared system reserve already covers model/driver headroom. Only
+        # charge known buffers of stages this invocation actually creates.
+        require_memory_headroom(plan['known_ram_bytes'] + fg_frames + decode_frames + resize_frames)
         if gpu_export is None and hdr and not render_only and input_session is None and not view and not meta.get('_is_vfr'):
             from dlss5tool.gpu_export_runtime import eligible,load_components
             if ow*oh>=1920*1080 and eligible(ow,oh,hdr_metadata=meta,
@@ -478,7 +490,7 @@ def export_video(source, output, *, multiplier=2, scale=1, enhance=False, settin
             from dlss5tool.super_resolution import ProcessSuperResolution
             _emit_progress(progress, i18n.tr('status.init_super_resolution'), 0)
             sr = ProcessSuperResolution(w, h, scale, is_hdr=hdr)
-        if needs_nr and (input_session is None or config.get('_render_stage') == 'base'):
+        if creates_nr:
             from dlss5tool.dlss_host_process import ProcessLive
             _emit_progress(progress, i18n.tr('status.init_enhancement'), 0)
             nr = ProcessLive(process_w, process_h, config)

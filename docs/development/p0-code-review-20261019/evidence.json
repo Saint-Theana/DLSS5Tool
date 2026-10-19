@@ -1,0 +1,86 @@
+{
+  "baseline_commit": "ab6ffc3",
+  "review_date": "2026-10-19",
+  "method": "Targeted baseline/current comparisons with tiny synthetic frames, mocked memory snapshots and fake worker/writer objects; no real GPU workload or system memory exhaustion.",
+  "cleanup_and_eof": {
+    "sdr_baseline": {
+      "error": "RuntimeError: injected decode failure",
+      "healthy_vsr_close_calls": 1,
+      "writer_abort_calls": 1,
+      "reader_close_calls": 0
+    },
+    "sdr_current": {
+      "error": "HostProcessError: DLSS 工作进程尚未退出，暂不释放共享帧，请重试关闭",
+      "healthy_vsr_close_calls": 0,
+      "writer_abort_calls": 0,
+      "reader_close_calls": 0
+    },
+    "hdr_baseline": {
+      "error": "RuntimeError: injected decode failure",
+      "healthy_vsr_close_calls": 1,
+      "writer_abort_calls": 1,
+      "reader_close_calls": 1
+    },
+    "hdr_current": {
+      "error": "HostProcessError: DLSS 工作进程尚未退出，暂不释放共享帧，请重试关闭",
+      "healthy_vsr_close_calls": 0,
+      "writer_abort_calls": 0,
+      "reader_close_calls": 1
+    },
+    "sequence_eof": {
+      "baseline": "None",
+      "current": "MemoryError"
+    },
+    "sequence_closed": {
+      "baseline": "None",
+      "current": "MemoryError"
+    }
+  },
+  "hdr_sequence_export": {
+    "baseline": {
+      "outcome": "complete",
+      "processed_frames": 1,
+      "finish_calls": 1,
+      "abort_calls": 0
+    },
+    "current": {
+      "outcome": "RuntimeError: 系统内存余量不足此处理任务：预计需要 1 MiB，预留系统和处理空间后可用 0 MiB。请关闭其他任务或释放预览缓存后重试。",
+      "processed_frames": 1,
+      "finish_calls": 0,
+      "abort_calls": 1
+    }
+  },
+  "processing_bypass": {
+    "baseline": {
+      "outcome": "complete",
+      "created_writers": 1,
+      "decoded_frames": 3,
+      "headroom_bytes": 268435456,
+      "generic_plan_bytes": 537657344
+    },
+    "current": {
+      "outcome": "RuntimeError: 系统内存余量不足此处理任务：预计需要 513 MiB，预留系统和处理空间后可用 256 MiB。请关闭其他任务或释放预览缓存后重试。",
+      "created_writers": 0,
+      "decoded_frames": 0,
+      "headroom_bytes": 268435456,
+      "generic_plan_bytes": 537657344
+    }
+  },
+  "legacy_backend": {
+    "control": {
+      "baseline": {
+        "error": "RuntimeError: reached allocation",
+        "reached_shared_allocation": true
+      },
+      "current": {
+        "error": "MemoryError: 系统内存余量不足此处理任务：预计需要 1.11 GiB，预留系统和处理空间后可用 512 MiB。请关闭其他任务或释放预览缓存后重试。",
+        "reached_shared_allocation": false
+      }
+    },
+    "actual_configured_slots": 3,
+    "headroom_bytes": 536870912,
+    "required_if_actual_slots": 331776000,
+    "required_with_requested_slots": 1194393600,
+    "note": "Control uses both HEAD init and HEAD close. The initial mixed-version legacy control was invalid and is excluded."
+  }
+}

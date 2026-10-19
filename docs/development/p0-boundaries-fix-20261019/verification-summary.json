@@ -1,0 +1,28 @@
+{
+  "core-tests.xml": {
+    "passed": 130,
+    "failed": 0,
+    "skipped": 0
+  },
+  "consumer-tests.xml": {
+    "passed": 137,
+    "failed": 1,
+    "skipped": 0
+  },
+  "tk-rerun.xml": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0
+  },
+  "error-text-tests.xml": {
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0
+  },
+  "unique_final": {
+    "passed": 268,
+    "failed": 0,
+    "skipped": 0
+  },
+  "new_p0_cases": 38
+}

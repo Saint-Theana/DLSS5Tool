@@ -553,6 +553,7 @@ class FFmpegHDRVideoReader:
         if is_sequence(source):
             self._sequence_reader = HDRSequenceReader(source, width, height, self.color_info, start_frame=start_frame)
             return
+        self._check_memory()
         self.ffmpeg = ffmpeg or find_ffmpeg()
         start_frame = max(0, int(start_frame))
         decode_filter = _zscale_decode_filter(self.color_info)
@@ -582,9 +583,19 @@ class FFmpegHDRVideoReader:
         except Exception:
             pass
 
+    def _check_memory(self):
+        # Packed 16-bit input plus float conversion temporaries and output.
+        from dlss5tool.memory_budget import require_memory_headroom
+        require_memory_headroom(self.width * self.height * 48)
+
     def read(self):
         if self._sequence_reader is not None:
+            reader = self._sequence_reader
+            if reader.closed or reader.position >= len(reader.sequence.files):
+                return None
+            self._check_memory()
             return self._sequence_reader.read()
+        self._check_memory()
         data = bytearray(self._frame_bytes)
         view = memoryview(data)
         received = 0

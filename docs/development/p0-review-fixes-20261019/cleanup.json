@@ -1,0 +1,39 @@
+{
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019",
+  "deleted_targets": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\red",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\focused",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\core",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\consumers",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\tk-rerun",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\upstream",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\red.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\focused.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\core.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\consumers.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\tk-rerun.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\layout-rerun.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\export-worker-rerun.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\upstream.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\verification-summary.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\source-hashes.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\initial-hashes.json"
+  ],
+  "deleted_logical_bytes": 6063707.0,
+  "measured_free_space_before": 63827595264,
+  "measured_free_space_after": 63834075136,
+  "measured_free_space_delta": 6479872,
+  "remaining_tmp_bytes": 2673.0,
+  "remaining_tmp_files": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-review-fixes-20261019\\TASK.md"
+  ],
+  "retained_reason": "Task ownership record; review 2026-10-26",
+  "checks": [
+    "Resolved absolute paths confined to this task",
+    "No reparse points in ancestors or descendants",
+    "No persistent code/script references",
+    "All test commands completed",
+    "Exclusive file opens succeeded",
+    "Archived records match SHA256"
+  ]
+}

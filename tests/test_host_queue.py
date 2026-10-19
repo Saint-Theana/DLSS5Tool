@@ -3,7 +3,7 @@ from types import SimpleNamespace
 import unittest
 from unittest import mock
 from dlss5tool import app_settings, dlss_engine, super_resolution
-from dlss5tool.host_queue import clamp_in_flight
+from dlss5tool.host_queue import clamp_in_flight, configured_in_flight
 
 
 class HostQueueTests(unittest.TestCase):
@@ -39,6 +39,26 @@ class HostQueueTests(unittest.TestCase):
         lib.dlssnr_queue_capacity = lambda: 16
         dlss_engine._configure_host(lib, {'host_in_flight': 16})
         self.assertEqual(lib.dlssnr_configure.call_args.args[3], 16)
+
+    def test_effective_queue_limits_match_native_configuration(self):
+        for backend, capacity in [('legacy', 3), ('v2', 16)]:
+            for overrides in ({}, {'host_submission': 'separate'},
+                              {'host_persistent_buffers': False}, {'host_tiled_mode': True}):
+                with self.subTest(backend=backend, overrides=overrides):
+                    settings = dict(host_backend=backend, host_in_flight=16, **overrides)
+                    configure = mock.Mock()
+                    lib = SimpleNamespace(dlssnr_configure=configure,
+                                          dlssnr_configure_tiling=mock.Mock())
+                    if backend == 'v2':
+                        lib.dlssnr_queue_capacity = lambda: capacity
+                    dlss_engine._configure_host(lib, settings)
+                    expected = 1 if overrides else capacity
+                    self.assertEqual(configured_in_flight(settings), expected)
+                    self.assertEqual(configure.call_args.args[3], expected)
+
+    def test_negotiated_capacity_can_be_lower_than_backend_ceiling(self):
+        self.assertEqual(configured_in_flight({'host_in_flight': 16}, capacity=5), 5)
+        self.assertEqual(configured_in_flight({'host_in_flight': 2}, capacity=5), 2)
 
     def test_resource_estimates_scale_above_three_and_large_hdr_stays_bounded(self):
         small = super_resolution.estimate_resources(1920, 1080, 1, in_flight=3)
