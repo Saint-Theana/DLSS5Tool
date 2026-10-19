@@ -19,6 +19,7 @@
 
 根目录仅保留项目说明、许可证、仓库配置、依赖清单和启动入口。
 新增技术文档、模块、构建配置或运行产物请放入对应目录。
+本地发行默认输出到 `E:\dist\DLSS5Tool\<版本>\`；历史 `dist/` 与策略引用的旧基线不自动迁移或删除。
 
 ## 启动与构建
 
@@ -60,7 +61,7 @@
 
 - 仓库维护：[卫生守则与空间预算](development/REPOSITORY_HYGIENE.md)、[2026-09-11 临时目录盘点](development/TMP_AUDIT_20260911.md)
 
-- 当前版本：[v3.0.1 更新说明](release/RELEASE_NOTES_v3.0.1.md)、[本地打包与发布状态](release/PACKAGING_INDEX.md)。本版已完成源码定版，公开下载包和增量更新附件待 v3.0.1 打包验收；分发许可审查仍待完成。
+- 当前版本：[v3.0.2 更新说明](release/RELEASE_NOTES_v3.0.2.md)、[本地打包与发布状态](release/PACKAGING_INDEX.md)。当前准备本地 v3.0.2 打包验收，公开下载以正式 Release 为准；分发许可审查仍待完成。
 - 既有功能与历史验证：[NVOFA 集成验证](experiments/NVOFA_INTEGRATION.md)、[深度下线状态](experiments/DEPTH_REFERENCE_STATUS.md)、[实施核对](development/IMPLEMENTATION_READINESS.md)
 
 - 用户指南：[简体中文](USER_GUIDE.md)、[English](USER_GUIDE.en.md)

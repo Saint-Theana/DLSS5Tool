@@ -1,0 +1,51 @@
+{
+  "assets": [
+    {
+      "digest": "sha256:2a7ec608eaf66943af002fef86163db3baf61fbe244774d8f3acd2f0d059ce0e",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.0-to-v3.0.1-win64-full.dlssupdate",
+      "name": "DLSS5Tool-v3.0.0-to-v3.0.1-win64-full.dlssupdate",
+      "size": 18357457
+    },
+    {
+      "digest": "sha256:809393d48d234ee3dba08c7c911064a135cb3c4a896015f4c2e71c15843bfd6e",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.0-to-v3.0.1-win64-lite.dlssupdate",
+      "name": "DLSS5Tool-v3.0.0-to-v3.0.1-win64-lite.dlssupdate",
+      "size": 18107060
+    },
+    {
+      "digest": "sha256:f64ea46b8a7f807a506a6d58c765a293e7a2da75e69b84a86d3752114da8e047",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.1-win64-addon.zip.001",
+      "name": "DLSS5Tool-v3.0.1-win64-addon.zip.001",
+      "size": 1992294400
+    },
+    {
+      "digest": "sha256:7c0402faf848656681ab10aad5314f99775d6038c6cad003c82b0a3b1ba2a985",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.1-win64-addon.zip.002",
+      "name": "DLSS5Tool-v3.0.1-win64-addon.zip.002",
+      "size": 1061572057
+    },
+    {
+      "digest": "sha256:772de177f3239439e3dec58d2d7cc2ec4f3006d688c2e9454fa93a76f0569245",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.1-win64-full.zip.001",
+      "name": "DLSS5Tool-v3.0.1-win64-full.zip.001",
+      "size": 1992294400
+    },
+    {
+      "digest": "sha256:e3c11ecf182f8c5dea5168e881bcb3e5977bad165d040cdcce483bcaafdf4bc8",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.1-win64-full.zip.002",
+      "name": "DLSS5Tool-v3.0.1-win64-full.zip.002",
+      "size": 1649420058
+    },
+    {
+      "digest": "sha256:9c8fc245d4c5736f9fefd2250cf7b10dc4315f8adbd9545b484cd17fbabb2d4e",
+      "download_url": "https://github.com/banbanzhige/DLSS5Tool/releases/download/v3.0.1/DLSS5Tool-v3.0.1-win64.zip",
+      "name": "DLSS5Tool-v3.0.1-win64.zip",
+      "size": 587850512
+    }
+  ],
+  "draft": false,
+  "prerelease": false,
+  "published_at": "2026-10-16T08:41:45Z",
+  "tag_name": "v3.0.1",
+  "url": "https://github.com/banbanzhige/DLSS5Tool/releases/tag/v3.0.1"
+}

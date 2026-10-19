@@ -21,6 +21,7 @@ from dlss5tool.app_version import APP_VERSION
 from scripts.check_release_contents import forbidden_contents
 from scripts.release_updates import plan_updates, build_updates, verify_upload_updates
 from scripts.realtime_packaging import validate_runtime, validate_feature_runtimes
+from scripts.release_paths import release_paths
 
 # CUDA RAFT worker rebuilt from v3.0.0 source; frozen RAFT handshake verified.
 # Build inputs and final edition acceptance: docs/release/V300_PACKAGING_20261011.md.
@@ -117,7 +118,7 @@ def main():
     parser.add_argument('--component', type=Path, required=True)
     parser.add_argument('--models', type=Path, required=True)
     parser.add_argument('--licenses', type=Path, required=True)
-    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--output', type=Path, help='Defaults to the project/version folder in packaging/release-output.json')
     parser.add_argument('--local-candidate', action='store_true', help='Explicit local-only artifact; not cleared for public redistribution')
     parser.add_argument('--update-baseline', type=Path, action='append', default=[],
                         help='Relocate a required baseline editions directory; repeat for multiple versions. Defaults come from packaging/update-policy.json')
@@ -128,8 +129,10 @@ def main():
     args = parser.parse_args()
     base, component, model_dir, license_dir = [p.resolve() for p in
                                              (args.base, args.component, args.models, args.licenses)]
-    output = args.output.resolve()
-    if output.exists() or output == Path(output.anchor) or (not args.allow_external_output and not output.is_relative_to(ROOT / 'dist')):
+    managed_output = Path(release_paths(APP_VERSION)['editions']).resolve()
+    output = (args.output or managed_output).resolve()
+    if output.exists() or output == Path(output.anchor) or (not args.allow_external_output and
+            output != managed_output and not output.is_relative_to(ROOT / 'dist')):
         parser.error('Use a NEW output directory in dist, or explicitly opt into a new external output directory')
     update_plan = plan_updates(APP_VERSION, initial=args.initial_update_baseline, overrides=args.update_baseline)
     if forbidden_contents(base):

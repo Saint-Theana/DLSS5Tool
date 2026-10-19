@@ -16,8 +16,10 @@
 
 维护者于 2026-09-19 将 `packaging/update-policy.json` 的支持策略定为 `previous-release`：
 **每次只为上一个正式版本生成 lite/full 两个增量包**，更早版本使用整包升级，不自动串联升级链。
-当前 v2.3.1 的源版本是 v2.3.0，基线为 `dist/v2.3.0-release-20260919/editions`。
-该目录的 lite ZIP、full/addon 分卷已与 GitHub 正式 v2.3.0 附件 SHA256 对齐；旧候选状态记录保留为历史。
+v3.0.2 的源版本是正式 v3.0.1，基线为 `D:/DLSS5Tool/dist/v3.0.1-release-20261016/editions`。
+该目录的 lite ZIP、full/addon 分卷已与 GitHub 正式 v3.0.1 附件 SHA256 对齐，并逐文件核验了归档、清单和解压目录。
+历史 v3.0.0 → v3.0.1 增量的本地字节与线上摘要不一致，不用作新基线；证据见
+[v3.0.1 正式基线核验](v302-20261019/v301-official-baseline-check.json)。不能仅凭这一差异认定旧升级失败的原因。
 v2.2.0/v2.2.1 已退出本次支持范围，不恢复其已删除目录；v2.2.0 仍是更新器首次引入版本。
 后续版本不允许缺少增量包却完成打包。此工作流在**本地三形态打包入口**执行，GitHub Actions 的测试发现机制会运行工作流单测，但不会自动发布。
 
@@ -111,6 +113,12 @@ full 使用两套对应的完整目录、`--edition full` 和新的输出目录�
 成功备份不自动删除；用户下次更新时明确确认后清理。仅 `complete/rolled_back/ready/failed` 可清理；正在安装或待恢复时禁止清理。未确认不创建第二套候选。取消下载可能保留暂存，同样确认后清理。请勿删除整个程序目录或用户 mods。
 
 ## 验证入口
+
+正式打包还应先核对 GitHub Release API 的附件摘要，再对真实源版本执行安装验收：
+`scripts/verify_release_baseline.py` 核验正式附件与基线，
+`scripts/verify_release_upgrade.py --before ... --after ... --asset ... --edition lite --output ...`
+在全新的任务副本中运行旧版冻结助手，检查目标、备份及用户文件保留；full 必须独立执行一次。
+一次只保留一个安装验证副本，归档小报告后再按仓库卫生守则清理；不要在正式旧基线上运行安装。
 
 ```powershell
 .venv/Scripts/python.exe -B -m unittest tests.test_delta_update tests.test_update_helper tests.test_gui_updates tests.test_updater tests.test_release_packaging tests.test_i18n

@@ -47,6 +47,12 @@ git clone --depth 1 https://github.com/NVIDIA/DLSS.git third_party/NVIDIA-DLSS
 .\scripts\build_release.ps1
 ```
 
+默认输出由 `packaging/release-output.json` 管理：基础包进入
+`E:\dist\DLSS5Tool\<版本>\base`，完整三形态进入同版本的 `editions`；临时工作进入
+`E:\dist\DLSS5Tool\tmp\release-<版本>-<日期>`。共享的 `E:\dist` 根目录不直接存放本项目附件。
+基础构建并非完整发版：仍须按[文件更新流程](../release/FILE_UPDATES.md)预检上一正式版基线、
+运行 `scripts/package_editions.py` 生成 lite/full 增量，并通过 `--check-upload`；不要只交基础 ZIP。
+
 增强组件需独立构建，重打基础应用不会更新推理组件。构建方式见 [mods 维护者说明](../../mods/README.md#maintainer-build-not-end-user-setup)，发行流程见 [打包记录与索引](../../docs/release/PACKAGING_INDEX.md)。
 
 开发约定见 [CONTRIBUTING.md](../../CONTRIBUTING.md)，安全问题请遵循 [SECURITY.md](../../SECURITY.md)。性能实验与验证记录统一放在[技术文档](../../docs/README.md)，不放入产品首页。

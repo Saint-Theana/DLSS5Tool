@@ -1,0 +1,45 @@
+{
+  "release_url": "https://github.com/banbanzhige/DLSS5Tool/releases/tag/v3.0.1",
+  "official_downloads_verified": true,
+  "official_delta_targets_match_archive_baseline": true,
+  "historical_deltas_used_to_build_v302": false,
+  "editions": [
+    {
+      "edition": "lite",
+      "name": "DLSS5Tool-v3.0.0-to-v3.0.1-win64-lite.dlssupdate",
+      "size": 18107060,
+      "sha256": "809393d48d234ee3dba08c7c911064a135cb3c4a896015f4c2e71c15843bfd6e",
+      "official_digest_matched": true,
+      "after_matches_official_v301": true,
+      "different_target_files": [],
+      "after_files": 1863
+    },
+    {
+      "edition": "full",
+      "name": "DLSS5Tool-v3.0.0-to-v3.0.1-win64-full.dlssupdate",
+      "size": 18357457,
+      "sha256": "2a7ec608eaf66943af002fef86163db3baf61fbe244774d8f3acd2f0d059ce0e",
+      "official_digest_matched": true,
+      "after_matches_official_v301": true,
+      "different_target_files": [],
+      "after_files": 4277
+    }
+  ],
+  "local_historical_delta_manifest_differences": {
+    "applies_to": ["lite", "full"],
+    "before_only": {
+      "CHANGELOG.md": {
+        "local": {
+          "size": 40676,
+          "sha256": "3a3abb826d72b73094f1afe70bfb2425bcc58b2b9e55ab6ddc8afa3230d304df"
+        },
+        "official": {
+          "size": 40311,
+          "sha256": "9308e5c1d264fc1ddbe213ba66c4c519fa3e9261aeeb9f48660cc944ed079505"
+        }
+      }
+    },
+    "after_differences": []
+  },
+  "scope": "Compares official archive manifests and downloaded official historical delta targets; does not establish the cause of previous user upgrade failures."
+}

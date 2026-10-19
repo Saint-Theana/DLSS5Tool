@@ -26,6 +26,14 @@
     {
       "version": "v3.0.0",
       "packages": "dist/v3.0.0-changelog-20261011/editions"
+    },
+    {
+      "version": "v3.0.1",
+      "packages": "D:/DLSS5Tool/dist/v3.0.1-release-20261016/editions"
+    },
+    {
+      "version": "v3.0.2",
+      "packages": "E:/dist/DLSS5Tool/v3.0.2/editions"
     }
   ]
 }

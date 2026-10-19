@@ -1,0 +1,28 @@
+{
+  "symptom": "Failed to extract ucrtbase.dll: failed to open target file! fopen: Permission denied",
+  "source": "Real lite upgrade probe, old v3.0.1 frozen helper",
+  "helper_sha256": "747bbee9fa76039e017db3e5096c252c2c6a583de2dd25ad398b2b904a793f09",
+  "asset_sha256": "b978ebb19defa62cd02facdf3101ba8836c0468c76c716432ad31086acba204e",
+  "failed_condition": {
+    "TEMP_and_TMP": "E:/dist/DLSS5Tool/tmp/release-v3.0.2-20261019/upgrade-lite/helper-temp",
+    "exit_code": 4294967295,
+    "transaction_phase": "ready",
+    "official_install_files_replaced": false,
+    "volume_filesystem": "NTFS",
+    "private_extraction_directory_owner_has_full_access": true
+  },
+  "successful_control": {
+    "only_changed_condition": "Do not override the normal Windows TEMP/TMP in the verification harness",
+    "TEMP": "C:/Users/PC/AppData/Local/Temp",
+    "same_helper_and_payload": true,
+    "same_ready_transaction_resumed": true,
+    "exit_code": 0,
+    "transaction_phase": "complete",
+    "managed_target_files_verified": 1866,
+    "rollback_backup_files_verified": 51,
+    "settings_queue_custom_mods_preserved": true
+  },
+  "security_observation": "360 and Windows Defender are registered. Defender status query was unavailable; no product-specific blocking cause is established.",
+  "security_settings_changed": false,
+  "scope": "The failed forced-temp probe is retained as a failed result. A successful retry with normal TEMP does not establish that all antivirus or custom-TEMP environments are supported. No shipped binary was changed to conceal this failure."
+}

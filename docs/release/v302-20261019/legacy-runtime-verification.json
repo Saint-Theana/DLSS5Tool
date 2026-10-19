@@ -1,0 +1,1 @@
+{"backup_verified": true, "exit_code": 0, "frozen_helper_sha256": "747bbee9fa76039e017db3e5096c252c2c6a583de2dd25ad398b2b904a793f09", "legacy_runtime_preserved": true, "scope": "Synthetic files; not full app/GPU/clean-machine acceptance", "settings_preserved": true, "state": {"phase": "complete", "target": "v9.0.1"}}

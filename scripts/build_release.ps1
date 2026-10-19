@@ -43,6 +43,10 @@ try {
     if (-not $version) {
         throw "Unable to read application version."
     }
+    $releasePaths = (& $venvPython -B (Join-Path $projectRoot 'scripts\release_paths.py') --version $version) | ConvertFrom-Json
+    Assert-ExternalSuccess "Reading project-scoped release output policy"
+    $distRoot = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { [IO.Path]::GetFullPath($releasePaths.base) }
+    $buildRoot = if ($WorkDirectory) { [IO.Path]::GetFullPath($WorkDirectory) } else { Join-Path $releasePaths.work 'build' }
 
     foreach ($requiredFile in @(
         "dlssnr_host_v2.dll", "nvngx_dlssnr.dll", "vsr_host.dll", "nvngx_vsr.dll", "dlssg_video_worker.exe"
@@ -61,8 +65,6 @@ try {
     }
 
     Write-Host "Building portable $version release..."
-    $distRoot = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path $projectRoot 'dist' }
-    $buildRoot = if ($WorkDirectory) { [IO.Path]::GetFullPath($WorkDirectory) } else { Join-Path $projectRoot 'build' }
     if ((Test-Path -LiteralPath (Join-Path $distRoot "DLSS5Tool-$version")) -or
         (Test-Path -LiteralPath (Join-Path $distRoot "DLSS5Tool-$version-win64.zip"))) {
         throw 'Release target already exists; choose a new OutputDirectory to preserve previous packages.'

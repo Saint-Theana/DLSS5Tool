@@ -48,6 +48,14 @@ Before building the portable package, provide `dlssnr_host_v2.dll`, `nvngx_dlssn
 .\scripts\build_release.ps1
 ```
 
+`packaging/release-output.json` controls the default output: base packages go to
+`E:\dist\DLSS5Tool\<version>\base`, complete editions to the sibling `editions`,
+and task intermediates to `E:\dist\DLSS5Tool\tmp\release-<version>-<date>`.
+Keep this project's assets out of the shared `E:\dist` root. A base build is not a
+complete release: follow the [file-update workflow (Chinese)](../release/FILE_UPDATES.md),
+verify the previous official baseline, run `scripts/package_editions.py` for both
+lite/full deltas, and pass `--check-upload`.
+
 The inference component is built separately; rebuilding the base app does not update it. See the [component build instructions](../../mods/README.md#maintainer-build-not-end-user-setup) and [packaging index (Chinese)](../../docs/release/PACKAGING_INDEX.md).
 
 See [CONTRIBUTING.md](../../CONTRIBUTING.md) for development conventions and [SECURITY.md](../../SECURITY.md) for security reports. Performance experiments and validation records belong in the [technical documentation](../../docs/README.md), not the product README.
