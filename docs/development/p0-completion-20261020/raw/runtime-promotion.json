@@ -1,0 +1,9 @@
+{
+  "rollback": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\rollback\\dlss5_quality.dll",
+  "rollback_verified": true,
+  "promoted_utc": "2026-10-20T04:19:19.9300769Z",
+  "new_sha256": "238B763E7481E8BCFABD5313A73B4901EDEEEBE6265ED9DED81F4EEE24BA97BE",
+  "old_sha256": "32EA271A83786B1533F4074CB29534CF866B4778D68B0B823DBF4C5DBAF544B6",
+  "success": true,
+  "runtime": "F:\\project\\DLSS5Tool\\runtime\\dlss5_quality.dll"
+}

@@ -46,6 +46,8 @@ public:
         bool applyControls = true, bool residualInput = false,
         const QualitySettings* localSettings = nullptr) noexcept;
     void Reset() noexcept;
+    // Extent/format changes invalidate views, not device-owned shader/timing.
+    void ResetBindings() noexcept;
 private:
     struct TimingSlot {
         winrt::com_ptr<ID3D11Query> disjoint;

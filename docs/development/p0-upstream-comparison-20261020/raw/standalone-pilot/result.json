@@ -1,0 +1,114 @@
+{
+  "arguments": {
+    "task": "tmp\\p0-upstream-comparison-20261020",
+    "label": "standalone-pilot",
+    "reference": "standalone",
+    "effect": "nr",
+    "seconds": 12,
+    "thread_counter": true,
+    "external_close": false,
+    "worker": false
+  },
+  "command": [
+    "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+    "-B",
+    "F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py",
+    "--task",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+    "--label",
+    "standalone-pilot",
+    "--reference",
+    "standalone",
+    "--seconds",
+    "12",
+    "--worker"
+  ],
+  "started_pid": 38772,
+  "exit_code": 0,
+  "elapsed_seconds": 57.31437530000403,
+  "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 209, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+  "source_and_binary_unchanged": true,
+  "remaining_before_recovery": [
+    {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "pid": 36048,
+      "parent": 38772,
+      "name": "conhost.exe",
+      "created": 134369455225643854,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 45332,
+      "parent": 38772,
+      "name": "python.exe",
+      "created": 134369455226070102,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    }
+  ],
+  "recovery": [
+    {
+      "pid": 38772,
+      "terminated": true,
+      "error": 0
+    },
+    {
+      "pid": 36048,
+      "terminated": true,
+      "error": 0
+    },
+    {
+      "pid": 45332,
+      "terminated": false,
+      "error": 5
+    }
+  ],
+  "remaining": [],
+  "root_private_commit_excluding_first_20_seconds": {
+    "samples": 73,
+    "start_median_bytes": 851968.0,
+    "end_median_bytes": 823296.0,
+    "delta_bytes": -28672.0,
+    "measured_span_seconds": 30.361180782318115,
+    "mib_per_minute": -0.05403692997854269,
+    "window_medians_bytes": [
+      851968.0,
+      823296,
+      823296.0,
+      823296,
+      823296
+    ],
+    "window_median_range_bytes": 28672.0
+  },
+  "plateau_verified": false,
+  "identities": [
+    {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe"
+    },
+    {
+      "pid": 36048,
+      "parent": 38772,
+      "name": "conhost.exe",
+      "created": 134369455225643854,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 45332,
+      "parent": 38772,
+      "name": "python.exe",
+      "created": 134369455226070102,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    }
+  ],
+  "normal_close": null,
+  "instrumentation": "external memory/module sampling; standalone optional local thread counter only"
+}

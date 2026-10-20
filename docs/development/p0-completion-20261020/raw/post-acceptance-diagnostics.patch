@@ -1,0 +1,225 @@
+--- measured/scripts/verify_p0_stability.py
++++ final/scripts/verify_p0_stability.py
+@@ -72,7 +72,7 @@
+               'third_party/realtime/veyra/shaders/NrProtection.hlsli']
+     if task is not None:
+         for flag, binary in (('THREAD_ACTIVITY','native_thread_activity.dll'),
+-                             ('HEAP_TRACE','native_heap_trace.dll'), ('VIRTUAL_TRACE','native_heap_trace.dll')):
++                             ('HEAP_TRACE','native_heap_trace.dll')):
+             if os.environ.get('DLSS5TOOL_P0_'+flag) == '1':
+                 name = str(checked_path(task/binary).relative_to(ROOT))
+                 if name not in names:
+@@ -96,7 +96,7 @@
+         manifest.append(dict(file=name,bytes=path.stat().st_size,sha256=digest))
+     return dict(files=manifest, diagnostic_environment={key:os.environ.get(key) for key in
+         ('DLSS5TOOL_P0_MEMORY_MAP','DLSS5TOOL_P0_HEAP_TRACE','DLSS5TOOL_P0_DISABLE_EXTENSIONS',
+-         'DLSS5TOOL_P0_THREAD_ACTIVITY','DLSS5TOOL_P0_VIRTUAL_TRACE',
++         'DLSS5TOOL_P0_THREAD_ACTIVITY',
+          'DLSS5TOOL_P0_COMPOSER_HOST','DLSS5TOOL_DISABLE_NATIVE_COMPOSER')})
+ 
+ 
+@@ -315,7 +315,6 @@
+     if args.trace_gui and os.environ.get('DLSS5TOOL_P0_MEMORY_MAP') == '1':
+         from scripts.inspect_native_allocations import Inspector
+         gui_inspector = Inspector()
+-    cycle_trace, cycle_patches = None, 0
+     try:
+         for index in range(args.cycles if args.case == 'images' else 1):
+             source = files[index % len(files)]
+@@ -370,11 +369,6 @@
+                     state['composer_lifetime'] = dict(created=counts[0],destroyed=counts[1],retained_device_refs=counts[2])
+             cycles.append(state)
+             event('image-complete', **state)
+-            if index == 1:
+-                from scripts.profile_native_frame_memory import start_heap_trace
+-                cycle_trace, cycle_patches = start_heap_trace(work, event, virtual=True)
+-            if cycle_trace is not None:
+-                assert cycle_trace.trace_dump(str(work/f'native-virtual-{index}.jsonl')) == 0
+             if index == args.gui_idle_cycle and args.idle_seconds:
+                 from scripts.profile_native_frame_memory import start_heap_trace
+                 trace, patches = start_heap_trace(work, event)
+@@ -434,19 +428,10 @@
+         assert not errors, errors
+         return dict(cycles=cycles, tk_errors=errors, window_destroyed=bool(closed))
+     finally:
+-        try:
+-            if not closed:
+-                app._export_cancel_event.set()
+-                app._exporting = app._queue_running = False
+-                app._on_close()
+-        finally:
+-            if cycle_trace is not None:
+-                try:
+-                    assert cycle_trace.trace_dump(str(work/'native-virtual-final.jsonl')) == 0
+-                finally:
+-                    restored = cycle_trace.trace_end()
+-                    event('virtual-trace-ended', restored=restored, patches=cycle_patches)
+-                    assert restored == cycle_patches
++        if not closed:
++            app._export_cancel_event.set()
++            app._exporting = app._queue_running = False
++            app._on_close()
+ 
+ 
+ def supervise(args, work):
+--- measured/scripts/profile_native_frame_memory.py
++++ final/scripts/profile_native_frame_memory.py
+@@ -136,10 +136,9 @@
+         return self.live.close()
+ 
+ 
+-def start_heap_trace(work, event, *, virtual=False):
++def start_heap_trace(work, event):
+     """Load only the explicitly requested, task-local diagnostic binary."""
+-    flag = 'DLSS5TOOL_P0_VIRTUAL_TRACE' if virtual else 'DLSS5TOOL_P0_HEAP_TRACE'
+-    if os.environ.get(flag) != '1':
++    if os.environ.get('DLSS5TOOL_P0_HEAP_TRACE') != '1':
+         return None, 0
+     import ctypes as C
+     from scripts.verify_p0_stability import checked_path
+@@ -147,10 +146,9 @@
+     assert (work.parent/'TASK.md').is_file() and trace_path.is_file()
+     trace = C.WinDLL(str(trace_path))
+     trace.trace_dump.argtypes = [C.c_wchar_p]
+-    patches = trace.trace_begin_virtual() if virtual else trace.trace_begin()
++    patches = trace.trace_begin()
+     assert patches > 0, patches
+-    event('virtual-trace-start' if virtual else 'heap-trace-start', patches=patches,
+-          scope='diagnostic process IAT, virtual commits >=64KiB' if virtual else 'diagnostic process IAT, default heap')
++    event('heap-trace-start', patches=patches, scope='diagnostic process IAT, default heap')
+     return trace, patches
+ 
+ 
+--- measured/scripts/native_heap_trace.cpp
++++ final/scripts/native_heap_trace.cpp
+@@ -23,10 +23,6 @@
+ using Realloc = PVOID (NTAPI*)(PVOID, ULONG, PVOID, SIZE_T);
+ using RtlFree = BOOLEAN (NTAPI*)(PVOID, ULONG, PVOID);
+ using HeapFreeCall = BOOL (WINAPI*)(HANDLE, DWORD, LPVOID);
+-using VirtualAllocCall = LPVOID (WINAPI*)(LPVOID, SIZE_T, DWORD, DWORD);
+-using VirtualFreeCall = BOOL (WINAPI*)(LPVOID, SIZE_T, DWORD);
+-using NtAllocCall = LONG (NTAPI*)(HANDLE, PVOID*, ULONG_PTR, PSIZE_T, ULONG, ULONG);
+-using NtFreeCall = LONG (NTAPI*)(HANDLE, PVOID*, PSIZE_T, ULONG);
+ Object* objects = nullptr;
+ Stack* stacks = nullptr;
+ Patch patches[PatchCapacity];
+@@ -37,11 +33,6 @@
+ Realloc real_realloc = nullptr;
+ RtlFree real_rtl_free = nullptr;
+ HeapFreeCall real_heap_free = nullptr;
+-VirtualAllocCall real_virtual_alloc = nullptr;
+-VirtualFreeCall real_virtual_free = nullptr;
+-NtAllocCall real_nt_alloc = nullptr;
+-NtFreeCall real_nt_free = nullptr;
+-bool virtual_only = false;
+ HANDLE default_heap = nullptr;
+ HMODULE own_module = nullptr;
+ SRWLOCK table_lock = SRWLOCK_INIT;
+@@ -142,58 +133,7 @@
+     const auto error = GetLastError();
+     inside = false; SetLastError(error); return ok;
+ }
+-LPVOID WINAPI ObserveVirtualAlloc(LPVOID address, SIZE_T size, DWORD type, DWORD protect) {
+-    if (inside || !InterlockedCompareExchange(&enabled, 0, 0))
+-        return real_virtual_alloc(address, size, type, protect);
+-    inside = true;
+-    auto pointer = real_virtual_alloc(address, size, type, protect);
+-    auto error = GetLastError();
+-    if (pointer && size >= 65536 && (type & MEM_COMMIT)) Record(pointer, size);
+-    inside = false; SetLastError(error); return pointer;
+-}
+-BOOL WINAPI ObserveVirtualFree(LPVOID pointer, SIZE_T size, DWORD type) {
+-    if (inside || !InterlockedCompareExchange(&enabled, 0, 0))
+-        return real_virtual_free(pointer, size, type);
+-    inside = true;
+-    if (pointer && (type & MEM_RELEASE)) {
+-        AcquireSRWLockExclusive(&table_lock); RemoveLocked(pointer); ReleaseSRWLockExclusive(&table_lock);
+-    }
+-    auto ok = real_virtual_free(pointer, size, type);
+-    auto error = GetLastError();
+-    inside = false; SetLastError(error); return ok;
+-}
+-LONG NTAPI ObserveNtAlloc(HANDLE process, PVOID* base, ULONG_PTR zero, PSIZE_T size,
+-                         ULONG type, ULONG protect) {
+-    if (inside || !InterlockedCompareExchange(&enabled, 0, 0))
+-        return real_nt_alloc(process, base, zero, size, type, protect);
+-    inside = true;
+-    auto status = real_nt_alloc(process, base, zero, size, type, protect);
+-    auto error = GetLastError();
+-    if (status >= 0 && base && *base && size && *size >= 65536 && (type & MEM_COMMIT) &&
+-        (process == GetCurrentProcess() || GetProcessId(process) == GetCurrentProcessId()))
+-        Record(*base, *size);
+-    inside = false; SetLastError(error); return status;
+-}
+-LONG NTAPI ObserveNtFree(HANDLE process, PVOID* base, PSIZE_T size, ULONG type) {
+-    if (inside || !InterlockedCompareExchange(&enabled, 0, 0))
+-        return real_nt_free(process, base, size, type);
+-    inside = true;
+-    if (base && *base && (type & MEM_RELEASE) &&
+-        (process == GetCurrentProcess() || GetProcessId(process) == GetCurrentProcessId())) {
+-        AcquireSRWLockExclusive(&table_lock); RemoveLocked(*base); ReleaseSRWLockExclusive(&table_lock);
+-    }
+-    auto status = real_nt_free(process, base, size, type);
+-    auto error = GetLastError();
+-    inside = false; SetLastError(error); return status;
+-}
+ void* Replacement(void* pointer) {
+-    if (virtual_only) {
+-        if (pointer == reinterpret_cast<void*>(real_virtual_alloc)) return reinterpret_cast<void*>(&ObserveVirtualAlloc);
+-        if (pointer == reinterpret_cast<void*>(real_virtual_free)) return reinterpret_cast<void*>(&ObserveVirtualFree);
+-        if (pointer == reinterpret_cast<void*>(real_nt_alloc)) return reinterpret_cast<void*>(&ObserveNtAlloc);
+-        if (pointer == reinterpret_cast<void*>(real_nt_free)) return reinterpret_cast<void*>(&ObserveNtFree);
+-        return nullptr;
+-    }
+     if (pointer == reinterpret_cast<void*>(real_alloc)) return reinterpret_cast<void*>(&ObserveAlloc);
+     if (pointer == reinterpret_cast<void*>(real_realloc)) return reinterpret_cast<void*>(&ObserveRealloc);
+     if (pointer == reinterpret_cast<void*>(real_rtl_free)) return reinterpret_cast<void*>(&ObserveRtlFree);
+@@ -243,23 +183,16 @@
+ }
+ }
+ 
+-static int Begin(bool virtual_mode) {
++extern "C" __declspec(dllexport) int trace_begin() {
+     if (objects) return -1;
+-    virtual_only = virtual_mode;
+     GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_PIN,
+-                      reinterpret_cast<LPCWSTR>(&Begin), &own_module);
++                      reinterpret_cast<LPCWSTR>(&trace_begin), &own_module);
+     auto ntdll = GetModuleHandleW(L"ntdll.dll");
+     real_alloc = reinterpret_cast<Alloc>(GetProcAddress(ntdll, "RtlAllocateHeap"));
+     real_realloc = reinterpret_cast<Realloc>(GetProcAddress(ntdll, "RtlReAllocateHeap"));
+     real_rtl_free = reinterpret_cast<RtlFree>(GetProcAddress(ntdll, "RtlFreeHeap"));
+     real_heap_free = reinterpret_cast<HeapFreeCall>(GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "HeapFree"));
+-    auto kernel = GetModuleHandleW(L"kernel32.dll");
+-    real_virtual_alloc = reinterpret_cast<VirtualAllocCall>(GetProcAddress(kernel, "VirtualAlloc"));
+-    real_virtual_free = reinterpret_cast<VirtualFreeCall>(GetProcAddress(kernel, "VirtualFree"));
+-    real_nt_alloc = reinterpret_cast<NtAllocCall>(GetProcAddress(ntdll, "NtAllocateVirtualMemory"));
+-    real_nt_free = reinterpret_cast<NtFreeCall>(GetProcAddress(ntdll, "NtFreeVirtualMemory"));
+     if (!real_alloc || !real_realloc || !real_rtl_free || !real_heap_free) return -2;
+-    if (virtual_only && (!real_virtual_alloc || !real_virtual_free || !real_nt_alloc || !real_nt_free)) return -2;
+     default_heap = GetProcessHeap();
+     objects = static_cast<Object*>(VirtualAlloc(nullptr, sizeof(Object)*ObjectCapacity, MEM_RESERVE|MEM_COMMIT, PAGE_READWRITE));
+     stacks = static_cast<Stack*>(VirtualAlloc(nullptr, sizeof(Stack)*StackCapacity, MEM_RESERVE|MEM_COMMIT, PAGE_READWRITE));
+@@ -272,9 +205,6 @@
+     inside = false;
+     return static_cast<int>(patch_count);
+ }
+-
+-extern "C" __declspec(dllexport) int trace_begin() { return Begin(false); }
+-extern "C" __declspec(dllexport) int trace_begin_virtual() { return Begin(true); }
+ 
+ extern "C" __declspec(dllexport) int trace_dump(const wchar_t* path) {
+     if (!objects) return -1;
+@@ -298,10 +228,9 @@
+     std::snprintf(text, sizeof(text),
+         "{\"kind\":\"summary\",\"pid\":%lu,\"patches\":%u,\"stacks\":%u,\"object_capacity\":%u,"
+         "\"dropped_objects\":%llu,\"dropped_stacks\":%llu,\"unknown_frees\":%llu,"
+-        "\"observed_allocated\":%llu,\"observed_freed\":%llu,\"scope\":\"%s; existing IAT references only\"}\n",
++        "\"observed_allocated\":%llu,\"observed_freed\":%llu,\"scope\":\"default heap; existing IAT references only\"}\n",
+         GetCurrentProcessId(), patch_count, stack_count, ObjectCapacity,
+-        dropped_objects, dropped_stacks, unknown_frees, observed_allocated, observed_freed,
+-        virtual_only ? "VirtualAlloc/NtAllocateVirtualMemory commits >=64KiB, MEM_RELEASE pairs; partial decommit untracked" : "default heap");
++        dropped_objects, dropped_stacks, unknown_frees, observed_allocated, observed_freed);
+     ok = Write(file, text) && ok;
+     for (unsigned i = 0; i < stack_count; ++i) {
+         const auto& stack = stacks[i];

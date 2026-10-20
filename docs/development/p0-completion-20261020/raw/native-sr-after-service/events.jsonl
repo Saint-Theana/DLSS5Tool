@@ -1,0 +1,9 @@
+{"event": "starting", "wall": 1792465936.2311451, "pid": 2252}
+{"event": "first-output", "wall": 1792465939.5077026, "sha256": "e768f0ef006a8ecb7535e68e507c442e357408e4934c72269080c376a062ea60"}
+{"event": "idle-start", "wall": 1792465939.508581, "seconds": 60}
+{"event": "idle-end", "wall": 1792465999.5887475}
+{"event": "frame", "wall": 1792465999.5892625, "frame": 1, "total": 512}
+{"event": "frame", "wall": 1792466000.5340338, "frame": 129, "total": 512}
+{"event": "frame", "wall": 1792466001.237357, "frame": 257, "total": 512}
+{"event": "frame", "wall": 1792466001.9538648, "frame": 385, "total": 512}
+{"event": "closed", "wall": 1792466006.1113443}

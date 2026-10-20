@@ -1,0 +1,21 @@
+quality_tests.cpp
+quality.cpp
+正在生成代码...
+identity passed
+zero strength exact base passed
+valid zero residual passed
+protected region exact base passed
+inward feather edge passed
+odd extent low resolution passed
+shadow safe overdrive passed
+signed HDR passed
+HDR highlight unclipped passed
+darken suppression passed
+fine residual multiplier passed
+fine shadow direction passed
+fine highlight direction passed
+fine lightness after direction passed
+precontrolled residual passed
+no UAV output copy fallback passed
+aliased base output copy fallback passed
+GPU quality cases: 23 passed

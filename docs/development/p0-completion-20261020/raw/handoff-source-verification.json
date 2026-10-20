@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "file": "dlss5tool/gui.py",
+      "sha256": "74852990a90b6126981e0cb40592db3d79d8a6533d6d99c2a67bcfe19b333d17"
+    },
+    {
+      "file": "dlss5tool/local_preview_composition.py",
+      "sha256": "b93b5a6d43b172b59cdbef9836791533b143bc0638f5fa8819dbb03ea86d2aa3"
+    },
+    {
+      "file": "dlss5tool/preview_jobs.py",
+      "sha256": "c108daa3e9cb275d620411380a0916f8dc4e0fd74e3eced2ebac9b4e0483f8d2"
+    },
+    {
+      "file": "scripts/verify_p0_stability.py",
+      "sha256": "be4be71af69f74b454497bb7fece6b068aa9c093a76443f53e7d1c97cf794b63"
+    },
+    {
+      "file": "scripts/profile_native_frame_memory.py",
+      "sha256": "5cf2319a9ac6eeb3ff1d07d5c8d5c0c18b86471a7f0f20a4d0877c1da69a06f5"
+    },
+    {
+      "file": "scripts/profile_thread_activity.py",
+      "sha256": "b8130e55594a11710830730c5998e30c587cb7e71cbdebda3ef08a73a2b11c3b"
+    },
+    {
+      "file": "scripts/analyze_p0_completion.py",
+      "sha256": "df5fa0a94ee426eb18c6df39eccc8fb29cd46a5a28936fa719bade086bb15032"
+    },
+    {
+      "file": "scripts/collect_p0_stability.py",
+      "sha256": "1df8928ba5cd820e04fd50f5229ecf615a2253bcae5a011131a7583dba195983"
+    },
+    {
+      "file": "scripts/native_thread_activity.cpp",
+      "sha256": "84cb453f95853a80f995170fbfd2b992b40b9b995314bbb29f274322a028a59b"
+    },
+    {
+      "file": "native/realtime/quality_bridge.cpp",
+      "sha256": "a8ad9e77fd73f9e8e7f4c2ac5eb516d82a0372f7565e5dfd1b8e3c087ce922b6"
+    },
+    {
+      "file": "native/realtime/quality.cpp",
+      "sha256": "3cfb8d0ce167bef1889f0bc233e61d4af3955eaa461ca60b0999d17ae9927a1c"
+    },
+    {
+      "file": "native/realtime/quality.h",
+      "sha256": "5a5cd7cc47a5b1ba41918fdae13dd0c7b42dc86f9195a8c7cb3d802b1a34599e"
+    },
+    {
+      "file": "native/realtime/quality_tests.cpp",
+      "sha256": "a05cfe72e9b64028d419e304c1a633f3a6842a4efa2e7600553ee311e02bbf02"
+    },
+    {
+      "file": "tests/test_preview_composer_reuse.py",
+      "sha256": "0ad74fec18a78d57d6f7f2571a1c963ec7c4ad8ff62349adc38d57575a38b774"
+    },
+    {
+      "file": "tests/test_appearance.py",
+      "sha256": "475e33aa595d22eafc2f08b3e6c334f75153cbd31f2dcd662266f608e45842b5"
+    }
+  ],
+  "notes_unchanged": true,
+  "notes_sha256": "81219f153105161f4f5ddf4f14cd29e658aac6f7c75c50f47e805bf2de95ae8c",
+  "runtime_sha256": "238b763e7481e8bcfabd5313a73b4901edeeebe6265ed9ded81f4eee24ba97be",
+  "runtime_bytes": 155136,
+  "canonical_runtime_loaded_in_four_new_processes": true
+}

@@ -1,0 +1,23 @@
+{
+  "first": {
+    "started": 0,
+    "detached": 0,
+    "unclassified": 0,
+    "groups": []
+  },
+  "last": {
+    "started": 50,
+    "detached": 50,
+    "unclassified": 0,
+    "groups": [
+      {
+        "start_address": 140725646707968,
+        "started": 50,
+        "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+        "offset": 183552
+      }
+    ]
+  },
+  "started_delta": 50,
+  "detached_delta": 50
+}

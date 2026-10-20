@@ -1,0 +1,4 @@
+{"event": "starting", "wall": 1792468744.7206974, "pid": 31964}
+{"event": "idle-start", "wall": 1792468748.9805071, "seconds": 300, "scope": "one native composer, no SR/NR"}
+{"event": "idle-end", "wall": 1792469049.4502113}
+{"event": "closed", "wall": 1792469050.6636684}

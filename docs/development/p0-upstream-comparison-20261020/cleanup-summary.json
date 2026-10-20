@@ -1,0 +1,15 @@
+{
+  "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+  "removed_top_level_targets": 26,
+  "removed_files": 141,
+  "logical_removed_bytes": 233152856,
+  "f_free_before_bytes": 63536431104,
+  "f_free_after_bytes": 63769837568,
+  "f_net_free_increase_bytes": 233406464,
+  "remaining_task_bytes": 950.0,
+  "remaining": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\TASK.md"
+  ],
+  "retained_reason": "Task registration only; original references, dependencies and previous rollback DLL remain outside this task.",
+  "review_date": "2026-10-27, not deletion authorization"
+}

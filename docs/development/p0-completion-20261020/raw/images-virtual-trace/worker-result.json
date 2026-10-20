@@ -1,0 +1,10 @@
+{
+  "case": "images",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "status": "failed",
+  "error": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py\", line 190, in worker\n    result.update(gui_images(args, work, config, event))\n                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py\", line 426, in gui_images\n    assert restored == cycle_patches\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

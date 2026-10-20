@@ -1,0 +1,13 @@
+{
+  "disk_free_before_bytes": 63572959232,
+  "process_audit": "raw/retirement-audit.json",
+  "deleted_logical_bytes": 200379997.0,
+  "disk_free_after_bytes": 63773818880,
+  "deleted_files": 529,
+  "rollback_sha256": "32EA271A83786B1533F4074CB29534CF866B4778D68B0B823DBF4C5DBAF544B6",
+  "deleted_top_level_targets": 104,
+  "net_disk_free_delta_bytes": 200859648,
+  "archive_verified_files": 356,
+  "preserved_reason": "Task registration and verified original DLL rollback; review 2026-10-27, no automatic deletion",
+  "remaining_task_logical_bytes": 158512.0
+}

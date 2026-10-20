@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="1.512" timestamp="2026-10-20T11:50:04.438672+08:00" hostname="QQQ"><testcase classname="tests.test_appearance.AppearanceTests" name="test_active_appearance_does_not_use_gpu_direct_nr_output" time="0.250" /></testsuite></testsuites>

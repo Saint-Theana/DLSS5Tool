@@ -6285,9 +6285,9 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         if total_bytes() >= getattr(self,'_frame_cache_pending_bytes',0):
             self._frame_cache_pending_bytes = 0
 
-    def _cache_clear(self, keep_source=False):
+    def _cache_clear(self, keep_source=False, *, release_composition=True):
         """Invalidate processed frames; only parameter edits can retain decoded sources."""
-        self._invalidate_local_composition(keep_last=keep_source)
+        self._invalidate_local_composition(keep_last=keep_source, release=release_composition)
         self._viewport_rasters = []
         self._wipe_surface_key = None
         self._wipe_photos = None
@@ -9450,7 +9450,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             self._load_media(paths[0])
         return getattr(event, "action", None)
 
-    def _begin_source_load(self):
+    def _begin_source_load(self, *, reuse_composition=False):
         self._clear_preview_wait()
         self._shared_progress_token = None
         self._shared_progress_binding = None
@@ -9474,7 +9474,12 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         if getattr(self,'_shared_cache_pool',None):
             self._shared_cache_pool.invalidate_guidance()
         self._audio.close()
-        self._cache_clear()
+        if reuse_composition:
+            # Composition has no temporal history. Invalidate all old pixels,
+            # but retain its owner-thread device across successive stills.
+            self._cache_clear(release_composition=False)
+        else:
+            self._cache_clear()
         self._last_dlss_frame = -1
         self._play_orig = None
         self._split_frame = -1
@@ -9601,7 +9606,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             )
             self.set_status(tr("status.import_image_failed"))
             return False
-        self._begin_source_load()
+        self._begin_source_load(reuse_composition=True)
         self.video = path
         self._image_bgr = inference_color(img, alpha)
         self._image_alpha = alpha

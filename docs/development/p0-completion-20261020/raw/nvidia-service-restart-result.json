@@ -1,0 +1,12 @@
+{
+  "service": "NVDisplay.ContainerLocalSystem",
+  "initial_status": "Running",
+  "initial_start_type": "Automatic",
+  "started_utc": "2026-10-20T03:07:19.2666620Z",
+  "success": true,
+  "error": null,
+  "final_status": "Running",
+  "final_start_type": "Automatic",
+  "startup_unchanged": true,
+  "ended_utc": "2026-10-20T03:07:20.6913166Z"
+}

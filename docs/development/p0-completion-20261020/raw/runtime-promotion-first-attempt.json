@@ -1,0 +1,6 @@
+{
+  "staged_sha256": "238B763E7481E8BCFABD5313A73B4901EDEEEBE6265ED9DED81F4EEE24BA97BE",
+  "action": "File.Replace",
+  "runtime_sha256": "32EA271A83786B1533F4074CB29534CF866B4778D68B0B823DBF4C5DBAF544B6",
+  "error": "PowerShell null backup argument bound as empty path; failed before replacement"
+}

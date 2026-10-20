@@ -1,0 +1,24 @@
+{
+  "reason": "VM trace did not cover the large texture allocations and did not meet slot-restoration gate; preserve failed experiment, remove unused feature from final tooling",
+  "production_code_changed": false,
+  "changes": [
+    {
+      "file": "scripts/verify_p0_stability.py",
+      "before_sha256": "4dde4e983d44e198379a95195600a9db010615a58876f40cec55aff4549c1723",
+      "after_sha256": "be4be71af69f74b454497bb7fece6b068aa9c093a76443f53e7d1c97cf794b63",
+      "snapshot": "source-measured-verify_p0_stability.py"
+    },
+    {
+      "file": "scripts/profile_native_frame_memory.py",
+      "before_sha256": "cc8273b3348a080c730fdf26e2942e4b67f84ac973f80e35840cbaaac81b37d6",
+      "after_sha256": "5cf2319a9ac6eeb3ff1d07d5c8d5c0c18b86471a7f0f20a4d0877c1da69a06f5",
+      "snapshot": "source-measured-profile_native_frame_memory.py"
+    },
+    {
+      "file": "scripts/native_heap_trace.cpp",
+      "before_sha256": "9b2cb81e1cd44eb841bcd11b42f762e00fbeecd545963b9fd9e787c12f4c0dc2",
+      "after_sha256": "f6e1a1961f5ba0ba3744c6f4d0decd2347b941058d3e18e1a53d851c6af7f3e2",
+      "snapshot": "source-measured-native_heap_trace.cpp"
+    }
+  ]
+}

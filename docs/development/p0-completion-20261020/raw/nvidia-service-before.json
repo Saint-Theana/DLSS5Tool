@@ -1,0 +1,7 @@
+{
+  "name": "NVDisplay.ContainerLocalSystem",
+  "status": "Running",
+  "start_type": "Automatic",
+  "time_utc": "2026-10-20T03:06:18.5044619Z",
+  "image_path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NVDisplay.Container.exe -arg <ExeDir>\\arguments.txt"
+}

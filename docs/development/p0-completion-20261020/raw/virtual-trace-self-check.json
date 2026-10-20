@@ -1,0 +1,230 @@
+{
+  "patches": 13,
+  "restored": 13,
+  "allocated": {
+    "file": "trace-self-virtual-allocated.jsonl",
+    "pid": 23920,
+    "patches": 13,
+    "stacks": 1,
+    "object_capacity": 524288,
+    "dropped_objects": 0,
+    "dropped_stacks": 0,
+    "unknown_frees": 0,
+    "observed_allocated": 16777216,
+    "observed_freed": 0,
+    "scope": "VirtualAlloc/NtAllocateVirtualMemory commits >=64KiB, MEM_RELEASE pairs; partial decommit untracked; existing IAT references only",
+    "observed_live_bytes": 16777216,
+    "live_by_first_captured_module": {
+      "C:\\WINDOWS\\System32\\KERNELBASE.dll": 16777216
+    },
+    "largest_observed_live_stacks": [
+      {
+        "kind": "stack",
+        "index": 0,
+        "allocated": 16777216,
+        "freed": 0,
+        "live": 16777216,
+        "allocations": 1,
+        "live_count": 1,
+        "frames": [
+          "0x7ffd3df36694",
+          "0x7ffd05e44771",
+          "0x7ffd05e44493",
+          "0x7ffd05e442c2",
+          "0x7ffcbc1d2d32",
+          "0x7ffcbc1d2967",
+          "0x7ffcbc1d2557",
+          "0x7ffbdbf82623",
+          "0x7ffbdbf81f85",
+          "0x7ffbdbf87081",
+          "0x7ffbdbfb8e20",
+          "0x7ffbdc05e746",
+          "0x7ffbdc05e651",
+          "0x7ffbdc05e184",
+          "0x7ffbdc0989fb",
+          "0x7ffbdc098554"
+        ],
+        "resolved": [
+          {
+            "module": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+            "offset": "0xb6694"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x4771"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x4493"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x42c2"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2d32"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2967"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2557"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x32623"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x31f85"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x37081"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x68e20"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e746"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e651"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e184"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x1489fb"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x148554"
+          }
+        ]
+      }
+    ],
+    "limitations": "IAT coverage only; no release through cached function pointers or subsequently loaded imports. Unobserved releases can overstate live bytes; failed frees can understate them. Optimized tail calls can omit frames; no private NVIDIA symbols. Instrumentation changes allocation timing and has fixed native table overhead."
+  },
+  "freed": {
+    "file": "trace-self-virtual-freed.jsonl",
+    "pid": 23920,
+    "patches": 13,
+    "stacks": 1,
+    "object_capacity": 524288,
+    "dropped_objects": 0,
+    "dropped_stacks": 0,
+    "unknown_frees": 0,
+    "observed_allocated": 16777216,
+    "observed_freed": 16777216,
+    "scope": "VirtualAlloc/NtAllocateVirtualMemory commits >=64KiB, MEM_RELEASE pairs; partial decommit untracked; existing IAT references only",
+    "observed_live_bytes": 0,
+    "live_by_first_captured_module": {
+      "C:\\WINDOWS\\System32\\KERNELBASE.dll": 0
+    },
+    "largest_observed_live_stacks": [
+      {
+        "kind": "stack",
+        "index": 0,
+        "allocated": 16777216,
+        "freed": 16777216,
+        "live": 0,
+        "allocations": 1,
+        "live_count": 0,
+        "frames": [
+          "0x7ffd3df36694",
+          "0x7ffd05e44771",
+          "0x7ffd05e44493",
+          "0x7ffd05e442c2",
+          "0x7ffcbc1d2d32",
+          "0x7ffcbc1d2967",
+          "0x7ffcbc1d2557",
+          "0x7ffbdbf82623",
+          "0x7ffbdbf81f85",
+          "0x7ffbdbf87081",
+          "0x7ffbdbfb8e20",
+          "0x7ffbdc05e746",
+          "0x7ffbdc05e651",
+          "0x7ffbdc05e184",
+          "0x7ffbdc0989fb",
+          "0x7ffbdc098554"
+        ],
+        "resolved": [
+          {
+            "module": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+            "offset": "0xb6694"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x4771"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x4493"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\libffi-8.dll",
+            "offset": "0x42c2"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2d32"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2967"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs\\_ctypes.pyd",
+            "offset": "0x2557"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x32623"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x31f85"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x37081"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x68e20"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e746"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e651"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x10e184"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x1489fb"
+          },
+          {
+            "module": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.dll",
+            "offset": "0x148554"
+          }
+        ]
+      }
+    ],
+    "limitations": "IAT coverage only; no release through cached function pointers or subsequently loaded imports. Unobserved releases can overstate live bytes; failed frees can understate them. Optimized tail calls can omit frames; no private NVIDIA symbols. Instrumentation changes allocation timing and has fixed native table overhead."
+  }
+}

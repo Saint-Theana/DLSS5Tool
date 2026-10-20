@@ -1,0 +1,187 @@
+{
+  "files": [
+    {
+      "file": "dlss5tool/adapter_probe.py",
+      "bytes": 16493,
+      "sha256": "f4ff543b3c4981b966f993db5c89ec70447bda111af2f298ab14fe22d08c6618"
+    },
+    {
+      "file": "dlss5tool/adapter_inventory.py",
+      "bytes": 6915,
+      "sha256": "9d14adc9262e752ea9bb4a1d21c4b6dd4d20f746f9dc224a2cd52f12adb9cc6b"
+    },
+    {
+      "file": "dlss5tool/process_job.py",
+      "bytes": 2246,
+      "sha256": "fd422e722f050a52576a8c1d1a862c73070f266e246703d59e187c8e51dff925"
+    },
+    {
+      "file": "dlss5tool/dlss_engine.py",
+      "bytes": 29364,
+      "sha256": "fb7b5777578662ff61f334df5b4f5bd5f0b2bf626dbb5b10b7f49ecf09ab58cc"
+    },
+    {
+      "file": "dlss5tool/gui.py",
+      "bytes": 501506,
+      "sha256": "74852990a90b6126981e0cb40592db3d79d8a6533d6d99c2a67bcfe19b333d17"
+    },
+    {
+      "file": "dlss5tool/dlss_host_process.py",
+      "bytes": 29985,
+      "sha256": "16ae4ecda5a2613dfc51edcb01bc37989b27762837081077ed1c3b59346bfa25"
+    },
+    {
+      "file": "dlss5tool/memory_budget.py",
+      "bytes": 5192,
+      "sha256": "ee546fa4155824fdf753ecceaaa7eda4c82e86f358ecbed5e11e5910facdb907"
+    },
+    {
+      "file": "dlss5tool/super_resolution.py",
+      "bytes": 20128,
+      "sha256": "4308d0137b1eeea679d380b180b6986b0458990e06a400e293323822a43c666b"
+    },
+    {
+      "file": "dlss5tool/render_cache.py",
+      "bytes": 32100,
+      "sha256": "322fffa89a599898259dc7cd4056ad64d12f4f120466830b604e73f3cab91cf4"
+    },
+    {
+      "file": "dlss5tool/shared_render_preview.py",
+      "bytes": 29059,
+      "sha256": "e8c3bdbca2665053dff097b0a6c2bcd51cffb469d9424e3fa45303186c4a9eef"
+    },
+    {
+      "file": "dlss5tool/residual_composition.py",
+      "bytes": 23862,
+      "sha256": "51d75d3ffed4e32e6fb78ef29401201b88d12488d24ffe67f32d4029380364c0"
+    },
+    {
+      "file": "dlss5tool/local_preview_composition.py",
+      "bytes": 6015,
+      "sha256": "b93b5a6d43b172b59cdbef9836791533b143bc0638f5fa8819dbb03ea86d2aa3"
+    },
+    {
+      "file": "dlss5tool/preview_jobs.py",
+      "bytes": 4380,
+      "sha256": "c108daa3e9cb275d620411380a0916f8dc4e0fd74e3eced2ebac9b4e0483f8d2"
+    },
+    {
+      "file": "dlss5tool/__main__.py",
+      "bytes": 268,
+      "sha256": "b8b0c2d4fa7d189d9b00399b67ad8a557756dd9988e733b95e8bfca1136dbe2d"
+    },
+    {
+      "file": "gui.py",
+      "bytes": 1884,
+      "sha256": "6bf1788de6e527c7d98c60b478564ff74134ff0f7c58f5b9d1e62ee159cb8157"
+    },
+    {
+      "file": "scripts/verify_p0_stability.py",
+      "bytes": 38892,
+      "sha256": "be4be71af69f74b454497bb7fece6b068aa9c093a76443f53e7d1c97cf794b63"
+    },
+    {
+      "file": "scripts/profile_native_frame_memory.py",
+      "bytes": 24032,
+      "sha256": "5cf2319a9ac6eeb3ff1d07d5c8d5c0c18b86471a7f0f20a4d0877c1da69a06f5"
+    },
+    {
+      "file": "scripts/inspect_native_allocations.py",
+      "bytes": 8956,
+      "sha256": "f37968290dbe0a21cd33a1ca2144f53dd5bc5c30024e893466e4eb91cbd784bd"
+    },
+    {
+      "file": "scripts/profile_thread_activity.py",
+      "bytes": 1822,
+      "sha256": "b8130e55594a11710830730c5998e30c587cb7e71cbdebda3ef08a73a2b11c3b"
+    },
+    {
+      "file": "scripts/native_thread_activity.cpp",
+      "bytes": 2045,
+      "sha256": "84cb453f95853a80f995170fbfd2b992b40b9b995314bbb29f274322a028a59b"
+    },
+    {
+      "file": "scripts/native_heap_trace.cpp",
+      "bytes": 13364,
+      "sha256": "f6e1a1961f5ba0ba3744c6f4d0decd2347b941058d3e18e1a53d851c6af7f3e2"
+    },
+    {
+      "file": "native/realtime/quality_bridge.cpp",
+      "bytes": 12557,
+      "sha256": "a8ad9e77fd73f9e8e7f4c2ac5eb516d82a0372f7565e5dfd1b8e3c087ce922b6"
+    },
+    {
+      "file": "native/realtime/quality.cpp",
+      "bytes": 6680,
+      "sha256": "3cfb8d0ce167bef1889f0bc233e61d4af3955eaa461ca60b0999d17ae9927a1c"
+    },
+    {
+      "file": "native/realtime/quality.h",
+      "bytes": 3029,
+      "sha256": "5a5cd7cc47a5b1ba41918fdae13dd0c7b42dc86f9195a8c7cb3d802b1a34599e"
+    },
+    {
+      "file": "native/realtime/quality_gpu_output.cpp",
+      "bytes": 6483,
+      "sha256": "d56c1aeb93d4eda6d456d6a62a30257e33a7774688077e59784669c5804ed8c6"
+    },
+    {
+      "file": "native/realtime/quality_gpu_output.h",
+      "bytes": 1687,
+      "sha256": "59ebecfd9610cad9f69684ed860309eaf1599ca4e9ec38a699b289ceea7197d0"
+    },
+    {
+      "file": "scripts/prepare_realtime_build.py",
+      "bytes": 35368,
+      "sha256": "61e3dbf0f7bd7d5b504c1923e54fe20702a8c47eb872a1d1bcf520b39db094ba"
+    },
+    {
+      "file": "third_party/realtime/veyra/shaders/NrResidualComposite.hlsl",
+      "bytes": 2621,
+      "sha256": "afa5563806c5a87257ccad05ed6034c6c59abb38e54c4d3d0f606a39f5333e99"
+    },
+    {
+      "file": "third_party/realtime/veyra/shaders/NrProtection.hlsli",
+      "bytes": 549,
+      "sha256": "18d97e8bb5e68719f8f04425f14b3dec4734da11ee995b59756c240bf7d11157"
+    },
+    {
+      "file": "tmp\\p0-upstream-comparison-20261020\\native_thread_activity.dll",
+      "bytes": 4096,
+      "sha256": "2745a901ad36a11662781af1902b4d06ca8bea40690fa03f3bc226dd8a419656"
+    },
+    {
+      "file": "runtime/vsr_host.dll",
+      "bytes": 231936,
+      "sha256": "5e66ddc8b4c56f2b77daed782cc8429b607d32bba358efb488fbd4c03ae515b7"
+    },
+    {
+      "file": "runtime/nvngx_vsr.dll",
+      "bytes": 19140144,
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed"
+    },
+    {
+      "file": "runtime/nvngx_dlssnr.dll",
+      "bytes": 165840496,
+      "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650"
+    },
+    {
+      "file": "runtime/dlssnr_host_v2.dll",
+      "bytes": 295424,
+      "sha256": "c8ad631f8f78b2dedec6aec418c7a570d6fc5bf1b9ffa9f3514bcb0edd58fc13"
+    },
+    {
+      "file": "runtime/dlss5_quality.dll",
+      "bytes": 155136,
+      "sha256": "238b763e7481e8bcfabd5313a73b4901edeeebe6265ed9ded81f4eee24ba97be"
+    }
+  ],
+  "diagnostic_environment": {
+    "DLSS5TOOL_P0_MEMORY_MAP": null,
+    "DLSS5TOOL_P0_HEAP_TRACE": null,
+    "DLSS5TOOL_P0_DISABLE_EXTENSIONS": null,
+    "DLSS5TOOL_P0_THREAD_ACTIVITY": "1",
+    "DLSS5TOOL_P0_COMPOSER_HOST": null,
+    "DLSS5TOOL_DISABLE_NATIVE_COMPOSER": null
+  }
+}

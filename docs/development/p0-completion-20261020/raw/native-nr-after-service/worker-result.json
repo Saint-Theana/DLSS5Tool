@@ -1,0 +1,14 @@
+{
+  "case": "native-nr",
+  "scale": 2,
+  "frames": 512,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "nr",
+  "width": 960,
+  "height": 540,
+  "diagnostic_gc_interval": 512,
+  "first_output_sha256": "d7489c5f92e95426f405806b89a221d798c8dd31992b20de26caf7a97789fc99",
+  "status": "passed"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+    "bytes": 19354112,
+    "sha256": "22d1321b8d31161e7cb0920ec08c43b51884436a066e62c70a0c564acd4c813e"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+    "bytes": 3660800,
+    "sha256": "497e346d967c8d6855d26c666104e52e61dcfbc6e8fe8edd4126f01e790113e6"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+    "bytes": 1226752,
+    "sha256": "c46ee9c04e8dada7beb4aeee12f93a5d147d758e990f204141aa163d427b9688"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+    "bytes": 1850880,
+    "sha256": "38e09f960822a081fc46fc296fb3ef5f841d1a6c15a39f20684c2f9d88a9fc52"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\msvcp140.dll",
+    "bytes": 557728,
+    "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+    "bytes": 187392,
+    "sha256": "a6a6876291dfa42e5609261df2212038a2c7536efca0372e3899e12f8073b339"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+    "bytes": 1662976,
+    "sha256": "70492dbbf9ba209d28f10535d48b1fb2ab91edd4cbcc439e3bbda5fb06fccb38"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\vcruntime140.dll",
+    "bytes": 124544,
+    "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\vcruntime140_1.dll",
+    "bytes": 49792,
+    "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+    "bytes": 13662720,
+    "sha256": "92ac81b14ab050895b33fd2a822c179f65c4a42bd89c6c00772b89c5684d7121"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\runtime\\experimental\\nvngx_vsr.dll",
+    "bytes": 19140144,
+    "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\runtime\\experimental\\nr-community\\nvngx_dlssnr.dll",
+    "bytes": 165840496,
+    "sha256": "984bee0f775c277d5829b8fd6775d53a7b0f75396c852b3aaf06a18375f81014"
+  }
+]

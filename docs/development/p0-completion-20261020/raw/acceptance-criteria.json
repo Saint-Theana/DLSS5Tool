@@ -1,0 +1,26 @@
+{
+  "native_idle": {
+    "warmup_seconds": 10,
+    "median_delta_mib_max": 16,
+    "window_range_mib_max": 16,
+    "slope_mib_per_min_abs_max": 0.25
+  },
+  "native_continuous": {
+    "warmup_seconds": 60,
+    "median_delta_mib_max": 16,
+    "window_range_mib_max": 16,
+    "slope_mib_per_min_abs_max": 0.25
+  },
+  "gui": {
+    "exclude_first_cycles": 6,
+    "compare_residue_modulo": 3,
+    "private_delta_mib_max": 16,
+    "python_delta_mib_max": 8,
+    "tk_images_stable": true
+  },
+  "existing_threshold_source": "docs/development/P0_ADAPTER_ISOLATION_20261020.md",
+  "concurrent_acceptance": "GUI images-native-fix30 and native-composer-resize-long overlap. Each process measured independently; no throughput comparison.",
+  "long_sources_frozen": true,
+  "safety_tree_private_gib_max": 8,
+  "system_free_physical_and_commit_gib_min": 8
+}

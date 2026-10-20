@@ -1,0 +1,466 @@
+{
+  "records": [
+    {
+      "case": "native-nr-current60",
+      "pid": 4420,
+      "created": 134369464566411086,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 23824,
+      "created": 134369464567503992,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 46960,
+      "created": 134369464567931043,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 49696,
+      "created": 134369464579750264,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 50324,
+      "created": 134369464590693189,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 46492,
+      "created": 134369464590941406,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 47544,
+      "created": 134369464674578292,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 37548,
+      "created": 134369464675332887,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 41500,
+      "created": 134369464676649695,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 50308,
+      "created": 134369464676829336,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 18236,
+      "created": 134369464676846037,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 5136,
+      "created": 134369464677018841,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 20700,
+      "created": 134369464677038222,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 24872,
+      "created": 134369464677229624,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 23736,
+      "created": 134369464677242322,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "native-nr-current60",
+      "pid": 6380,
+      "created": 134369464677516082,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-nr120",
+      "pid": 25004,
+      "created": 134369459603966903,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-nr120",
+      "pid": 28108,
+      "created": 134369459604051286,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-nr120",
+      "pid": 45584,
+      "created": 134369459604353241,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-pilot",
+      "pid": 38772,
+      "created": 134369455225523431,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-pilot",
+      "pid": 36048,
+      "created": 134369455225643854,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "standalone-pilot",
+      "pid": 45332,
+      "created": 134369455226070102,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 19724,
+      "created": 134369465797654344,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 35100,
+      "created": 134369465821554444,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 37308,
+      "created": 134369465822195954,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 44864,
+      "created": 134369465823628606,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 17400,
+      "created": 134369465823780326,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 44416,
+      "created": 134369465823915883,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 14288,
+      "created": 134369465823956421,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 46464,
+      "created": 134369465823982113,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 43388,
+      "created": 134369465824173237,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 50908,
+      "created": 134369465824196210,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-etw90",
+      "pid": 37656,
+      "created": 134369465824543305,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 45836,
+      "created": 134369452220699985,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 31244,
+      "created": 134369452249400536,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 15312,
+      "created": 134369452250008935,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 42964,
+      "created": 134369452251080021,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 49096,
+      "created": 134369452251178317,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 35936,
+      "created": 134369452251214569,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 44712,
+      "created": 134369452251305291,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 43040,
+      "created": 134369452251336091,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 23232,
+      "created": 134369452251450941,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 37480,
+      "created": 134369452251504294,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr-pilot",
+      "pid": 13388,
+      "created": 134369452251619113,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 35168,
+      "created": 134369453838537120,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 32564,
+      "created": 134369453858568764,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 23232,
+      "created": 134369453858665430,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 4316,
+      "created": 134369453858682842,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 13028,
+      "created": 134369453858765316,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 50260,
+      "created": 134369453858785598,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 19724,
+      "created": 134369453858884798,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 19904,
+      "created": 134369453858897565,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-nr180",
+      "pid": 16868,
+      "created": 134369453859012147,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-off60",
+      "pid": 35740,
+      "created": 134369457326982470,
+      "status": "pid-reused",
+      "current": {
+        "pid": 35740,
+        "parent": 1516,
+        "name": "svchost.exe",
+        "query_error": 5
+      }
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 31048,
+      "created": 134369457942931128,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 44156,
+      "created": 134369457961618684,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 15036,
+      "created": 134369457962205545,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 44840,
+      "created": 134369457963170896,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 9464,
+      "created": 134369457963272341,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 43424,
+      "created": 134369457963297313,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 40240,
+      "created": 134369457963394482,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 37028,
+      "created": 134369457963412329,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 37096,
+      "created": 134369457963493820,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 44276,
+      "created": 134369457963507404,
+      "status": "exited",
+      "current": null
+    },
+    {
+      "case": "veyra-vsr120",
+      "pid": 45100,
+      "created": 134369457963641120,
+      "status": "exited",
+      "current": null
+    }
+  ],
+  "active_exact_identities": 0,
+  "active_task_binaries": 0
+}

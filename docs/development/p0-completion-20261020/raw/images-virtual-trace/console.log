@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 692, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 681, in main
+    worker(args, work)
+    ~~~~~~^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 190, in worker
+    result.update(gui_images(args, work, config, event))
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 426, in gui_images
+    assert restored == cycle_patches
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

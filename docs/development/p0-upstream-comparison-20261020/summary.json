@@ -1,0 +1,1426 @@
+{
+  "reference_cases": [
+    {
+      "label": "standalone-nr120",
+      "process_identity": {
+        "pid": 45584,
+        "created": 134369459604353241
+      },
+      "private_commit": {
+        "samples": 215,
+        "start_median_bytes": 687038464,
+        "end_median_bytes": 745582592,
+        "delta_bytes": 58544128,
+        "measured_span_seconds": 88.32745337486267,
+        "mib_per_minute": 37.926168444853666,
+        "window_medians_bytes": [
+          687038464,
+          703905792,
+          718958592,
+          731611136,
+          745582592
+        ],
+        "window_median_range_bytes": 58544128
+      },
+      "latter_half_private_commit": {
+        "samples": 108,
+        "start_median_bytes": 722214912,
+        "end_median_bytes": 748941312,
+        "delta_bytes": 26726400,
+        "measured_span_seconds": 44.5778112411499,
+        "mib_per_minute": 34.30623515199198,
+        "window_medians_bytes": [
+          722214912,
+          727967744.0,
+          734990336,
+          742230016.0,
+          748922880.0
+        ],
+        "window_median_range_bytes": 26707968.0
+      },
+      "observation_window": {
+        "begin": 1792472372.6926346,
+        "end": 1792472482.9733622
+      },
+      "normal_processing_and_exit": false,
+      "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 215, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+      "recovery": [
+        {
+          "pid": 25004,
+          "terminated": true,
+          "error": 0
+        },
+        {
+          "pid": 28108,
+          "terminated": true,
+          "error": 0
+        },
+        {
+          "pid": 45584,
+          "terminated": false,
+          "error": 5
+        }
+      ],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+        "label": "standalone-nr120",
+        "reference": "standalone",
+        "effect": "nr",
+        "seconds": 120,
+        "thread_counter": true,
+        "external_close": false,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll",
+        "F:\\project\\DLSS5Tool\\tmp\\dlss5standaloneV2\\nvngx_dlssnr.dll"
+      ],
+      "module_query_errors": [],
+      "thread_notifications": {
+        "snapshots": 120,
+        "span_seconds": 119.27608871459961,
+        "started_delta": 401537,
+        "detached_delta": 401534,
+        "last": {
+          "started": 401555,
+          "detached": 401535,
+          "unclassified": 0,
+          "groups": [
+            {
+              "start_address": 140725640278816,
+              "started": 1,
+              "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+              "offset": 635680
+            },
+            {
+              "start_address": 140725266964432,
+              "started": 1,
+              "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+              "offset": 1269712
+            },
+            {
+              "start_address": 140725281216752,
+              "started": 5,
+              "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+              "offset": 15522032
+            },
+            {
+              "start_address": 140725646707968,
+              "started": 4,
+              "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+              "offset": 183552
+            },
+            {
+              "start_address": 140725686782352,
+              "started": 3,
+              "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+              "offset": 149904
+            },
+            {
+              "start_address": 140723475330848,
+              "started": 1,
+              "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+              "offset": 1390368
+            },
+            {
+              "start_address": 140723442811372,
+              "started": 3,
+              "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+              "offset": 459244
+            },
+            {
+              "start_address": 140719735322756,
+              "started": 3,
+              "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+              "offset": 5781636
+            },
+            {
+              "start_address": 140725186991376,
+              "started": 401534,
+              "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+              "offset": 2430224
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "standalone-pilot",
+      "excluded": "Pilot did not record its worker identity",
+      "result": {
+        "arguments": {
+          "task": "tmp\\p0-upstream-comparison-20261020",
+          "label": "standalone-pilot",
+          "reference": "standalone",
+          "effect": "nr",
+          "seconds": 12,
+          "thread_counter": true,
+          "external_close": false,
+          "worker": false
+        },
+        "command": [
+          "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+          "-B",
+          "F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py",
+          "--task",
+          "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+          "--label",
+          "standalone-pilot",
+          "--reference",
+          "standalone",
+          "--seconds",
+          "12",
+          "--worker"
+        ],
+        "started_pid": 38772,
+        "exit_code": 0,
+        "elapsed_seconds": 57.31437530000403,
+        "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 209, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+        "source_and_binary_unchanged": true,
+        "remaining_before_recovery": [
+          {
+            "pid": 38772,
+            "parent": 41184,
+            "name": "python.exe",
+            "created": 134369455225523431,
+            "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe"
+          },
+          {
+            "pid": 36048,
+            "parent": 38772,
+            "name": "conhost.exe",
+            "created": 134369455225643854,
+            "path": "C:\\Windows\\System32\\conhost.exe"
+          },
+          {
+            "pid": 45332,
+            "parent": 38772,
+            "name": "python.exe",
+            "created": 134369455226070102,
+            "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+          }
+        ],
+        "recovery": [
+          {
+            "pid": 38772,
+            "terminated": true,
+            "error": 0
+          },
+          {
+            "pid": 36048,
+            "terminated": true,
+            "error": 0
+          },
+          {
+            "pid": 45332,
+            "terminated": false,
+            "error": 5
+          }
+        ],
+        "remaining": [],
+        "root_private_commit_excluding_first_20_seconds": {
+          "samples": 73,
+          "start_median_bytes": 851968.0,
+          "end_median_bytes": 823296.0,
+          "delta_bytes": -28672.0,
+          "measured_span_seconds": 30.361180782318115,
+          "mib_per_minute": -0.05403692997854269,
+          "window_medians_bytes": [
+            851968.0,
+            823296,
+            823296.0,
+            823296,
+            823296
+          ],
+          "window_median_range_bytes": 28672.0
+        },
+        "plateau_verified": false,
+        "identities": [
+          {
+            "pid": 38772,
+            "parent": 41184,
+            "name": "python.exe",
+            "created": 134369455225523431,
+            "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe"
+          },
+          {
+            "pid": 36048,
+            "parent": 38772,
+            "name": "conhost.exe",
+            "created": 134369455225643854,
+            "path": "C:\\Windows\\System32\\conhost.exe"
+          },
+          {
+            "pid": 45332,
+            "parent": 38772,
+            "name": "python.exe",
+            "created": 134369455226070102,
+            "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+          }
+        ],
+        "normal_close": null,
+        "instrumentation": "external memory/module sampling; standalone optional local thread counter only"
+      }
+    },
+    {
+      "label": "veyra-nr-etw90",
+      "process_identity": {
+        "pid": 19724,
+        "created": 134369465797654344
+      },
+      "private_commit": {
+        "samples": 137,
+        "start_median_bytes": 752300032,
+        "end_median_bytes": 782565376,
+        "delta_bytes": 30265344,
+        "measured_span_seconds": 56.7009015083313,
+        "mib_per_minute": 30.542669145137666,
+        "window_medians_bytes": [
+          752300032,
+          760086528,
+          767666176.0,
+          774864896,
+          782428160.0
+        ],
+        "window_median_range_bytes": 30128128.0
+      },
+      "latter_half_private_commit": {
+        "samples": 69,
+        "start_median_bytes": 769466368,
+        "end_median_bytes": 784490496,
+        "delta_bytes": 15024128,
+        "measured_span_seconds": 28.891866207122803,
+        "mib_per_minute": 29.755346845267425,
+        "window_medians_bytes": [
+          769466368,
+          772771840.0,
+          776501248.0,
+          780212224.0,
+          784338944.0
+        ],
+        "window_median_range_bytes": 14872576.0
+      },
+      "observation_window": {
+        "begin": 1792473000.026812,
+        "end": 1792473070.227181
+      },
+      "normal_processing_and_exit": false,
+      "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 216, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+      "recovery": [
+        {
+          "pid": 19724,
+          "terminated": true,
+          "error": 0
+        }
+      ],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "tmp\\p0-upstream-comparison-20261020",
+        "label": "veyra-nr-etw90",
+        "reference": "veyra",
+        "effect": "nr",
+        "seconds": 90,
+        "thread_counter": false,
+        "external_close": true,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+        "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll",
+        "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\runtime\\experimental\\nr-community\\nvngx_dlssnr.dll"
+      ],
+      "module_query_errors": [],
+      "external_thread_activity": {
+        "pid": 19724,
+        "created": 134369465797654344,
+        "self_test": false,
+        "elapsed_ms": 30032,
+        "enable_error": 0,
+        "consume_error": 0,
+        "events_lost": 0,
+        "buffers_lost": 0,
+        "started": 79046,
+        "stopped": 79047,
+        "schema_errors": 0,
+        "address_errors": 0,
+        "addresses": [
+          {
+            "start_address": 140725186991376,
+            "count": 79046
+          }
+        ],
+        "attribution": [
+          {
+            "start_address": 140725186991376,
+            "count": 79046,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+            "offset": 2430224,
+            "image_size": 3555328,
+            "module_sha256": "4e6af04d0bfaaabd3709c11bd079cb1b3b26780728951b63c2eedf64bc462ac3"
+          }
+        ],
+        "note": "A thread already alive at the start can produce one extra stop event. No DLL injection."
+      }
+    },
+    {
+      "label": "veyra-nr-pilot",
+      "process_identity": {
+        "pid": 45836,
+        "created": 134369452220699985
+      },
+      "private_commit": {
+        "samples": 72,
+        "start_median_bytes": 367020032.0,
+        "end_median_bytes": 391759872.0,
+        "delta_bytes": 24739840.0,
+        "measured_span_seconds": 29.653392553329468,
+        "mib_per_minute": 47.73905708947472,
+        "window_medians_bytes": [
+          367020032.0,
+          373172224.0,
+          379887616,
+          385851392.0,
+          391487488
+        ],
+        "window_median_range_bytes": 24467456.0
+      },
+      "latter_half_private_commit": {
+        "samples": 36,
+        "start_median_bytes": 381505536,
+        "end_median_bytes": 393412608,
+        "delta_bytes": 11907072,
+        "measured_span_seconds": 14.843624114990234,
+        "mib_per_minute": 45.90038926625355,
+        "window_medians_bytes": [
+          381505536,
+          384344064,
+          387063808,
+          389840896,
+          393109504.0
+        ],
+        "window_median_range_bytes": 11603968.0
+      },
+      "observation_window": {
+        "begin": 1792471642.6193268,
+        "end": 1792471679.3751035
+      },
+      "normal_processing_and_exit": false,
+      "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 184, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+      "recovery": [
+        {
+          "pid": 45836,
+          "terminated": true,
+          "error": 0
+        }
+      ],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "tmp\\p0-upstream-comparison-20261020",
+        "label": "veyra-nr-pilot",
+        "reference": "veyra",
+        "effect": "nr",
+        "seconds": 12,
+        "thread_counter": false,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+        "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "module_query_errors": []
+    },
+    {
+      "label": "veyra-nr180",
+      "process_identity": {
+        "pid": 35168,
+        "created": 134369453838537120
+      },
+      "private_commit": {
+        "samples": 313,
+        "start_median_bytes": 765272064.0,
+        "end_median_bytes": 866547712.0,
+        "delta_bytes": 101275648.0,
+        "measured_span_seconds": 128.26310873031616,
+        "mib_per_minute": 45.18087172426603,
+        "window_medians_bytes": [
+          765272064.0,
+          791343104,
+          818085888.0,
+          842760192,
+          866410496
+        ],
+        "window_median_range_bytes": 101138432.0
+      },
+      "latter_half_private_commit": {
+        "samples": 157,
+        "start_median_bytes": 823734272,
+        "end_median_bytes": 872431616,
+        "delta_bytes": 48697344,
+        "measured_span_seconds": 64.48249840736389,
+        "mib_per_minute": 43.21303367305296,
+        "window_medians_bytes": [
+          823734272,
+          835989504,
+          848152576.0,
+          859783168,
+          872429568.0
+        ],
+        "window_median_range_bytes": 48695296.0
+      },
+      "observation_window": {
+        "begin": 1792471804.096885,
+        "end": 1792471964.0189517
+      },
+      "normal_processing_and_exit": false,
+      "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 209, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+      "recovery": [
+        {
+          "pid": 35168,
+          "terminated": true,
+          "error": 0
+        }
+      ],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "tmp\\p0-upstream-comparison-20261020",
+        "label": "veyra-nr180",
+        "reference": "veyra",
+        "effect": "nr",
+        "seconds": 180,
+        "thread_counter": false,
+        "external_close": true,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+        "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll",
+        "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\runtime\\experimental\\nr-community\\nvngx_dlssnr.dll"
+      ],
+      "module_query_errors": []
+    },
+    {
+      "label": "veyra-off60",
+      "process_identity": {
+        "pid": 35740,
+        "created": 134369457326982470
+      },
+      "private_commit": {
+        "samples": 79,
+        "start_median_bytes": 171999232,
+        "end_median_bytes": 172040192,
+        "delta_bytes": 40960,
+        "measured_span_seconds": 32.58677363395691,
+        "mib_per_minute": 0.0719233522878652,
+        "window_medians_bytes": [
+          171999232,
+          172040192.0,
+          172040192.0,
+          172040192.0,
+          172040192.0
+        ],
+        "window_median_range_bytes": 40960.0
+      },
+      "latter_half_private_commit": {
+        "samples": 40,
+        "start_median_bytes": 172040192.0,
+        "end_median_bytes": 172040192.0,
+        "delta_bytes": 0.0,
+        "measured_span_seconds": 16.29706358909607,
+        "mib_per_minute": 0.0,
+        "window_medians_bytes": [
+          172040192.0,
+          172040192.0,
+          172040192.0,
+          172040192.0,
+          172040192.0
+        ],
+        "window_median_range_bytes": 0.0
+      },
+      "observation_window": {
+        "begin": 1792472152.9575331,
+        "end": 1792472193.0740237
+      },
+      "normal_processing_and_exit": true,
+      "failure": null,
+      "recovery": [],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+        "label": "veyra-off60",
+        "reference": "veyra",
+        "effect": "off",
+        "seconds": 60,
+        "thread_counter": false,
+        "external_close": true,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "module_query_errors": []
+    },
+    {
+      "label": "veyra-vsr120",
+      "process_identity": {
+        "pid": 31048,
+        "created": 134369457942931128
+      },
+      "private_commit": {
+        "samples": 195,
+        "start_median_bytes": 1153224704,
+        "end_median_bytes": 1218936832,
+        "delta_bytes": 65712128,
+        "measured_span_seconds": 80.17368268966675,
+        "mib_per_minute": 46.89915691604648,
+        "window_medians_bytes": [
+          1153224704,
+          1171308544,
+          1186328576,
+          1203253248,
+          1218936832
+        ],
+        "window_median_range_bytes": 65712128
+      },
+      "latter_half_private_commit": {
+        "samples": 98,
+        "start_median_bytes": 1190486016,
+        "end_median_bytes": 1223348224,
+        "delta_bytes": 32862208,
+        "measured_span_seconds": 40.55268478393555,
+        "mib_per_minute": 46.3690785214027,
+        "window_medians_bytes": [
+          1190486016,
+          1198997504.0,
+          1206571008,
+          1214390272.0,
+          1223180288.0
+        ],
+        "window_median_range_bytes": 32694272.0
+      },
+      "observation_window": {
+        "begin": 1792472214.5287511,
+        "end": 1792472314.5274434
+      },
+      "normal_processing_and_exit": false,
+      "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 215, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+      "recovery": [
+        {
+          "pid": 31048,
+          "terminated": true,
+          "error": 0
+        }
+      ],
+      "remaining": [],
+      "binary_manifest_unchanged": true,
+      "plateau_verified": false,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+        "label": "veyra-vsr120",
+        "reference": "veyra",
+        "effect": "vsr",
+        "seconds": 120,
+        "thread_counter": false,
+        "external_close": true,
+        "worker": false
+      },
+      "relevant_modules": [
+        "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+        "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+        "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "module_query_errors": []
+    }
+  ],
+  "project_cases": [
+    {
+      "label": "native-nr-current60",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 803303424,
+      "elapsed_seconds": 76.806,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+        "case": "native-nr",
+        "label": "current60",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "run_seconds": 0,
+        "hdr": false,
+        "composer_resize": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "gui_idle_cycle": 0,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 150,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-nr",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "nr",
+        "width": 320,
+        "height": 180,
+        "diagnostic_gc_interval": 512,
+        "first_output_sha256": "b2eab2e96e1c94751425a42d1e435e41f8c48a5f1cd41ff4defb3931323ddc07",
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 49696,
+        "created": 134369464579750264
+      },
+      "private_commit": {
+        "samples": 187,
+        "start_median_bytes": 742809600,
+        "end_median_bytes": 763121664,
+        "delta_bytes": 20312064,
+        "measured_span_seconds": 40.27852201461792,
+        "mib_per_minute": 28.85571681548269,
+        "window_medians_bytes": [
+          742809600,
+          747352064,
+          753227776.0,
+          758091776,
+          763017216.0
+        ],
+        "window_median_range_bytes": 20207616.0
+      },
+      "latter_half_private_commit": {
+        "samples": 94,
+        "start_median_bytes": 754350080.0,
+        "end_median_bytes": 764266496.0,
+        "delta_bytes": 9916416.0,
+        "measured_span_seconds": 20.361039638519287,
+        "mib_per_minute": 27.868020743230797,
+        "window_medians_bytes": [
+          754350080.0,
+          756998144,
+          759242752,
+          761896960,
+          764059648
+        ],
+        "window_median_range_bytes": 9709568.0
+      },
+      "within_declared_private_commit_band": false,
+      "profiles": [
+        {
+          "file": "nr-frame-memory.jsonl",
+          "snapshots": 1,
+          "first_private_bytes": 730517504,
+          "last_private_bytes": 730517504,
+          "thread_activity": {
+            "snapshots": 1,
+            "first": {
+              "started": 2488,
+              "detached": 2488,
+              "unclassified": 0,
+              "groups": [
+                {
+                  "start_address": 140725186991376,
+                  "started": 2488,
+                  "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+                  "offset": 2430224
+                }
+              ]
+            },
+            "last": {
+              "started": 2488,
+              "detached": 2488,
+              "unclassified": 0,
+              "groups": [
+                {
+                  "start_address": 140725186991376,
+                  "started": 2488,
+                  "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+                  "offset": 2430224
+                }
+              ]
+            }
+          },
+          "warning": "Single snapshot does not measure growth"
+        }
+      ]
+    }
+  ],
+  "criteria": {
+    "scope": "Exact process private commit; same physical GPU and driver, no throughput comparisons",
+    "short_observation_warmup_seconds": 20,
+    "original_idle_gate": {
+      "minimum_window_seconds": 280,
+      "max_abs_delta_mib": 16,
+      "max_abs_slope_mib_per_minute": 0.25,
+      "max_window_range_mib": 16
+    },
+    "short_runs_do_not_certify_plateau": true,
+    "shutdown_recovery_is_failure": true,
+    "system_changes": "None; temporary ETW read-only session only",
+    "reference_versions": {
+      "veyra": "1.4.4, local stock binary package-manifest verified",
+      "standalone": "existing dlss5standaloneV2 source/runtime; full SHA256 recorded",
+      "magpie": "pinned source inspected; stock binary not available"
+    }
+  },
+  "sources": [
+    {
+      "file": "scripts\\verify_upstream_p0.py",
+      "sha256": "d434b287640d073878a9c401eccaa7601da562c66bff771225e7a7bb85feee1b",
+      "bytes": 15415
+    },
+    {
+      "file": "scripts\\summarize_upstream_p0.py",
+      "sha256": "b435bbd9e71241c1667ee7c9bbfc56dafa12ad0a25c9c01ad04233c8ae8359cf",
+      "bytes": 8394
+    },
+    {
+      "file": "scripts\\native_external_thread_activity.cpp",
+      "sha256": "8d3854861b0f8f2f6760d42bfb9be77a2661b612e02b9646fbc6ab70648eb3e5",
+      "bytes": 5679
+    },
+    {
+      "file": "scripts\\native_thread_activity.cpp",
+      "sha256": "84cb453f95853a80f995170fbfd2b992b40b9b995314bbb29f274322a028a59b",
+      "bytes": 2045
+    },
+    {
+      "file": "scripts\\profile_thread_activity.py",
+      "sha256": "b8130e55594a11710830730c5998e30c587cb7e71cbdebda3ef08a73a2b11c3b",
+      "bytes": 1822
+    }
+  ],
+  "limitations": "Bounded synthetic single-GPU observations. Reference NR runtimes differ; standalone uses the same NR runtime as this project. Stock Veyra 1.4.4 is the pinned reference, not current 2.x. No Magpie stock binary was tested. Shutdown/recovery failures are preserved. Concurrent processes are attributed by PID+creation time, no throughput comparison.",
+  "archive": [
+    {
+      "source": "build-external-thread.cmd",
+      "file": "raw\\build-external-thread.cmd",
+      "source_bytes": 357,
+      "source_sha256": "2470dd88b20d66fb71094e8e3da68d94abc14ede8546013e9271bf0c570fbdb1",
+      "archived_sha256": "2470dd88b20d66fb71094e8e3da68d94abc14ede8546013e9271bf0c570fbdb1"
+    },
+    {
+      "source": "build-thread.cmd",
+      "file": "raw\\build-thread.cmd",
+      "source_bytes": 345,
+      "source_sha256": "3c5e633c044b4602879ebac280e939e6d73e544f429c716e76bea7588eafba37",
+      "archived_sha256": "3c5e633c044b4602879ebac280e939e6d73e544f429c716e76bea7588eafba37"
+    },
+    {
+      "source": "counter-selftest\\result.json",
+      "file": "raw\\counter-selftest\\result.json",
+      "source_bytes": 430,
+      "source_sha256": "d29105d22e814da194537e8ff570ef5d7d799939ba6b3374775e23d04365bc67",
+      "archived_sha256": "d29105d22e814da194537e8ff570ef5d7d799939ba6b3374775e23d04365bc67"
+    },
+    {
+      "source": "criteria.json",
+      "file": "raw\\criteria.json",
+      "source_bytes": 734,
+      "source_sha256": "54dbb80a390d0a0f50832f27647cb32270421c6612eadf8b8600d52f6a8b8966",
+      "archived_sha256": "54dbb80a390d0a0f50832f27647cb32270421c6612eadf8b8600d52f6a8b8966"
+    },
+    {
+      "source": "etw-selftest-admin.json",
+      "file": "raw\\etw-selftest-admin.json",
+      "source_bytes": 269,
+      "source_sha256": "4b0869a7a9bf3c02b64659b650a593c4113b397a7524417598eb1f57558a6a64",
+      "archived_sha256": "4b0869a7a9bf3c02b64659b650a593c4113b397a7524417598eb1f57558a6a64"
+    },
+    {
+      "source": "etw-selftest-final.json",
+      "file": "raw\\etw-selftest-final.json",
+      "source_bytes": 269,
+      "source_sha256": "b97d468e07b588878f8d9c8ddd94bbb7f65e54d6f5d523edcfd0ef5be46d8a74",
+      "archived_sha256": "b97d468e07b588878f8d9c8ddd94bbb7f65e54d6f5d523edcfd0ef5be46d8a74"
+    },
+    {
+      "source": "etw-selftest.json",
+      "file": "raw\\etw-selftest.json",
+      "source_bytes": 34,
+      "source_sha256": "04609a5544a73b1dd680452edfa7c5b9407f9d1be3ccd46d1b9e301afa2ed878",
+      "archived_sha256": "04609a5544a73b1dd680452edfa7c5b9407f9d1be3ccd46d1b9e301afa2ed878"
+    },
+    {
+      "source": "failed-probes.json",
+      "file": "raw\\failed-probes.json",
+      "source_bytes": 633,
+      "source_sha256": "ce241c7dacc56896d05012c1bcb7586ef5add85c1dd8b39d28ec348fb4bfdda7",
+      "archived_sha256": "ce241c7dacc56896d05012c1bcb7586ef5add85c1dd8b39d28ec348fb4bfdda7"
+    },
+    {
+      "source": "native-nr-current60\\console.log",
+      "file": "raw\\native-nr-current60\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-nr-current60\\events.jsonl",
+      "file": "raw\\native-nr-current60\\events.jsonl",
+      "source_bytes": 438,
+      "source_sha256": "ad784d2f3412ffa7e75bbd9cbcb32162b8a71683835ca2fc66d8e0ca99a3c3bb",
+      "archived_sha256": "ad784d2f3412ffa7e75bbd9cbcb32162b8a71683835ca2fc66d8e0ca99a3c3bb"
+    },
+    {
+      "source": "native-nr-current60\\memory-samples.json",
+      "file": "raw\\native-nr-current60\\memory-samples.json.gz",
+      "source_bytes": 475541,
+      "source_sha256": "b5afd20dec4b2928333cdf28485308fc3036eaa98f39ac6b3ab053b4b4e63f5a",
+      "archived_sha256": "961c0dd33431a30fe6b48636b8678c15af87e4ba61d0e7f5dbb8e3b8634350cb"
+    },
+    {
+      "source": "native-nr-current60\\native-modules.json",
+      "file": "raw\\native-nr-current60\\native-modules.json",
+      "source_bytes": 7129,
+      "source_sha256": "5b4a196eb39b587fdad9703d2706d92f6708029f8522b1cc1f73cdd0df994c39",
+      "archived_sha256": "5b4a196eb39b587fdad9703d2706d92f6708029f8522b1cc1f73cdd0df994c39"
+    },
+    {
+      "source": "native-nr-current60\\nr-frame-memory.jsonl",
+      "file": "raw\\native-nr-current60\\nr-frame-memory.jsonl",
+      "source_bytes": 1401,
+      "source_sha256": "c9b7ca0fc3c72ce7838d33c4993df08c30a0bb2b27f9d529a19863315984c89c",
+      "archived_sha256": "c9b7ca0fc3c72ce7838d33c4993df08c30a0bb2b27f9d529a19863315984c89c"
+    },
+    {
+      "source": "native-nr-current60\\result.json",
+      "file": "raw\\native-nr-current60\\result.json",
+      "source_bytes": 7584,
+      "source_sha256": "873292a5d0c5c2b88907df300bb7b1959ed1868b9d2117d10e4ffc0a866b06a4",
+      "archived_sha256": "873292a5d0c5c2b88907df300bb7b1959ed1868b9d2117d10e4ffc0a866b06a4"
+    },
+    {
+      "source": "native-nr-current60\\run-manifest-after.json",
+      "file": "raw\\native-nr-current60\\run-manifest-after.json",
+      "source_bytes": 6314,
+      "source_sha256": "0050e7042260c6c71cc62b0924c1786c93a472d07e42bf164f10a84fc2eff97b",
+      "archived_sha256": "0050e7042260c6c71cc62b0924c1786c93a472d07e42bf164f10a84fc2eff97b"
+    },
+    {
+      "source": "native-nr-current60\\run-manifest-before.json",
+      "file": "raw\\native-nr-current60\\run-manifest-before.json",
+      "source_bytes": 6314,
+      "source_sha256": "0050e7042260c6c71cc62b0924c1786c93a472d07e42bf164f10a84fc2eff97b",
+      "archived_sha256": "0050e7042260c6c71cc62b0924c1786c93a472d07e42bf164f10a84fc2eff97b"
+    },
+    {
+      "source": "native-nr-current60\\settings.json",
+      "file": "raw\\native-nr-current60\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-nr-current60\\source-comparison.json",
+      "file": "raw\\native-nr-current60\\source-comparison.json",
+      "source_bytes": 27,
+      "source_sha256": "f750152e45dc306510411df12c3a41943775140f9788649c4810b85ab9d9ba32",
+      "archived_sha256": "f750152e45dc306510411df12c3a41943775140f9788649c4810b85ab9d9ba32"
+    },
+    {
+      "source": "native-nr-current60\\worker-result.json",
+      "file": "raw\\native-nr-current60\\worker-result.json",
+      "source_bytes": 341,
+      "source_sha256": "a970ff09e5d13d332305aae6b1d869d37d95a29034b06ee48da2826ef938ba7c",
+      "archived_sha256": "a970ff09e5d13d332305aae6b1d869d37d95a29034b06ee48da2826ef938ba7c"
+    },
+    {
+      "source": "reference-copy.json",
+      "file": "raw\\reference-copy.json",
+      "source_bytes": 14337,
+      "source_sha256": "93e9e4b8529fd7b0766a710d102e1aa745a9ff7e86f32cbd52080ce8132f32d9",
+      "archived_sha256": "93e9e4b8529fd7b0766a710d102e1aa745a9ff7e86f32cbd52080ce8132f32d9"
+    },
+    {
+      "source": "standalone-nr120\\closing.json",
+      "file": "raw\\standalone-nr120\\closing.json",
+      "source_bytes": 53,
+      "source_sha256": "0ae8f288ba4864ea5bc098a2e8538b40c7147b29f07ddd7967ff260e72f9cb60",
+      "archived_sha256": "0ae8f288ba4864ea5bc098a2e8538b40c7147b29f07ddd7967ff260e72f9cb60"
+    },
+    {
+      "source": "standalone-nr120\\console.log",
+      "file": "raw\\standalone-nr120\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "standalone-nr120\\first-output.json",
+      "file": "raw\\standalone-nr120\\first-output.json",
+      "source_bytes": 222,
+      "source_sha256": "46bb8f51c83b3014b7ff9c344b4ba20461734bec50e94da740bd243d666198ea",
+      "archived_sha256": "46bb8f51c83b3014b7ff9c344b4ba20461734bec50e94da740bd243d666198ea"
+    },
+    {
+      "source": "standalone-nr120\\idle-end.json",
+      "file": "raw\\standalone-nr120\\idle-end.json",
+      "source_bytes": 53,
+      "source_sha256": "fd766288ed567e55c9a7c142de827db52590512c790629c1b0e43b0cccf7634c",
+      "archived_sha256": "fd766288ed567e55c9a7c142de827db52590512c790629c1b0e43b0cccf7634c"
+    },
+    {
+      "source": "standalone-nr120\\manifest-after.json",
+      "file": "raw\\standalone-nr120\\manifest-after.json",
+      "source_bytes": 590,
+      "source_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d",
+      "archived_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d"
+    },
+    {
+      "source": "standalone-nr120\\manifest-before.json",
+      "file": "raw\\standalone-nr120\\manifest-before.json",
+      "source_bytes": 590,
+      "source_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d",
+      "archived_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d"
+    },
+    {
+      "source": "standalone-nr120\\memory-samples.json",
+      "file": "raw\\standalone-nr120\\memory-samples.json.gz",
+      "source_bytes": 382235,
+      "source_sha256": "db76b7baab761930fbf5d9f6cfabeef6ccc546585ec3abd949b14e4f11b9ed9b",
+      "archived_sha256": "a0d8211d008feb117dbb30a6a404ce551b7605c103ab230c7cf1e5a80663be6c"
+    },
+    {
+      "source": "standalone-nr120\\modules.json",
+      "file": "raw\\standalone-nr120\\modules.json",
+      "source_bytes": 175231,
+      "source_sha256": "2e9ce03a837b1ef0cb3a46bf0ede017c04f766d0cd0ec0cc2756a5082981b35b",
+      "archived_sha256": "2e9ce03a837b1ef0cb3a46bf0ede017c04f766d0cd0ec0cc2756a5082981b35b"
+    },
+    {
+      "source": "standalone-nr120\\original-host.log",
+      "file": "raw\\standalone-nr120\\original-host.log",
+      "source_bytes": 513,
+      "source_sha256": "3e1acf498da7af628864654ba4879e9cb7a4cc8afcc73a3a2506708e2211b17d",
+      "archived_sha256": "3e1acf498da7af628864654ba4879e9cb7a4cc8afcc73a3a2506708e2211b17d"
+    },
+    {
+      "source": "standalone-nr120\\result.json",
+      "file": "raw\\standalone-nr120\\result.json",
+      "source_bytes": 3342,
+      "source_sha256": "a2ddc3f21178e90f598f926baa5a8da87cb7a31f7e28caa6dfd805c4e9b3cf47",
+      "archived_sha256": "a2ddc3f21178e90f598f926baa5a8da87cb7a31f7e28caa6dfd805c4e9b3cf47"
+    },
+    {
+      "source": "standalone-nr120\\thread-activity.json",
+      "file": "raw\\standalone-nr120\\thread-activity.json",
+      "source_bytes": 265518,
+      "source_sha256": "f14972b03e70e9c7b715691ebf022a98e7c668c5e1f90e71ff927922bb6ef775",
+      "archived_sha256": "f14972b03e70e9c7b715691ebf022a98e7c668c5e1f90e71ff927922bb6ef775"
+    },
+    {
+      "source": "standalone-pilot\\console.log",
+      "file": "raw\\standalone-pilot\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "standalone-pilot\\first-output.json",
+      "file": "raw\\standalone-pilot\\first-output.json",
+      "source_bytes": 205,
+      "source_sha256": "45c31399d6b52a7ce1e91124a7be51f13c47d4e0ffee856d54a40c23377723e5",
+      "archived_sha256": "45c31399d6b52a7ce1e91124a7be51f13c47d4e0ffee856d54a40c23377723e5"
+    },
+    {
+      "source": "standalone-pilot\\manifest-after.json",
+      "file": "raw\\standalone-pilot\\manifest-after.json",
+      "source_bytes": 590,
+      "source_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d",
+      "archived_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d"
+    },
+    {
+      "source": "standalone-pilot\\manifest-before.json",
+      "file": "raw\\standalone-pilot\\manifest-before.json",
+      "source_bytes": 590,
+      "source_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d",
+      "archived_sha256": "1ea8d326b7809cc2bf9cf5478ba1d2d382c2b3e09ff101d480f581164f50f59d"
+    },
+    {
+      "source": "standalone-pilot\\memory-samples.json",
+      "file": "raw\\standalone-pilot\\memory-samples.json.gz",
+      "source_bytes": 132750,
+      "source_sha256": "baf04e24a4f7ece016d83e42aa7d8576ff06dcfe9d29352849123cd5d10fb574",
+      "archived_sha256": "eb411e8e82676bb35594b26a85cff0f49ed16661ea6d5f67a09fcff98a63cb08"
+    },
+    {
+      "source": "standalone-pilot\\modules.json",
+      "file": "raw\\standalone-pilot\\modules.json",
+      "source_bytes": 3965,
+      "source_sha256": "56c6db51bb6c486c194f3849f244c9953ae0b1baed171a366195bd4e377a764b",
+      "archived_sha256": "56c6db51bb6c486c194f3849f244c9953ae0b1baed171a366195bd4e377a764b"
+    },
+    {
+      "source": "standalone-pilot\\original-host.log",
+      "file": "raw\\standalone-pilot\\original-host.log",
+      "source_bytes": 513,
+      "source_sha256": "efde4b49be1c2ca3019a3404694de51e279dc7e78f9c76dd257997116e474221",
+      "archived_sha256": "efde4b49be1c2ca3019a3404694de51e279dc7e78f9c76dd257997116e474221"
+    },
+    {
+      "source": "standalone-pilot\\result.json",
+      "file": "raw\\standalone-pilot\\result.json",
+      "source_bytes": 3172,
+      "source_sha256": "9f9625e8410912d193e16e41b2f1e3ef111cb4a20fed4ffd1e1b1b84838d7884",
+      "archived_sha256": "9f9625e8410912d193e16e41b2f1e3ef111cb4a20fed4ffd1e1b1b84838d7884"
+    },
+    {
+      "source": "standalone-pilot\\thread-activity.json",
+      "file": "raw\\standalone-pilot\\thread-activity.json",
+      "source_bytes": 26270,
+      "source_sha256": "3116c6ada660b921594a02b7f6900d69f509049f3aa96ac50237a7b1d7b20109",
+      "archived_sha256": "3116c6ada660b921594a02b7f6900d69f509049f3aa96ac50237a7b1d7b20109"
+    },
+    {
+      "source": "start.json",
+      "file": "raw\\start.json",
+      "source_bytes": 116,
+      "source_sha256": "f994f7e86cd28445d1089128f618bf23be471983261bcda1fafee940cb489ad6",
+      "archived_sha256": "f994f7e86cd28445d1089128f618bf23be471983261bcda1fafee940cb489ad6"
+    },
+    {
+      "source": "TASK.md",
+      "file": "raw\\TASK.md",
+      "source_bytes": 950,
+      "source_sha256": "75ecb779cf863db625f98ce4fdf3cc89c8b1e0076971a8b27a0f29faf9e083f9",
+      "archived_sha256": "75ecb779cf863db625f98ce4fdf3cc89c8b1e0076971a8b27a0f29faf9e083f9"
+    },
+    {
+      "source": "veyra-nr-etw90\\console.log",
+      "file": "raw\\veyra-nr-etw90\\console.log",
+      "source_bytes": 228942,
+      "source_sha256": "c3f7f53b8655c86b40b2d659697c633c28c0561d4cb1bd475b325698571929ea",
+      "archived_sha256": "c3f7f53b8655c86b40b2d659697c633c28c0561d4cb1bd475b325698571929ea"
+    },
+    {
+      "source": "veyra-nr-etw90\\external-threads.json",
+      "file": "raw\\veyra-nr-etw90\\external-threads.json",
+      "source_bytes": 280,
+      "source_sha256": "f7b994231b210cb1fa707a63e2b023db7ce18c5b29755dc17ee31ed051a8793c",
+      "archived_sha256": "f7b994231b210cb1fa707a63e2b023db7ce18c5b29755dc17ee31ed051a8793c"
+    },
+    {
+      "source": "veyra-nr-etw90\\manifest-after.json",
+      "file": "raw\\veyra-nr-etw90\\manifest-after.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr-etw90\\manifest-before.json",
+      "file": "raw\\veyra-nr-etw90\\manifest-before.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr-etw90\\memory-samples.json",
+      "file": "raw\\veyra-nr-etw90\\memory-samples.json.gz",
+      "source_bytes": 162085,
+      "source_sha256": "a4b4595da4e50fec1d6f5f4ddddfc02f93e8f14ef143130a01f18f3a4021e631",
+      "archived_sha256": "efeabade25659fc1c11f8df6a4ff60274a633b66aa992d92768a7669c038ced6"
+    },
+    {
+      "source": "veyra-nr-etw90\\modules.json",
+      "file": "raw\\veyra-nr-etw90\\modules.json",
+      "source_bytes": 124382,
+      "source_sha256": "d6736ac7e94b2a3c65bde5ddd966350b104e0ca80b3d9935ec3c0cf26f4c14db",
+      "archived_sha256": "d6736ac7e94b2a3c65bde5ddd966350b104e0ca80b3d9935ec3c0cf26f4c14db"
+    },
+    {
+      "source": "veyra-nr-etw90\\normal-close.json",
+      "file": "raw\\veyra-nr-etw90\\normal-close.json",
+      "source_bytes": 118,
+      "source_sha256": "b5cae72bc59a10d3cf8ebc61755cc550bdd5d1156eaf5b620c03be5357b30b05",
+      "archived_sha256": "b5cae72bc59a10d3cf8ebc61755cc550bdd5d1156eaf5b620c03be5357b30b05"
+    },
+    {
+      "source": "veyra-nr-etw90\\reference.log",
+      "file": "raw\\veyra-nr-etw90\\reference.log",
+      "source_bytes": 225105,
+      "source_sha256": "d05df743bf1d85f5b60681bd11496004438113d8d15b5115e26b8a0708bad896",
+      "archived_sha256": "d05df743bf1d85f5b60681bd11496004438113d8d15b5115e26b8a0708bad896"
+    },
+    {
+      "source": "veyra-nr-etw90\\result.json",
+      "file": "raw\\veyra-nr-etw90\\result.json",
+      "source_bytes": 4664,
+      "source_sha256": "4a499acda70e59de664eeedcf6dcaf4828269ae032de68c9d56be171b8289cb9",
+      "archived_sha256": "4a499acda70e59de664eeedcf6dcaf4828269ae032de68c9d56be171b8289cb9"
+    },
+    {
+      "source": "veyra-nr-etw90\\starting.json",
+      "file": "raw\\veyra-nr-etw90\\starting.json",
+      "source_bytes": 361,
+      "source_sha256": "81464b89eee7e4aa97a8e8f7d55f526adcddd16e0d09bf5e575ccdcf1ec09b07",
+      "archived_sha256": "81464b89eee7e4aa97a8e8f7d55f526adcddd16e0d09bf5e575ccdcf1ec09b07"
+    },
+    {
+      "source": "veyra-nr-pilot\\console.log",
+      "file": "raw\\veyra-nr-pilot\\console.log",
+      "source_bytes": 33701,
+      "source_sha256": "64093a5e197bb25310fb3d14be14c78c32267cba8f9e4c06ee29eb87b2eb5188",
+      "archived_sha256": "64093a5e197bb25310fb3d14be14c78c32267cba8f9e4c06ee29eb87b2eb5188"
+    },
+    {
+      "source": "veyra-nr-pilot\\manifest-after.json",
+      "file": "raw\\veyra-nr-pilot\\manifest-after.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr-pilot\\manifest-before.json",
+      "file": "raw\\veyra-nr-pilot\\manifest-before.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr-pilot\\memory-samples.json",
+      "file": "raw\\veyra-nr-pilot\\memory-samples.json.gz",
+      "source_bytes": 71945,
+      "source_sha256": "d2ec199adc0ea7ee03f1112c8ea2a560639d5fd99bc21275e85bb9f79f16dd53",
+      "archived_sha256": "aabb660b46591c5bc944debba229a54aeb41d061e8e6c8010a113179df889f23"
+    },
+    {
+      "source": "veyra-nr-pilot\\modules.json",
+      "file": "raw\\veyra-nr-pilot\\modules.json",
+      "source_bytes": 50958,
+      "source_sha256": "094233fe51042e034a5ddfa6244245f20673a3363e44ca5a3db928db39200e7c",
+      "archived_sha256": "094233fe51042e034a5ddfa6244245f20673a3363e44ca5a3db928db39200e7c"
+    },
+    {
+      "source": "veyra-nr-pilot\\reference.log",
+      "file": "raw\\veyra-nr-pilot\\reference.log",
+      "source_bytes": 30913,
+      "source_sha256": "ae1eb38235a10f90722763ec3ea102e39f2ea1dbcc4e10f4ecb7b34778620d13",
+      "archived_sha256": "ae1eb38235a10f90722763ec3ea102e39f2ea1dbcc4e10f4ecb7b34778620d13"
+    },
+    {
+      "source": "veyra-nr-pilot\\result.json",
+      "file": "raw\\veyra-nr-pilot\\result.json",
+      "source_bytes": 4360,
+      "source_sha256": "2bbd212661e325bafcccfd78087705e016656a516719941b6728b8d7a880f2cd",
+      "archived_sha256": "2bbd212661e325bafcccfd78087705e016656a516719941b6728b8d7a880f2cd"
+    },
+    {
+      "source": "veyra-nr180\\console.log",
+      "file": "raw\\veyra-nr180\\console.log",
+      "source_bytes": 463407,
+      "source_sha256": "85198499b820f855928b37ce1aea68042eb28d74c726a407f12a4bee059c83b4",
+      "archived_sha256": "85198499b820f855928b37ce1aea68042eb28d74c726a407f12a4bee059c83b4"
+    },
+    {
+      "source": "veyra-nr180\\manifest-after.json",
+      "file": "raw\\veyra-nr180\\manifest-after.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr180\\manifest-before.json",
+      "file": "raw\\veyra-nr180\\manifest-before.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-nr180\\memory-samples.json",
+      "file": "raw\\veyra-nr180\\memory-samples.json.gz",
+      "source_bytes": 265594,
+      "source_sha256": "62d57d926049cba1fce0fc2a9edd2c4076f0aef288cdb5ca3114d09dd3b2fb4d",
+      "archived_sha256": "bdf948ba59a8b77d8afc36bded8c3c0ed0b78a7a4928b66b1a7e2b4f3009770e"
+    },
+    {
+      "source": "veyra-nr180\\modules.json",
+      "file": "raw\\veyra-nr180\\modules.json",
+      "source_bytes": 210547,
+      "source_sha256": "fb378350378143baae2863c6e978e5576937ae79f485a6e272677779a4b51bf4",
+      "archived_sha256": "fb378350378143baae2863c6e978e5576937ae79f485a6e272677779a4b51bf4"
+    },
+    {
+      "source": "veyra-nr180\\normal-close.json",
+      "file": "raw\\veyra-nr180\\normal-close.json",
+      "source_bytes": 1573,
+      "source_sha256": "790374f4c9e1d6bfd0a1b265263ee0f752007811e8525bb03d8771c6a09704b4",
+      "archived_sha256": "790374f4c9e1d6bfd0a1b265263ee0f752007811e8525bb03d8771c6a09704b4"
+    },
+    {
+      "source": "veyra-nr180\\reference.log",
+      "file": "raw\\veyra-nr180\\reference.log",
+      "source_bytes": 457912,
+      "source_sha256": "c3d99c04a9887931fd475f8ed0cd59f5bc2faf512d460fd3b1603bda39bf6d1b",
+      "archived_sha256": "c3d99c04a9887931fd475f8ed0cd59f5bc2faf512d460fd3b1603bda39bf6d1b"
+    },
+    {
+      "source": "veyra-nr180\\result.json",
+      "file": "raw\\veyra-nr180\\result.json",
+      "source_bytes": 5750,
+      "source_sha256": "dd01be4d40ceb1d10f6280ee3d72ad9b0eecab85dc120960d29623e7833de3e9",
+      "archived_sha256": "dd01be4d40ceb1d10f6280ee3d72ad9b0eecab85dc120960d29623e7833de3e9"
+    },
+    {
+      "source": "veyra-off60\\console.log",
+      "file": "raw\\veyra-off60\\console.log",
+      "source_bytes": 156604,
+      "source_sha256": "70704e2fe5b103dc9effc5615d92a870256b0d1040bc4041fe7c740cdc5c65e1",
+      "archived_sha256": "70704e2fe5b103dc9effc5615d92a870256b0d1040bc4041fe7c740cdc5c65e1"
+    },
+    {
+      "source": "veyra-off60\\manifest-after.json",
+      "file": "raw\\veyra-off60\\manifest-after.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-off60\\manifest-before.json",
+      "file": "raw\\veyra-off60\\manifest-before.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-off60\\memory-samples.json",
+      "file": "raw\\veyra-off60\\memory-samples.json.gz",
+      "source_bytes": 71078,
+      "source_sha256": "40448e798f66c473d60356b2773a57951fe3f74fba375af5bf322385306c1334",
+      "archived_sha256": "216fffa49fac65863d27051bbb458f1f2c612c58fae3596ae37202acb6ab3b83"
+    },
+    {
+      "source": "veyra-off60\\modules.json",
+      "file": "raw\\veyra-off60\\modules.json",
+      "source_bytes": 46420,
+      "source_sha256": "30d4513d776f119ef3d07c54a038df85fee45d05cec25c5561e45f55edca74f3",
+      "archived_sha256": "30d4513d776f119ef3d07c54a038df85fee45d05cec25c5561e45f55edca74f3"
+    },
+    {
+      "source": "veyra-off60\\normal-close.json",
+      "file": "raw\\veyra-off60\\normal-close.json",
+      "source_bytes": 119,
+      "source_sha256": "7aad2ac0b4dda03a900da7f6c5942cd52701916b35948a1613484609bee9a0df",
+      "archived_sha256": "7aad2ac0b4dda03a900da7f6c5942cd52701916b35948a1613484609bee9a0df"
+    },
+    {
+      "source": "veyra-off60\\reference.log",
+      "file": "raw\\veyra-off60\\reference.log",
+      "source_bytes": 155279,
+      "source_sha256": "b98a971d5bac1805388adaf8641da974097576e7158ac6b89bf186bc8a507eca",
+      "archived_sha256": "b98a971d5bac1805388adaf8641da974097576e7158ac6b89bf186bc8a507eca"
+    },
+    {
+      "source": "veyra-off60\\result.json",
+      "file": "raw\\veyra-off60\\result.json",
+      "source_bytes": 1910,
+      "source_sha256": "445cb56598816452d6a2886664c471d8a0062fdd2a98b07631ecbf9e074cd755",
+      "archived_sha256": "445cb56598816452d6a2886664c471d8a0062fdd2a98b07631ecbf9e074cd755"
+    },
+    {
+      "source": "veyra-vsr120\\console.log",
+      "file": "raw\\veyra-vsr120\\console.log",
+      "source_bytes": 306910,
+      "source_sha256": "5e1ea379cd2b9f4e7678262799de0d4f6ef5ccd1b0a75a4b1b50c2b3d50714ae",
+      "archived_sha256": "5e1ea379cd2b9f4e7678262799de0d4f6ef5ccd1b0a75a4b1b50c2b3d50714ae"
+    },
+    {
+      "source": "veyra-vsr120\\manifest-after.json",
+      "file": "raw\\veyra-vsr120\\manifest-after.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-vsr120\\manifest-before.json",
+      "file": "raw\\veyra-vsr120\\manifest-before.json",
+      "source_bytes": 2654,
+      "source_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0",
+      "archived_sha256": "8274282c9e7640be6ea0b4160f319e8e30123752204753fc8b685aaf2e2837f0"
+    },
+    {
+      "source": "veyra-vsr120\\memory-samples.json",
+      "file": "raw\\veyra-vsr120\\memory-samples.json.gz",
+      "source_bytes": 196866,
+      "source_sha256": "eceb9283ed158e7f3c6ea18010b596ac72acee9a47f1c598b3f386a1358de222",
+      "archived_sha256": "eebd30a5dbb2a76ac0895a7059684710dbfd77cf987cd665dd011c008275794a"
+    },
+    {
+      "source": "veyra-vsr120\\modules.json",
+      "file": "raw\\veyra-vsr120\\modules.json",
+      "source_bytes": 152385,
+      "source_sha256": "46830acdee4706823963efadfe48dbc57c78b1b097559fc0afa216569a9c4066",
+      "archived_sha256": "46830acdee4706823963efadfe48dbc57c78b1b097559fc0afa216569a9c4066"
+    },
+    {
+      "source": "veyra-vsr120\\normal-close.json",
+      "file": "raw\\veyra-vsr120\\normal-close.json",
+      "source_bytes": 119,
+      "source_sha256": "e003ff9e230900ee807deb9dce0b33706b8ccde4f30d483b8760964b3e6ce578",
+      "archived_sha256": "e003ff9e230900ee807deb9dce0b33706b8ccde4f30d483b8760964b3e6ce578"
+    },
+    {
+      "source": "veyra-vsr120\\reference.log",
+      "file": "raw\\veyra-vsr120\\reference.log",
+      "source_bytes": 301928,
+      "source_sha256": "24f9afaecafd2e716a2181649c23359714080c53cd55daa24c210b3bef76ca75",
+      "archived_sha256": "24f9afaecafd2e716a2181649c23359714080c53cd55daa24c210b3bef76ca75"
+    },
+    {
+      "source": "veyra-vsr120\\result.json",
+      "file": "raw\\veyra-vsr120\\result.json",
+      "source_bytes": 4686,
+      "source_sha256": "3a4ce8c2c571290148bbc60d384cdc9c03db59a7d1c039a44063ebf94fb7e5ca",
+      "archived_sha256": "3a4ce8c2c571290148bbc60d384cdc9c03db59a7d1c039a44063ebf94fb7e5ca"
+    }
+  ],
+  "archive_verified": true
+}

@@ -1,0 +1,26 @@
+{
+  "method": "Compare C++ text after removing line comments and whitespace; not a compiler AST comparison",
+  "files": [
+    {
+      "file": "quality_bridge.cpp",
+      "repository_sha256": "a8ad9e77fd73f9e8e7f4c2ac5eb516d82a0372f7565e5dfd1b8e3c087ce922b6",
+      "candidate_sha256": "e4461a1ae89f5b5d345c81b07cd3e8b8403c41b1ac89906b89c9f3a2f99a918e",
+      "normalized_sha256": "8bd93ee9fad7476393f93c8f4dba0862e28c9bce827ceef096838d9e588fb56f",
+      "equal_after_removing_comments_and_whitespace": true
+    },
+    {
+      "file": "quality.cpp",
+      "repository_sha256": "3cfb8d0ce167bef1889f0bc233e61d4af3955eaa461ca60b0999d17ae9927a1c",
+      "candidate_sha256": "fd60508bd58c82b32e9dfb9c18bdf7ab7cca1f84325b62e150e022595122d114",
+      "normalized_sha256": "18ebe6b5ffaa6e3f996845771deb439cfc1d67e0b559252db5ec7544bcac68bf",
+      "equal_after_removing_comments_and_whitespace": true
+    },
+    {
+      "file": "quality.h",
+      "repository_sha256": "5a5cd7cc47a5b1ba41918fdae13dd0c7b42dc86f9195a8c7cb3d802b1a34599e",
+      "candidate_sha256": "9d931fd1a555a49d3b5111f36b01c48d2d65840131edacdb124b104ef327d1e3",
+      "normalized_sha256": "699c9ed78973e3848ce342fc48fa6345efd593e55ba0818f189480c987dd1fde",
+      "equal_after_removing_comments_and_whitespace": true
+    }
+  ]
+}

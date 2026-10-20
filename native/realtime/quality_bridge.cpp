@@ -169,10 +169,14 @@ private:
     bool EnsureTextures(UINT width, UINT height, DXGI_FORMAT format) noexcept {
         if (base_texture && width_ == width && height_ == height && format_ == format)
             return true;
+        // D3D11 destruction is deferred. Retire old bindings and flush those
+        // releases before allocating another extent; preserve device resources.
+        context->ClearState();
+        composite.ResetBindings();
         base_texture = nullptr;
         nr_texture = nullptr;
         readback = nullptr;
-        composite.Reset();
+        context->Flush();
 
         D3D11_TEXTURE2D_DESC input{};
         input.Width = width;

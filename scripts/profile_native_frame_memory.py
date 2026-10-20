@@ -36,8 +36,10 @@ def loaded_modules():
 
 class Profile:
     def __init__(self, kind):
+        from scripts.profile_thread_activity import load_counter
         self.path = Path(os.environ['TEMP'])/(kind+'-frame-memory.jsonl')
         self.count = 0
+        self.thread_counter = load_counter()
         tracemalloc.start(5)
         self.inspector = None
         if os.environ.get('DLSS5TOOL_P0_MEMORY_MAP') == '1':
@@ -66,6 +68,9 @@ class Profile:
             python_before_gc_bytes=python_before[0], python_after_gc_bytes=current,
             python_peak_bytes=peak, collected=collected,
             largest_python_sites=[dict(site=str(s.traceback), bytes=s.size, count=s.count) for s in top])
+        if self.thread_counter is not None:
+            from scripts.profile_thread_activity import read_counter
+            row['thread_activity'] = read_counter(self.thread_counter)
         library = getattr(self, 'library', None)
         if library is not None and hasattr(library, 'vsr_p0_log_count'):
             import ctypes as C
@@ -106,7 +111,10 @@ def vsr_worker(*args):
         library.vsr_process = process
         return library
     sr._load_host = load
-    return sr._worker_main(*args)
+    try:
+        return sr._worker_main(*args)
+    finally:
+        profile.record(force=True)
 
 
 class Live:
@@ -122,6 +130,10 @@ class Live:
         result = self.live.process(*args, **kwargs)
         self.profile.record()
         return result
+
+    def close(self):
+        self.profile.record(force=True)
+        return self.live.close()
 
 
 def start_heap_trace(work, event):
@@ -391,12 +403,20 @@ def composer_control(args, work, config, event):
         for frame in diagnostic_frames(args):
             if (work/'cancel.flag').exists():
                 raise RuntimeError('Supervisor stopped composer diagnostic')
+            if args.composer_resize:
+                width, height = ((1920,1080), (1600,896))[frame % 2]
+                pixels = np.zeros((height, width, 4), np.uint8)
+                pixels[..., 3] = 255
+                processed = pixels.copy()
+                processed[..., :3] = 110
             result = composition.compose(pixels, processed, config)
             bridge = getattr(composition._native_state, 'bridge', None)
             assert bridge is not None, 'Composer control did not dispatch to the native GPU'
             library = bridge.library
             assert result.shape == pixels.shape
-            profile.record(force=frame == args.frames-1)
+            profile.record(force=(args.composer_resize and not args.run_seconds) or frame == args.frames-1)
+            if args.composer_resize and (not args.run_seconds or frame % 512 == 0):
+                event('composer-size', frame=frame, width=pixels.shape[1], height=pixels.shape[0])
             if getattr(args,'run_seconds',0) and (frame==0 or (frame+1)%512==0):
                 event('native-progress',frames=frame+1,run_seconds=args.run_seconds)
             if frame == 0 and args.idle_seconds:

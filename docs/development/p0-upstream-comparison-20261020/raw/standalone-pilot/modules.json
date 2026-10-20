@@ -1,0 +1,150 @@
+[
+  {
+    "wall": 1792471923.5989742,
+    "identity": {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 851968,
+      "working_set_bytes": 4894720,
+      "handles": 54
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+          "base": 140698073628672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471939.0190325,
+    "identity": {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 851968,
+      "working_set_bytes": 4894720,
+      "handles": 54
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+          "base": 140698073628672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471953.8982568,
+    "identity": {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 823296,
+      "working_set_bytes": 4882432,
+      "handles": 54
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+          "base": 140698073628672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471968.8263273,
+    "identity": {
+      "pid": 38772,
+      "parent": 41184,
+      "name": "python.exe",
+      "created": 134369455225523431,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 823296,
+      "working_set_bytes": 4882432,
+      "handles": 54
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+          "base": 140698073628672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        }
+      ]
+    }
+  }
+]

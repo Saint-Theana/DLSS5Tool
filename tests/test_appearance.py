@@ -193,7 +193,7 @@ class AppearanceTests(unittest.TestCase):
                 self.path.touch()
             def abort(self):
                 pass
-        nr = mock.Mock()
+        nr = mock.Mock(adapter_info={'luid_high': 0, 'luid_low': 7})
         nr.process.side_effect = lambda rgba, **kw: cv2.cvtColor(np.full((128, 128, 3), 120, np.uint8), cv2.COLOR_BGR2RGBA)
         capture = mock.Mock()
         capture.read.side_effect = [(True, np.full((128, 128, 3), 20, np.uint8)), (False, None)]
@@ -209,6 +209,7 @@ class AppearanceTests(unittest.TestCase):
                     source_inspector=lambda *a, **k: ({'is_hdr': False, 'profile': 'srgb', 'color_primaries': 'bt709'}, Fraction(24), 128, 128, 1),
                     gpu_export={'host_library': 'host', 'native_library': 'nvenc', 'sdr_ptx': 'ptx'})
             self.assertNotIn('_gpu_export_host', factory.call_args.args[2])
+            self.assertEqual(factory.call_args.args[2]['_composition_adapter'], nr.adapter_info)
             nr.gpu_output_create.assert_not_called()
             nr.process_device.assert_not_called()
             nr.process.assert_called_once()

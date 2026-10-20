@@ -1,0 +1,18 @@
+{
+  "magpie_release_api": {
+    "url": "https://api.github.com/repos/SAOG0721/Magpie/releases/latest",
+    "result": "HTTP 404 after sandbox network escalation",
+    "local_stock_binary_found": false
+  },
+  "thread_selftest_initial": {
+    "expected_worker_threads": 50,
+    "observed_started": 51,
+    "observed_stopped": 50,
+    "reason": "Collector thread included; exclude it in final implementation",
+    "final": "etw-selftest-final.json"
+  },
+  "build_invocation_initial": {
+    "error": "Wrong relative Python path from task cwd; no build ran",
+    "corrected": "Used absolute repository Python path"
+  }
+}

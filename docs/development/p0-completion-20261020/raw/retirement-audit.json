@@ -1,0 +1,839 @@
+{
+  "cases": [
+    {
+      "case": "images-after-service",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-big-idle-trace",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-lifetime-map",
+      "status": "failed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-lifetime-map2",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-native-fix30",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-reopen1",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-reopen2",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-reopen3",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-reuse-pilot",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "images-virtual-trace",
+      "status": "failed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-fixed-idle300",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-installed-smoke",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-resize-control",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-resize-flush",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-resize-flush-reuse",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-composer-resize-long",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-device11-after-service",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-device11-current-baseline",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-device11-thread-count",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-nr-after-service",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-nr-thread-count",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-sr-after-service",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    },
+    {
+      "case": "native-sr-thread-count",
+      "status": "passed",
+      "remaining": [],
+      "recovery": []
+    }
+  ],
+  "current_matches": [
+    {
+      "current": {
+        "pid": 39616,
+        "parent": 45992,
+        "name": "conhost.exe",
+        "created": 134369387567659155,
+        "path": "C:\\Windows\\System32\\conhost.exe"
+      },
+      "previous": [
+        {
+          "pid": 39616,
+          "created": 134369382205595454,
+          "name": "conhost.exe",
+          "parent": 44268,
+          "case": "images-big-idle-trace"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 49480,
+        "parent": 22396,
+        "name": "conhost.exe",
+        "created": 134369387568112476,
+        "path": "C:\\Windows\\System32\\conhost.exe"
+      },
+      "previous": [
+        {
+          "pid": 49480,
+          "created": 134369385453345334,
+          "name": "python.exe",
+          "parent": 48536,
+          "case": "images-lifetime-map"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 42056,
+        "parent": 41624,
+        "name": "node.exe",
+        "created": 134369387605955730,
+        "path": "C:\\Program Files\\nodejs\\node.exe"
+      },
+      "previous": [
+        {
+          "pid": 42056,
+          "created": 134369385643087934,
+          "name": "conhost.exe",
+          "parent": 37880,
+          "case": "images-lifetime-map"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 47692,
+        "parent": 1516,
+        "name": "NVDisplay.Container.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 47692,
+          "created": 134369387238100368,
+          "name": "nvngx_update.exe",
+          "parent": 768,
+          "case": "images-lifetime-map2"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 38192,
+        "parent": 47692,
+        "name": "NVDisplay.Container.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 38192,
+          "created": 134369388142265131,
+          "name": "nvngx_update.exe",
+          "parent": 41636,
+          "case": "images-lifetime-map2"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 48308,
+        "parent": 34480,
+        "name": "SGTool.exe",
+        "created": 134369413909947587,
+        "path": "D:\\软件\\SogouInput\\16.9.0.5523\\SGTool.exe"
+      },
+      "previous": [
+        {
+          "pid": 48308,
+          "created": 134369398641324409,
+          "name": "nvngx_update.exe",
+          "parent": 36544,
+          "case": "images-after-service"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 5244,
+        "parent": 1516,
+        "name": "svchost.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 5244,
+          "created": 134369396070614953,
+          "name": "python.exe",
+          "parent": 7104,
+          "case": "native-nr-after-service"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 50600,
+        "parent": 1516,
+        "name": "svchost.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 50600,
+          "created": 134369414618202420,
+          "name": "conhost.exe",
+          "parent": 5360,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 36556,
+        "parent": 1516,
+        "name": "svchost.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 36556,
+          "created": 134369414701455719,
+          "name": "conhost.exe",
+          "parent": 17980,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 50584,
+        "parent": 4792,
+        "name": "audiodg.exe",
+        "created": 134369436367739155,
+        "path": "C:\\Windows\\System32\\audiodg.exe"
+      },
+      "previous": [
+        {
+          "pid": 50584,
+          "created": 134369399196235539,
+          "name": "nvidia-smi.exe",
+          "parent": 42572,
+          "case": "images-after-service"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 23928,
+        "parent": 14928,
+        "name": "Grok Bot.exe",
+        "created": 134369436785306930,
+        "path": "F:\\grok bot\\Grok Bot.exe"
+      },
+      "previous": [
+        {
+          "pid": 23928,
+          "created": 134369396084725907,
+          "name": "python.exe",
+          "parent": 39644,
+          "case": "native-nr-after-service"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 14948,
+        "parent": 23928,
+        "name": "Grok Bot.exe",
+        "created": 134369436876076234,
+        "path": "F:\\grok bot\\Grok Bot.exe"
+      },
+      "previous": [
+        {
+          "pid": 14948,
+          "created": 134369398310898979,
+          "name": "nvngx_update.exe",
+          "parent": 25896,
+          "case": "images-after-service"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 21288,
+        "parent": 23928,
+        "name": "Grok Bot.exe",
+        "created": 134369436884421875,
+        "path": "F:\\grok bot\\Grok Bot.exe"
+      },
+      "previous": [
+        {
+          "pid": 21288,
+          "created": 134369414453794799,
+          "name": "conhost.exe",
+          "parent": 6992,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 43188,
+        "parent": 23928,
+        "name": "Grok Bot.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 43188,
+          "created": 134369397703433332,
+          "name": "conhost.exe",
+          "parent": 4800,
+          "case": "images-after-service"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 48124,
+        "parent": 5380,
+        "name": "updater.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 48124,
+          "created": 134369414540479583,
+          "name": "conhost.exe",
+          "parent": 37476,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 46336,
+        "parent": 14928,
+        "name": "QQBrowser.exe",
+        "created": 134369437448208337,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 46336,
+          "created": 134369403037489629,
+          "name": "nvngx_update.exe",
+          "parent": 5104,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 50656,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437453987265,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 50656,
+          "created": 134369415202623645,
+          "name": "conhost.exe",
+          "parent": 46284,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 40900,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437456819248,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 40900,
+          "created": 134369401342309967,
+          "name": "conhost.exe",
+          "parent": 9500,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 34376,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437463665585,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 34376,
+          "created": 134369387068234221,
+          "name": "nvngx_update.exe",
+          "parent": 5504,
+          "case": "images-lifetime-map2"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 47716,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437463913968,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 47716,
+          "created": 134369417439398984,
+          "name": "conhost.exe",
+          "parent": 16012,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 48380,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437464221343,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 48380,
+          "created": 134369436278428345,
+          "name": "nvngx_update.exe",
+          "parent": 41404,
+          "case": "images-reopen2"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 20680,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437464289348,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 20680,
+          "created": 134369418896902544,
+          "name": "conhost.exe",
+          "parent": 3100,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 42644,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437464327422,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 42644,
+          "created": 134369414359141203,
+          "name": "python.exe",
+          "parent": 36980,
+          "case": "images-native-fix30"
+        },
+        {
+          "pid": 42644,
+          "created": 134369435999097862,
+          "name": "conhost.exe",
+          "parent": 47872,
+          "case": "images-reopen1"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 47972,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437464346984,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 47972,
+          "created": 134369398147407413,
+          "name": "conhost.exe",
+          "parent": 42608,
+          "case": "images-after-service"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 45792,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437464356454,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 45792,
+          "created": 134369436379854892,
+          "name": "nvngx_update.exe",
+          "parent": 6572,
+          "case": "images-reopen2"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 11396,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437473220997,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 11396,
+          "created": 134369418576949399,
+          "name": "conhost.exe",
+          "parent": 41108,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 35752,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437481869102,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 35752,
+          "created": 134369417447444379,
+          "name": "python.exe",
+          "parent": 36980,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 44684,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369437494172916,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 44684,
+          "created": 134369402778768038,
+          "name": "conhost.exe",
+          "parent": 46908,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 11412,
+        "parent": 38084,
+        "name": "SoftupNotify.exe",
+        "created": 134369438140512071,
+        "path": "D:\\软件\\360安全卫士\\360Safe\\SoftMgr\\SoftupNotify.exe"
+      },
+      "previous": [
+        {
+          "pid": 11412,
+          "created": 134369397703310573,
+          "name": "conhost.exe",
+          "parent": 49756,
+          "case": "images-after-service"
+        },
+        {
+          "pid": 11412,
+          "created": 134369417625823979,
+          "name": "conhost.exe",
+          "parent": 17852,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 49496,
+        "parent": 1736,
+        "name": "backgroundTaskHost.exe",
+        "created": 134369438414120657,
+        "path": "C:\\Windows\\System32\\backgroundTaskHost.exe"
+      },
+      "previous": [
+        {
+          "pid": 49496,
+          "created": 134369418817507608,
+          "name": "python.exe",
+          "parent": 36980,
+          "case": "images-native-fix30"
+        },
+        {
+          "pid": 49496,
+          "created": 134369436991478471,
+          "name": "conhost.exe",
+          "parent": 6836,
+          "case": "images-reopen3"
+        },
+        {
+          "pid": 49496,
+          "created": 134369402603238997,
+          "name": "nvngx_update.exe",
+          "parent": 39644,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 49136,
+        "parent": 28764,
+        "name": "QQ.exe",
+        "query_error": 5
+      },
+      "previous": [
+        {
+          "pid": 49136,
+          "created": 134369401969997588,
+          "name": "nvngx_update.exe",
+          "parent": 49976,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "query_denied_different_image_or_parent"
+    },
+    {
+      "current": {
+        "pid": 47960,
+        "parent": 46336,
+        "name": "QQBrowser.exe",
+        "created": 134369438665669848,
+        "path": "D:\\软件\\QQ浏览器\\QQBrowser\\QQBrowser.exe"
+      },
+      "previous": [
+        {
+          "pid": 47960,
+          "created": 134369414465098727,
+          "name": "conhost.exe",
+          "parent": 50828,
+          "case": "images-native-fix30"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 27428,
+        "parent": 2952,
+        "name": "codex-command-runner-0.163.0-alpha.10.2.exe",
+        "created": 134369438921466317,
+        "path": "C:\\Users\\PC\\.codex\\.sandbox-bin\\codex-command-runner-0.163.0-alpha.10.2.exe"
+      },
+      "previous": [
+        {
+          "pid": 27428,
+          "created": 134369402154127370,
+          "name": "conhost.exe",
+          "parent": 6436,
+          "case": "images-reuse-pilot"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 44744,
+        "parent": 24800,
+        "name": "conhost.exe",
+        "created": 134369438922647316,
+        "path": "C:\\Windows\\System32\\conhost.exe"
+      },
+      "previous": [
+        {
+          "pid": 44744,
+          "created": 134369382053091306,
+          "name": "nvngx_update.exe",
+          "parent": 44864,
+          "case": "images-big-idle-trace"
+        }
+      ],
+      "classification": "pid_reused"
+    },
+    {
+      "current": {
+        "pid": 45604,
+        "parent": 10664,
+        "name": "python.exe",
+        "created": 134369438927825643,
+        "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+      },
+      "previous": [
+        {
+          "pid": 45604,
+          "created": 134369382979572197,
+          "name": "conhost.exe",
+          "parent": 43916,
+          "case": "images-big-idle-trace"
+        },
+        {
+          "pid": 45604,
+          "created": 134369388585664573,
+          "name": "conhost.exe",
+          "parent": 6856,
+          "case": "images-lifetime-map2"
+        }
+      ],
+      "classification": "pid_reused"
+    }
+  ],
+  "active_exact_identities": [],
+  "unresolved": [],
+  "terminated_processes": []
+}

@@ -1,0 +1,10 @@
+{
+  "all_verified": true,
+  "archived_files": 356,
+  "archived_source_bytes": 81894473,
+  "raw_archive_bytes": 18248999,
+  "archive_manifest_sha256": "fbd1ed6ac85b63616d772816e1247f84535f87ce1f63575387a7cc986df67732",
+  "pre_cleanup_archive_manifest_sha256": "7c5820ea3b1e5c7ad00be9843b4ba7cae4c963aee07cb0fe18c1af25146cd0ce",
+  "source_files_unchanged_at_archive_time": true,
+  "cleanup_completed": true
+}

@@ -1,0 +1,1117 @@
+2026-10-20T04:55:33.014Z t=26016 [INFO ] [app] Veyra GUI session started
+2026-10-20T04:55:33.019Z t=26016 [INFO ] [app] smoke NR temporal=false
+2026-10-20T04:55:33.025Z t=26016 [INFO ] [ui-glass] system=DesktopAcrylic backdropHr=0x00000000 frameHr=0x00000000 apiAccepted=true fullscreen=false video=opaque
+2026-10-20T04:55:33.533Z t=26016 [INFO ] [ui-transition] started target=true durationMs=240 from=0
+2026-10-20T04:55:33.534Z t=26016 [INFO ] [ui-mode] professional=true hostSame=true sessionSame=true revisionSame=true positionBefore=0 positionAfter=0 commandMs=21.714
+2026-10-20T04:55:33.568Z t=44396 [INFO ] [gfx] adapter[0] vendorId=0x10DE software=false dedicatedVideoMiB=11997 desc=NVIDIA GeForce RTX 4070 SUPER
+2026-10-20T04:55:33.622Z t=26016 [INFO ] [subtitle] tracks=0 primary=-1 secondary=-1
+2026-10-20T04:55:33.759Z t=26016 [INFO ] [ui-transition] completed; final layout and swapchain resize released
+2026-10-20T04:55:34.102Z t=44396 [INFO ] [gfx] device created featureLevelMax=12_2 checkHr=0x00000000 (S_OK)
+2026-10-20T04:55:34.133Z t=44396 [INFO ] [gfx] device context initialized adapter=NVIDIA GeForce RTX 4070 SUPER vendor=0x10DE luid=0x00000000:0x000000000001383B driver=32.0.16.1742 (registry) featureLevel=12_2 slots=6
+2026-10-20T04:55:34.134Z t=44396 [INFO ] [gfx] slot-ring: timestamp heap created slots=16 pairs=32 frequencyHz=1000000000 freqQuery=0x00000000 (S_OK)
+2026-10-20T04:55:34.139Z t=44396 [INFO ] [gfx] slot-ring: initialized slots=16
+2026-10-20T04:55:34.156Z t=44396 [INFO ] [display-color] hdrInput=false hdrOutput=false forceSdrPreview=false
+2026-10-20T04:55:34.156Z t=44396 [INFO ] [resolution] source=640x360 base=640x360 nr=640x360 flow=640x360 fg=640x360 output=640x360
+2026-10-20T04:55:34.156Z t=44396 [INFO ] [pipeline-order] SR -> NR -> residual -> FG
+2026-10-20T04:55:34.156Z t=44396 [INFO ] [memory] graph lower-bound=30MiB budget=11229MiB usage=12MiB; SDK allocations additional
+2026-10-20T04:55:34.168Z t=44396 [INFO ] [graph] NV12 upload ring persistently mapped (2 buffer sets)
+2026-10-20T04:55:34.170Z t=44396 [INFO ] [graph] depth/zero guidance textures initialized
+2026-10-20T04:55:34.170Z t=44396 [INFO ] [graph] NGX core/features skipped by disabled-feature configuration
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [graph] initialized src=640x360 work=640x360 sr=0 nr=0 fg=0 nvof=0
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [present] sink-shutdown: sub-step backbuffers-release
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [present] sink-shutdown: sub-step swapchain-release
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [present] sink-shutdown: sub-step window-destroy-last
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [present] sink-shutdown: sub-step factory-release
+2026-10-20T04:55:34.352Z t=44396 [INFO ] [present] sink-shutdown: complete
+2026-10-20T04:55:34.358Z t=44396 [INFO ] [present] output=SDR RGB G22
+2026-10-20T04:55:34.358Z t=44396 [INFO ] [pacing] DXGI enabled=false maximumLatency=3 vsync=false hr=0x0
+2026-10-20T04:55:34.358Z t=44396 [INFO ] [display-refresh] monitor refresh=170.000 Hz at swapchain creation (0 = unknown); submissions above this rate cannot all be scanned out
+2026-10-20T04:55:34.358Z t=44396 [INFO ] [present] present-sink: window 1155x741 swapEffect=flip-discard buffers=3 vsync=0 tearing=1 captureCompatible=false (capture not verified)
+2026-10-20T04:55:34.373Z t=44396 [INFO ] [settings] xess capability: active=false maxInterpolatedFrames=0 unlockApplied=false (active context only)
+2026-10-20T04:55:34.373Z t=44396 [INFO ] [scheduler] high resolution waitable timer active; no global timer resolution changes
+2026-10-20T04:55:34.373Z t=44396 [INFO ] [pacing] DXGI enabled=false maximumLatency=3 vsync=false hr=0x0
+2026-10-20T04:55:34.373Z t=44396 [INFO ] [pacing] revision=1 requested=false/0/0 effective=false/0/0
+2026-10-20T04:55:34.373Z t=44396 [INFO ] [color] range=2 assumed=false matrix=2 assumed=true transfer=1 assumed=false display709=false preserveSdrCodes=false workingTransfer=1
+2026-10-20T04:55:34.374Z t=44396 [INFO ] [metrics] reset session=1 appliedRevision=3 epoch=1 sourceBase=0
+2026-10-20T04:55:34.374Z t=44396 [INFO ] [capture-rate] revision=3 requested60To30=false active=false transportFps=0 originalPtsPreserved=true
+2026-10-20T04:55:34.374Z t=44396 [INFO ] [reset-lifecycle] session=1 revision=3 epoch=1 source=1 reason=1 outcome=1 drainMs=0.000 destroyMs=0.000 createMs=0.000 warmupSubmitMs=0.609 firstValidObserveMs=0.727 totalMs=1.336 (CPU observed; -1=not measured)
+2026-10-20T04:55:34.375Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:34.375Z t=44396 [INFO ] [display-stats] unavailable hr=0x887A000B backend=DXGI
+2026-10-20T04:55:34.375Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.629 recordSubmitMs=0.140 slotWaitMs=0.000 dxgiMs=0.489 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.011 beginMs=0.000 commandsMs=0.129 beforeMs=0.000 presentCallMs=0.475 bufferMs=0.014 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:34.375Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:34.440Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.564 collectMs=0.000 tailMs=64.564
+2026-10-20T04:55:34.440Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:34.502Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.906 collectMs=0.023 tailMs=61.882
+2026-10-20T04:55:34.563Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.408 collectMs=0.017 tailMs=61.391
+2026-10-20T04:55:34.626Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.501 collectMs=0.017 tailMs=62.484
+2026-10-20T04:55:34.686Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.794 collectMs=0.017 tailMs=60.778
+2026-10-20T04:55:34.748Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.491 collectMs=0.017 tailMs=61.474
+2026-10-20T04:55:34.809Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.851 collectMs=0.013 tailMs=60.838
+2026-10-20T04:55:34.871Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.684 collectMs=0.014 tailMs=61.670
+2026-10-20T04:55:34.932Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.234 collectMs=0.029 tailMs=61.206
+2026-10-20T04:55:34.993Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.222 collectMs=0.015 tailMs=61.207
+2026-10-20T04:55:35.055Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.549 collectMs=0.018 tailMs=61.530
+2026-10-20T04:55:35.115Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.728 collectMs=0.014 tailMs=60.714
+2026-10-20T04:55:35.179Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.558 collectMs=0.015 tailMs=63.543
+2026-10-20T04:55:35.241Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.458 collectMs=0.015 tailMs=62.442
+2026-10-20T04:55:35.303Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.875 collectMs=0.016 tailMs=61.859
+2026-10-20T04:55:35.364Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.018 collectMs=0.017 tailMs=61.002
+2026-10-20T04:55:35.426Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.648 collectMs=0.013 tailMs=61.635
+2026-10-20T04:55:35.427Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.476 recordSubmitMs=0.270 slotWaitMs=0.000 dxgiMs=0.206 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.131 beginMs=0.000 commandsMs=0.139 beforeMs=0.000 presentCallMs=0.205 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:35.489Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.827 collectMs=0.014 tailMs=62.813
+2026-10-20T04:55:35.552Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.067 collectMs=0.017 tailMs=63.050
+2026-10-20T04:55:35.614Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.703 collectMs=0.015 tailMs=61.688
+2026-10-20T04:55:35.677Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.796 collectMs=0.019 tailMs=62.777
+2026-10-20T04:55:35.738Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.356 collectMs=0.016 tailMs=61.340
+2026-10-20T04:55:35.799Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.751 collectMs=0.019 tailMs=60.732
+2026-10-20T04:55:35.859Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=59.855 collectMs=0.014 tailMs=59.841
+2026-10-20T04:55:35.921Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.575 collectMs=0.017 tailMs=62.559
+2026-10-20T04:55:35.983Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.460 collectMs=0.016 tailMs=61.444
+2026-10-20T04:55:36.045Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.131 collectMs=0.016 tailMs=62.116
+2026-10-20T04:55:36.106Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.105 collectMs=0.032 tailMs=61.073
+2026-10-20T04:55:36.168Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.199 collectMs=0.015 tailMs=61.185
+2026-10-20T04:55:36.229Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.349 collectMs=0.015 tailMs=61.334
+2026-10-20T04:55:36.292Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.644 collectMs=0.018 tailMs=62.626
+2026-10-20T04:55:36.355Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.196 collectMs=0.019 tailMs=63.177
+2026-10-20T04:55:36.416Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.355 collectMs=0.016 tailMs=61.339
+2026-10-20T04:55:36.480Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.651 collectMs=0.013 tailMs=63.639
+2026-10-20T04:55:36.480Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=30 refreshes=15207414 presentRefreshDelta=15207414 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:36.481Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.536 recordSubmitMs=0.317 slotWaitMs=0.000 dxgiMs=0.219 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.169 beginMs=0.000 commandsMs=0.148 beforeMs=0.000 presentCallMs=0.218 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:36.542Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.439 collectMs=0.017 tailMs=62.422
+2026-10-20T04:55:36.605Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.614 collectMs=0.016 tailMs=62.598
+2026-10-20T04:55:36.667Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.596 collectMs=0.014 tailMs=61.582
+2026-10-20T04:55:36.729Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.326 collectMs=0.015 tailMs=62.311
+2026-10-20T04:55:36.793Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.737 collectMs=0.019 tailMs=63.719
+2026-10-20T04:55:36.854Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.546 collectMs=0.017 tailMs=61.529
+2026-10-20T04:55:36.917Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.360 collectMs=0.015 tailMs=62.344
+2026-10-20T04:55:36.980Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.082 collectMs=0.017 tailMs=63.066
+2026-10-20T04:55:37.042Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.184 collectMs=0.015 tailMs=62.169
+2026-10-20T04:55:37.104Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.738 collectMs=0.015 tailMs=61.723
+2026-10-20T04:55:37.166Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.396 collectMs=0.019 tailMs=62.378
+2026-10-20T04:55:37.229Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.459 collectMs=0.013 tailMs=62.446
+2026-10-20T04:55:37.290Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.127 collectMs=0.029 tailMs=61.099
+2026-10-20T04:55:37.352Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.026 collectMs=0.022 tailMs=62.004
+2026-10-20T04:55:37.414Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.966 collectMs=0.015 tailMs=61.951
+2026-10-20T04:55:37.476Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.526 collectMs=0.012 tailMs=61.514
+2026-10-20T04:55:37.539Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.343 collectMs=0.016 tailMs=63.328
+2026-10-20T04:55:37.540Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=8 refreshes=85 presentRefreshDelta=85 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:37.540Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.512 recordSubmitMs=0.311 slotWaitMs=0.000 dxgiMs=0.200 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.147 beginMs=0.000 commandsMs=0.164 beforeMs=0.000 presentCallMs=0.200 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:37.601Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.934 collectMs=0.015 tailMs=61.919
+2026-10-20T04:55:37.663Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.099 collectMs=0.015 tailMs=62.084
+2026-10-20T04:55:37.725Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.063 collectMs=0.016 tailMs=62.047
+2026-10-20T04:55:37.787Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.425 collectMs=0.016 tailMs=61.409
+2026-10-20T04:55:37.849Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.426 collectMs=0.016 tailMs=62.410
+2026-10-20T04:55:37.911Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.212 collectMs=0.013 tailMs=62.199
+2026-10-20T04:55:37.974Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.029 collectMs=0.017 tailMs=63.012
+2026-10-20T04:55:38.036Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.483 collectMs=0.015 tailMs=61.468
+2026-10-20T04:55:38.098Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.019 collectMs=0.017 tailMs=62.002
+2026-10-20T04:55:38.160Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.856 collectMs=0.015 tailMs=61.841
+2026-10-20T04:55:38.223Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.987 collectMs=0.017 tailMs=62.971
+2026-10-20T04:55:38.285Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.506 collectMs=0.019 tailMs=61.488
+2026-10-20T04:55:38.348Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.226 collectMs=0.015 tailMs=63.211
+2026-10-20T04:55:38.410Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.348 collectMs=0.026 tailMs=62.322
+2026-10-20T04:55:38.472Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.096 collectMs=0.033 tailMs=62.063
+2026-10-20T04:55:38.535Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.167 collectMs=0.016 tailMs=62.151
+2026-10-20T04:55:38.596Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.422 collectMs=0.017 tailMs=61.405
+2026-10-20T04:55:38.597Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=30 refreshes=317 presentRefreshDelta=317 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:38.597Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.530 recordSubmitMs=0.330 slotWaitMs=0.000 dxgiMs=0.200 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.170 beginMs=0.000 commandsMs=0.159 beforeMs=0.000 presentCallMs=0.199 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:38.659Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.727 collectMs=0.016 tailMs=62.712
+2026-10-20T04:55:38.720Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.791 collectMs=0.016 tailMs=60.775
+2026-10-20T04:55:38.782Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.367 collectMs=0.014 tailMs=62.353
+2026-10-20T04:55:38.845Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.003 collectMs=0.016 tailMs=62.987
+2026-10-20T04:55:38.907Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.072 collectMs=0.013 tailMs=62.059
+2026-10-20T04:55:38.970Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.161 collectMs=0.017 tailMs=63.144
+2026-10-20T04:55:39.031Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.804 collectMs=0.017 tailMs=60.788
+2026-10-20T04:55:39.093Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.125 collectMs=0.019 tailMs=62.106
+2026-10-20T04:55:39.156Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.145 collectMs=0.015 tailMs=62.130
+2026-10-20T04:55:39.217Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.910 collectMs=0.015 tailMs=61.895
+2026-10-20T04:55:39.280Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.303 collectMs=0.016 tailMs=62.288
+2026-10-20T04:55:39.342Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.729 collectMs=0.014 tailMs=61.716
+2026-10-20T04:55:39.405Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.264 collectMs=0.013 tailMs=63.251
+2026-10-20T04:55:39.467Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.035 collectMs=0.016 tailMs=62.019
+2026-10-20T04:55:39.529Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.994 collectMs=0.015 tailMs=61.980
+2026-10-20T04:55:39.592Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.713 collectMs=0.017 tailMs=62.697
+2026-10-20T04:55:39.653Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.279 collectMs=0.022 tailMs=61.258
+2026-10-20T04:55:39.654Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=8 refreshes=84 presentRefreshDelta=84 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:39.654Z t=44396 [INFO ] [present-cost] generated=false totalMs=1.266 recordSubmitMs=1.093 slotWaitMs=0.000 dxgiMs=0.173 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.957 beginMs=0.000 commandsMs=0.136 beforeMs=0.000 presentCallMs=0.172 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:39.715Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.088 collectMs=0.016 tailMs=62.073
+2026-10-20T04:55:39.778Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.361 collectMs=0.016 tailMs=62.345
+2026-10-20T04:55:39.840Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.153 collectMs=0.016 tailMs=62.138
+2026-10-20T04:55:39.903Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.938 collectMs=0.013 tailMs=62.925
+2026-10-20T04:55:39.964Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.039 collectMs=0.012 tailMs=61.028
+2026-10-20T04:55:40.026Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.252 collectMs=0.018 tailMs=62.234
+2026-10-20T04:55:40.088Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.356 collectMs=0.014 tailMs=61.342
+2026-10-20T04:55:40.150Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.342 collectMs=0.018 tailMs=62.324
+2026-10-20T04:55:40.214Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.611 collectMs=0.014 tailMs=63.597
+2026-10-20T04:55:40.275Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.589 collectMs=0.014 tailMs=61.575
+2026-10-20T04:55:40.338Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.571 collectMs=0.013 tailMs=62.559
+2026-10-20T04:55:40.401Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.263 collectMs=0.014 tailMs=63.249
+2026-10-20T04:55:40.462Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.821 collectMs=0.015 tailMs=60.806
+2026-10-20T04:55:40.524Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.727 collectMs=0.015 tailMs=61.712
+2026-10-20T04:55:40.587Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.918 collectMs=0.016 tailMs=62.902
+2026-10-20T04:55:40.650Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.161 collectMs=0.015 tailMs=63.146
+2026-10-20T04:55:40.712Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.191 collectMs=0.014 tailMs=62.177
+2026-10-20T04:55:40.713Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=14 refreshes=149 presentRefreshDelta=149 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:40.713Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.458 recordSubmitMs=0.289 slotWaitMs=0.000 dxgiMs=0.169 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.161 beginMs=0.000 commandsMs=0.128 beforeMs=0.000 presentCallMs=0.168 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:40.775Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.717 collectMs=0.014 tailMs=62.703
+2026-10-20T04:55:40.838Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.800 collectMs=0.026 tailMs=62.774
+2026-10-20T04:55:40.901Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.493 collectMs=0.017 tailMs=63.477
+2026-10-20T04:55:40.964Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.606 collectMs=0.016 tailMs=62.590
+2026-10-20T04:55:41.026Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.154 collectMs=0.018 tailMs=62.137
+2026-10-20T04:55:41.089Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.617 collectMs=0.013 tailMs=62.604
+2026-10-20T04:55:41.151Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.100 collectMs=0.013 tailMs=62.087
+2026-10-20T04:55:41.213Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.065 collectMs=0.023 tailMs=62.042
+2026-10-20T04:55:41.274Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.714 collectMs=0.013 tailMs=60.701
+2026-10-20T04:55:41.336Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.496 collectMs=0.012 tailMs=62.484
+2026-10-20T04:55:41.399Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.735 collectMs=0.011 tailMs=62.723
+2026-10-20T04:55:41.462Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.119 collectMs=0.011 tailMs=63.107
+2026-10-20T04:55:41.525Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.367 collectMs=0.016 tailMs=62.351
+2026-10-20T04:55:41.587Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.524 collectMs=0.015 tailMs=62.510
+2026-10-20T04:55:41.649Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.504 collectMs=0.016 tailMs=61.488
+2026-10-20T04:55:41.711Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.056 collectMs=0.013 tailMs=62.043
+2026-10-20T04:55:41.711Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:41.774Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.077 collectMs=0.014 tailMs=63.063
+2026-10-20T04:55:41.774Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:41.775Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.521 recordSubmitMs=0.341 slotWaitMs=0.000 dxgiMs=0.180 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.206 beginMs=0.000 commandsMs=0.135 beforeMs=0.000 presentCallMs=0.180 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:41.836Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.674 collectMs=0.017 tailMs=61.658
+2026-10-20T04:55:41.899Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.178 collectMs=0.014 tailMs=63.164
+2026-10-20T04:55:41.961Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.495 collectMs=0.017 tailMs=62.479
+2026-10-20T04:55:42.023Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.886 collectMs=0.034 tailMs=61.852
+2026-10-20T04:55:42.086Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.559 collectMs=0.016 tailMs=62.543
+2026-10-20T04:55:42.147Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.295 collectMs=0.017 tailMs=61.277
+2026-10-20T04:55:42.210Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.324 collectMs=0.016 tailMs=62.308
+2026-10-20T04:55:42.272Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.066 collectMs=0.015 tailMs=62.051
+2026-10-20T04:55:42.334Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.173 collectMs=0.014 tailMs=62.160
+2026-10-20T04:55:42.397Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.229 collectMs=0.014 tailMs=63.215
+2026-10-20T04:55:42.458Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.844 collectMs=0.013 tailMs=60.831
+2026-10-20T04:55:42.521Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.997 collectMs=0.014 tailMs=62.983
+2026-10-20T04:55:42.583Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.942 collectMs=0.013 tailMs=61.929
+2026-10-20T04:55:42.644Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.322 collectMs=0.016 tailMs=61.306
+2026-10-20T04:55:42.707Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.492 collectMs=0.018 tailMs=62.475
+2026-10-20T04:55:42.769Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.949 collectMs=0.015 tailMs=61.934
+2026-10-20T04:55:42.830Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.306 collectMs=0.014 tailMs=61.292
+2026-10-20T04:55:42.831Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=31 refreshes=328 presentRefreshDelta=328 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:42.831Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.466 recordSubmitMs=0.276 slotWaitMs=0.000 dxgiMs=0.191 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.121 beginMs=0.000 commandsMs=0.155 beforeMs=0.000 presentCallMs=0.190 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:42.892Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.144 collectMs=0.014 tailMs=62.130
+2026-10-20T04:55:42.954Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.878 collectMs=0.013 tailMs=61.865
+2026-10-20T04:55:43.016Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.579 collectMs=0.015 tailMs=61.565
+2026-10-20T04:55:43.078Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.825 collectMs=0.016 tailMs=61.808
+2026-10-20T04:55:43.140Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.142 collectMs=0.014 tailMs=62.128
+2026-10-20T04:55:43.201Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.166 collectMs=0.025 tailMs=61.141
+2026-10-20T04:55:43.263Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.880 collectMs=0.017 tailMs=61.863
+2026-10-20T04:55:43.325Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.628 collectMs=0.014 tailMs=61.614
+2026-10-20T04:55:43.387Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.561 collectMs=0.015 tailMs=62.546
+2026-10-20T04:55:43.450Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.426 collectMs=0.015 tailMs=62.411
+2026-10-20T04:55:43.512Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.899 collectMs=0.014 tailMs=61.886
+2026-10-20T04:55:43.573Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.109 collectMs=0.015 tailMs=61.094
+2026-10-20T04:55:43.637Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.537 collectMs=0.015 tailMs=63.522
+2026-10-20T04:55:43.699Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.410 collectMs=0.015 tailMs=62.395
+2026-10-20T04:55:43.761Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.977 collectMs=0.017 tailMs=61.960
+2026-10-20T04:55:43.823Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.678 collectMs=0.017 tailMs=61.661
+2026-10-20T04:55:43.886Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.148 collectMs=0.018 tailMs=63.130
+2026-10-20T04:55:43.886Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:43.886Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.483 recordSubmitMs=0.313 slotWaitMs=0.000 dxgiMs=0.170 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.165 beginMs=0.000 commandsMs=0.148 beforeMs=0.000 presentCallMs=0.170 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:43.949Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.786 collectMs=0.015 tailMs=62.772
+2026-10-20T04:55:44.011Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.998 collectMs=0.018 tailMs=61.980
+2026-10-20T04:55:44.073Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.044 collectMs=0.015 tailMs=62.029
+2026-10-20T04:55:44.137Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.832 collectMs=0.026 tailMs=63.806
+2026-10-20T04:55:44.198Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.206 collectMs=0.016 tailMs=61.190
+2026-10-20T04:55:44.260Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.168 collectMs=0.016 tailMs=62.152
+2026-10-20T04:55:44.323Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.468 collectMs=0.016 tailMs=62.452
+2026-10-20T04:55:44.385Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.559 collectMs=0.032 tailMs=62.527
+2026-10-20T04:55:44.447Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.456 collectMs=0.015 tailMs=61.441
+2026-10-20T04:55:44.509Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.209 collectMs=0.015 tailMs=62.194
+2026-10-20T04:55:44.572Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.760 collectMs=0.017 tailMs=62.743
+2026-10-20T04:55:44.633Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.607 collectMs=0.015 tailMs=61.593
+2026-10-20T04:55:44.695Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.719 collectMs=0.013 tailMs=61.706
+2026-10-20T04:55:44.757Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.483 collectMs=0.016 tailMs=61.467
+2026-10-20T04:55:44.821Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.983 collectMs=0.016 tailMs=63.967
+2026-10-20T04:55:44.883Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.334 collectMs=0.014 tailMs=62.320
+2026-10-20T04:55:44.945Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.453 collectMs=0.015 tailMs=61.439
+2026-10-20T04:55:44.945Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=45 refreshes=476 presentRefreshDelta=476 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:44.945Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.598 recordSubmitMs=0.368 slotWaitMs=0.000 dxgiMs=0.229 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.213 beginMs=0.000 commandsMs=0.155 beforeMs=0.000 presentCallMs=0.229 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:45.006Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.369 collectMs=0.016 tailMs=61.352
+2026-10-20T04:55:45.067Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.310 collectMs=0.016 tailMs=61.294
+2026-10-20T04:55:45.130Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.648 collectMs=0.015 tailMs=62.634
+2026-10-20T04:55:45.192Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.899 collectMs=0.017 tailMs=61.883
+2026-10-20T04:55:45.254Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.465 collectMs=0.015 tailMs=62.450
+2026-10-20T04:55:45.317Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.763 collectMs=0.017 tailMs=62.746
+2026-10-20T04:55:45.379Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.324 collectMs=0.015 tailMs=61.310
+2026-10-20T04:55:45.440Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.467 collectMs=0.019 tailMs=61.449
+2026-10-20T04:55:45.502Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.854 collectMs=0.016 tailMs=61.838
+2026-10-20T04:55:45.564Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.662 collectMs=0.029 tailMs=61.633
+2026-10-20T04:55:45.626Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.881 collectMs=0.017 tailMs=61.865
+2026-10-20T04:55:45.687Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.943 collectMs=0.016 tailMs=60.927
+2026-10-20T04:55:45.749Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.065 collectMs=0.014 tailMs=62.051
+2026-10-20T04:55:45.811Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.617 collectMs=0.016 tailMs=61.601
+2026-10-20T04:55:45.874Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.677 collectMs=0.015 tailMs=63.663
+2026-10-20T04:55:45.937Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.371 collectMs=0.013 tailMs=62.358
+2026-10-20T04:55:45.999Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.429 collectMs=0.015 tailMs=62.415
+2026-10-20T04:55:46.000Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:46.000Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.504 recordSubmitMs=0.276 slotWaitMs=0.000 dxgiMs=0.229 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.105 beginMs=0.000 commandsMs=0.171 beforeMs=0.000 presentCallMs=0.228 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:46.060Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.192 collectMs=0.016 tailMs=61.176
+2026-10-20T04:55:46.122Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.602 collectMs=0.016 tailMs=61.587
+2026-10-20T04:55:46.184Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.343 collectMs=0.015 tailMs=62.328
+2026-10-20T04:55:46.246Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.468 collectMs=0.015 tailMs=61.454
+2026-10-20T04:55:46.308Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.146 collectMs=0.013 tailMs=62.133
+2026-10-20T04:55:46.370Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.133 collectMs=0.024 tailMs=62.109
+2026-10-20T04:55:46.433Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.516 collectMs=0.016 tailMs=62.500
+2026-10-20T04:55:46.496Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.538 collectMs=0.013 tailMs=63.526
+2026-10-20T04:55:46.558Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.518 collectMs=0.018 tailMs=61.500
+2026-10-20T04:55:46.620Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.933 collectMs=0.016 tailMs=61.917
+2026-10-20T04:55:46.682Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.288 collectMs=0.015 tailMs=62.273
+2026-10-20T04:55:46.745Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.757 collectMs=0.026 tailMs=62.731
+2026-10-20T04:55:46.806Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.433 collectMs=0.017 tailMs=61.416
+2026-10-20T04:55:46.869Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.467 collectMs=0.018 tailMs=62.449
+2026-10-20T04:55:46.931Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.489 collectMs=0.018 tailMs=61.471
+2026-10-20T04:55:46.992Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.610 collectMs=0.017 tailMs=61.593
+2026-10-20T04:55:47.053Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.089 collectMs=0.016 tailMs=61.073
+2026-10-20T04:55:47.054Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=36 refreshes=379 presentRefreshDelta=379 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:47.054Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.923 recordSubmitMs=0.337 slotWaitMs=0.000 dxgiMs=0.586 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.188 beginMs=0.000 commandsMs=0.149 beforeMs=0.000 presentCallMs=0.585 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:47.115Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.702 collectMs=0.015 tailMs=61.687
+2026-10-20T04:55:47.178Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.825 collectMs=0.015 tailMs=62.810
+2026-10-20T04:55:47.241Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.129 collectMs=0.015 tailMs=63.114
+2026-10-20T04:55:47.304Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.906 collectMs=0.018 tailMs=62.889
+2026-10-20T04:55:47.365Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.136 collectMs=0.014 tailMs=61.123
+2026-10-20T04:55:47.427Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.384 collectMs=0.013 tailMs=61.371
+2026-10-20T04:55:47.489Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.679 collectMs=0.013 tailMs=62.667
+2026-10-20T04:55:47.552Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.263 collectMs=0.017 tailMs=62.247
+2026-10-20T04:55:47.614Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.782 collectMs=0.014 tailMs=61.768
+2026-10-20T04:55:47.675Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.230 collectMs=0.015 tailMs=61.215
+2026-10-20T04:55:47.737Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.252 collectMs=0.012 tailMs=62.240
+2026-10-20T04:55:47.800Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.566 collectMs=0.016 tailMs=62.550
+2026-10-20T04:55:47.863Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.945 collectMs=0.018 tailMs=62.927
+2026-10-20T04:55:47.925Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.091 collectMs=0.023 tailMs=62.067
+2026-10-20T04:55:47.986Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.022 collectMs=0.013 tailMs=61.009
+2026-10-20T04:55:48.046Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.474 collectMs=0.017 tailMs=60.458
+2026-10-20T04:55:48.109Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.685 collectMs=0.016 tailMs=62.669
+2026-10-20T04:55:48.110Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:48.110Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.502 recordSubmitMs=0.276 slotWaitMs=0.000 dxgiMs=0.226 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.121 beginMs=0.000 commandsMs=0.155 beforeMs=0.000 presentCallMs=0.225 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:48.172Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.790 collectMs=0.015 tailMs=62.776
+2026-10-20T04:55:48.235Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.814 collectMs=0.013 tailMs=62.801
+2026-10-20T04:55:48.296Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.434 collectMs=0.015 tailMs=61.419
+2026-10-20T04:55:48.360Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.667 collectMs=0.015 tailMs=63.652
+2026-10-20T04:55:48.423Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.117 collectMs=0.016 tailMs=63.101
+2026-10-20T04:55:48.484Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.793 collectMs=0.014 tailMs=60.779
+2026-10-20T04:55:48.546Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.458 collectMs=0.014 tailMs=62.444
+2026-10-20T04:55:48.608Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.659 collectMs=0.016 tailMs=61.644
+2026-10-20T04:55:48.669Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.941 collectMs=0.017 tailMs=60.924
+2026-10-20T04:55:48.732Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.474 collectMs=0.015 tailMs=62.459
+2026-10-20T04:55:48.794Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.032 collectMs=0.017 tailMs=62.015
+2026-10-20T04:55:48.857Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.051 collectMs=0.015 tailMs=63.036
+2026-10-20T04:55:48.919Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.219 collectMs=0.021 tailMs=62.198
+2026-10-20T04:55:48.981Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.936 collectMs=0.014 tailMs=61.922
+2026-10-20T04:55:49.044Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.039 collectMs=0.015 tailMs=63.024
+2026-10-20T04:55:49.107Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.670 collectMs=0.025 tailMs=62.645
+2026-10-20T04:55:49.169Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.981 collectMs=0.016 tailMs=61.966
+2026-10-20T04:55:49.169Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:49.169Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=30 refreshes=318 presentRefreshDelta=318 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:49.169Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.508 recordSubmitMs=0.304 slotWaitMs=0.000 dxgiMs=0.204 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.149 beginMs=0.000 commandsMs=0.154 beforeMs=0.000 presentCallMs=0.182 bufferMs=0.022 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:49.230Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.935 collectMs=0.016 tailMs=60.920
+2026-10-20T04:55:49.292Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.910 collectMs=0.014 tailMs=61.897
+2026-10-20T04:55:49.353Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.493 collectMs=0.015 tailMs=61.478
+2026-10-20T04:55:49.416Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.361 collectMs=0.013 tailMs=62.348
+2026-10-20T04:55:49.478Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.774 collectMs=0.011 tailMs=61.763
+2026-10-20T04:55:49.540Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.467 collectMs=0.013 tailMs=62.455
+2026-10-20T04:55:49.601Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.783 collectMs=0.014 tailMs=60.769
+2026-10-20T04:55:49.662Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.071 collectMs=0.013 tailMs=61.058
+2026-10-20T04:55:49.724Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.977 collectMs=0.017 tailMs=61.961
+2026-10-20T04:55:49.787Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.817 collectMs=0.020 tailMs=62.797
+2026-10-20T04:55:49.849Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.913 collectMs=0.015 tailMs=61.898
+2026-10-20T04:55:49.909Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.544 collectMs=0.015 tailMs=60.529
+2026-10-20T04:55:49.971Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.209 collectMs=0.015 tailMs=61.194
+2026-10-20T04:55:50.032Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.368 collectMs=0.018 tailMs=61.350
+2026-10-20T04:55:50.094Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.799 collectMs=0.015 tailMs=61.785
+2026-10-20T04:55:50.156Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.114 collectMs=0.019 tailMs=62.094
+2026-10-20T04:55:50.217Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.749 collectMs=0.064 tailMs=60.686
+2026-10-20T04:55:50.217Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=20 refreshes=210 presentRefreshDelta=210 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:50.217Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.440 recordSubmitMs=0.242 slotWaitMs=0.000 dxgiMs=0.198 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.021 beginMs=0.000 commandsMs=0.221 beforeMs=0.000 presentCallMs=0.197 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:50.278Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.738 collectMs=0.035 tailMs=60.704
+2026-10-20T04:55:50.340Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.534 collectMs=0.019 tailMs=62.515
+2026-10-20T04:55:50.403Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.309 collectMs=0.022 tailMs=62.287
+2026-10-20T04:55:50.464Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.496 collectMs=0.015 tailMs=61.481
+2026-10-20T04:55:50.527Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.672 collectMs=0.016 tailMs=62.656
+2026-10-20T04:55:50.588Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.915 collectMs=0.018 tailMs=60.897
+2026-10-20T04:55:50.649Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.665 collectMs=0.021 tailMs=61.645
+2026-10-20T04:55:50.712Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.519 collectMs=0.021 tailMs=62.498
+2026-10-20T04:55:50.775Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.802 collectMs=0.017 tailMs=62.785
+2026-10-20T04:55:50.838Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.094 collectMs=0.017 tailMs=63.078
+2026-10-20T04:55:50.899Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.914 collectMs=0.017 tailMs=60.897
+2026-10-20T04:55:50.960Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.800 collectMs=0.017 tailMs=60.783
+2026-10-20T04:55:51.023Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.174 collectMs=0.018 tailMs=63.156
+2026-10-20T04:55:51.085Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.900 collectMs=0.015 tailMs=61.885
+2026-10-20T04:55:51.148Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.597 collectMs=0.018 tailMs=62.579
+2026-10-20T04:55:51.209Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.034 collectMs=0.018 tailMs=61.017
+2026-10-20T04:55:51.270Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.187 collectMs=0.020 tailMs=61.168
+2026-10-20T04:55:51.271Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=14 refreshes=148 presentRefreshDelta=148 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:51.271Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.930 recordSubmitMs=0.628 slotWaitMs=0.000 dxgiMs=0.302 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.387 beginMs=0.000 commandsMs=0.241 beforeMs=0.000 presentCallMs=0.301 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:51.332Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.756 collectMs=0.021 tailMs=61.735
+2026-10-20T04:55:51.394Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.288 collectMs=0.026 tailMs=62.262
+2026-10-20T04:55:51.456Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.049 collectMs=0.018 tailMs=62.032
+2026-10-20T04:55:51.519Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.427 collectMs=0.018 tailMs=62.409
+2026-10-20T04:55:51.581Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.158 collectMs=0.019 tailMs=62.139
+2026-10-20T04:55:51.644Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.001 collectMs=0.022 tailMs=62.980
+2026-10-20T04:55:51.706Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.676 collectMs=0.015 tailMs=61.661
+2026-10-20T04:55:51.769Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.536 collectMs=0.018 tailMs=63.518
+2026-10-20T04:55:51.831Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.009 collectMs=0.015 tailMs=61.994
+2026-10-20T04:55:51.893Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.116 collectMs=0.014 tailMs=62.103
+2026-10-20T04:55:51.955Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.706 collectMs=0.020 tailMs=61.686
+2026-10-20T04:55:52.017Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.910 collectMs=0.018 tailMs=61.893
+2026-10-20T04:55:52.081Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.374 collectMs=0.020 tailMs=63.355
+2026-10-20T04:55:52.142Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.660 collectMs=0.014 tailMs=61.646
+2026-10-20T04:55:52.203Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.899 collectMs=0.016 tailMs=60.883
+2026-10-20T04:55:52.264Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.224 collectMs=0.017 tailMs=61.207
+2026-10-20T04:55:52.326Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.841 collectMs=0.018 tailMs=61.823
+2026-10-20T04:55:52.327Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=24 refreshes=253 presentRefreshDelta=253 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:52.327Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.602 recordSubmitMs=0.386 slotWaitMs=0.000 dxgiMs=0.216 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.231 beginMs=0.000 commandsMs=0.156 beforeMs=0.000 presentCallMs=0.215 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:52.388Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.159 collectMs=0.017 tailMs=61.142
+2026-10-20T04:55:52.450Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.722 collectMs=0.018 tailMs=62.704
+2026-10-20T04:55:52.511Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.706 collectMs=0.014 tailMs=60.692
+2026-10-20T04:55:52.573Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.164 collectMs=0.029 tailMs=62.136
+2026-10-20T04:55:52.634Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.814 collectMs=0.030 tailMs=60.785
+2026-10-20T04:55:52.695Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.278 collectMs=0.017 tailMs=61.261
+2026-10-20T04:55:52.757Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.480 collectMs=0.017 tailMs=61.463
+2026-10-20T04:55:52.819Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.984 collectMs=0.016 tailMs=61.968
+2026-10-20T04:55:52.880Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.440 collectMs=0.017 tailMs=61.423
+2026-10-20T04:55:52.942Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.879 collectMs=0.016 tailMs=61.862
+2026-10-20T04:55:53.004Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.585 collectMs=0.016 tailMs=61.569
+2026-10-20T04:55:53.067Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.638 collectMs=0.014 tailMs=62.624
+2026-10-20T04:55:53.129Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.918 collectMs=0.016 tailMs=61.902
+2026-10-20T04:55:53.191Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.941 collectMs=0.015 tailMs=61.925
+2026-10-20T04:55:53.252Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.115 collectMs=0.015 tailMs=61.101
+2026-10-20T04:55:53.314Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.490 collectMs=0.019 tailMs=62.471
+2026-10-20T04:55:53.377Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.639 collectMs=0.017 tailMs=62.622
+2026-10-20T04:55:53.378Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=13 refreshes=136 presentRefreshDelta=136 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:53.378Z t=44396 [INFO ] [present-cost] generated=false totalMs=1.197 recordSubmitMs=1.002 slotWaitMs=0.000 dxgiMs=0.195 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.850 beginMs=0.000 commandsMs=0.152 beforeMs=0.000 presentCallMs=0.194 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:53.440Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.029 collectMs=0.017 tailMs=63.011
+2026-10-20T04:55:53.502Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.030 collectMs=0.012 tailMs=62.018
+2026-10-20T04:55:53.565Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.487 collectMs=0.013 tailMs=62.474
+2026-10-20T04:55:53.627Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.950 collectMs=0.016 tailMs=61.935
+2026-10-20T04:55:53.688Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.856 collectMs=0.018 tailMs=61.839
+2026-10-20T04:55:53.750Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.867 collectMs=0.035 tailMs=61.831
+2026-10-20T04:55:53.814Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.529 collectMs=0.016 tailMs=63.513
+2026-10-20T04:55:53.876Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.253 collectMs=0.015 tailMs=62.238
+2026-10-20T04:55:53.938Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.433 collectMs=0.019 tailMs=61.414
+2026-10-20T04:55:53.999Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.163 collectMs=0.018 tailMs=61.145
+2026-10-20T04:55:54.061Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.985 collectMs=0.027 tailMs=61.959
+2026-10-20T04:55:54.121Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.131 collectMs=0.019 tailMs=60.113
+2026-10-20T04:55:54.182Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.860 collectMs=0.021 tailMs=60.839
+2026-10-20T04:55:54.243Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.752 collectMs=0.020 tailMs=60.732
+2026-10-20T04:55:54.305Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.400 collectMs=0.017 tailMs=62.383
+2026-10-20T04:55:54.367Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.362 collectMs=0.014 tailMs=61.349
+2026-10-20T04:55:54.429Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.585 collectMs=0.015 tailMs=62.571
+2026-10-20T04:55:54.430Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=11 refreshes=116 presentRefreshDelta=116 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:54.430Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.539 recordSubmitMs=0.335 slotWaitMs=0.000 dxgiMs=0.204 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.177 beginMs=0.000 commandsMs=0.158 beforeMs=0.000 presentCallMs=0.203 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:54.491Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.050 collectMs=0.014 tailMs=62.036
+2026-10-20T04:55:54.552Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.147 collectMs=0.015 tailMs=61.132
+2026-10-20T04:55:54.615Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.564 collectMs=0.014 tailMs=62.550
+2026-10-20T04:55:54.677Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.475 collectMs=0.016 tailMs=61.459
+2026-10-20T04:55:54.739Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.546 collectMs=0.015 tailMs=62.532
+2026-10-20T04:55:54.802Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.502 collectMs=0.020 tailMs=62.482
+2026-10-20T04:55:54.864Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.429 collectMs=0.017 tailMs=62.413
+2026-10-20T04:55:54.927Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.456 collectMs=0.026 tailMs=62.430
+2026-10-20T04:55:54.990Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.889 collectMs=0.016 tailMs=62.873
+2026-10-20T04:55:55.052Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.450 collectMs=0.014 tailMs=62.436
+2026-10-20T04:55:55.114Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.903 collectMs=0.018 tailMs=61.885
+2026-10-20T04:55:55.176Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.378 collectMs=0.016 tailMs=62.362
+2026-10-20T04:55:55.237Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.839 collectMs=0.018 tailMs=60.821
+2026-10-20T04:55:55.299Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.026 collectMs=0.023 tailMs=62.004
+2026-10-20T04:55:55.362Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.856 collectMs=0.015 tailMs=62.841
+2026-10-20T04:55:55.423Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.885 collectMs=0.015 tailMs=60.870
+2026-10-20T04:55:55.486Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.079 collectMs=0.016 tailMs=63.064
+2026-10-20T04:55:55.487Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:55.487Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.538 recordSubmitMs=0.285 slotWaitMs=0.000 dxgiMs=0.253 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.126 beginMs=0.000 commandsMs=0.159 beforeMs=0.000 presentCallMs=0.253 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:55.548Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.674 collectMs=0.013 tailMs=61.661
+2026-10-20T04:55:55.610Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.789 collectMs=0.016 tailMs=61.774
+2026-10-20T04:55:55.671Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.967 collectMs=0.026 tailMs=60.942
+2026-10-20T04:55:55.732Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.940 collectMs=0.014 tailMs=60.926
+2026-10-20T04:55:55.793Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.311 collectMs=0.015 tailMs=61.297
+2026-10-20T04:55:55.854Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.653 collectMs=0.018 tailMs=60.636
+2026-10-20T04:55:55.916Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.005 collectMs=0.015 tailMs=61.990
+2026-10-20T04:55:55.978Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.785 collectMs=0.016 tailMs=61.770
+2026-10-20T04:55:56.040Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.620 collectMs=0.015 tailMs=62.605
+2026-10-20T04:55:56.104Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.168 collectMs=0.033 tailMs=63.135
+2026-10-20T04:55:56.166Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.496 collectMs=0.018 tailMs=62.479
+2026-10-20T04:55:56.228Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.067 collectMs=0.014 tailMs=62.053
+2026-10-20T04:55:56.290Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.279 collectMs=0.015 tailMs=61.264
+2026-10-20T04:55:56.351Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.543 collectMs=0.014 tailMs=61.529
+2026-10-20T04:55:56.413Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.979 collectMs=0.018 tailMs=61.962
+2026-10-20T04:55:56.476Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.980 collectMs=0.016 tailMs=62.965
+2026-10-20T04:55:56.539Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.308 collectMs=0.015 tailMs=62.293
+2026-10-20T04:55:56.539Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:56.539Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.454 recordSubmitMs=0.258 slotWaitMs=0.000 dxgiMs=0.195 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.120 beginMs=0.000 commandsMs=0.138 beforeMs=0.000 presentCallMs=0.195 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:56.599Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.780 collectMs=0.014 tailMs=60.766
+2026-10-20T04:55:56.600Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:55:56.661Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.481 collectMs=0.028 tailMs=61.453
+2026-10-20T04:55:56.724Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.769 collectMs=0.018 tailMs=62.752
+2026-10-20T04:55:56.786Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.572 collectMs=0.018 tailMs=62.554
+2026-10-20T04:55:56.850Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.872 collectMs=0.016 tailMs=63.857
+2026-10-20T04:55:56.911Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.159 collectMs=0.016 tailMs=61.143
+2026-10-20T04:55:56.975Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.619 collectMs=0.017 tailMs=63.603
+2026-10-20T04:55:57.036Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.279 collectMs=0.014 tailMs=61.266
+2026-10-20T04:55:57.099Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.500 collectMs=0.014 tailMs=62.486
+2026-10-20T04:55:57.161Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.015 collectMs=0.017 tailMs=61.998
+2026-10-20T04:55:57.223Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.325 collectMs=0.016 tailMs=62.310
+2026-10-20T04:55:57.285Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.897 collectMs=0.033 tailMs=61.864
+2026-10-20T04:55:57.346Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.045 collectMs=0.015 tailMs=61.031
+2026-10-20T04:55:57.408Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.557 collectMs=0.015 tailMs=61.542
+2026-10-20T04:55:57.471Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.986 collectMs=0.014 tailMs=62.972
+2026-10-20T04:55:57.533Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.654 collectMs=0.016 tailMs=61.639
+2026-10-20T04:55:57.596Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.339 collectMs=0.016 tailMs=63.324
+2026-10-20T04:55:57.597Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:57.597Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.542 recordSubmitMs=0.314 slotWaitMs=0.000 dxgiMs=0.229 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.144 beginMs=0.000 commandsMs=0.170 beforeMs=0.000 presentCallMs=0.228 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:57.659Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.949 collectMs=0.017 tailMs=62.932
+2026-10-20T04:55:57.720Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.017 collectMs=0.017 tailMs=61.000
+2026-10-20T04:55:57.784Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.447 collectMs=0.014 tailMs=63.433
+2026-10-20T04:55:57.846Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.957 collectMs=0.018 tailMs=61.939
+2026-10-20T04:55:57.907Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.193 collectMs=0.015 tailMs=61.178
+2026-10-20T04:55:57.969Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.978 collectMs=0.015 tailMs=61.963
+2026-10-20T04:55:58.032Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.047 collectMs=0.016 tailMs=63.031
+2026-10-20T04:55:58.094Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.450 collectMs=0.013 tailMs=62.437
+2026-10-20T04:55:58.156Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.907 collectMs=0.013 tailMs=61.894
+2026-10-20T04:55:58.220Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.255 collectMs=0.014 tailMs=63.241
+2026-10-20T04:55:58.282Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.280 collectMs=0.014 tailMs=62.267
+2026-10-20T04:55:58.343Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.637 collectMs=0.017 tailMs=60.621
+2026-10-20T04:55:58.406Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.320 collectMs=0.013 tailMs=63.307
+2026-10-20T04:55:58.469Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.728 collectMs=0.026 tailMs=62.702
+2026-10-20T04:55:58.531Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.912 collectMs=0.014 tailMs=61.898
+2026-10-20T04:55:58.593Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.983 collectMs=0.012 tailMs=61.970
+2026-10-20T04:55:58.656Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.974 collectMs=0.013 tailMs=62.961
+2026-10-20T04:55:58.656Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:58.656Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.444 recordSubmitMs=0.237 slotWaitMs=0.000 dxgiMs=0.206 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.101 beginMs=0.000 commandsMs=0.136 beforeMs=0.000 presentCallMs=0.206 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:58.717Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.155 collectMs=0.015 tailMs=61.140
+2026-10-20T04:55:58.780Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.999 collectMs=0.016 tailMs=62.983
+2026-10-20T04:55:58.843Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.970 collectMs=0.015 tailMs=62.956
+2026-10-20T04:55:58.905Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.101 collectMs=0.016 tailMs=62.085
+2026-10-20T04:55:58.967Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.073 collectMs=0.015 tailMs=62.058
+2026-10-20T04:55:59.029Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.558 collectMs=0.015 tailMs=61.543
+2026-10-20T04:55:59.091Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.525 collectMs=0.016 tailMs=62.509
+2026-10-20T04:55:59.153Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.990 collectMs=0.016 tailMs=61.975
+2026-10-20T04:55:59.216Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.873 collectMs=0.014 tailMs=62.859
+2026-10-20T04:55:59.278Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.022 collectMs=0.014 tailMs=62.007
+2026-10-20T04:55:59.342Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.922 collectMs=0.013 tailMs=63.909
+2026-10-20T04:55:59.403Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.118 collectMs=0.022 tailMs=61.096
+2026-10-20T04:55:59.466Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.099 collectMs=0.013 tailMs=63.086
+2026-10-20T04:55:59.530Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.828 collectMs=0.014 tailMs=63.814
+2026-10-20T04:55:59.592Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.983 collectMs=0.011 tailMs=61.971
+2026-10-20T04:55:59.654Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.801 collectMs=0.025 tailMs=61.776
+2026-10-20T04:55:59.717Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.368 collectMs=0.014 tailMs=62.355
+2026-10-20T04:55:59.717Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:55:59.717Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.541 recordSubmitMs=0.363 slotWaitMs=0.000 dxgiMs=0.178 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.180 beginMs=0.000 commandsMs=0.183 beforeMs=0.000 presentCallMs=0.177 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:55:59.778Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.366 collectMs=0.017 tailMs=61.349
+2026-10-20T04:55:59.840Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.363 collectMs=0.016 tailMs=62.347
+2026-10-20T04:55:59.903Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.082 collectMs=0.016 tailMs=62.066
+2026-10-20T04:55:59.965Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.310 collectMs=0.015 tailMs=62.296
+2026-10-20T04:56:00.025Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.413 collectMs=0.018 tailMs=60.395
+2026-10-20T04:56:00.086Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.468 collectMs=0.020 tailMs=60.449
+2026-10-20T04:56:00.150Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.135 collectMs=0.016 tailMs=64.120
+2026-10-20T04:56:00.213Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.139 collectMs=0.016 tailMs=63.123
+2026-10-20T04:56:00.276Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.055 collectMs=0.016 tailMs=63.039
+2026-10-20T04:56:00.339Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.041 collectMs=0.015 tailMs=63.026
+2026-10-20T04:56:00.403Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.395 collectMs=0.015 tailMs=63.380
+2026-10-20T04:56:00.465Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.011 collectMs=0.014 tailMs=61.997
+2026-10-20T04:56:00.526Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.937 collectMs=0.014 tailMs=60.924
+2026-10-20T04:56:00.588Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.464 collectMs=0.015 tailMs=62.449
+2026-10-20T04:56:00.651Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.638 collectMs=0.014 tailMs=62.624
+2026-10-20T04:56:00.714Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.466 collectMs=0.011 tailMs=62.456
+2026-10-20T04:56:00.778Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.309 collectMs=0.021 tailMs=64.288
+2026-10-20T04:56:00.778Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:00.778Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.438 recordSubmitMs=0.249 slotWaitMs=0.000 dxgiMs=0.189 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.106 beginMs=0.000 commandsMs=0.143 beforeMs=0.000 presentCallMs=0.188 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:00.839Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.366 collectMs=0.029 tailMs=61.338
+2026-10-20T04:56:00.902Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.569 collectMs=0.013 tailMs=62.556
+2026-10-20T04:56:00.965Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.905 collectMs=0.012 tailMs=62.893
+2026-10-20T04:56:01.027Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.128 collectMs=0.017 tailMs=62.111
+2026-10-20T04:56:01.089Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.852 collectMs=0.015 tailMs=61.837
+2026-10-20T04:56:01.152Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.653 collectMs=0.017 tailMs=62.637
+2026-10-20T04:56:01.212Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.749 collectMs=0.015 tailMs=60.734
+2026-10-20T04:56:01.274Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.931 collectMs=0.017 tailMs=61.914
+2026-10-20T04:56:01.337Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.666 collectMs=0.014 tailMs=62.651
+2026-10-20T04:56:01.399Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.696 collectMs=0.014 tailMs=61.682
+2026-10-20T04:56:01.460Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.544 collectMs=0.016 tailMs=61.527
+2026-10-20T04:56:01.522Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.677 collectMs=0.016 tailMs=61.661
+2026-10-20T04:56:01.585Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.864 collectMs=0.015 tailMs=62.849
+2026-10-20T04:56:01.647Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.941 collectMs=0.014 tailMs=61.927
+2026-10-20T04:56:01.710Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.581 collectMs=0.013 tailMs=62.569
+2026-10-20T04:56:01.772Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.292 collectMs=0.034 tailMs=62.258
+2026-10-20T04:56:01.834Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.473 collectMs=0.017 tailMs=62.457
+2026-10-20T04:56:01.835Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:01.835Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.612 recordSubmitMs=0.359 slotWaitMs=0.000 dxgiMs=0.252 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.194 beginMs=0.000 commandsMs=0.165 beforeMs=0.000 presentCallMs=0.251 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:01.897Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.672 collectMs=0.020 tailMs=62.653
+2026-10-20T04:56:01.961Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.703 collectMs=0.018 tailMs=63.685
+2026-10-20T04:56:02.022Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.720 collectMs=0.024 tailMs=60.697
+2026-10-20T04:56:02.083Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.483 collectMs=0.014 tailMs=61.469
+2026-10-20T04:56:02.146Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.782 collectMs=0.017 tailMs=62.765
+2026-10-20T04:56:02.207Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.590 collectMs=0.016 tailMs=60.575
+2026-10-20T04:56:02.269Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.481 collectMs=0.016 tailMs=62.465
+2026-10-20T04:56:02.332Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.006 collectMs=0.018 tailMs=62.987
+2026-10-20T04:56:02.395Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.124 collectMs=0.015 tailMs=63.109
+2026-10-20T04:56:02.457Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.390 collectMs=0.017 tailMs=61.373
+2026-10-20T04:56:02.518Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.787 collectMs=0.016 tailMs=60.771
+2026-10-20T04:56:02.579Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.883 collectMs=0.018 tailMs=61.865
+2026-10-20T04:56:02.641Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.437 collectMs=0.012 tailMs=61.425
+2026-10-20T04:56:02.703Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.693 collectMs=0.016 tailMs=61.677
+2026-10-20T04:56:02.765Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.281 collectMs=0.025 tailMs=62.256
+2026-10-20T04:56:02.829Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.727 collectMs=0.017 tailMs=63.709
+2026-10-20T04:56:02.892Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.485 collectMs=0.020 tailMs=63.465
+2026-10-20T04:56:02.893Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=141 refreshes=1491 presentRefreshDelta=1491 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:02.893Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.510 recordSubmitMs=0.293 slotWaitMs=0.000 dxgiMs=0.217 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.134 beginMs=0.000 commandsMs=0.159 beforeMs=0.000 presentCallMs=0.216 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:02.955Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.184 collectMs=0.018 tailMs=62.167
+2026-10-20T04:56:03.015Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.474 collectMs=0.017 tailMs=60.457
+2026-10-20T04:56:03.077Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.327 collectMs=0.016 tailMs=62.312
+2026-10-20T04:56:03.138Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.566 collectMs=0.035 tailMs=60.532
+2026-10-20T04:56:03.200Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.949 collectMs=0.041 tailMs=61.908
+2026-10-20T04:56:03.262Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.113 collectMs=0.016 tailMs=62.097
+2026-10-20T04:56:03.324Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.293 collectMs=0.016 tailMs=62.278
+2026-10-20T04:56:03.387Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.013 collectMs=0.016 tailMs=61.997
+2026-10-20T04:56:03.448Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.989 collectMs=0.013 tailMs=60.976
+2026-10-20T04:56:03.509Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.394 collectMs=0.015 tailMs=61.379
+2026-10-20T04:56:03.571Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.331 collectMs=0.015 tailMs=62.316
+2026-10-20T04:56:03.633Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.004 collectMs=0.015 tailMs=61.989
+2026-10-20T04:56:03.695Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.381 collectMs=0.014 tailMs=61.367
+2026-10-20T04:56:03.757Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.401 collectMs=0.014 tailMs=62.387
+2026-10-20T04:56:03.819Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.954 collectMs=0.017 tailMs=61.938
+2026-10-20T04:56:03.881Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.008 collectMs=0.016 tailMs=61.993
+2026-10-20T04:56:03.943Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.332 collectMs=0.015 tailMs=61.318
+2026-10-20T04:56:03.943Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:03.943Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.511 recordSubmitMs=0.298 slotWaitMs=0.000 dxgiMs=0.213 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.153 beginMs=0.000 commandsMs=0.144 beforeMs=0.000 presentCallMs=0.212 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:04.005Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.709 collectMs=0.015 tailMs=62.695
+2026-10-20T04:56:04.066Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.901 collectMs=0.016 tailMs=60.885
+2026-10-20T04:56:04.067Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:56:04.128Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.056 collectMs=0.017 tailMs=62.039
+2026-10-20T04:56:04.191Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.480 collectMs=0.016 tailMs=62.464
+2026-10-20T04:56:04.253Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.286 collectMs=0.013 tailMs=62.273
+2026-10-20T04:56:04.315Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.197 collectMs=0.016 tailMs=62.181
+2026-10-20T04:56:04.377Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.842 collectMs=0.030 tailMs=61.812
+2026-10-20T04:56:04.440Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.234 collectMs=0.014 tailMs=62.220
+2026-10-20T04:56:04.502Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.627 collectMs=0.015 tailMs=62.612
+2026-10-20T04:56:04.564Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.756 collectMs=0.025 tailMs=61.730
+2026-10-20T04:56:04.626Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.326 collectMs=0.019 tailMs=62.307
+2026-10-20T04:56:04.688Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.878 collectMs=0.015 tailMs=61.862
+2026-10-20T04:56:04.751Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.268 collectMs=0.017 tailMs=62.252
+2026-10-20T04:56:04.812Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.436 collectMs=0.016 tailMs=61.419
+2026-10-20T04:56:04.874Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.743 collectMs=0.014 tailMs=61.730
+2026-10-20T04:56:04.935Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.372 collectMs=0.016 tailMs=61.355
+2026-10-20T04:56:04.997Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.447 collectMs=0.019 tailMs=61.428
+2026-10-20T04:56:04.997Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:04.997Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.467 recordSubmitMs=0.226 slotWaitMs=0.000 dxgiMs=0.241 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.083 beginMs=0.000 commandsMs=0.143 beforeMs=0.000 presentCallMs=0.240 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:05.059Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.927 collectMs=0.018 tailMs=61.909
+2026-10-20T04:56:05.121Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.256 collectMs=0.014 tailMs=62.242
+2026-10-20T04:56:05.184Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.451 collectMs=0.017 tailMs=62.435
+2026-10-20T04:56:05.246Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.261 collectMs=0.013 tailMs=62.248
+2026-10-20T04:56:05.307Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.480 collectMs=0.017 tailMs=61.464
+2026-10-20T04:56:05.370Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.109 collectMs=0.015 tailMs=62.095
+2026-10-20T04:56:05.431Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.551 collectMs=0.017 tailMs=61.535
+2026-10-20T04:56:05.493Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.608 collectMs=0.016 tailMs=61.592
+2026-10-20T04:56:05.555Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.990 collectMs=0.028 tailMs=61.962
+2026-10-20T04:56:05.617Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.323 collectMs=0.016 tailMs=62.307
+2026-10-20T04:56:05.679Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.705 collectMs=0.015 tailMs=61.690
+2026-10-20T04:56:05.741Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.378 collectMs=0.016 tailMs=62.362
+2026-10-20T04:56:05.803Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.225 collectMs=0.017 tailMs=61.208
+2026-10-20T04:56:05.865Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.799 collectMs=0.016 tailMs=62.783
+2026-10-20T04:56:05.929Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.158 collectMs=0.016 tailMs=63.143
+2026-10-20T04:56:05.989Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.797 collectMs=0.018 tailMs=60.780
+2026-10-20T04:56:06.049Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=59.903 collectMs=0.021 tailMs=59.882
+2026-10-20T04:56:06.050Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:06.050Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.662 recordSubmitMs=0.316 slotWaitMs=0.000 dxgiMs=0.346 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.156 beginMs=0.000 commandsMs=0.160 beforeMs=0.000 presentCallMs=0.345 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:06.110Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.356 collectMs=0.017 tailMs=60.339
+2026-10-20T04:56:06.172Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.256 collectMs=0.013 tailMs=62.243
+2026-10-20T04:56:06.234Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.422 collectMs=0.019 tailMs=62.403
+2026-10-20T04:56:06.297Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.003 collectMs=0.017 tailMs=61.986
+2026-10-20T04:56:06.357Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.607 collectMs=0.026 tailMs=60.581
+2026-10-20T04:56:06.421Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.352 collectMs=0.014 tailMs=63.338
+2026-10-20T04:56:06.481Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.721 collectMs=0.015 tailMs=60.706
+2026-10-20T04:56:06.543Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.340 collectMs=0.018 tailMs=61.322
+2026-10-20T04:56:06.604Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.099 collectMs=0.019 tailMs=61.080
+2026-10-20T04:56:06.664Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.269 collectMs=0.011 tailMs=60.258
+2026-10-20T04:56:06.725Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.818 collectMs=0.027 tailMs=60.791
+2026-10-20T04:56:06.786Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.085 collectMs=0.015 tailMs=61.071
+2026-10-20T04:56:06.848Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.695 collectMs=0.017 tailMs=61.678
+2026-10-20T04:56:06.908Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.571 collectMs=0.014 tailMs=60.556
+2026-10-20T04:56:06.970Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.627 collectMs=0.016 tailMs=61.611
+2026-10-20T04:56:07.033Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.810 collectMs=0.015 tailMs=62.795
+2026-10-20T04:56:07.095Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.500 collectMs=0.014 tailMs=61.486
+2026-10-20T04:56:07.095Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:07.095Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.512 recordSubmitMs=0.315 slotWaitMs=0.000 dxgiMs=0.197 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.155 beginMs=0.000 commandsMs=0.160 beforeMs=0.000 presentCallMs=0.196 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:07.157Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.862 collectMs=0.017 tailMs=62.846
+2026-10-20T04:56:07.219Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.965 collectMs=0.016 tailMs=61.950
+2026-10-20T04:56:07.281Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.295 collectMs=0.015 tailMs=61.280
+2026-10-20T04:56:07.342Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.679 collectMs=0.021 tailMs=61.658
+2026-10-20T04:56:07.404Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.786 collectMs=0.015 tailMs=61.771
+2026-10-20T04:56:07.466Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.962 collectMs=0.015 tailMs=61.948
+2026-10-20T04:56:07.527Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.046 collectMs=0.015 tailMs=61.031
+2026-10-20T04:56:07.589Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.908 collectMs=0.018 tailMs=61.890
+2026-10-20T04:56:07.653Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.409 collectMs=0.016 tailMs=63.394
+2026-10-20T04:56:07.714Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.119 collectMs=0.038 tailMs=61.081
+2026-10-20T04:56:07.777Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.817 collectMs=0.014 tailMs=62.803
+2026-10-20T04:56:07.839Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.606 collectMs=0.020 tailMs=62.586
+2026-10-20T04:56:07.902Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.945 collectMs=0.024 tailMs=62.921
+2026-10-20T04:56:07.964Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.209 collectMs=0.016 tailMs=61.193
+2026-10-20T04:56:08.026Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.217 collectMs=0.019 tailMs=62.198
+2026-10-20T04:56:08.086Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.488 collectMs=0.013 tailMs=60.476
+2026-10-20T04:56:08.147Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.495 collectMs=0.015 tailMs=60.479
+2026-10-20T04:56:08.147Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:08.147Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.421 recordSubmitMs=0.248 slotWaitMs=0.000 dxgiMs=0.173 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.104 beginMs=0.000 commandsMs=0.144 beforeMs=0.000 presentCallMs=0.172 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:08.210Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.032 collectMs=0.017 tailMs=63.015
+2026-10-20T04:56:08.272Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.103 collectMs=0.019 tailMs=62.084
+2026-10-20T04:56:08.333Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.613 collectMs=0.014 tailMs=60.599
+2026-10-20T04:56:08.395Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.751 collectMs=0.020 tailMs=61.732
+2026-10-20T04:56:08.457Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.563 collectMs=0.016 tailMs=62.547
+2026-10-20T04:56:08.520Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.632 collectMs=0.015 tailMs=62.617
+2026-10-20T04:56:08.581Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.239 collectMs=0.017 tailMs=61.223
+2026-10-20T04:56:08.644Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.506 collectMs=0.015 tailMs=62.491
+2026-10-20T04:56:08.706Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.939 collectMs=0.016 tailMs=61.923
+2026-10-20T04:56:08.768Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.355 collectMs=0.017 tailMs=62.338
+2026-10-20T04:56:08.829Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.681 collectMs=0.014 tailMs=60.667
+2026-10-20T04:56:08.892Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.005 collectMs=0.015 tailMs=62.990
+2026-10-20T04:56:08.952Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.586 collectMs=0.015 tailMs=60.571
+2026-10-20T04:56:09.015Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.115 collectMs=0.014 tailMs=62.101
+2026-10-20T04:56:09.076Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.501 collectMs=0.041 tailMs=61.460
+2026-10-20T04:56:09.138Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.516 collectMs=0.015 tailMs=61.502
+2026-10-20T04:56:09.201Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.804 collectMs=0.021 tailMs=62.783
+2026-10-20T04:56:09.201Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=91 refreshes=957 presentRefreshDelta=957 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:09.201Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.450 recordSubmitMs=0.247 slotWaitMs=0.000 dxgiMs=0.203 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.103 beginMs=0.000 commandsMs=0.144 beforeMs=0.000 presentCallMs=0.203 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:09.262Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.906 collectMs=0.016 tailMs=61.890
+2026-10-20T04:56:09.325Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.062 collectMs=0.015 tailMs=62.047
+2026-10-20T04:56:09.386Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.447 collectMs=0.015 tailMs=61.432
+2026-10-20T04:56:09.448Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.201 collectMs=0.013 tailMs=62.188
+2026-10-20T04:56:09.511Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.407 collectMs=0.015 tailMs=62.392
+2026-10-20T04:56:09.573Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.487 collectMs=0.015 tailMs=62.472
+2026-10-20T04:56:09.635Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.607 collectMs=0.017 tailMs=61.590
+2026-10-20T04:56:09.696Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.487 collectMs=0.017 tailMs=61.470
+2026-10-20T04:56:09.759Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.078 collectMs=0.014 tailMs=62.065
+2026-10-20T04:56:09.819Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.836 collectMs=0.018 tailMs=60.819
+2026-10-20T04:56:09.880Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.925 collectMs=0.016 tailMs=60.910
+2026-10-20T04:56:09.942Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.631 collectMs=0.016 tailMs=61.614
+2026-10-20T04:56:10.003Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.369 collectMs=0.019 tailMs=61.350
+2026-10-20T04:56:10.066Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.489 collectMs=0.013 tailMs=62.476
+2026-10-20T04:56:10.129Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.940 collectMs=0.020 tailMs=62.920
+2026-10-20T04:56:10.190Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.013 collectMs=0.017 tailMs=60.996
+2026-10-20T04:56:10.251Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.247 collectMs=0.029 tailMs=61.218
+2026-10-20T04:56:10.252Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:10.252Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.532 recordSubmitMs=0.334 slotWaitMs=0.000 dxgiMs=0.198 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.174 beginMs=0.000 commandsMs=0.160 beforeMs=0.000 presentCallMs=0.197 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:10.314Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.388 collectMs=0.015 tailMs=62.373
+2026-10-20T04:56:10.376Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.894 collectMs=0.017 tailMs=61.878
+2026-10-20T04:56:10.437Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.056 collectMs=0.015 tailMs=61.041
+2026-10-20T04:56:10.500Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.664 collectMs=0.015 tailMs=63.650
+2026-10-20T04:56:10.564Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.282 collectMs=0.015 tailMs=63.267
+2026-10-20T04:56:10.626Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.478 collectMs=0.021 tailMs=62.456
+2026-10-20T04:56:10.690Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.575 collectMs=0.017 tailMs=63.558
+2026-10-20T04:56:10.752Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.621 collectMs=0.017 tailMs=61.604
+2026-10-20T04:56:10.813Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.056 collectMs=0.014 tailMs=61.042
+2026-10-20T04:56:10.875Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.689 collectMs=0.018 tailMs=62.672
+2026-10-20T04:56:10.938Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.026 collectMs=0.015 tailMs=63.011
+2026-10-20T04:56:11.002Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.174 collectMs=0.017 tailMs=63.157
+2026-10-20T04:56:11.063Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.374 collectMs=0.013 tailMs=61.361
+2026-10-20T04:56:11.126Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.056 collectMs=0.016 tailMs=63.040
+2026-10-20T04:56:11.188Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.572 collectMs=0.014 tailMs=61.558
+2026-10-20T04:56:11.249Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.390 collectMs=0.017 tailMs=61.374
+2026-10-20T04:56:11.312Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.538 collectMs=0.017 tailMs=62.521
+2026-10-20T04:56:11.312Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:11.312Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.449 recordSubmitMs=0.263 slotWaitMs=0.000 dxgiMs=0.185 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.099 beginMs=0.000 commandsMs=0.164 beforeMs=0.000 presentCallMs=0.185 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:11.375Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.382 collectMs=0.019 tailMs=63.363
+2026-10-20T04:56:11.437Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.167 collectMs=0.021 tailMs=62.146
+2026-10-20T04:56:11.499Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.972 collectMs=0.018 tailMs=61.954
+2026-10-20T04:56:11.500Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:56:11.562Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.799 collectMs=0.016 tailMs=62.783
+2026-10-20T04:56:11.625Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.484 collectMs=0.012 tailMs=62.472
+2026-10-20T04:56:11.686Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.412 collectMs=0.015 tailMs=61.397
+2026-10-20T04:56:11.748Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.971 collectMs=0.016 tailMs=61.955
+2026-10-20T04:56:11.809Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.819 collectMs=0.015 tailMs=60.804
+2026-10-20T04:56:11.871Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.945 collectMs=0.014 tailMs=61.931
+2026-10-20T04:56:11.934Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.621 collectMs=0.022 tailMs=62.599
+2026-10-20T04:56:11.994Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.490 collectMs=0.019 tailMs=60.471
+2026-10-20T04:56:12.057Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.416 collectMs=0.020 tailMs=62.396
+2026-10-20T04:56:12.119Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.215 collectMs=0.015 tailMs=62.200
+2026-10-20T04:56:12.181Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.295 collectMs=0.014 tailMs=62.281
+2026-10-20T04:56:12.244Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.424 collectMs=0.017 tailMs=62.407
+2026-10-20T04:56:12.305Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.807 collectMs=0.017 tailMs=60.790
+2026-10-20T04:56:12.366Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.031 collectMs=0.012 tailMs=61.019
+2026-10-20T04:56:12.366Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:12.366Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.455 recordSubmitMs=0.284 slotWaitMs=0.000 dxgiMs=0.171 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.139 beginMs=0.000 commandsMs=0.145 beforeMs=0.000 presentCallMs=0.170 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:12.429Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.789 collectMs=0.014 tailMs=63.774
+2026-10-20T04:56:12.492Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.500 collectMs=0.014 tailMs=62.486
+2026-10-20T04:56:12.555Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.236 collectMs=0.015 tailMs=63.221
+2026-10-20T04:56:12.617Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.112 collectMs=0.029 tailMs=62.084
+2026-10-20T04:56:12.681Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.194 collectMs=0.015 tailMs=63.179
+2026-10-20T04:56:12.743Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.904 collectMs=0.012 tailMs=61.892
+2026-10-20T04:56:12.804Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.023 collectMs=0.015 tailMs=61.008
+2026-10-20T04:56:12.865Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.760 collectMs=0.015 tailMs=61.745
+2026-10-20T04:56:12.928Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.509 collectMs=0.018 tailMs=62.491
+2026-10-20T04:56:12.991Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.489 collectMs=0.013 tailMs=62.476
+2026-10-20T04:56:13.051Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.924 collectMs=0.016 tailMs=60.908
+2026-10-20T04:56:13.114Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.703 collectMs=0.015 tailMs=62.688
+2026-10-20T04:56:13.176Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.182 collectMs=0.017 tailMs=62.166
+2026-10-20T04:56:13.239Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.034 collectMs=0.018 tailMs=62.016
+2026-10-20T04:56:13.300Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.823 collectMs=0.015 tailMs=61.808
+2026-10-20T04:56:13.363Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.129 collectMs=0.016 tailMs=62.113
+2026-10-20T04:56:13.424Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.412 collectMs=0.012 tailMs=61.400
+2026-10-20T04:56:13.425Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:13.425Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.500 recordSubmitMs=0.277 slotWaitMs=0.000 dxgiMs=0.223 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.139 beginMs=0.000 commandsMs=0.138 beforeMs=0.000 presentCallMs=0.223 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:13.486Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.409 collectMs=0.015 tailMs=62.394
+2026-10-20T04:56:13.548Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.471 collectMs=0.016 tailMs=61.455
+2026-10-20T04:56:13.609Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.179 collectMs=0.016 tailMs=61.163
+2026-10-20T04:56:13.671Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.360 collectMs=0.014 tailMs=61.346
+2026-10-20T04:56:13.733Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.070 collectMs=0.016 tailMs=62.054
+2026-10-20T04:56:13.794Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.717 collectMs=0.024 tailMs=61.693
+2026-10-20T04:56:13.858Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.784 collectMs=0.013 tailMs=63.771
+2026-10-20T04:56:13.921Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.307 collectMs=0.013 tailMs=62.293
+2026-10-20T04:56:13.983Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.709 collectMs=0.015 tailMs=62.694
+2026-10-20T04:56:14.046Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.344 collectMs=0.016 tailMs=62.329
+2026-10-20T04:56:14.107Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.343 collectMs=0.017 tailMs=61.327
+2026-10-20T04:56:14.168Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.966 collectMs=0.015 tailMs=60.951
+2026-10-20T04:56:14.231Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.839 collectMs=0.012 tailMs=62.826
+2026-10-20T04:56:14.292Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.560 collectMs=0.016 tailMs=60.544
+2026-10-20T04:56:14.355Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.515 collectMs=0.015 tailMs=63.500
+2026-10-20T04:56:14.417Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.470 collectMs=0.030 tailMs=61.441
+2026-10-20T04:56:14.479Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.685 collectMs=0.017 tailMs=62.668
+2026-10-20T04:56:14.480Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:14.480Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.678 recordSubmitMs=0.304 slotWaitMs=0.000 dxgiMs=0.374 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.130 beginMs=0.000 commandsMs=0.174 beforeMs=0.000 presentCallMs=0.373 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:14.541Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.610 collectMs=0.020 tailMs=61.590
+2026-10-20T04:56:14.603Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.671 collectMs=0.016 tailMs=61.656
+2026-10-20T04:56:14.665Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.668 collectMs=0.015 tailMs=62.653
+2026-10-20T04:56:14.728Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.426 collectMs=0.013 tailMs=62.413
+2026-10-20T04:56:14.791Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.679 collectMs=0.017 tailMs=62.662
+2026-10-20T04:56:14.851Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.662 collectMs=0.017 tailMs=60.645
+2026-10-20T04:56:14.913Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.473 collectMs=0.015 tailMs=61.458
+2026-10-20T04:56:14.975Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.212 collectMs=0.035 tailMs=62.177
+2026-10-20T04:56:15.037Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.818 collectMs=0.018 tailMs=61.800
+2026-10-20T04:56:15.098Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.556 collectMs=0.016 tailMs=61.539
+2026-10-20T04:56:15.160Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.659 collectMs=0.018 tailMs=61.641
+2026-10-20T04:56:15.225Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.323 collectMs=0.017 tailMs=64.306
+2026-10-20T04:56:15.287Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.248 collectMs=0.016 tailMs=62.231
+2026-10-20T04:56:15.350Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.046 collectMs=0.016 tailMs=63.030
+2026-10-20T04:56:15.413Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.515 collectMs=0.016 tailMs=63.499
+2026-10-20T04:56:15.476Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.227 collectMs=0.016 tailMs=62.211
+2026-10-20T04:56:15.537Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.413 collectMs=0.018 tailMs=61.396
+2026-10-20T04:56:15.538Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:15.538Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.542 recordSubmitMs=0.322 slotWaitMs=0.000 dxgiMs=0.220 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.137 beginMs=0.000 commandsMs=0.185 beforeMs=0.000 presentCallMs=0.219 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:15.600Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.461 collectMs=0.018 tailMs=62.443
+2026-10-20T04:56:15.663Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.995 collectMs=0.018 tailMs=62.977
+2026-10-20T04:56:15.726Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.797 collectMs=0.025 tailMs=62.772
+2026-10-20T04:56:15.788Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.076 collectMs=0.017 tailMs=62.060
+2026-10-20T04:56:15.850Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.763 collectMs=0.017 tailMs=62.746
+2026-10-20T04:56:15.912Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.730 collectMs=0.017 tailMs=61.713
+2026-10-20T04:56:15.974Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.970 collectMs=0.017 tailMs=61.954
+2026-10-20T04:56:16.036Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.263 collectMs=0.016 tailMs=61.248
+2026-10-20T04:56:16.097Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.009 collectMs=0.018 tailMs=60.991
+2026-10-20T04:56:16.159Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.630 collectMs=0.031 tailMs=62.600
+2026-10-20T04:56:16.220Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.594 collectMs=0.014 tailMs=60.580
+2026-10-20T04:56:16.282Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.555 collectMs=0.018 tailMs=61.537
+2026-10-20T04:56:16.342Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.321 collectMs=0.022 tailMs=60.299
+2026-10-20T04:56:16.403Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.152 collectMs=0.015 tailMs=61.137
+2026-10-20T04:56:16.464Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.428 collectMs=0.014 tailMs=60.413
+2026-10-20T04:56:16.526Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.991 collectMs=0.019 tailMs=61.972
+2026-10-20T04:56:16.587Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.244 collectMs=0.015 tailMs=61.230
+2026-10-20T04:56:16.587Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:16.587Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.523 recordSubmitMs=0.318 slotWaitMs=0.000 dxgiMs=0.205 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.160 beginMs=0.000 commandsMs=0.158 beforeMs=0.000 presentCallMs=0.204 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:16.651Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.271 collectMs=0.013 tailMs=64.259
+2026-10-20T04:56:16.713Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.649 collectMs=0.016 tailMs=61.633
+2026-10-20T04:56:16.774Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.122 collectMs=0.017 tailMs=61.106
+2026-10-20T04:56:16.837Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.778 collectMs=0.016 tailMs=62.762
+2026-10-20T04:56:16.900Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.521 collectMs=0.016 tailMs=63.506
+2026-10-20T04:56:16.964Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.950 collectMs=0.016 tailMs=63.934
+2026-10-20T04:56:17.026Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.468 collectMs=0.018 tailMs=61.451
+2026-10-20T04:56:17.089Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.956 collectMs=0.014 tailMs=62.942
+2026-10-20T04:56:17.150Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.955 collectMs=0.018 tailMs=60.938
+2026-10-20T04:56:17.213Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.968 collectMs=0.017 tailMs=62.951
+2026-10-20T04:56:17.275Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.807 collectMs=0.013 tailMs=61.794
+2026-10-20T04:56:17.336Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.200 collectMs=0.032 tailMs=61.169
+2026-10-20T04:56:17.398Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.377 collectMs=0.017 tailMs=62.360
+2026-10-20T04:56:17.460Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.789 collectMs=0.019 tailMs=61.770
+2026-10-20T04:56:17.522Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.373 collectMs=0.018 tailMs=61.356
+2026-10-20T04:56:17.583Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.640 collectMs=0.018 tailMs=61.622
+2026-10-20T04:56:17.646Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.647 collectMs=0.015 tailMs=62.632
+2026-10-20T04:56:17.647Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=139 refreshes=1466 presentRefreshDelta=1466 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:17.647Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.544 recordSubmitMs=0.339 slotWaitMs=0.000 dxgiMs=0.205 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.181 beginMs=0.000 commandsMs=0.159 beforeMs=0.000 presentCallMs=0.204 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:17.708Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.746 collectMs=0.019 tailMs=61.728
+2026-10-20T04:56:17.769Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.737 collectMs=0.017 tailMs=61.720
+2026-10-20T04:56:17.832Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.170 collectMs=0.016 tailMs=62.154
+2026-10-20T04:56:17.893Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.649 collectMs=0.014 tailMs=61.635
+2026-10-20T04:56:17.956Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.162 collectMs=0.022 tailMs=62.140
+2026-10-20T04:56:18.018Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.495 collectMs=0.018 tailMs=62.478
+2026-10-20T04:56:18.080Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.934 collectMs=0.020 tailMs=61.914
+2026-10-20T04:56:18.140Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.348 collectMs=0.021 tailMs=60.327
+2026-10-20T04:56:18.201Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.983 collectMs=0.018 tailMs=60.965
+2026-10-20T04:56:18.262Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.960 collectMs=0.017 tailMs=60.944
+2026-10-20T04:56:18.324Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.416 collectMs=0.018 tailMs=61.399
+2026-10-20T04:56:18.386Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.054 collectMs=0.018 tailMs=62.037
+2026-10-20T04:56:18.448Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.901 collectMs=0.017 tailMs=61.884
+2026-10-20T04:56:18.509Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.263 collectMs=0.029 tailMs=61.233
+2026-10-20T04:56:18.572Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.302 collectMs=0.021 tailMs=62.281
+2026-10-20T04:56:18.634Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.770 collectMs=0.017 tailMs=62.753
+2026-10-20T04:56:18.698Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.375 collectMs=0.016 tailMs=63.359
+2026-10-20T04:56:18.698Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:18.698Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.610 recordSubmitMs=0.345 slotWaitMs=0.000 dxgiMs=0.264 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.168 beginMs=0.000 commandsMs=0.177 beforeMs=0.000 presentCallMs=0.263 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:18.760Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.846 collectMs=0.015 tailMs=61.831
+2026-10-20T04:56:18.821Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.745 collectMs=0.018 tailMs=61.727
+2026-10-20T04:56:18.883Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.922 collectMs=0.017 tailMs=61.905
+2026-10-20T04:56:18.945Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.160 collectMs=0.018 tailMs=61.142
+2026-10-20T04:56:18.945Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:56:19.007Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.414 collectMs=0.017 tailMs=62.397
+2026-10-20T04:56:19.070Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.445 collectMs=0.015 tailMs=62.430
+2026-10-20T04:56:19.132Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.485 collectMs=0.021 tailMs=62.464
+2026-10-20T04:56:19.194Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.509 collectMs=0.015 tailMs=61.494
+2026-10-20T04:56:19.254Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.669 collectMs=0.015 tailMs=60.654
+2026-10-20T04:56:19.317Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.641 collectMs=0.019 tailMs=62.622
+2026-10-20T04:56:19.377Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=59.801 collectMs=0.018 tailMs=59.783
+2026-10-20T04:56:19.440Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.841 collectMs=0.023 tailMs=62.818
+2026-10-20T04:56:19.500Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.680 collectMs=0.017 tailMs=60.663
+2026-10-20T04:56:19.563Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.075 collectMs=0.020 tailMs=62.055
+2026-10-20T04:56:19.623Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.344 collectMs=0.018 tailMs=60.326
+2026-10-20T04:56:19.685Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.784 collectMs=0.036 tailMs=61.749
+2026-10-20T04:56:19.748Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.249 collectMs=0.018 tailMs=63.231
+2026-10-20T04:56:19.749Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:19.749Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.504 recordSubmitMs=0.311 slotWaitMs=0.000 dxgiMs=0.192 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.165 beginMs=0.000 commandsMs=0.146 beforeMs=0.000 presentCallMs=0.192 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:19.809Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.299 collectMs=0.016 tailMs=61.284
+2026-10-20T04:56:19.871Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.814 collectMs=0.015 tailMs=61.800
+2026-10-20T04:56:19.934Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.667 collectMs=0.017 tailMs=62.650
+2026-10-20T04:56:19.994Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.409 collectMs=0.017 tailMs=60.392
+2026-10-20T04:56:20.055Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.916 collectMs=0.018 tailMs=60.898
+2026-10-20T04:56:20.115Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.060 collectMs=0.015 tailMs=60.045
+2026-10-20T04:56:20.176Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.490 collectMs=0.015 tailMs=60.475
+2026-10-20T04:56:20.237Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.040 collectMs=0.019 tailMs=61.021
+2026-10-20T04:56:20.299Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.784 collectMs=0.022 tailMs=61.762
+2026-10-20T04:56:20.361Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.123 collectMs=0.016 tailMs=62.107
+2026-10-20T04:56:20.423Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.478 collectMs=0.017 tailMs=61.461
+2026-10-20T04:56:20.485Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.472 collectMs=0.018 tailMs=62.455
+2026-10-20T04:56:20.548Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.569 collectMs=0.020 tailMs=62.549
+2026-10-20T04:56:20.609Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.050 collectMs=0.015 tailMs=61.035
+2026-10-20T04:56:20.672Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.011 collectMs=0.014 tailMs=62.997
+2026-10-20T04:56:20.734Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.425 collectMs=0.015 tailMs=62.411
+2026-10-20T04:56:20.798Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.504 collectMs=0.016 tailMs=63.488
+2026-10-20T04:56:20.798Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:20.798Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.411 recordSubmitMs=0.224 slotWaitMs=0.000 dxgiMs=0.187 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.082 beginMs=0.000 commandsMs=0.142 beforeMs=0.000 presentCallMs=0.186 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:20.860Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.464 collectMs=0.029 tailMs=62.435
+2026-10-20T04:56:20.922Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.534 collectMs=0.016 tailMs=61.518
+2026-10-20T04:56:20.984Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.095 collectMs=0.015 tailMs=62.080
+2026-10-20T04:56:21.045Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.815 collectMs=0.014 tailMs=60.802
+2026-10-20T04:56:21.107Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.927 collectMs=0.016 tailMs=61.911
+2026-10-20T04:56:21.169Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.983 collectMs=0.018 tailMs=61.966
+2026-10-20T04:56:21.231Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.467 collectMs=0.015 tailMs=62.452
+2026-10-20T04:56:21.293Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.815 collectMs=0.015 tailMs=61.800
+2026-10-20T04:56:21.356Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.021 collectMs=0.015 tailMs=63.006
+2026-10-20T04:56:21.419Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.074 collectMs=0.017 tailMs=63.058
+2026-10-20T04:56:21.481Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.150 collectMs=0.016 tailMs=61.134
+2026-10-20T04:56:21.542Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.521 collectMs=0.015 tailMs=61.506
+2026-10-20T04:56:21.605Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.604 collectMs=0.016 tailMs=62.589
+2026-10-20T04:56:21.666Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.152 collectMs=0.014 tailMs=61.139
+2026-10-20T04:56:21.727Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.088 collectMs=0.015 tailMs=61.073
+2026-10-20T04:56:21.790Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.622 collectMs=0.013 tailMs=62.609
+2026-10-20T04:56:21.852Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.980 collectMs=0.015 tailMs=61.965
+2026-10-20T04:56:21.852Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:21.852Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.627 recordSubmitMs=0.408 slotWaitMs=0.000 dxgiMs=0.219 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.263 beginMs=0.000 commandsMs=0.145 beforeMs=0.000 presentCallMs=0.218 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:21.913Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.261 collectMs=0.018 tailMs=61.243
+2026-10-20T04:56:21.976Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.686 collectMs=0.014 tailMs=62.672
+2026-10-20T04:56:22.037Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.036 collectMs=0.025 tailMs=61.011
+2026-10-20T04:56:22.099Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.562 collectMs=0.012 tailMs=62.550
+2026-10-20T04:56:22.160Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.949 collectMs=0.016 tailMs=60.934
+2026-10-20T04:56:22.222Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.514 collectMs=0.011 tailMs=61.503
+2026-10-20T04:56:22.284Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.364 collectMs=0.016 tailMs=62.348
+2026-10-20T04:56:22.346Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.207 collectMs=0.013 tailMs=61.194
+2026-10-20T04:56:22.407Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.065 collectMs=0.014 tailMs=61.051
+2026-10-20T04:56:22.470Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.124 collectMs=0.012 tailMs=63.112
+2026-10-20T04:56:22.532Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.664 collectMs=0.017 tailMs=61.647
+2026-10-20T04:56:22.593Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.794 collectMs=0.016 tailMs=61.778
+2026-10-20T04:56:22.655Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.417 collectMs=0.013 tailMs=61.403
+2026-10-20T04:56:22.716Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.534 collectMs=0.022 tailMs=61.512
+2026-10-20T04:56:22.778Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.304 collectMs=0.024 tailMs=61.280
+2026-10-20T04:56:22.839Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.706 collectMs=0.015 tailMs=61.691
+2026-10-20T04:56:22.903Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.166 collectMs=0.013 tailMs=63.153
+2026-10-20T04:56:22.903Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:22.903Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.508 recordSubmitMs=0.291 slotWaitMs=0.000 dxgiMs=0.218 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.143 beginMs=0.000 commandsMs=0.147 beforeMs=0.000 presentCallMs=0.217 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:22.964Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.972 collectMs=0.012 tailMs=60.961
+2026-10-20T04:56:23.025Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.619 collectMs=0.015 tailMs=61.604
+2026-10-20T04:56:23.088Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.397 collectMs=0.016 tailMs=62.381
+2026-10-20T04:56:23.151Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.064 collectMs=0.032 tailMs=63.032
+2026-10-20T04:56:23.214Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.842 collectMs=0.016 tailMs=62.827
+2026-10-20T04:56:23.276Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.869 collectMs=0.014 tailMs=61.855
+2026-10-20T04:56:23.337Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.276 collectMs=0.013 tailMs=61.263
+2026-10-20T04:56:23.399Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.137 collectMs=0.013 tailMs=62.124
+2026-10-20T04:56:23.460Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.965 collectMs=0.015 tailMs=60.950
+2026-10-20T04:56:23.522Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.478 collectMs=0.016 tailMs=61.463
+2026-10-20T04:56:23.583Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.722 collectMs=0.013 tailMs=61.710
+2026-10-20T04:56:23.645Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.816 collectMs=0.015 tailMs=61.801
+2026-10-20T04:56:23.707Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.211 collectMs=0.014 tailMs=61.197
+2026-10-20T04:56:23.769Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.149 collectMs=0.015 tailMs=62.134
+2026-10-20T04:56:23.831Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.223 collectMs=0.015 tailMs=62.207
+2026-10-20T04:56:23.893Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.572 collectMs=0.014 tailMs=61.558
+2026-10-20T04:56:23.956Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.008 collectMs=0.017 tailMs=62.992
+2026-10-20T04:56:23.956Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:23.956Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.541 recordSubmitMs=0.275 slotWaitMs=0.000 dxgiMs=0.266 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.125 beginMs=0.000 commandsMs=0.150 beforeMs=0.000 presentCallMs=0.266 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:24.017Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.589 collectMs=0.017 tailMs=61.572
+2026-10-20T04:56:24.079Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.507 collectMs=0.015 tailMs=61.492
+2026-10-20T04:56:24.139Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=59.956 collectMs=0.017 tailMs=59.940
+2026-10-20T04:56:24.200Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.166 collectMs=0.016 tailMs=61.150
+2026-10-20T04:56:24.263Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.994 collectMs=0.015 tailMs=62.980
+2026-10-20T04:56:24.326Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.190 collectMs=0.026 tailMs=63.163
+2026-10-20T04:56:24.387Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.839 collectMs=0.016 tailMs=60.823
+2026-10-20T04:56:24.451Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.548 collectMs=0.015 tailMs=63.533
+2026-10-20T04:56:24.513Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.056 collectMs=0.015 tailMs=62.041
+2026-10-20T04:56:24.574Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.407 collectMs=0.012 tailMs=61.395
+2026-10-20T04:56:24.637Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.473 collectMs=0.015 tailMs=62.458
+2026-10-20T04:56:24.700Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.274 collectMs=0.016 tailMs=63.258
+2026-10-20T04:56:24.763Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.441 collectMs=0.013 tailMs=62.429
+2026-10-20T04:56:24.826Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.168 collectMs=0.014 tailMs=63.154
+2026-10-20T04:56:24.888Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.492 collectMs=0.013 tailMs=62.479
+2026-10-20T04:56:24.951Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.860 collectMs=0.015 tailMs=62.846
+2026-10-20T04:56:25.014Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.247 collectMs=0.014 tailMs=63.233
+2026-10-20T04:56:25.015Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:25.015Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.453 recordSubmitMs=0.245 slotWaitMs=0.000 dxgiMs=0.208 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.083 beginMs=0.000 commandsMs=0.162 beforeMs=0.000 presentCallMs=0.207 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:25.078Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.701 collectMs=0.014 tailMs=63.688
+2026-10-20T04:56:25.140Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.748 collectMs=0.015 tailMs=61.733
+2026-10-20T04:56:25.204Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.573 collectMs=0.016 tailMs=63.558
+2026-10-20T04:56:25.266Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.535 collectMs=0.016 tailMs=62.519
+2026-10-20T04:56:25.329Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.123 collectMs=0.017 tailMs=63.106
+2026-10-20T04:56:25.392Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.108 collectMs=0.014 tailMs=63.094
+2026-10-20T04:56:25.455Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.777 collectMs=0.015 tailMs=62.762
+2026-10-20T04:56:25.517Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.546 collectMs=0.023 tailMs=61.524
+2026-10-20T04:56:25.579Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.484 collectMs=0.013 tailMs=62.471
+2026-10-20T04:56:25.642Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.015 collectMs=0.038 tailMs=62.977
+2026-10-20T04:56:25.706Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.262 collectMs=0.014 tailMs=63.248
+2026-10-20T04:56:25.769Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.015 collectMs=0.013 tailMs=63.002
+2026-10-20T04:56:25.831Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.540 collectMs=0.013 tailMs=62.528
+2026-10-20T04:56:25.894Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.250 collectMs=0.015 tailMs=62.235
+2026-10-20T04:56:25.956Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.387 collectMs=0.015 tailMs=62.373
+2026-10-20T04:56:26.018Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.425 collectMs=0.013 tailMs=61.413
+2026-10-20T04:56:26.018Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=16 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:26.018Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.443 recordSubmitMs=0.249 slotWaitMs=0.000 dxgiMs=0.194 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.096 beginMs=0.000 commandsMs=0.153 beforeMs=0.000 presentCallMs=0.193 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:26.079Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.118 collectMs=0.014 tailMs=61.104
+2026-10-20T04:56:26.140Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.583 collectMs=0.016 tailMs=61.567
+2026-10-20T04:56:26.203Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.320 collectMs=0.017 tailMs=62.303
+2026-10-20T04:56:26.265Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.677 collectMs=0.018 tailMs=62.660
+2026-10-20T04:56:26.328Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.945 collectMs=0.013 tailMs=62.932
+2026-10-20T04:56:26.392Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.132 collectMs=0.016 tailMs=63.116
+2026-10-20T04:56:26.392Z t=44396 [INFO ] [present-contract] backend=DXGI sync=0 flags=0x200 hr=0x87A0001
+2026-10-20T04:56:26.455Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.175 collectMs=0.014 tailMs=63.162
+2026-10-20T04:56:26.517Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.074 collectMs=0.018 tailMs=62.056
+2026-10-20T04:56:26.579Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.910 collectMs=0.018 tailMs=61.892
+2026-10-20T04:56:26.641Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.814 collectMs=0.015 tailMs=61.799
+2026-10-20T04:56:26.702Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.524 collectMs=0.030 tailMs=61.494
+2026-10-20T04:56:26.764Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.837 collectMs=0.014 tailMs=61.824
+2026-10-20T04:56:26.827Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.388 collectMs=0.017 tailMs=62.371
+2026-10-20T04:56:26.889Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.474 collectMs=0.014 tailMs=62.460
+2026-10-20T04:56:26.951Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.299 collectMs=0.012 tailMs=62.287
+2026-10-20T04:56:27.013Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.578 collectMs=0.017 tailMs=61.561
+2026-10-20T04:56:27.076Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.548 collectMs=0.015 tailMs=62.533
+2026-10-20T04:56:27.076Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=151 refreshes=1593 presentRefreshDelta=1593 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:27.076Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.476 recordSubmitMs=0.292 slotWaitMs=0.000 dxgiMs=0.184 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.138 beginMs=0.000 commandsMs=0.154 beforeMs=0.000 presentCallMs=0.183 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:27.139Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.589 collectMs=0.017 tailMs=63.572
+2026-10-20T04:56:27.201Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.251 collectMs=0.017 tailMs=61.235
+2026-10-20T04:56:27.263Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.351 collectMs=0.013 tailMs=62.339
+2026-10-20T04:56:27.325Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.414 collectMs=0.012 tailMs=62.402
+2026-10-20T04:56:27.388Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.782 collectMs=0.014 tailMs=62.768
+2026-10-20T04:56:27.450Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.931 collectMs=0.015 tailMs=61.916
+2026-10-20T04:56:27.511Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.735 collectMs=0.018 tailMs=60.717
+2026-10-20T04:56:27.573Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.517 collectMs=0.018 tailMs=62.500
+2026-10-20T04:56:27.636Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.520 collectMs=0.012 tailMs=62.508
+2026-10-20T04:56:27.699Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.929 collectMs=0.014 tailMs=62.915
+2026-10-20T04:56:27.762Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.575 collectMs=0.017 tailMs=62.558
+2026-10-20T04:56:27.824Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.766 collectMs=0.013 tailMs=62.753
+2026-10-20T04:56:27.886Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.284 collectMs=0.029 tailMs=61.255
+2026-10-20T04:56:27.948Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.738 collectMs=0.015 tailMs=61.723
+2026-10-20T04:56:28.009Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.429 collectMs=0.024 tailMs=61.405
+2026-10-20T04:56:28.071Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.892 collectMs=0.013 tailMs=61.880
+2026-10-20T04:56:28.134Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.635 collectMs=0.014 tailMs=62.622
+2026-10-20T04:56:28.134Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:28.134Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.463 recordSubmitMs=0.268 slotWaitMs=0.000 dxgiMs=0.195 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.123 beginMs=0.000 commandsMs=0.145 beforeMs=0.000 presentCallMs=0.194 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:28.196Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.088 collectMs=0.013 tailMs=62.075
+2026-10-20T04:56:28.259Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.520 collectMs=0.017 tailMs=63.503
+2026-10-20T04:56:28.320Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.690 collectMs=0.015 tailMs=60.675
+2026-10-20T04:56:28.382Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.569 collectMs=0.013 tailMs=61.557
+2026-10-20T04:56:28.443Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.280 collectMs=0.015 tailMs=61.265
+2026-10-20T04:56:28.504Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.240 collectMs=0.013 tailMs=61.227
+2026-10-20T04:56:28.565Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.809 collectMs=0.015 tailMs=60.795
+2026-10-20T04:56:28.627Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.878 collectMs=0.013 tailMs=61.865
+2026-10-20T04:56:28.690Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.740 collectMs=0.016 tailMs=62.724
+2026-10-20T04:56:28.753Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.961 collectMs=0.015 tailMs=62.946
+2026-10-20T04:56:28.816Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.787 collectMs=0.016 tailMs=62.770
+2026-10-20T04:56:28.877Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.910 collectMs=0.013 tailMs=60.897
+2026-10-20T04:56:28.940Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.402 collectMs=0.013 tailMs=63.389
+2026-10-20T04:56:29.002Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.211 collectMs=0.018 tailMs=62.193
+2026-10-20T04:56:29.063Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.870 collectMs=0.028 tailMs=60.841
+2026-10-20T04:56:29.126Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.553 collectMs=0.016 tailMs=62.536
+2026-10-20T04:56:29.188Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.376 collectMs=0.017 tailMs=62.359
+2026-10-20T04:56:29.189Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=32 refreshes=339 presentRefreshDelta=339 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:29.189Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.523 recordSubmitMs=0.301 slotWaitMs=0.000 dxgiMs=0.222 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.147 beginMs=0.000 commandsMs=0.154 beforeMs=0.000 presentCallMs=0.222 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:29.251Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.553 collectMs=0.016 tailMs=62.537
+2026-10-20T04:56:29.314Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.451 collectMs=0.017 tailMs=63.435
+2026-10-20T04:56:29.375Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.041 collectMs=0.016 tailMs=61.025
+2026-10-20T04:56:29.437Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.270 collectMs=0.016 tailMs=61.255
+2026-10-20T04:56:29.499Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.395 collectMs=0.018 tailMs=62.377
+2026-10-20T04:56:29.562Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.536 collectMs=0.017 tailMs=62.520
+2026-10-20T04:56:29.624Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.985 collectMs=0.017 tailMs=61.968
+2026-10-20T04:56:29.686Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.048 collectMs=0.018 tailMs=62.030
+2026-10-20T04:56:29.749Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.108 collectMs=0.016 tailMs=63.092
+2026-10-20T04:56:29.810Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.794 collectMs=0.017 tailMs=60.778
+2026-10-20T04:56:29.873Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.799 collectMs=0.015 tailMs=62.784
+2026-10-20T04:56:29.936Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.494 collectMs=0.013 tailMs=63.481
+2026-10-20T04:56:29.998Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.221 collectMs=0.015 tailMs=62.207
+2026-10-20T04:56:30.060Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.048 collectMs=0.014 tailMs=62.034
+2026-10-20T04:56:30.122Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.872 collectMs=0.017 tailMs=61.855
+2026-10-20T04:56:30.184Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.681 collectMs=0.014 tailMs=61.667
+2026-10-20T04:56:30.247Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.492 collectMs=0.031 tailMs=62.462
+2026-10-20T04:56:30.247Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:30.247Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.475 recordSubmitMs=0.276 slotWaitMs=0.000 dxgiMs=0.199 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.125 beginMs=0.000 commandsMs=0.151 beforeMs=0.000 presentCallMs=0.198 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:30.309Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.002 collectMs=0.014 tailMs=61.988
+2026-10-20T04:56:30.371Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.789 collectMs=0.015 tailMs=62.774
+2026-10-20T04:56:30.434Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.522 collectMs=0.015 tailMs=62.507
+2026-10-20T04:56:30.496Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.858 collectMs=0.016 tailMs=61.843
+2026-10-20T04:56:30.559Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.951 collectMs=0.018 tailMs=62.933
+2026-10-20T04:56:30.621Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.663 collectMs=0.016 tailMs=61.647
+2026-10-20T04:56:30.683Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.348 collectMs=0.015 tailMs=62.333
+2026-10-20T04:56:30.745Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.057 collectMs=0.013 tailMs=62.045
+2026-10-20T04:56:30.809Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=64.148 collectMs=0.013 tailMs=64.135
+2026-10-20T04:56:30.872Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.907 collectMs=0.016 tailMs=62.892
+2026-10-20T04:56:30.935Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.964 collectMs=0.015 tailMs=62.949
+2026-10-20T04:56:30.996Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.009 collectMs=0.013 tailMs=60.996
+2026-10-20T04:56:31.058Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.087 collectMs=0.026 tailMs=62.060
+2026-10-20T04:56:31.120Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.867 collectMs=0.016 tailMs=61.851
+2026-10-20T04:56:31.182Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.088 collectMs=0.017 tailMs=62.071
+2026-10-20T04:56:31.246Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.550 collectMs=0.016 tailMs=63.534
+2026-10-20T04:56:31.309Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.944 collectMs=0.016 tailMs=62.928
+2026-10-20T04:56:31.309Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:31.309Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.432 recordSubmitMs=0.226 slotWaitMs=0.000 dxgiMs=0.206 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.084 beginMs=0.000 commandsMs=0.142 beforeMs=0.000 presentCallMs=0.205 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:31.371Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.798 collectMs=0.012 tailMs=61.786
+2026-10-20T04:56:31.433Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.186 collectMs=0.024 tailMs=62.163
+2026-10-20T04:56:31.496Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.087 collectMs=0.014 tailMs=63.072
+2026-10-20T04:56:31.558Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.677 collectMs=0.013 tailMs=61.664
+2026-10-20T04:56:31.621Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.678 collectMs=0.016 tailMs=62.663
+2026-10-20T04:56:31.682Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.782 collectMs=0.012 tailMs=61.770
+2026-10-20T04:56:31.743Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=60.868 collectMs=0.014 tailMs=60.854
+2026-10-20T04:56:31.806Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.445 collectMs=0.018 tailMs=62.427
+2026-10-20T04:56:31.869Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.440 collectMs=0.017 tailMs=63.424
+2026-10-20T04:56:31.931Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.052 collectMs=0.017 tailMs=62.035
+2026-10-20T04:56:31.993Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.792 collectMs=0.014 tailMs=61.778
+2026-10-20T04:56:32.055Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.281 collectMs=0.017 tailMs=62.264
+2026-10-20T04:56:32.118Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.065 collectMs=0.015 tailMs=62.050
+2026-10-20T04:56:32.179Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.321 collectMs=0.019 tailMs=61.303
+2026-10-20T04:56:32.240Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.466 collectMs=0.016 tailMs=61.450
+2026-10-20T04:56:32.303Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.744 collectMs=0.018 tailMs=62.727
+2026-10-20T04:56:32.365Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.353 collectMs=0.016 tailMs=61.338
+2026-10-20T04:56:32.365Z t=44396 [INFO ] [display-stats] refreshHz=170.000 presentCalls=17 dxgiPresentCount=0 refreshes=0 presentRefreshDelta=0 backend=DXGI (DXGI GetFrameStatistics delta over ~1s. These counters CANNOT tell how many frames the panel actually showed: with vsync off and tearing allowed, dxgiPresentCount tracks completed Present calls, and both refresh counters just advance with the monitor. Measuring scanout needs PresentMon. XeSS/FSR generated presents are provider-internal.)
+2026-10-20T04:56:32.365Z t=44396 [INFO ] [present-cost] generated=false totalMs=0.560 recordSubmitMs=0.373 slotWaitMs=0.000 dxgiMs=0.187 slow=false source=1 epoch=1 backend=DXGI resized=false resizeMs=0.216 beginMs=0.000 commandsMs=0.157 beforeMs=0.000 presentCallMs=0.186 bufferMs=0.000 afterMs=0.000 hr=0x87A0001
+2026-10-20T04:56:32.427Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.064 collectMs=0.023 tailMs=62.041
+2026-10-20T04:56:32.489Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.463 collectMs=0.015 tailMs=62.448
+2026-10-20T04:56:32.551Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.121 collectMs=0.016 tailMs=62.105
+2026-10-20T04:56:32.614Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.226 collectMs=0.030 tailMs=62.197
+2026-10-20T04:56:32.675Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.387 collectMs=0.015 tailMs=61.372
+2026-10-20T04:56:32.739Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=63.606 collectMs=0.016 tailMs=63.590
+2026-10-20T04:56:32.800Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.337 collectMs=0.014 tailMs=61.322
+2026-10-20T04:56:32.862Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.533 collectMs=0.017 tailMs=61.517
+2026-10-20T04:56:32.924Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.228 collectMs=0.015 tailMs=62.214
+2026-10-20T04:56:32.986Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=61.595 collectMs=0.014 tailMs=61.581
+2026-10-20T04:56:33.048Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.058 collectMs=0.016 tailMs=62.042
+2026-10-20T04:56:33.110Z t=44396 [INFO ] [engine-stall] frame=1 totalMs=62.473 collectMs=0.028 tailMs=62.445
+2026-10-20T04:56:33.110Z t=44396 [INFO ] [frame-flow] state=closed session=1 revision=3 epoch=1 source=1 batch=1 readyFence=1 consumerFence=2 captureReceived=0 mailboxOverwritten=0 sourceAccepted=1 sourceSkippedBeforeGraph=0 realSubmitted=1 fgCandidate=0 fgSkippedBeforeEval=0 fgEvaluated=0 fgWarmup=0 fgSkippedForReset=0 fgReduced=0 fgReadyValid=0 fgInvalid=0 realPresented=1 generatedPresented=0 generatedExpiredAfterEval=0 cancelledBeforePresent=0 commandSlots=0 commandHighWater=0 presentationHighWater=0 slotWaitCount=0 slotWaitMs=0.000 generatedFps=0.00 presentSubmitFps=0.00 resetRevision=3 resetEpoch=1 resetReason=1 resetOutcome=1 resetDrainMs=0.000 resetDestroyMs=0.000 resetCreateMs=0.000 resetWarmupMs=0.609 resetFirstValidMs=0.727 resetTotalMs=1.336
+2026-10-20T04:56:33.110Z t=44396 [INFO ] [gfx] slot-ring: drainQueue completed fenceValue=949 (covers post-Present queue ops)
+2026-10-20T04:56:33.111Z t=44396 [INFO ] [present] sink-shutdown: sub-step backbuffers-release
+2026-10-20T04:56:33.111Z t=44396 [INFO ] [present] sink-shutdown: sub-step swapchain-release
+2026-10-20T04:56:33.111Z t=44396 [INFO ] [present] sink-shutdown: swapchain pre-release refcount=1 (2 = only our ComPtr + probe)
+2026-10-20T04:56:33.112Z t=44396 [INFO ] [present] sink-shutdown: sub-step window-destroy-last
+2026-10-20T04:56:33.112Z t=44396 [INFO ] [present] sink-shutdown: sub-step factory-release
+2026-10-20T04:56:33.112Z t=44396 [INFO ] [present] sink-shutdown: complete
+2026-10-20T04:56:33.112Z t=44396 [INFO ] [gfx] slot-ring: drainQueue completed fenceValue=950 (covers post-Present queue ops)
+2026-10-20T04:56:33.118Z t=44396 [INFO ] [graph] shutdown complete (ordered)
+2026-10-20T04:56:33.120Z t=44396 [INFO ] [gfx] slot-ring: shutdown complete
+2026-10-20T04:56:33.125Z t=44396 [INFO ] [gfx] device context shutdown complete
+2026-10-20T04:56:33.162Z t=26016 [INFO ] [app] Veyra GUI session stopped

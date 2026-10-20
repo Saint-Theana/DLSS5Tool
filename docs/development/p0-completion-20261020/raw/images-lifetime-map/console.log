@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 670, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 659, in main
+    worker(args, work)
+    ~~~~~~^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 183, in worker
+    result.update(gui_images(args, work, config, event))
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 335, in gui_images
+    library = C.CDLL(None,handle=module)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\ctypes\__init__.py", line 380, in __init__
+    if '/' in name or '\\' in name:
+       ^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable

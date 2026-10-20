@@ -1,0 +1,2232 @@
+{
+  "reason": "Owned reconstructible outputs; archived and verified, all observed task identities retired, exclusive file handles verified",
+  "targets": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\acceptance-criteria.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\analysis-final.log",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\analysis-handoff.log",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\appearance-adapter-fixture.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\baseline-native-sources.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before-manifest.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\build-probes.cmd",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\candidate-source-equivalence.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-final.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-gui-complete.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-handoff.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-idle-complete.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-in-progress.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-final-related.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-handoff-final.log",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-reuse-targeted.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\environment-start.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-only-candidate.patch",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\gui-lifecycle-related.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\gui-tk-rerun.xml",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_hlg-cpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_hlg-gpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_pq-cpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_pq-gpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-srgb-cpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-srgb-gpu.mp4",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-source-verification.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\local-composer-final.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\local-composer-final.log",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.dll",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.exp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.lib",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.dll",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.exp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.lib",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-quality-test.cmd",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-quality-test.log",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-after.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-before.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-restart-result.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\post-acceptance-diagnostics.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\post-acceptance-diagnostics.patch",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\promote_native_runtime.ps1",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\quality_tests.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\quality.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\realtime_quality_tests.exe",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\retire_virtual_probe.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\retirement-audit.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate.patch",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-promotion-first-attempt.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-promotion.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-rollback.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\service-restart-approved.ps1",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-analyze_p0_completion.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-collect_p0_stability.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-gui.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-local_preview_composition.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-native_thread_activity.cpp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-preview_jobs.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-profile_native_frame_memory.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-profile_thread_activity.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality_bridge.cpp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality_tests.cpp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality.cpp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality.h",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-test_appearance.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-test_preview_composer_reuse.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-verify_p0_stability.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-native_heap_trace.cpp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-profile_native_frame_memory.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-verify_p0_stability.py",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\thread-counter-self-check.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\trace-self-virtual-allocated.jsonl",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\trace-self-virtual-freed.jsonl",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\virtual-trace-self-check.json"
+  ],
+  "files": [
+    {
+      "bytes": 8547,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\virtual-trace-self-check.json"
+    },
+    {
+      "bytes": 4528,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\trace-self-virtual-freed.jsonl"
+    },
+    {
+      "bytes": 4521,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\trace-self-virtual-allocated.jsonl"
+    },
+    {
+      "bytes": 402,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\thread-counter-self-check.json"
+    },
+    {
+      "bytes": 39762,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-verify_p0_stability.py"
+    },
+    {
+      "bytes": 24269,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-profile_native_frame_memory.py"
+    },
+    {
+      "bytes": 17510,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-measured-native_heap_trace.cpp"
+    },
+    {
+      "bytes": 38892,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-verify_p0_stability.py"
+    },
+    {
+      "bytes": 4176,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-test_preview_composer_reuse.py"
+    },
+    {
+      "bytes": 11936,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-test_appearance.py"
+    },
+    {
+      "bytes": 3029,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality.h"
+    },
+    {
+      "bytes": 6680,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality.cpp"
+    },
+    {
+      "bytes": 8580,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality_tests.cpp"
+    },
+    {
+      "bytes": 12557,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-quality_bridge.cpp"
+    },
+    {
+      "bytes": 1822,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-profile_thread_activity.py"
+    },
+    {
+      "bytes": 24032,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-profile_native_frame_memory.py"
+    },
+    {
+      "bytes": 4380,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-preview_jobs.py"
+    },
+    {
+      "bytes": 2045,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-native_thread_activity.cpp"
+    },
+    {
+      "bytes": 6015,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-local_preview_composition.py"
+    },
+    {
+      "bytes": 501506,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-gui.py"
+    },
+    {
+      "bytes": 11847,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-collect_p0_stability.py"
+    },
+    {
+      "bytes": 5517,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\source-final-analyze_p0_completion.py"
+    },
+    {
+      "bytes": 2428,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\service-restart-approved.ps1"
+    },
+    {
+      "bytes": 432,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-rollback.json"
+    },
+    {
+      "bytes": 443,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-promotion.json"
+    },
+    {
+      "bytes": 305,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\runtime-promotion-first-attempt.json"
+    },
+    {
+      "bytes": 3587,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate.patch"
+    },
+    {
+      "bytes": 21059,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\retirement-audit.json"
+    },
+    {
+      "bytes": 5152,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\retire_virtual_probe.py"
+    },
+    {
+      "bytes": 314880,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\realtime_quality_tests.exe"
+    },
+    {
+      "bytes": 96724,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\quality.obj"
+    },
+    {
+      "bytes": 512984,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\quality_tests.obj"
+    },
+    {
+      "bytes": 4126,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\promote_native_runtime.ps1"
+    },
+    {
+      "bytes": 12280,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\post-acceptance-diagnostics.patch"
+    },
+    {
+      "bytes": 1176,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\post-acceptance-diagnostics.json"
+    },
+    {
+      "bytes": 355,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-restart-result.json"
+    },
+    {
+      "bytes": 334,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-before.json"
+    },
+    {
+      "bytes": 181,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\nvidia-service-after.json"
+    },
+    {
+      "bytes": 613,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-quality-test.log"
+    },
+    {
+      "bytes": 570,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-quality-test.cmd"
+    },
+    {
+      "bytes": 4431,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.obj"
+    },
+    {
+      "bytes": 2030,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.lib"
+    },
+    {
+      "bytes": 760,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.exp"
+    },
+    {
+      "bytes": 4096,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_thread_activity.dll"
+    },
+    {
+      "bytes": 35456,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.obj"
+    },
+    {
+      "bytes": 2514,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.lib"
+    },
+    {
+      "bytes": 1069,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.exp"
+    },
+    {
+      "bytes": 141824,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native_heap_trace.dll"
+    },
+    {
+      "bytes": 4496,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\local-composer-final.log"
+    },
+    {
+      "bytes": 4494,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\local-composer-final.json"
+    },
+    {
+      "bytes": 2542,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-source-verification.json"
+    },
+    {
+      "bytes": 1968,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final.json"
+    },
+    {
+      "bytes": 21882,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-srgb-gpu.mp4"
+    },
+    {
+      "bytes": 21882,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-srgb-cpu.mp4"
+    },
+    {
+      "bytes": 16282,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_pq-gpu.mp4"
+    },
+    {
+      "bytes": 16282,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_pq-cpu.mp4"
+    },
+    {
+      "bytes": 9556,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_hlg-gpu.mp4"
+    },
+    {
+      "bytes": 9556,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\handoff-final-hdr10_hlg-cpu.mp4"
+    },
+    {
+      "bytes": 354,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\gui-tk-rerun.xml"
+    },
+    {
+      "bytes": 19959,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\gui-lifecycle-related.xml"
+    },
+    {
+      "bytes": 585,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-only-candidate.patch"
+    },
+    {
+      "bytes": 234,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\environment-start.json"
+    },
+    {
+      "bytes": 8662,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-reuse-targeted.xml"
+    },
+    {
+      "bytes": 2671,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-handoff-final.log"
+    },
+    {
+      "bytes": 51501,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\composer-final-related.xml"
+    },
+    {
+      "bytes": 251047,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-in-progress.json"
+    },
+    {
+      "bytes": 403479,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-idle-complete.json"
+    },
+    {
+      "bytes": 447121,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-handoff.json"
+    },
+    {
+      "bytes": 397058,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-gui-complete.json"
+    },
+    {
+      "bytes": 412345,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\comparison-final.json"
+    },
+    {
+      "bytes": 1313,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\candidate-source-equivalence.json"
+    },
+    {
+      "bytes": 650,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\build-probes.cmd"
+    },
+    {
+      "bytes": 3692,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before-manifest.json"
+    },
+    {
+      "bytes": 791,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\baseline-native-sources.json"
+    },
+    {
+      "bytes": 378,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\appearance-adapter-fixture.xml"
+    },
+    {
+      "bytes": 2937,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\analysis-handoff.log"
+    },
+    {
+      "bytes": 2468,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\analysis-final.log"
+    },
+    {
+      "bytes": 869,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\acceptance-criteria.json"
+    },
+    {
+      "bytes": 4176,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate\\tests\\test_preview_composer_reuse.py"
+    },
+    {
+      "bytes": 6015,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate\\dlss5tool\\local_preview_composition.py"
+    },
+    {
+      "bytes": 501506,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\reuse-candidate\\dlss5tool\\gui.py"
+    },
+    {
+      "bytes": 341,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\worker-result.json"
+    },
+    {
+      "bytes": 2689,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\sr-frame-memory.jsonl"
+    },
+    {
+      "bytes": 74832,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\sr-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\run-manifest-after.json"
+    },
+    {
+      "bytes": 6410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\result.json"
+    },
+    {
+      "bytes": 6522,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\native-modules.json"
+    },
+    {
+      "bytes": 417641,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\memory-samples.json"
+    },
+    {
+      "bytes": 437,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-thread-count\\console.log"
+    },
+    {
+      "bytes": 342,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\worker-result.json"
+    },
+    {
+      "bytes": 5385,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\sr-frame-memory.jsonl"
+    },
+    {
+      "bytes": 149883,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\sr-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\run-manifest-after.json"
+    },
+    {
+      "bytes": 6416,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\result.json"
+    },
+    {
+      "bytes": 6522,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\native-modules.json"
+    },
+    {
+      "bytes": 431062,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\memory-samples.json"
+    },
+    {
+      "bytes": 665,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-sr-after-service\\console.log"
+    },
+    {
+      "bytes": 341,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\run-manifest-after.json"
+    },
+    {
+      "bytes": 7436,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\result.json"
+    },
+    {
+      "bytes": 1634,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\nr-frame-memory.jsonl"
+    },
+    {
+      "bytes": 83741,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\nr-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 7120,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\native-modules.json"
+    },
+    {
+      "bytes": 441042,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\memory-samples.json"
+    },
+    {
+      "bytes": 436,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-thread-count\\console.log"
+    },
+    {
+      "bytes": 342,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\run-manifest-after.json"
+    },
+    {
+      "bytes": 7622,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\result.json"
+    },
+    {
+      "bytes": 3391,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\nr-frame-memory.jsonl"
+    },
+    {
+      "bytes": 167803,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\nr-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 7120,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\native-modules.json"
+    },
+    {
+      "bytes": 476470,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\memory-samples.json"
+    },
+    {
+      "bytes": 667,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-nr-after-service\\console.log"
+    },
+    {
+      "bytes": 388,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3623,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\result.json"
+    },
+    {
+      "bytes": 6350,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\native-modules.json"
+    },
+    {
+      "bytes": 301617,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\memory-samples.json"
+    },
+    {
+      "bytes": 315,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\events.jsonl"
+    },
+    {
+      "bytes": 6778,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\cuda-frame-memory.jsonl"
+    },
+    {
+      "bytes": 290893,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\cuda-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-thread-count\\console.log"
+    },
+    {
+      "bytes": 388,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\settings.json"
+    },
+    {
+      "bytes": 3691,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\run-manifest-before.json"
+    },
+    {
+      "bytes": 3691,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3603,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\result.json"
+    },
+    {
+      "bytes": 6264,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\native-modules.json"
+    },
+    {
+      "bytes": 301611,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\memory-samples.json"
+    },
+    {
+      "bytes": 314,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\events.jsonl"
+    },
+    {
+      "bytes": 4585,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\cuda-frame-memory.jsonl"
+    },
+    {
+      "bytes": 289487,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\cuda-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-current-baseline\\console.log"
+    },
+    {
+      "bytes": 389,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3630,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\result.json"
+    },
+    {
+      "bytes": 6350,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\native-modules.json"
+    },
+    {
+      "bytes": 299095,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\memory-samples.json"
+    },
+    {
+      "bytes": 315,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\events.jsonl"
+    },
+    {
+      "bytes": 6887,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\cuda-frame-memory.jsonl"
+    },
+    {
+      "bytes": 290208,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\cuda-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-device11-after-service\\console.log"
+    },
+    {
+      "bytes": 259,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\settings.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\run-manifest-before.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\run-manifest-after.json"
+    },
+    {
+      "bytes": 33115,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\result.json"
+    },
+    {
+      "bytes": 5675,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\native-modules.json"
+    },
+    {
+      "bytes": 8716929,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\memory-samples.json"
+    },
+    {
+      "bytes": 36985,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\console.log"
+    },
+    {
+      "bytes": 339059,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 12522143,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-long\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 256,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\settings.json"
+    },
+    {
+      "bytes": 5209,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\run-manifest-before.json"
+    },
+    {
+      "bytes": 5209,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3383,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\result.json"
+    },
+    {
+      "bytes": 5675,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\native-modules.json"
+    },
+    {
+      "bytes": 130316,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\memory-samples.json"
+    },
+    {
+      "bytes": 6448,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\console.log"
+    },
+    {
+      "bytes": 109170,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 4345377,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush-reuse\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 256,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\settings.json"
+    },
+    {
+      "bytes": 5209,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\run-manifest-before.json"
+    },
+    {
+      "bytes": 5209,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3044,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\result.json"
+    },
+    {
+      "bytes": 5675,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\native-modules.json"
+    },
+    {
+      "bytes": 84680,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\memory-samples.json"
+    },
+    {
+      "bytes": 3272,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\console.log"
+    },
+    {
+      "bytes": 55655,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 2207787,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-flush\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 256,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\settings.json"
+    },
+    {
+      "bytes": 4878,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4878,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3046,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\result.json"
+    },
+    {
+      "bytes": 5638,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\native-modules.json"
+    },
+    {
+      "bytes": 87839,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\memory-samples.json"
+    },
+    {
+      "bytes": 3279,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\console.log"
+    },
+    {
+      "bytes": 57818,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 2574662,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-resize-control\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 256,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\settings.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\run-manifest-before.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\run-manifest-after.json"
+    },
+    {
+      "bytes": 3046,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\result.json"
+    },
+    {
+      "bytes": 5638,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\native-modules.json"
+    },
+    {
+      "bytes": 80872,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\memory-samples.json"
+    },
+    {
+      "bytes": 3278,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\console.log"
+    },
+    {
+      "bytes": 55425,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 2204360,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-installed-smoke\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 256,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\source-comparison.json"
+    },
+    {
+      "bytes": 3222,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\settings.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\run-manifest-before.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\run-manifest-after.json"
+    },
+    {
+      "bytes": 8267,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\result.json"
+    },
+    {
+      "bytes": 5675,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\native-modules.json"
+    },
+    {
+      "bytes": 1493872,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\memory-samples.json"
+    },
+    {
+      "bytes": 276,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\console.log"
+    },
+    {
+      "bytes": 32336,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\composer-frame-memory.jsonl"
+    },
+    {
+      "bytes": 1177907,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\native-composer-fixed-idle300\\composer-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 597,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\settings.json"
+    },
+    {
+      "bytes": 5069,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\run-manifest-before.json"
+    },
+    {
+      "bytes": 5069,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\run-manifest-after.json"
+    },
+    {
+      "bytes": 42301,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\queue.json"
+    },
+    {
+      "bytes": 26112,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-final.jsonl"
+    },
+    {
+      "bytes": 26797,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-5.jsonl"
+    },
+    {
+      "bytes": 26775,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-4.jsonl"
+    },
+    {
+      "bytes": 26656,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-3.jsonl"
+    },
+    {
+      "bytes": 26656,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-2.jsonl"
+    },
+    {
+      "bytes": 16669,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\native-virtual-1.jsonl"
+    },
+    {
+      "bytes": 938783,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\image-0.png"
+    },
+    {
+      "bytes": 45303,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 665895,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-5.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-4.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-3.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-2.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\export-0.png"
+    },
+    {
+      "bytes": 15472,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\events.jsonl"
+    },
+    {
+      "bytes": 686,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\console.log"
+    },
+    {
+      "bytes": 4621,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-virtual-trace\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 45780,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\settings.json"
+    },
+    {
+      "bytes": 4472,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4472,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\run-manifest-after.json"
+    },
+    {
+      "bytes": 94327,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\queue.json"
+    },
+    {
+      "bytes": 2082507,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\image-0.png"
+    },
+    {
+      "bytes": 91059,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 1416883,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-9.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-8.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-7.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-6.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-5.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-4.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-3.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-2.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-11.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-10.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\export-0.png"
+    },
+    {
+      "bytes": 31351,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\console.log"
+    },
+    {
+      "bytes": 4614,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reuse-pilot\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 6943,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\settings.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\run-manifest-before.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\run-manifest-after.json"
+    },
+    {
+      "bytes": 21431,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\queue.json"
+    },
+    {
+      "bytes": 506288,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\image-0.png"
+    },
+    {
+      "bytes": 14275,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 203404,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\export-0.png"
+    },
+    {
+      "bytes": 4881,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\console.log"
+    },
+    {
+      "bytes": 1863,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen3\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 6940,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\settings.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\run-manifest-before.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\run-manifest-after.json"
+    },
+    {
+      "bytes": 22233,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\queue.json"
+    },
+    {
+      "bytes": 483572,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\image-0.png"
+    },
+    {
+      "bytes": 14275,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 203400,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\export-0.png"
+    },
+    {
+      "bytes": 4876,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\console.log"
+    },
+    {
+      "bytes": 1863,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen2\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 6941,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\settings.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\run-manifest-before.json"
+    },
+    {
+      "bytes": 6304,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\run-manifest-after.json"
+    },
+    {
+      "bytes": 21305,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\queue.json"
+    },
+    {
+      "bytes": 390319,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\image-0.png"
+    },
+    {
+      "bytes": 14275,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 204125,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\export-0.png"
+    },
+    {
+      "bytes": 4880,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\console.log"
+    },
+    {
+      "bytes": 1862,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-reopen1\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 117569,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\settings.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\run-manifest-before.json"
+    },
+    {
+      "bytes": 7232,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\run-manifest-after.json"
+    },
+    {
+      "bytes": 227045,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\queue.json"
+    },
+    {
+      "bytes": 7144371,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\image-0.png"
+    },
+    {
+      "bytes": 230376,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 5239732,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-9.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-8.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-7.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-6.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-5.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-4.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-3.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-29.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-28.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-27.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-26.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-25.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-24.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-23.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-22.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-21.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-20.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-2.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-19.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-18.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-17.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-16.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-15.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-14.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-13.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-12.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-11.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-10.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\export-0.png"
+    },
+    {
+      "bytes": 98755,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\console.log"
+    },
+    {
+      "bytes": 4622,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-native-fix30\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 45795,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\run-manifest-after.json"
+    },
+    {
+      "bytes": 94467,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\queue.json"
+    },
+    {
+      "bytes": 2091139,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\image-0.png"
+    },
+    {
+      "bytes": 91063,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 1365992,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-9.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-8.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-7.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-6.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-5.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-4.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-3.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-2.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-11.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-10.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\export-0.png"
+    },
+    {
+      "bytes": 31368,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\console.log"
+    },
+    {
+      "bytes": 4623,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map2\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 782,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\run-manifest-after.json"
+    },
+    {
+      "bytes": 21226,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\queue.json"
+    },
+    {
+      "bytes": 388233,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\image-0.png"
+    },
+    {
+      "bytes": 14275,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 203990,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\export-0.png"
+    },
+    {
+      "bytes": 2056,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\events.jsonl"
+    },
+    {
+      "bytes": 172,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\dlss5tool-vsr-98152b5d6cc6490b92d6d8653e696940.log"
+    },
+    {
+      "bytes": 1265,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\dlss5tool-host-2411bc74d60f4c2a89a987ded2b5143a.log"
+    },
+    {
+      "bytes": 857,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\console.log"
+    },
+    {
+      "bytes": 1872,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-lifetime-map\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 9770,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\settings.json"
+    },
+    {
+      "bytes": 4128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\run-manifest-after.json"
+    },
+    {
+      "bytes": 30456,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\queue.json"
+    },
+    {
+      "bytes": 1765894,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\native-heap-final.jsonl"
+    },
+    {
+      "bytes": 1762882,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\native-heap-2.jsonl"
+    },
+    {
+      "bytes": 1674378,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\native-heap-1.jsonl"
+    },
+    {
+      "bytes": 1449115,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\native-heap-0.jsonl"
+    },
+    {
+      "bytes": 997033,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\image-0.png"
+    },
+    {
+      "bytes": 22032,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 451515,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\export-2.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\export-0.png"
+    },
+    {
+      "bytes": 11327,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\console.log"
+    },
+    {
+      "bytes": 2793,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-big-idle-trace\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 45801,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\worker-result.json"
+    },
+    {
+      "bytes": 27,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\source-comparison.json"
+    },
+    {
+      "bytes": 3219,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\settings.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\run-manifest-before.json"
+    },
+    {
+      "bytes": 4129,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\run-manifest-after.json"
+    },
+    {
+      "bytes": 88809,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\result.json"
+    },
+    {
+      "bytes": 35,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\queue.json"
+    },
+    {
+      "bytes": 2000054,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\memory-samples.json"
+    },
+    {
+      "bytes": 170396,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\image-2.png"
+    },
+    {
+      "bytes": 246236,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\image-1.png"
+    },
+    {
+      "bytes": 109743,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\image-0.png"
+    },
+    {
+      "bytes": 91063,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\gui-modules.jsonl"
+    },
+    {
+      "bytes": 1363600,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\gui-frame-memory-regions.jsonl"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-9.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-8.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-7.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-6.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-5.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-4.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-3.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-2.png"
+    },
+    {
+      "bytes": 1297123,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-11.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-10.png"
+    },
+    {
+      "bytes": 1872905,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-1.png"
+    },
+    {
+      "bytes": 830410,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\export-0.png"
+    },
+    {
+      "bytes": 31377,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\events.jsonl"
+    },
+    {
+      "bytes": 0,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\console.log"
+    },
+    {
+      "bytes": 4624,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\images-after-service\\state\\dlss5_export_history.json"
+    },
+    {
+      "bytes": 96740,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality.obj"
+    },
+    {
+      "bytes": 3021,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality.h"
+    },
+    {
+      "bytes": 6834,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality.cpp"
+    },
+    {
+      "bytes": 80776,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality_gpu_output.obj"
+    },
+    {
+      "bytes": 108632,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality_bridge.obj"
+    },
+    {
+      "bytes": 12681,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\quality_bridge.cpp"
+    },
+    {
+      "bytes": 4122,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\dlss5_quality.lib"
+    },
+    {
+      "bytes": 2069,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\dlss5_quality.exp"
+    },
+    {
+      "bytes": 155136,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\dlss5_quality.dll"
+    },
+    {
+      "bytes": 822,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\build.cmd"
+    },
+    {
+      "bytes": 7894,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\VeyraResidual.hlsl"
+    },
+    {
+      "bytes": 102069,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\standalone_resources.h"
+    },
+    {
+      "bytes": 1153,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\standalone_paths.h"
+    },
+    {
+      "bytes": 2360,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\standalone_parameter_rules.h"
+    },
+    {
+      "bytes": 1876,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\standalone_parameter_localization.h"
+    },
+    {
+      "bytes": 95143,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\ScalingWindow.cpp"
+    },
+    {
+      "bytes": 176784,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\Renderer.cpp"
+    },
+    {
+      "bytes": 19420,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\ParameterInputHost.cpp"
+    },
+    {
+      "bytes": 91174,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\OverlayDrawer.cpp"
+    },
+    {
+      "bytes": 7146,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\NgxD3D12Core.cpp"
+    },
+    {
+      "bytes": 11554,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\NativeEffectBackendFactory.cpp"
+    },
+    {
+      "bytes": 22965,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\GraphicsCaptureFrameSource.cpp"
+    },
+    {
+      "bytes": 49963,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\EffectCompiler.cpp"
+    },
+    {
+      "bytes": 10836,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\DLSSSRUpscaler.cpp"
+    },
+    {
+      "bytes": 8807,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\DLSSNRMultiPass.h"
+    },
+    {
+      "bytes": 97541,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\DLSSNRFilter.cpp"
+    },
+    {
+      "bytes": 6810,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\DesktopDuplicationFrameSource.cpp"
+    },
+    {
+      "bytes": 107246,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\flush-candidate\\generated\\shaders\\VeyraResidualCS.h"
+    },
+    {
+      "bytes": 36508,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\scripts\\verify_p0_stability.py"
+    },
+    {
+      "bytes": 23508,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\scripts\\profile_native_frame_memory.py"
+    },
+    {
+      "bytes": 2915,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\native\\realtime\\quality.h"
+    },
+    {
+      "bytes": 6605,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\native\\realtime\\quality.cpp"
+    },
+    {
+      "bytes": 6984,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\native\\realtime\\quality_tests.cpp"
+    },
+    {
+      "bytes": 12333,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\native\\realtime\\quality_bridge.cpp"
+    },
+    {
+      "bytes": 4380,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\dlss5tool\\preview_jobs.py"
+    },
+    {
+      "bytes": 5951,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\dlss5tool\\local_preview_composition.py"
+    },
+    {
+      "bytes": 501135,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\before\\dlss5tool\\gui.py"
+    }
+  ],
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020",
+  "preserved": [
+    "TASK.md",
+    "rollback/dlss5_quality.dll"
+  ]
+}

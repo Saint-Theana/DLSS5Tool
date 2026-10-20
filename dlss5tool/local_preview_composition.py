@@ -10,14 +10,15 @@ from dlss5tool.render_cache import file_identity
 
 
 class LocalPreviewComposition:
-    def _invalidate_local_composition(self, *, keep_last=False, reason='source_or_session', record=True):
+    def _invalidate_local_composition(self, *, keep_last=False, reason='source_or_session',
+                                      record=True, release=True):
         from dlss5tool.parameter_contract import invalidation
         if record:
             self._last_parameter_invalidation = {'reason': reason,
                 'layers': list(invalidation(reason)) if reason in appearance.GROUPS else ['source', 'nr', 'composition', 'fg']}
         job = getattr(self, '_local_composition_job', None)
         if job:
-            job.invalidate(release=reason not in appearance.GROUPS)
+            job.invalidate(release=release and reason not in appearance.GROUPS)
         self._cancel_after('_local_composition_after')
         self._local_composition_request = None
         self._local_composition_inputs = None

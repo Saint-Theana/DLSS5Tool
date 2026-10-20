@@ -1,0 +1,18 @@
+{
+  "scope": "Exact process private commit; same physical GPU and driver, no throughput comparisons",
+  "short_observation_warmup_seconds": 20,
+  "original_idle_gate": {
+    "minimum_window_seconds": 280,
+    "max_abs_delta_mib": 16,
+    "max_abs_slope_mib_per_minute": 0.25,
+    "max_window_range_mib": 16
+  },
+  "short_runs_do_not_certify_plateau": true,
+  "shutdown_recovery_is_failure": true,
+  "system_changes": "None; temporary ETW read-only session only",
+  "reference_versions": {
+    "veyra": "1.4.4, local stock binary package-manifest verified",
+    "standalone": "existing dlss5standaloneV2 source/runtime; full SHA256 recorded",
+    "magpie": "pinned source inspected; stock binary not available"
+  }
+}

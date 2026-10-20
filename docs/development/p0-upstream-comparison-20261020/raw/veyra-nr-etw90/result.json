@@ -1,0 +1,156 @@
+{
+  "arguments": {
+    "task": "tmp\\p0-upstream-comparison-20261020",
+    "label": "veyra-nr-etw90",
+    "reference": "veyra",
+    "effect": "nr",
+    "seconds": 90,
+    "thread_counter": false,
+    "external_close": true,
+    "worker": false
+  },
+  "command": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+    "--smoke-seconds",
+    "90",
+    "--native",
+    "--no-fg",
+    "--nr",
+    "--nr-community",
+    "--no-sr",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\source.png"
+  ],
+  "started_pid": 19724,
+  "exit_code": 0,
+  "elapsed_seconds": 135.792709500005,
+  "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 216, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+  "source_and_binary_unchanged": true,
+  "remaining_before_recovery": [
+    {
+      "pid": 19724,
+      "parent": 41024,
+      "name": "Veyra.exe",
+      "created": 134369465797654344,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe"
+    }
+  ],
+  "recovery": [
+    {
+      "pid": 19724,
+      "terminated": true,
+      "error": 0
+    }
+  ],
+  "remaining": [],
+  "root_private_commit_excluding_first_20_seconds": {
+    "samples": 137,
+    "start_median_bytes": 752300032,
+    "end_median_bytes": 782565376,
+    "delta_bytes": 30265344,
+    "measured_span_seconds": 56.7009015083313,
+    "mib_per_minute": 30.542669145137666,
+    "window_medians_bytes": [
+      752300032,
+      760086528,
+      767666176.0,
+      774864896,
+      782428160.0
+    ],
+    "window_median_range_bytes": 30128128.0
+  },
+  "plateau_verified": false,
+  "identities": [
+    {
+      "pid": 19724,
+      "parent": 41024,
+      "name": "Veyra.exe",
+      "created": 134369465797654344,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe"
+    },
+    {
+      "pid": 35100,
+      "parent": 19724,
+      "name": "nvngx_update.exe",
+      "created": 134369465821554444,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 37308,
+      "parent": 35100,
+      "name": "conhost.exe",
+      "created": 134369465822195954,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 44864,
+      "parent": 19724,
+      "name": "nvngx_update.exe",
+      "created": 134369465823628606,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 17400,
+      "parent": 19724,
+      "name": "nvngx_update.exe",
+      "created": 134369465823780326,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 44416,
+      "parent": 44864,
+      "name": "conhost.exe",
+      "created": 134369465823915883,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 14288,
+      "parent": 19724,
+      "name": "nvngx_update.exe",
+      "created": 134369465823956421,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 46464,
+      "parent": 17400,
+      "name": "conhost.exe",
+      "created": 134369465823982113,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 43388,
+      "parent": 19724,
+      "name": "nvngx_update.exe",
+      "created": 134369465824173237,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 50908,
+      "parent": 14288,
+      "name": "conhost.exe",
+      "created": 134369465824196210,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 37656,
+      "parent": 43388,
+      "name": "conhost.exe",
+      "created": 134369465824543305,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    }
+  ],
+  "normal_close": {
+    "wall": 1792473070.227181,
+    "posted": [
+      {
+        "window": 5116252,
+        "posted": true
+      }
+    ]
+  },
+  "measured_pid": 19724,
+  "measured_window": {
+    "begin_wall": 1792473000.026812,
+    "end_wall": 1792473070.227181
+  },
+  "instrumentation": "external memory/module sampling; standalone optional local thread counter only"
+}

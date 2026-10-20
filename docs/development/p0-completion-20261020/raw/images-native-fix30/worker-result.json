@@ -1,0 +1,3804 @@
+{
+  "case": "images",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "cycles": [
+    {
+      "cycle": 0,
+      "source": "image-0.png",
+      "host_pid": 43748,
+      "sr_pid": 42644,
+      "memory": {
+        "private_bytes": 96370688,
+        "working_set_bytes": 149970944,
+        "free_physical_bytes": 40326582272,
+        "free_commit_bytes": 32184107008
+      },
+      "python_bytes": 19709169,
+      "python_peak_bytes": 103448551,
+      "collected": 97,
+      "tk_images": 298,
+      "overlay_modules": [],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764944,
+          "count": 3
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075416,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691344,
+          "count": 3
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+          "bytes": 312584,
+          "count": 3868
+        }
+      ],
+      "thread_activity": {
+        "started": 30,
+        "detached": 16,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 4,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 26,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 52261351,
+        "committed": 64581632,
+        "reserved": 81866752,
+        "max_reserve": 81866752
+      }
+    },
+    {
+      "cycle": 1,
+      "source": "image-1.png",
+      "host_pid": 5736,
+      "sr_pid": 39088,
+      "memory": {
+        "private_bytes": 296673280,
+        "working_set_bytes": 281612288,
+        "free_physical_bytes": 40307187712,
+        "free_commit_bytes": 31687409664
+      },
+      "python_bytes": 36432439,
+      "python_peak_bytes": 103448551,
+      "collected": 89,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6220992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+          "bytes": 312584,
+          "count": 3868
+        }
+      ],
+      "thread_activity": {
+        "started": 92,
+        "detached": 20,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 6,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 80193415,
+        "committed": 95928320,
+        "reserved": 101478400,
+        "max_reserve": 101478400
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 2,
+      "source": "image-2.png",
+      "host_pid": 50384,
+      "sr_pid": 5212,
+      "memory": {
+        "private_bytes": 362729472,
+        "working_set_bytes": 305389568,
+        "free_physical_bytes": 40378785792,
+        "free_commit_bytes": 32092364800
+      },
+      "python_bytes": 27483119,
+      "python_peak_bytes": 103448551,
+      "collected": 102,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4300992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+          "bytes": 312424,
+          "count": 3866
+        }
+      ],
+      "thread_activity": {
+        "started": 94,
+        "detached": 22,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 8,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 71296223,
+        "committed": 87953408,
+        "reserved": 92401664,
+        "max_reserve": 92401664
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 3,
+      "source": "image-0.png",
+      "host_pid": 24716,
+      "sr_pid": 46516,
+      "memory": {
+        "private_bytes": 355135488,
+        "working_set_bytes": 292491264,
+        "free_physical_bytes": 40394178560,
+        "free_commit_bytes": 32178839552
+      },
+      "python_bytes": 20138574,
+      "python_peak_bytes": 112030141,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+          "bytes": 312584,
+          "count": 3868
+        }
+      ],
+      "thread_activity": {
+        "started": 96,
+        "detached": 25,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 10,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 63890926,
+        "committed": 81842176,
+        "reserved": 99500032,
+        "max_reserve": 99500032
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 4,
+      "source": "image-1.png",
+      "host_pid": 37544,
+      "sr_pid": 32108,
+      "memory": {
+        "private_bytes": 375181312,
+        "working_set_bytes": 327131136,
+        "free_physical_bytes": 40500879360,
+        "free_commit_bytes": 32180609024
+      },
+      "python_bytes": 38483370,
+      "python_peak_bytes": 112030141,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6221040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 98,
+        "detached": 27,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 12,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81271070,
+        "committed": 102248448,
+        "reserved": 120020992,
+        "max_reserve": 120020992
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 5,
+      "source": "image-2.png",
+      "host_pid": 49608,
+      "sr_pid": 37444,
+      "memory": {
+        "private_bytes": 366862336,
+        "working_set_bytes": 309616640,
+        "free_physical_bytes": 40491347968,
+        "free_commit_bytes": 32286228480
+      },
+      "python_bytes": 29372180,
+      "python_peak_bytes": 112030141,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4300992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 100,
+        "detached": 29,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 14,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72149002,
+        "committed": 93143040,
+        "reserved": 110895104,
+        "max_reserve": 110895104
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 6,
+      "source": "image-0.png",
+      "host_pid": 50864,
+      "sr_pid": 6408,
+      "memory": {
+        "private_bytes": 358727680,
+        "working_set_bytes": 296198144,
+        "free_physical_bytes": 40500412416,
+        "free_commit_bytes": 32367919104
+      },
+      "python_bytes": 22085724,
+      "python_peak_bytes": 113977075,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 102,
+        "detached": 31,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 16,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64861282,
+        "committed": 84914176,
+        "reserved": 101388288,
+        "max_reserve": 101388288
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 7,
+      "source": "image-1.png",
+      "host_pid": 18160,
+      "sr_pid": 50744,
+      "memory": {
+        "private_bytes": 376336384,
+        "working_set_bytes": 327909376,
+        "free_physical_bytes": 40465059840,
+        "free_commit_bytes": 32118214656
+      },
+      "python_bytes": 38507632,
+      "python_peak_bytes": 113977075,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6221040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 104,
+        "detached": 35,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 18,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81169766,
+        "committed": 103395328,
+        "reserved": 120033280,
+        "max_reserve": 120033280
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 8,
+      "source": "image-2.png",
+      "host_pid": 4896,
+      "sr_pid": 50752,
+      "memory": {
+        "private_bytes": 367820800,
+        "working_set_bytes": 311422976,
+        "free_physical_bytes": 40533618688,
+        "free_commit_bytes": 32354713600
+      },
+      "python_bytes": 29463686,
+      "python_peak_bytes": 113977075,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 106,
+        "detached": 37,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 20,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72124318,
+        "committed": 95215616,
+        "reserved": 110915584,
+        "max_reserve": 110915584
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 9,
+      "source": "image-0.png",
+      "host_pid": 45016,
+      "sr_pid": 21112,
+      "memory": {
+        "private_bytes": 361230336,
+        "working_set_bytes": 298663936,
+        "free_physical_bytes": 39803928576,
+        "free_commit_bytes": 32175783936
+      },
+      "python_bytes": 22108928,
+      "python_peak_bytes": 114000204,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764944,
+          "count": 3
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922937,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 109,
+        "detached": 39,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 22,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64832531,
+        "committed": 87617536,
+        "reserved": 101466112,
+        "max_reserve": 101466112
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 10,
+      "source": "image-1.png",
+      "host_pid": 48612,
+      "sr_pid": 45332,
+      "memory": {
+        "private_bytes": 378810368,
+        "working_set_bytes": 330776576,
+        "free_physical_bytes": 39375679488,
+        "free_commit_bytes": 30546137088
+      },
+      "python_bytes": 38534077,
+      "python_peak_bytes": 114000204,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6220992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 111,
+        "detached": 41,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 24,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81262451,
+        "committed": 106098688,
+        "reserved": 119984128,
+        "max_reserve": 119984128
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 11,
+      "source": "image-2.png",
+      "host_pid": 46464,
+      "sr_pid": 50540,
+      "memory": {
+        "private_bytes": 371204096,
+        "working_set_bytes": 315154432,
+        "free_physical_bytes": 39556087808,
+        "free_commit_bytes": 31739215872
+      },
+      "python_bytes": 29490171,
+      "python_peak_bytes": 114000204,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 113,
+        "detached": 43,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 26,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72218523,
+        "committed": 96993280,
+        "reserved": 110813184,
+        "max_reserve": 110813184
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 12,
+      "source": "image-0.png",
+      "host_pid": 45532,
+      "sr_pid": 5572,
+      "memory": {
+        "private_bytes": 364290048,
+        "working_set_bytes": 301604864,
+        "free_physical_bytes": 39976058880,
+        "free_commit_bytes": 31829413888
+      },
+      "python_bytes": 22135678,
+      "python_peak_bytes": 114027103,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2765040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 115,
+        "detached": 45,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 28,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64861979,
+        "committed": 89235456,
+        "reserved": 101396480,
+        "max_reserve": 101396480
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 13,
+      "source": "image-1.png",
+      "host_pid": 16880,
+      "sr_pid": 26940,
+      "memory": {
+        "private_bytes": 377974784,
+        "working_set_bytes": 329916416,
+        "free_physical_bytes": 40040685568,
+        "free_commit_bytes": 31666536448
+      },
+      "python_bytes": 38558070,
+      "python_peak_bytes": 114027103,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6221040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 117,
+        "detached": 47,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 30,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81282611,
+        "committed": 106164224,
+        "reserved": 119971840,
+        "max_reserve": 119971840
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 14,
+      "source": "image-2.png",
+      "host_pid": 42152,
+      "sr_pid": 48244,
+      "memory": {
+        "private_bytes": 372047872,
+        "working_set_bytes": 315551744,
+        "free_physical_bytes": 40043872256,
+        "free_commit_bytes": 31797284864
+      },
+      "python_bytes": 29515576,
+      "python_peak_bytes": 114027103,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 119,
+        "detached": 50,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 32,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72187882,
+        "committed": 97058816,
+        "reserved": 110886912,
+        "max_reserve": 110886912
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 15,
+      "source": "image-0.png",
+      "host_pid": 36100,
+      "sr_pid": 48272,
+      "memory": {
+        "private_bytes": 364863488,
+        "working_set_bytes": 302166016,
+        "free_physical_bytes": 40144678912,
+        "free_commit_bytes": 32000909312
+      },
+      "python_bytes": 22160188,
+      "python_peak_bytes": 114051224,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764944,
+          "count": 3
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 121,
+        "detached": 52,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 34,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 1,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64830786,
+        "committed": 89899008,
+        "reserved": 101310464,
+        "max_reserve": 101310464
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 16,
+      "source": "image-1.png",
+      "host_pid": 45032,
+      "sr_pid": 27272,
+      "memory": {
+        "private_bytes": 379478016,
+        "working_set_bytes": 332050432,
+        "free_physical_bytes": 40025923584,
+        "free_commit_bytes": 31616880640
+      },
+      "python_bytes": 38649030,
+      "python_peak_bytes": 114051224,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6220992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 124,
+        "detached": 54,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 36,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 2,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81401017,
+        "committed": 107712512,
+        "reserved": 120041472,
+        "max_reserve": 120041472
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 17,
+      "source": "image-2.png",
+      "host_pid": 35752,
+      "sr_pid": 41924,
+      "memory": {
+        "private_bytes": 373641216,
+        "working_set_bytes": 317825024,
+        "free_physical_bytes": 40062029824,
+        "free_commit_bytes": 31824363520
+      },
+      "python_bytes": 29474311,
+      "python_peak_bytes": 114051224,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4300992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 126,
+        "detached": 56,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 38,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 2,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72221883,
+        "committed": 98607104,
+        "reserved": 110870528,
+        "max_reserve": 110870528
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 18,
+      "source": "image-0.png",
+      "host_pid": 18192,
+      "sr_pid": 50664,
+      "memory": {
+        "private_bytes": 366424064,
+        "working_set_bytes": 303984640,
+        "free_physical_bytes": 40174010368,
+        "free_commit_bytes": 32052174848
+      },
+      "python_bytes": 22187248,
+      "python_peak_bytes": 114078435,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 128,
+        "detached": 58,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 40,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 2,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64933643,
+        "committed": 92524544,
+        "reserved": 101347328,
+        "max_reserve": 101347328
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 19,
+      "source": "image-1.png",
+      "host_pid": 15932,
+      "sr_pid": 50496,
+      "memory": {
+        "private_bytes": 385421312,
+        "working_set_bytes": 337833984,
+        "free_physical_bytes": 40084824064,
+        "free_commit_bytes": 31712788480
+      },
+      "python_bytes": 38609208,
+      "python_peak_bytes": 114078435,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6221040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 130,
+        "detached": 60,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 42,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 2,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81353667,
+        "committed": 110338048,
+        "reserved": 119975936,
+        "max_reserve": 119975936
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 20,
+      "source": "image-2.png",
+      "host_pid": 8196,
+      "sr_pid": 50820,
+      "memory": {
+        "private_bytes": 376487936,
+        "working_set_bytes": 320577536,
+        "free_physical_bytes": 39957090304,
+        "free_commit_bytes": 31824945152
+      },
+      "python_bytes": 29498956,
+      "python_peak_bytes": 114078435,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 134,
+        "detached": 62,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 44,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72429531,
+        "committed": 101232640,
+        "reserved": 110891008,
+        "max_reserve": 110891008
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 21,
+      "source": "image-0.png",
+      "host_pid": 47616,
+      "sr_pid": 5588,
+      "memory": {
+        "private_bytes": 369795072,
+        "working_set_bytes": 307245056,
+        "free_physical_bytes": 40088051712,
+        "free_commit_bytes": 32081092608
+      },
+      "python_bytes": 22213466,
+      "python_peak_bytes": 114104597,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 136,
+        "detached": 65,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 46,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 65084912,
+        "committed": 94601216,
+        "reserved": 101400576,
+        "max_reserve": 101400576
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 22,
+      "source": "image-1.png",
+      "host_pid": 44108,
+      "sr_pid": 764,
+      "memory": {
+        "private_bytes": 386285568,
+        "working_set_bytes": 338657280,
+        "free_physical_bytes": 39691608064,
+        "free_commit_bytes": 31432806400
+      },
+      "python_bytes": 38634124,
+      "python_peak_bytes": 114104597,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6220992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 138,
+        "detached": 67,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 48,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81502840,
+        "committed": 111034368,
+        "reserved": 119951360,
+        "max_reserve": 119951360
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 23,
+      "source": "image-2.png",
+      "host_pid": 36500,
+      "sr_pid": 30216,
+      "memory": {
+        "private_bytes": 377147392,
+        "working_set_bytes": 321232896,
+        "free_physical_bytes": 39717441536,
+        "free_commit_bytes": 31551647744
+      },
+      "python_bytes": 29589889,
+      "python_peak_bytes": 114104597,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 140,
+        "detached": 69,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72458128,
+        "committed": 101928960,
+        "reserved": 110878720,
+        "max_reserve": 110878720
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 24,
+      "source": "image-0.png",
+      "host_pid": 41432,
+      "sr_pid": 46740,
+      "memory": {
+        "private_bytes": 370061312,
+        "working_set_bytes": 307519488,
+        "free_physical_bytes": 40047292416,
+        "free_commit_bytes": 32047292416
+      },
+      "python_bytes": 22234863,
+      "python_peak_bytes": 114126448,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 142,
+        "detached": 71,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 52,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 65100808,
+        "committed": 94863360,
+        "reserved": 101351424,
+        "max_reserve": 101351424
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 25,
+      "source": "image-1.png",
+      "host_pid": 49496,
+      "sr_pid": 7148,
+      "memory": {
+        "private_bytes": 387706880,
+        "working_set_bytes": 340090880,
+        "free_physical_bytes": 39954964480,
+        "free_commit_bytes": 31658160128
+      },
+      "python_bytes": 38656423,
+      "python_peak_bytes": 114126448,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6221040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 144,
+        "detached": 73,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 54,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81520944,
+        "committed": 112447488,
+        "reserved": 120086528,
+        "max_reserve": 120086528
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 26,
+      "source": "image-2.png",
+      "host_pid": 44276,
+      "sr_pid": 32460,
+      "memory": {
+        "private_bytes": 378466304,
+        "working_set_bytes": 322621440,
+        "free_physical_bytes": 39895285760,
+        "free_commit_bytes": 31667679232
+      },
+      "python_bytes": 29546619,
+      "python_peak_bytes": 114126448,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4300992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 146,
+        "detached": 78,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 56,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72185757,
+        "committed": 103342080,
+        "reserved": 110956544,
+        "max_reserve": 110956544
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 27,
+      "source": "image-0.png",
+      "host_pid": 39200,
+      "sr_pid": 27456,
+      "memory": {
+        "private_bytes": 369762304,
+        "working_set_bytes": 307281920,
+        "free_physical_bytes": 40046211072,
+        "free_commit_bytes": 32039948288
+      },
+      "python_bytes": 22255880,
+      "python_peak_bytes": 114147020,
+      "collected": 107,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 691200,
+      "dlss_cache_bytes": 2764800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 2764944,
+          "count": 3
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 2764896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 691296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 691296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 148,
+        "detached": 80,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 58,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 64893813,
+        "committed": 94658560,
+        "reserved": 101429248,
+        "max_reserve": 101429248
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 28,
+      "source": "image-1.png",
+      "host_pid": 2408,
+      "sr_pid": 37848,
+      "memory": {
+        "private_bytes": 386912256,
+        "working_set_bytes": 339349504,
+        "free_physical_bytes": 40031612928,
+        "free_commit_bytes": 31819202560
+      },
+      "python_bytes": 38744221,
+      "python_peak_bytes": 114147020,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1555200,
+      "dlss_cache_bytes": 6220800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 6220992,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 6220896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1555296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        }
+      ],
+      "thread_activity": {
+        "started": 150,
+        "detached": 82,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 60,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 81381053,
+        "committed": 111755264,
+        "reserved": 119975936,
+        "max_reserve": 119975936
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    },
+    {
+      "cycle": 29,
+      "source": "image-2.png",
+      "host_pid": 576,
+      "sr_pid": 50356,
+      "memory": {
+        "private_bytes": 377774080,
+        "working_set_bytes": 321937408,
+        "free_physical_bytes": 40344797184,
+        "free_commit_bytes": 31991762944
+      },
+      "python_bytes": 29635028,
+      "python_peak_bytes": 114147020,
+      "collected": 114,
+      "tk_images": 296,
+      "overlay_modules": [
+        "C:\\WINDOWS\\system32\\nvspcap64.dll"
+      ],
+      "source_cache_bytes": 1075200,
+      "dlss_cache_bytes": 4300800,
+      "python_sites": [
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+          "bytes": 4301040,
+          "count": 5
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:330",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9984",
+          "bytes": 4300896,
+          "count": 2
+        },
+        {
+          "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+          "bytes": 1922938,
+          "count": 10
+        },
+        {
+          "site": "<frozen importlib._bootstrap_external>:784",
+          "bytes": 1866851,
+          "count": 14859
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:278",
+          "bytes": 1075368,
+          "count": 4
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:331",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+          "bytes": 1075296,
+          "count": 2
+        },
+        {
+          "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+          "bytes": 1075296,
+          "count": 2
+        }
+      ],
+      "thread_activity": {
+        "started": 152,
+        "detached": 84,
+        "unclassified": 0,
+        "groups": [
+          {
+            "start_address": 140725646707968,
+            "started": 62,
+            "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+            "offset": 183552
+          },
+          {
+            "start_address": 140719456008324,
+            "started": 34,
+            "module": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\cv2\\cv2.pyd",
+            "offset": 61487236
+          },
+          {
+            "start_address": 140725640278816,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+            "offset": 635680
+          },
+          {
+            "start_address": 140725266964432,
+            "started": 1,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 1269712
+          },
+          {
+            "start_address": 140725281216752,
+            "started": 50,
+            "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+            "offset": 15522032
+          },
+          {
+            "start_address": 140725686782352,
+            "started": 4,
+            "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+            "offset": 149904
+          }
+        ]
+      },
+      "native_heap": {
+        "handle": "0x15245b80000",
+        "scope": "default process heap only",
+        "allocated": 72269269,
+        "committed": 102649856,
+        "reserved": 110923776,
+        "max_reserve": 110923776
+      },
+      "composer_lifetime": {
+        "created": 2,
+        "destroyed": 0,
+        "retained_device_refs": 0
+      }
+    }
+  ],
+  "tk_errors": [],
+  "window_destroyed": true,
+  "status": "passed"
+}

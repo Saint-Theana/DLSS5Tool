@@ -1,0 +1,374 @@
+{"event": "starting", "wall": 1792468024.1301262, "pid": 24904}
+{"event": "composer-size", "wall": 1792468032.4804664, "frame": 0, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468032.4814014, "frames": 1, "run_seconds": 1800}
+{"event": "native-progress", "wall": 1792468048.3456552, "frames": 512, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468048.3778977, "frame": 512, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468059.0370305, "frames": 1024, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468059.0613043, "frame": 1024, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468069.4439583, "frames": 1536, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468069.4671578, "frame": 1536, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468079.7586393, "frames": 2048, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468079.7816277, "frame": 2048, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468089.8672528, "frames": 2560, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468089.8900044, "frame": 2560, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468099.7038338, "frames": 3072, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468099.7318876, "frame": 3072, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468109.7188196, "frames": 3584, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468109.7412746, "frame": 3584, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468120.2228496, "frames": 4096, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468120.2504203, "frame": 4096, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468130.3263366, "frames": 4608, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468130.3542016, "frame": 4608, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468140.6553807, "frames": 5120, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468140.6841133, "frame": 5120, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468151.0179887, "frames": 5632, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468151.042028, "frame": 5632, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468160.8996763, "frames": 6144, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468160.9206336, "frame": 6144, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468171.3177488, "frames": 6656, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468171.340187, "frame": 6656, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468181.2414694, "frames": 7168, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468181.2635276, "frame": 7168, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468191.2183542, "frames": 7680, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468191.239402, "frame": 7680, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468201.2131202, "frames": 8192, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468201.238088, "frame": 8192, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468212.5306604, "frames": 8704, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468212.555178, "frame": 8704, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468222.6297424, "frames": 9216, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468222.6580284, "frame": 9216, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468232.469634, "frames": 9728, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468232.494227, "frame": 9728, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468242.5050948, "frames": 10240, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468242.5288072, "frame": 10240, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468252.372636, "frames": 10752, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468252.3954031, "frame": 10752, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468262.2244287, "frames": 11264, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468262.249109, "frame": 11264, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468272.0953386, "frames": 11776, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468272.1189075, "frame": 11776, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468281.9255774, "frames": 12288, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468281.9469864, "frame": 12288, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468291.9826217, "frames": 12800, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468292.0100157, "frame": 12800, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468303.031039, "frames": 13312, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468303.0566573, "frame": 13312, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468314.7410219, "frames": 13824, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468314.762568, "frame": 13824, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468324.6659892, "frames": 14336, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468324.6895103, "frame": 14336, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468334.4373655, "frames": 14848, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468334.460554, "frame": 14848, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468344.2747123, "frames": 15360, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468344.299231, "frame": 15360, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468354.1749601, "frames": 15872, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468354.1968827, "frame": 15872, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468364.4208715, "frames": 16384, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468364.4440217, "frame": 16384, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468374.144722, "frames": 16896, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468374.1687593, "frame": 16896, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468384.1265106, "frames": 17408, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468384.149688, "frame": 17408, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468394.1200333, "frames": 17920, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468394.1431959, "frame": 17920, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468403.8099086, "frames": 18432, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468403.8335307, "frame": 18432, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468413.5414784, "frames": 18944, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468413.5638688, "frame": 18944, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468423.2060685, "frames": 19456, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468423.22858, "frame": 19456, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468433.0313895, "frames": 19968, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468433.054555, "frame": 19968, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468442.936991, "frames": 20480, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468442.9591858, "frame": 20480, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468452.6025465, "frames": 20992, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468452.6256914, "frame": 20992, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468462.3069437, "frames": 21504, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468462.3290446, "frame": 21504, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468472.0157855, "frames": 22016, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468472.0402846, "frame": 22016, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468481.783026, "frames": 22528, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468481.8055885, "frame": 22528, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468491.482757, "frames": 23040, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468491.5048776, "frame": 23040, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468501.2177448, "frames": 23552, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468501.2397556, "frame": 23552, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468510.926513, "frames": 24064, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468510.9489322, "frame": 24064, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468520.7434776, "frames": 24576, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468520.7656946, "frame": 24576, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468530.5462246, "frames": 25088, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468530.568948, "frame": 25088, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468540.466929, "frames": 25600, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468540.4904337, "frame": 25600, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468550.2611027, "frames": 26112, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468550.2875366, "frame": 26112, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468560.8319552, "frames": 26624, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468560.8559268, "frame": 26624, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468570.6459923, "frames": 27136, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468570.6687715, "frame": 27136, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468580.4716916, "frames": 27648, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468580.498084, "frame": 27648, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468590.2658012, "frames": 28160, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468590.2877657, "frame": 28160, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468600.1615603, "frames": 28672, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468600.1859858, "frame": 28672, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468609.8875582, "frames": 29184, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468609.9095392, "frame": 29184, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468619.726019, "frames": 29696, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468619.7508485, "frame": 29696, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468629.5066104, "frames": 30208, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468629.5282922, "frame": 30208, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468639.1396508, "frames": 30720, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468639.1621203, "frame": 30720, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468648.8404858, "frames": 31232, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468648.8625512, "frame": 31232, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468658.5430672, "frames": 31744, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468658.5671911, "frame": 31744, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468668.187113, "frames": 32256, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468668.2099605, "frame": 32256, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468677.6213303, "frames": 32768, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468677.642922, "frame": 32768, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468687.023432, "frames": 33280, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468687.0447783, "frame": 33280, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468696.3511984, "frames": 33792, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468696.3734453, "frame": 33792, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468705.6440876, "frames": 34304, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468705.6659172, "frame": 34304, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468714.981192, "frames": 34816, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468715.002986, "frame": 34816, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468724.3255894, "frames": 35328, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468724.3467176, "frame": 35328, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468733.810147, "frames": 35840, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468733.8305476, "frame": 35840, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468743.1940749, "frames": 36352, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468743.2162025, "frame": 36352, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468752.5383346, "frames": 36864, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468752.5595922, "frame": 36864, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468761.9426515, "frames": 37376, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468761.9646206, "frame": 37376, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468771.5443008, "frames": 37888, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468771.565914, "frame": 37888, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468780.9895437, "frames": 38400, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468781.0117075, "frame": 38400, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468790.406775, "frames": 38912, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468790.4295423, "frame": 38912, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468799.9742305, "frames": 39424, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468799.9971614, "frame": 39424, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468809.4426904, "frames": 39936, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468809.4641852, "frame": 39936, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468818.817604, "frames": 40448, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468818.8395014, "frame": 40448, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468828.1955376, "frames": 40960, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468828.2186055, "frame": 40960, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468837.612584, "frames": 41472, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468837.6346297, "frame": 41472, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468846.9851553, "frames": 41984, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468847.0073297, "frame": 41984, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468856.3924716, "frames": 42496, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468856.4153368, "frame": 42496, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468865.7852745, "frames": 43008, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468865.8073997, "frame": 43008, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468875.189211, "frames": 43520, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468875.2106183, "frame": 43520, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468884.6840613, "frames": 44032, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468884.7054265, "frame": 44032, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468894.069866, "frames": 44544, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468894.0916188, "frame": 44544, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468903.4269683, "frames": 45056, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468903.448569, "frame": 45056, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468912.888561, "frames": 45568, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468912.910144, "frame": 45568, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468922.2818692, "frames": 46080, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468922.305097, "frame": 46080, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468931.6691053, "frames": 46592, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468931.6920645, "frame": 46592, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468941.057387, "frames": 47104, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468941.0795405, "frame": 47104, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468951.3269308, "frames": 47616, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468951.3528829, "frame": 47616, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468961.1509464, "frames": 48128, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468961.1725996, "frame": 48128, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468970.5587888, "frames": 48640, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468970.5807502, "frame": 48640, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468979.9869702, "frames": 49152, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468980.010331, "frame": 49152, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468989.427024, "frames": 49664, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468989.4493725, "frame": 49664, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792468999.3986406, "frames": 50176, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792468999.422642, "frame": 50176, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469009.2753072, "frames": 50688, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469009.2972887, "frame": 50688, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469019.2303245, "frames": 51200, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469019.2528338, "frame": 51200, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469028.7304616, "frames": 51712, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469028.752548, "frame": 51712, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469038.2017815, "frames": 52224, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469038.2232153, "frame": 52224, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469047.757583, "frames": 52736, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469047.780073, "frame": 52736, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469057.2882466, "frames": 53248, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469057.3098145, "frame": 53248, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469066.6059759, "frames": 53760, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469066.6276019, "frame": 53760, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469076.1037388, "frames": 54272, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469076.1267745, "frame": 54272, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469085.4215531, "frames": 54784, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469085.4431038, "frame": 54784, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469094.8083944, "frames": 55296, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469094.8300214, "frame": 55296, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469104.287887, "frames": 55808, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469104.3096235, "frame": 55808, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469113.754804, "frames": 56320, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469113.7765324, "frame": 56320, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469123.1332583, "frames": 56832, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469123.1545029, "frame": 56832, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469132.4772286, "frames": 57344, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469132.4991064, "frame": 57344, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469141.856736, "frames": 57856, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469141.8784623, "frame": 57856, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469151.2181394, "frames": 58368, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469151.2402666, "frame": 58368, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469160.5887303, "frames": 58880, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469160.6104217, "frame": 58880, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469169.9305775, "frames": 59392, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469169.9523594, "frame": 59392, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469179.429142, "frames": 59904, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469179.450894, "frame": 59904, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469188.8168247, "frames": 60416, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469188.8385754, "frame": 60416, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469198.22226, "frames": 60928, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469198.2441995, "frame": 60928, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469207.6196365, "frames": 61440, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469207.6412683, "frame": 61440, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469217.013792, "frames": 61952, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469217.035552, "frame": 61952, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469226.3883243, "frames": 62464, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469226.4096656, "frame": 62464, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469235.7360656, "frames": 62976, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469235.7574196, "frame": 62976, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469245.0870109, "frames": 63488, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469245.10867, "frame": 63488, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469254.4303606, "frames": 64000, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469254.452287, "frame": 64000, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469263.9856894, "frames": 64512, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469264.0076175, "frame": 64512, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469273.451642, "frames": 65024, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469273.4737077, "frame": 65024, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469282.82804, "frames": 65536, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469282.849492, "frame": 65536, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469292.1849604, "frames": 66048, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469292.2076855, "frame": 66048, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469301.5742188, "frames": 66560, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469301.5955608, "frame": 66560, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469310.9560554, "frames": 67072, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469310.9782703, "frame": 67072, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469320.382106, "frames": 67584, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469320.404589, "frame": 67584, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469329.7885087, "frames": 68096, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469329.8099675, "frame": 68096, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469339.1750855, "frames": 68608, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469339.1971264, "frame": 68608, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469348.5624304, "frames": 69120, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469348.584605, "frame": 69120, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469357.9049845, "frames": 69632, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469357.9264572, "frame": 69632, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469367.2395098, "frames": 70144, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469367.2612927, "frame": 70144, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469376.5804756, "frames": 70656, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469376.6030393, "frame": 70656, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469385.9632523, "frames": 71168, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469385.9853988, "frame": 71168, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469395.3928905, "frames": 71680, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469395.414503, "frame": 71680, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469404.9095695, "frames": 72192, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469404.9313588, "frame": 72192, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469414.2563004, "frames": 72704, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469414.2778597, "frame": 72704, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469423.6436365, "frames": 73216, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469423.664952, "frame": 73216, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469433.05161, "frames": 73728, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469433.0729885, "frame": 73728, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469442.535391, "frames": 74240, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469442.55703, "frame": 74240, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469451.917629, "frames": 74752, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469451.940109, "frame": 74752, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469461.2740297, "frames": 75264, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469461.2956357, "frame": 75264, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469470.6254342, "frames": 75776, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469470.6470666, "frame": 75776, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469480.0262372, "frames": 76288, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469480.0481553, "frame": 76288, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469489.482612, "frames": 76800, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469489.5045002, "frame": 76800, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469498.9854069, "frames": 77312, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469499.0084782, "frame": 77312, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469508.3889346, "frames": 77824, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469508.4117723, "frame": 77824, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469517.793271, "frames": 78336, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469517.815556, "frame": 78336, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469527.2087646, "frames": 78848, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469527.2298625, "frame": 78848, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469536.6252928, "frames": 79360, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469536.646682, "frame": 79360, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469546.017039, "frames": 79872, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469546.039576, "frame": 79872, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469555.4494324, "frames": 80384, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469555.4715078, "frame": 80384, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469565.0325098, "frames": 80896, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469565.0543835, "frame": 80896, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469574.5586603, "frames": 81408, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469574.5808375, "frame": 81408, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469584.0222464, "frames": 81920, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469584.044482, "frame": 81920, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469593.4752393, "frames": 82432, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469593.4972463, "frame": 82432, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469602.8934982, "frames": 82944, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469602.9151163, "frame": 82944, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469612.4162676, "frames": 83456, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469612.4395766, "frame": 83456, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469621.9956305, "frames": 83968, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469622.0177152, "frame": 83968, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469631.5764577, "frames": 84480, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469631.5986001, "frame": 84480, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469641.0902116, "frames": 84992, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469641.1123717, "frame": 84992, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469650.5465508, "frames": 85504, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469650.5680013, "frame": 85504, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469660.006091, "frames": 86016, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469660.0276706, "frame": 86016, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469669.4362595, "frames": 86528, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469669.4574325, "frame": 86528, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469678.8605983, "frames": 87040, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469678.8825033, "frame": 87040, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469688.30292, "frames": 87552, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469688.3260264, "frame": 87552, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469697.7864478, "frames": 88064, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469697.8085132, "frame": 88064, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469707.3816838, "frames": 88576, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469707.4030843, "frame": 88576, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469716.8122897, "frames": 89088, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469716.8339155, "frame": 89088, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469726.146857, "frames": 89600, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469726.1702292, "frame": 89600, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469735.5867639, "frames": 90112, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469735.6087635, "frame": 90112, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469745.0062983, "frames": 90624, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469745.0279825, "frame": 90624, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469754.37647, "frames": 91136, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469754.398627, "frame": 91136, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469763.8224962, "frames": 91648, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469763.8445644, "frame": 91648, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469773.1572182, "frames": 92160, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469773.178608, "frame": 92160, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469782.4608827, "frames": 92672, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469782.4823198, "frame": 92672, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469791.7683995, "frames": 93184, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469791.7899566, "frame": 93184, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469801.1573796, "frames": 93696, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469801.1788554, "frame": 93696, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469810.5897026, "frames": 94208, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469810.612828, "frame": 94208, "width": 1920, "height": 1080}
+{"event": "native-progress", "wall": 1792469819.985578, "frames": 94720, "run_seconds": 1800}
+{"event": "composer-size", "wall": 1792469820.007537, "frame": 94720, "width": 1920, "height": 1080}
+{"event": "closed", "wall": 1792469824.7187307}

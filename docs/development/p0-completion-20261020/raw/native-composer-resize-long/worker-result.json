@@ -1,0 +1,13 @@
+{
+  "case": "native-composer",
+  "scale": 2,
+  "frames": 94957,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "composer",
+  "created": 1,
+  "destroyed": 1,
+  "retained_device_refs": 0,
+  "status": "passed"
+}

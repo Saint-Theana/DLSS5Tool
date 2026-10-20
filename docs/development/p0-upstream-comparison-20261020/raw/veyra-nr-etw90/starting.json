@@ -1,0 +1,15 @@
+{
+  "pid": 19724,
+  "wall": 1792472980.015158,
+  "command": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+    "--smoke-seconds",
+    "90",
+    "--native",
+    "--no-fg",
+    "--nr",
+    "--nr-community",
+    "--no-sr",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\source.png"
+  ]
+}

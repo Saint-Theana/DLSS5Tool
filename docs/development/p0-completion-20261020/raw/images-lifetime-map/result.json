@@ -1,0 +1,709 @@
+{
+  "status": "failed",
+  "case": "images",
+  "run_arguments": {
+    "task": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020",
+    "case": "images",
+    "label": "lifetime-map",
+    "frames": 32,
+    "cycles": 12,
+    "scale": 2,
+    "multiplier": 1,
+    "enhance": true,
+    "native_width": 320,
+    "idle_seconds": 0,
+    "run_seconds": 0,
+    "hdr": false,
+    "disable_extensions": false,
+    "simulate_pressure": false,
+    "trim_heaps": false,
+    "vsr_host": null,
+    "trace_gui": true,
+    "gui_idle_cycle": 0,
+    "device_work": false,
+    "device_compute": false,
+    "device_readback": false,
+    "device_timing": false,
+    "device_cuda": false,
+    "timeout": 600,
+    "worker": false
+  },
+  "processing_and_exit_passed": false,
+  "long_term_memory_plateau_verified": false,
+  "elapsed_seconds": 42.457,
+  "child_exit_code": 1,
+  "safety_error": null,
+  "peak_tree_private_bytes": 2233470976,
+  "peak_tree_working_set_bytes": 1581842432,
+  "observed_processes": [
+    {
+      "pid": 46948,
+      "parent": 34992,
+      "name": "python.exe",
+      "created": 134369385421275584,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 823296,
+      "working_set_bytes": 4878336,
+      "handles": 54
+    },
+    {
+      "pid": 11316,
+      "parent": 46948,
+      "name": "conhost.exe",
+      "created": 134369385421365989,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1232896,
+      "working_set_bytes": 8601600,
+      "handles": 101
+    },
+    {
+      "pid": 48536,
+      "parent": 46948,
+      "name": "python.exe",
+      "created": 134369385421638546,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 120381440,
+      "working_set_bytes": 188551168,
+      "handles": 662
+    },
+    {
+      "pid": 47860,
+      "parent": 48536,
+      "name": "cmd.exe",
+      "created": 134369385434913545,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "private_bytes": 2813952,
+      "working_set_bytes": 4894720,
+      "handles": 48
+    },
+    {
+      "pid": 49084,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385447764570,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 18116608,
+      "working_set_bytes": 34582528,
+      "handles": 223
+    },
+    {
+      "pid": 9040,
+      "parent": 49084,
+      "name": "conhost.exe",
+      "created": 134369385447872730,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1286144,
+      "working_set_bytes": 8585216,
+      "handles": 99
+    },
+    {
+      "pid": 49480,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385453345334,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 352567296,
+      "working_set_bytes": 210239488,
+      "handles": 551
+    },
+    {
+      "pid": 45444,
+      "parent": 49480,
+      "name": "nvngx_update.exe",
+      "created": 134369385467201483,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 33189888,
+      "working_set_bytes": 42967040,
+      "handles": 170
+    },
+    {
+      "pid": 44328,
+      "parent": 45444,
+      "name": "conhost.exe",
+      "created": 134369385467712204,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8380416,
+      "handles": 99
+    },
+    {
+      "pid": 44760,
+      "parent": 49480,
+      "name": "nvngx_update.exe",
+      "created": 134369385468427677,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 12255232,
+      "working_set_bytes": 23117824,
+      "handles": 178
+    },
+    {
+      "pid": 37456,
+      "parent": 49480,
+      "name": "nvngx_update.exe",
+      "created": 134369385468520684,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 35672064,
+      "working_set_bytes": 45789184,
+      "handles": 189
+    },
+    {
+      "pid": 3536,
+      "parent": 44760,
+      "name": "conhost.exe",
+      "created": 134369385468533821,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1347584,
+      "working_set_bytes": 8503296,
+      "handles": 99
+    },
+    {
+      "pid": 23036,
+      "parent": 49480,
+      "name": "nvngx_update.exe",
+      "created": 134369385468631090,
+      "private_bytes": 1953792,
+      "working_set_bytes": 14905344,
+      "handles": 0
+    },
+    {
+      "pid": 45144,
+      "parent": 37456,
+      "name": "conhost.exe",
+      "created": 134369385468646556,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1261568,
+      "working_set_bytes": 8441856,
+      "handles": 99
+    },
+    {
+      "pid": 45976,
+      "parent": 23036,
+      "name": "conhost.exe",
+      "created": 134369385468762450,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1351680,
+      "working_set_bytes": 8916992,
+      "handles": 66
+    },
+    {
+      "pid": 42908,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385475115966,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 831430656,
+      "working_set_bytes": 593645568,
+      "handles": 662
+    },
+    {
+      "pid": 24384,
+      "parent": 42908,
+      "name": "python.exe",
+      "created": 134369385482163214,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 19165184,
+      "working_set_bytes": 41648128,
+      "handles": 239
+    },
+    {
+      "pid": 47920,
+      "parent": 24384,
+      "name": "conhost.exe",
+      "created": 134369385482285950,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1290240,
+      "working_set_bytes": 8617984,
+      "handles": 99
+    },
+    {
+      "pid": 5264,
+      "parent": 42908,
+      "name": "nvngx_update.exe",
+      "created": 134369385550552373,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 34074624,
+      "working_set_bytes": 46596096,
+      "handles": 171
+    },
+    {
+      "pid": 48492,
+      "parent": 5264,
+      "name": "conhost.exe",
+      "created": 134369385550970052,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 8380416,
+      "handles": 99
+    },
+    {
+      "pid": 38596,
+      "parent": 42908,
+      "name": "nvngx_update.exe",
+      "created": 134369385552747707,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 46264320,
+      "working_set_bytes": 59117568,
+      "handles": 190
+    },
+    {
+      "pid": 2524,
+      "parent": 42908,
+      "name": "nvngx_update.exe",
+      "created": 134369385552882346,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24489984,
+      "working_set_bytes": 35311616,
+      "handles": 179
+    },
+    {
+      "pid": 43800,
+      "parent": 38596,
+      "name": "conhost.exe",
+      "created": 134369385552889058,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1261568,
+      "working_set_bytes": 8392704,
+      "handles": 99
+    },
+    {
+      "pid": 46712,
+      "parent": 2524,
+      "name": "conhost.exe",
+      "created": 134369385553018454,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8392704,
+      "handles": 99
+    },
+    {
+      "pid": 38716,
+      "parent": 42908,
+      "name": "nvngx_update.exe",
+      "created": 134369385553018805,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 48541696,
+      "working_set_bytes": 61399040,
+      "handles": 190
+    },
+    {
+      "pid": 12912,
+      "parent": 42908,
+      "name": "nvngx_update.exe",
+      "created": 134369385553231571,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24530944,
+      "working_set_bytes": 35274752,
+      "handles": 179
+    },
+    {
+      "pid": 20812,
+      "parent": 38716,
+      "name": "conhost.exe",
+      "created": 134369385553242612,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1277952,
+      "working_set_bytes": 8404992,
+      "handles": 99
+    },
+    {
+      "pid": 47244,
+      "parent": 12912,
+      "name": "conhost.exe",
+      "created": 134369385553444966,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1261568,
+      "working_set_bytes": 8458240,
+      "handles": 99
+    },
+    {
+      "pid": 39628,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385567078467,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 839909376,
+      "working_set_bytes": 597762048,
+      "handles": 662
+    },
+    {
+      "pid": 40000,
+      "parent": 39628,
+      "name": "python.exe",
+      "created": 134369385573859368,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 47566848,
+      "working_set_bytes": 42250240,
+      "handles": 227
+    },
+    {
+      "pid": 46276,
+      "parent": 40000,
+      "name": "conhost.exe",
+      "created": 134369385573983415,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1282048,
+      "working_set_bytes": 8577024,
+      "handles": 99
+    },
+    {
+      "pid": 37880,
+      "parent": 39628,
+      "name": "nvngx_update.exe",
+      "created": 134369385642539670,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 50548736,
+      "working_set_bytes": 63270912,
+      "handles": 190
+    },
+    {
+      "pid": 42056,
+      "parent": 37880,
+      "name": "conhost.exe",
+      "created": 134369385643087934,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 8404992,
+      "handles": 99
+    },
+    {
+      "pid": 47724,
+      "parent": 39628,
+      "name": "nvngx_update.exe",
+      "created": 134369385644357628,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 36134912,
+      "working_set_bytes": 49483776,
+      "handles": 190
+    },
+    {
+      "pid": 5656,
+      "parent": 39628,
+      "name": "nvngx_update.exe",
+      "created": 134369385644487512,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 4845568,
+      "working_set_bytes": 17674240,
+      "handles": 65
+    },
+    {
+      "pid": 40532,
+      "parent": 39628,
+      "name": "nvngx_update.exe",
+      "created": 134369385644618070,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 22876160,
+      "working_set_bytes": 34099200,
+      "handles": 179
+    },
+    {
+      "pid": 31288,
+      "parent": 5656,
+      "name": "conhost.exe",
+      "created": 134369385644665090,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1343488,
+      "working_set_bytes": 8470528,
+      "handles": 99
+    },
+    {
+      "pid": 37472,
+      "parent": 47724,
+      "name": "conhost.exe",
+      "created": 134369385644684428,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8425472,
+      "handles": 99
+    },
+    {
+      "pid": 42608,
+      "parent": 39628,
+      "name": "nvngx_update.exe",
+      "created": 134369385644760407,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24616960,
+      "working_set_bytes": 35753984,
+      "handles": 187
+    },
+    {
+      "pid": 48136,
+      "parent": 40532,
+      "name": "conhost.exe",
+      "created": 134369385644775627,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1355776,
+      "working_set_bytes": 8515584,
+      "handles": 99
+    },
+    {
+      "pid": 11040,
+      "parent": 42608,
+      "name": "conhost.exe",
+      "created": 134369385645321176,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8429568,
+      "handles": 99
+    },
+    {
+      "pid": 2064,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385709619236,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 432328704,
+      "working_set_bytes": 233324544,
+      "handles": 551
+    },
+    {
+      "pid": 37220,
+      "parent": 2064,
+      "name": "nvngx_update.exe",
+      "created": 134369385725907925,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 51089408,
+      "working_set_bytes": 63791104,
+      "handles": 189
+    },
+    {
+      "pid": 25776,
+      "parent": 37220,
+      "name": "conhost.exe",
+      "created": 134369385726443864,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8388608,
+      "handles": 99
+    },
+    {
+      "pid": 42420,
+      "parent": 2064,
+      "name": "nvngx_update.exe",
+      "created": 134369385727417740,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24543232,
+      "working_set_bytes": 35164160,
+      "handles": 178
+    },
+    {
+      "pid": 37292,
+      "parent": 2064,
+      "name": "nvngx_update.exe",
+      "created": 134369385727539358,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 50999296,
+      "working_set_bytes": 63733760,
+      "handles": 189
+    },
+    {
+      "pid": 8396,
+      "parent": 42420,
+      "name": "conhost.exe",
+      "created": 134369385727555557,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1261568,
+      "working_set_bytes": 8404992,
+      "handles": 99
+    },
+    {
+      "pid": 5868,
+      "parent": 2064,
+      "name": "nvngx_update.exe",
+      "created": 134369385727681304,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24551424,
+      "working_set_bytes": 35311616,
+      "handles": 178
+    },
+    {
+      "pid": 27072,
+      "parent": 37292,
+      "name": "conhost.exe",
+      "created": 134369385727697463,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 8441856,
+      "handles": 99
+    },
+    {
+      "pid": 46200,
+      "parent": 5868,
+      "name": "conhost.exe",
+      "created": 134369385727829939,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 8429568,
+      "handles": 99
+    },
+    {
+      "pid": 36552,
+      "parent": 48536,
+      "name": "python.exe",
+      "created": 134369385735024024,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 1010941952,
+      "working_set_bytes": 621957120,
+      "handles": 662
+    },
+    {
+      "pid": 1560,
+      "parent": 36552,
+      "name": "python.exe",
+      "created": 134369385741457129,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 46489600,
+      "working_set_bytes": 42520576,
+      "handles": 228
+    },
+    {
+      "pid": 7852,
+      "parent": 1560,
+      "name": "conhost.exe",
+      "created": 134369385741588787,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 8589312,
+      "handles": 99
+    },
+    {
+      "pid": 45652,
+      "parent": 36552,
+      "name": "nvngx_update.exe",
+      "created": 134369385809018550,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 4894720,
+      "working_set_bytes": 17772544,
+      "handles": 65
+    },
+    {
+      "pid": 16504,
+      "parent": 45652,
+      "name": "conhost.exe",
+      "created": 134369385809400322,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1347584,
+      "working_set_bytes": 8462336,
+      "handles": 99
+    },
+    {
+      "pid": 21316,
+      "parent": 36552,
+      "name": "nvngx_update.exe",
+      "created": 134369385810876637,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 36126720,
+      "working_set_bytes": 49360896,
+      "handles": 190
+    },
+    {
+      "pid": 6484,
+      "parent": 36552,
+      "name": "nvngx_update.exe",
+      "created": 134369385810995483,
+      "private_bytes": 81920,
+      "working_set_bytes": 36864,
+      "handles": 0
+    },
+    {
+      "pid": 49072,
+      "parent": 21316,
+      "name": "conhost.exe",
+      "created": 134369385811021143,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1282048,
+      "working_set_bytes": 8433664,
+      "handles": 99
+    },
+    {
+      "pid": 39524,
+      "parent": 36552,
+      "name": "nvngx_update.exe",
+      "created": 134369385811132005,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 36179968,
+      "working_set_bytes": 49418240,
+      "handles": 190
+    },
+    {
+      "pid": 24064,
+      "parent": 6484,
+      "name": "conhost.exe",
+      "created": 134369385811149603,
+      "private_bytes": 77824,
+      "working_set_bytes": 32768,
+      "handles": 0
+    },
+    {
+      "pid": 26828,
+      "parent": 36552,
+      "name": "nvngx_update.exe",
+      "created": 134369385811273515,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24506368,
+      "working_set_bytes": 35254272,
+      "handles": 179
+    },
+    {
+      "pid": 44808,
+      "parent": 39524,
+      "name": "conhost.exe",
+      "created": 134369385811299328,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 8404992,
+      "handles": 99
+    },
+    {
+      "pid": 41716,
+      "parent": 26828,
+      "name": "conhost.exe",
+      "created": 134369385811446362,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1277952,
+      "working_set_bytes": 8417280,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792464942.264114,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4463.0,
+          "free_mib": 7535.0,
+          "utilization_percent": 29.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792464962.2918105,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4967.0,
+          "free_mib": 7031.0,
+          "utilization_percent": 30.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792464982.3670316,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5071.0,
+          "free_mib": 6927.0,
+          "utilization_percent": 7.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 161,
+  "scope": "synthetic media; actual existing runtimes and production processing"
+}

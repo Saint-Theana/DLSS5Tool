@@ -1,0 +1,32 @@
+{
+  "verified": 83,
+  "sources_verified": [
+    {
+      "file": "scripts\\verify_upstream_p0.py",
+      "sha256": "d434b287640d073878a9c401eccaa7601da562c66bff771225e7a7bb85feee1b",
+      "bytes": 15415
+    },
+    {
+      "file": "scripts\\summarize_upstream_p0.py",
+      "sha256": "b435bbd9e71241c1667ee7c9bbfc56dafa12ad0a25c9c01ad04233c8ae8359cf",
+      "bytes": 8394
+    },
+    {
+      "file": "scripts\\native_external_thread_activity.cpp",
+      "sha256": "8d3854861b0f8f2f6760d42bfb9be77a2661b612e02b9646fbc6ab70648eb3e5",
+      "bytes": 5679
+    },
+    {
+      "file": "scripts\\native_thread_activity.cpp",
+      "sha256": "84cb453f95853a80f995170fbfd2b992b40b9b995314bbb29f274322a028a59b",
+      "bytes": 2045
+    },
+    {
+      "file": "scripts\\profile_thread_activity.py",
+      "sha256": "b8130e55594a11710830730c5998e30c587cb7e71cbdebda3ef08a73a2b11c3b",
+      "bytes": 1822
+    }
+  ],
+  "original_package_files_verified": 52,
+  "all_passed": true
+}

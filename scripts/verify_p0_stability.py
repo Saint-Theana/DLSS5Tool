@@ -59,12 +59,34 @@ def checked_path(path):
     return absolute
 
 
-def run_manifest():
+def run_manifest(task=None):
     names = ['dlss5tool/'+name+'.py' for name in ('adapter_probe','adapter_inventory','process_job','dlss_engine',
         'gui','dlss_host_process','memory_budget','super_resolution','render_cache',
-        'shared_render_preview','residual_composition','__main__')]
+        'shared_render_preview','residual_composition','local_preview_composition','preview_jobs','__main__')]
     names += ['gui.py','scripts/verify_p0_stability.py','scripts/profile_native_frame_memory.py',
-              'scripts/inspect_native_allocations.py']
+              'scripts/inspect_native_allocations.py','scripts/profile_thread_activity.py',
+              'scripts/native_thread_activity.cpp','scripts/native_heap_trace.cpp']
+    names += ['native/realtime/'+name for name in ('quality_bridge.cpp','quality.cpp','quality.h',
+        'quality_gpu_output.cpp','quality_gpu_output.h')]
+    names += ['scripts/prepare_realtime_build.py', 'third_party/realtime/veyra/shaders/NrResidualComposite.hlsl',
+              'third_party/realtime/veyra/shaders/NrProtection.hlsli']
+    if task is not None:
+        for flag, binary in (('THREAD_ACTIVITY','native_thread_activity.dll'),
+                             ('HEAP_TRACE','native_heap_trace.dll')):
+            if os.environ.get('DLSS5TOOL_P0_'+flag) == '1':
+                name = str(checked_path(task/binary).relative_to(ROOT))
+                if name not in names:
+                    names.append(name)
+        candidate = os.environ.get('DLSS5TOOL_P0_COMPOSER_HOST')
+        if candidate:
+            path = checked_path(candidate)
+            if not path.is_relative_to(task) or not path.is_file() or path.suffix.lower() != '.dll':
+                raise ValueError('Composer candidate must be a regular task-local DLL')
+            names.append(str(path.relative_to(ROOT)))
+            for name in ('quality_bridge.cpp','quality.cpp','quality.h'):
+                source = checked_path(path.parent/name)
+                if source.is_file():
+                    names.append(str(source.relative_to(ROOT)))
     names += ['runtime/'+name+'.dll' for name in ('vsr_host','nvngx_vsr','nvngx_dlssnr','dlssnr_host_v2','dlss5_quality')]
     manifest = []
     for name in names:
@@ -73,7 +95,9 @@ def run_manifest():
             digest = hashlib.file_digest(source,'sha256').hexdigest()
         manifest.append(dict(file=name,bytes=path.stat().st_size,sha256=digest))
     return dict(files=manifest, diagnostic_environment={key:os.environ.get(key) for key in
-        ('DLSS5TOOL_P0_MEMORY_MAP','DLSS5TOOL_P0_HEAP_TRACE','DLSS5TOOL_P0_DISABLE_EXTENSIONS')})
+        ('DLSS5TOOL_P0_MEMORY_MAP','DLSS5TOOL_P0_HEAP_TRACE','DLSS5TOOL_P0_DISABLE_EXTENSIONS',
+         'DLSS5TOOL_P0_THREAD_ACTIVITY',
+         'DLSS5TOOL_P0_COMPOSER_HOST','DLSS5TOOL_DISABLE_NATIVE_COMPOSER')})
 
 
 class Memory:
@@ -171,6 +195,14 @@ def worker(args, work):
     result = {'case': args.case, 'scale': args.scale, 'frames': args.frames,
               'multiplier': args.multiplier, 'enhance': args.enhance,
               'extension_point_policy': EXTENSION_POLICY}
+    candidate = os.environ.get('DLSS5TOOL_P0_COMPOSER_HOST')
+    if candidate:
+        candidate = checked_path(candidate)
+        if (args.case not in ('images','native-composer') or not candidate.is_relative_to(args.task)
+                or not candidate.is_file() or candidate.suffix.lower() != '.dll'):
+            raise ValueError('Composer override requires images/native-composer and a task-local DLL')
+        from dlss5tool import residual_composition
+        residual_composition._native_library_path = lambda: str(candidate)
     manager = None
     try:
         event('starting', pid=os.getpid())
@@ -277,6 +309,12 @@ def gui_images(args, work, config, event):
         raise TimeoutError(str(getattr(app, '_live_error', 'GUI wait timed out')))
 
     cycles = []
+    from scripts.profile_thread_activity import load_counter, read_counter
+    thread_counter = load_counter()
+    gui_inspector = None
+    if args.trace_gui and os.environ.get('DLSS5TOOL_P0_MEMORY_MAP') == '1':
+        from scripts.inspect_native_allocations import Inspector
+        gui_inspector = Inspector()
     try:
         for index in range(args.cycles if args.case == 'images' else 1):
             source = files[index % len(files)]
@@ -312,16 +350,61 @@ def gui_images(args, work, config, event):
                     source_cache_bytes=app._source_cache_bytes, dlss_cache_bytes=app._dlss_cache_bytes,
                     python_sites=[dict(site=str(s.traceback), bytes=s.size, count=s.count)
                         for s in tracemalloc.take_snapshot().statistics('lineno')[:10]])
+                state['thread_activity'] = read_counter(thread_counter)
+                if gui_inspector is not None:
+                    metadata = gui_inspector.snapshot()
+                    state['native_heap'] = metadata['default_heap']
+                    with (work/'gui-frame-memory-regions.jsonl').open('a', encoding='utf-8') as out:
+                        out.write(json.dumps(dict(metadata,cycle=index))+'\n')
+                import ctypes as C
+                kernel = C.WinDLL('kernel32')
+                kernel.GetModuleHandleW.argtypes = [C.c_wchar_p]
+                kernel.GetModuleHandleW.restype = C.c_void_p
+                module = kernel.GetModuleHandleW('dlss5_quality.dll')
+                if module:
+                    library = C.CDLL('dlss5_quality.dll',handle=module)
+                    library.dlss5_quality_lifetime.argtypes = [C.POINTER(C.c_uint64)]
+                    counts = (C.c_uint64*3)()
+                    library.dlss5_quality_lifetime(counts)
+                    state['composer_lifetime'] = dict(created=counts[0],destroyed=counts[1],retained_device_refs=counts[2])
             cycles.append(state)
             event('image-complete', **state)
-            if index == 0 and args.idle_seconds:
+            if index == args.gui_idle_cycle and args.idle_seconds:
+                from scripts.profile_native_frame_memory import start_heap_trace
+                trace, patches = start_heap_trace(work, event)
+                inspector = None
+                if os.environ.get('DLSS5TOOL_P0_MEMORY_MAP') == '1':
+                    from scripts.inspect_native_allocations import Inspector
+                    inspector = Inspector()
+                def observe_idle(number):
+                    from scripts.diagnose_composer_lifetime import memory_snapshot
+                    event('gui-idle-sample', memory=memory_snapshot(), thread_activity=read_counter(thread_counter))
+                    if inspector is not None:
+                        with (work/'gui-frame-memory-regions.jsonl').open('a', encoding='utf-8') as out:
+                            out.write(json.dumps(inspector.snapshot())+'\n')
+                    if trace is not None:
+                        assert trace.trace_dump(str(work/f'native-heap-{number}.jsonl')) == 0
                 event('idle-start', seconds=args.idle_seconds, scope='GUI preview idle')
                 deadline = time.monotonic()+args.idle_seconds
-                while time.monotonic() < deadline:
-                    root.update()
-                    if (work/'cancel.flag').exists():
-                        raise RuntimeError('Supervisor stopped GUI idle test')
-                    time.sleep(.05)
+                checkpoint = time.monotonic()+20
+                number = 0
+                try:
+                    observe_idle(number)
+                    while time.monotonic() < deadline:
+                        root.update()
+                        if (work/'cancel.flag').exists():
+                            raise RuntimeError('Supervisor stopped GUI idle test')
+                        if time.monotonic() >= checkpoint:
+                            number += 1
+                            observe_idle(number)
+                            checkpoint += 20
+                        time.sleep(.05)
+                    observe_idle('final')
+                finally:
+                    if trace is not None:
+                        restored = trace.trace_end()
+                        event('heap-trace-ended', restored=restored, patches=patches)
+                        assert restored == patches
                 event('idle-end', scope='GUI preview idle')
             until = time.monotonic()+.5
             while time.monotonic() < until:
@@ -361,17 +444,20 @@ def supervise(args, work):
     known, observations, samples, held = {}, {}, [], {}
     gpu_snapshots = []
     start, next_print = time.monotonic(), 0
-    before_manifest = run_manifest()
+    before_manifest = run_manifest(args.task)
     save(work/'run-manifest-before.json',before_manifest)
     safety_error, exit_seen = None, None
     command = [sys.executable, '-B', str(Path(__file__).resolve()), '--task', str(args.task),
         '--label', args.label, '--case', args.case, '--frames', str(args.frames),
         '--cycles', str(args.cycles), '--scale', str(args.scale), '--native-width', str(args.native_width),
+        '--gui-idle-cycle', str(args.gui_idle_cycle),
         '--multiplier', str(args.multiplier),
         '--timeout', str(args.timeout), '--idle-seconds', str(args.idle_seconds),
         '--run-seconds', str(args.run_seconds), '--worker']
     if args.hdr:
         command.append('--hdr')
+    if args.composer_resize:
+        command.append('--composer-resize')
     if not args.enhance:
         command.append('--no-enhance')
     environment = dict(os.environ)
@@ -522,7 +608,7 @@ def supervise(args, work):
                     result['idle_observation'] = dict(samples=len(idle), private_delta_bytes=delta,
                         measured_span_seconds=span, private_bytes_per_second=delta/max(span,.001))
             save(work/'result.json', result)
-            after_manifest = run_manifest()
+            after_manifest = run_manifest(args.task)
             save(work/'run-manifest-after.json',after_manifest)
             save(work/'source-comparison.json',dict(unchanged=before_manifest == after_manifest))
             for handle in held.values():
@@ -549,6 +635,8 @@ def main():
     parser.add_argument('--run-seconds', type=int, default=0,
                         help='Bounded native continuous-processing window, up to 1800 seconds')
     parser.add_argument('--hdr', action='store_true')
+    parser.add_argument('--composer-resize', action='store_true',
+                        help='Diagnostic-only alternate 1080p/896p on one stateless native composer')
     parser.add_argument('--disable-extensions', action='store_true',
                         help='Diagnostic-only per-process legacy extension policy')
     parser.add_argument('--simulate-pressure', action='store_true',
@@ -556,6 +644,8 @@ def main():
     parser.add_argument('--trim-heaps', action='store_true', help='Diagnostic-only LFH cache decommit')
     parser.add_argument('--vsr-host', type=Path, help='Diagnostic-only task-local candidate VSR DLL')
     parser.add_argument('--trace-gui', action='store_true', help='Diagnostic-only GUI heap/Tk image counters')
+    parser.add_argument('--gui-idle-cycle', type=int, default=0,
+                        help='Zero-based image cycle for the diagnostic idle observation')
     parser.add_argument('--device-work', action='store_true', help='One 32x32 D3D11 clear, without project native DLLs')
     parser.add_argument('--device-compute', action='store_true', help='One empty D3D11 compute dispatch, without project native DLLs')
     parser.add_argument('--device-readback', action='store_true', help='One 1080p staging Copy/Map/Unmap; requires --device-work')
@@ -564,9 +654,13 @@ def main():
     parser.add_argument('--timeout', type=int, default=900)
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.composer_resize and args.case != 'native-composer':
+        parser.error('Composer resize control requires native-composer')
     if args.run_seconds and (args.case not in ('native-sr','native-nr','native-composer') or
                             args.idle_seconds or not 1 <= args.run_seconds <= 1800):
         parser.error('Continuous native window requires SR/NR/composer, 1..1800 seconds, no idle window')
+    if not 0 <= args.gui_idle_cycle < args.cycles or args.gui_idle_cycle and args.case != 'images':
+        parser.error('GUI idle cycle must exist within an images run')
     if args.device_work and args.case != 'native-device11':
         parser.error('Minimal device work is limited to native-device11')
     if args.device_compute and (args.case != 'native-device11' or args.device_work):

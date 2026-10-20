@@ -46,13 +46,17 @@ def collect(task, output, *, runtime_only=False, batch_names=None):
     archive = []
     for source in sorted(files):
         relative = source.relative_to(task)
-        selected = (len(relative.parts) == 1 and source.suffix in ('.xml', '.patch', '.json', '.cmd', '.cpp', '.py', '.jsonl', '.log', '.spec', '.ps1') or
+        selected = (len(relative.parts) == 1 and source.suffix in ('.xml', '.patch', '.json', '.cmd', '.cpp', '.h', '.py', '.jsonl', '.log', '.spec', '.ps1') or
                     source.name == 'TASK.md' or
                     len(relative.parts) == 2 and (source.name in CASE_FILES or
                         source.name.endswith('-frame-memory-regions.jsonl') or
-                        source.name.startswith(('native-heap-', 'trace-self-')) and source.suffix == '.jsonl') or
+                        source.name.startswith(('native-heap-', 'native-virtual-', 'trace-self-')) and source.suffix == '.jsonl') or
                     relative.as_posix() == 'logging-candidate/build.cmd' or
-                    relative.parts[0] == 'before' and source.suffix == '.py' or
+                    relative.parts[0] == 'before' and source.suffix in ('.py', '.cpp', '.h') or
+                    relative.parts[0] == 'reuse-candidate' and source.suffix == '.py' or
+                    relative.parts[0] == 'flush-candidate' and relative.name in
+                        ('quality_bridge.cpp','quality.cpp','quality.h','build.cmd',
+                         'VeyraResidual.hlsl','VeyraResidualCS.h') or
                     relative.parts[0] == 'standalone-controls' and source.suffix in ('.json', '.jsonl'))
         if not selected:
             continue
@@ -134,8 +138,14 @@ def collect(task, output, *, runtime_only=False, batch_names=None):
                 'scripts/collect_p0_stability.py', 'scripts/compare_p0_stability.py',
                 'scripts/inspect_native_allocations.py', 'scripts/native_heap_trace.cpp',
                 'scripts/summarize_native_heap_trace.py',
+                'scripts/profile_thread_activity.py', 'scripts/native_thread_activity.cpp',
+                'scripts/analyze_p0_completion.py',
                 'tests/test_gui_module_reload.py',
                 'tests/test_p0_owner_retirement.py', 'tests/test_p0_runtime_pressure.py']
+    tracked += ['native/realtime/'+name for name in
+                ('quality_bridge.cpp','quality.cpp','quality.h','quality_tests.cpp')]
+    tracked += ['dlss5tool/local_preview_composition.py','dlss5tool/preview_jobs.py',
+                'tests/test_preview_composer_reuse.py','tests/test_appearance.py']
     tracked += ['dlss5tool/'+name+'.py' for name in
                 ('adapter_probe', 'adapter_inventory', 'process_job', 'dlss_engine', 'residual_composition', '__main__')]
     tracked += ['gui.py', 'scripts/compare_adapter_isolation.py', 'scripts/verify_adapter_probe_isolation.py',

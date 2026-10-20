@@ -1,0 +1,4697 @@
+[
+  {
+    "wall": 1792472195.5470395,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 83062784,
+      "working_set_bytes": 63369216,
+      "handles": 369
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxilconv.dll",
+          "base": 140722989760512
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472210.3288682,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1136590848,
+      "working_set_bytes": 339226624,
+      "handles": 643
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472225.6260474,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1154256896,
+      "working_set_bytes": 356425728,
+      "handles": 643
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472240.4535658,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1168035840,
+      "working_set_bytes": 370171904,
+      "handles": 646
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472255.8081784,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1180606464,
+      "working_set_bytes": 382558208,
+      "handles": 646
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472270.3877428,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1191280640,
+      "working_set_bytes": 393105408,
+      "handles": 645
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472285.7374587,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1204060160,
+      "working_set_bytes": 405766144,
+      "handles": 648
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472300.6581655,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1215369216,
+      "working_set_bytes": 416890880,
+      "handles": 651
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472315.5576615,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1216413696,
+      "working_set_bytes": 416407552,
+      "handles": 635
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472330.43607,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1184935936,
+      "working_set_bytes": 421847040,
+      "handles": 631
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792472345.7708352,
+    "identity": {
+      "pid": 31048,
+      "parent": 24772,
+      "name": "Veyra.exe",
+      "created": 134369457942931128,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+      "private_bytes": 1200611328,
+      "working_set_bytes": 437129216,
+      "handles": 631
+    },
+    "inventory": {
+      "modules": [
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+          "base": 140699771535360
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "base": 140725686632448
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+          "base": 140725669789696
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+          "base": 140725642067968
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\COMDLG32.dll",
+          "base": 140725661663232
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcp_win.dll",
+          "base": 140725638332416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "base": 140725646524416
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\combase.dll",
+          "base": 140725681389568
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_5.82.26100.8328_none_87eede957a2ccddd\\COMCTL32.dll",
+          "base": 140725097005056
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\RPCRT4.dll",
+          "base": 140725650784256
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+          "base": 140725657337856
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\shcore.dll",
+          "base": 140725656223744
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\msvcrt.dll",
+          "base": 140725652553728
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\USER32.dll",
+          "base": 140725653274624
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\sechost.dll",
+          "base": 140725660942336
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\win32u.dll",
+          "base": 140725646327808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\GDI32.dll",
+          "base": 140725656027136
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\gdi32full.dll",
+          "base": 140725647966208
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll",
+          "base": 140725670641664
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SHELL32.dll",
+          "base": 140725673066496
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\IMM32.dll",
+          "base": 140725681127424
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\SETUPAPI.dll",
+          "base": 140725662711808
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll",
+          "base": 140725660024832
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll",
+          "base": 140725685125120
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\ole32.dll",
+          "base": 140725667495936
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\WINTRUST.dll",
+          "base": 140725639053312
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "base": 140725639643136
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+          "base": 140725585510400
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+          "base": 140725372583936
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d12.dll",
+          "base": 140724296679424
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxgi.dll",
+          "base": 140725593440256
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\d3d11.dll",
+          "base": 140725590884352
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dwmapi.dll",
+          "base": 140725572075520
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WSOCK32.dll",
+          "base": 140724149682176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\bcrypt.dll",
+          "base": 140725637152768
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+          "base": 140725631123456
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WINHTTP.dll",
+          "base": 140725390213120
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avformat-63.dll",
+          "base": 140719884075008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\AVRT.dll",
+          "base": 140725594750976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MFPlat.DLL",
+          "base": 140725056569344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avcodec-63.dll",
+          "base": 140719453241344
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swresample-7.dll",
+          "base": 140725111357440
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\swscale-10.dll",
+          "base": 140723470729216
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\VERSION.dll",
+          "base": 140725630795776
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\avutil-61.dll",
+          "base": 140723426951168
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UxTheme.dll",
+          "base": 140725571026944
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.9711_none_6ef2ab963dc761f3\\gdiplus.dll",
+          "base": 140725099102208
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptsp.dll",
+          "base": 140725627256832
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+          "base": 140725634334720
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Secur32.dll",
+          "base": 140725569781760
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ncrypt.dll",
+          "base": 140725629222912
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\VCRUNTIME140.dll",
+          "base": 140725111226368
+        },
+        {
+          "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\dav1d.dll",
+          "base": 140719882043392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dbgcore.DLL",
+          "base": 140725184299008
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\SSPICLI.DLL",
+          "base": 140725619785728
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cfgmgr32.DLL",
+          "base": 140725633744896
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+          "base": 140725633613824
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+          "base": 140725641281536
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\RTWorkQ.DLL",
+          "base": 140725151596544
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\NTASN1.dll",
+          "base": 140725628895232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\MSASN1.dll",
+          "base": 140725627715584
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+          "base": 140725616902144
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\MSCTF.dll",
+          "base": 140725658517504
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\IconCodecService.dll",
+          "base": 140724397211648
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\WindowsCodecs.dll",
+          "base": 140725551431680
+        },
+        {
+          "path": "C:\\WINDOWS\\WinSxS\\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.9711_none_3e07b8b0e334e825\\comctl32.DLL",
+          "base": 140725101068288
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\TextShaping.dll",
+          "base": 140724533788672
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Windows.Storage.dll",
+          "base": 140725597896704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dxcore.dll",
+          "base": 140725572403200
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\directxdatabasehelper.dll",
+          "base": 140725539897344
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3D12Core.dll",
+          "base": 140719878504448
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptnet.dll",
+          "base": 140725514665984
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\cryptbase.dll",
+          "base": 140725625290752
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\wldp.dll",
+          "base": 140725626077184
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\drvstore.dll",
+          "base": 140725511585792
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\devobj.dll",
+          "base": 140725633351680
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\imagehlp.dll",
+          "base": 140725649997824
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\rsaenh.dll",
+          "base": 140725616246784
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\nvspcap64.dll",
+          "base": 140723445563392
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\profapi.dll",
+          "base": 140725637349376
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvldumdx.dll",
+          "base": 140725515190272
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvgpucomp64.dll",
+          "base": 140725391458304
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\NvMemMapStoragex.dll",
+          "base": 140725372846080
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "base": 140725265694720
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvppex.dll",
+          "base": 140723076464640
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\D3DSCache.dll",
+          "base": 140724702674944
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+          "base": 140725623521280
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\clbcatq.dll",
+          "base": 140725655240704
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\gpapi.dll",
+          "base": 140725623324672
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\_nvngx.dll",
+          "base": 140722989694976
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvapi64.dll",
+          "base": 140725201600512
+        },
+        {
+          "path": "C:\\WINDOWS\\system32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvapi64_impl.dll",
+          "base": 140725194719232
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\ntmarta.dll",
+          "base": 140725618147328
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\nvcuda.dll",
+          "base": 140719682093056
+        },
+        {
+          "path": "C:\\ProgramData\\NVIDIA\\NGX\\models\\vsr\\versions\\67072\\files\\160_E658703.bin",
+          "base": 140719270789120
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "base": 140723473940480
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "base": 140719441379328
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdxgdmal64.dll",
+          "base": 140723470008320
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "base": 140723442352128
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvobjectloader64.dll",
+          "base": 140719426306048
+        },
+        {
+          "path": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryBridge64.dll",
+          "base": 140724754382848
+        },
+        {
+          "path": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "base": 140725184561152
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\dcomp.dll",
+          "base": 140725558706176
+        },
+        {
+          "path": "C:\\WINDOWS\\SYSTEM32\\Microsoft.Internal.WarpPal.dll",
+          "base": 140725553790976
+        }
+      ]
+    }
+  }
+]

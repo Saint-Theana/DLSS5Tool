@@ -1,0 +1,265 @@
+{
+  "matched_original_manifest": true,
+  "files": [
+    {
+      "path": "avcodec-63.dll",
+      "sha256": "22d1321b8d31161e7cb0920ec08c43b51884436a066e62c70a0c564acd4c813e",
+      "bytes": 19354112
+    },
+    {
+      "path": "avformat-63.dll",
+      "sha256": "497e346d967c8d6855d26c666104e52e61dcfbc6e8fe8edd4126f01e790113e6",
+      "bytes": 3660800
+    },
+    {
+      "path": "avutil-61.dll",
+      "sha256": "c46ee9c04e8dada7beb4aeee12f93a5d147d758e990f204141aa163d427b9688",
+      "bytes": 1226752
+    },
+    {
+      "path": "dav1d.dll",
+      "sha256": "38e09f960822a081fc46fc296fb3ef5f841d1a6c15a39f20684c2f9d88a9fc52",
+      "bytes": 1850880
+    },
+    {
+      "path": "msvcp140.dll",
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "bytes": 557728
+    },
+    {
+      "path": "swresample-7.dll",
+      "sha256": "a6a6876291dfa42e5609261df2212038a2c7536efca0372e3899e12f8073b339",
+      "bytes": 187392
+    },
+    {
+      "path": "swscale-10.dll",
+      "sha256": "70492dbbf9ba209d28f10535d48b1fb2ab91edd4cbcc439e3bbda5fb06fccb38",
+      "bytes": 1662976
+    },
+    {
+      "path": "vcruntime140.dll",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "bytes": 124544
+    },
+    {
+      "path": "vcruntime140_1.dll",
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "bytes": 49792
+    },
+    {
+      "path": "Veyra.exe",
+      "sha256": "92ac81b14ab050895b33fd2a822c179f65c4a42bd89c6c00772b89c5684d7121",
+      "bytes": 13662720
+    },
+    {
+      "path": "shaders/FlowAdapt.dxil",
+      "sha256": "d962bf3e819a1c7b61bd858eae3eefafc79934d62b6f69deb00c78605834c959",
+      "bytes": 2152
+    },
+    {
+      "path": "shaders/GpuDisLuma.dxil",
+      "sha256": "cccc839119a138000d5ddd6a2ee6460d65100092c932154659d49c60aad79373",
+      "bytes": 2064
+    },
+    {
+      "path": "shaders/GpuDisValidate.dxil",
+      "sha256": "6b77a0bb36d57c62decdd29ff8890d46b2fafaefc531e7c6e1dd78b1eb5ece1c",
+      "bytes": 3280
+    },
+    {
+      "path": "shaders/HdrVideoSrRestore.dxil",
+      "sha256": "cc6e0101fa00670fc49da98ff6e64b2613818295ba806d626866f57280d8a571",
+      "bytes": 3300
+    },
+    {
+      "path": "shaders/NrDownsample.dxil",
+      "sha256": "322a686dfa66ca4c9ccb0b9a76cc1eb10e7f88617326ad7e14fccc6f11a2d9d5",
+      "bytes": 2676
+    },
+    {
+      "path": "shaders/NrResidualComposite.dxil",
+      "sha256": "0b496de3fb89aa098a365c0c4907bf1cccc5ce02630f1212f2b5b043c8f5cebb",
+      "bytes": 3868
+    },
+    {
+      "path": "shaders/NrTemporal.dxil",
+      "sha256": "de74c9611d2032ad07c28e4f98f84e14d6521bef297414f163f07dbf13c84a4c",
+      "bytes": 10864
+    },
+    {
+      "path": "shaders/Nv12Upload.dxil",
+      "sha256": "6498a3a8f3c95c1f2b558df0e678408c389ed83be18636c9119225c7ca5d88dc",
+      "bytes": 2236
+    },
+    {
+      "path": "shaders/NvofDensify.dxil",
+      "sha256": "e88a6bfabb17061873072d1f16d88e02669c5875041a474c6fd75ae12ba43544",
+      "bytes": 3880
+    },
+    {
+      "path": "shaders/PackedCaptureToLinear.dxil",
+      "sha256": "d16ef3bd8571eb1233e82cea72e3c6dabcbd14ac16c1ba14e01d9096da614171",
+      "bytes": 10540
+    },
+    {
+      "path": "shaders/ParityDecode.dxil",
+      "sha256": "30da6a17fb5710e65a93d68b571536b6a704c6bf1ecbbf6d2f671a886c73590c",
+      "bytes": 5060
+    },
+    {
+      "path": "shaders/ParityEncode.dxil",
+      "sha256": "ce5ea3b5e499c2115dbd2d3ccb880e78d768055a611698c22b56316f200df4b9",
+      "bytes": 3136
+    },
+    {
+      "path": "shaders/PresentBlit_ps.dxil",
+      "sha256": "63d4fc5d3a2ed5ba3bccffc39b0e63c15bff852e77b74603efcda6b48f3d9d91",
+      "bytes": 6132
+    },
+    {
+      "path": "shaders/PresentBlit_vs.dxil",
+      "sha256": "b7b68fbbc58eae69aa1ebd7a59f57d60168b8d82b31ba866e60ae8034c5243de",
+      "bytes": 1760
+    },
+    {
+      "path": "shaders/PresentMotion.dxil",
+      "sha256": "30100592b155d5d38865bd9e08f3bb9fd64dfdadb3e107d1f9c09934673bd994",
+      "bytes": 2684
+    },
+    {
+      "path": "shaders/RgbToLinear.dxil",
+      "sha256": "f2a56a11b04ee9c4ad2ab25077ec390bf311e68dbefc15e248bc53a20e32bc52",
+      "bytes": 15720
+    },
+    {
+      "path": "shaders/RgbToNv12.dxil",
+      "sha256": "448ef518c20a8c7136be4ba42f6ecd33942d9b23a59ade93643bc4f738f493b5",
+      "bytes": 5392
+    },
+    {
+      "path": "shaders/ScaleBlit.dxil",
+      "sha256": "177827120ee4ef97029cee07d6b62db6a5b348db43104d12d19c5ac4f115a954",
+      "bytes": 4396
+    },
+    {
+      "path": "shaders/YuvToLinearRgb.dxil",
+      "sha256": "0e3b8a076fb2a550fbcdb6a5a52e25a2f813fe1a084ba7e2ef5835ca32e3208e",
+      "bytes": 18080
+    },
+    {
+      "path": "shaders/Yuy2ToLinear.dxil",
+      "sha256": "e07194155eada096f9c4f5909fe0b9824b7851a3b158e5c332559438f23758a0",
+      "bytes": 9320
+    },
+    {
+      "path": "shaders/dis/dis_d2_gradient.dxil",
+      "sha256": "2973f618087dd86f7fe0137d78f2ce0320a6e7e3965d4ac0e15967475ca95033",
+      "bytes": 5780
+    },
+    {
+      "path": "shaders/dis/dis_d3_structure_hor.dxil",
+      "sha256": "3ef6de54d7fc96d3bcf9179115e4852e9d5140e00e1aca642400eab1279c8f6b",
+      "bytes": 4548
+    },
+    {
+      "path": "shaders/dis/dis_d3_structure_hor_stride3.dxil",
+      "sha256": "82c9fbb6f10a76adfa2451b67f5d14537b6dea1c28cefc392760e21c44c82d82",
+      "bytes": 4556
+    },
+    {
+      "path": "shaders/dis/dis_d3_structure_ver.dxil",
+      "sha256": "c6b399a4aa4c02cb1d4e50656bd5fe8295274b4b0b22308f6f2a454eb6ce640e",
+      "bytes": 4964
+    },
+    {
+      "path": "shaders/dis/dis_d3_structure_ver_stride3.dxil",
+      "sha256": "c26c3334f02b14126b6deb8f1d6455d7ac5fce4fd1a303ca45f17239904db3d2",
+      "bytes": 4968
+    },
+    {
+      "path": "shaders/dis/dis_native_gray.dxil",
+      "sha256": "e85a142692623f2b1aa1027f8dd838f1a5c70310343e3295516b4e89b7b59970",
+      "bytes": 4544
+    },
+    {
+      "path": "shaders/dis/dis_native_luma.dxil",
+      "sha256": "cead5c378f574619b1690c38a6604ad6929058fe6a6b038c2df531ea4a15e1c7",
+      "bytes": 3780
+    },
+    {
+      "path": "shaders/dis/dis_native_rgba_gray.dxil",
+      "sha256": "0a3baf87b81a609871c8a2f817292f8c470c5930167c0c78b1abd18685879139",
+      "bytes": 3856
+    },
+    {
+      "path": "shaders/dis/dis_perfect_area.dxil",
+      "sha256": "8b2447b90231197803bb0e2e862555c621cd804aeabcfc057160070ec4ddb0b1",
+      "bytes": 6120
+    },
+    {
+      "path": "shaders/dis/dis_perfect_densify_exact.dxil",
+      "sha256": "8c496b2ee1dd4d3a32ea4832997dd30dc47ebc9bb3849e3cde1208ca8202121b",
+      "bytes": 6592
+    },
+    {
+      "path": "shaders/dis/dis_perfect_final.dxil",
+      "sha256": "91cc4ef3bd8d0ad474f84606fe1863f5cd178baab687248dd122bcc2c662bd06",
+      "bytes": 4536
+    },
+    {
+      "path": "shaders/dis/dis_perfect_patch_parallel.dxil",
+      "sha256": "58cf7161e18019791458c88adf5830b7bde9d1a2901dad8ca993cfe88e4293e1",
+      "bytes": 14148
+    },
+    {
+      "path": "shaders/dis/dis_perfect_upsample_ipp.dxil",
+      "sha256": "9b4e5b229abd09acf1cbfb8f07834d15c05a9e49959c28ca9535a3fbcf9486df",
+      "bytes": 4516
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_deriv1_cpu.dxil",
+      "sha256": "72e1e1967fbf26d056c8e597cc247b13b72b457c8cc3ebd102305c213379458d",
+      "bytes": 7612
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_deriv2.dxil",
+      "sha256": "015041ab052abc230172050f9123a0c7cc06239d44b885d75b2804d3e6c436ed",
+      "bytes": 4292
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_sor_exact.dxil",
+      "sha256": "96b297c8e1a72c6c55fd4c92a79ff545d1035bef54021ec0ea75ca3ecc017aee",
+      "bytes": 5580
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_system_exact.dxil",
+      "sha256": "958e39e3ad46e7fd7e739af82874ad5b9e72327c5dbb4937bd0a507c96c8c68a",
+      "bytes": 8268
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_update.dxil",
+      "sha256": "4b3a51617233c6de6dc76450be7986b38ca2c5c43ed8c684e3f0d54996d9f958",
+      "bytes": 3824
+    },
+    {
+      "path": "shaders/dis/dis_perfect_vr_zero.dxil",
+      "sha256": "d9cde262b09c9085b7570b1f61f5252eeb56708283ff0f0d504e485c972679ce",
+      "bytes": 3220
+    },
+    {
+      "path": "runtime/config/ngx-local.json",
+      "sha256": "a768d74b16aedf98da1c85ba2696c5085aefa1499566ad6641028cc91091d54d",
+      "bytes": 151
+    },
+    {
+      "path": "runtime/experimental/nvngx_vsr.dll",
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed",
+      "bytes": 19140144
+    },
+    {
+      "path": "runtime/experimental/nr-community/nvngx_dlssnr.dll",
+      "sha256": "984bee0f775c277d5829b8fd6775d53a7b0f75396c852b3aaf06a18375f81014",
+      "bytes": 165840496
+    }
+  ]
+}

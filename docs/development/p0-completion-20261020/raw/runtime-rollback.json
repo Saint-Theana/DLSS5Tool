@@ -1,0 +1,8 @@
+{
+  "original_file": "F:\\project\\DLSS5Tool\\runtime\\dlss5_quality.dll",
+  "rollback_file": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020\\rollback\\dlss5_quality.dll",
+  "sha256": "32ea271a83786b1533f4074cb29534cf866b4778d68b0b823dbf4c5dbaf544b6",
+  "bytes": 155648,
+  "retention": "Verified original runtime; preserve until explicit cleanup approval, review 2026-10-27",
+  "replacement_not_yet_performed": true
+}

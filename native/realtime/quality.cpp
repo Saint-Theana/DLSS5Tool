@@ -4,15 +4,19 @@
 #include "telemetry.h"
 
 namespace Realtime {
-void ResidualComposite::Reset() noexcept {
-    shader = nullptr;
-    constants = nullptr;
+void ResidualComposite::ResetBindings() noexcept {
     result = nullptr;
     uav = nullptr;
     outputUav = nullptr;
     outputTexture = nullptr;
     for (auto& view : views) view = nullptr;
     textures = {};
+}
+
+void ResidualComposite::Reset() noexcept {
+    ResetBindings();
+    shader = nullptr;
+    constants = nullptr;
     for (auto& slot : timing) {
         slot.disjoint = nullptr;
         slot.begin = nullptr;

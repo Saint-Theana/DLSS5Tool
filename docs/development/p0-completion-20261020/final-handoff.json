@@ -1,0 +1,46 @@
+{
+  "base_commit": "6e3db90fff16fbacd35845ea272e394b62003f81",
+  "formal_gates": [
+    {
+      "label": "native-composer-fixed-idle300",
+      "memory_gate": true,
+      "processing_and_exit": true
+    },
+    {
+      "label": "native-composer-resize-long",
+      "memory_gate": true,
+      "processing_and_exit": true
+    },
+    {
+      "label": "images-native-fix30",
+      "memory_gate": true,
+      "processing_and_exit": true
+    }
+  ],
+  "archive_verified_files": 356,
+  "distinct_python_tests": 220,
+  "unresolved_tests": [],
+  "native_gpu_tests": 23,
+  "color_parity_cases": 20,
+  "nvenc_handoff_profiles": 3,
+  "canonical_runtime_load_checks": 4,
+  "runtime_sha256": "238b763e7481e8bcfabd5313a73b4901edeeebe6265ed9ded81f4eee24ba97be",
+  "notes_unchanged": true,
+  "notes_sha256": "81219f153105161f4f5ddf4f14cd29e658aac6f7c75c50f47e805bf2de95ae8c",
+  "cleanup": {
+    "disk_free_before_bytes": 63572959232,
+    "process_audit": "raw/retirement-audit.json",
+    "deleted_logical_bytes": 200379997.0,
+    "disk_free_after_bytes": 63773818880,
+    "deleted_files": 529,
+    "rollback_sha256": "32EA271A83786B1533F4074CB29534CF866B4778D68B0B823DBF4C5DBAF544B6",
+    "deleted_top_level_targets": 104,
+    "net_disk_free_delta_bytes": 200859648,
+    "archive_verified_files": 356,
+    "preserved_reason": "Task registration and verified original DLL rollback; review 2026-10-27, no automatic deletion",
+    "remaining_task_logical_bytes": 158512.0
+  },
+  "p0_complete": false,
+  "remaining": "VSR/NR native growth in the current NVIDIA environment; service restart did not remove it. Original full workload still pending.",
+  "source_manifest_verified": true
+}

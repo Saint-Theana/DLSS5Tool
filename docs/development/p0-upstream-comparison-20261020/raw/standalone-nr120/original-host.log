@@ -1,0 +1,10 @@
+=== dlssnr_host init (real SDK) w=640 h=360 preset=1 ===
+dlssnr=00007FFBA9920000 init_Ext=00007FFBA9935DF0 create=00007FFBA9935750 eval=00007FFBA99359C0 release=00007FFBA9936040
+Init_with_ProjectID -> 0x00000001
+caller hook installed slot=00007FFBA99CC080
+Init_Ext(0x876232C) -> 0x00000001
+=== create Feature 18 w=640 h=360 preset=1 ===
+AllocateParameters -> 0x00000001 params=000001BCBEFB7DE0
+CreateFeature(18) -> 0x00000001 feature=000001BCC0505440
+Feature 18 created OK
+EvaluateFeature -> 0x00000001

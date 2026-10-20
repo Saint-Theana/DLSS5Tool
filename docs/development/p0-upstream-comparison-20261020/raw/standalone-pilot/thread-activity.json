@@ -1,0 +1,764 @@
+[
+  {
+    "wall": 1792471925.3756838,
+    "thread_activity": {
+      "started": 19,
+      "detached": 1,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 2,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471926.3767078,
+    "thread_activity": {
+      "started": 3631,
+      "detached": 3612,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 3611,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471927.3779583,
+    "thread_activity": {
+      "started": 7153,
+      "detached": 7134,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 7133,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471928.3798406,
+    "thread_activity": {
+      "started": 10747,
+      "detached": 10727,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 10727,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471929.3810153,
+    "thread_activity": {
+      "started": 14173,
+      "detached": 14153,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 14153,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471930.3822095,
+    "thread_activity": {
+      "started": 17487,
+      "detached": 17468,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 17467,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471931.3834548,
+    "thread_activity": {
+      "started": 21035,
+      "detached": 21014,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 21015,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471932.3848937,
+    "thread_activity": {
+      "started": 24515,
+      "detached": 24496,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 24495,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471933.3863728,
+    "thread_activity": {
+      "started": 27577,
+      "detached": 27558,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 27557,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471934.387617,
+    "thread_activity": {
+      "started": 30761,
+      "detached": 30742,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 30741,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471935.3890646,
+    "thread_activity": {
+      "started": 33941,
+      "detached": 33922,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 33921,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  },
+  {
+    "wall": 1792471936.3904548,
+    "thread_activity": {
+      "started": 37275,
+      "detached": 37256,
+      "unclassified": 0,
+      "groups": [
+        {
+          "start_address": 140725640278816,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\CRYPT32.dll",
+          "offset": 635680
+        },
+        {
+          "start_address": 140725266964432,
+          "started": 1,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 1269712
+        },
+        {
+          "start_address": 140725281216752,
+          "started": 5,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvwgf2umx.dll",
+          "offset": 15522032
+        },
+        {
+          "start_address": 140725646707968,
+          "started": 4,
+          "module": "C:\\WINDOWS\\System32\\ucrtbase.dll",
+          "offset": 183552
+        },
+        {
+          "start_address": 140725686782352,
+          "started": 2,
+          "module": "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+          "offset": 149904
+        },
+        {
+          "start_address": 140723475330848,
+          "started": 1,
+          "module": "C:\\Program Files\\NVIDIA Corporation\\NvTelemetry\\NvTelemetryAPI64.dll",
+          "offset": 1390368
+        },
+        {
+          "start_address": 140720146022892,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvdiagclt64.dll",
+          "offset": 459244
+        },
+        {
+          "start_address": 140719507650692,
+          "started": 3,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvcuda64.dll",
+          "offset": 5781636
+        },
+        {
+          "start_address": 140725186991376,
+          "started": 37255,
+          "module": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\Display.NvContainer\\NvMessageBus.dll",
+          "offset": 2430224
+        }
+      ]
+    }
+  }
+]

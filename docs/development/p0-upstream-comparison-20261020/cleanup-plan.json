@@ -1,0 +1,39 @@
+{
+  "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+  "logical_bytes": 233152856,
+  "file_count": 141,
+  "targets": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\build-external-thread.cmd",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\build-thread.cmd",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\counter-selftest",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\criteria.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\etw-selftest-admin.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\etw-selftest-final.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\etw-selftest.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\failed-probes.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native-nr-current60",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_external_thread_activity.exe",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_external_thread_activity.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_thread_activity.dll",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_thread_activity.exp",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_thread_activity.lib",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\native_thread_activity.obj",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\reference-copy.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\source.png",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\standalone-nr120",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\standalone-pilot",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\start.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra-nr-etw90",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra-nr-pilot",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra-nr180",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra-off60",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra-vsr120"
+  ],
+  "archived_files_verified": 83,
+  "retirement_audit": "retirement-audit.json",
+  "keep": [
+    "TASK.md"
+  ],
+  "reason": "Original reference inputs remain outside this task; copied binary/fixture/build intermediates reconstructible from source/hash manifest"
+}

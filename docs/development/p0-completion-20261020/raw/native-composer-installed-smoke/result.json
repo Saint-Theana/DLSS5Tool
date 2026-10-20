@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "case": "native-composer",
+  "run_arguments": {
+    "task": "F:\\project\\DLSS5Tool\\tmp\\p0-completion-20261020",
+    "case": "native-composer",
+    "label": "installed-smoke",
+    "frames": 32,
+    "cycles": 12,
+    "scale": 2,
+    "multiplier": 1,
+    "enhance": true,
+    "native_width": 320,
+    "idle_seconds": 0,
+    "run_seconds": 0,
+    "hdr": false,
+    "composer_resize": true,
+    "disable_extensions": false,
+    "simulate_pressure": false,
+    "trim_heaps": false,
+    "vsr_host": null,
+    "trace_gui": false,
+    "gui_idle_cycle": 0,
+    "device_work": false,
+    "device_compute": false,
+    "device_readback": false,
+    "device_timing": false,
+    "device_cuda": false,
+    "timeout": 180,
+    "worker": false
+  },
+  "processing_and_exit_passed": true,
+  "long_term_memory_plateau_verified": false,
+  "elapsed_seconds": 15.234,
+  "child_exit_code": 0,
+  "safety_error": null,
+  "peak_tree_private_bytes": 219422720,
+  "peak_tree_working_set_bytes": 188801024,
+  "observed_processes": [
+    {
+      "pid": 23936,
+      "parent": 46160,
+      "name": "python.exe",
+      "created": 134369435630967115,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 851968,
+      "working_set_bytes": 4890624,
+      "handles": 54
+    },
+    {
+      "pid": 50416,
+      "parent": 23936,
+      "name": "conhost.exe",
+      "created": 134369435631048438,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 8544256,
+      "handles": 100
+    },
+    {
+      "pid": 36384,
+      "parent": 23936,
+      "name": "python.exe",
+      "created": 134369435631304614,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 207892480,
+      "working_set_bytes": 165740544,
+      "handles": 470
+    },
+    {
+      "pid": 15576,
+      "parent": 36384,
+      "name": "python.exe",
+      "created": 134369435637716029,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 21532672,
+      "working_set_bytes": 39878656,
+      "handles": 226
+    },
+    {
+      "pid": 3956,
+      "parent": 15576,
+      "name": "conhost.exe",
+      "created": 134369435637854320,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1277952,
+      "working_set_bytes": 8568832,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792469963.2261934,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4424.0,
+          "free_mib": 7574.0,
+          "utilization_percent": 0.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 59,
+  "scope": "synthetic media; actual existing runtimes and production processing"
+}

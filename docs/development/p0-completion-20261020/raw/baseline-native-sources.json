@@ -1,0 +1,22 @@
+[
+  {
+    "file": "native/realtime/quality.cpp",
+    "source": "6e3db90:native/realtime/quality.cpp",
+    "sha256": "eb926f01687ccba15b0a29543f6050cfb3e27977a6aa966dcf0fdb79c36e3e00"
+  },
+  {
+    "file": "native/realtime/quality.h",
+    "source": "6e3db90:native/realtime/quality.h",
+    "sha256": "0d1d122461a5d59c9482785256f7dd539c537bc6d59ef695a2ae96cc8101d127"
+  },
+  {
+    "file": "native/realtime/quality_bridge.cpp",
+    "source": "6e3db90:native/realtime/quality_bridge.cpp",
+    "sha256": "576c9d4b3257768a8b6c91176e423be62f56b062b4ce76afcecafac043cea660"
+  },
+  {
+    "file": "native/realtime/quality_tests.cpp",
+    "source": "6e3db90:native/realtime/quality_tests.cpp",
+    "sha256": "3bc7ed1271d59d598333459b3dcbf1c834c9cab0a0ac3fbe4615ecace41aee26"
+  }
+]

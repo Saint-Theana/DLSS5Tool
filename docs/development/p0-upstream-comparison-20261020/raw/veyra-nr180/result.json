@@ -1,0 +1,229 @@
+{
+  "arguments": {
+    "task": "tmp\\p0-upstream-comparison-20261020",
+    "label": "veyra-nr180",
+    "reference": "veyra",
+    "effect": "nr",
+    "seconds": 180,
+    "thread_counter": false,
+    "external_close": true,
+    "worker": false
+  },
+  "command": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+    "--smoke-seconds",
+    "180",
+    "--native",
+    "--no-fg",
+    "--nr",
+    "--nr-community",
+    "--no-sr",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\source.png"
+  ],
+  "started_pid": 35168,
+  "exit_code": 0,
+  "elapsed_seconds": 225.63766359999136,
+  "failure": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_upstream_p0.py\", line 209, in supervise\n    raise TimeoutError('Reference did not finish within the bounded window')\nTimeoutError: Reference did not finish within the bounded window\n",
+  "source_and_binary_unchanged": true,
+  "remaining_before_recovery": [
+    {
+      "pid": 35168,
+      "parent": 23860,
+      "name": "Veyra.exe",
+      "created": 134369453838537120,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe"
+    }
+  ],
+  "recovery": [
+    {
+      "pid": 35168,
+      "terminated": true,
+      "error": 0
+    }
+  ],
+  "remaining": [],
+  "root_private_commit_excluding_first_20_seconds": {
+    "samples": 402,
+    "start_median_bytes": 768653312.0,
+    "end_median_bytes": 514230272.0,
+    "delta_bytes": -254423040.0,
+    "measured_span_seconds": 164.7846930027008,
+    "mib_per_minute": -88.34681704787587,
+    "window_medians_bytes": [
+      768653312.0,
+      802332672.0,
+      834957312,
+      862957568.0,
+      514367488
+    ],
+    "window_median_range_bytes": 348590080.0
+  },
+  "plateau_verified": false,
+  "identities": [
+    {
+      "pid": 35168,
+      "parent": 23860,
+      "name": "Veyra.exe",
+      "created": 134369453838537120,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe"
+    },
+    {
+      "pid": 32564,
+      "parent": 35168,
+      "name": "nvngx_update.exe",
+      "created": 134369453858568764,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 23232,
+      "parent": 35168,
+      "name": "nvngx_update.exe",
+      "created": 134369453858665430,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 4316,
+      "parent": 32564,
+      "name": "conhost.exe",
+      "created": 134369453858682842,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 13028,
+      "parent": 35168,
+      "name": "nvngx_update.exe",
+      "created": 134369453858765316,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 50260,
+      "parent": 23232,
+      "name": "conhost.exe",
+      "created": 134369453858785598,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 19724,
+      "parent": 35168,
+      "name": "nvngx_update.exe",
+      "created": 134369453858884798,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe"
+    },
+    {
+      "pid": 19904,
+      "parent": 13028,
+      "name": "conhost.exe",
+      "created": 134369453858897565,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    },
+    {
+      "pid": 16868,
+      "parent": 19724,
+      "name": "conhost.exe",
+      "created": 134369453859012147,
+      "path": "C:\\Windows\\System32\\conhost.exe"
+    }
+  ],
+  "normal_close": {
+    "wall": 1792471964.0189517,
+    "posted": [
+      {
+        "window": 1904996,
+        "posted": true
+      },
+      {
+        "window": 8524868,
+        "posted": true
+      },
+      {
+        "window": 4392834,
+        "posted": true
+      },
+      {
+        "window": 10688376,
+        "posted": true
+      },
+      {
+        "window": 12326586,
+        "posted": true
+      },
+      {
+        "window": 3741428,
+        "posted": true
+      },
+      {
+        "window": 4789662,
+        "posted": true
+      },
+      {
+        "window": 19928208,
+        "posted": true
+      },
+      {
+        "window": 4526666,
+        "posted": true
+      },
+      {
+        "window": 1249186,
+        "posted": true
+      },
+      {
+        "window": 4593922,
+        "posted": true
+      },
+      {
+        "window": 18618630,
+        "posted": true
+      },
+      {
+        "window": 2300114,
+        "posted": true
+      },
+      {
+        "window": 1311450,
+        "posted": true
+      },
+      {
+        "window": 7410670,
+        "posted": true
+      },
+      {
+        "window": 2626546,
+        "posted": true
+      },
+      {
+        "window": 5838346,
+        "posted": true
+      },
+      {
+        "window": 2955760,
+        "posted": true
+      },
+      {
+        "window": 9704610,
+        "posted": true
+      },
+      {
+        "window": 4725028,
+        "posted": true
+      },
+      {
+        "window": 2033928,
+        "posted": true
+      },
+      {
+        "window": 3938378,
+        "posted": true
+      },
+      {
+        "window": 14292158,
+        "posted": true
+      },
+      {
+        "window": 3216826,
+        "posted": true
+      }
+    ]
+  },
+  "instrumentation": "external memory/module sampling; standalone optional local thread counter only"
+}

@@ -109,6 +109,32 @@ int main() {
         auto metrics = ReadMetrics();
         if (!metrics.qualityGpuSamples || !std::isfinite(metrics.qualityGpuP95))
             throw std::runtime_error("asynchronous quality GPU timing missing");
+        const auto timingBeforeResize = metrics.qualityGpuSamples;
+        for (uint32_t width : {7u, 9u, 7u}) {
+            context->ClearState();
+            composite.ResetBindings();
+            context->Flush();
+            auto resizedBase = texture(width,5,base), resizedNr = texture(width,5,changed);
+            auto output = texture(width,5,{}), staging = texture(width,5,{},true);
+            QualitySettings half; half.total = .5f;
+            if (!composite.Draw(device.get(),context.get(),resizedBase.get(),resizedBase.get(),
+                    resizedNr.get(),output.get(),false,true,false,&half))
+                throw std::runtime_error("resize with reused device resources failed");
+            context->CopyResource(staging.get(),output.get());
+            D3D11_MAPPED_SUBRESOURCE mapped{};
+            winrt::check_hresult(context->Map(staging.get(),0,D3D11_MAP_READ,0,&mapped));
+            bool valid = true;
+            for (uint32_t y=0;y<5;++y) for (uint32_t x=0;x<width;++x) {
+                const auto& p = reinterpret_cast<const Pixel*>(static_cast<const uint8_t*>(mapped.pData)+y*mapped.RowPitch)[x];
+                for (int c=0;c<3;++c) valid &= std::abs(p[c]-.45f) < 2e-4f;
+                valid &= std::abs(p[3]-base[3]) < 1e-6f;
+            }
+            context->Unmap(staging.get(),0);
+            if (!valid) throw std::runtime_error("resize retained stale views or pixels");
+            ++tests;
+        }
+        if (ReadMetrics().qualityGpuSamples <= timingBeforeResize)
+            throw std::runtime_error("resize discarded reusable timing queries");
         composite.Reset();
         std::cout << "GPU quality cases: " << tests << " passed\n";
         return 0;

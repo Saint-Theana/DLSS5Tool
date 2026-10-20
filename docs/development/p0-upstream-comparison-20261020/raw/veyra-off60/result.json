@@ -1,0 +1,71 @@
+{
+  "arguments": {
+    "task": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020",
+    "label": "veyra-off60",
+    "reference": "veyra",
+    "effect": "off",
+    "seconds": 60,
+    "thread_counter": false,
+    "external_close": true,
+    "worker": false
+  },
+  "command": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe",
+    "--smoke-seconds",
+    "60",
+    "--native",
+    "--no-fg",
+    "--no-nr",
+    "--no-sr",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\source.png"
+  ],
+  "started_pid": 35740,
+  "exit_code": 0,
+  "elapsed_seconds": 61.014069500000915,
+  "failure": null,
+  "source_and_binary_unchanged": true,
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "remaining": [],
+  "root_private_commit_excluding_first_20_seconds": {
+    "samples": 79,
+    "start_median_bytes": 171999232,
+    "end_median_bytes": 172040192,
+    "delta_bytes": 40960,
+    "measured_span_seconds": 32.58677363395691,
+    "mib_per_minute": 0.0719233522878652,
+    "window_medians_bytes": [
+      171999232,
+      172040192.0,
+      172040192.0,
+      172040192.0,
+      172040192.0
+    ],
+    "window_median_range_bytes": 40960.0
+  },
+  "plateau_verified": false,
+  "identities": [
+    {
+      "pid": 35740,
+      "parent": 9508,
+      "name": "Veyra.exe",
+      "created": 134369457326982470,
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-upstream-comparison-20261020\\veyra\\Veyra.exe"
+    }
+  ],
+  "normal_close": {
+    "wall": 1792472193.0740237,
+    "posted": [
+      {
+        "window": 1836002,
+        "posted": true
+      }
+    ]
+  },
+  "measured_pid": 35740,
+  "measured_window": {
+    "begin_wall": 1792472152.9575331,
+    "end_wall": 1792472193.0740237
+  },
+  "instrumentation": "external memory/module sampling; standalone optional local thread counter only"
+}

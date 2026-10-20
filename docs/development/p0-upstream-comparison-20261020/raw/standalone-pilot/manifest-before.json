@@ -1,0 +1,17 @@
+[
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\dlss5standaloneV2\\dlss_engine.py",
+    "bytes": 7717,
+    "sha256": "0fcf39bbe06e1b294ad5d266fcd6291d906ec05befc57e81025e4440e9763e9d"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\dlss5standaloneV2\\dlssnr_host.dll",
+    "bytes": 54272,
+    "sha256": "9ec879388e573bebbf7886dccbdc885641d945420fdf4bb80bac6c657094160c"
+  },
+  {
+    "path": "F:\\project\\DLSS5Tool\\tmp\\dlss5standaloneV2\\nvngx_dlssnr.dll",
+    "bytes": 165840496,
+    "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650"
+  }
+]
