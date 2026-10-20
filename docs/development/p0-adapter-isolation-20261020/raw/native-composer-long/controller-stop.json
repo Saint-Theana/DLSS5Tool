@@ -1,0 +1,9 @@
+{
+  "reason": "Diagnostic pilot ended before final source freeze: legacy metadata compatibility and continuous cancellation gate corrected",
+  "acceptance_excluded": true,
+  "owned_process": {
+    "pid": 5532,
+    "created": 134369092049113490
+  },
+  "requested_exit_code": 1
+}

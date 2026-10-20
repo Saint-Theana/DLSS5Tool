@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "wall": 1792438929.3685665,
+  "known_identities": 764,
+  "remaining": [],
+  "query_errors": [],
+  "pid_reuse_observed": [
+    {
+      "previous": {
+        "pid": 23072,
+        "parent": 30976,
+        "name": "python.exe",
+        "created": 134369103753042240,
+        "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "private_bytes": 15642624,
+        "working_set_bytes": 31350784,
+        "handles": 223,
+        "case": "images-final"
+      },
+      "current": {
+        "pid": 23072,
+        "parent": 40296,
+        "name": "pwsh.exe",
+        "created": 134369125284531481,
+        "path": "C:\\Users\\PC\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe"
+      },
+      "basis": "creation time differs"
+    },
+    {
+      "previous": {
+        "pid": 23656,
+        "parent": 23716,
+        "name": "nvngx_update.exe",
+        "created": 134369103182277783,
+        "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+        "private_bytes": 36196352,
+        "working_set_bytes": 48140288,
+        "handles": 189,
+        "case": "images-final"
+      },
+      "current": {
+        "pid": 23656,
+        "parent": 23072,
+        "name": "conhost.exe",
+        "created": 134369125285007807,
+        "path": "C:\\Windows\\System32\\conhost.exe"
+      },
+      "basis": "creation time differs"
+    },
+    {
+      "previous": {
+        "pid": 44488,
+        "parent": 39052,
+        "name": "conhost.exe",
+        "created": 134369102827797695,
+        "path": "C:\\Windows\\System32\\conhost.exe",
+        "private_bytes": 1269760,
+        "working_set_bytes": 7495680,
+        "handles": 99,
+        "case": "images-final"
+      },
+      "current": {
+        "pid": 44488,
+        "parent": 1516,
+        "name": "svchost.exe",
+        "query_error": 5
+      },
+      "basis": "Original exact identity was absent at completed supervisor exit; Toolhelp now reports a different executable image and parent. Current creation-time query is denied and is not treated as absence."
+    },
+    {
+      "previous": {
+        "pid": 45300,
+        "parent": 47184,
+        "name": "conhost.exe",
+        "created": 134369101647514722,
+        "path": "C:\\Windows\\System32\\conhost.exe",
+        "private_bytes": 1273856,
+        "working_set_bytes": 7495680,
+        "handles": 99,
+        "case": "images-final"
+      },
+      "current": {
+        "pid": 45300,
+        "parent": 24312,
+        "name": "msedge.exe",
+        "query_error": 5
+      },
+      "basis": "Original exact identity was absent at completed supervisor exit; Toolhelp now reports a different executable image and parent. Current creation-time query is denied and is not treated as absence."
+    }
+  ],
+  "scope": "Read-only identity audit; one protected reused PID is recorded explicitly, supported by prior supervisor exit and different executable image/parent; no processes terminated"
+}

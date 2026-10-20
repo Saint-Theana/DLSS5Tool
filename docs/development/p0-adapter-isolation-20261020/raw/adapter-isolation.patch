@@ -1,0 +1,1433 @@
+--- before/dlss5tool/adapter_inventory.py
++++ final/dlss5tool/adapter_inventory.py
+@@ -0,0 +1,159 @@
++"""Native adapter inventory; imported only by the isolated probe for queries.
++
++Pure record/structure helpers are safe in a processing process. Query functions
++must be used by adapter_probe.worker_main, never by GUI/NR/composition callers.
++"""
++import ctypes
++import os
++
++_NVIDIA_VENDOR_ID = 0x10DE
++_ADAPTER_SOFTWARE = 1
++_ADAPTER_D3D12_LEVEL_11 = 2
++
++class _NativeAdapterInfo(ctypes.Structure):
++    _fields_ = [
++        ("struct_size", ctypes.c_uint32),
++        ("preference_index", ctypes.c_uint32),
++        ("vendor_id", ctypes.c_uint32),
++        ("device_id", ctypes.c_uint32),
++        ("subsys_id", ctypes.c_uint32),
++        ("revision", ctypes.c_uint32),
++        ("flags", ctypes.c_uint32),
++        ("dedicated_video_memory", ctypes.c_uint64),
++        ("luid_high", ctypes.c_int32),
++        ("luid_low", ctypes.c_uint32),
++        ("description", ctypes.c_wchar * 128),
++    ]
++
++
++def _cuda_adapter_luids():
++    """Map physical CUDA devices to DXGI LUIDs without importing CUDA toolkits."""
++    if os.name != "nt":
++        return {}
++    try:
++        cuda = ctypes.WinDLL("nvcuda.dll")
++        cuda.cuInit.argtypes = [ctypes.c_uint]
++        cuda.cuInit.restype = ctypes.c_int
++        if cuda.cuInit(0) != 0:
++            return {}
++        count_fn = getattr(cuda, "cuDeviceGetCount_v2", None) or cuda.cuDeviceGetCount
++        count_fn.argtypes = [ctypes.POINTER(ctypes.c_int)]
++        count_fn.restype = ctypes.c_int
++        count = ctypes.c_int()
++        if count_fn(ctypes.byref(count)) != 0 or count.value < 0 or count.value > 64:
++            return {}
++        cuda.cuDeviceGet.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
++        cuda.cuDeviceGet.restype = ctypes.c_int
++        cuda.cuDeviceGetLuid.argtypes = [
++            ctypes.c_void_p, ctypes.POINTER(ctypes.c_uint), ctypes.c_int,
++        ]
++        cuda.cuDeviceGetLuid.restype = ctypes.c_int
++        bus_fn = getattr(cuda, "cuDeviceGetPCIBusId", None)
++        if bus_fn is not None:
++            bus_fn.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
++            bus_fn.restype = ctypes.c_int
++        result = {}
++        for ordinal in range(count.value):
++            device = ctypes.c_int()
++            luid = (ctypes.c_ubyte * 8)()
++            node_mask = ctypes.c_uint()
++            if cuda.cuDeviceGet(ctypes.byref(device), ordinal) != 0:
++                continue
++            if cuda.cuDeviceGetLuid(luid, ctypes.byref(node_mask), device.value) != 0:
++                continue
++            luid_low = int.from_bytes(bytes(luid[:4]), "little", signed=False)
++            luid_high = int.from_bytes(bytes(luid[4:]), "little", signed=True)
++            pci_bus_id = ""
++            if bus_fn is not None:
++                bus = ctypes.create_string_buffer(32)
++                if bus_fn(bus, len(bus), device.value) == 0:
++                    pci_bus_id = bus.value.decode("ascii", errors="replace")
++            result[(luid_high, luid_low)] = {
++                "cuda_index": ordinal,
++                "pci_bus_id": pci_bus_id,
++            }
++        return result
++    except (AttributeError, OSError, TypeError, ValueError):
++        return {}
++
++
++def _adapter_records(native_infos, cuda_luids=None):
++    """Return stable, persistable NVIDIA D3D12 choices from native DXGI data."""
++    records = []
++    seen = set()
++    cuda_luids = dict(cuda_luids or {})
++    for native in native_infos:
++        if (
++            int(native.vendor_id) != _NVIDIA_VENDOR_ID
++            or int(native.flags) & _ADAPTER_SOFTWARE
++            or not int(native.flags) & _ADAPTER_D3D12_LEVEL_11
++        ):
++            continue
++        base = "dxgi:%04X:%04X:%08X:%08X:%016X" % (
++            int(native.vendor_id), int(native.device_id), int(native.subsys_id),
++            int(native.revision), int(native.dedicated_video_memory),
++        )
++        luid = (int(native.luid_high), int(native.luid_low))
++        cuda = cuda_luids.get(luid)
++        if cuda_luids and cuda is None:
++            continue
++        pci_token = "".join(
++            character for character in str((cuda or {}).get("pci_bus_id", "")).upper()
++            if character in "0123456789ABCDEF"
++        )
++        suffix = (
++            ":P" + pci_token if len(pci_token) == 9
++            else ":C%d" % cuda["cuda_index"] if cuda else ""
++        )
++        adapter_id = base + suffix
++        # Hybrid/partitioned Windows drivers can publish several DXGI LUIDs for
++        # one physical adapter. CUDA's driver LUID identifies physical NVIDIA
++        # devices; when unavailable, retain the first high-performance view.
++        if adapter_id in seen:
++            continue
++        seen.add(adapter_id)
++        records.append({
++            "id": adapter_id,
++            "name": str(native.description).strip() or "NVIDIA GPU",
++            "preference_index": int(native.preference_index),
++            "vendor_id": int(native.vendor_id),
++            "device_id": int(native.device_id),
++            "subsys_id": int(native.subsys_id),
++            "revision": int(native.revision),
++            "dedicated_video_memory": int(native.dedicated_video_memory),
++            "luid_high": int(native.luid_high),
++            "luid_low": int(native.luid_low),
++            "d3d12_feature_level": "12_0" if int(native.flags) & 4 else "11_0",
++            "cuda_index": cuda["cuda_index"] if cuda else None,
++            "pci_bus_id": cuda["pci_bus_id"] if cuda else "",
++        })
++    return records
++
++
++def _native_adapter_infos(lib):
++    if not hasattr(lib, "dlssnr_enumerate_adapters"):
++        return []
++    count = int(lib.dlssnr_enumerate_adapters(None, 0))
++    if count < 0 or count > 64:
++        raise RuntimeError("DLSS 宿主返回了无效的显卡数量")
++    if not count:
++        return []
++    items = (_NativeAdapterInfo * count)()
++    for item in items:
++        item.struct_size = ctypes.sizeof(_NativeAdapterInfo)
++    returned = int(lib.dlssnr_enumerate_adapters(items, count))
++    if returned < 0:
++        raise RuntimeError("DLSS 宿主无法枚举图形适配器")
++    return list(items[:min(returned, count)])
++
++
++def collect(host_path):
++    library = ctypes.CDLL(host_path)
++    if not hasattr(library, "dlssnr_enumerate_adapters"):
++        raise RuntimeError("当前 v2 宿主不支持显卡选择，请更新 dlssnr_host_v2.dll")
++    library.dlssnr_enumerate_adapters.argtypes = [ctypes.POINTER(_NativeAdapterInfo), ctypes.c_uint32]
++    library.dlssnr_enumerate_adapters.restype = ctypes.c_int
++    native = _native_adapter_infos(library)
++    cuda = _cuda_adapter_luids() if any(int(r.vendor_id) == _NVIDIA_VENDOR_ID for r in native) else {}
++    return dict(adapters=_adapter_records(native, cuda), cuda_identity_available=bool(cuda),
++                warnings=[] if cuda or not native else ["CUDA 显卡身份查询不可用，采用 DXGI 枚举信息"])
+--- before/dlss5tool/adapter_probe.py
++++ final/dlss5tool/adapter_probe.py
+@@ -0,0 +1,391 @@
++"""Bounded, one-shot adapter discovery with no GPU initialization in callers.
++
++Subprocess rather than multiprocessing.Process also works inside daemon NGX
++workers. A private inherited pipe carries bounded JSON; native stdout is never
++used as a protocol. Failed retirement retains the Popen owner for close/retry.
++"""
++import atexit
++import copy
++import json
++import multiprocessing
++import os
++from pathlib import Path
++import re
++import subprocess
++import sys
++import threading
++import time
++import uuid
++
++WORKER_FLAG = '--adapter-probe'
++PROTOCOL = 1
++MAX_MESSAGE = 128*1024
++PROBE_TIMEOUT = 20.0
++_ROOT = Path(__file__).resolve().parents[1]
++_ID = re.compile(r'dxgi:[0-9A-F]{4}:[0-9A-F]{4}:[0-9A-F]{8}:[0-9A-F]{8}:[0-9A-F]{16}(?::P[0-9A-F]{9}|:C[0-9]{1,2})?')
++_generation_lock = threading.Lock()
++_generation = 0
++
++
++class AdapterProbeError(RuntimeError):
++    pass
++
++
++def _changed():
++    global _generation
++    with _generation_lock:
++        _generation += 1
++
++
++def cache_generation():
++    with _generation_lock:
++        return _generation
++
++
++def _validate_inventory(value):
++    if not isinstance(value, dict) or not isinstance(value.get('adapters'), list) or len(value['adapters']) > 64:
++        raise AdapterProbeError('显卡探测返回了无效的列表')
++    seen = set()
++    integer_fields = dict(preference_index=(0,63), vendor_id=(0,65535), device_id=(0,65535),
++        subsys_id=(0,2**32-1), revision=(0,2**32-1), dedicated_video_memory=(0,2**64-1),
++        luid_high=(-2**31,2**31-1), luid_low=(0,2**32-1))
++    for record in value['adapters']:
++        if not isinstance(record, dict):
++            raise AdapterProbeError('显卡探测返回了无效的设备')
++        identity = record.get('id')
++        if not isinstance(identity, str) or not _ID.fullmatch(identity) or identity in seen:
++            raise AdapterProbeError('显卡探测返回了无效或重复的设备身份')
++        seen.add(identity)
++        if not isinstance(record.get('name'), str) or not 1 <= len(record['name']) <= 128:
++            raise AdapterProbeError('显卡探测返回了无效的名称')
++        for key, (low,high) in integer_fields.items():
++            if type(record.get(key)) is not int or not low <= record[key] <= high:
++                raise AdapterProbeError('显卡探测返回了无效的设备参数')
++        if record.get('d3d12_feature_level') not in ('11_0','12_0'):
++            raise AdapterProbeError('显卡探测返回了无效的能力信息')
++        if record.get('cuda_index') is not None and (type(record['cuda_index']) is not int or not 0 <= record['cuda_index'] < 64):
++            raise AdapterProbeError('显卡探测返回了无效的 CUDA 设备')
++        if not isinstance(record.get('pci_bus_id'), str) or len(record['pci_bus_id']) > 32:
++            raise AdapterProbeError('显卡探测返回了无效的 PCI 身份')
++    if type(value.get('cuda_identity_available')) is not bool or not isinstance(value.get('warnings'), list):
++        raise AdapterProbeError('显卡探测返回了无效的查询状态')
++    if len(value['warnings']) > 8 or any(not isinstance(v,str) or len(v)>1000 for v in value['warnings']):
++        raise AdapterProbeError('显卡探测返回了无效的查询状态')
++    return value
++
++
++def _command(handle, host_path, nonce):
++    # The Windows venv redirector creates an extra interpreter process. Query
++    # code needs only stdlib, so use the same-version base interpreter directly
++    # with site initialization disabled and a trusted absolute source path.
++    prefix = ([sys.executable] if getattr(sys, 'frozen', False) else
++              [getattr(sys, '_base_executable', None) or sys.executable, '-I', '-S', '-B', str(Path(__file__).resolve())])
++    return [*prefix, WORKER_FLAG, str(handle), host_path, nonce]
++
++
++def _spawn(sender, host_path, nonce):
++    handle = sender.fileno()
++    kwargs = dict(stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
++                  cwd=str(_ROOT) if not getattr(sys, 'frozen', False) else str(Path(sys.executable).parent),
++                  close_fds=True)
++    if os.name == 'nt':
++        startup = subprocess.STARTUPINFO()
++        startup.lpAttributeList = {'handle_list': [handle]}
++        kwargs.update(startupinfo=startup, creationflags=subprocess.CREATE_NO_WINDOW)
++        previous = os.get_handle_inheritable(handle)
++        try:
++            os.set_handle_inheritable(handle, True)
++            return subprocess.Popen(_command(handle, host_path, nonce), **kwargs)
++        finally:
++            try:
++                os.set_handle_inheritable(handle, previous)
++            except OSError:
++                pass  # The caller closes this handle immediately after spawn.
++    return subprocess.Popen(_command(handle, host_path, nonce), pass_fds=(handle,), **kwargs)
++
++
++def _retire(process):
++    """Operate only on the Popen object created here, retaining it on failure."""
++    if process is None:
++        return
++    if process.poll() is None:
++        process.terminate()
++        try:
++            process.wait(timeout=2)
++        except subprocess.TimeoutExpired:
++            process.kill()
++            process.wait(timeout=2)
++    if process.poll() is None:
++        raise AdapterProbeError('显卡探测进程尚未退出，请重试关闭')
++    process.wait(timeout=0)
++
++
++def _make_job(process):
++    if os.name == 'nt':
++        from dlss5tool.process_job import KillOnCloseJob
++        return KillOnCloseJob(process)
++    return None
++
++
++class AdapterProbe:
++    def __init__(self, *, timeout=PROBE_TIMEOUT):
++        if not isinstance(timeout, (int,float)) or not .01 <= timeout <= 60:
++            raise ValueError('Finite adapter probe timeout required')
++        self.timeout = timeout
++        self._condition = threading.Condition()
++        self._busy = False
++        self._closed = False
++        self._stop = threading.Event()
++        self._process = None
++        self._job = None
++        self._connections = []
++        self._cache = self._key = None
++        self._serial = 0
++        self._last = None
++        self._epoch = 0
++
++    def invalidate(self):
++        with self._condition:
++            self._cache = None
++            self._epoch += 1
++            _changed()
++            if self._busy:
++                self._stop.set()
++            self._condition.notify_all()
++
++    def _exchange(self, host_path, cancel):
++        receiver, sender = multiprocessing.Pipe(duplex=True)
++        self._connections = [receiver,sender]
++        nonce = uuid.uuid4().hex
++        try:
++            self._process = _spawn(sender, host_path, nonce)
++            self._job = _make_job(self._process)
++            sender.close()
++            self._connections.remove(sender)
++            if self._stop.is_set():
++                raise AdapterProbeError('显卡探测已取消')
++            # The child waits for this message before loading native DLLs. Its
++            # kill-on-close job is already armed, including in daemon parents.
++            receiver.send_bytes(json.dumps(dict(version=PROTOCOL,nonce=nonce,operation='start')).encode('utf-8'))
++            deadline = time.monotonic()+self.timeout
++            while True:
++                if self._stop.is_set() or cancel is not None and cancel.is_set():
++                    raise AdapterProbeError('显卡探测已取消')
++                if time.monotonic() >= deadline:
++                    raise AdapterProbeError('显卡探测超时，请刷新后重试')
++                if receiver.poll(.05):
++                    data = receiver.recv_bytes(MAX_MESSAGE)
++                    reply = json.loads(data.decode('utf-8'))
++                    if (not isinstance(reply,dict) or type(reply.get('version')) is not int or
++                            reply['version'] != PROTOCOL or reply.get('nonce') != nonce or
++                            reply.get('pid') != self._process.pid or type(reply.get('ok')) is not bool):
++                        raise AdapterProbeError('显卡探测返回了无效的协议消息')
++                    if not reply['ok']:
++                        error = reply.get('error')
++                        raise AdapterProbeError(error[:2000] if isinstance(error,str) else '显卡探测失败')
++                    inventory = _validate_inventory(reply.get('inventory'))
++                    try:
++                        code = self._process.wait(timeout=1)
++                    except subprocess.TimeoutExpired as error:
++                        raise AdapterProbeError('显卡探测返回结果后未正常退出') from error
++                    if code != 0:
++                        raise AdapterProbeError('显卡探测进程异常退出')
++                    return dict(inventory, probe_pid=reply['pid'])
++                if self._process.poll() is not None:
++                    raise AdapterProbeError('显卡探测进程退出，未返回完整结果')
++        except (OSError, EOFError, ValueError, UnicodeError) as error:
++            raise AdapterProbeError('显卡探测通信失败：'+str(error)) from error
++
++    def _retire_owned(self):
++        errors = []
++        for connection in tuple(self._connections):
++            try:
++                connection.close()
++                self._connections.remove(connection)
++            except Exception as error:
++                errors.append(str(error))
++        try:
++            _retire(self._process)
++            self._process = None
++        except Exception as error:
++            errors.append(str(error))
++        if self._job is not None:
++            try:
++                self._job.close()
++                self._job = None
++            except Exception as error:
++                errors.append(str(error))
++        if self._process is not None and self._process.poll() is not None:
++            try:
++                self._process.wait(timeout=0)
++                self._process = None
++            except Exception as error:
++                errors.append(str(error))
++        if self._process is not None or self._job is not None or self._connections:
++            raise AdapterProbeError('; '.join(errors) or '探测资源尚未退出，请重试关闭')
++
++    def get(self, host_path, *, refresh=False, cancel=None):
++        host_path = os.path.abspath(os.fspath(host_path))
++        try:
++            status = os.stat(host_path)
++            key = (os.path.normcase(host_path), status.st_size, status.st_mtime_ns)
++        except OSError as error:
++            raise AdapterProbeError('显卡探测宿主不可用：'+str(error)) from error
++        with self._condition:
++            if self._closed:
++                raise AdapterProbeError('显卡探测已关闭')
++            if cancel is not None and cancel.is_set():
++                raise AdapterProbeError('显卡探测已取消')
++            if refresh and not self._busy:
++                self._cache = None
++                self._epoch += 1
++                _changed()
++            joined = self._serial if self._busy else None
++            wait_deadline = time.monotonic()+self.timeout+5
++            while self._busy:
++                if self._closed or cancel is not None and cancel.is_set():
++                    raise AdapterProbeError('显卡探测已取消')
++                if time.monotonic() >= wait_deadline:
++                    raise AdapterProbeError('等待显卡探测退出超时')
++                self._condition.wait(.05)
++            if self._closed:
++                raise AdapterProbeError('显卡探测已关闭')
++            if joined is not None and self._last and self._last[0] == joined and self._last[1] == key:
++                if self._last[3]:
++                    raise AdapterProbeError(self._last[3])
++                return copy.deepcopy(self._last[2])
++            if self._cache is not None and self._key == key:
++                return copy.deepcopy(self._cache)
++            self._busy = True
++            self._serial += 1
++            serial, epoch = self._serial, self._epoch
++            self._stop.clear()
++        value, failure, interrupted = None, None, None
++        try:
++            # A previous retirement failure remains owned and must be retried
++            # before another child can be allocated.
++            self._retire_owned()
++            value = self._exchange(host_path, cancel)
++        except BaseException as error:
++            failure = str(error) or type(error).__name__
++            if not isinstance(error, Exception):
++                interrupted = error
++        finally:
++            try:
++                self._retire_owned()
++            except Exception as error:
++                failure = (failure+'; ' if failure else '')+'探测清理失败：'+str(error)
++            with self._condition:
++                if self._closed or self._stop.is_set() or epoch != self._epoch:
++                    failure = failure or '显卡探测结果已失效，请刷新后重试'
++                if failure is None:
++                    self._cache, self._key = value, key
++                    _changed()
++                self._last = (serial, key, value, failure)
++                self._busy = False
++                self._condition.notify_all()
++        if failure:
++            if interrupted is not None:
++                raise interrupted
++            raise AdapterProbeError(failure)
++        return copy.deepcopy(value)
++
++    def close(self, timeout=3):
++        deadline = time.monotonic()+timeout
++        with self._condition:
++            self._closed = True
++            self._stop.set()
++            self._cache = None
++            self._epoch += 1
++            _changed()
++            while self._busy:
++                left = deadline-time.monotonic()
++                if left <= 0:
++                    raise AdapterProbeError('显卡探测尚在退出，请重试关闭')
++                self._condition.wait(min(left,.05))
++            # Serialize retrying close calls with get()'s retained owner.
++            self._retire_owned()
++
++
++_default_lock = threading.Lock()
++_default = None
++
++
++def get_inventory(host_path, *, refresh=False, cancel=None):
++    global _default
++    with _default_lock:
++        if _default is None:
++            _default = AdapterProbe()
++        probe = _default
++    return probe.get(host_path, refresh=refresh, cancel=cancel)
++
++
++def invalidate():
++    with _default_lock:
++        probe = _default
++    if probe is not None:
++        probe.invalidate()
++
++
++def close():
++    global _default
++    with _default_lock:
++        probe = _default
++    if probe is not None:
++        probe.close()
++        with _default_lock:
++            if _default is probe:
++                _default = None
++
++
++def _at_exit():
++    try:
++        close()
++    except Exception:
++        pass  # The explicit GUI close reports failures and retains this owner.
++
++
++atexit.register(_at_exit)
++
++
++def worker_main(handle, host_path, nonce):
++    if os.name == 'nt':
++        from multiprocessing.connection import PipeConnection as Connection
++    else:
++        from multiprocessing.connection import Connection
++    connection = Connection(handle, readable=True, writable=True)
++    try:
++        try:
++            if not connection.poll(PROBE_TIMEOUT):
++                raise AdapterProbeError('显卡探测启动确认超时')
++            message = json.loads(connection.recv_bytes(MAX_MESSAGE).decode('utf-8'))
++            if message != dict(version=PROTOCOL,nonce=nonce,operation='start'):
++                raise AdapterProbeError('显卡探测启动确认无效')
++            if not getattr(sys, 'frozen', False):
++                sys.path.insert(0, str(_ROOT))
++            from dlss5tool.adapter_inventory import collect
++            inventory = _validate_inventory(collect(host_path))
++            reply = dict(version=PROTOCOL, nonce=nonce, pid=os.getpid(), ok=True, inventory=inventory)
++        except Exception as error:
++            reply = dict(version=PROTOCOL, nonce=nonce, pid=os.getpid(), ok=False,
++                         error=(type(error).__name__+': '+str(error))[:2000])
++        data = json.dumps(reply, ensure_ascii=False).encode('utf-8')
++        if len(data) > MAX_MESSAGE:
++            raise AdapterProbeError('Adapter inventory exceeded its protocol bound')
++        connection.send_bytes(data)
++    finally:
++        connection.close()
++
++
++def dispatch(argv=None):
++    args = list(sys.argv[1:] if argv is None else argv)
++    if WORKER_FLAG not in args:
++        return False
++    if len(args) != 4 or args[0] != WORKER_FLAG or not args[1].isdigit() or not re.fullmatch('[0-9a-f]{32}',args[3]):
++        raise SystemExit(2)
++    worker_main(int(args[1]), args[2], args[3])
++    return True
++
++
++if __name__ == '__main__':
++    raise SystemExit(0 if dispatch() else 2)
+--- before/dlss5tool/process_job.py
++++ final/dlss5tool/process_job.py
+@@ -0,0 +1,50 @@
++"""Windows kill-on-close lifetime container for an already owned Popen child."""
++import ctypes as C
++import os
++
++
++class _Basic(C.Structure):
++    _fields_=[('process_time',C.c_int64),('job_time',C.c_int64),('flags',C.c_uint32),
++              ('min_working',C.c_size_t),('max_working',C.c_size_t),('active',C.c_uint32),
++              ('affinity',C.c_size_t),('priority',C.c_uint32),('scheduling',C.c_uint32)]
++
++
++class _Extended(C.Structure):
++    _fields_=[('basic',_Basic),('io',C.c_uint64*6),('process_memory',C.c_size_t),
++              ('job_memory',C.c_size_t),('peak_process',C.c_size_t),('peak_job',C.c_size_t)]
++
++
++class KillOnCloseJob:
++    """The child cannot inherit this handle; owner death closes it in the kernel.
++
++    Callers keep the Popen process handle and must gate child native work until
++    assignment succeeds. This class never opens a process by name or PID.
++    """
++    def __init__(self, process):
++        if os.name!='nt':
++            raise OSError('Windows job required')
++        self._kernel=C.WinDLL('kernel32',use_last_error=True)
++        for name,args,result in (
++            ('CreateJobObjectW',[C.c_void_p,C.c_wchar_p],C.c_void_p),
++            ('SetInformationJobObject',[C.c_void_p,C.c_int,C.c_void_p,C.c_uint32],C.c_int),
++            ('AssignProcessToJobObject',[C.c_void_p,C.c_void_p],C.c_int),
++            ('CloseHandle',[C.c_void_p],C.c_int),
++        ):
++            function=getattr(self._kernel,name); function.argtypes=args; function.restype=result
++        self._handle=self._kernel.CreateJobObjectW(None,None)
++        if not self._handle: raise C.WinError(C.get_last_error())
++        try:
++            limits=_Extended(); limits.basic.flags=0x2000
++            if not self._kernel.SetInformationJobObject(self._handle,9,C.byref(limits),C.sizeof(limits)):
++                raise C.WinError(C.get_last_error())
++            if not self._kernel.AssignProcessToJobObject(self._handle,int(process._handle)):
++                raise C.WinError(C.get_last_error())
++        except BaseException:
++            self.close()
++            raise
++
++    def close(self):
++        if self._handle:
++            if not self._kernel.CloseHandle(self._handle):
++                raise C.WinError(C.get_last_error())
++            self._handle=None
+--- before/dlss5tool/dlss_engine.py
++++ final/dlss5tool/dlss_engine.py
+@@ -12,6 +12,7 @@
+ from dlss5tool.guidance_public import normalize_public_settings
+ from dlss5tool import i18n
+ from dlss5tool import paths
++from dlss5tool.adapter_inventory import _NativeAdapterInfo, _adapter_records
+ from dlss5tool.host_queue import clamp_in_flight, configured_in_flight, LEGACY_MAX_IN_FLIGHT, MAX_IN_FLIGHT
+ from dlss5tool.guidance_color import analysis_rgba8
+ 
+@@ -37,20 +38,6 @@
+ _ADAPTER_D3D12_LEVEL_11 = 2
+ 
+ 
+-class _NativeAdapterInfo(ctypes.Structure):
+-    _fields_ = [
+-        ("struct_size", ctypes.c_uint32),
+-        ("preference_index", ctypes.c_uint32),
+-        ("vendor_id", ctypes.c_uint32),
+-        ("device_id", ctypes.c_uint32),
+-        ("subsys_id", ctypes.c_uint32),
+-        ("revision", ctypes.c_uint32),
+-        ("flags", ctypes.c_uint32),
+-        ("dedicated_video_memory", ctypes.c_uint64),
+-        ("luid_high", ctypes.c_int32),
+-        ("luid_low", ctypes.c_uint32),
+-        ("description", ctypes.c_wchar * 128),
+-    ]
+ 
+ 
+ def frame_dtype(settings=None):
+@@ -153,133 +140,20 @@
+     return _load_backend(preference)
+ 
+ 
+-def _cuda_adapter_luids():
+-    """Map physical CUDA devices to DXGI LUIDs without importing CUDA toolkits."""
+-    if os.name != "nt":
+-        return {}
+-    try:
+-        cuda = ctypes.WinDLL("nvcuda.dll")
+-        cuda.cuInit.argtypes = [ctypes.c_uint]
+-        cuda.cuInit.restype = ctypes.c_int
+-        if cuda.cuInit(0) != 0:
+-            return {}
+-        count_fn = getattr(cuda, "cuDeviceGetCount_v2", None) or cuda.cuDeviceGetCount
+-        count_fn.argtypes = [ctypes.POINTER(ctypes.c_int)]
+-        count_fn.restype = ctypes.c_int
+-        count = ctypes.c_int()
+-        if count_fn(ctypes.byref(count)) != 0 or count.value < 0 or count.value > 64:
+-            return {}
+-        cuda.cuDeviceGet.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int]
+-        cuda.cuDeviceGet.restype = ctypes.c_int
+-        cuda.cuDeviceGetLuid.argtypes = [
+-            ctypes.c_void_p, ctypes.POINTER(ctypes.c_uint), ctypes.c_int,
+-        ]
+-        cuda.cuDeviceGetLuid.restype = ctypes.c_int
+-        bus_fn = getattr(cuda, "cuDeviceGetPCIBusId", None)
+-        if bus_fn is not None:
+-            bus_fn.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+-            bus_fn.restype = ctypes.c_int
+-        result = {}
+-        for ordinal in range(count.value):
+-            device = ctypes.c_int()
+-            luid = (ctypes.c_ubyte * 8)()
+-            node_mask = ctypes.c_uint()
+-            if cuda.cuDeviceGet(ctypes.byref(device), ordinal) != 0:
+-                continue
+-            if cuda.cuDeviceGetLuid(luid, ctypes.byref(node_mask), device.value) != 0:
+-                continue
+-            luid_low = int.from_bytes(bytes(luid[:4]), "little", signed=False)
+-            luid_high = int.from_bytes(bytes(luid[4:]), "little", signed=True)
+-            pci_bus_id = ""
+-            if bus_fn is not None:
+-                bus = ctypes.create_string_buffer(32)
+-                if bus_fn(bus, len(bus), device.value) == 0:
+-                    pci_bus_id = bus.value.decode("ascii", errors="replace")
+-            result[(luid_high, luid_low)] = {
+-                "cuda_index": ordinal,
+-                "pci_bus_id": pci_bus_id,
+-            }
+-        return result
+-    except (AttributeError, OSError, TypeError, ValueError):
+-        return {}
+-
+-
+-def _adapter_records(native_infos, cuda_luids=None):
+-    """Return stable, persistable NVIDIA D3D12 choices from native DXGI data."""
+-    records = []
+-    seen = set()
+-    cuda_luids = dict(cuda_luids or {})
+-    for native in native_infos:
+-        if (
+-            int(native.vendor_id) != _NVIDIA_VENDOR_ID
+-            or int(native.flags) & _ADAPTER_SOFTWARE
+-            or not int(native.flags) & _ADAPTER_D3D12_LEVEL_11
+-        ):
+-            continue
+-        base = "dxgi:%04X:%04X:%08X:%08X:%016X" % (
+-            int(native.vendor_id), int(native.device_id), int(native.subsys_id),
+-            int(native.revision), int(native.dedicated_video_memory),
+-        )
+-        luid = (int(native.luid_high), int(native.luid_low))
+-        cuda = cuda_luids.get(luid)
+-        if cuda_luids and cuda is None:
+-            continue
+-        pci_token = "".join(
+-            character for character in str((cuda or {}).get("pci_bus_id", "")).upper()
+-            if character in "0123456789ABCDEF"
+-        )
+-        suffix = (
+-            ":P" + pci_token if len(pci_token) == 9
+-            else ":C%d" % cuda["cuda_index"] if cuda else ""
+-        )
+-        adapter_id = base + suffix
+-        # Hybrid/partitioned Windows drivers can publish several DXGI LUIDs for
+-        # one physical adapter. CUDA's driver LUID identifies physical NVIDIA
+-        # devices; when unavailable, retain the first high-performance view.
+-        if adapter_id in seen:
+-            continue
+-        seen.add(adapter_id)
+-        records.append({
+-            "id": adapter_id,
+-            "name": str(native.description).strip() or "NVIDIA GPU",
+-            "preference_index": int(native.preference_index),
+-            "vendor_id": int(native.vendor_id),
+-            "device_id": int(native.device_id),
+-            "subsys_id": int(native.subsys_id),
+-            "revision": int(native.revision),
+-            "dedicated_video_memory": int(native.dedicated_video_memory),
+-            "luid_high": int(native.luid_high),
+-            "luid_low": int(native.luid_low),
+-            "d3d12_feature_level": "12_0" if int(native.flags) & 4 else "11_0",
+-            "cuda_index": cuda["cuda_index"] if cuda else None,
+-            "pci_bus_id": cuda["pci_bus_id"] if cuda else "",
+-        })
+-    return records
+-
+-
+-def _native_adapter_infos(lib):
+-    if not hasattr(lib, "dlssnr_enumerate_adapters"):
+-        return []
+-    count = int(lib.dlssnr_enumerate_adapters(None, 0))
+-    if count < 0 or count > 64:
+-        raise RuntimeError("DLSS 宿主返回了无效的显卡数量")
+-    if not count:
+-        return []
+-    items = (_NativeAdapterInfo * count)()
+-    for item in items:
+-        item.struct_size = ctypes.sizeof(_NativeAdapterInfo)
+-    returned = int(lib.dlssnr_enumerate_adapters(items, count))
+-    if returned < 0:
+-        raise RuntimeError("DLSS 宿主无法枚举图形适配器")
+-    return list(items[:min(returned, count)])
+-
+-
+-def available_render_adapters():
+-    """List selectable NVIDIA D3D12 adapters without initializing NGX."""
+-    lib, _ = _load_backend("v2")
+-    if not hasattr(lib, "dlssnr_enumerate_adapters"):
+-        raise RuntimeError("当前 v2 宿主不支持显卡选择，请更新 dlssnr_host_v2.dll")
+-    return _adapter_records(_native_adapter_infos(lib), _cuda_adapter_luids())
++def available_render_adapters(*, refresh=False, cancel=None):
++    """Discover physical GPUs in a short-lived process, never initialize CUDA here."""
++    from dlss5tool.adapter_probe import get_inventory
++    return get_inventory(HOST_DLL_V2, refresh=refresh, cancel=cancel)['adapters']
++
++
++def invalidate_render_adapters():
++    from dlss5tool.adapter_probe import invalidate
++    invalidate()
++
++
++def close_adapter_probe():
++    from dlss5tool.adapter_probe import close
++    close()
+ 
+ 
+ def _configure_render_adapter(lib, settings, backend):
+@@ -292,7 +166,7 @@
+         if requested != RENDER_GPU_AUTO:
+             raise RuntimeError("当前 v2 宿主不支持手动选择显卡，请更新宿主 DLL")
+         return [], {}
+-    records = _adapter_records(_native_adapter_infos(lib), _cuda_adapter_luids())
++    records = available_render_adapters()
+     if not records:
+         raise RuntimeError("未检测到可用于 DLSS 的 NVIDIA D3D12 GPU")
+     if requested == RENDER_GPU_AUTO:
+@@ -313,27 +187,27 @@
+     native.struct_size = ctypes.sizeof(_NativeAdapterInfo)
+     if not lib.dlssnr_selected_adapter(ctypes.byref(native)):
+         return {}
++    if not records and not expected:
++        # Legacy/optional hosts can report their actual adapter without the
++        # v2 discovery/selection contract. Do not mistake that for a stale list.
++        return dict(name=str(native.description).strip() or 'NVIDIA GPU',
++            vendor_id=int(native.vendor_id),device_id=int(native.device_id),
++            dedicated_video_memory=int(native.dedicated_video_memory),
++            luid_high=int(native.luid_high),luid_low=int(native.luid_low))
+     matched = next((record for record in records if (
+         record["luid_high"] == int(native.luid_high)
+         and record["luid_low"] == int(native.luid_low)
+     )), None)
+-    if matched is not None:
++    if matched is not None and (not expected or matched['id'] == expected.get('id')):
+         return dict(matched)
+-    result = dict(expected or {})
+-    result.update({
+-        "name": str(native.description).strip() or result.get("name", "NVIDIA GPU"),
+-        "vendor_id": int(native.vendor_id),
+-        "device_id": int(native.device_id),
+-        "dedicated_video_memory": int(native.dedicated_video_memory),
+-        "luid_high": int(native.luid_high),
+-        "luid_low": int(native.luid_low),
+-    })
+-    return result
++    invalidate_render_adapters()
++    raise RuntimeError('显卡信息已变化，请刷新显卡列表后重试')
+ 
+ 
+ def is_render_adapter_error(error):
+     text = str(error or "")
+     return any(marker in text for marker in (
++        "显卡探测", "显卡信息已变化",
+         "未检测到可用于 DLSS 的 NVIDIA D3D12 GPU",
+         "此前选择的 DLSS 渲染 GPU 当前不可用",
+         "no compatible NVIDIA D3D12 adapter found",
+@@ -475,9 +349,16 @@
+         if not self._lib.dlssnr_create_feature(self._w, self._h, int(s.get('preset', 1))):
+             log = _read_log_tail(LOG_PATH)
+             raise RuntimeError("Feature 18 create failed.\n" + log[-800:])
+-        self.adapter_info = _selected_render_adapter(
+-            self._lib, adapters, expected_adapter,
+-        )
++        try:
++            self.adapter_info = _selected_render_adapter(
++                self._lib, adapters, expected_adapter,
++            )
++        except BaseException:
++            try:
++                self._lib.dlssnr_shutdown()
++            except Exception:
++                pass
++            raise
+         self._config = _host_config(s)
+         self._refresh_capabilities()
+ 
+--- before/dlss5tool/gui.py
++++ final/dlss5tool/gui.py
+@@ -4466,7 +4466,7 @@
+         self._on_host_settings_change()
+ 
+     def _start_render_gpu_scan(self):
+-        if not hasattr(self, '_host_settings'):
++        if not hasattr(self, '_host_settings') or getattr(self, '_render_gpu_scan_closing', False):
+             return
+         if self._render_gpu_scan_thread is not None and self._render_gpu_scan_thread.is_alive():
+             return
+@@ -4479,7 +4479,7 @@
+ 
+         def worker():
+             try:
+-                result = dlss_engine.available_render_adapters()
++                result = dlss_engine.available_render_adapters(refresh=True)
+                 error = ''
+             except Exception as exc:
+                 result = []
+@@ -5767,6 +5767,17 @@
+             ):
+                 return
+             self._update_cancel_event.set()
++        self._render_gpu_scan_closing = True
++        self._render_gpu_scan_generation = time.monotonic_ns()
++        try:
++            dlss_engine.close_adapter_probe()
++        except Exception as error:
++            self.set_status(str(error))
++            return
++        scan = getattr(self, '_render_gpu_scan_thread', None)
++        if scan is not None and scan.is_alive():
++            self.root.after(50, self._on_close)
++            return
+         if (getattr(self, '_render_cache_manager', None) or
+                 (getattr(self, '_shared_retire_pending', None) and
+                  not getattr(self, '_shared_closing', False))):
+--- before/dlss5tool/residual_composition.py
++++ final/dlss5tool/residual_composition.py
+@@ -137,17 +137,22 @@
+     if actual is not None:
+         return int(actual['luid_high']), int(actual['luid_low'])
+     from dlss5tool import dlss_engine
++    from dlss5tool.adapter_probe import cache_generation
+     requested = settings.get('render_gpu', dlss_engine.RENDER_GPU_AUTO)
++    generation = cache_generation()
+     cached = getattr(_native_state, 'adapter', None)
+-    if cached is not None and cached[0] == requested:
+-        return cached[1]
++    if cached is not None and cached[:2] == (requested, generation):
++        return cached[2]
+     records = dlss_engine.available_render_adapters()
+     chosen = (records[0] if requested == dlss_engine.RENDER_GPU_AUTO and records else
+               next((r for r in records if r['id'] == requested), None))
+     if chosen is None:
+         raise ValueError('Composition GPU is unavailable')
+     luid = int(chosen['luid_high']), int(chosen['luid_low'])
+-    _native_state.adapter = requested, luid
++    # A refresh may have run concurrently with the lookup. Do not mark an old
++    # snapshot as belonging to the new generation; resolve again next time.
++    _native_state.adapter = ((requested, generation, luid)
++                             if generation == cache_generation() else None)
+     return luid
+ 
+ 
+--- before/dlss5tool/__main__.py
++++ final/dlss5tool/__main__.py
+@@ -4,5 +4,8 @@
+ 
+ if __name__ == '__main__':
+     multiprocessing.freeze_support()
++    from dlss5tool.adapter_probe import dispatch
++    if dispatch():
++        raise SystemExit(0)
+     from dlss5tool.gui import cli
+     cli()
+--- before/gui.py
++++ final/gui.py
+@@ -6,6 +6,9 @@
+ if __name__ == '__main__':
+     # Worker dispatch must happen before the portable GUI installation mutex.
+     multiprocessing.freeze_support()
++    from dlss5tool.adapter_probe import dispatch as dispatch_adapter_probe
++    if dispatch_adapter_probe():
++        raise SystemExit(0)
+     if '--nvofa-selftest' in sys.argv:
+         from dlss5tool.nvofa_selftest import main
+         main(sys.argv[sys.argv.index('--nvofa-selftest') + 1:])
+--- before/tests/test_adapter_probe.py
++++ final/tests/test_adapter_probe.py
+@@ -0,0 +1,422 @@
++"""Process ownership, bounded protocol, shared inventory and early entry routing."""
++import copy
++import json
++import multiprocessing
++from pathlib import Path
++import runpy
++import subprocess
++import sys
++import threading
++import time
++from unittest import mock
++
++import pytest
++
++from dlss5tool import adapter_probe as ap
++from dlss5tool import dlss_engine
++from dlss5tool import residual_composition as rc
++
++
++def inventory(low=10):
++    return dict(adapters=[dict(id='dxgi:10DE:2684:12345678:00000001:0000000300000000:P000001000',
++        name='Fixture RTX',preference_index=0,vendor_id=0x10DE,device_id=0x2684,
++        subsys_id=0x12345678,revision=1,dedicated_video_memory=12*1024**3,
++        luid_high=0,luid_low=low,d3d12_feature_level='12_0',cuda_index=0,pci_bus_id='0000:01:00.0')],
++        cuda_identity_available=True,warnings=[])
++
++
++@pytest.fixture
++def host(tmp_path):
++    path=tmp_path/'host.dll'
++    path.write_bytes(b'fixture')
++    return path
++
++
++def test_cached_inventory_is_defensive_and_refresh_replaces_it(host):
++    probe=ap.AdapterProbe()
++    with mock.patch.object(probe,'_exchange',side_effect=[inventory(10),inventory(20)]) as exchange:
++        first=probe.get(host)
++        first['adapters'][0]['luid_low']=999
++        assert probe.get(host)['adapters'][0]['luid_low']==10
++        assert probe.get(host,refresh=True)['adapters'][0]['luid_low']==20
++        assert exchange.call_count==2
++    probe.close()
++
++
++def test_runtime_file_change_invalidates_inventory(host):
++    probe=ap.AdapterProbe()
++    with mock.patch.object(probe,'_exchange',side_effect=[inventory(10),inventory(20)]) as exchange:
++        probe.get(host)
++        host.write_bytes(b'changed fixture')
++        assert probe.get(host)['adapters'][0]['luid_low']==20
++        assert exchange.call_count==2
++    probe.close()
++
++
++def test_concurrent_refreshes_share_one_probe(host):
++    probe=ap.AdapterProbe()
++    entered,leave=threading.Event(),threading.Event()
++    results=[]
++    def exchange(*_):
++        entered.set()
++        assert leave.wait(3)
++        return inventory()
++    def get():
++        results.append(probe.get(host,refresh=True))
++    with mock.patch.object(probe,'_exchange',side_effect=exchange) as execute:
++        threads=[threading.Thread(target=get) for _ in range(4)]
++        for thread in threads: thread.start()
++        assert entered.wait(1)
++        time.sleep(.05)
++        leave.set()
++        for thread in threads:
++            thread.join(3)
++            assert not thread.is_alive()
++        assert execute.call_count==1
++        assert len(results)==4 and all(v==results[0] for v in results)
++    probe.close()
++
++
++def test_concurrent_failure_is_shared_and_next_call_can_retry(host):
++    probe=ap.AdapterProbe()
++    entered,leave=threading.Event(),threading.Event()
++    errors=[]
++    def exchange(*_):
++        entered.set(); assert leave.wait(3)
++        raise ap.AdapterProbeError('fixture failure')
++    def get():
++        try: probe.get(host)
++        except ap.AdapterProbeError as error: errors.append(str(error))
++    with mock.patch.object(probe,'_exchange',side_effect=exchange) as execute:
++        threads=[threading.Thread(target=get) for _ in range(2)]
++        for thread in threads: thread.start()
++        assert entered.wait(1); time.sleep(.05); leave.set()
++        for thread in threads: thread.join(3)
++        assert execute.call_count==1 and errors==['fixture failure']*2
++    with mock.patch.object(probe,'_exchange',return_value=inventory()) as execute:
++        assert probe.get(host)['adapters']
++        execute.assert_called_once()
++    probe.close()
++
++
++def test_invalidating_inflight_probe_cannot_publish_stale_result(host):
++    probe=ap.AdapterProbe()
++    errors=[]
++    def exchange(*_):
++        probe.invalidate()
++        return inventory()
++    with mock.patch.object(probe,'_exchange',side_effect=exchange):
++        with pytest.raises(ap.AdapterProbeError,match='失效'): probe.get(host)
++    assert probe._cache is None
++    with mock.patch.object(probe,'_exchange',return_value=inventory(20)):
++        assert probe.get(host)['adapters'][0]['luid_low']==20
++    probe.close()
++
++
++def test_precancelled_lookup_never_allocates_process(host):
++    probe=ap.AdapterProbe(); cancel=threading.Event(); cancel.set()
++    with mock.patch.object(probe,'_exchange') as exchange:
++        with pytest.raises(ap.AdapterProbeError,match='取消'): probe.get(host,cancel=cancel)
++        exchange.assert_not_called()
++    probe.close()
++
++
++def test_failed_retirement_remains_owned_and_blocks_new_child(host):
++    probe=ap.AdapterProbe(); owner=mock.Mock(); probe._process=owner
++    owner.poll.return_value=None
++    with mock.patch.object(ap,'_retire',side_effect=RuntimeError('still alive')), \
++            mock.patch.object(probe,'_exchange') as exchange:
++        with pytest.raises(ap.AdapterProbeError,match='still alive'): probe.get(host)
++        assert probe._process is owner
++        exchange.assert_not_called()
++        with pytest.raises(ap.AdapterProbeError): probe.get(host)
++        exchange.assert_not_called()
++    with mock.patch.object(ap,'_retire'),mock.patch.object(probe,'_exchange',return_value=inventory()):
++        assert probe.get(host)['adapters']
++    probe.close()
++
++
++def test_close_cancels_inflight_owner_and_does_not_cache_result(host):
++    probe=ap.AdapterProbe(); entered=threading.Event(); errors=[]
++    def exchange(*_):
++        entered.set(); assert probe._stop.wait(3)
++        return inventory()
++    def get():
++        try: probe.get(host)
++        except ap.AdapterProbeError as error: errors.append(str(error))
++    with mock.patch.object(probe,'_exchange',side_effect=exchange):
++        thread=threading.Thread(target=get); thread.start(); assert entered.wait(1)
++        probe.close(); thread.join(2)
++        assert not thread.is_alive() and errors and probe._cache is None
++        with pytest.raises(ap.AdapterProbeError,match='关闭'): probe.get(host)
++
++
++def test_close_failure_keeps_global_owner_until_retry():
++    probe=ap.AdapterProbe(); owner=mock.Mock(); probe._process=owner
++    owner.poll.return_value=None
++    with mock.patch.object(ap,'_default',probe), mock.patch.object(ap,'_retire',side_effect=RuntimeError('still alive')):
++        with pytest.raises(RuntimeError,match='still alive'): ap.close()
++        assert ap._default is probe and probe._process is owner
++        with mock.patch.object(ap,'_retire'):
++            ap.close()
++        assert ap._default is None
++
++
++class FakeProcess:
++    pid=3456
++    def __init__(self,code=None): self.code=code; self.terminated=False
++    def poll(self): return self.code
++    def wait(self,timeout=None):
++        if self.code is None: raise subprocess.TimeoutExpired('fixture',timeout)
++        return self.code
++    def terminate(self): self.terminated=True; self.code=1
++    def kill(self): self.terminate()
++
++
++@pytest.fixture(autouse=True)
++def no_native_job_for_fake_processes(monkeypatch):
++    # Synthetic PIDs in these transport tests must never reach Win32 APIs.
++    make_job=ap._make_job
++    monkeypatch.setattr(ap,'_make_job',lambda process:None if isinstance(process,FakeProcess) else make_job(process))
++
++
++def test_timeout_retires_child_and_keeps_retry_available(host):
++    probe=ap.AdapterProbe(timeout=.05); child=FakeProcess(); receiver,sender=mock.Mock(),mock.Mock()
++    receiver.poll.return_value=False
++    with mock.patch.object(ap.multiprocessing,'Pipe',return_value=(receiver,sender)), \
++            mock.patch.object(ap,'_spawn',return_value=child):
++        with pytest.raises(ap.AdapterProbeError,match='超时'): probe.get(host)
++    assert child.terminated and probe._process is None and probe._cache is None
++    receiver.close.assert_called_once()
++    probe.close()
++
++
++@pytest.mark.parametrize('mutation', ['nonce','pid','version','ok','oversize','json','inventory','exit'])
++def test_protocol_or_exit_failure_cannot_publish_inventory(host,mutation):
++    probe=ap.AdapterProbe(); child=FakeProcess(0); receiver,sender=mock.Mock(),mock.Mock()
++    def spawn(_sender,_host,nonce):
++        reply=dict(version=ap.PROTOCOL,nonce=nonce,pid=child.pid,ok=True,inventory=inventory())
++        if mutation=='nonce': reply['nonce']='wrong'
++        if mutation=='pid': reply['pid']+=1
++        if mutation=='version': reply['version']=999
++        if mutation=='ok': reply['ok']='yes'
++        if mutation=='inventory': reply['inventory']['adapters'][0]['luid_low']=2**32
++        if mutation=='exit': child.code=3
++        receiver.recv_bytes.return_value=json.dumps(reply).encode()
++        if mutation=='json': receiver.recv_bytes.return_value=b'not json'
++        if mutation=='oversize': receiver.recv_bytes.side_effect=OSError('bad message length')
++        receiver.poll.return_value=True
++        return child
++    with mock.patch.object(ap.multiprocessing,'Pipe',return_value=(receiver,sender)),mock.patch.object(ap,'_spawn',side_effect=spawn):
++        with pytest.raises(ap.AdapterProbeError): probe.get(host)
++    assert probe._cache is None and probe._process is None
++    receiver.recv_bytes.assert_called_once_with(ap.MAX_MESSAGE)
++    probe.close()
++
++
++def test_empty_inventory_is_success_not_a_query_failure(host):
++    probe=ap.AdapterProbe()
++    with mock.patch.object(probe,'_exchange',return_value=dict(adapters=[],cuda_identity_available=False,warnings=[])):
++        assert probe.get(host)['adapters']==[]
++    probe.close()
++
++
++@pytest.mark.parametrize('mutation', ['duplicate','name','bool','cuda','pci','status','warning'])
++def test_inventory_rejects_invalid_device_or_status(mutation):
++    value=inventory(); record=value['adapters'][0]
++    if mutation=='duplicate': value['adapters'].append(copy.deepcopy(record))
++    if mutation=='name': record['name']='X'*129
++    if mutation=='bool': record['luid_low']=True
++    if mutation=='cuda': record['cuda_index']=-1
++    if mutation=='pci': record['pci_bus_id']='X'*33
++    if mutation=='status': value['cuda_identity_available']='yes'
++    if mutation=='warning': value['warnings']=[0]
++    with pytest.raises(ap.AdapterProbeError): ap._validate_inventory(value)
++
++
++def test_engine_queries_only_service_and_clones_returned_records():
++    from dlss5tool import adapter_inventory
++    with mock.patch.object(ap,'get_inventory',return_value=inventory()) as query, \
++            mock.patch.object(adapter_inventory,'collect',side_effect=AssertionError('parent native query')):
++        assert dlss_engine.available_render_adapters(refresh=True)==inventory()['adapters']
++        query.assert_called_once_with(dlss_engine.HOST_DLL_V2,refresh=True,cancel=None)
++
++
++def test_composer_refresh_invalidates_thread_local_adapter_cache():
++    with mock.patch.object(rc,'_native_state',threading.local()), \
++            mock.patch.object(dlss_engine,'available_render_adapters',side_effect=[inventory(10)['adapters'],inventory(20)['adapters']]) as scan:
++        assert rc._composition_adapter({})==(0,10)
++        ap._changed()
++        assert rc._composition_adapter({})==(0,20)
++        assert scan.call_count==2
++
++
++def test_composer_never_caches_old_inventory_under_new_generation():
++    def scan(): ap._changed(); return inventory(10)['adapters']
++    with mock.patch.object(rc,'_native_state',threading.local()),mock.patch.object(dlss_engine,'available_render_adapters',side_effect=scan):
++        assert rc._composition_adapter({})==(0,10)
++        assert rc._native_state.adapter is None
++
++
++def test_changed_actual_device_invalidates_inventory_and_reports_error():
++    def selected(pointer):
++        value=pointer._obj; value.luid_high=0; value.luid_low=999; return 1
++    library=mock.Mock(); library.dlssnr_selected_adapter.side_effect=selected
++    with mock.patch.object(dlss_engine,'invalidate_render_adapters') as invalidate:
++        with pytest.raises(RuntimeError,match='显卡信息已变化'):
++            dlss_engine._selected_render_adapter(library,inventory()['adapters'],inventory()['adapters'][0])
++        invalidate.assert_called_once_with()
++    assert dlss_engine.is_render_adapter_error(ap.AdapterProbeError('显卡探测超时'))
++
++
++@pytest.mark.parametrize('entry',['gui.py','dlss5tool/__main__.py'])
++def test_worker_dispatch_precedes_gui_and_installation_lock(entry):
++    root=Path(__file__).resolve().parents[1]
++    with mock.patch.object(ap,'dispatch',return_value=True) as dispatch, \
++            mock.patch.object(multiprocessing,'freeze_support'), \
++            mock.patch.dict(sys.modules,{'dlss5tool.gui':None,'dlss5tool.update_helper':None}):
++        with pytest.raises(SystemExit) as result: runpy.run_path(str(root/entry),run_name='__main__')
++        assert result.value.code==0
++        dispatch.assert_called_once_with()
++
++
++def test_frozen_probe_reuses_current_executable_with_internal_flag():
++    with mock.patch.object(sys,'frozen',True,create=True),mock.patch.object(sys,'executable','C:/fixture/App.exe'):
++        assert ap._command(123,'C:/fixture/host.dll','a'*32)==['C:/fixture/App.exe',ap.WORKER_FLAG,'123','C:/fixture/host.dll','a'*32]
++
++
++def test_source_probe_uses_isolated_base_interpreter_without_site_imports():
++    with mock.patch.object(sys,'frozen',False,create=True),mock.patch.object(sys,'_base_executable','C:/fixture/python.exe',create=True):
++        command=ap._command(123,'host.dll','a'*32)
++    assert command[:4]==['C:/fixture/python.exe','-I','-S','-B']
++    assert Path(command[4]).name=='adapter_probe.py'
++
++
++def test_malformed_internal_entry_never_opens_gui():
++    with pytest.raises(SystemExit) as result: ap.dispatch([ap.WORKER_FLAG,'bad'])
++    assert result.value.code==2
++    assert ap.dispatch([]) is False
++
++
++def test_spawn_failure_closes_both_pipe_ends_and_allows_retry(host):
++    probe=ap.AdapterProbe(); receiver,sender=mock.Mock(),mock.Mock()
++    with mock.patch.object(ap.multiprocessing,'Pipe',return_value=(receiver,sender)), \
++            mock.patch.object(ap,'_spawn',side_effect=OSError('spawn denied')):
++        with pytest.raises(ap.AdapterProbeError,match='spawn denied'): probe.get(host)
++    receiver.close.assert_called_once(); sender.close.assert_called_once()
++    assert not probe._busy and probe._process is None
++    probe.close()
++
++
++def test_keyboard_interrupt_is_reraised_after_owned_child_retirement(host):
++    probe=ap.AdapterProbe(); process=FakeProcess()
++    def exchange(*_): probe._process=process; raise KeyboardInterrupt()
++    with mock.patch.object(probe,'_exchange',side_effect=exchange):
++        with pytest.raises(KeyboardInterrupt): probe.get(host)
++    assert process.terminated and probe._process is None and probe._cache is None
++    probe.close()
++
++
++def test_close_timeout_retains_service_and_can_be_retried(host):
++    probe=ap.AdapterProbe(); entered,leave=threading.Event(),threading.Event(); errors=[]
++    def exchange(*_): entered.set(); assert leave.wait(3); return inventory()
++    def get():
++        try: probe.get(host)
++        except ap.AdapterProbeError as error: errors.append(str(error))
++    with mock.patch.object(probe,'_exchange',side_effect=exchange):
++        thread=threading.Thread(target=get); thread.start(); assert entered.wait(1)
++        with pytest.raises(ap.AdapterProbeError,match='尚在退出'): probe.close(timeout=.01)
++        assert probe._busy and probe._closed
++        leave.set(); thread.join(2); assert not thread.is_alive() and errors
++        probe.close()
++
++
++def test_cancelled_waiter_does_not_cancel_another_lookup(host):
++    probe=ap.AdapterProbe(); entered,leave=threading.Event(),threading.Event(); result=[]
++    def exchange(*_): entered.set(); assert leave.wait(3); return inventory()
++    with mock.patch.object(probe,'_exchange',side_effect=exchange):
++        thread=threading.Thread(target=lambda:result.append(probe.get(host)))
++        thread.start(); assert entered.wait(1)
++        cancel=threading.Event(); cancel.set()
++        with pytest.raises(ap.AdapterProbeError,match='取消'): probe.get(host,cancel=cancel)
++        assert not probe._stop.is_set()
++        leave.set(); thread.join(2); assert result
++    probe.close()
++
++
++def test_actual_device_must_match_requested_physical_gpu():
++    records=inventory()['adapters']; other=copy.deepcopy(records[0])
++    other.update(id=other['id'][:-1]+'1',luid_low=20)
++    records.append(other)
++    def selected(pointer): pointer._obj.luid_low=20; return 1
++    library=mock.Mock(); library.dlssnr_selected_adapter.side_effect=selected
++    with mock.patch.object(dlss_engine,'invalidate_render_adapters'):
++        with pytest.raises(RuntimeError,match='显卡信息已变化'):
++            dlss_engine._selected_render_adapter(library,records,records[0])
++
++
++def test_legacy_actual_identity_without_v2_inventory_remains_supported():
++    def selected(pointer):
++        pointer._obj.luid_low=20; pointer._obj.vendor_id=0x10DE
++        pointer._obj.description='Legacy RTX'; return 1
++    library=mock.Mock(); library.dlssnr_selected_adapter.side_effect=selected
++    with mock.patch.object(dlss_engine,'invalidate_render_adapters') as invalidate:
++        actual=dlss_engine._selected_render_adapter(library,[],{})
++    assert actual['luid_low']==20 and actual['name']=='Legacy RTX'
++    invalidate.assert_not_called()
++
++
++def test_gui_probe_close_failure_keeps_window_and_retries():
++    from dlss5tool import gui
++    app=gui.App.__new__(gui.App)
++    app.root=mock.Mock(); app._gpu_thread_alive=lambda _thread:False
++    app._cancel_after=mock.Mock(); app._diagnosing=False
++    app._exporting=app._queue_running=app._update_downloading=False
++    app._cleanup_video_export=mock.Mock(); app.set_status=mock.Mock()
++    with mock.patch.object(dlss_engine,'close_adapter_probe',side_effect=[RuntimeError('probe alive'),None]) as close:
++        app._on_close()
++        app.set_status.assert_called_with('probe alive')
++        app.root.destroy.assert_not_called()
++        app._render_gpu_scan_thread=mock.Mock()
++        app._render_gpu_scan_thread.is_alive.return_value=True
++        app._on_close()
++        assert close.call_count==2
++        app.root.after.assert_called_once_with(50,app._on_close)
++        app.root.destroy.assert_not_called()
++
++
++@pytest.mark.parametrize('kind',['job','pipe'])
++def test_failed_independent_probe_owner_is_retained_until_retry(host,kind):
++    probe=ap.AdapterProbe(); bad,good=mock.Mock(),mock.Mock()
++    bad.close.side_effect=RuntimeError('owner still live')
++    if kind=='job': probe._job=bad
++    else: probe._connections=[bad,good]
++    with mock.patch.object(probe,'_exchange') as exchange:
++        with pytest.raises(ap.AdapterProbeError,match='owner still live'): probe.get(host)
++        exchange.assert_not_called()
++        assert probe._job is bad if kind=='job' else probe._connections==[bad]
++    if kind=='pipe': good.close.assert_called_once_with()
++    bad.close.side_effect=None
++    with mock.patch.object(probe,'_exchange',return_value=inventory()):
++        assert probe.get(host)['adapters']
++    probe.close()
++
++
++def test_child_start_gate_is_sent_only_after_job_assignment(host):
++    probe=ap.AdapterProbe(); child=FakeProcess(0); receiver,sender=mock.Mock(),mock.Mock(); order=[]
++    def spawn(_sender,_host,nonce):
++        receiver.recv_bytes.return_value=json.dumps(dict(version=ap.PROTOCOL,nonce=nonce,
++            pid=child.pid,ok=True,inventory=inventory())).encode()
++        receiver.poll.return_value=True
++        return child
++    def job(_process): order.append('job'); return None
++    def go(data):
++        assert order==['job']
++        assert json.loads(data)['operation']=='start'
++        order.append('go')
++    receiver.send_bytes.side_effect=go
++    with mock.patch.object(ap.multiprocessing,'Pipe',return_value=(receiver,sender)), \
++            mock.patch.object(ap,'_spawn',side_effect=spawn),mock.patch.object(ap,'_make_job',side_effect=job):
++        assert probe.get(host)['adapters']
++    assert order==['job','go']
++    probe.close()
+--- before/tests/test_gpu_adapter_selection.py
++++ final/tests/test_gpu_adapter_selection.py
+@@ -76,8 +76,7 @@
+         native = native_info(luid_low=321)
+         record = dlss_engine._adapter_records([native])[0]
+         library = FakeAdapterLibrary()
+-        with mock.patch.object(dlss_engine, "_native_adapter_infos", return_value=[native]), \
+-                mock.patch.object(dlss_engine, "_cuda_adapter_luids", return_value={}):
++        with mock.patch.object(dlss_engine, "available_render_adapters", return_value=[record]):
+             _records, selected = dlss_engine._configure_render_adapter(
+                 library, {"render_gpu": "auto"}, "v2",
+             )
+@@ -91,9 +90,8 @@
+ 
+     def test_unavailable_explicit_selection_does_not_silently_fallback(self):
+         library = FakeAdapterLibrary()
+-        with mock.patch.object(
+-            dlss_engine, "_native_adapter_infos", return_value=[native_info()],
+-        ), mock.patch.object(dlss_engine, "_cuda_adapter_luids", return_value={}):
++        with mock.patch.object(dlss_engine, "available_render_adapters",
++                               return_value=dlss_engine._adapter_records([native_info()])):
+             with self.assertRaisesRegex(RuntimeError, "当前不可用"):
+                 dlss_engine._configure_render_adapter(
+                     library,
+--- before/tests/test_layout.py
++++ final/tests/test_layout.py
+@@ -115,6 +115,7 @@
+                         'runtime/dlssg_video_worker.exe', 'runtime/nvngx_dlssg.dll',
+                         'licenses/NVIDIA-Optical-Flow-Headers-LICENSE.txt', 'scripts/rtxmfg_temporal/LICENSE.txt',
+                         'third_party/NVIDIA-DLSS/LICENSE.txt',
++                        'third_party/NVIDIA-DLSS/lib/Windows_x86_64/rel/nvngx_dlss.dll',
+                         'media/bin/ffmpeg.exe', 'media/bin/ffprobe.exe', 'media/LICENSE', 'media/README.txt',
+                         'build/amd_probe/amd_probe.exe',
+                         'third_party/FidelityFX-1.1.4/PrebuiltSignedDLL/amd_fidelityfx_dx12.dll',
+@@ -146,7 +147,15 @@
+                 capture = mock.Mock()
+                 namespace = {'SPECPATH': str(root / 'packaging'), 'Analysis': capture,
+                              'collect_all': lambda _: ([], [], []), 'copy_metadata': lambda _: []}
++                real_file_digest = hashlib.file_digest
++                def fixture_digest(handle, algorithm):
++                    if Path(handle.name) == root/'third_party/NVIDIA-DLSS/lib/Windows_x86_64/rel/nvngx_dlss.dll':
++                        value = mock.Mock()
++                        value.hexdigest.return_value = 'be6e434a94ca32499515eb62ca0e6c274526055d568d0426e4c652dcdfb6ee6e'
++                        return value
++                    return real_file_digest(handle, algorithm)
+                 with mock.patch.object(sys, 'path', list(sys.path)), \
++                        mock.patch.object(hashlib, 'file_digest', side_effect=fixture_digest), \
+                         mock.patch.dict(os.environ, {'DLSS5_DEPTH_SOURCE': str(root / 'depth'), 'DLSS5_LOCAL_CANDIDATE': '1'}), \
+                         mock.patch('dlss5tool.frame_generation.runtime_files', return_value=(root/'runtime/dlssg_video_worker.exe', root/'runtime/nvngx_dlssg.dll')), \
+                         mock.patch('dlss5tool.frame_generation.PINNED_RUNTIME', __import__('hashlib').sha256(b'').hexdigest()), \
+@@ -161,7 +170,11 @@
+                     self.assertTrue(Path(source).is_file(), source)
+                 self.assertIn(str(root), call.kwargs['pathex'])
+                 if recipe.name == 'DLSS5Tool.spec':
+-                    self.assertTrue({'dlss5tool.amd_devtest', 'dlss5tool.amd_devtest_ui', 'dlss5tool.guidance_worker'} <= set(call.kwargs['excludes']))
++                    self.assertTrue({'dlss5tool.amd_devtest', 'dlss5tool.amd_devtest_ui'} <= set(call.kwargs['excludes']))
++                    # The packaged --nvofa-worker entry uses the Torch-free
++                    # guidance worker. Only its obsolete top-level shim is excluded.
++                    self.assertNotIn('dlss5tool.guidance_worker', call.kwargs['excludes'])
++                    self.assertIn('guidance_worker', call.kwargs['excludes'])
+ 
+     def test_documentation_links_resolve(self):
+         files = [*ROOT.glob('*.md'), *(ROOT / 'docs').rglob('*.md'), ROOT / 'mods/README.md']

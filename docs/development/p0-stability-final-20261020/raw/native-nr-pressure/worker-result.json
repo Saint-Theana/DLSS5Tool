@@ -1,0 +1,10 @@
+{
+  "case": "native-nr",
+  "scale": 2,
+  "frames": 1,
+  "extension_point_policy": null,
+  "native": "nr",
+  "simulated_pressure": true,
+  "pressure_retirement_verified": true,
+  "status": "passed"
+}

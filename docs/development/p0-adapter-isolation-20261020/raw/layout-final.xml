@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.549" timestamp="2026-10-20T02:34:20.434898+08:00" hostname="QQQ"><testcase classname="tests.test_layout.LayoutTests" name="test_packaging_source_paths_exist_in_reorganized_layout" time="0.292" /></testsuite></testsuites>

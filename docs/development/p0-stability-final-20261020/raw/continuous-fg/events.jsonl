@@ -1,0 +1,7 @@
+{"event": "starting", "wall": 1792423883.3231733, "pid": 10780}
+{"event": "source-ready", "wall": 1792423884.5639155}
+{"event": "frame", "wall": 1792423903.6952772, "frame": 1, "total": 48}
+{"event": "frame", "wall": 1792423906.2591004, "frame": 16, "total": 48}
+{"event": "frame", "wall": 1792423908.6241055, "frame": 32, "total": 48}
+{"event": "frame", "wall": 1792423911.1160464, "frame": 48, "total": 48}
+{"event": "closed", "wall": 1792423915.344278}

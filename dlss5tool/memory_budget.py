@@ -115,3 +115,19 @@ def require_memory_headroom(required_bytes):
                     f'{value/1024**2:.0f} MiB')
         raise MemoryError(tr('message.ram_headroom', required=size(required),
                              available=size(available)))
+
+
+def receive_worker_command(connection, frame_bytes):
+    """Keep disposable GPU workers within the reserve while active or idle.
+
+    The caller handles MemoryError by reporting failure and retiring the native
+    owner. Stop commands remain possible under pressure. No model is restarted
+    automatically and no temporal history or processing quality is changed.
+    """
+    required = max(1, int(frame_bytes)) * 2
+    while not connection.poll(.5):
+        require_memory_headroom(required)
+    message = connection.recv()
+    if message.get('operation') not in ('stop', 'close'):
+        require_memory_headroom(required)
+    return message

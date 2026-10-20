@@ -1,0 +1,868 @@
+{
+  "scope": "Synthetic local samples on a 64 GiB single-GPU machine; not the original 32 GiB incident",
+  "base_commit": "acf3ac2b962a2aff3d17634932fd9eba40516d43",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "windows": "Windows-11-10.0.26300-SP0",
+  "batches": [],
+  "runtime_only": true,
+  "distinct_passed": 0,
+  "latest_unresolved": [],
+  "cases": [
+    {
+      "label": "native-adapters-map",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 64.171,
+      "peak_private_bytes": 68227072,
+      "samples": 248,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 3411968,
+      "idle_private_bytes_per_second": 83798.95037850771,
+      "idle_measured_span_seconds": 40.716118574142456,
+      "worker": {
+        "case": "native-adapters",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "adapters",
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": false,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-composer-heap",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 66.465,
+      "peak_private_bytes": 296361984,
+      "samples": 257,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 30920704,
+      "idle_private_bytes_per_second": 747962.2181327809,
+      "idle_measured_span_seconds": 41.339927673339844,
+      "worker": {
+        "case": "native-composer",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "composer",
+        "created": 1,
+        "destroyed": 1,
+        "retained_device_refs": 0,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-composer-map",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 65.527,
+      "peak_private_bytes": 316686336,
+      "samples": 253,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 54759424,
+      "idle_private_bytes_per_second": 1351773.0938096133,
+      "idle_measured_span_seconds": 40.50933122634888,
+      "worker": {
+        "case": "native-composer",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "composer",
+        "created": 1,
+        "destroyed": 1,
+        "retained_device_refs": 0,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-device11-cuda-heap",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 70.942,
+      "peak_private_bytes": 160247808,
+      "samples": 274,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 21673984.0,
+      "idle_private_bytes_per_second": 450070.8846339367,
+      "idle_measured_span_seconds": 48.15682315826416,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "cuda",
+        "cuda_initialized": true,
+        "d3d_device_created": true,
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-device11-cuda-map",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 62.186,
+      "peak_private_bytes": 201175040,
+      "samples": 240,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 55611392,
+      "idle_private_bytes_per_second": 1366749.3965333912,
+      "idle_measured_span_seconds": 40.6887993812561,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "cuda",
+        "cuda_initialized": true,
+        "d3d_device_created": true,
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-device11-timing-map",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 61.704,
+      "peak_private_bytes": 103854080,
+      "samples": 239,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": -380928,
+      "idle_private_bytes_per_second": -9384.387801986182,
+      "idle_measured_span_seconds": 40.59167289733887,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "device11",
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": true,
+        "status": "passed"
+      }
+    }
+  ],
+  "source_and_runtime_manifest": [
+    {
+      "file": "dlss5tool/gui.py",
+      "bytes": 500621,
+      "sha256": "a8457d7ec5a0adb58588b54cdcc911eca062a6b23fbab3072b9b51613581debf"
+    },
+    {
+      "file": "dlss5tool/dlss_host_process.py",
+      "bytes": 29985,
+      "sha256": "16ae4ecda5a2613dfc51edcb01bc37989b27762837081077ed1c3b59346bfa25"
+    },
+    {
+      "file": "dlss5tool/render_cache.py",
+      "bytes": 32100,
+      "sha256": "322fffa89a599898259dc7cd4056ad64d12f4f120466830b604e73f3cab91cf4"
+    },
+    {
+      "file": "dlss5tool/shared_render_preview.py",
+      "bytes": 29059,
+      "sha256": "e8c3bdbca2665053dff097b0a6c2bcd51cffb469d9424e3fa45303186c4a9eef"
+    },
+    {
+      "file": "dlss5tool/memory_budget.py",
+      "bytes": 5192,
+      "sha256": "ee546fa4155824fdf753ecceaaa7eda4c82e86f358ecbed5e11e5910facdb907"
+    },
+    {
+      "file": "dlss5tool/super_resolution.py",
+      "bytes": 20128,
+      "sha256": "4308d0137b1eeea679d380b180b6986b0458990e06a400e293323822a43c666b"
+    },
+    {
+      "file": "scripts/verify_p0_stability.py",
+      "bytes": 31076,
+      "sha256": "b3b4c8a70dfab526772da45bf66f03111326c5268fb528266cc56436d0dd86d0"
+    },
+    {
+      "file": "scripts/profile_native_frame_memory.py",
+      "bytes": 22520,
+      "sha256": "469a5674e051543c07a790848c9af477892500717b0d1bad56bafb2b628a0310"
+    },
+    {
+      "file": "scripts/collect_p0_stability.py",
+      "bytes": 8988,
+      "sha256": "65d81eecd3a70fcacda10fd2b228163f4fca4d0fef2e60d70cf86fb335acd273"
+    },
+    {
+      "file": "scripts/compare_p0_stability.py",
+      "bytes": 7384,
+      "sha256": "08a4d28b2b8feaaf06d58b0164a8822d114e9a47885b72955eb3862105ff19f8"
+    },
+    {
+      "file": "scripts/inspect_native_allocations.py",
+      "bytes": 8956,
+      "sha256": "f37968290dbe0a21cd33a1ca2144f53dd5bc5c30024e893466e4eb91cbd784bd"
+    },
+    {
+      "file": "scripts/native_heap_trace.cpp",
+      "bytes": 13364,
+      "sha256": "f6e1a1961f5ba0ba3744c6f4d0decd2347b941058d3e18e1a53d851c6af7f3e2"
+    },
+    {
+      "file": "scripts/summarize_native_heap_trace.py",
+      "bytes": 4844,
+      "sha256": "ed78a5768884349f173390935730fff1028c0c5b5dccfc1ecb4e27651e890eaf"
+    },
+    {
+      "file": "tests/test_gui_module_reload.py",
+      "bytes": 13572,
+      "sha256": "799e8358705a0526d2ce81b30301e161d6ed9f9b31be974e6fcc3ca77b15b146"
+    },
+    {
+      "file": "tests/test_p0_owner_retirement.py",
+      "bytes": 9897,
+      "sha256": "12f3bb1113e5985d1131ca87a53715167440a55bd80a557c0d51e482cdeca4cc"
+    },
+    {
+      "file": "tests/test_p0_runtime_pressure.py",
+      "bytes": 5105,
+      "sha256": "79f91667e26433f5c09982712b98f4ba223ae2bed673f6b21c57970c3de4ae08"
+    },
+    {
+      "file": "runtime/vsr_host.dll",
+      "bytes": 231936,
+      "sha256": "5e66ddc8b4c56f2b77daed782cc8429b607d32bba358efb488fbd4c03ae515b7"
+    },
+    {
+      "file": "runtime/nvngx_vsr.dll",
+      "bytes": 19140144,
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed"
+    },
+    {
+      "file": "runtime/nvngx_dlssnr.dll",
+      "bytes": 165840496,
+      "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650"
+    },
+    {
+      "file": "runtime/dlssnr_host_v2.dll",
+      "bytes": 295424,
+      "sha256": "c8ad631f8f78b2dedec6aec418c7a570d6fc5bf1b9ffa9f3514bcb0edd58fc13"
+    },
+    {
+      "file": "runtime/dlss5_quality.dll",
+      "bytes": 155648,
+      "sha256": "32ea271a83786b1533f4074cb29534cf866b4778d68b0b823dbf4c5dbaf544b6"
+    }
+  ],
+  "archive": [
+    {
+      "source": "allocation-summary.json",
+      "file": "raw\\allocation-summary.json",
+      "source_bytes": 232961,
+      "source_sha256": "828f05c84755a74109fa6b91ea75857ee13c945e274e60f88ee8bbf36fc8a52b",
+      "archived_sha256": "828f05c84755a74109fa6b91ea75857ee13c945e274e60f88ee8bbf36fc8a52b"
+    },
+    {
+      "source": "build-trace.cmd",
+      "file": "raw\\build-trace.cmd",
+      "source_bytes": 541,
+      "source_sha256": "a7e76ed665362d20c438e287945ceea890fd94b1ac2c5f05c75bb986fbe6a7fb",
+      "archived_sha256": "a7e76ed665362d20c438e287945ceea890fd94b1ac2c5f05c75bb986fbe6a7fb"
+    },
+    {
+      "source": "case-provenance.json",
+      "file": "raw\\case-provenance.json",
+      "source_bytes": 6075,
+      "source_sha256": "400d55b783567be30b3ebd20b13e235e16db0a3e900437f33d77fd42714b9a27",
+      "archived_sha256": "400d55b783567be30b3ebd20b13e235e16db0a3e900437f33d77fd42714b9a27"
+    },
+    {
+      "source": "heap_trace_client.cpp",
+      "file": "raw\\heap_trace_client.cpp",
+      "source_bytes": 368,
+      "source_sha256": "79228a3728ce0f6652ea88d7681bc91220960f74b3ea992cc92b14a1c5352e06",
+      "archived_sha256": "79228a3728ce0f6652ea88d7681bc91220960f74b3ea992cc92b14a1c5352e06"
+    },
+    {
+      "source": "native-adapters-map\\adapters-frame-memory-regions.jsonl",
+      "file": "raw\\native-adapters-map\\adapters-frame-memory-regions.jsonl",
+      "source_bytes": 250321,
+      "source_sha256": "a154ed1e97d2d71209be427f0bf327b04fccd98c635fc7efadd7777a48cfef40",
+      "archived_sha256": "a154ed1e97d2d71209be427f0bf327b04fccd98c635fc7efadd7777a48cfef40"
+    },
+    {
+      "source": "native-adapters-map\\adapters-frame-memory.jsonl",
+      "file": "raw\\native-adapters-map\\adapters-frame-memory.jsonl",
+      "source_bytes": 4569,
+      "source_sha256": "0ba4c61256dfb925426a4335d6665659daea70774305f8a89e4d3e075038911d",
+      "archived_sha256": "0ba4c61256dfb925426a4335d6665659daea70774305f8a89e4d3e075038911d"
+    },
+    {
+      "source": "native-adapters-map\\console.log",
+      "file": "raw\\native-adapters-map\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-adapters-map\\events.jsonl",
+      "file": "raw\\native-adapters-map\\events.jsonl",
+      "source_bytes": 719,
+      "source_sha256": "15ccca3a005dafe98e8df18c6a5ca8ed541319b76fe1c684fb06249257810ac7",
+      "archived_sha256": "15ccca3a005dafe98e8df18c6a5ca8ed541319b76fe1c684fb06249257810ac7"
+    },
+    {
+      "source": "native-adapters-map\\memory-samples.json",
+      "file": "raw\\native-adapters-map\\memory-samples.json.gz",
+      "source_bytes": 312295,
+      "source_sha256": "cd49024aa043352415d0787582b41f015fd12055c3d8f9ddb8892abcca537400",
+      "archived_sha256": "3c9d0f9dd839339d01d57979332f1e506f67b9faafe23ee47bb0be0d560814fc"
+    },
+    {
+      "source": "native-adapters-map\\native-modules.json",
+      "file": "raw\\native-adapters-map\\native-modules.json",
+      "source_bytes": 5906,
+      "source_sha256": "e30dcb39994b3eb1ff467b0704a6a581fc5bba5a5d49a680638434ddade671f1",
+      "archived_sha256": "e30dcb39994b3eb1ff467b0704a6a581fc5bba5a5d49a680638434ddade671f1"
+    },
+    {
+      "source": "native-adapters-map\\result.json",
+      "file": "raw\\native-adapters-map\\result.json",
+      "source_bytes": 3544,
+      "source_sha256": "0fe7ed7d9cfdcb444b965200c03fc94b2111e224315fc7acde4e42a92d77a472",
+      "archived_sha256": "0fe7ed7d9cfdcb444b965200c03fc94b2111e224315fc7acde4e42a92d77a472"
+    },
+    {
+      "source": "native-adapters-map\\settings.json",
+      "file": "raw\\native-adapters-map\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-adapters-map\\worker-result.json",
+      "file": "raw\\native-adapters-map\\worker-result.json",
+      "source_bytes": 333,
+      "source_sha256": "63e16ec9fcb0eb9aa7270755df68661ea3f4b16885f6848a6a409caf56d12128",
+      "archived_sha256": "63e16ec9fcb0eb9aa7270755df68661ea3f4b16885f6848a6a409caf56d12128"
+    },
+    {
+      "source": "native-composer-heap\\composer-frame-memory-regions.jsonl",
+      "file": "raw\\native-composer-heap\\composer-frame-memory-regions.jsonl",
+      "source_bytes": 384631,
+      "source_sha256": "7e4720d4455d44bfeba138f54c2f460f776389df70a25499c72be58d731e255a",
+      "archived_sha256": "7e4720d4455d44bfeba138f54c2f460f776389df70a25499c72be58d731e255a"
+    },
+    {
+      "source": "native-composer-heap\\composer-frame-memory.jsonl",
+      "file": "raw\\native-composer-heap\\composer-frame-memory.jsonl",
+      "source_bytes": 5671,
+      "source_sha256": "ce4cbd4dddc98ced0a5e79aeef03279d076bcfec35d51d27b68201767c6559fa",
+      "archived_sha256": "ce4cbd4dddc98ced0a5e79aeef03279d076bcfec35d51d27b68201767c6559fa"
+    },
+    {
+      "source": "native-composer-heap\\console.log",
+      "file": "raw\\native-composer-heap\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-composer-heap\\events.jsonl",
+      "file": "raw\\native-composer-heap\\events.jsonl",
+      "source_bytes": 722,
+      "source_sha256": "89f895d2cacd3cb81231886a7e707cf7a453747073c9d1ed08450fe485b9baec",
+      "archived_sha256": "89f895d2cacd3cb81231886a7e707cf7a453747073c9d1ed08450fe485b9baec"
+    },
+    {
+      "source": "native-composer-heap\\memory-samples.json",
+      "file": "raw\\native-composer-heap\\memory-samples.json.gz",
+      "source_bytes": 324396,
+      "source_sha256": "509a4c9e9936fbd6b1fb62c1c3abca4a00c200d58e1f04487d6990165d2d2296",
+      "archived_sha256": "b61c68a4d2b7c002e35359a74a3ae78684d21f8024f36153274f61b0bb04c92e"
+    },
+    {
+      "source": "native-composer-heap\\native-heap-1.jsonl",
+      "file": "raw\\native-composer-heap\\native-heap-1.jsonl",
+      "source_bytes": 434394,
+      "source_sha256": "e166e14727db779b1f0cfe7606ad1372731e7006a3d77a8d734cf8b8e29fea40",
+      "archived_sha256": "e166e14727db779b1f0cfe7606ad1372731e7006a3d77a8d734cf8b8e29fea40"
+    },
+    {
+      "source": "native-composer-heap\\native-heap-2.jsonl",
+      "file": "raw\\native-composer-heap\\native-heap-2.jsonl",
+      "source_bytes": 453467,
+      "source_sha256": "3ee338619c9783a9925f58044d524842b40b10c1a05b30b2eb2922322406ec02",
+      "archived_sha256": "3ee338619c9783a9925f58044d524842b40b10c1a05b30b2eb2922322406ec02"
+    },
+    {
+      "source": "native-composer-heap\\native-heap-final.jsonl",
+      "file": "raw\\native-composer-heap\\native-heap-final.jsonl",
+      "source_bytes": 454142,
+      "source_sha256": "77ee6552b26c0864f2f07a0f406435f00682c8efbd97c7cd94670959f6f7debd",
+      "archived_sha256": "77ee6552b26c0864f2f07a0f406435f00682c8efbd97c7cd94670959f6f7debd"
+    },
+    {
+      "source": "native-composer-heap\\native-modules.json",
+      "file": "raw\\native-composer-heap\\native-modules.json",
+      "source_bytes": 6554,
+      "source_sha256": "756e5cc7fd788ae2988f2c95610a9f6770691543327434684199ae5bcb45c667",
+      "archived_sha256": "756e5cc7fd788ae2988f2c95610a9f6770691543327434684199ae5bcb45c667"
+    },
+    {
+      "source": "native-composer-heap\\result.json",
+      "file": "raw\\native-composer-heap\\result.json",
+      "source_bytes": 3517,
+      "source_sha256": "eaba053bc79098e568270961f2e61076784a78c06227567db7272c5309e7491c",
+      "archived_sha256": "eaba053bc79098e568270961f2e61076784a78c06227567db7272c5309e7491c"
+    },
+    {
+      "source": "native-composer-heap\\settings.json",
+      "file": "raw\\native-composer-heap\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-composer-heap\\worker-result.json",
+      "file": "raw\\native-composer-heap\\worker-result.json",
+      "source_bytes": 256,
+      "source_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f",
+      "archived_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f"
+    },
+    {
+      "source": "native-composer-map\\composer-frame-memory-regions.jsonl",
+      "file": "raw\\native-composer-map\\composer-frame-memory-regions.jsonl",
+      "source_bytes": 382947,
+      "source_sha256": "e7b7235c38c5bd22fb2da83e869ebac5a1453af7f462db659d8502257235d920",
+      "archived_sha256": "e7b7235c38c5bd22fb2da83e869ebac5a1453af7f462db659d8502257235d920"
+    },
+    {
+      "source": "native-composer-map\\composer-frame-memory.jsonl",
+      "file": "raw\\native-composer-map\\composer-frame-memory.jsonl",
+      "source_bytes": 5622,
+      "source_sha256": "3f75f911c70c1aa09abbcd614ffe1b106be63cbae8ee2cfc4c73c267a6552fc3",
+      "archived_sha256": "3f75f911c70c1aa09abbcd614ffe1b106be63cbae8ee2cfc4c73c267a6552fc3"
+    },
+    {
+      "source": "native-composer-map\\console.log",
+      "file": "raw\\native-composer-map\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-composer-map\\events.jsonl",
+      "file": "raw\\native-composer-map\\events.jsonl",
+      "source_bytes": 273,
+      "source_sha256": "de2cf1bea86592acc99ad7dff4c7ecdbba8dab7a603f80281cc91c6771e7f853",
+      "archived_sha256": "de2cf1bea86592acc99ad7dff4c7ecdbba8dab7a603f80281cc91c6771e7f853"
+    },
+    {
+      "source": "native-composer-map\\memory-samples.json",
+      "file": "raw\\native-composer-map\\memory-samples.json.gz",
+      "source_bytes": 319316,
+      "source_sha256": "3d3d32e05f12a4f97a9bcb72c1cd11d8db33832f9d1d3273d1b3ed193a56c6ff",
+      "archived_sha256": "f44dacd4fcc4812d20d977a9fe95f1ba896cad0cd92e260bb6488655f3bef41c"
+    },
+    {
+      "source": "native-composer-map\\native-modules.json",
+      "file": "raw\\native-composer-map\\native-modules.json",
+      "source_bytes": 6554,
+      "source_sha256": "03276f3cd40d0fbbd6c095c609b030ef79d4450e0be7db9dbc4a8bac3dc96273",
+      "archived_sha256": "03276f3cd40d0fbbd6c095c609b030ef79d4450e0be7db9dbc4a8bac3dc96273"
+    },
+    {
+      "source": "native-composer-map\\result.json",
+      "file": "raw\\native-composer-map\\result.json",
+      "source_bytes": 3519,
+      "source_sha256": "ade2865ca38dca0d6b61ed13f9198ec07349c891fb44f287d76eee7fc91edbde",
+      "archived_sha256": "ade2865ca38dca0d6b61ed13f9198ec07349c891fb44f287d76eee7fc91edbde"
+    },
+    {
+      "source": "native-composer-map\\settings.json",
+      "file": "raw\\native-composer-map\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-composer-map\\worker-result.json",
+      "file": "raw\\native-composer-map\\worker-result.json",
+      "source_bytes": 256,
+      "source_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f",
+      "archived_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f"
+    },
+    {
+      "source": "native-device11-cuda-heap\\console.log",
+      "file": "raw\\native-device11-cuda-heap\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-device11-cuda-heap\\cuda-frame-memory-regions.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\cuda-frame-memory-regions.jsonl",
+      "source_bytes": 290781,
+      "source_sha256": "d1d6b5b492c961797fdb3b1a3bc5f83ba18817c83d4a6feaec35b53fe834b7d9",
+      "archived_sha256": "d1d6b5b492c961797fdb3b1a3bc5f83ba18817c83d4a6feaec35b53fe834b7d9"
+    },
+    {
+      "source": "native-device11-cuda-heap\\cuda-frame-memory.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\cuda-frame-memory.jsonl",
+      "source_bytes": 4585,
+      "source_sha256": "b801f8d1f147a338ee02a658baadb15a3d7796cd4d62cd4645a00c041d41b42a",
+      "archived_sha256": "b801f8d1f147a338ee02a658baadb15a3d7796cd4d62cd4645a00c041d41b42a"
+    },
+    {
+      "source": "native-device11-cuda-heap\\events.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\events.jsonl",
+      "source_bytes": 838,
+      "source_sha256": "6385474c332965390e6b8589eb6409d1375fad6d0e644f10931a04b891523174",
+      "archived_sha256": "6385474c332965390e6b8589eb6409d1375fad6d0e644f10931a04b891523174"
+    },
+    {
+      "source": "native-device11-cuda-heap\\memory-samples.json",
+      "file": "raw\\native-device11-cuda-heap\\memory-samples.json.gz",
+      "source_bytes": 345982,
+      "source_sha256": "fb7237a50b3430c84738e63b18a39d6809a2f86043280866a5b967a7a94f1fbc",
+      "archived_sha256": "b826a0a350b34f3b9c13280517f4cdffbe6ff405884634bdeffdc23420eb168c"
+    },
+    {
+      "source": "native-device11-cuda-heap\\native-heap-0.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\native-heap-0.jsonl",
+      "source_bytes": 3119201,
+      "source_sha256": "fc8d94946ca25e31bb0008058eabf1edab91604c89584390ace3e80e4a4bbb9b",
+      "archived_sha256": "fc8d94946ca25e31bb0008058eabf1edab91604c89584390ace3e80e4a4bbb9b"
+    },
+    {
+      "source": "native-device11-cuda-heap\\native-heap-20.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\native-heap-20.jsonl",
+      "source_bytes": 3120184,
+      "source_sha256": "f1774d05e0a0289c5d353e70ad4dc3d9c3619a0e57ac6067a5eec2afa13d004d",
+      "archived_sha256": "f1774d05e0a0289c5d353e70ad4dc3d9c3619a0e57ac6067a5eec2afa13d004d"
+    },
+    {
+      "source": "native-device11-cuda-heap\\native-heap-40.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\native-heap-40.jsonl",
+      "source_bytes": 3120543,
+      "source_sha256": "4672182a4ab86ea1f3a1e0da9ce6a22114a1a7feb1758ae1cc0e31721a667bb9",
+      "archived_sha256": "4672182a4ab86ea1f3a1e0da9ce6a22114a1a7feb1758ae1cc0e31721a667bb9"
+    },
+    {
+      "source": "native-device11-cuda-heap\\native-heap-final.jsonl",
+      "file": "raw\\native-device11-cuda-heap\\native-heap-final.jsonl",
+      "source_bytes": 3120673,
+      "source_sha256": "74c9a12c833479f2971861b960baaaaf439364d000d2daf49f63732beaf43de8",
+      "archived_sha256": "74c9a12c833479f2971861b960baaaaf439364d000d2daf49f63732beaf43de8"
+    },
+    {
+      "source": "native-device11-cuda-heap\\native-modules.json",
+      "file": "raw\\native-device11-cuda-heap\\native-modules.json",
+      "source_bytes": 6352,
+      "source_sha256": "7d374d71bc6903b6ee0c2520a2168571b7c935c54091fc16ec9ff32a65418812",
+      "archived_sha256": "7d374d71bc6903b6ee0c2520a2168571b7c935c54091fc16ec9ff32a65418812"
+    },
+    {
+      "source": "native-device11-cuda-heap\\result.json",
+      "file": "raw\\native-device11-cuda-heap\\result.json",
+      "source_bytes": 3579,
+      "source_sha256": "691b05b81a4b23d9b46c1261629e1600842114cf461518e68f328c6ddfc32b0f",
+      "archived_sha256": "691b05b81a4b23d9b46c1261629e1600842114cf461518e68f328c6ddfc32b0f"
+    },
+    {
+      "source": "native-device11-cuda-heap\\settings.json",
+      "file": "raw\\native-device11-cuda-heap\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-device11-cuda-heap\\worker-result.json",
+      "file": "raw\\native-device11-cuda-heap\\worker-result.json",
+      "source_bytes": 388,
+      "source_sha256": "f4f27101cd1fc783babcd60fa06d01ca1b92ff9d3f226c62f4e1ab4fbd39a41b",
+      "archived_sha256": "f4f27101cd1fc783babcd60fa06d01ca1b92ff9d3f226c62f4e1ab4fbd39a41b"
+    },
+    {
+      "source": "native-device11-cuda-map\\console.log",
+      "file": "raw\\native-device11-cuda-map\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-device11-cuda-map\\cuda-frame-memory-regions.jsonl",
+      "file": "raw\\native-device11-cuda-map\\cuda-frame-memory-regions.jsonl",
+      "source_bytes": 290246,
+      "source_sha256": "9d66dbe368dd1e7a7f350f6aae6a025514148d3ea66b1f06d1d5e9c5929a34e8",
+      "archived_sha256": "9d66dbe368dd1e7a7f350f6aae6a025514148d3ea66b1f06d1d5e9c5929a34e8"
+    },
+    {
+      "source": "native-device11-cuda-map\\cuda-frame-memory.jsonl",
+      "file": "raw\\native-device11-cuda-map\\cuda-frame-memory.jsonl",
+      "source_bytes": 4584,
+      "source_sha256": "1ddaac5a9e1504247c57cfafda002100fabae388b2a1c8cbe5e87773f7c2a0b3",
+      "archived_sha256": "1ddaac5a9e1504247c57cfafda002100fabae388b2a1c8cbe5e87773f7c2a0b3"
+    },
+    {
+      "source": "native-device11-cuda-map\\events.jsonl",
+      "file": "raw\\native-device11-cuda-map\\events.jsonl",
+      "source_bytes": 313,
+      "source_sha256": "48e22489c9fc9dabfdc017e10b8657e49ea6cda31358acb54dde09301817596a",
+      "archived_sha256": "48e22489c9fc9dabfdc017e10b8657e49ea6cda31358acb54dde09301817596a"
+    },
+    {
+      "source": "native-device11-cuda-map\\memory-samples.json",
+      "file": "raw\\native-device11-cuda-map\\memory-samples.json.gz",
+      "source_bytes": 302190,
+      "source_sha256": "d42025e4668eb213a7c69e25a83ec53b5369b1bce4f9e5d5530842fddbf81933",
+      "archived_sha256": "af056c12966025717bab0d1691e23a83e09d500603b19a50d7b4b242a091eebd"
+    },
+    {
+      "source": "native-device11-cuda-map\\native-modules.json",
+      "file": "raw\\native-device11-cuda-map\\native-modules.json",
+      "source_bytes": 6264,
+      "source_sha256": "95b81559e096a49b6b3b129189b26714e95e6abdab41afc011c04e5e2a2e4dc5",
+      "archived_sha256": "95b81559e096a49b6b3b129189b26714e95e6abdab41afc011c04e5e2a2e4dc5"
+    },
+    {
+      "source": "native-device11-cuda-map\\result.json",
+      "file": "raw\\native-device11-cuda-map\\result.json",
+      "source_bytes": 3519,
+      "source_sha256": "c7110993adf896164156de041df16d50f7896df2713a24de5fff6be93f0348dc",
+      "archived_sha256": "c7110993adf896164156de041df16d50f7896df2713a24de5fff6be93f0348dc"
+    },
+    {
+      "source": "native-device11-cuda-map\\settings.json",
+      "file": "raw\\native-device11-cuda-map\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-device11-cuda-map\\worker-result.json",
+      "file": "raw\\native-device11-cuda-map\\worker-result.json",
+      "source_bytes": 388,
+      "source_sha256": "f4f27101cd1fc783babcd60fa06d01ca1b92ff9d3f226c62f4e1ab4fbd39a41b",
+      "archived_sha256": "f4f27101cd1fc783babcd60fa06d01ca1b92ff9d3f226c62f4e1ab4fbd39a41b"
+    },
+    {
+      "source": "native-device11-timing-map\\console.log",
+      "file": "raw\\native-device11-timing-map\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-device11-timing-map\\device-frame-memory-regions.jsonl",
+      "file": "raw\\native-device11-timing-map\\device-frame-memory-regions.jsonl",
+      "source_bytes": 251372,
+      "source_sha256": "6e059b5e96d805f836e7a248563ecd7be72fb8ce0ad2cf16388d08d3faaf963f",
+      "archived_sha256": "6e059b5e96d805f836e7a248563ecd7be72fb8ce0ad2cf16388d08d3faaf963f"
+    },
+    {
+      "source": "native-device11-timing-map\\device-frame-memory.jsonl",
+      "file": "raw\\native-device11-timing-map\\device-frame-memory.jsonl",
+      "source_bytes": 4577,
+      "source_sha256": "84d8224fa40d5d22342e2599cb30d80cc4562ab94e4b7274e462be19d89b5dca",
+      "archived_sha256": "84d8224fa40d5d22342e2599cb30d80cc4562ab94e4b7274e462be19d89b5dca"
+    },
+    {
+      "source": "native-device11-timing-map\\events.jsonl",
+      "file": "raw\\native-device11-timing-map\\events.jsonl",
+      "source_bytes": 476,
+      "source_sha256": "c5c9c36d1f94bd1d54afce505311641e180bb139a7713bdaa8a399f1a68c2568",
+      "archived_sha256": "c5c9c36d1f94bd1d54afce505311641e180bb139a7713bdaa8a399f1a68c2568"
+    },
+    {
+      "source": "native-device11-timing-map\\memory-samples.json",
+      "file": "raw\\native-device11-timing-map\\memory-samples.json.gz",
+      "source_bytes": 301145,
+      "source_sha256": "40c45c0657d93d495e85f72be7471f7f434dd62ab66a4d6a4acc879b66b92eb0",
+      "archived_sha256": "774b9abf055844bcc72c2ec34eec58be9bfe5c7d6b7f5e43d1a6cc86a464c6a9"
+    },
+    {
+      "source": "native-device11-timing-map\\native-modules.json",
+      "file": "raw\\native-device11-timing-map\\native-modules.json",
+      "source_bytes": 5411,
+      "source_sha256": "3ccb297cd462f042a8643a3c69b285db7d5a51cc3539e9e069620aa4e14cadfc",
+      "archived_sha256": "3ccb297cd462f042a8643a3c69b285db7d5a51cc3539e9e069620aa4e14cadfc"
+    },
+    {
+      "source": "native-device11-timing-map\\result.json",
+      "file": "raw\\native-device11-timing-map\\result.json",
+      "source_bytes": 3550,
+      "source_sha256": "b348de4823b408cdb9a439d34cfaa8034bdd3e99024c5f527cf1fc4a5accfd77",
+      "archived_sha256": "b348de4823b408cdb9a439d34cfaa8034bdd3e99024c5f527cf1fc4a5accfd77"
+    },
+    {
+      "source": "native-device11-timing-map\\settings.json",
+      "file": "raw\\native-device11-timing-map\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-device11-timing-map\\worker-result.json",
+      "file": "raw\\native-device11-timing-map\\worker-result.json",
+      "source_bytes": 331,
+      "source_sha256": "dd6bbc962b38dcebb2406aacd168b2c610b491811695278c924e5a7843f3c3ac",
+      "archived_sha256": "dd6bbc962b38dcebb2406aacd168b2c610b491811695278c924e5a7843f3c3ac"
+    },
+    {
+      "source": "prepare_evidence.py",
+      "file": "raw\\prepare_evidence.py",
+      "source_bytes": 2825,
+      "source_sha256": "541c2d06170053d55f7119e6fa243b89e36a5a332d0a94075391472cb246346d",
+      "archived_sha256": "541c2d06170053d55f7119e6fa243b89e36a5a332d0a94075391472cb246346d"
+    },
+    {
+      "source": "self-check-trace-r2\\trace-self-alloc.jsonl",
+      "file": "raw\\self-check-trace-r2\\trace-self-alloc.jsonl",
+      "source_bytes": 3873,
+      "source_sha256": "73fabcb13aa16e538712ac01085634f6f9dc4e7e8c10331e0c7d94d9cd921709",
+      "archived_sha256": "73fabcb13aa16e538712ac01085634f6f9dc4e7e8c10331e0c7d94d9cd921709"
+    },
+    {
+      "source": "self-check-trace-r2\\trace-self-free.jsonl",
+      "file": "raw\\self-check-trace-r2\\trace-self-free.jsonl",
+      "source_bytes": 10341,
+      "source_sha256": "59a013fcc75061173efc6be252ae8b6a97fef4dd4c57423fd9be503b903bb477",
+      "archived_sha256": "59a013fcc75061173efc6be252ae8b6a97fef4dd4c57423fd9be503b903bb477"
+    },
+    {
+      "source": "self-check-trace-r2\\trace-self-realloc.jsonl",
+      "file": "raw\\self-check-trace-r2\\trace-self-realloc.jsonl",
+      "source_bytes": 8057,
+      "source_sha256": "43b42b142698492aa280e4701961a0aa5ff3aded51089b8539bce087987e84da",
+      "archived_sha256": "43b42b142698492aa280e4701961a0aa5ff3aded51089b8539bce087987e84da"
+    },
+    {
+      "source": "self-check.json",
+      "file": "raw\\self-check.json",
+      "source_bytes": 324,
+      "source_sha256": "fb4bcef7399c925855a48db150541efe252bf3f0448c06333fd706f169b8e140",
+      "archived_sha256": "fb4bcef7399c925855a48db150541efe252bf3f0448c06333fd706f169b8e140"
+    },
+    {
+      "source": "self_check_trace.py",
+      "file": "raw\\self_check_trace.py",
+      "source_bytes": 1752,
+      "source_sha256": "2cd62e3c4763c6696fa371242a9b36c0f50f949802483b44c106b9768e9aeceb",
+      "archived_sha256": "2cd62e3c4763c6696fa371242a9b36c0f50f949802483b44c106b9768e9aeceb"
+    },
+    {
+      "source": "source-final-collect_p0_stability.py",
+      "file": "raw\\source-final-collect_p0_stability.py",
+      "source_bytes": 8988,
+      "source_sha256": "65d81eecd3a70fcacda10fd2b228163f4fca4d0fef2e60d70cf86fb335acd273",
+      "archived_sha256": "65d81eecd3a70fcacda10fd2b228163f4fca4d0fef2e60d70cf86fb335acd273"
+    },
+    {
+      "source": "source-final-inspect_native_allocations.py",
+      "file": "raw\\source-final-inspect_native_allocations.py",
+      "source_bytes": 8956,
+      "source_sha256": "f37968290dbe0a21cd33a1ca2144f53dd5bc5c30024e893466e4eb91cbd784bd",
+      "archived_sha256": "f37968290dbe0a21cd33a1ca2144f53dd5bc5c30024e893466e4eb91cbd784bd"
+    },
+    {
+      "source": "source-final-native_heap_trace.cpp",
+      "file": "raw\\source-final-native_heap_trace.cpp",
+      "source_bytes": 13364,
+      "source_sha256": "f6e1a1961f5ba0ba3744c6f4d0decd2347b941058d3e18e1a53d851c6af7f3e2",
+      "archived_sha256": "f6e1a1961f5ba0ba3744c6f4d0decd2347b941058d3e18e1a53d851c6af7f3e2"
+    },
+    {
+      "source": "source-final-profile_native_frame_memory.py",
+      "file": "raw\\source-final-profile_native_frame_memory.py",
+      "source_bytes": 22520,
+      "source_sha256": "469a5674e051543c07a790848c9af477892500717b0d1bad56bafb2b628a0310",
+      "archived_sha256": "469a5674e051543c07a790848c9af477892500717b0d1bad56bafb2b628a0310"
+    },
+    {
+      "source": "source-final-summarize_native_heap_trace.py",
+      "file": "raw\\source-final-summarize_native_heap_trace.py",
+      "source_bytes": 4844,
+      "source_sha256": "ed78a5768884349f173390935730fff1028c0c5b5dccfc1ecb4e27651e890eaf",
+      "archived_sha256": "ed78a5768884349f173390935730fff1028c0c5b5dccfc1ecb4e27651e890eaf"
+    },
+    {
+      "source": "source-final-verify_p0_stability.py",
+      "file": "raw\\source-final-verify_p0_stability.py",
+      "source_bytes": 31076,
+      "source_sha256": "b3b4c8a70dfab526772da45bf66f03111326c5268fb528266cc56436d0dd86d0",
+      "archived_sha256": "b3b4c8a70dfab526772da45bf66f03111326c5268fb528266cc56436d0dd86d0"
+    },
+    {
+      "source": "TASK.md",
+      "file": "raw\\TASK.md",
+      "source_bytes": 1617,
+      "source_sha256": "4761f2b32bcf6220994318f842e0335b91aa286ef35d2cf531e4120fea1e56c9",
+      "archived_sha256": "4761f2b32bcf6220994318f842e0335b91aa286ef35d2cf531e4120fea1e56c9"
+    },
+    {
+      "source": "trace-self-alloc.jsonl",
+      "file": "raw\\trace-self-alloc.jsonl",
+      "source_bytes": 3873,
+      "source_sha256": "57e3f9f8154618aa12c5177f8777c68e9d06a6218905575de233e32ab1c9fe78",
+      "archived_sha256": "57e3f9f8154618aa12c5177f8777c68e9d06a6218905575de233e32ab1c9fe78"
+    },
+    {
+      "source": "trace-self-check-r2.json",
+      "file": "raw\\trace-self-check-r2.json",
+      "source_bytes": 149,
+      "source_sha256": "43c96a4195542fa5106c697dc86f08ba6bd9584efba70e3480809edcd9d2e0e6",
+      "archived_sha256": "43c96a4195542fa5106c697dc86f08ba6bd9584efba70e3480809edcd9d2e0e6"
+    }
+  ],
+  "omitted_reconstructible_files": [
+    {
+      "file": "heap_trace_client.dll",
+      "bytes": 103424,
+      "sha256": "9848e71a0bc4c953ac3bef067ccba3d5e5747473fcc3af8d829e5fa89cfa9522"
+    },
+    {
+      "file": "native_heap_trace.dll",
+      "bytes": 139776,
+      "sha256": "4d6f512656e05d37f6fa1292816252d15a2d8d07ef98d8915fb46002d351150a"
+    }
+  ],
+  "cleanup_not_yet_performed": true
+}

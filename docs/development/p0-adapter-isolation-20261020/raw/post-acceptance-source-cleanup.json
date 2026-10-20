@@ -1,0 +1,7 @@
+{
+  "file": "dlss5tool/dlss_engine.py",
+  "accepted_sha256": "8faa7dd10664146a2598d5e43f06d3d58a9210af7b57dd500a7cbb9e54d7741c",
+  "final_sha256": "fb7b5777578662ff61f334df5b4f5bd5f0b2bf626dbb5b10b7f49ecf09ab58cc",
+  "scope": "Removed exactly one adjacent duplicate legacy return branch; no other AST change; selected adapter inputs are plain list/dict records",
+  "ast_checked": true
+}

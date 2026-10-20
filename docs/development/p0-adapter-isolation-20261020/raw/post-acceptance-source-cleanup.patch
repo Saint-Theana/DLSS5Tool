@@ -1,0 +1,16 @@
+--- accepted/dlss5tool/dlss_engine.py
++++ final/dlss5tool/dlss_engine.py
+@@ -194,13 +194,6 @@
+             vendor_id=int(native.vendor_id),device_id=int(native.device_id),
+             dedicated_video_memory=int(native.dedicated_video_memory),
+             luid_high=int(native.luid_high),luid_low=int(native.luid_low))
+-    if not records and not expected:
+-        # Legacy/optional hosts can report their actual adapter without the
+-        # v2 discovery/selection contract. Do not mistake that for a stale list.
+-        return dict(name=str(native.description).strip() or 'NVIDIA GPU',
+-            vendor_id=int(native.vendor_id),device_id=int(native.device_id),
+-            dedicated_video_memory=int(native.dedicated_video_memory),
+-            luid_high=int(native.luid_high),luid_low=int(native.luid_low))
+     matched = next((record for record in records if (
+         record["luid_high"] == int(native.luid_high)
+         and record["luid_low"] == int(native.luid_low)

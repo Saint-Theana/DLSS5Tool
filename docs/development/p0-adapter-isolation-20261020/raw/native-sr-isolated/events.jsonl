@@ -1,0 +1,6 @@
+{"event": "starting", "wall": 1792434783.9381876, "pid": 48268}
+{"event": "first-output", "wall": 1792434786.4504101, "sha256": "e768f0ef006a8ecb7535e68e507c442e357408e4934c72269080c376a062ea60"}
+{"event": "idle-start", "wall": 1792434786.4507449, "seconds": 300}
+{"event": "idle-end", "wall": 1792435086.4744225}
+{"event": "frame", "wall": 1792435086.4749753, "frame": 1, "total": 32}
+{"event": "closed", "wall": 1792435089.9120646}

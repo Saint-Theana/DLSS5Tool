@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "worker_pid": 2492,
+  "daemon": true,
+  "inventory": {
+    "adapters": [
+      {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79931,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      }
+    ],
+    "cuda_identity_available": true,
+    "warnings": [],
+    "probe_pid": 1844
+  },
+  "cold_seconds": 2.9494260999999824,
+  "cached_seconds": 0.00019299999985378236,
+  "cached_equal": true,
+  "newly_loaded_modules": [],
+  "gpu_modules_after": [],
+  "processing_worker_retired": true,
+  "source_sha256": {
+    "dlss5tool/adapter_probe.py": "933f8b1e1b912ddad3b3c41a586cd6c9fced77ca8b934712f59c567195adaf05",
+    "dlss5tool/adapter_inventory.py": "9d14adc9262e752ea9bb4a1d21c4b6dd4d20f746f9dc224a2cd52f12adb9cc6b",
+    "dlss5tool/dlss_engine.py": "ac877ffa1706a7f713c39ceeadef880b74cc28e8707a654f655ec9a771714e0e"
+  }
+}

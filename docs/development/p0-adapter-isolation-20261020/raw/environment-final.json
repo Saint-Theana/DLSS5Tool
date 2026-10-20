@@ -1,0 +1,9 @@
+{
+  "nvidia_smi": "NVIDIA GeForce RTX 4070 SUPER, GPU-e6f7753b-1e67-7635-809b-5653dace5f12, 617.42, 12282 MiB, 00000000:01:00.0\n",
+  "system_memory": {
+    "total_physical_bytes": 68498677760,
+    "free_physical_bytes": 44565069824,
+    "free_commit_bytes": 37969747968
+  },
+  "scope": "No global NVIDIA settings or driver changes in this task"
+}

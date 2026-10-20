@@ -1,0 +1,9 @@
+{
+  "case": "native-device",
+  "scale": 2,
+  "frames": 32,
+  "extension_point_policy": null,
+  "native": "device",
+  "idle_seconds": 90,
+  "status": "passed"
+}

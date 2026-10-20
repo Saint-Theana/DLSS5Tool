@@ -1,0 +1,9 @@
+{
+  "free_disk_bytes": 63830122496,
+  "system_memory": {
+    "total_physical_bytes": 68498677760,
+    "free_physical_bytes": 45001494528,
+    "free_commit_bytes": 38549635072
+  },
+  "unchanged_production_runtime_hashes_verified": true
+}

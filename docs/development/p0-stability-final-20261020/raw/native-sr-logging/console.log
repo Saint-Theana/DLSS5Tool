@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 526, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 515, in main
+    worker(args, work)
+    ~~~~~~^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 161, in worker
+    result.update(run(args, work, config, event))
+                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\profile_native_frame_memory.py", line 119, in run
+    owner = sr.ProcessSuperResolution(width, height, 2)
+  File "F:\project\DLSS5Tool\dlss5tool\super_resolution.py", line 377, in __init__
+    self._receive("initialize")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\dlss5tool\super_resolution.py", line 399, in _receive
+    raise SuperResolutionError(detail)
+dlss5tool.super_resolution.SuperResolutionError: 超分子进程在 initialize 时超过 60 秒未响应

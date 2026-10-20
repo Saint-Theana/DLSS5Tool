@@ -1,0 +1,71 @@
+391 INFO: PyInstaller: 6.22.2, contrib hooks: 2026.7
+392 INFO: Python: 3.13.3
+459 INFO: Platform: Windows-11-10.0.26300-SP0
+459 INFO: Python environment: F:\project\DLSS5Tool\.venv
+460 INFO: wrote tmp/p0-adapter-isolation-20261020\AdapterProbeFixture.spec
+480 INFO: Module search paths (PYTHONPATH):
+['F:\\project\\DLSS5Tool',
+ 'C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip',
+ 'C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\DLLs',
+ 'C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib',
+ 'C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313',
+ 'F:\\project\\DLSS5Tool\\.venv',
+ 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages',
+ 'F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020',
+ 'F:\\project\\DLSS5Tool']
+1275 INFO: checking Analysis
+1275 INFO: Building Analysis because Analysis-00.toc is non existent
+1275 INFO: Looking for Python shared library...
+1276 INFO: Using Python shared library: C:\Users\PC\AppData\Local\Programs\Python\Python313\python313.dll
+1276 INFO: Running Analysis Analysis-00.toc
+1276 INFO: Target bytecode optimization level: 0
+1276 INFO: Initializing module dependency graph...
+1281 INFO: Initializing module graph hook caches...
+1306 INFO: Analyzing modules for base_library.zip ...
+3614 INFO: Processing standard module hook 'hook-heapq.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+3689 INFO: Processing standard module hook 'hook-encodings.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+4623 INFO: Processing standard module hook 'hook-math.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+5648 INFO: Processing standard module hook 'hook-pickle.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6711 INFO: Caching module dependency graph...
+6735 INFO: Analyzing F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen_entry.py
+6766 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+6924 INFO: Processing standard module hook 'hook-xml.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7137 INFO: Processing standard module hook 'hook-_ctypes.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7210 INFO: Processing standard module hook 'hook-platform.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks'
+7225 INFO: Processing module hooks (post-graph stage)...
+7402 INFO: Performing binary vs. data reclassification (1 entries)
+7405 INFO: Looking for ctypes DLLs
+7429 INFO: Analyzing run-time hooks ...
+7430 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+7432 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+7436 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+7439 INFO: Creating base_library.zip...
+7452 INFO: Looking for dynamic libraries
+7783 INFO: Extra DLL search directories (AddDllDirectory): []
+7783 INFO: Extra DLL search directories (PATH): []
+8592 INFO: Warnings written to F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-work\AdapterProbeFixture\warn-AdapterProbeFixture.txt
+8601 INFO: Graph cross-reference written to F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-work\AdapterProbeFixture\xref-AdapterProbeFixture.html
+8617 INFO: checking PYZ
+8617 INFO: Building PYZ because PYZ-00.toc is non existent
+8617 INFO: Building PYZ (ZlibArchive) F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-work\AdapterProbeFixture\PYZ-00.pyz
+8746 INFO: Building PYZ (ZlibArchive) F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-work\AdapterProbeFixture\PYZ-00.pyz completed successfully.
+8752 INFO: checking PKG
+8752 INFO: Building PKG because PKG-00.toc is non existent
+8752 INFO: Building PKG (CArchive) AdapterProbeFixture.pkg
+8767 INFO: Building PKG (CArchive) AdapterProbeFixture.pkg completed successfully.
+8768 INFO: Bootloader F:\project\DLSS5Tool\.venv\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+8768 INFO: checking EXE
+8768 INFO: Building EXE because EXE-00.toc is non existent
+8768 INFO: Building EXE from EXE-00.toc
+8769 INFO: Copying bootloader EXE to F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-work\AdapterProbeFixture\AdapterProbeFixture.exe
+8776 INFO: Copying icon to EXE
+8781 INFO: Copying 0 resources to EXE
+8781 INFO: Embedding manifest in EXE
+8786 INFO: Appending PKG archive to EXE
+8787 INFO: Fixing EXE headers
+8824 INFO: Building EXE from EXE-00.toc completed successfully.
+8825 INFO: checking COLLECT
+8825 INFO: Building COLLECT because COLLECT-00.toc is non existent
+8826 INFO: Building COLLECT COLLECT-00.toc
+9056 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+9057 INFO: Build complete! The results are available in: F:\project\DLSS5Tool\tmp\p0-adapter-isolation-20261020\frozen-dist

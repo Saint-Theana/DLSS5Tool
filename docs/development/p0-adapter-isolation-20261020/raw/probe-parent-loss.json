@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "cases": [
+    {
+      "mode": "before-go",
+      "child": {
+        "pid": 45984,
+        "created": 134369091051666135
+      },
+      "parent_exit": 1,
+      "child_retired_on_owner_loss": true
+    },
+    {
+      "mode": "after-go",
+      "child": {
+        "pid": 21076,
+        "created": 134369091054573460
+      },
+      "parent_exit": 1,
+      "child_retired_on_owner_loss": true
+    }
+  ],
+  "scope": "Owned fixture parents only; child native collection blocked for this lifecycle check"
+}

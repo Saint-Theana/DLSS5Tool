@@ -1,0 +1,66 @@
+{
+  "completed": true,
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020",
+  "targets": [
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\comparison-context.json",
+      "files": 1,
+      "logical_bytes": 3500
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\comparison.json",
+      "files": 1,
+      "logical_bytes": 22205
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\continuous-off",
+      "files": 9,
+      "logical_bytes": 130522854
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\exit-verification.json",
+      "files": 1,
+      "logical_bytes": 829
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\images-off",
+      "files": 18,
+      "logical_bytes": 9925123
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\initial.json",
+      "files": 1,
+      "logical_bytes": 246
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-composer-off",
+      "files": 8,
+      "logical_bytes": 332609
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-nr-off",
+      "files": 8,
+      "logical_bytes": 725628
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-sr-off",
+      "files": 8,
+      "logical_bytes": 2920163
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\settings-comparison.json",
+      "files": 1,
+      "logical_bytes": 1598
+    }
+  ],
+  "deleted_files": 56.0,
+  "deleted_logical_bytes": 144454755.0,
+  "free_before_bytes": 63684927488,
+  "free_after_bytes": 63829487616,
+  "measured_free_delta_bytes": 144560128,
+  "remaining_task_bytes": 3319,
+  "review_date": "2026-10-27",
+  "remaining_reason": "TASK.md preserves task ownership, reproducible commands, comparison limits and review date.",
+  "verified_archive": "F:\\project\\DLSS5Tool\\docs\\development\\p0-overlay-off-20261020",
+  "safety": "Resolved explicit task-only paths; ancestors and entries reject reparse points; exclusive file open checks; no source references or live observed workload identities; verified archived hashes."
+}

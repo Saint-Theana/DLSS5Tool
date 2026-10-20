@@ -1,0 +1,271 @@
+{
+  "completed": true,
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019",
+  "targets": [
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\cached-r1",
+      "bytes": 9626865,
+      "files": 11
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\cancel-r1",
+      "bytes": 2695917,
+      "files": 10
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\closed-proxy.xml",
+      "bytes": 369,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\consumer-red.xml",
+      "bytes": 2464,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\continuous-fg",
+      "bytes": 5650705,
+      "files": 10
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\continuous-hdr",
+      "bytes": 7818076,
+      "files": 9
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\continuous-hdr-verified",
+      "bytes": 8088690,
+      "files": 9
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\continuous-r1",
+      "bytes": 130627191,
+      "files": 9
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\continuous-sr-only",
+      "bytes": 9307001,
+      "files": 9
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\exit-r1",
+      "bytes": 657765,
+      "files": 10
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\fg-tk-rerun.xml",
+      "bytes": 399,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\focused-rerun.xml",
+      "bytes": 1261,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\images-r1",
+      "bytes": 18265089,
+      "files": 23
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\images-trace",
+      "bytes": 9942403,
+      "files": 17
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\logging-candidate",
+      "bytes": 314500,
+      "files": 6
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\logging-candidate.patch",
+      "bytes": 1458,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-composer-r1",
+      "bytes": 330784,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-cuda-r1",
+      "bytes": 312187,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-device-r1",
+      "bytes": 460808,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-device11-clear",
+      "bytes": 312749,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-device11-compute",
+      "bytes": 313527,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-device11-r1",
+      "bytes": 311814,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-device11-readback",
+      "bytes": 316254,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-nr-full-idle",
+      "bytes": 775702,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-nr-pressure",
+      "bytes": 78516,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-extensions",
+      "bytes": 451129,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-full",
+      "bytes": 238853,
+      "files": 7
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-idle",
+      "bytes": 443749,
+      "files": 7
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-idle300",
+      "bytes": 1913167,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-logging",
+      "bytes": 409402,
+      "files": 6
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-pressure",
+      "bytes": 118882,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-pressure-fixed",
+      "bytes": 41593,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-r1",
+      "bytes": 100442,
+      "files": 7
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\native-sr-trim",
+      "bytes": 449002,
+      "files": 8
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\owner-consumers",
+      "bytes": 6575,
+      "files": 17
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\owner-consumers.xml",
+      "bytes": 11710,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\owners",
+      "bytes": 6449,
+      "files": 17
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\owners.xml",
+      "bytes": 8284,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\pipeline-association",
+      "bytes": 2809501,
+      "files": 190
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\pipeline-association.xml",
+      "bytes": 13694,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\pressure-final",
+      "bytes": 2002,
+      "files": 4
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\pressure-final.xml",
+      "bytes": 13842,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\pressure-owner-final.xml",
+      "bytes": 8418,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\red.xml",
+      "bytes": 3984,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\related",
+      "bytes": 8437,
+      "files": 21
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\related.xml",
+      "bytes": 17815,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\runtime-tests",
+      "bytes": 8545,
+      "files": 21
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\runtime-tests.xml",
+      "bytes": 24176,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\tmp\\p0-stability-20261019\\tk-rerun.xml",
+      "bytes": 376,
+      "files": 1
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\docs\\development\\p0-stability-20261019",
+      "bytes": 1171467,
+      "files": 162
+    },
+    {
+      "path": "F:\\project\\DLSS5Tool\\docs\\development\\p0-stability-20261020",
+      "bytes": 1473619,
+      "files": 208
+    }
+  ],
+  "deleted_files": 916.0,
+  "deleted_logical_bytes": 215967607.0,
+  "free_before_bytes": 63612633088,
+  "free_after_bytes": 63830138880,
+  "measured_free_delta_bytes": 217505792,
+  "remaining_task_bytes": 3487,
+  "verified_replacement_evidence": "F:\\project\\DLSS5Tool\\docs\\development\\p0-stability-final-20261020",
+  "safety": "All targets resolved; ancestors and entries reject reparse points; every file opened exclusively; source references absent; workload identities rechecked; prior report summaries retained in verified replacement.",
+  "remaining_reason": "TASK.md retains ownership and reconstruction provenance; persistent SDK/models, older task directories and release baselines excluded.",
+  "review_date": "2026-10-26"
+}

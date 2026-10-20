@@ -1,0 +1,11 @@
+{
+  "case": "native-device11",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "device11",
+  "idle_seconds": 60,
+  "status": "passed"
+}

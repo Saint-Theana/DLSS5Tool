@@ -1,0 +1,17 @@
+{"event": "starting", "wall": 1792422984.366185, "pid": 1156}
+{"event": "image-complete", "wall": 1792423006.3923392, "cycle": 0, "source": "image-0.png", "host_pid": 40188, "sr_pid": 43736}
+{"event": "image-complete", "wall": 1792423020.8641143, "cycle": 1, "source": "image-1.png", "host_pid": 48712, "sr_pid": 30092}
+{"event": "image-complete", "wall": 1792423035.5439255, "cycle": 2, "source": "image-2.png", "host_pid": 48604, "sr_pid": 13412}
+{"event": "image-complete", "wall": 1792423050.7551777, "cycle": 3, "source": "image-0.png", "host_pid": 39364, "sr_pid": 40820}
+{"event": "image-complete", "wall": 1792423065.5618427, "cycle": 4, "source": "image-1.png", "host_pid": 43328, "sr_pid": 24220}
+{"event": "image-complete", "wall": 1792423079.556456, "cycle": 5, "source": "image-2.png", "host_pid": 20464, "sr_pid": 2592}
+{"event": "image-complete", "wall": 1792423093.7479038, "cycle": 6, "source": "image-0.png", "host_pid": 49756, "sr_pid": 48844}
+{"event": "image-complete", "wall": 1792423107.6377106, "cycle": 7, "source": "image-1.png", "host_pid": 21688, "sr_pid": 47172}
+{"event": "image-complete", "wall": 1792423122.1086538, "cycle": 8, "source": "image-2.png", "host_pid": 4192, "sr_pid": 38808}
+{"event": "image-complete", "wall": 1792423136.9719286, "cycle": 9, "source": "image-0.png", "host_pid": 50000, "sr_pid": 40420}
+{"event": "image-complete", "wall": 1792423151.1384685, "cycle": 10, "source": "image-1.png", "host_pid": 2824, "sr_pid": 31192}
+{"event": "image-complete", "wall": 1792423165.2513993, "cycle": 11, "source": "image-2.png", "host_pid": 30324, "sr_pid": 17332}
+{"event": "paused", "wall": 1792423165.7585075}
+{"event": "cache-cleared", "wall": 1792423165.8227587, "bytes": 0}
+{"event": "exit-requested", "wall": 1792423165.8270946}
+{"event": "closed", "wall": 1792423169.16407}

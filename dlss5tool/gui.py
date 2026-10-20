@@ -4466,7 +4466,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         self._on_host_settings_change()
 
     def _start_render_gpu_scan(self):
-        if not hasattr(self, '_host_settings'):
+        if not hasattr(self, '_host_settings') or getattr(self, '_render_gpu_scan_closing', False):
             return
         if self._render_gpu_scan_thread is not None and self._render_gpu_scan_thread.is_alive():
             return
@@ -4479,7 +4479,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
 
         def worker():
             try:
-                result = dlss_engine.available_render_adapters()
+                result = dlss_engine.available_render_adapters(refresh=True)
                 error = ''
             except Exception as exc:
                 result = []
@@ -4849,9 +4849,14 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                     result.put({'info': info})
                     return
             except Exception as exc:
+                cleanup_message = ''
                 if warm_preview is not None:
-                    self._close_live()
-                result.put(str(exc))
+                    try:
+                        self._close_live()
+                    except Exception as cleanup:
+                        if str(cleanup) != str(exc):
+                            cleanup_message = '\n清理失败：' + str(cleanup)
+                result.put(str(exc) + cleanup_message)
             else:
                 result.put(None)
 
@@ -5762,13 +5767,30 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             ):
                 return
             self._update_cancel_event.set()
-        if getattr(self, '_render_cache_manager', None):
+        self._render_gpu_scan_closing = True
+        self._render_gpu_scan_generation = time.monotonic_ns()
+        try:
+            dlss_engine.close_adapter_probe()
+        except Exception as error:
+            self.set_status(str(error))
+            return
+        scan = getattr(self, '_render_gpu_scan_thread', None)
+        if scan is not None and scan.is_alive():
+            self.root.after(50, self._on_close)
+            return
+        if (getattr(self, '_render_cache_manager', None) or
+                (getattr(self, '_shared_retire_pending', None) and
+                 not getattr(self, '_shared_closing', False))):
             self._shared_closing = True
             self.pause()
             self._shared_retire()
         retiring = getattr(self, '_shared_retiring', None)
         if retiring and retiring.is_alive():
             self.root.after(50, self._on_close)
+            return
+        if getattr(self, '_shared_retire_pending', None):
+            self._shared_closing = False
+            self.set_status(self._shared_retire_error)
             return
         preview_jobs = [getattr(self, name, None) for name in
                         ('_local_composition_job', '_shared_interim_job')]
@@ -5816,12 +5838,18 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         self._image_alpha = None
         self._source_kind = None
         self._video_color_info = None
-        self._close_live()
-        if getattr(self, '_shared_cache_pool', None):
-            self._shared_cache_pool.close()
-            self._shared_cache_pool = None
-        self._close_super_resolution()
-        release_native_composer()
+        try:
+            self._cleanup_video_export([
+                ('preview NR', self._close_live),
+                ('preview VSR', self._close_super_resolution),
+                ('composer', release_native_composer),
+            ])
+            if getattr(self, '_shared_cache_pool', None):
+                self._shared_cache_pool.close()
+                self._shared_cache_pool = None
+        except Exception as error:
+            self.set_status(str(error))
+            return
         if self._detached_preview_window is not None:
             ui_theme.release_app_icon(self._detached_preview_window)
         ui_theme.release_app_icon(self.root)
@@ -5881,14 +5909,13 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
 
     def _close_super_resolution(self):
         with self._super_resolution_lock:
-            if self._super_resolution_live is not None:
-                try:
+            try:
+                if self._super_resolution_live is not None:
                     self._super_resolution_live.close()
-                except Exception:
-                    pass
-            self._super_resolution_live = None
-            self._super_resolution_key = None
-            self._last_super_resolution_preview = None
+                self._super_resolution_live = None
+                self._super_resolution_key = None
+            finally:
+                self._last_super_resolution_preview = None
 
     def _upscale_rgba(self, rgba, scale, is_hdr=False, session=None):
         scale = normalize_scale(scale)
@@ -5962,16 +5989,17 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
                 return None
 
     def _close_live(self):
-        with self._live_lock:
-            if self._live:
-                try:
+        try:
+            with self._live_lock:
+                if self._live:
                     self._live.close()
-                except Exception:
-                    pass
-                self._live = None
-        self._cache_clear()
-        release_native_composer()
-        self._last_dlss_frame = -1
+                    self._live = None
+        finally:
+            self._last_dlss_frame = -1
+            try:
+                self._cache_clear()
+            finally:
+                release_native_composer()
 
     def _source_size(self, source_bgr=None):
         if source_bgr is not None:
@@ -6320,6 +6348,13 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         retiring = getattr(self, '_shared_retiring', None)
         if retiring and retiring.is_alive():
             self._clear_preview_after = self.root.after(50, self._poll_clear_preview_cache)
+            return
+        if getattr(self, '_shared_retire_pending', None):
+            self._clear_preview_pending = self._preview_cache_frozen = False
+            self._update_clear_cache_control()
+            message = self._shared_retire_error or '缓存处理尚未退出'
+            self.logln(message)
+            self.set_status(message)
             return
         thread = getattr(self, '_play_dlss_thread', None)
         if ((thread is not None and thread.is_alive()) or any(
@@ -9754,6 +9789,7 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
         return candidate
 
     def _begin_export_ui(self, status_text):
+        self._cleanup_video_export()
         item = self._gpu_conflict('export')
         if item is not None:
             raise RuntimeError(describe_gpu_conflict(item))
@@ -10732,12 +10768,18 @@ class App(GpuResourceGuard, SharedRenderPreview, LocalPreviewComposition, Previe
             error_message = str(ex)
             self.logln(tr("log.export_error", error=error_message))
         finally:
+            actions = []
             if writer and not success:
-                writer.abort()
+                actions.append(('encoder', writer.abort))
             if cancelled and live is not None:
-                # An async single-session export may still own queued frames. Reusing
-                # that host would return stale output on the next preview/export.
-                self._close_live()
+                # Queued output must retire before this host can be reused.
+                actions.append(('cancelled NR', self._close_live))
+            try:
+                self._cleanup_video_export(actions)
+            except Exception as cleanup:
+                cleanup_message = str(cleanup)
+                error_message = (error_message + '\n' + cleanup_message
+                                 if error_message else cleanup_message)
         self._end_export_ui(
             success, out_path, tr("common.completed"),
             tr("sequence.exported" if is_sequence(source_path) else "status.exported_audio", path=out_path) if success else None,

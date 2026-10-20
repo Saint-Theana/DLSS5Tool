@@ -1,0 +1,6 @@
+{"event": "starting", "wall": 1792431978.6275604, "pid": 40336}
+{"event": "minimal-d3d11-compute", "wall": 1792431978.941283}
+{"event": "minimal-d3d11-timing", "wall": 1792431978.9429767, "frequency": 1000000000, "disjoint": 0, "begin": 1792431977305995264, "end": 1792431977307108576}
+{"event": "idle-start", "wall": 1792431978.9437585, "seconds": 60, "device": "d3d11"}
+{"event": "idle-end", "wall": 1792432039.7498446}
+{"event": "closed", "wall": 1792432039.7617779}

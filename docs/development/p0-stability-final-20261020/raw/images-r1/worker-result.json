@@ -1,0 +1,83 @@
+{
+  "case": "images",
+  "scale": 2,
+  "frames": 32,
+  "extension_point_policy": null,
+  "cycles": [
+    {
+      "cycle": 0,
+      "source": "image-0.png",
+      "host_pid": 40188,
+      "sr_pid": 43736
+    },
+    {
+      "cycle": 1,
+      "source": "image-1.png",
+      "host_pid": 48712,
+      "sr_pid": 30092
+    },
+    {
+      "cycle": 2,
+      "source": "image-2.png",
+      "host_pid": 48604,
+      "sr_pid": 13412
+    },
+    {
+      "cycle": 3,
+      "source": "image-0.png",
+      "host_pid": 39364,
+      "sr_pid": 40820
+    },
+    {
+      "cycle": 4,
+      "source": "image-1.png",
+      "host_pid": 43328,
+      "sr_pid": 24220
+    },
+    {
+      "cycle": 5,
+      "source": "image-2.png",
+      "host_pid": 20464,
+      "sr_pid": 2592
+    },
+    {
+      "cycle": 6,
+      "source": "image-0.png",
+      "host_pid": 49756,
+      "sr_pid": 48844
+    },
+    {
+      "cycle": 7,
+      "source": "image-1.png",
+      "host_pid": 21688,
+      "sr_pid": 47172
+    },
+    {
+      "cycle": 8,
+      "source": "image-2.png",
+      "host_pid": 4192,
+      "sr_pid": 38808
+    },
+    {
+      "cycle": 9,
+      "source": "image-0.png",
+      "host_pid": 50000,
+      "sr_pid": 40420
+    },
+    {
+      "cycle": 10,
+      "source": "image-1.png",
+      "host_pid": 2824,
+      "sr_pid": 31192
+    },
+    {
+      "cycle": 11,
+      "source": "image-2.png",
+      "host_pid": 30324,
+      "sr_pid": 17332
+    }
+  ],
+  "tk_errors": [],
+  "window_destroyed": true,
+  "status": "passed"
+}

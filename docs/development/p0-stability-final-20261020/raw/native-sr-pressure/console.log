@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 480, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 469, in main
+    worker(args, work)
+    ~~~~~~^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\verify_p0_stability.py", line 157, in worker
+    result.update(run(args, work, config, event))
+                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\project\DLSS5Tool\scripts\profile_native_frame_memory.py", line 120, in run
+    assert not process.is_alive(), 'Idle GPU worker ignored simulated memory pressure'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Idle GPU worker ignored simulated memory pressure

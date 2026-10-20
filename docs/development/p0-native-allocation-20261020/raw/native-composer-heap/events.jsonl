@@ -1,0 +1,9 @@
+{"event": "starting", "wall": 1792431842.0384097, "pid": 47668}
+{"event": "heap-trace-start", "wall": 1792431845.6410267, "patches": 238, "scope": "diagnostic process IAT, default heap"}
+{"event": "idle-start", "wall": 1792431845.6421258, "seconds": 60, "scope": "one native composer, no SR/NR"}
+{"event": "heap-trace-snapshot", "wall": 1792431867.0619445, "number": 1}
+{"event": "heap-trace-snapshot", "wall": 1792431887.1068685, "number": 2}
+{"event": "heap-trace-snapshot", "wall": 1792431907.0999072, "number": "final"}
+{"event": "heap-trace-ended", "wall": 1792431907.1015675, "restored": 238, "patches": 238}
+{"event": "idle-end", "wall": 1792431907.1021245}
+{"event": "closed", "wall": 1792431907.8674574}

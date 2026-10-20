@@ -1,0 +1,1100 @@
+{
+  "scope": "Synthetic local samples on a 64 GiB single-GPU machine; not the original 32 GiB incident",
+  "base_commit": "acf3ac2b962a2aff3d17634932fd9eba40516d43",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "windows": "Windows-11-10.0.26300-SP0",
+  "batches": [],
+  "runtime_only": true,
+  "distinct_passed": 0,
+  "latest_unresolved": [],
+  "cases": [
+    {
+      "label": "continuous-off",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 124.077,
+      "peak_private_bytes": 2427629568,
+      "samples": 473,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "worker": {
+        "case": "continuous",
+        "scale": 2,
+        "frames": 1800,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "source_metadata": {
+          "width": 960,
+          "height": 540,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "duration": "60.000000",
+          "nb_frames": "1800",
+          "fps": 30.0,
+          "frames": 1800,
+          "color_primaries": "bt709",
+          "color_space": "bt709",
+          "color_transfer": "unknown",
+          "color_range": "tv",
+          "pixel_format": "yuv420p",
+          "profile": "srgb",
+          "is_hdr": false,
+          "label": "SDR / sRGB"
+        },
+        "report": {
+          "experimental": true,
+          "warning": "实验功能：普通视频采用 NVOFA 估计光流及平面深度；遮挡/字幕/HDR 画质未完整验收。3×/4×目前仅限本机 RTX 4070 SUPER 与固定运行库，已知部分生成帧时间位置偏差。不会自动降倍率或位深；正常帧对生成无效时停止。",
+          "source": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\continuous-off\\source.mp4",
+          "output": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\continuous-off\\output.mp4",
+          "multiplier": 1,
+          "spatial_scale": 2,
+          "enhance": true,
+          "status": "complete",
+          "real_frames": 1800,
+          "generated_frames": 0,
+          "cut_holds": 0,
+          "endpoint_holds": 0,
+          "width": 1920,
+          "height": 1080,
+          "source_rate": "30",
+          "output_rate": "30",
+          "enhancement_bypassed": false,
+          "enhancement_bypass": null,
+          "appearance_version": 1,
+          "composition_backend": "cpu-reference",
+          "color": "srgb",
+          "output_view": 0,
+          "runtime_sha256": null,
+          "log_dir": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\continuous-off\\complete-logs",
+          "cleanup_errors": []
+        },
+        "output_metadata": {
+          "width": 1920,
+          "height": 1080,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "duration": "60.000000",
+          "nb_frames": "1800",
+          "fps": 30.0,
+          "frames": 1800,
+          "color_primaries": "bt709",
+          "color_space": "bt709",
+          "color_transfer": "unknown",
+          "color_range": "tv",
+          "pixel_format": "yuv420p",
+          "profile": "srgb",
+          "is_hdr": false,
+          "label": "SDR / sRGB"
+        },
+        "status": "passed"
+      }
+    },
+    {
+      "label": "images-off",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 154.853,
+      "peak_private_bytes": 2409906176,
+      "samples": 596,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 64548864.0,
+      "idle_private_bytes_per_second": 1603344.8327053885,
+      "idle_measured_span_seconds": 40.258877992630005,
+      "worker": {
+        "case": "images",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "cycles": [
+          {
+            "cycle": 0,
+            "source": "image-0.png",
+            "host_pid": 6124,
+            "sr_pid": 5656,
+            "memory": {
+              "private_bytes": 113852416,
+              "working_set_bytes": 174370816,
+              "free_physical_bytes": 44262338560,
+              "free_commit_bytes": 37344661504
+            },
+            "python_bytes": 19467913,
+            "python_peak_bytes": 103177697,
+            "collected": 56,
+            "tk_images": 298,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:500",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075416,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 1,
+            "source": "image-1.png",
+            "host_pid": 35532,
+            "sr_pid": 28608,
+            "memory": {
+              "private_bytes": 316936192,
+              "working_set_bytes": 304951296,
+              "free_physical_bytes": 44056072192,
+              "free_commit_bytes": 36815740928
+            },
+            "python_bytes": 35908474,
+            "python_peak_bytes": 103177697,
+            "collected": 150,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 6221040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:255",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 2,
+            "source": "image-2.png",
+            "host_pid": 47208,
+            "sr_pid": 49144,
+            "memory": {
+              "private_bytes": 341889024,
+              "working_set_bytes": 309850112,
+              "free_physical_bytes": 44084686848,
+              "free_commit_bytes": 36964909056
+            },
+            "python_bytes": 26794548,
+            "python_peak_bytes": 103177697,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:255",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 3,
+            "source": "image-0.png",
+            "host_pid": 34036,
+            "sr_pid": 44788,
+            "memory": {
+              "private_bytes": 291954688,
+              "working_set_bytes": 285036544,
+              "free_physical_bytes": 44146712576,
+              "free_commit_bytes": 37132525568
+            },
+            "python_bytes": 19495185,
+            "python_peak_bytes": 111373053,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 2764992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:500",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 4,
+            "source": "image-1.png",
+            "host_pid": 42572,
+            "sr_pid": 27004,
+            "memory": {
+              "private_bytes": 416870400,
+              "working_set_bytes": 359170048,
+              "free_physical_bytes": 44090335232,
+              "free_commit_bytes": 36799057920
+            },
+            "python_bytes": 37848991,
+            "python_peak_bytes": 111373053,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 6221040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:255",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 5,
+            "source": "image-2.png",
+            "host_pid": 40296,
+            "sr_pid": 16328,
+            "memory": {
+              "private_bytes": 420749312,
+              "working_set_bytes": 344244224,
+              "free_physical_bytes": 44152741888,
+              "free_commit_bytes": 36975247360
+            },
+            "python_bytes": 28734781,
+            "python_peak_bytes": 111373053,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8595",
+                "bytes": 4301088,
+                "count": 6
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:273",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:255",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9968",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866547,
+                "count": 14857
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:228",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:274",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          }
+        ],
+        "tk_errors": [],
+        "window_destroyed": true,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-composer-off",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 64.91,
+      "peak_private_bytes": 316579840,
+      "samples": 251,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 55097344.0,
+      "idle_private_bytes_per_second": 1371594.6486983057,
+      "idle_measured_span_seconds": 40.17028212547302,
+      "worker": {
+        "case": "native-composer",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "composer",
+        "created": 1,
+        "destroyed": 1,
+        "retained_device_refs": 0,
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-nr-off",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 111.954,
+      "peak_private_bytes": 1169793024,
+      "samples": 432,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 48900096.0,
+      "idle_private_bytes_per_second": 1217595.1707183127,
+      "idle_measured_span_seconds": 40.16121053695679,
+      "worker": {
+        "case": "native-nr",
+        "scale": 2,
+        "frames": 3600,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "nr",
+        "width": 960,
+        "height": 540,
+        "diagnostic_gc_interval": 512,
+        "first_output_sha256": "d7489c5f92e95426f405806b89a221d798c8dd31992b20de26caf7a97789fc99",
+        "status": "passed"
+      }
+    },
+    {
+      "label": "native-sr-off",
+      "processing_and_exit": "passed",
+      "elapsed_seconds": 309.343,
+      "peak_private_bytes": 903663616,
+      "samples": 1192,
+      "supervisor_safety_stop": null,
+      "supervisor_recovery": [],
+      "remaining": [],
+      "long_term_memory_plateau_verified": false,
+      "idle_private_delta_bytes": 211730432,
+      "idle_private_bytes_per_second": 912743.1549911732,
+      "idle_measured_span_seconds": 231.97153639793396,
+      "worker": {
+        "case": "native-sr",
+        "scale": 2,
+        "frames": 512,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "sr",
+        "width": 960,
+        "height": 540,
+        "diagnostic_gc_interval": 512,
+        "first_output_sha256": "e768f0ef006a8ecb7535e68e507c442e357408e4934c72269080c376a062ea60",
+        "status": "passed"
+      }
+    }
+  ],
+  "source_and_runtime_manifest": [
+    {
+      "file": "dlss5tool/gui.py",
+      "bytes": 500621,
+      "sha256": "a8457d7ec5a0adb58588b54cdcc911eca062a6b23fbab3072b9b51613581debf"
+    },
+    {
+      "file": "dlss5tool/dlss_host_process.py",
+      "bytes": 29985,
+      "sha256": "16ae4ecda5a2613dfc51edcb01bc37989b27762837081077ed1c3b59346bfa25"
+    },
+    {
+      "file": "dlss5tool/render_cache.py",
+      "bytes": 32100,
+      "sha256": "322fffa89a599898259dc7cd4056ad64d12f4f120466830b604e73f3cab91cf4"
+    },
+    {
+      "file": "dlss5tool/shared_render_preview.py",
+      "bytes": 29059,
+      "sha256": "e8c3bdbca2665053dff097b0a6c2bcd51cffb469d9424e3fa45303186c4a9eef"
+    },
+    {
+      "file": "dlss5tool/memory_budget.py",
+      "bytes": 5192,
+      "sha256": "ee546fa4155824fdf753ecceaaa7eda4c82e86f358ecbed5e11e5910facdb907"
+    },
+    {
+      "file": "dlss5tool/super_resolution.py",
+      "bytes": 20128,
+      "sha256": "4308d0137b1eeea679d380b180b6986b0458990e06a400e293323822a43c666b"
+    },
+    {
+      "file": "scripts/verify_p0_stability.py",
+      "bytes": 30345,
+      "sha256": "ac934bcdd21aa9439fcf1d7378cbae0db5df7e69d800d09cf6695821d64e2bca"
+    },
+    {
+      "file": "scripts/profile_native_frame_memory.py",
+      "bytes": 16924,
+      "sha256": "d37ae154ec31782fb363b3a7818c669666240d52e25e2b91a947d2a9f9cc988e"
+    },
+    {
+      "file": "scripts/collect_p0_stability.py",
+      "bytes": 8443,
+      "sha256": "c0cce8f5bfa8334652b3ce1f0c6cb87fd30a9c1ca4e43fad43f93ac5aa7da9d2"
+    },
+    {
+      "file": "scripts/compare_p0_stability.py",
+      "bytes": 7384,
+      "sha256": "08a4d28b2b8feaaf06d58b0164a8822d114e9a47885b72955eb3862105ff19f8"
+    },
+    {
+      "file": "tests/test_gui_module_reload.py",
+      "bytes": 13572,
+      "sha256": "799e8358705a0526d2ce81b30301e161d6ed9f9b31be974e6fcc3ca77b15b146"
+    },
+    {
+      "file": "tests/test_p0_owner_retirement.py",
+      "bytes": 9897,
+      "sha256": "12f3bb1113e5985d1131ca87a53715167440a55bd80a557c0d51e482cdeca4cc"
+    },
+    {
+      "file": "tests/test_p0_runtime_pressure.py",
+      "bytes": 5105,
+      "sha256": "79f91667e26433f5c09982712b98f4ba223ae2bed673f6b21c57970c3de4ae08"
+    },
+    {
+      "file": "runtime/vsr_host.dll",
+      "bytes": 231936,
+      "sha256": "5e66ddc8b4c56f2b77daed782cc8429b607d32bba358efb488fbd4c03ae515b7"
+    },
+    {
+      "file": "runtime/nvngx_vsr.dll",
+      "bytes": 19140144,
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed"
+    },
+    {
+      "file": "runtime/nvngx_dlssnr.dll",
+      "bytes": 165840496,
+      "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650"
+    },
+    {
+      "file": "runtime/dlssnr_host_v2.dll",
+      "bytes": 295424,
+      "sha256": "c8ad631f8f78b2dedec6aec418c7a570d6fc5bf1b9ffa9f3514bcb0edd58fc13"
+    },
+    {
+      "file": "runtime/dlss5_quality.dll",
+      "bytes": 155648,
+      "sha256": "32ea271a83786b1533f4074cb29534cf866b4778d68b0b823dbf4c5dbaf544b6"
+    }
+  ],
+  "archive": [
+    {
+      "source": "comparison-context.json",
+      "file": "raw\\comparison-context.json",
+      "source_bytes": 3500,
+      "source_sha256": "e393336d242ae42a8d6b2c807122bb1bed00aec768114a8020616f379b263aa2",
+      "archived_sha256": "e393336d242ae42a8d6b2c807122bb1bed00aec768114a8020616f379b263aa2"
+    },
+    {
+      "source": "comparison.json",
+      "file": "raw\\comparison.json",
+      "source_bytes": 22205,
+      "source_sha256": "03ce6cec854976fad375f9de5c84fda99254c3cbaed0191d867212daab3677bc",
+      "archived_sha256": "03ce6cec854976fad375f9de5c84fda99254c3cbaed0191d867212daab3677bc"
+    },
+    {
+      "source": "continuous-off\\console.log",
+      "file": "raw\\continuous-off\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "continuous-off\\events.jsonl",
+      "file": "raw\\continuous-off\\events.jsonl",
+      "source_bytes": 8957,
+      "source_sha256": "269faa57d695e8824ef011ec0a650033be50f759df423e0584ed07f5793e8866",
+      "archived_sha256": "269faa57d695e8824ef011ec0a650033be50f759df423e0584ed07f5793e8866"
+    },
+    {
+      "source": "continuous-off\\memory-samples.json",
+      "file": "raw\\continuous-off\\memory-samples.json.gz",
+      "source_bytes": 1168297,
+      "source_sha256": "2d6205eb13380f9578211da88254119973133e189fdbf898a50e4fdbaae874ac",
+      "archived_sha256": "7f05d94aad7340feedea13aacd638e3b7cb6da75da48fa1f7ca1dd0bd4cda86a"
+    },
+    {
+      "source": "continuous-off\\result.json",
+      "file": "raw\\continuous-off\\result.json",
+      "source_bytes": 13894,
+      "source_sha256": "db08de2946169940b0fc822818bb746768507c9a6447c56782a4b1f7e3457a88",
+      "archived_sha256": "db08de2946169940b0fc822818bb746768507c9a6447c56782a4b1f7e3457a88"
+    },
+    {
+      "source": "continuous-off\\settings.json",
+      "file": "raw\\continuous-off\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "continuous-off\\worker-result.json",
+      "file": "raw\\continuous-off\\worker-result.json",
+      "source_bytes": 2308,
+      "source_sha256": "70e9411485e75ae4a4dd50e79e70467d43122e304aeb41b629256ae3898557d0",
+      "archived_sha256": "70e9411485e75ae4a4dd50e79e70467d43122e304aeb41b629256ae3898557d0"
+    },
+    {
+      "source": "exit-verification.json",
+      "file": "raw\\exit-verification.json",
+      "source_bytes": 829,
+      "source_sha256": "edbfac0be347522ef58cea441b616d1cec69e1a1f0229f5cb833f1b48876b80a",
+      "archived_sha256": "edbfac0be347522ef58cea441b616d1cec69e1a1f0229f5cb833f1b48876b80a"
+    },
+    {
+      "source": "images-off\\console.log",
+      "file": "raw\\images-off\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "images-off\\events.jsonl",
+      "file": "raw\\images-off\\events.jsonl",
+      "source_bytes": 9515,
+      "source_sha256": "8ea540d8341eaf4e6b9b664452649787c6f820b37beab5765a826bc0783fcbbc",
+      "archived_sha256": "8ea540d8341eaf4e6b9b664452649787c6f820b37beab5765a826bc0783fcbbc"
+    },
+    {
+      "source": "images-off\\gui-modules.jsonl",
+      "file": "raw\\images-off\\gui-modules.jsonl",
+      "source_bytes": 50763,
+      "source_sha256": "da625bb8ffbfcbdb03a0099313a5fa1962ce341dd9fb0536f4ba688096f5b258",
+      "archived_sha256": "da625bb8ffbfcbdb03a0099313a5fa1962ce341dd9fb0536f4ba688096f5b258"
+    },
+    {
+      "source": "images-off\\memory-samples.json",
+      "file": "raw\\images-off\\memory-samples.json.gz",
+      "source_bytes": 1270587,
+      "source_sha256": "96ad3f1562cec99d8a2f35c26504e0a5bfb175b9b1833b37dda556b064c95df9",
+      "archived_sha256": "8485dc16aa16fb7ad38d5dd983d404be9314edc615d65f52261d2abc470c9f18"
+    },
+    {
+      "source": "images-off\\result.json",
+      "file": "raw\\images-off\\result.json",
+      "source_bytes": 45999,
+      "source_sha256": "410ab56a53c001d3ad4c57cd05d6f9b857290313e88f610dbe56c1d92d93fd61",
+      "archived_sha256": "410ab56a53c001d3ad4c57cd05d6f9b857290313e88f610dbe56c1d92d93fd61"
+    },
+    {
+      "source": "images-off\\settings.json",
+      "file": "raw\\images-off\\settings.json",
+      "source_bytes": 3219,
+      "source_sha256": "ca11f04fe057646ad401b970f8a0d34d11c10ab9bf77d8a88a75674769a6cc58",
+      "archived_sha256": "ca11f04fe057646ad401b970f8a0d34d11c10ab9bf77d8a88a75674769a6cc58"
+    },
+    {
+      "source": "images-off\\worker-result.json",
+      "file": "raw\\images-off\\worker-result.json",
+      "source_bytes": 13177,
+      "source_sha256": "62be9d7f9cdcf89bf266e7d9d72d0564d28182abdaef386c0c835756ca91e6cd",
+      "archived_sha256": "62be9d7f9cdcf89bf266e7d9d72d0564d28182abdaef386c0c835756ca91e6cd"
+    },
+    {
+      "source": "initial.json",
+      "file": "raw\\initial.json",
+      "source_bytes": 246,
+      "source_sha256": "b4cae435754b39c8ed4b04c636d504952dc6c47bda27f5e18b6eef16a301cbe5",
+      "archived_sha256": "b4cae435754b39c8ed4b04c636d504952dc6c47bda27f5e18b6eef16a301cbe5"
+    },
+    {
+      "source": "native-composer-off\\composer-frame-memory.jsonl",
+      "file": "raw\\native-composer-off\\composer-frame-memory.jsonl",
+      "source_bytes": 2250,
+      "source_sha256": "334f2bc36adc240961815585e1809aff0e67b60d643723f6b5538e681dd813b8",
+      "archived_sha256": "334f2bc36adc240961815585e1809aff0e67b60d643723f6b5538e681dd813b8"
+    },
+    {
+      "source": "native-composer-off\\console.log",
+      "file": "raw\\native-composer-off\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-composer-off\\events.jsonl",
+      "file": "raw\\native-composer-off\\events.jsonl",
+      "source_bytes": 273,
+      "source_sha256": "f5800973d72260f5190d8a3522ba7605b0cdc408ab53cd8e806dafd6b4ed68ee",
+      "archived_sha256": "f5800973d72260f5190d8a3522ba7605b0cdc408ab53cd8e806dafd6b4ed68ee"
+    },
+    {
+      "source": "native-composer-off\\memory-samples.json",
+      "file": "raw\\native-composer-off\\memory-samples.json.gz",
+      "source_bytes": 316538,
+      "source_sha256": "63512aaee3b8b0795116228b7eb48f6e49fe9522c1dfb5a39ace9fdc749c89c0",
+      "archived_sha256": "707676f71edd39424e01d6fcc6c01db45fc0aecd14898cbe77b7998d89cf4f55"
+    },
+    {
+      "source": "native-composer-off\\native-modules.json",
+      "file": "raw\\native-composer-off\\native-modules.json",
+      "source_bytes": 6554,
+      "source_sha256": "9251721cfc30fc2f85bda485870df1ebba07bbe4e78369816a8fc668cb95a44b",
+      "archived_sha256": "9251721cfc30fc2f85bda485870df1ebba07bbe4e78369816a8fc668cb95a44b"
+    },
+    {
+      "source": "native-composer-off\\result.json",
+      "file": "raw\\native-composer-off\\result.json",
+      "source_bytes": 3516,
+      "source_sha256": "053d5868f55501d1f612c1a37bd79caa5aec3189bd0ac7bc6b362d6d9305f9ef",
+      "archived_sha256": "053d5868f55501d1f612c1a37bd79caa5aec3189bd0ac7bc6b362d6d9305f9ef"
+    },
+    {
+      "source": "native-composer-off\\settings.json",
+      "file": "raw\\native-composer-off\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-composer-off\\worker-result.json",
+      "file": "raw\\native-composer-off\\worker-result.json",
+      "source_bytes": 256,
+      "source_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f",
+      "archived_sha256": "f325936f519d4d23b7170b3305535968c7fb2a6dc17fae51bfcfb440af41734f"
+    },
+    {
+      "source": "native-nr-off\\console.log",
+      "file": "raw\\native-nr-off\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-nr-off\\events.jsonl",
+      "file": "raw\\native-nr-off\\events.jsonl",
+      "source_bytes": 2610,
+      "source_sha256": "e0dc356587136cc2c81da9c0259c198aca196ebc68eee282256c5a1e6d7dc0fd",
+      "archived_sha256": "e0dc356587136cc2c81da9c0259c198aca196ebc68eee282256c5a1e6d7dc0fd"
+    },
+    {
+      "source": "native-nr-off\\memory-samples.json",
+      "file": "raw\\native-nr-off\\memory-samples.json.gz",
+      "source_bytes": 695932,
+      "source_sha256": "81bbf28d1643771aae6680ea5ebbca8080159704e15964144ee9ed15a942ced4",
+      "archived_sha256": "72e02e2c969064a39c6b43770ead762714e8211a96fcdc183e92e6e1fd66aa3e"
+    },
+    {
+      "source": "native-nr-off\\native-modules.json",
+      "file": "raw\\native-nr-off\\native-modules.json",
+      "source_bytes": 7034,
+      "source_sha256": "c1aca0712c4ba309b8f813f0b62418ccec62ddcecdf47cd2f3ae4b3eb2731552",
+      "archived_sha256": "c1aca0712c4ba309b8f813f0b62418ccec62ddcecdf47cd2f3ae4b3eb2731552"
+    },
+    {
+      "source": "native-nr-off\\nr-frame-memory.jsonl",
+      "file": "raw\\native-nr-off\\nr-frame-memory.jsonl",
+      "source_bytes": 8890,
+      "source_sha256": "f8d597beb34b3c45320347d41c3a5bd9d913c2a46743d8f6310589a718692ac1",
+      "archived_sha256": "f8d597beb34b3c45320347d41c3a5bd9d913c2a46743d8f6310589a718692ac1"
+    },
+    {
+      "source": "native-nr-off\\result.json",
+      "file": "raw\\native-nr-off\\result.json",
+      "source_bytes": 7597,
+      "source_sha256": "5543fc5a6fd7426a3bf966796674a5aba2bf612547cafd683b3e47a86c3b507b",
+      "archived_sha256": "5543fc5a6fd7426a3bf966796674a5aba2bf612547cafd683b3e47a86c3b507b"
+    },
+    {
+      "source": "native-nr-off\\settings.json",
+      "file": "raw\\native-nr-off\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-nr-off\\worker-result.json",
+      "file": "raw\\native-nr-off\\worker-result.json",
+      "source_bytes": 343,
+      "source_sha256": "eb71ee74264d965bcb6f4fdcce3d7357b0eb2ff1de7039dc17bcdaed542ceb36",
+      "archived_sha256": "eb71ee74264d965bcb6f4fdcce3d7357b0eb2ff1de7039dc17bcdaed542ceb36"
+    },
+    {
+      "source": "native-sr-off\\console.log",
+      "file": "raw\\native-sr-off\\console.log",
+      "source_bytes": 0,
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "native-sr-off\\events.jsonl",
+      "file": "raw\\native-sr-off\\events.jsonl",
+      "source_bytes": 665,
+      "source_sha256": "8ffa75a28ef577ede2b71bf9fbff6e4d72817f2a34a049953b85b7f3e209ec2b",
+      "archived_sha256": "8ffa75a28ef577ede2b71bf9fbff6e4d72817f2a34a049953b85b7f3e209ec2b"
+    },
+    {
+      "source": "native-sr-off\\memory-samples.json",
+      "file": "raw\\native-sr-off\\memory-samples.json.gz",
+      "source_bytes": 2897127,
+      "source_sha256": "219290385fdbb185732b8ef0ba26c19234a5e34ffd191d9f8bd7149722ff9f9d",
+      "archived_sha256": "547ce6f858cf57f25437ad82c46388cf9676258ddf6f533ea0d593e2a919c9a8"
+    },
+    {
+      "source": "native-sr-off\\native-modules.json",
+      "file": "raw\\native-sr-off\\native-modules.json",
+      "source_bytes": 6436,
+      "source_sha256": "9a44bb66847ed92e4de80078797199df07574b29f55e9875a09d0ccffd927de6",
+      "archived_sha256": "9a44bb66847ed92e4de80078797199df07574b29f55e9875a09d0ccffd927de6"
+    },
+    {
+      "source": "native-sr-off\\result.json",
+      "file": "raw\\native-sr-off\\result.json",
+      "source_bytes": 10123,
+      "source_sha256": "44605d8cf0c005e97885a0d94e45f0e7145ca32ea8024d1632de416540a7e02c",
+      "archived_sha256": "44605d8cf0c005e97885a0d94e45f0e7145ca32ea8024d1632de416540a7e02c"
+    },
+    {
+      "source": "native-sr-off\\settings.json",
+      "file": "raw\\native-sr-off\\settings.json",
+      "source_bytes": 3222,
+      "source_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+      "archived_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+    },
+    {
+      "source": "native-sr-off\\sr-frame-memory.jsonl",
+      "file": "raw\\native-sr-off\\sr-frame-memory.jsonl",
+      "source_bytes": 2248,
+      "source_sha256": "b54d69ec411bd1b5d2142a90145bee0ae573634b0d1542c4a644a94183a21c52",
+      "archived_sha256": "b54d69ec411bd1b5d2142a90145bee0ae573634b0d1542c4a644a94183a21c52"
+    },
+    {
+      "source": "native-sr-off\\worker-result.json",
+      "file": "raw\\native-sr-off\\worker-result.json",
+      "source_bytes": 342,
+      "source_sha256": "417643ce47bb4bf690b862c27578d5802357b5a401e9c93ca4c2153f4760f473",
+      "archived_sha256": "417643ce47bb4bf690b862c27578d5802357b5a401e9c93ca4c2153f4760f473"
+    },
+    {
+      "source": "settings-comparison.json",
+      "file": "raw\\settings-comparison.json",
+      "source_bytes": 1598,
+      "source_sha256": "db5a596b82e4c4b0856309c97253bfce0bbe93ee2664956715f95fdd48470d73",
+      "archived_sha256": "db5a596b82e4c4b0856309c97253bfce0bbe93ee2664956715f95fdd48470d73"
+    },
+    {
+      "source": "TASK.md",
+      "file": "raw\\TASK.md",
+      "source_bytes": 2974,
+      "source_sha256": "f90673d75982c46f2122a1b1f4ae475b93bbdb1adbd26652c502ab8ebaca9047",
+      "archived_sha256": "f90673d75982c46f2122a1b1f4ae475b93bbdb1adbd26652c502ab8ebaca9047"
+    }
+  ],
+  "omitted_reconstructible_files": [
+    {
+      "file": "continuous-off\\output.mp4",
+      "bytes": 96444373,
+      "sha256": "3fb0e7da8773b03dd8b87d5526a1e03394487dada062bfe7c84b908e91e61320"
+    },
+    {
+      "file": "continuous-off\\source.mp4",
+      "bytes": 32880682,
+      "sha256": "ba6a627db88ec5c1e7352c6d48d4a5be5fdc2ab4849d6d92b59d5c034f2f181d"
+    },
+    {
+      "file": "images-off\\export-0.png",
+      "bytes": 830410,
+      "sha256": "3d38ce411a2830d676a2fb9c6cc6119784ae571a90aa7cc7644eb4a6036067db"
+    },
+    {
+      "file": "images-off\\export-1.png",
+      "bytes": 1872905,
+      "sha256": "e48a2817a5f5f1c32bb6ee36c16adc8d00979864e189d5596c45e90699873f48"
+    },
+    {
+      "file": "images-off\\export-2.png",
+      "bytes": 1297123,
+      "sha256": "6c21b7fbbfa3d87696d00025f853c340a705ea9e8ed7e44e4a7d2d26bee2c00f"
+    },
+    {
+      "file": "images-off\\export-3.png",
+      "bytes": 830410,
+      "sha256": "3d38ce411a2830d676a2fb9c6cc6119784ae571a90aa7cc7644eb4a6036067db"
+    },
+    {
+      "file": "images-off\\export-4.png",
+      "bytes": 1872905,
+      "sha256": "e48a2817a5f5f1c32bb6ee36c16adc8d00979864e189d5596c45e90699873f48"
+    },
+    {
+      "file": "images-off\\export-5.png",
+      "bytes": 1297123,
+      "sha256": "6c21b7fbbfa3d87696d00025f853c340a705ea9e8ed7e44e4a7d2d26bee2c00f"
+    },
+    {
+      "file": "images-off\\image-0.png",
+      "bytes": 109743,
+      "sha256": "13019c9f5d95c478bc18ca4db1fa81c6a2d1a21dc24cdfacf531324ec4cf8385"
+    },
+    {
+      "file": "images-off\\image-1.png",
+      "bytes": 246236,
+      "sha256": "0ef4d1643e8ce4b48f83ed6454faaefe8c0c2ebe4ae6eb5b3f4b502d053f3d79"
+    },
+    {
+      "file": "images-off\\image-2.png",
+      "bytes": 170396,
+      "sha256": "48587e315204261f4a54c31ccd459639455cd0a9d97be8ceb7d519e884086c6c"
+    }
+  ],
+  "cleanup_not_yet_performed": false,
+  "cleanup_report": "cleanup.json",
+  "p0_status": "partial; native idle and GUI private commit growth still observed"
+}

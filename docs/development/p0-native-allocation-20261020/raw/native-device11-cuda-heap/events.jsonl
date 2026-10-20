@@ -1,0 +1,11 @@
+{"event": "starting", "wall": 1792432344.6271367, "pid": 13332}
+{"event": "minimal-d3d11-compute", "wall": 1792432344.9647315}
+{"event": "heap-trace-start", "wall": 1792432345.007281, "patches": 221, "scope": "diagnostic process IAT, default heap"}
+{"event": "idle-start", "wall": 1792432345.0089958, "seconds": 60, "device": "d3d11"}
+{"event": "heap-trace-snapshot", "wall": 1792432357.1659484, "number": 0}
+{"event": "heap-trace-snapshot", "wall": 1792432374.7574124, "number": 20}
+{"event": "heap-trace-snapshot", "wall": 1792432395.1392267, "number": 40}
+{"event": "heap-trace-snapshot", "wall": 1792432414.8559995, "number": "final"}
+{"event": "idle-end", "wall": 1792432414.8580487}
+{"event": "heap-trace-ended", "wall": 1792432414.8604996, "restored": 221, "patches": 221}
+{"event": "closed", "wall": 1792432414.878337}

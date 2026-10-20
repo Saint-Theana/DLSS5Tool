@@ -1,0 +1,627 @@
+{
+  "scope": "User-reported overlay switch off; module inventory determines whether no-overlay isolation was achieved",
+  "baseline": "F:\\project\\DLSS5Tool\\docs\\development\\p0-stability-final-20261020",
+  "task": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020",
+  "pairs": [
+    {
+      "case": "native-sr-off",
+      "baseline_case": "native-sr-idle300",
+      "before": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 310.37,
+        "peak_tree_private_bytes": 767426560,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 3100,
+          "created": 134368962225196028,
+          "samples": 1107,
+          "sufficient_samples": true,
+          "start_median_bytes": 475631616,
+          "end_median_bytes": 688062464,
+          "delta_bytes": 212430848,
+          "median_time_span_seconds": 231.91449403762817,
+          "mib_per_minute": 52.41324254200251,
+          "range_bytes": 263876608,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 1107,
+          "sufficient_samples": true,
+          "start_median_bytes": 518230016,
+          "end_median_bytes": 730550272,
+          "delta_bytes": 212320256,
+          "median_time_span_seconds": 231.91449403762817,
+          "mib_per_minute": 52.38595608443866,
+          "range_bytes": 263888896
+        },
+        "post_warmup_tree": {
+          "samples": 0,
+          "sufficient_samples": false
+        }
+      },
+      "after": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 309.343,
+        "peak_tree_private_bytes": 903663616,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 45820,
+          "created": 134369009883572229,
+          "samples": 1117,
+          "sufficient_samples": true,
+          "start_median_bytes": 495304704,
+          "end_median_bytes": 809807872,
+          "delta_bytes": 314503168,
+          "median_time_span_seconds": 231.97153639793396,
+          "mib_per_minute": 77.57855081896281,
+          "range_bytes": 392732672,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 1117,
+          "sufficient_samples": true,
+          "start_median_bytes": 640438272,
+          "end_median_bytes": 852168704,
+          "delta_bytes": 211730432,
+          "median_time_span_seconds": 231.97153639793396,
+          "mib_per_minute": 52.22758226344146,
+          "range_bytes": 289726464
+        },
+        "post_warmup_tree": {
+          "samples": 0,
+          "sufficient_samples": false
+        }
+      }
+    },
+    {
+      "case": "native-nr-off",
+      "baseline_case": "native-nr-full-idle",
+      "before": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 122.105,
+        "peak_tree_private_bytes": 1136295936,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 45068,
+          "created": 134368953954364373,
+          "samples": 190,
+          "sufficient_samples": true,
+          "start_median_bytes": 1033111552.0,
+          "end_median_bytes": 1063548928.0,
+          "delta_bytes": 30437376.0,
+          "median_time_span_seconds": 39.99408173561096,
+          "mib_per_minute": 43.54745875936021,
+          "range_bytes": 39071744,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 190,
+          "sufficient_samples": true,
+          "start_median_bytes": 1082243072.0,
+          "end_median_bytes": 1112504320.0,
+          "delta_bytes": 30261248.0,
+          "median_time_span_seconds": 39.99408173561096,
+          "mib_per_minute": 43.29546835071367,
+          "range_bytes": 38895616
+        },
+        "post_warmup_tree": {
+          "samples": 126,
+          "sufficient_samples": true,
+          "start_median_bytes": 988491776,
+          "end_median_bytes": 1007308800,
+          "delta_bytes": 18817024,
+          "median_time_span_seconds": 26.692856073379517,
+          "mib_per_minute": 40.337337714632916,
+          "range_bytes": 33312768
+        }
+      },
+      "after": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 111.954,
+        "peak_tree_private_bytes": 1169793024,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 39824,
+          "created": 134369021008685298,
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 1039841280.0,
+          "end_median_bytes": 1088913408.0,
+          "delta_bytes": 49072128.0,
+          "median_time_span_seconds": 40.16121053695679,
+          "mib_per_minute": 69.91646043428179,
+          "range_bytes": 61210624,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 1089001472.0,
+          "end_median_bytes": 1137901568.0,
+          "delta_bytes": 48900096.0,
+          "median_time_span_seconds": 40.16121053695679,
+          "mib_per_minute": 69.67135452566029,
+          "range_bytes": 61038592
+        },
+        "post_warmup_tree": {
+          "samples": 94,
+          "sufficient_samples": true,
+          "start_median_bytes": 1023944704.0,
+          "end_median_bytes": 1046290432.0,
+          "delta_bytes": 22345728.0,
+          "median_time_span_seconds": 19.808653116226196,
+          "mib_per_minute": 64.54920508717537,
+          "range_bytes": 35168256
+        }
+      }
+    },
+    {
+      "case": "native-composer-off",
+      "baseline_case": "native-composer-r1",
+      "before": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 65.11,
+        "peak_tree_private_bytes": 293507072,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 17124,
+          "created": 134368992214251441,
+          "samples": 191,
+          "sufficient_samples": true,
+          "start_median_bytes": 212682752.0,
+          "end_median_bytes": 252481536.0,
+          "delta_bytes": 39798784.0,
+          "median_time_span_seconds": 39.94236445426941,
+          "mib_per_minute": 57.01476912082456,
+          "range_bytes": 50188288,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 191,
+          "sufficient_samples": true,
+          "start_median_bytes": 214808576.0,
+          "end_median_bytes": 254541824.0,
+          "delta_bytes": 39733248.0,
+          "median_time_span_seconds": 39.94236445426941,
+          "mib_per_minute": 56.92088384259338,
+          "range_bytes": 50122752
+        }
+      },
+      "after": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 64.91,
+        "peak_tree_private_bytes": 316579840,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "overlay_modules": [
+          "C:\\WINDOWS\\system32\\nvspcap64.dll"
+        ],
+        "idle_worker": {
+          "pid": 4316,
+          "created": 134369023157475502,
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 219201536.0,
+          "end_median_bytes": 274368512.0,
+          "delta_bytes": 55166976.0,
+          "median_time_span_seconds": 40.17028212547302,
+          "mib_per_minute": 78.58246246914625,
+          "range_bytes": 68272128,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 221331456.0,
+          "end_median_bytes": 276428800.0,
+          "delta_bytes": 55097344.0,
+          "median_time_span_seconds": 40.17028212547302,
+          "mib_per_minute": 78.48327533902963,
+          "range_bytes": 68202496
+        }
+      }
+    },
+    {
+      "case": "images-off",
+      "baseline_case": "images-trace",
+      "before": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 164.255,
+        "peak_tree_private_bytes": 2433200128,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "idle_worker": {
+          "pid": 6688,
+          "created": 134368987147288704,
+          "samples": 187,
+          "sufficient_samples": true,
+          "start_median_bytes": 841633792,
+          "end_median_bytes": 867246080,
+          "delta_bytes": 25612288,
+          "median_time_span_seconds": 39.99188709259033,
+          "mib_per_minute": 36.6461045363257,
+          "range_bytes": 31854592,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 187,
+          "sufficient_samples": true,
+          "start_median_bytes": 1348440064,
+          "end_median_bytes": 1412665344,
+          "delta_bytes": 64225280,
+          "median_time_span_seconds": 39.99188709259033,
+          "mib_per_minute": 91.893638114439,
+          "range_bytes": 80105472
+        },
+        "gui_cycles": [
+          {
+            "cycle": 0,
+            "source": "image-0.png",
+            "sampled_main_private_bytes": 116869120.0,
+            "memory": {
+              "private_bytes": 111550464,
+              "working_set_bytes": 172834816,
+              "free_physical_bytes": 41491406848,
+              "free_commit_bytes": 32902520832
+            },
+            "python_bytes": 19406004,
+            "tk_images": 298,
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800
+          },
+          {
+            "cycle": 1,
+            "source": "image-1.png",
+            "sampled_main_private_bytes": 317952000.0,
+            "memory": {
+              "private_bytes": 315244544,
+              "working_set_bytes": 304320512,
+              "free_physical_bytes": 41531502592,
+              "free_commit_bytes": 32552828928
+            },
+            "python_bytes": 35845393,
+            "tk_images": 296,
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800
+          },
+          {
+            "cycle": 2,
+            "source": "image-2.png",
+            "sampled_main_private_bytes": 341751808.0,
+            "memory": {
+              "private_bytes": 341221376,
+              "working_set_bytes": 310222848,
+              "free_physical_bytes": 41381240832,
+              "free_commit_bytes": 32544989184
+            },
+            "python_bytes": 26732548,
+            "tk_images": 296,
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800
+          },
+          {
+            "cycle": 3,
+            "source": "image-0.png",
+            "sampled_main_private_bytes": 293871616.0,
+            "memory": {
+              "private_bytes": 292204544,
+              "working_set_bytes": 284463104,
+              "free_physical_bytes": 41266180096,
+              "free_commit_bytes": 32624431104
+            },
+            "python_bytes": 19432560,
+            "tk_images": 296,
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800
+          },
+          {
+            "cycle": 4,
+            "source": "image-1.png",
+            "sampled_main_private_bytes": 419643392.0,
+            "memory": {
+              "private_bytes": 417697792,
+              "working_set_bytes": 358375424,
+              "free_physical_bytes": 41163681792,
+              "free_commit_bytes": 32242372608
+            },
+            "python_bytes": 37786100,
+            "tk_images": 296,
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800
+          },
+          {
+            "cycle": 5,
+            "source": "image-2.png",
+            "sampled_main_private_bytes": 423925760.0,
+            "memory": {
+              "private_bytes": 422567936,
+              "working_set_bytes": 343990272,
+              "free_physical_bytes": 41015193600,
+              "free_commit_bytes": 32443949056
+            },
+            "python_bytes": 28671276,
+            "tk_images": 296,
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800
+          }
+        ],
+        "gui_same_source_cycle_differences": [
+          {
+            "source": "image-0.png",
+            "before_cycle": 0,
+            "after_cycle": 3,
+            "private_delta_bytes": 180654080,
+            "python_delta_bytes": 26556,
+            "tk_images_before": 298,
+            "tk_images_after": 296
+          },
+          {
+            "source": "image-1.png",
+            "before_cycle": 1,
+            "after_cycle": 4,
+            "private_delta_bytes": 102453248,
+            "python_delta_bytes": 1940707,
+            "tk_images_before": 296,
+            "tk_images_after": 296
+          },
+          {
+            "source": "image-2.png",
+            "before_cycle": 2,
+            "after_cycle": 5,
+            "private_delta_bytes": 81346560,
+            "python_delta_bytes": 1938728,
+            "tk_images_before": 296,
+            "tk_images_after": 296
+          }
+        ]
+      },
+      "after": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 154.853,
+        "peak_tree_private_bytes": 2409906176,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "idle_worker": {
+          "pid": 6124,
+          "created": 134369025161553028,
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 842864640.0,
+          "end_median_bytes": 874268672.0,
+          "delta_bytes": 31404032.0,
+          "median_time_span_seconds": 40.258877992630005,
+          "mib_per_minute": 44.63495294948258,
+          "range_bytes": 38653952,
+          "selection": "largest private commit at end of idle window; exact PID+creation time"
+        },
+        "idle_tree": {
+          "samples": 193,
+          "sufficient_samples": true,
+          "start_median_bytes": 1345552384.0,
+          "end_median_bytes": 1410101248.0,
+          "delta_bytes": 64548864.0,
+          "median_time_span_seconds": 40.258877992630005,
+          "mib_per_minute": 91.74412723762828,
+          "range_bytes": 79958016
+        },
+        "gui_cycles": [
+          {
+            "cycle": 0,
+            "source": "image-0.png",
+            "sampled_main_private_bytes": 119472128,
+            "memory": {
+              "private_bytes": 113852416,
+              "working_set_bytes": 174370816,
+              "free_physical_bytes": 44262338560,
+              "free_commit_bytes": 37344661504
+            },
+            "python_bytes": 19467913,
+            "tk_images": 298,
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          },
+          {
+            "cycle": 1,
+            "source": "image-1.png",
+            "sampled_main_private_bytes": 320641024.0,
+            "memory": {
+              "private_bytes": 316936192,
+              "working_set_bytes": 304951296,
+              "free_physical_bytes": 44056072192,
+              "free_commit_bytes": 36815740928
+            },
+            "python_bytes": 35908474,
+            "tk_images": 296,
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          },
+          {
+            "cycle": 2,
+            "source": "image-2.png",
+            "sampled_main_private_bytes": 343896064.0,
+            "memory": {
+              "private_bytes": 341889024,
+              "working_set_bytes": 309850112,
+              "free_physical_bytes": 44084686848,
+              "free_commit_bytes": 36964909056
+            },
+            "python_bytes": 26794548,
+            "tk_images": 296,
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          },
+          {
+            "cycle": 3,
+            "source": "image-0.png",
+            "sampled_main_private_bytes": 294694912.0,
+            "memory": {
+              "private_bytes": 291954688,
+              "working_set_bytes": 285036544,
+              "free_physical_bytes": 44146712576,
+              "free_commit_bytes": 37132525568
+            },
+            "python_bytes": 19495185,
+            "tk_images": 296,
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          },
+          {
+            "cycle": 4,
+            "source": "image-1.png",
+            "sampled_main_private_bytes": 418631680.0,
+            "memory": {
+              "private_bytes": 416870400,
+              "working_set_bytes": 359170048,
+              "free_physical_bytes": 44090335232,
+              "free_commit_bytes": 36799057920
+            },
+            "python_bytes": 37848991,
+            "tk_images": 296,
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          },
+          {
+            "cycle": 5,
+            "source": "image-2.png",
+            "sampled_main_private_bytes": 423794688.0,
+            "memory": {
+              "private_bytes": 420749312,
+              "working_set_bytes": 344244224,
+              "free_physical_bytes": 44152741888,
+              "free_commit_bytes": 36975247360
+            },
+            "python_bytes": 28734781,
+            "tk_images": 296,
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ]
+          }
+        ],
+        "gui_same_source_cycle_differences": [
+          {
+            "source": "image-0.png",
+            "before_cycle": 0,
+            "after_cycle": 3,
+            "private_delta_bytes": 178102272,
+            "python_delta_bytes": 27272,
+            "tk_images_before": 298,
+            "tk_images_after": 296
+          },
+          {
+            "source": "image-1.png",
+            "before_cycle": 1,
+            "after_cycle": 4,
+            "private_delta_bytes": 99934208,
+            "python_delta_bytes": 1940517,
+            "tk_images_before": 296,
+            "tk_images_after": 296
+          },
+          {
+            "source": "image-2.png",
+            "before_cycle": 2,
+            "after_cycle": 5,
+            "private_delta_bytes": 78860288,
+            "python_delta_bytes": 1940233,
+            "tk_images_before": 296,
+            "tk_images_after": 296
+          }
+        ]
+      }
+    },
+    {
+      "case": "continuous-off",
+      "baseline_case": "continuous-r1",
+      "before": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 135.754,
+        "peak_tree_private_bytes": 2409037824,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "post_warmup_tree": {
+          "samples": 371,
+          "sufficient_samples": true,
+          "start_median_bytes": 2266224640.0,
+          "end_median_bytes": 2393747456.0,
+          "delta_bytes": 127522816.0,
+          "median_time_span_seconds": 78.2485237121582,
+          "mib_per_minute": 93.25305726331818,
+          "range_bytes": 162410496
+        }
+      },
+      "after": {
+        "processing_and_exit": "passed",
+        "elapsed_seconds": 124.077,
+        "peak_tree_private_bytes": 2427629568,
+        "safety_stop": null,
+        "remaining": [],
+        "supervisor_recovery": [],
+        "long_term_memory_plateau_verified": false,
+        "post_warmup_tree": {
+          "samples": 332,
+          "sufficient_samples": true,
+          "start_median_bytes": 2274648064.0,
+          "end_median_bytes": 2401931264.0,
+          "delta_bytes": 127283200.0,
+          "median_time_span_seconds": 69.49305939674377,
+          "mib_per_minute": 104.80475587381132,
+          "range_bytes": 170586112
+        }
+      }
+    }
+  ]
+}

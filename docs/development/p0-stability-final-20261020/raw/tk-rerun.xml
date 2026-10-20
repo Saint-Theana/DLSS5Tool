@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="2.762" timestamp="2026-10-19T23:17:41.956023+08:00" hostname="QQQ"><testcase classname="tests.test_gpu_resource_ui.ResourceUiTests" name="test_deep_diagnostics_cannot_enter_during_release" time="1.936" /></testsuite></testsuites>

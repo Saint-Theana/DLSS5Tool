@@ -1,0 +1,184 @@
+{
+  "status": "passed",
+  "case": "native-sr",
+  "elapsed_seconds": 70.389,
+  "child_exit_code": 0,
+  "safety_error": null,
+  "peak_tree_private_bytes": 555622400,
+  "peak_tree_working_set_bytes": 387452928,
+  "observed_processes": [
+    {
+      "pid": 21896,
+      "parent": 43680,
+      "name": "python.exe",
+      "created": 134368951279772730,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 827392,
+      "working_set_bytes": 4235264,
+      "handles": 54
+    },
+    {
+      "pid": 47112,
+      "parent": 21896,
+      "name": "conhost.exe",
+      "created": 134368951279876920,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1236992,
+      "working_set_bytes": 7630848,
+      "handles": 100
+    },
+    {
+      "pid": 33764,
+      "parent": 21896,
+      "name": "python.exe",
+      "created": 134368951280154651,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 41553920,
+      "working_set_bytes": 66109440,
+      "handles": 265
+    },
+    {
+      "pid": 31892,
+      "parent": 33764,
+      "name": "python.exe",
+      "created": 134368951285407423,
+      "private_bytes": 34164736,
+      "working_set_bytes": 51924992,
+      "handles": 0
+    },
+    {
+      "pid": 7016,
+      "parent": 31892,
+      "name": "nvngx_update.exe",
+      "created": 134368951297927146,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 28831744,
+      "working_set_bytes": 40153088,
+      "handles": 170
+    },
+    {
+      "pid": 31236,
+      "parent": 7016,
+      "name": "conhost.exe",
+      "created": 134368951298362760,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    },
+    {
+      "pid": 48832,
+      "parent": 31892,
+      "name": "nvngx_update.exe",
+      "created": 134368951299040951,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 48926720,
+      "working_set_bytes": 60325888,
+      "handles": 189
+    },
+    {
+      "pid": 41752,
+      "parent": 31892,
+      "name": "nvngx_update.exe",
+      "created": 134368951299126672,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 44503040,
+      "working_set_bytes": 56139776,
+      "handles": 189
+    },
+    {
+      "pid": 43992,
+      "parent": 48832,
+      "name": "conhost.exe",
+      "created": 134368951299142210,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    },
+    {
+      "pid": 32336,
+      "parent": 31892,
+      "name": "nvngx_update.exe",
+      "created": 134368951299222633,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24518656,
+      "working_set_bytes": 33931264,
+      "handles": 178
+    },
+    {
+      "pid": 40304,
+      "parent": 41752,
+      "name": "conhost.exe",
+      "created": 134368951299231113,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    },
+    {
+      "pid": 4420,
+      "parent": 32336,
+      "name": "conhost.exe",
+      "created": 134368951299589067,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792421528.1232173,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4174.0,
+          "free_mib": 7824.0,
+          "utilization_percent": 1.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792421548.2882524,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4384.0,
+          "free_mib": 7614.0,
+          "utilization_percent": 1.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792421568.200306,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4374.0,
+          "free_mib": 7624.0,
+          "utilization_percent": 1.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792421588.1660056,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4360.0,
+          "free_mib": 7638.0,
+          "utilization_percent": 1.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 269,
+  "scope": "synthetic media; actual existing runtimes and production processing"
+}

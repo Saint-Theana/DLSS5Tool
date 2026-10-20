@@ -1,0 +1,9 @@
+{
+  "verified_files": 80,
+  "verified_source_bytes": 18053232,
+  "exact_process_identities_checked": 18,
+  "live_observed_processes": [],
+  "six_cases_processing_and_exit_passed": true,
+  "memory_plateau_verified": false,
+  "verification": "SHA256 and decompressed byte lengths for every raw archive entry; observed PID+creation times retired"
+}

@@ -1,0 +1,17 @@
+{
+  "task_root": "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020",
+  "targets": [
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\comparison-context.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\comparison.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\continuous-off",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\exit-verification.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\images-off",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\initial.json",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-composer-off",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-nr-off",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\native-sr-off",
+    "F:\\project\\DLSS5Tool\\tmp\\p0-overlay-off-20261020\\settings-comparison.json"
+  ],
+  "observed_workload_identities_alive": [],
+  "reason": "Only this registered task: reconstructed synthetic video/images and logs/reports after verified archive. Preserve TASK.md, prior task evidence, existing environments and runtimes."
+}

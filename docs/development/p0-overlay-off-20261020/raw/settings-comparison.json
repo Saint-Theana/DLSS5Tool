@@ -1,0 +1,37 @@
+[
+  {
+    "case": "native-sr-off",
+    "baseline_case": "native-sr-idle300",
+    "differing_setting_keys": [],
+    "current_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+    "baseline_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+  },
+  {
+    "case": "native-nr-off",
+    "baseline_case": "native-nr-full-idle",
+    "differing_setting_keys": [],
+    "current_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+    "baseline_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+  },
+  {
+    "case": "native-composer-off",
+    "baseline_case": "native-composer-r1",
+    "differing_setting_keys": [],
+    "current_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+    "baseline_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+  },
+  {
+    "case": "images-off",
+    "baseline_case": "images-trace",
+    "differing_setting_keys": [],
+    "current_settings_sha256": "ca11f04fe057646ad401b970f8a0d34d11c10ab9bf77d8a88a75674769a6cc58",
+    "baseline_settings_sha256": "ca11f04fe057646ad401b970f8a0d34d11c10ab9bf77d8a88a75674769a6cc58"
+  },
+  {
+    "case": "continuous-off",
+    "baseline_case": "continuous-r1",
+    "differing_setting_keys": [],
+    "current_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6",
+    "baseline_settings_sha256": "b81ecf83cab51850d0cb0f9824c10c792a9a019d7f617a477d1f87e38a9ff6e6"
+  }
+]

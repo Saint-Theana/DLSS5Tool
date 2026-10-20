@@ -1,0 +1,34 @@
+{"event": "starting", "wall": 1792428500.8141375, "pid": 41388}
+{"event": "first-output", "wall": 1792428507.3466752, "sha256": "d7489c5f92e95426f405806b89a221d798c8dd31992b20de26caf7a97789fc99"}
+{"event": "idle-start", "wall": 1792428507.3470473, "seconds": 60}
+{"event": "idle-end", "wall": 1792428567.445186}
+{"event": "frame", "wall": 1792428567.4456487, "frame": 1, "total": 3600}
+{"event": "frame", "wall": 1792428569.1590164, "frame": 129, "total": 3600}
+{"event": "frame", "wall": 1792428570.6635954, "frame": 257, "total": 3600}
+{"event": "frame", "wall": 1792428572.2017388, "frame": 385, "total": 3600}
+{"event": "frame", "wall": 1792428573.905637, "frame": 513, "total": 3600}
+{"event": "frame", "wall": 1792428575.4143534, "frame": 641, "total": 3600}
+{"event": "frame", "wall": 1792428576.9186816, "frame": 769, "total": 3600}
+{"event": "frame", "wall": 1792428578.4812064, "frame": 897, "total": 3600}
+{"event": "frame", "wall": 1792428580.191941, "frame": 1025, "total": 3600}
+{"event": "frame", "wall": 1792428581.716807, "frame": 1153, "total": 3600}
+{"event": "frame", "wall": 1792428583.2823436, "frame": 1281, "total": 3600}
+{"event": "frame", "wall": 1792428584.8132048, "frame": 1409, "total": 3600}
+{"event": "frame", "wall": 1792428586.5761292, "frame": 1537, "total": 3600}
+{"event": "frame", "wall": 1792428588.0850098, "frame": 1665, "total": 3600}
+{"event": "frame", "wall": 1792428589.6265829, "frame": 1793, "total": 3600}
+{"event": "frame", "wall": 1792428591.1287758, "frame": 1921, "total": 3600}
+{"event": "frame", "wall": 1792428592.83534, "frame": 2049, "total": 3600}
+{"event": "frame", "wall": 1792428594.3539698, "frame": 2177, "total": 3600}
+{"event": "frame", "wall": 1792428595.9189258, "frame": 2305, "total": 3600}
+{"event": "frame", "wall": 1792428597.4186895, "frame": 2433, "total": 3600}
+{"event": "frame", "wall": 1792428599.1274517, "frame": 2561, "total": 3600}
+{"event": "frame", "wall": 1792428600.6403704, "frame": 2689, "total": 3600}
+{"event": "frame", "wall": 1792428602.2348087, "frame": 2817, "total": 3600}
+{"event": "frame", "wall": 1792428603.7627995, "frame": 2945, "total": 3600}
+{"event": "frame", "wall": 1792428605.4813113, "frame": 3073, "total": 3600}
+{"event": "frame", "wall": 1792428607.0091126, "frame": 3201, "total": 3600}
+{"event": "frame", "wall": 1792428608.561437, "frame": 3329, "total": 3600}
+{"event": "frame", "wall": 1792428610.110584, "frame": 3457, "total": 3600}
+{"event": "frame", "wall": 1792428611.8480625, "frame": 3585, "total": 3600}
+{"event": "closed", "wall": 1792428612.1627111}

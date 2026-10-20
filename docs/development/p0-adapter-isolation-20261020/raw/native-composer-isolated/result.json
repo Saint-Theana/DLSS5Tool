@@ -1,0 +1,292 @@
+{
+  "status": "passed",
+  "case": "native-composer",
+  "run_arguments": {
+    "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+    "case": "native-composer",
+    "label": "isolated",
+    "frames": 32,
+    "cycles": 12,
+    "scale": 2,
+    "multiplier": 1,
+    "enhance": true,
+    "native_width": 320,
+    "idle_seconds": 300,
+    "hdr": false,
+    "disable_extensions": false,
+    "simulate_pressure": false,
+    "trim_heaps": false,
+    "vsr_host": null,
+    "trace_gui": false,
+    "device_work": false,
+    "device_compute": false,
+    "device_readback": false,
+    "device_timing": false,
+    "device_cuda": false,
+    "timeout": 390,
+    "worker": false
+  },
+  "processing_and_exit_passed": true,
+  "long_term_memory_plateau_verified": false,
+  "elapsed_seconds": 305.974,
+  "child_exit_code": 0,
+  "safety_error": null,
+  "peak_tree_private_bytes": 216367104,
+  "peak_tree_working_set_bytes": 198000640,
+  "observed_processes": [
+    {
+      "pid": 3452,
+      "parent": 48364,
+      "name": "python.exe",
+      "created": 134369079775836683,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 884736,
+      "working_set_bytes": 4354048,
+      "handles": 54
+    },
+    {
+      "pid": 15412,
+      "parent": 3452,
+      "name": "conhost.exe",
+      "created": 134369079775898906,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1282048,
+      "working_set_bytes": 7745536,
+      "handles": 100
+    },
+    {
+      "pid": 20876,
+      "parent": 3452,
+      "name": "python.exe",
+      "created": 134369079776125632,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 197484544,
+      "working_set_bytes": 169320448,
+      "handles": 470
+    },
+    {
+      "pid": 27296,
+      "parent": 20876,
+      "name": "python.exe",
+      "created": 134369079782251535,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 21573632,
+      "working_set_bytes": 37400576,
+      "handles": 226
+    },
+    {
+      "pid": 9080,
+      "parent": 27296,
+      "name": "conhost.exe",
+      "created": 134369079782363347,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 7667712,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792434377.7103357,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3630.0,
+          "free_mib": 8368.0,
+          "utilization_percent": 37.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434397.7116702,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3660.0,
+          "free_mib": 8338.0,
+          "utilization_percent": 39.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434417.7163863,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3648.0,
+          "free_mib": 8350.0,
+          "utilization_percent": 41.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434437.7639744,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3638.0,
+          "free_mib": 8360.0,
+          "utilization_percent": 28.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434457.836974,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3665.0,
+          "free_mib": 8333.0,
+          "utilization_percent": 33.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434477.8742778,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3667.0,
+          "free_mib": 8331.0,
+          "utilization_percent": 20.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434497.6534138,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3731.0,
+          "free_mib": 8267.0,
+          "utilization_percent": 1.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434517.7037663,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3723.0,
+          "free_mib": 8275.0,
+          "utilization_percent": 37.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434537.7569046,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3656.0,
+          "free_mib": 8342.0,
+          "utilization_percent": 26.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434557.7306647,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3665.0,
+          "free_mib": 8333.0,
+          "utilization_percent": 40.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434577.7686055,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3654.0,
+          "free_mib": 8344.0,
+          "utilization_percent": 42.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434597.7878454,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3654.0,
+          "free_mib": 8344.0,
+          "utilization_percent": 39.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434617.886806,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4112.0,
+          "free_mib": 7886.0,
+          "utilization_percent": 25.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434637.8047,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3876.0,
+          "free_mib": 8122.0,
+          "utilization_percent": 59.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434657.6587286,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3771.0,
+          "free_mib": 8227.0,
+          "utilization_percent": 42.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792434677.7355607,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3909.0,
+          "free_mib": 8089.0,
+          "utilization_percent": 26.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 1175,
+  "scope": "synthetic media; actual existing runtimes and production processing",
+  "idle_observation": {
+    "samples": 1115,
+    "private_delta_bytes": -491520,
+    "measured_span_seconds": 232.3239984512329,
+    "private_bytes_per_second": -2115.6660666856374
+  }
+}

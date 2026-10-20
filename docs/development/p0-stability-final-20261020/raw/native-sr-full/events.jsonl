@@ -1,0 +1,31 @@
+{"event": "starting", "wall": 1792421384.157961, "pid": 36148}
+{"event": "frame", "wall": 1792421386.9006302, "frame": 1, "total": 3600}
+{"event": "frame", "wall": 1792421387.7830296, "frame": 129, "total": 3600}
+{"event": "frame", "wall": 1792421388.5921702, "frame": 257, "total": 3600}
+{"event": "frame", "wall": 1792421389.477037, "frame": 385, "total": 3600}
+{"event": "frame", "wall": 1792421390.483652, "frame": 513, "total": 3600}
+{"event": "frame", "wall": 1792421391.4921954, "frame": 641, "total": 3600}
+{"event": "frame", "wall": 1792421392.5928948, "frame": 769, "total": 3600}
+{"event": "frame", "wall": 1792421393.7004094, "frame": 897, "total": 3600}
+{"event": "frame", "wall": 1792421394.8019214, "frame": 1025, "total": 3600}
+{"event": "frame", "wall": 1792421395.8635857, "frame": 1153, "total": 3600}
+{"event": "frame", "wall": 1792421396.8656967, "frame": 1281, "total": 3600}
+{"event": "frame", "wall": 1792421397.8324308, "frame": 1409, "total": 3600}
+{"event": "frame", "wall": 1792421398.9179237, "frame": 1537, "total": 3600}
+{"event": "frame", "wall": 1792421399.873247, "frame": 1665, "total": 3600}
+{"event": "frame", "wall": 1792421400.792961, "frame": 1793, "total": 3600}
+{"event": "frame", "wall": 1792421401.8821075, "frame": 1921, "total": 3600}
+{"event": "frame", "wall": 1792421403.159701, "frame": 2049, "total": 3600}
+{"event": "frame", "wall": 1792421404.230564, "frame": 2177, "total": 3600}
+{"event": "frame", "wall": 1792421405.1751134, "frame": 2305, "total": 3600}
+{"event": "frame", "wall": 1792421406.1223457, "frame": 2433, "total": 3600}
+{"event": "frame", "wall": 1792421407.212, "frame": 2561, "total": 3600}
+{"event": "frame", "wall": 1792421408.1991942, "frame": 2689, "total": 3600}
+{"event": "frame", "wall": 1792421409.1113966, "frame": 2817, "total": 3600}
+{"event": "frame", "wall": 1792421410.1734369, "frame": 2945, "total": 3600}
+{"event": "frame", "wall": 1792421411.49424, "frame": 3073, "total": 3600}
+{"event": "frame", "wall": 1792421412.6558933, "frame": 3201, "total": 3600}
+{"event": "frame", "wall": 1792421413.755771, "frame": 3329, "total": 3600}
+{"event": "frame", "wall": 1792421414.6893513, "frame": 3457, "total": 3600}
+{"event": "frame", "wall": 1792421415.7779803, "frame": 3585, "total": 3600}
+{"event": "closed", "wall": 1792421418.9585466}

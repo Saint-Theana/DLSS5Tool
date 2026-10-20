@@ -1,0 +1,42 @@
+--- native/vsr_host/vsr_host.cpp
++++ candidate/vsr_host.cpp
+@@ -11,6 +11,7 @@
+ #include <nvsdk_ngx_helpers_vsr.h>
+ 
+ #include <algorithm>
++#include <atomic>
+ #include <cstdarg>
+ #include <cstdint>
+ #include <cstdio>
+@@ -22,6 +23,11 @@
+ 
+ namespace
+ {
++std::atomic<unsigned long long> g_p0_log_count{0};
++void NVSDK_CONV P0LogSink(const char *, NVSDK_NGX_Logging_Level, NVSDK_NGX_Feature)
++{
++    g_p0_log_count.fetch_add(1, std::memory_order_relaxed);
++}
+ ID3D12Device *g_device = nullptr;
+ ID3D12CommandQueue *g_queue = nullptr;
+ ID3D12CommandAllocator *g_allocator = nullptr;
+@@ -474,7 +480,11 @@
+ 
+     const wchar_t *application_path =
+         runtime_directory != nullptr && *runtime_directory != L'\0' ? runtime_directory : L".";
+-    NVSDK_NGX_Result result = NVSDK_NGX_D3D12_Init(0, application_path, g_device);
++    static NVSDK_NGX_FeatureCommonInfo p0_info = {};
++    p0_info.LoggingInfo.LoggingCallback = P0LogSink;
++    p0_info.LoggingInfo.MinimumLoggingLevel = NVSDK_NGX_LOGGING_LEVEL_OFF;
++    p0_info.LoggingInfo.DisableOtherLoggingSinks = true;
++    NVSDK_NGX_Result result = NVSDK_NGX_D3D12_Init(0, application_path, g_device, &p0_info);
+     Log("NGX init -> 0x%08X", result);
+     if (NVSDK_NGX_FAILED(result))
+     {
+@@ -546,3 +556,6 @@
+ {
+     Shutdown();
+ }
++
++extern "C" __declspec(dllexport) unsigned long long vsr_p0_log_count()
++{ return g_p0_log_count.load(std::memory_order_relaxed); }

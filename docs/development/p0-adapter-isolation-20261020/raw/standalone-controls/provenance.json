@@ -1,0 +1,90 @@
+{
+  "source_sha256": "0622395764e81174ae9eb218e3204b15b518e5f2a3d1287d81405f52d8aefc06",
+  "binary_sha256": "008576bb9e5c77797ea44f05ad976068decd436301709816b6a5e023162ab9c1",
+  "concurrent_workload": "native-composer-long-final",
+  "limitation": "Sequential controls; any concurrent workload is declared. No throughput comparison.",
+  "results": [
+    {
+      "label": "d3d-one",
+      "arguments": [
+        0,
+        1,
+        1,
+        60
+      ],
+      "pid": 15036,
+      "created": 134369110173821396,
+      "exit_code": 0,
+      "elapsed_seconds": 61.14938139915466,
+      "stdout_sha256": "605f7acaf9014d48ed80404e847b07de4de8b89f08cd4127d1a5c14f0750a1a9",
+      "closed": true,
+      "released_device_refs": [
+        0
+      ]
+    },
+    {
+      "label": "cuda-d3d-one",
+      "arguments": [
+        1,
+        1,
+        1,
+        60
+      ],
+      "pid": 46952,
+      "created": 134369110785323456,
+      "exit_code": 0,
+      "elapsed_seconds": 61.261027574539185,
+      "stdout_sha256": "32beecca6816ffe12a9514e6c80e838d2a1cf1964eecbc796fcad2e76e40f00b",
+      "closed": true,
+      "released_device_refs": [
+        0
+      ]
+    },
+    {
+      "label": "d3d-two",
+      "arguments": [
+        0,
+        2,
+        1,
+        60
+      ],
+      "pid": 2168,
+      "created": 134369111397940079,
+      "exit_code": 0,
+      "elapsed_seconds": 61.181697607040405,
+      "stdout_sha256": "5caac07247c1c0fa76ef978f45105f610cdf4048a05ec898ad7c4d4efc5e9385",
+      "closed": true,
+      "released_device_refs": [
+        0,
+        0
+      ]
+    },
+    {
+      "label": "d3d-churn-ten",
+      "arguments": [
+        0,
+        1,
+        10,
+        60
+      ],
+      "pid": 33848,
+      "created": 134369112009764546,
+      "exit_code": 0,
+      "elapsed_seconds": 63.09974980354309,
+      "stdout_sha256": "92eb0aca9cc4fd8a67c6562d968f1010508c93cb3329142c92cca3c1f4cd0e64",
+      "closed": true,
+      "released_device_refs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"event": "starting", "wall": 1792424212.5568402, "pid": 49364}
+{"event": "image-complete", "wall": 1792424224.2601285, "cycle": 0, "source": "image-0.png", "host_pid": 6140, "sr_pid": 13852}
+{"event": "exit-requested", "wall": 1792424224.7692652}
+{"event": "closed", "wall": 1792424228.1550276}

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "known_private_commit_bytes": 16777216,
+  "released": true,
+  "default_heap": {
+    "handle": "0x18adba00000",
+    "scope": "default process heap only",
+    "allocated": 2551310,
+    "committed": 3383296,
+    "reserved": 4993024,
+    "max_reserve": 4993024
+  },
+  "query_errors": 0
+}

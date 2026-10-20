@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "files": [
+    "scripts\\collect_p0_stability.py",
+    "scripts\\compare_adapter_isolation.py",
+    "scripts\\verify_native_graphics_memory.py"
+  ],
+  "scope": "Syntax validation; actual control runner and analyzer exercised separately"
+}

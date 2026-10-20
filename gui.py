@@ -6,6 +6,9 @@ import sys
 if __name__ == '__main__':
     # Worker dispatch must happen before the portable GUI installation mutex.
     multiprocessing.freeze_support()
+    from dlss5tool.adapter_probe import dispatch as dispatch_adapter_probe
+    if dispatch_adapter_probe():
+        raise SystemExit(0)
     if '--nvofa-selftest' in sys.argv:
         from dlss5tool.nvofa_selftest import main
         main(sys.argv[sys.argv.index('--nvofa-selftest') + 1:])

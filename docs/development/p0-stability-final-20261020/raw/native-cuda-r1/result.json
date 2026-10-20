@@ -1,0 +1,103 @@
+{
+  "status": "passed",
+  "case": "native-cuda",
+  "processing_and_exit_passed": true,
+  "long_term_memory_plateau_verified": false,
+  "elapsed_seconds": 61.11,
+  "child_exit_code": 0,
+  "safety_error": null,
+  "peak_tree_private_bytes": 65814528,
+  "peak_tree_working_set_bytes": 99291136,
+  "observed_processes": [
+    {
+      "pid": 35184,
+      "parent": 42572,
+      "name": "python.exe",
+      "created": 134368990326888564,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 823296,
+      "working_set_bytes": 4235264,
+      "handles": 54
+    },
+    {
+      "pid": 42752,
+      "parent": 35184,
+      "name": "conhost.exe",
+      "created": 134368990326960503,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1253376,
+      "working_set_bytes": 7643136,
+      "handles": 100
+    },
+    {
+      "pid": 24160,
+      "parent": 35184,
+      "name": "python.exe",
+      "created": 134368990327212792,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 54231040,
+      "working_set_bytes": 78090240,
+      "handles": 466
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792425432.8174405,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4287.0,
+          "free_mib": 7711.0,
+          "utilization_percent": 4.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792425452.9039147,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4271.0,
+          "free_mib": 7727.0,
+          "utilization_percent": 7.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792425472.9497313,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4273.0,
+          "free_mib": 7725.0,
+          "utilization_percent": 4.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792425493.008541,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4277.0,
+          "free_mib": 7721.0,
+          "utilization_percent": 4.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 235,
+  "scope": "synthetic media; actual existing runtimes and production processing",
+  "idle_observation": {
+    "samples": 192,
+    "private_delta_bytes": 1884160.0,
+    "measured_span_seconds": 40.141491651535034,
+    "private_bytes_per_second": 46937.96673915949
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="4.421" timestamp="2026-10-19T22:30:43.189834+08:00" hostname="QQQ"><testcase classname="tests.test_p0_owner_retirement" name="test_retirement_thread_start_failure_is_owned_and_can_be_retried" time="0.002"><failure message="RuntimeError: thread could not start">tests\test_p0_owner_retirement.py:155: in test_retirement_thread_start_failure_is_owned_and_can_be_retried
+    app._shared_retire()
+dlss5tool\shared_render_preview.py:310: in _shared_retire
+    thread.start()
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py:1169: in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py:1173: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py:1228: in _execute_mock_call
+    raise effect
+E   RuntimeError: thread could not start</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_failed_retirement_does_not_report_cache_clear_complete" time="0.001"><failure message="AttributeError: 'App' object has no attribute 'video'">tests\test_p0_owner_retirement.py:171: in test_failed_retirement_does_not_report_cache_clear_complete
+    app._poll_clear_preview_cache()
+dlss5tool\gui.py:6348: in _poll_clear_preview_cache
+    if self.video:
+       ^^^^^^^^^^
+E   AttributeError: 'App' object has no attribute 'video'</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_exit_waits_for_failed_cache_owner_and_allows_a_later_retry" time="0.001" /><testcase classname="tests.test_gui_module_reload.ModuleReloadTests" name="test_warm_preview_close_failure_still_completes_reload_mailbox" time="3.005"><failure message="AssertionError: &lt;Thread(dlss-module-reload, stopped daemon 17756)&gt; is not None">tests\test_gui_module_reload.py:190: in test_warm_preview_close_failure_still_completes_reload_mailbox
+    self.wait_reload()
+tests\test_gui_module_reload.py:68: in wait_reload
+    self.assertIsNone(self.app._module_reload_thread)
+E   AssertionError: &lt;Thread(dlss-module-reload, stopped daemon 17756)&gt; is not None</failure></testcase></testsuite></testsuites>

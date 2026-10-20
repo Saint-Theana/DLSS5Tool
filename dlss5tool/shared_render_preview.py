@@ -249,6 +249,11 @@ class SharedRenderPreview(PreviewFeedback):
         return config
 
     def _shared_manager(self):
+        retiring = getattr(self, '_shared_retiring', None)
+        if ((retiring and retiring.is_alive()) or
+                getattr(self, '_shared_retire_pending', None)):
+            raise RuntimeError(getattr(self, '_shared_retire_error', None) or
+                               '上一缓存处理尚未退出，请稍后重试或重新清理缓存')
         manager = getattr(self, '_render_cache_manager', None)
         if manager is None:
             manager = RenderCache(self._preview_cache_bytes(), self._ensure_shared_cache_pool().name)
@@ -269,8 +274,14 @@ class SharedRenderPreview(PreviewFeedback):
         self._cancel_after('_scrub_after')
         self._cancel_after('_preview_cache_resume_after')
         manager = getattr(self, '_render_cache_manager', None)
-        if manager is None:
-            return
+        if not hasattr(self, '_shared_retire_lock'):
+            self._shared_retire_lock = threading.RLock()
+            self._shared_retire_pending = []
+        with self._shared_retire_lock:
+            if manager is not None:
+                self._shared_retire_pending.append(manager)
+            if not self._shared_retire_pending:
+                return
         setup = getattr(self, '_shared_setup_thread', None)
         self._render_cache_manager = self._shared_session = None
         self._shared_setup_thread = None
@@ -284,12 +295,26 @@ class SharedRenderPreview(PreviewFeedback):
                     previous.join()
                 if setup:
                     setup.join()
-                manager.close()
+                with self._shared_retire_lock:
+                    pending, self._shared_retire_pending = self._shared_retire_pending, []
+                errors = []
+                for retired in pending:
+                    try:
+                        retired.close()
+                    except Exception as error:
+                        with self._shared_retire_lock:
+                            self._shared_retire_pending.append(retired)
+                        errors.append(str(error))
+                self._shared_retire_error = '; '.join(errors) or None
             except Exception as error:
                 self._shared_retire_error = str(error)
         thread = threading.Thread(target=close, name='close-render-cache', daemon=True)
         self._shared_retiring = thread
-        thread.start()
+        try:
+            thread.start()
+        except Exception as error:
+            self._shared_retiring = previous
+            self._shared_retire_error = str(error)
 
     def _shared_ready(self):
         if hasattr(self, '_local_gpu_allowed') and not self._local_gpu_allowed():
@@ -302,6 +327,8 @@ class SharedRenderPreview(PreviewFeedback):
         retiring = getattr(self, '_shared_retiring', None)
         if retiring and retiring.is_alive():
             return None
+        if getattr(self, '_shared_retire_pending', None):
+            raise RuntimeError(self._shared_retire_error or '缓存处理尚未退出')
         session = getattr(self, '_shared_session', None)
         if session and session.key == key and not session.closed:
             return session

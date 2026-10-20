@@ -1,0 +1,4 @@
+{"event": "starting", "wall": 1792423386.4728427, "pid": 13412}
+{"event": "simulated-pressure", "wall": 1792423389.008746, "child_pid": 45196, "real_pressure": false}
+{"event": "pressure-retired", "wall": 1792423389.6640828, "child_pid": 45196, "response": {"ok": false, "error": "MemoryError: 系统内存余量不足此处理任务：预计需要 16 MiB，预留系统和处理空间后可用 0 MiB。请关闭其他任务或释放预览缓存后重试。"}}
+{"event": "closed", "wall": 1792423389.6666954}

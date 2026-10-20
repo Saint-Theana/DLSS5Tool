@@ -1,0 +1,147 @@
+{
+  "status": "failed",
+  "case": "native-sr",
+  "elapsed_seconds": 16.354,
+  "child_exit_code": 1,
+  "safety_error": null,
+  "peak_tree_private_bytes": 490786816,
+  "peak_tree_working_set_bytes": 361492480,
+  "observed_processes": [
+    {
+      "pid": 3756,
+      "parent": 31028,
+      "name": "python.exe",
+      "created": 134368968163626773,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 839680,
+      "working_set_bytes": 4247552,
+      "handles": 54
+    },
+    {
+      "pid": 21952,
+      "parent": 3756,
+      "name": "conhost.exe",
+      "created": 134368968163709538,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 7651328,
+      "handles": 100
+    },
+    {
+      "pid": 43392,
+      "parent": 3756,
+      "name": "python.exe",
+      "created": 134368968163940174,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 27918336,
+      "working_set_bytes": 43421696,
+      "handles": 259
+    },
+    {
+      "pid": 40956,
+      "parent": 43392,
+      "name": "python.exe",
+      "created": 134368968169084245,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 307351552,
+      "working_set_bytes": 226496512,
+      "handles": 557
+    },
+    {
+      "pid": 5760,
+      "parent": 40956,
+      "name": "nvngx_update.exe",
+      "created": 134368968181043497,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24592384,
+      "working_set_bytes": 34250752,
+      "handles": 185
+    },
+    {
+      "pid": 37840,
+      "parent": 5760,
+      "name": "conhost.exe",
+      "created": 134368968181364122,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    },
+    {
+      "pid": 21872,
+      "parent": 40956,
+      "name": "nvngx_update.exe",
+      "created": 134368968181960701,
+      "private_bytes": 81920,
+      "working_set_bytes": 36864,
+      "handles": 0
+    },
+    {
+      "pid": 34788,
+      "parent": 40956,
+      "name": "nvngx_update.exe",
+      "created": 134368968182044051,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 36339712,
+      "working_set_bytes": 48173056,
+      "handles": 189
+    },
+    {
+      "pid": 44592,
+      "parent": 21872,
+      "name": "conhost.exe",
+      "created": 134368968182122854,
+      "private_bytes": 77824,
+      "working_set_bytes": 32768,
+      "handles": 0
+    },
+    {
+      "pid": 40872,
+      "parent": 40956,
+      "name": "nvngx_update.exe",
+      "created": 134368968182140040,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24518656,
+      "working_set_bytes": 33964032,
+      "handles": 178
+    },
+    {
+      "pid": 42964,
+      "parent": 34788,
+      "name": "conhost.exe",
+      "created": 134368968182148923,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1257472,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    },
+    {
+      "pid": 11200,
+      "parent": 40872,
+      "name": "conhost.exe",
+      "created": 134368968182337177,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 7503872,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792423216.482591,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 3984.0,
+          "free_mib": 8014.0,
+          "utilization_percent": 21.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 63,
+  "scope": "synthetic media; actual existing runtimes and production processing"
+}

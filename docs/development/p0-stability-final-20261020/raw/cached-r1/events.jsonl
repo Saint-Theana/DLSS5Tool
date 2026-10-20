@@ -1,0 +1,31 @@
+{"event": "starting", "wall": 1792423263.4221563, "pid": 31360}
+{"event": "source-ready", "wall": 1792423264.6032686}
+{"event": "frame", "wall": 1792423267.6026917, "frame": 1, "total": 128}
+{"event": "frame", "wall": 1792423275.4376416, "frame": 1, "total": 128}
+{"event": "frame", "wall": 1792423280.2591417, "frame": 1, "total": 128}
+{"event": "frame", "wall": 1792423281.2202933, "frame": 16, "total": 128}
+{"event": "frame", "wall": 1792423281.3609886, "frame": 16, "total": 128}
+{"event": "frame", "wall": 1792423281.4232032, "frame": 16, "total": 128}
+{"event": "frame", "wall": 1792423282.490332, "frame": 32, "total": 128}
+{"event": "frame", "wall": 1792423282.625882, "frame": 32, "total": 128}
+{"event": "frame", "wall": 1792423282.6846082, "frame": 32, "total": 128}
+{"event": "frame", "wall": 1792423283.729841, "frame": 48, "total": 128}
+{"event": "frame", "wall": 1792423283.8567245, "frame": 48, "total": 128}
+{"event": "frame", "wall": 1792423283.912899, "frame": 48, "total": 128}
+{"event": "frame", "wall": 1792423285.0041144, "frame": 64, "total": 128}
+{"event": "frame", "wall": 1792423285.1395457, "frame": 64, "total": 128}
+{"event": "frame", "wall": 1792423285.2016032, "frame": 64, "total": 128}
+{"event": "frame", "wall": 1792423286.267318, "frame": 80, "total": 128}
+{"event": "frame", "wall": 1792423286.4081612, "frame": 80, "total": 128}
+{"event": "frame", "wall": 1792423286.4717176, "frame": 80, "total": 128}
+{"event": "frame", "wall": 1792423287.5059657, "frame": 96, "total": 128}
+{"event": "frame", "wall": 1792423287.6339533, "frame": 96, "total": 128}
+{"event": "frame", "wall": 1792423287.6895814, "frame": 96, "total": 128}
+{"event": "frame", "wall": 1792423288.7338965, "frame": 112, "total": 128}
+{"event": "frame", "wall": 1792423288.8677347, "frame": 112, "total": 128}
+{"event": "frame", "wall": 1792423288.9252064, "frame": 112, "total": 128}
+{"event": "frame", "wall": 1792423289.958081, "frame": 128, "total": 128}
+{"event": "frame", "wall": 1792423290.0847864, "frame": 128, "total": 128}
+{"event": "frame", "wall": 1792423290.1383383, "frame": 128, "total": 128}
+{"event": "cache-before-close", "wall": 1792423290.649532, "spatial": {"frames": 2, "bytes": 33177600, "computed": 128, "replayed": 0, "complete": false, "ranges": [126, 127]}, "base": {"frames": 1, "bytes": 24883200, "computed": 128, "replayed": 0, "complete": true, "ranges": [127]}}
+{"event": "closed", "wall": 1792423293.2394242}

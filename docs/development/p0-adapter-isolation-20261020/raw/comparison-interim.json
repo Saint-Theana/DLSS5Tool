@@ -1,0 +1,3164 @@
+{
+  "declared_native_band": {
+    "warmup_seconds": 60,
+    "idle_initial_exclusion_seconds": 10,
+    "median_delta_max_bytes": 16777216,
+    "absolute_mib_per_minute_max": 0.25,
+    "window_median_range_max_bytes": 16777216
+  },
+  "limits": "Sequential metadata snapshots can race allocation/free; no claim about the original incident or other driver environments",
+  "cases": [
+    {
+      "label": "images-final",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 2805915648,
+      "elapsed_seconds": 491.165,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "images",
+        "label": "final",
+        "frames": 32,
+        "cycles": 30,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": true,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 1200,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "images",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "cycles": [
+          {
+            "cycle": 0,
+            "source": "image-0.png",
+            "host_pid": 16628,
+            "sr_pid": 41672,
+            "memory": {
+              "private_bytes": 95105024,
+              "working_set_bytes": 145838080,
+              "free_physical_bytes": 44151726080,
+              "free_commit_bytes": 37065314304
+            },
+            "python_bytes": 19535310,
+            "python_peak_bytes": 103266938,
+            "collected": 97,
+            "tk_images": 298,
+            "overlay_modules": [],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075416,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 1,
+            "source": "image-1.png",
+            "host_pid": 49052,
+            "sr_pid": 34796,
+            "memory": {
+              "private_bytes": 297402368,
+              "working_set_bytes": 277200896,
+              "free_physical_bytes": 44161351680,
+              "free_commit_bytes": 36761825280
+            },
+            "python_bytes": 35978389,
+            "python_peak_bytes": 103266938,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 2,
+            "source": "image-2.png",
+            "host_pid": 46208,
+            "sr_pid": 21032,
+            "memory": {
+              "private_bytes": 311271424,
+              "working_set_bytes": 272744448,
+              "free_physical_bytes": 44121706496,
+              "free_commit_bytes": 36827701248
+            },
+            "python_bytes": 26863739,
+            "python_peak_bytes": 103266938,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4300992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 3,
+            "source": "image-0.png",
+            "host_pid": 42728,
+            "sr_pid": 34784,
+            "memory": {
+              "private_bytes": 253616128,
+              "working_set_bytes": 237879296,
+              "free_physical_bytes": 44123607040,
+              "free_commit_bytes": 36936957952
+            },
+            "python_bytes": 19563847,
+            "python_peak_bytes": 111455761,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\tkinter\\__init__.py:1688",
+                "bytes": 312584,
+                "count": 3868
+              }
+            ]
+          },
+          {
+            "cycle": 4,
+            "source": "image-1.png",
+            "host_pid": 5704,
+            "sr_pid": 45384,
+            "memory": {
+              "private_bytes": 366718976,
+              "working_set_bytes": 300961792,
+              "free_physical_bytes": 44130299904,
+              "free_commit_bytes": 36681138176
+            },
+            "python_bytes": 37917988,
+            "python_peak_bytes": 111455761,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 5,
+            "source": "image-2.png",
+            "host_pid": 15912,
+            "sr_pid": 2996,
+            "memory": {
+              "private_bytes": 360071168,
+              "working_set_bytes": 277049344,
+              "free_physical_bytes": 44147695616,
+              "free_commit_bytes": 36817309696
+            },
+            "python_bytes": 28802638,
+            "python_peak_bytes": 111455761,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4300992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 6,
+            "source": "image-0.png",
+            "host_pid": 46768,
+            "sr_pid": 49360,
+            "memory": {
+              "private_bytes": 301932544,
+              "working_set_bytes": 242360320,
+              "free_physical_bytes": 44177453056,
+              "free_commit_bytes": 36952944640
+            },
+            "python_bytes": 21504258,
+            "python_peak_bytes": 113393901,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 7,
+            "source": "image-1.png",
+            "host_pid": 28432,
+            "sr_pid": 16784,
+            "memory": {
+              "private_bytes": 413827072,
+              "working_set_bytes": 303001600,
+              "free_physical_bytes": 44062052352,
+              "free_commit_bytes": 36556918784
+            },
+            "python_bytes": 37935100,
+            "python_peak_bytes": 113393901,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 8,
+            "source": "image-2.png",
+            "host_pid": 44840,
+            "sr_pid": 45632,
+            "memory": {
+              "private_bytes": 410578944,
+              "working_set_bytes": 280248320,
+              "free_physical_bytes": 44104155136,
+              "free_commit_bytes": 36730949632
+            },
+            "python_bytes": 28820307,
+            "python_peak_bytes": 113393901,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 9,
+            "source": "image-0.png",
+            "host_pid": 7064,
+            "sr_pid": 1700,
+            "memory": {
+              "private_bytes": 352419840,
+              "working_set_bytes": 245460992,
+              "free_physical_bytes": 44160155648,
+              "free_commit_bytes": 36892381184
+            },
+            "python_bytes": 21520720,
+            "python_peak_bytes": 113412610,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922937,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 10,
+            "source": "image-1.png",
+            "host_pid": 35856,
+            "sr_pid": 17932,
+            "memory": {
+              "private_bytes": 466649088,
+              "working_set_bytes": 308305920,
+              "free_physical_bytes": 44077305856,
+              "free_commit_bytes": 36518424576
+            },
+            "python_bytes": 37951326,
+            "python_peak_bytes": 113412610,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 11,
+            "source": "image-2.png",
+            "host_pid": 50012,
+            "sr_pid": 37128,
+            "memory": {
+              "private_bytes": 459493376,
+              "working_set_bytes": 283213824,
+              "free_physical_bytes": 44062609408,
+              "free_commit_bytes": 36611878912
+            },
+            "python_bytes": 28837179,
+            "python_peak_bytes": 113412610,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 12,
+            "source": "image-0.png",
+            "host_pid": 30996,
+            "sr_pid": 42844,
+            "memory": {
+              "private_bytes": 402157568,
+              "working_set_bytes": 250261504,
+              "free_physical_bytes": 44067540992,
+              "free_commit_bytes": 36728578048
+            },
+            "python_bytes": 21538119,
+            "python_peak_bytes": 113420158,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2765040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 13,
+            "source": "image-1.png",
+            "host_pid": 49164,
+            "sr_pid": 9736,
+            "memory": {
+              "private_bytes": 516141056,
+              "working_set_bytes": 312717312,
+              "free_physical_bytes": 44035829760,
+              "free_commit_bytes": 36451098624
+            },
+            "python_bytes": 37968178,
+            "python_peak_bytes": 113420158,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6221040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 14,
+            "source": "image-2.png",
+            "host_pid": 46992,
+            "sr_pid": 49800,
+            "memory": {
+              "private_bytes": 508710912,
+              "working_set_bytes": 287670272,
+              "free_physical_bytes": 44089618432,
+              "free_commit_bytes": 36626780160
+            },
+            "python_bytes": 28853713,
+            "python_peak_bytes": 113420158,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 15,
+            "source": "image-0.png",
+            "host_pid": 41112,
+            "sr_pid": 9792,
+            "memory": {
+              "private_bytes": 451244032,
+              "working_set_bytes": 254496768,
+              "free_physical_bytes": 44099641344,
+              "free_commit_bytes": 36725555200
+            },
+            "python_bytes": 21553657,
+            "python_peak_bytes": 113431839,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 16,
+            "source": "image-1.png",
+            "host_pid": 45480,
+            "sr_pid": 39892,
+            "memory": {
+              "private_bytes": 560869376,
+              "working_set_bytes": 314056704,
+              "free_physical_bytes": 43901870080,
+              "free_commit_bytes": 36249800704
+            },
+            "python_bytes": 37984542,
+            "python_peak_bytes": 113431839,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 17,
+            "source": "image-2.png",
+            "host_pid": 48712,
+            "sr_pid": 23716,
+            "memory": {
+              "private_bytes": 555700224,
+              "working_set_bytes": 289554432,
+              "free_physical_bytes": 43911278592,
+              "free_commit_bytes": 36412755968
+            },
+            "python_bytes": 28870078,
+            "python_peak_bytes": 113431839,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 18,
+            "source": "image-0.png",
+            "host_pid": 45288,
+            "sr_pid": 49068,
+            "memory": {
+              "private_bytes": 495378432,
+              "working_set_bytes": 253739008,
+              "free_physical_bytes": 43955871744,
+              "free_commit_bytes": 36584595456
+            },
+            "python_bytes": 21570414,
+            "python_peak_bytes": 113462116,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 19,
+            "source": "image-1.png",
+            "host_pid": 22848,
+            "sr_pid": 50136,
+            "memory": {
+              "private_bytes": 606765056,
+              "working_set_bytes": 315387904,
+              "free_physical_bytes": 43771293696,
+              "free_commit_bytes": 36088745984
+            },
+            "python_bytes": 38000847,
+            "python_peak_bytes": 113462116,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 20,
+            "source": "image-2.png",
+            "host_pid": 23904,
+            "sr_pid": 48396,
+            "memory": {
+              "private_bytes": 599040000,
+              "working_set_bytes": 289931264,
+              "free_physical_bytes": 43855208448,
+              "free_commit_bytes": 36303155200
+            },
+            "python_bytes": 28886016,
+            "python_peak_bytes": 113462116,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4300992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 21,
+            "source": "image-0.png",
+            "host_pid": 30976,
+            "sr_pid": 43444,
+            "memory": {
+              "private_bytes": 541618176,
+              "working_set_bytes": 257052672,
+              "free_physical_bytes": 43921592320,
+              "free_commit_bytes": 36514213888
+            },
+            "python_bytes": 21586021,
+            "python_peak_bytes": 113474096,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764944,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 22,
+            "source": "image-1.png",
+            "host_pid": 10048,
+            "sr_pid": 1136,
+            "memory": {
+              "private_bytes": 652496896,
+              "working_set_bytes": 316555264,
+              "free_physical_bytes": 43849170944,
+              "free_commit_bytes": 36150845440
+            },
+            "python_bytes": 38016509,
+            "python_peak_bytes": 113474096,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 23,
+            "source": "image-2.png",
+            "host_pid": 10140,
+            "sr_pid": 47260,
+            "memory": {
+              "private_bytes": 645541888,
+              "working_set_bytes": 291160064,
+              "free_physical_bytes": 43858759680,
+              "free_commit_bytes": 36259282944
+            },
+            "python_bytes": 28900693,
+            "python_peak_bytes": 113474096,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4300992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 24,
+            "source": "image-0.png",
+            "host_pid": 23548,
+            "sr_pid": 48192,
+            "memory": {
+              "private_bytes": 587382784,
+              "working_set_bytes": 257785856,
+              "free_physical_bytes": 44091572224,
+              "free_commit_bytes": 36595535872
+            },
+            "python_bytes": 21601815,
+            "python_peak_bytes": 113493544,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 25,
+            "source": "image-1.png",
+            "host_pid": 43900,
+            "sr_pid": 24368,
+            "memory": {
+              "private_bytes": 699068416,
+              "working_set_bytes": 318107648,
+              "free_physical_bytes": 44005044224,
+              "free_commit_bytes": 36229115904
+            },
+            "python_bytes": 38031213,
+            "python_peak_bytes": 113493544,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6220992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555392,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 26,
+            "source": "image-2.png",
+            "host_pid": 24072,
+            "sr_pid": 24180,
+            "memory": {
+              "private_bytes": 692379648,
+              "working_set_bytes": 294031360,
+              "free_physical_bytes": 44075831296,
+              "free_commit_bytes": 36439105536
+            },
+            "python_bytes": 28915972,
+            "python_peak_bytes": 113493544,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 27,
+            "source": "image-0.png",
+            "host_pid": 42008,
+            "sr_pid": 49556,
+            "memory": {
+              "private_bytes": 632905728,
+              "working_set_bytes": 258039808,
+              "free_physical_bytes": 44123455488,
+              "free_commit_bytes": 36604768256
+            },
+            "python_bytes": 21616089,
+            "python_peak_bytes": 113507686,
+            "collected": 123,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 691200,
+            "dlss_cache_bytes": 2764800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 2764992,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:505",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 2764896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 691296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 691296,
+                "count": 2
+              }
+            ]
+          },
+          {
+            "cycle": 28,
+            "source": "image-1.png",
+            "host_pid": 40668,
+            "sr_pid": 43972,
+            "memory": {
+              "private_bytes": 743579648,
+              "working_set_bytes": 319377408,
+              "free_physical_bytes": 43867422720,
+              "free_commit_bytes": 36046266368
+            },
+            "python_bytes": 38045748,
+            "python_peak_bytes": 113507686,
+            "collected": 89,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1555200,
+            "dlss_cache_bytes": 6220800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 6221040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 6220896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1555344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1555296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              }
+            ]
+          },
+          {
+            "cycle": 29,
+            "source": "image-2.png",
+            "host_pid": 48104,
+            "sr_pid": 29016,
+            "memory": {
+              "private_bytes": 737271808,
+              "working_set_bytes": 295170048,
+              "free_physical_bytes": 43796897792,
+              "free_commit_bytes": 36121141248
+            },
+            "python_bytes": 28930898,
+            "python_peak_bytes": 113507686,
+            "collected": 130,
+            "tk_images": 296,
+            "overlay_modules": [
+              "C:\\WINDOWS\\system32\\nvspcap64.dll"
+            ],
+            "source_cache_bytes": 1075200,
+            "dlss_cache_bytes": 4300800,
+            "python_sites": [
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:8606",
+                "bytes": 4301040,
+                "count": 5
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:291",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\residual_composition.py:260",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:9979",
+                "bytes": 4300896,
+                "count": 2
+              },
+              {
+                "site": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\_local.py:274",
+                "bytes": 1922938,
+                "count": 10
+              },
+              {
+                "site": "<frozen importlib._bootstrap_external>:784",
+                "bytes": 1866595,
+                "count": 14856
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:246",
+                "bytes": 1075368,
+                "count": 4
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\image_alpha.py:21",
+                "bytes": 1075344,
+                "count": 3
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py:292",
+                "bytes": 1075296,
+                "count": 2
+              },
+              {
+                "site": "F:\\project\\DLSS5Tool\\dlss5tool\\gui.py:3498",
+                "bytes": 1075296,
+                "count": 2
+              }
+            ]
+          }
+        ],
+        "tk_errors": [],
+        "window_destroyed": true,
+        "status": "passed"
+      },
+      "gui_same_size_after_two_rounds": [
+        {
+          "size_group": 0,
+          "cycles": [
+            6,
+            9,
+            12,
+            15,
+            18,
+            21,
+            24,
+            27
+          ],
+          "private_delta_bytes": 330973184,
+          "python_delta_bytes": 111831,
+          "tk_counts": [
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296
+          ]
+        },
+        {
+          "size_group": 1,
+          "cycles": [
+            7,
+            10,
+            13,
+            16,
+            19,
+            22,
+            25,
+            28
+          ],
+          "private_delta_bytes": 329752576,
+          "python_delta_bytes": 110648,
+          "tk_counts": [
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296
+          ]
+        },
+        {
+          "size_group": 2,
+          "cycles": [
+            8,
+            11,
+            14,
+            17,
+            20,
+            23,
+            26,
+            29
+          ],
+          "private_delta_bytes": 326692864,
+          "python_delta_bytes": 110591,
+          "tk_counts": [
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296,
+            296
+          ]
+        }
+      ],
+      "gui_within_declared_band": false
+    },
+    {
+      "label": "native-composer-before",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 299872256,
+      "elapsed_seconds": 66.089,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-composer",
+        "label": "before",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 150,
+        "worker": false
+      },
+      "source_comparison": null,
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-composer",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "composer",
+        "created": 1,
+        "destroyed": 1,
+        "retained_device_refs": 0,
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 47964,
+        "created": 134369073379473616
+      },
+      "private_commit": {
+        "samples": 193,
+        "start_median_bytes": 213114880.0,
+        "end_median_bytes": 258252800.0,
+        "delta_bytes": 45137920.0,
+        "measured_span_seconds": 40.35150218009949,
+        "mib_per_minute": 64.00784011639072,
+        "window_medians_bytes": [
+          213114880.0,
+          225050624,
+          235968512.0,
+          247816192,
+          258236416
+        ],
+        "window_median_range_bytes": 45121536.0
+      },
+      "native_heap": {
+        "first_allocated": 61168356,
+        "last_allocated": 121119368,
+        "allocated_delta": 59951012,
+        "measured_span_seconds": 60.39323115348816,
+        "private_commit_delta_by_type": {
+          "private": 65708032,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "warm_heap": null
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-composer-isolated",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 216367104,
+      "elapsed_seconds": 305.974,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-composer",
+        "label": "isolated",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 300,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 390,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-composer",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "composer",
+        "created": 1,
+        "destroyed": 1,
+        "retained_device_refs": 0,
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 20876,
+        "created": 134369079776125632
+      },
+      "private_commit": {
+        "samples": 1115,
+        "start_median_bytes": 181125120,
+        "end_median_bytes": 180699136,
+        "delta_bytes": -425984,
+        "measured_span_seconds": 232.3239984512329,
+        "mib_per_minute": -0.10491813227429689,
+        "window_medians_bytes": [
+          181125120,
+          181420032,
+          180375552,
+          180568064,
+          180699136
+        ],
+        "window_median_range_bytes": 1044480
+      },
+      "native_heap": {
+        "first_allocated": 44401162,
+        "last_allocated": 44500693,
+        "allocated_delta": 99531,
+        "measured_span_seconds": 300.3153386116028,
+        "private_commit_delta_by_type": {
+          "private": -491520,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "warm_heap": {
+          "samples": 15,
+          "start_median_bytes": 44486541,
+          "end_median_bytes": 44425840,
+          "delta_bytes": -60701,
+          "measured_span_seconds": 240.0293209552765,
+          "mib_per_minute": -0.01447047830234756,
+          "window_medians_bytes": [
+            44486541,
+            44486973,
+            44424544,
+            44425360,
+            44425840
+          ],
+          "window_median_range_bytes": 62429
+        }
+      },
+      "within_declared_private_commit_band": true
+    },
+    {
+      "label": "native-composer-long",
+      "processing_and_exit_passed": false,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 218673152,
+      "elapsed_seconds": 753.665,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-composer",
+        "label": "long",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 0,
+        "run_seconds": 1800,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 1950,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": false
+      },
+      "evidence_exclusion": {
+        "reason": "Diagnostic pilot ended before final source freeze: legacy metadata compatibility and continuous cancellation gate corrected",
+        "acceptance_excluded": true,
+        "owned_process": {
+          "pid": 5532,
+          "created": 134369092049113490
+        },
+        "requested_exit_code": 1
+      },
+      "worker": null,
+      "process_identity": {
+        "pid": 5532,
+        "created": 134369092049113490
+      },
+      "private_commit": {
+        "samples": 2668,
+        "start_median_bytes": 213852160,
+        "end_median_bytes": 206647296,
+        "delta_bytes": -7204864,
+        "measured_span_seconds": 554.8175749778748,
+        "mib_per_minute": -0.7430651868164784,
+        "window_medians_bytes": [
+          213852160,
+          213684224.0,
+          206708736,
+          206704640.0,
+          206647296.0
+        ],
+        "window_median_range_bytes": 7204864.0
+      },
+      "native_heap": {
+        "first_allocated": 44454996,
+        "last_allocated": 45539479,
+        "allocated_delta": 1084483,
+        "measured_span_seconds": 741.0681245326996,
+        "private_commit_delta_by_type": {
+          "private": 18501632,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "warm_heap": {
+          "samples": 78,
+          "start_median_bytes": 45590141,
+          "end_median_bytes": 45539488,
+          "delta_bytes": -50653,
+          "measured_span_seconds": 559.9548416137695,
+          "mib_per_minute": -0.005176110095918625,
+          "window_medians_bytes": [
+            45590141,
+            45532603.5,
+            45598861,
+            45538208.0,
+            45539483.5
+          ],
+          "window_median_range_bytes": 66257.5
+        }
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-device11-lazy-preload",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 198922240,
+      "elapsed_seconds": 62.224,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-device11",
+        "label": "lazy-preload",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": true,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": true,
+        "timeout": 150,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "cuda",
+        "cuda_initialized": true,
+        "d3d_device_created": true,
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 47212,
+        "created": 134369094630630111
+      },
+      "private_commit": {
+        "samples": 196,
+        "start_median_bytes": 138043392,
+        "end_median_bytes": 190357504,
+        "delta_bytes": 52314112,
+        "measured_span_seconds": 40.920429706573486,
+        "mib_per_minute": 73.15264090492022,
+        "window_medians_bytes": [
+          138043392,
+          151035904,
+          163459072,
+          176844800,
+          190203904.0
+        ],
+        "window_median_range_bytes": 52160512.0
+      },
+      "native_heap": {
+        "first_allocated": 36070389,
+        "last_allocated": 106061968,
+        "allocated_delta": 69991579,
+        "measured_span_seconds": 59.87864542007446,
+        "private_commit_delta_by_type": {
+          "private": 76578816,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "warm_heap": null
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-device11-preload-control-after",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 202145792,
+      "elapsed_seconds": 62.159,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-device11",
+        "label": "preload-control-after",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": true,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": true,
+        "timeout": 150,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "cuda",
+        "cuda_initialized": true,
+        "d3d_device_created": true,
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 24928,
+        "created": 134369095258282839
+      },
+      "private_commit": {
+        "samples": 196,
+        "start_median_bytes": 138932224,
+        "end_median_bytes": 193159168,
+        "delta_bytes": 54226944,
+        "measured_span_seconds": 40.84233045578003,
+        "mib_per_minute": 75.97241857585718,
+        "window_medians_bytes": [
+          138932224,
+          152600576,
+          166105088,
+          179929088,
+          193021952.0
+        ],
+        "window_median_range_bytes": 54089728.0
+      },
+      "native_heap": {
+        "first_allocated": 35908261,
+        "last_allocated": 108937274,
+        "allocated_delta": 73029013,
+        "measured_span_seconds": 59.81782031059265,
+        "private_commit_delta_by_type": {
+          "private": 78327808,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          2,
+          0,
+          1
+        ],
+        "warm_heap": null
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-device11-preload-control-before",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 199524352,
+      "elapsed_seconds": 62.175,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-device11",
+        "label": "preload-control-before",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 320,
+        "idle_seconds": 60,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": true,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": true,
+        "timeout": 150,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-device11",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "cuda",
+        "cuda_initialized": true,
+        "d3d_device_created": true,
+        "idle_seconds": 60,
+        "minimal_device_work": false,
+        "minimal_compute": true,
+        "minimal_readback": false,
+        "minimal_timing": false,
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 10052,
+        "created": 134369094003240173
+      },
+      "private_commit": {
+        "samples": 195,
+        "start_median_bytes": 137302016,
+        "end_median_bytes": 189140992,
+        "delta_bytes": 51838976,
+        "measured_span_seconds": 40.58625936508179,
+        "mib_per_minute": 73.08507968960551,
+        "window_medians_bytes": [
+          137302016,
+          150585344,
+          163065856,
+          176250880,
+          189140992
+        ],
+        "window_median_range_bytes": 51838976
+      },
+      "native_heap": {
+        "first_allocated": 35939031,
+        "last_allocated": 104942468,
+        "allocated_delta": 69003437,
+        "measured_span_seconds": 59.749878883361816,
+        "private_commit_delta_by_type": {
+          "private": 75128832,
+          "mapped": 0,
+          "image": 0
+        },
+        "sequential_region_query_errors": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "warm_heap": null
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-nr-isolated",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 1425469440,
+      "elapsed_seconds": 308.799,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-nr",
+        "label": "isolated",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 960,
+        "idle_seconds": 300,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 420,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-nr",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "nr",
+        "width": 960,
+        "height": 540,
+        "diagnostic_gc_interval": 512,
+        "first_output_sha256": "d7489c5f92e95426f405806b89a221d798c8dd31992b20de26caf7a97789fc99",
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 47372,
+        "created": 134369086913738408
+      },
+      "private_commit": {
+        "samples": 1116,
+        "start_median_bytes": 1064054784,
+        "end_median_bytes": 1340293120,
+        "delta_bytes": 276238336,
+        "measured_span_seconds": 231.7815124988556,
+        "mib_per_minute": 68.19562183622408,
+        "window_medians_bytes": [
+          1064054784,
+          1131601920,
+          1201430528,
+          1269641216,
+          1340139520.0
+        ],
+        "window_median_range_bytes": 276084736.0
+      },
+      "native_heap": {
+        "available": false,
+        "snapshots": 1,
+        "reason": "At least two heap snapshots are required for a measured delta"
+      },
+      "within_declared_private_commit_band": false
+    },
+    {
+      "label": "native-sr-isolated",
+      "processing_and_exit_passed": true,
+      "safety_error": null,
+      "recovery": [],
+      "remaining": [],
+      "peak_tree_private_bytes": 826884096,
+      "elapsed_seconds": 306.798,
+      "arguments": {
+        "task": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020",
+        "case": "native-sr",
+        "label": "isolated",
+        "frames": 32,
+        "cycles": 12,
+        "scale": 2,
+        "multiplier": 1,
+        "enhance": true,
+        "native_width": 960,
+        "idle_seconds": 300,
+        "run_seconds": 0,
+        "hdr": false,
+        "disable_extensions": false,
+        "simulate_pressure": false,
+        "trim_heaps": false,
+        "vsr_host": null,
+        "trace_gui": false,
+        "device_work": false,
+        "device_compute": false,
+        "device_readback": false,
+        "device_timing": false,
+        "device_cuda": false,
+        "timeout": 390,
+        "worker": false
+      },
+      "source_comparison": {
+        "unchanged": true
+      },
+      "evidence_exclusion": null,
+      "worker": {
+        "case": "native-sr",
+        "scale": 2,
+        "frames": 32,
+        "multiplier": 1,
+        "enhance": true,
+        "extension_point_policy": null,
+        "native": "sr",
+        "width": 960,
+        "height": 540,
+        "diagnostic_gc_interval": 512,
+        "first_output_sha256": "e768f0ef006a8ecb7535e68e507c442e357408e4934c72269080c376a062ea60",
+        "status": "passed"
+      },
+      "process_identity": {
+        "pid": 48244,
+        "created": 134369083839958665
+      },
+      "private_commit": {
+        "samples": 1114,
+        "start_median_bytes": 488230912.0,
+        "end_median_bytes": 749842432.0,
+        "delta_bytes": 261611520.0,
+        "measured_span_seconds": 232.169912815094,
+        "mib_per_minute": 64.47662002579169,
+        "window_medians_bytes": [
+          488230912.0,
+          554381312,
+          613482496,
+          682008576,
+          749842432
+        ],
+        "window_median_range_bytes": 261611520.0
+      },
+      "native_heap": {
+        "available": false,
+        "snapshots": 1,
+        "reason": "At least two heap snapshots are required for a measured delta"
+      },
+      "within_declared_private_commit_band": false
+    }
+  ]
+}

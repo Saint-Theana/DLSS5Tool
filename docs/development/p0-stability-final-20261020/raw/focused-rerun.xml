@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="1.086" timestamp="2026-10-19T22:34:55.704981+08:00" hostname="QQQ"><testcase classname="tests.test_p0_owner_retirement" name="test_cancel_cleanup_failure_still_finishes_export_ui" time="0.008" /><testcase classname="tests.test_gui_module_reload.ModuleReloadTests" name="test_busy_shortcuts_cannot_start_conflicting_operations" time="0.001"><failure message="AttributeError: module 'dlss5tool.gpu_resources' has no attribute 'messagebox'">tests\test_gui_module_reload.py:222: in test_busy_shortcuts_cannot_start_conflicting_operations
+    with mock.patch('dlss5tool.gpu_resources.messagebox.showinfo'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py:1481: in __enter__
+    self.target = self.getter()
+                  ^^^^^^^^^^^^^
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\pkgutil.py:528: in resolve_name
+    result = getattr(result, p)
+             ^^^^^^^^^^^^^^^^^^
+E   AttributeError: module 'dlss5tool.gpu_resources' has no attribute 'messagebox'</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,6 @@
+{"event": "starting", "wall": 1792426226.5235777, "pid": 30408}
+{"event": "minimal-d3d11-clear", "wall": 1792426226.8108919, "width": 1920, "height": 1080}
+{"event": "minimal-d3d11-readback", "wall": 1792426226.8133326, "row_pitch": 7680}
+{"event": "idle-start", "wall": 1792426226.8139575, "seconds": 60, "device": "d3d11"}
+{"event": "idle-end", "wall": 1792426287.29243}
+{"event": "closed", "wall": 1792426287.3047035}

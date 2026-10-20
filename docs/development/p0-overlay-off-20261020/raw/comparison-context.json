@@ -1,0 +1,82 @@
+{
+  "user_reported_overlay_switch": "off; screenshot checked",
+  "observed_note": "Fresh SR and NR workers still load nvspcap64.dll; module presence alone does not prove hooks enabled",
+  "production_runtime_manifest": [
+    {
+      "file": "dlss5tool/gui.py",
+      "sha256": "a8457d7ec5a0adb58588b54cdcc911eca062a6b23fbab3072b9b51613581debf",
+      "matches_prior": true
+    },
+    {
+      "file": "dlss5tool/dlss_host_process.py",
+      "sha256": "16ae4ecda5a2613dfc51edcb01bc37989b27762837081077ed1c3b59346bfa25",
+      "matches_prior": true
+    },
+    {
+      "file": "dlss5tool/render_cache.py",
+      "sha256": "322fffa89a599898259dc7cd4056ad64d12f4f120466830b604e73f3cab91cf4",
+      "matches_prior": true
+    },
+    {
+      "file": "dlss5tool/shared_render_preview.py",
+      "sha256": "e8c3bdbca2665053dff097b0a6c2bcd51cffb469d9424e3fa45303186c4a9eef",
+      "matches_prior": true
+    },
+    {
+      "file": "dlss5tool/memory_budget.py",
+      "sha256": "ee546fa4155824fdf753ecceaaa7eda4c82e86f358ecbed5e11e5910facdb907",
+      "matches_prior": true
+    },
+    {
+      "file": "dlss5tool/super_resolution.py",
+      "sha256": "4308d0137b1eeea679d380b180b6986b0458990e06a400e293323822a43c666b",
+      "matches_prior": true
+    },
+    {
+      "file": "runtime/vsr_host.dll",
+      "sha256": "5e66ddc8b4c56f2b77daed782cc8429b607d32bba358efb488fbd4c03ae515b7",
+      "matches_prior": true
+    },
+    {
+      "file": "runtime/nvngx_vsr.dll",
+      "sha256": "c3d88eea5ff7a548edefa66414cf6e77464d0947277c904f324dd23abf58a1ed",
+      "matches_prior": true
+    },
+    {
+      "file": "runtime/nvngx_dlssnr.dll",
+      "sha256": "ceb6432f6fbdf44d886014bcd47241932bf8b67439feef9bbdd0961436662650",
+      "matches_prior": true
+    },
+    {
+      "file": "runtime/dlssnr_host_v2.dll",
+      "sha256": "c8ad631f8f78b2dedec6aec418c7a570d6fc5bf1b9ffa9f3514bcb0edd58fc13",
+      "matches_prior": true
+    },
+    {
+      "file": "runtime/dlss5_quality.dll",
+      "sha256": "32ea271a83786b1533f4074cb29534cf866b4778d68b0b823dbf4c5dbaf544b6",
+      "matches_prior": true
+    }
+  ],
+  "diagnostic_changes": [
+    "Validated module inventory reused by GUI checkpoints",
+    "Runtime-only evidence collection option; no production source changes in this comparison"
+  ],
+  "prior_evidence": "docs/development/p0-stability-final-20261020",
+  "baseline_case_pairs": {
+    "native-sr-off": "native-sr-idle300",
+    "native-nr-off": "native-nr-full-idle",
+    "native-composer-off": "native-composer-r1",
+    "images-off": "images-trace",
+    "continuous-off": "continuous-r1"
+  },
+  "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+  "driver_version": "617.42",
+  "reported_gpu_memory_mib": 12282,
+  "windows": "Windows-11-10.0.26300-SP0",
+  "overlay_module_sha256": "9382b1045ea83841afa4cc1e84a3b77af517b69dfa964677d88ca71ad994ce30",
+  "source_video_sha256_matches_prior": true,
+  "current_source_video_sha256": "ba6a627db88ec5c1e7352c6d48d4a5be5fdc2ab4849d6d92b59d5c034f2f181d",
+  "prior_source_video_sha256": "ba6a627db88ec5c1e7352c6d48d4a5be5fdc2ab4849d6d92b59d5c034f2f181d",
+  "limitation": "Prior manifest describes end-of-task source snapshot; early native/continuous cases preceded runtime headroom polling changes. Native runtime binaries and settings match. This is not a randomized controlled overlay-on/off experiment; previous UI toggle state was not directly recorded. All observed fresh processes still load nvspcap64.dll."
+}

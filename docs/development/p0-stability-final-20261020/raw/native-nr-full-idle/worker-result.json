@@ -1,0 +1,10 @@
+{
+  "case": "native-nr",
+  "scale": 2,
+  "frames": 3600,
+  "native": "nr",
+  "width": 960,
+  "height": 540,
+  "diagnostic_gc_interval": 512,
+  "status": "passed"
+}

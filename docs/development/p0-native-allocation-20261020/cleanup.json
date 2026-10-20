@@ -1,0 +1,19 @@
+{
+  "task": "F:\\project\\DLSS5Tool\\tmp\\p0-native-allocation-20261020",
+  "removed_files": 87,
+  "removed_directories": 13,
+  "removed_logical_bytes": 18330443.0,
+  "free_before_bytes": 63794024448,
+  "free_after_bytes": 63812497408,
+  "volume_free_delta_bytes": 18472960,
+  "remaining_bytes_before_final_task_note": 1617.0,
+  "remaining": "TASK.md only",
+  "review_date": "2026-10-27",
+  "reparse_points_rejected": true,
+  "exclusive_file_opens_verified": true,
+  "exact_test_identities_retired": 18,
+  "source_references": "No task path found in production/scripts/tests",
+  "note": "Volume free-space delta is measured globally and may include concurrent disk activity.",
+  "remaining_bytes": 3175,
+  "process_command_line_check": "Win32_Process query denied access; not used as evidence. Exact observed PID+creation identities retired and exclusive file opens verified."
+}

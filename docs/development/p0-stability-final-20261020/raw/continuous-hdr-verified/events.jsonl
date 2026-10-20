@@ -1,0 +1,12 @@
+{"event": "starting", "wall": 1792423593.4184089, "pid": 9732}
+{"event": "source-ready", "wall": 1792423595.2152436}
+{"event": "frame", "wall": 1792423608.281877, "frame": 1, "total": 128}
+{"event": "frame", "wall": 1792423627.5145414, "frame": 16, "total": 128}
+{"event": "frame", "wall": 1792423648.1972797, "frame": 32, "total": 128}
+{"event": "frame", "wall": 1792423668.8910263, "frame": 48, "total": 128}
+{"event": "frame", "wall": 1792423689.877941, "frame": 64, "total": 128}
+{"event": "frame", "wall": 1792423710.6260934, "frame": 80, "total": 128}
+{"event": "frame", "wall": 1792423733.0648026, "frame": 96, "total": 128}
+{"event": "frame", "wall": 1792423755.1450179, "frame": 112, "total": 128}
+{"event": "frame", "wall": 1792423775.8165994, "frame": 128, "total": 128}
+{"event": "closed", "wall": 1792423780.8393605}

@@ -1,0 +1,8 @@
+{
+  "case": "native-sr",
+  "scale": 2,
+  "frames": 3600,
+  "native": "sr",
+  "diagnostic_gc_interval": 512,
+  "status": "passed"
+}

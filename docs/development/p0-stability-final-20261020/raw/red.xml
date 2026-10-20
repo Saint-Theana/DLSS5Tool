@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="7" time="1.181" timestamp="2026-10-19T22:21:08.480102+08:00" hostname="QQQ"><testcase classname="tests.test_p0_owner_retirement" name="test_preview_failed_close_keeps_owner_for_retry[nr]" time="0.002"><failure message="Failed: DID NOT RAISE RuntimeError">tests\test_p0_owner_retirement.py:24: in test_preview_failed_close_keeps_owner_for_retry
+    with pytest.raises(RuntimeError, match='worker still alive'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE RuntimeError</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_preview_failed_close_keeps_owner_for_retry[sr]" time="0.001"><failure message="Failed: DID NOT RAISE RuntimeError">tests\test_p0_owner_retirement.py:24: in test_preview_failed_close_keeps_owner_for_retry
+    with pytest.raises(RuntimeError, match='worker still alive'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE RuntimeError</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_failed_replaced_worker_is_retained_and_blocks_more_allocations" time="0.001"><failure message="AttributeError: 'ProcessLive' object has no attribute '_retiring_sessions'">tests\test_p0_owner_retirement.py:53: in test_failed_replaced_worker_is_retained_and_blocks_more_allocations
+    assert owner._retiring_sessions == [old]
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ProcessLive' object has no attribute '_retiring_sessions'</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_retiring_failure_does_not_skip_active_session_close" time="0.001"><failure message="Failed: DID NOT RAISE HostProcessError">tests\test_p0_owner_retirement.py:68: in test_retiring_failure_does_not_skip_active_session_close
+    with pytest.raises(HostProcessError, match='old worker still alive'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE HostProcessError</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_cache_manager_closes_all_layers_and_keeps_only_failed_sessions" time="0.001"><failure message="AssertionError: Expected 'close' to be called once. Called 0 times.">tests\test_p0_owner_retirement.py:86: in test_cache_manager_closes_all_layers_and_keeps_only_failed_sessions
+    good.close.assert_called_once_with()
+C:\Users\PC\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py:990: in assert_called_once_with
+    raise AssertionError(msg)
+E   AssertionError: Expected 'close' to be called once. Called 0 times.</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_failed_background_cache_retirement_remains_owned_until_retry" time="0.002"><failure message="AttributeError: 'App' object has no attribute '_shared_retire_pending'. Did you mean: '_shared_retire_error'?">tests\test_p0_owner_retirement.py:110: in test_failed_background_cache_retirement_remains_owned_until_retry
+    assert app._shared_retire_pending == [manager]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'App' object has no attribute '_shared_retire_pending'. Did you mean: '_shared_retire_error'?</failure></testcase><testcase classname="tests.test_p0_owner_retirement" name="test_overlapping_retirements_do_not_lose_failed_old_manager" time="0.001"><failure message="AttributeError: 'App' object has no attribute '_shared_retire_pending'. Did you mean: '_shared_retire_error'?">tests\test_p0_owner_retirement.py:143: in test_overlapping_retirements_do_not_lose_failed_old_manager
+    assert app._shared_retire_pending == [bad]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'App' object has no attribute '_shared_retire_pending'. Did you mean: '_shared_retire_error'?</failure></testcase></testsuite></testsuites>

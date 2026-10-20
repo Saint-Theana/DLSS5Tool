@@ -10,7 +10,7 @@ commands and acknowledgements.
 
 import multiprocessing
 from multiprocessing import shared_memory
-from dlss5tool.memory_budget import require_memory_headroom
+from dlss5tool.memory_budget import require_memory_headroom, receive_worker_command
 import os
 import tempfile
 import traceback
@@ -22,6 +22,7 @@ from dlss5tool import dlss_engine
 from dlss5tool import guidance_client
 from dlss5tool import appearance
 from dlss5tool.host_queue import configured_in_flight
+from dlss5tool.deferred_error import ErrorSnapshot
 from dlss5tool.guidance_visualization import guidance_images
 
 
@@ -111,8 +112,14 @@ def _host_worker_main(
 
     while True:
         try:
-            message = connection.recv()
+            message = receive_worker_command(connection, input_frame.nbytes)
         except (EOFError, OSError):
+            break
+        except MemoryError as exception:
+            try:
+                connection.send(_error_payload('memory', exception, log_path))
+            except (BrokenPipeError, EOFError, OSError):
+                pass
             break
         operation = message.get("operation")
         try:
@@ -328,6 +335,11 @@ class _HostSession:
         if self._closed:
             raise HostProcessError("DLSS 工作进程已关闭")
         if self._process is None or not self._process.is_alive():
+            # An idle host may have retired under memory pressure. Preserve its
+            # reported reason instead of replacing it with a generic dead PID.
+            if self._connection is not None and self._connection.poll(0):
+                response = self._receive(0, operation)
+                self._check_response(response)
             raise HostProcessError(
                 "DLSS 工作进程不可用（%s）" % self._worker_description()
             )
@@ -348,6 +360,7 @@ class _HostSession:
                 "RGBA frame must be %s with shape %s, got %s/%s"
                 % (np.dtype(self.dtype).name, self._input_frame.shape, rgba.shape, rgba.dtype)
             )
+        require_memory_headroom(rgba.nbytes * 2)
         np.copyto(self._input_frame, rgba)
 
     def copy_output(self):
@@ -481,6 +494,7 @@ class ProcessLive:
         self.preference = str(self.settings.get("host_backend", "auto"))
         self._live_factory = _live_factory
         self._reset_next = True
+        self._retiring_sessions = []
         self._session = self._make_session(self._w, self._h, self.settings)
         self._sync_metadata()
 
@@ -555,7 +569,24 @@ class ProcessLive:
             return desired != self.backend
         return new_preference != self.backend
 
+    def _retry_retiring(self):
+        pending = getattr(self, '_retiring_sessions', [])
+        self._retiring_sessions = []
+        failure = None
+        for session in pending:
+            try:
+                session.close()
+            except Exception as error:
+                self._retiring_sessions.append(session)
+                if failure is None:
+                    failure = ErrorSnapshot(error)
+        if failure is not None:
+            raise failure.exception()
+
     def _replace(self, width, height, settings):
+        if self._session is None:
+            raise HostProcessError('DLSS 会话正在关闭，请先重试关闭')
+        self._retry_retiring()
         # Build first so a failed backend switch leaves the current session usable.
         replacement = self._make_session(width, height, settings)
         previous = self._session
@@ -565,7 +596,8 @@ class ProcessLive:
         self.preference = str(self.settings.get("host_backend", "auto"))
         self._sync_metadata()
         self._reset_next = True
-        previous.close()
+        self._retiring_sessions.append(previous)
+        self._retry_retiring()
 
     def update(self, settings):
         updated = dict(self.settings)
@@ -685,6 +717,18 @@ class ProcessLive:
                 self._on_guidance_ready(info)
 
     def close(self):
+        failure = None
+        try:
+            self._retry_retiring()
+        except Exception as error:
+            failure = ErrorSnapshot(error)
         if getattr(self, "_session", None) is not None:
-            self._session.close()
-            self._session = None
+            try:
+                self._session.close()
+            except Exception as error:
+                if failure is None:
+                    failure = ErrorSnapshot(error)
+            else:
+                self._session = None
+        if failure is not None:
+            raise failure.exception()

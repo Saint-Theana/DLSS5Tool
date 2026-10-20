@@ -540,16 +540,29 @@ class RenderCache:
 
     def close(self):
         with self.lock:
-            for session in self.sessions.values():
-                session.close()
-            self.sessions.clear()
-            if self.base:
-                self.base.close()
+            seen, closed = set(), set()
+            failure = None
+            for session in [*self.sessions.values(), self.base, self.spatial]:
+                if session is None or id(session) in seen:
+                    continue
+                seen.add(id(session))
+                try:
+                    session.close()
+                except Exception as error:
+                    if failure is None:
+                        failure = ErrorSnapshot(error)
+                else:
+                    closed.add(id(session))
+            for key, session in list(self.sessions.items()):
+                if id(session) in closed:
+                    del self.sessions[key]
+            if id(self.base) in closed:
                 self.base = None
-            if self.spatial:
-                self.spatial.close()
+            if id(self.spatial) in closed:
                 self.spatial = None
             self.inspection = None
+            if failure is not None:
+                raise failure.exception()
 
 
 def encode_cached(session, output, settings, cancel, progress):

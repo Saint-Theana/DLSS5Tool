@@ -1,0 +1,19 @@
+{
+  "case": "exit",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "cycles": [
+    {
+      "cycle": 0,
+      "source": "image-0.png",
+      "host_pid": 6140,
+      "sr_pid": 13852
+    }
+  ],
+  "tk_errors": [],
+  "window_destroyed": true,
+  "status": "passed"
+}

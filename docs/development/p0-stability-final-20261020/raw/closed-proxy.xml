@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.784" timestamp="2026-10-19T22:48:23.263981+08:00" hostname="QQQ"><testcase classname="tests.test_p0_owner_retirement" name="test_partly_closed_proxy_cannot_allocate_a_new_session" time="0.002" /></testsuite></testsuites>

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "elapsed_seconds": 2.924477399996249,
+  "inventory": {
+    "adapters": [
+      {
+        "id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000",
+        "name": "NVIDIA GeForce RTX 4070 SUPER",
+        "preference_index": 0,
+        "vendor_id": 4318,
+        "device_id": 10115,
+        "subsys_id": 662904531,
+        "revision": 161,
+        "dedicated_video_memory": 12579766272,
+        "luid_high": 0,
+        "luid_low": 79931,
+        "d3d12_feature_level": "12_0",
+        "cuda_index": 0,
+        "pci_bus_id": "0000:01:00.0"
+      }
+    ],
+    "cuda_identity_available": true,
+    "warnings": [],
+    "probe_pid": 40468
+  },
+  "fixture": "F:\\project\\DLSS5Tool\\tmp\\p0-adapter-isolation-20261020\\frozen-dist\\AdapterProbeFixture\\AdapterProbeFixture.exe",
+  "scope": "Minimal onedir frozen worker entry; not a full product release build"
+}

@@ -1,0 +1,11 @@
+{
+  "case": "native-cuda",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "cuda",
+  "idle_seconds": 60,
+  "status": "passed"
+}

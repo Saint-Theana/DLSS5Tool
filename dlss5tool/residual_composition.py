@@ -137,17 +137,22 @@ def _composition_adapter(settings):
     if actual is not None:
         return int(actual['luid_high']), int(actual['luid_low'])
     from dlss5tool import dlss_engine
+    from dlss5tool.adapter_probe import cache_generation
     requested = settings.get('render_gpu', dlss_engine.RENDER_GPU_AUTO)
+    generation = cache_generation()
     cached = getattr(_native_state, 'adapter', None)
-    if cached is not None and cached[0] == requested:
-        return cached[1]
+    if cached is not None and cached[:2] == (requested, generation):
+        return cached[2]
     records = dlss_engine.available_render_adapters()
     chosen = (records[0] if requested == dlss_engine.RENDER_GPU_AUTO and records else
               next((r for r in records if r['id'] == requested), None))
     if chosen is None:
         raise ValueError('Composition GPU is unavailable')
     luid = int(chosen['luid_high']), int(chosen['luid_low'])
-    _native_state.adapter = requested, luid
+    # A refresh may have run concurrently with the lookup. Do not mark an old
+    # snapshot as belonging to the new generation; resolve again next time.
+    _native_state.adapter = ((requested, generation, luid)
+                             if generation == cache_generation() else None)
     return luid
 
 

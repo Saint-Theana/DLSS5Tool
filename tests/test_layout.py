@@ -115,6 +115,7 @@ class LayoutTests(unittest.TestCase):
                         'runtime/dlssg_video_worker.exe', 'runtime/nvngx_dlssg.dll',
                         'licenses/NVIDIA-Optical-Flow-Headers-LICENSE.txt', 'scripts/rtxmfg_temporal/LICENSE.txt',
                         'third_party/NVIDIA-DLSS/LICENSE.txt',
+                        'third_party/NVIDIA-DLSS/lib/Windows_x86_64/rel/nvngx_dlss.dll',
                         'media/bin/ffmpeg.exe', 'media/bin/ffprobe.exe', 'media/LICENSE', 'media/README.txt',
                         'build/amd_probe/amd_probe.exe',
                         'third_party/FidelityFX-1.1.4/PrebuiltSignedDLL/amd_fidelityfx_dx12.dll',
@@ -146,7 +147,15 @@ class LayoutTests(unittest.TestCase):
                 capture = mock.Mock()
                 namespace = {'SPECPATH': str(root / 'packaging'), 'Analysis': capture,
                              'collect_all': lambda _: ([], [], []), 'copy_metadata': lambda _: []}
+                real_file_digest = hashlib.file_digest
+                def fixture_digest(handle, algorithm):
+                    if Path(handle.name) == root/'third_party/NVIDIA-DLSS/lib/Windows_x86_64/rel/nvngx_dlss.dll':
+                        value = mock.Mock()
+                        value.hexdigest.return_value = 'be6e434a94ca32499515eb62ca0e6c274526055d568d0426e4c652dcdfb6ee6e'
+                        return value
+                    return real_file_digest(handle, algorithm)
                 with mock.patch.object(sys, 'path', list(sys.path)), \
+                        mock.patch.object(hashlib, 'file_digest', side_effect=fixture_digest), \
                         mock.patch.dict(os.environ, {'DLSS5_DEPTH_SOURCE': str(root / 'depth'), 'DLSS5_LOCAL_CANDIDATE': '1'}), \
                         mock.patch('dlss5tool.frame_generation.runtime_files', return_value=(root/'runtime/dlssg_video_worker.exe', root/'runtime/nvngx_dlssg.dll')), \
                         mock.patch('dlss5tool.frame_generation.PINNED_RUNTIME', __import__('hashlib').sha256(b'').hexdigest()), \
@@ -161,7 +170,11 @@ class LayoutTests(unittest.TestCase):
                     self.assertTrue(Path(source).is_file(), source)
                 self.assertIn(str(root), call.kwargs['pathex'])
                 if recipe.name == 'DLSS5Tool.spec':
-                    self.assertTrue({'dlss5tool.amd_devtest', 'dlss5tool.amd_devtest_ui', 'dlss5tool.guidance_worker'} <= set(call.kwargs['excludes']))
+                    self.assertTrue({'dlss5tool.amd_devtest', 'dlss5tool.amd_devtest_ui'} <= set(call.kwargs['excludes']))
+                    # The packaged --nvofa-worker entry uses the Torch-free
+                    # guidance worker. Only its obsolete top-level shim is excluded.
+                    self.assertNotIn('dlss5tool.guidance_worker', call.kwargs['excludes'])
+                    self.assertIn('guidance_worker', call.kwargs['excludes'])
 
     def test_documentation_links_resolve(self):
         files = [*ROOT.glob('*.md'), *(ROOT / 'docs').rglob('*.md'), ROOT / 'mods/README.md']

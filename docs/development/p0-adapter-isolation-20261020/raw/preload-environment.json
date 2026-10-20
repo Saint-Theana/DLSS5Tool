@@ -1,0 +1,7 @@
+{
+  "control-before": null,
+  "lazy-preload": "0",
+  "control-after": null,
+  "scope": "Per-test-process environment; A/B/A during the same ongoing native composer workload; screening only",
+  "source": "https://docs.nvidia.com/cuda/cuda-driver-api/cuda_driver_api/group__CUDA__INITIALIZE.html"
+}

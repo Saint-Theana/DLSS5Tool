@@ -1,0 +1,5 @@
+{"event": "starting", "wall": 1792432115.1991885, "pid": 14308}
+{"event": "adapters-enumerated", "wall": 1792432117.9806948, "adapters": [{"id": "dxgi:10DE:2783:27831ED3:000000A1:00000002EDD00000:P000001000", "name": "NVIDIA GeForce RTX 4070 SUPER", "preference_index": 0, "vendor_id": 4318, "device_id": 10115, "subsys_id": 662904531, "revision": 161, "dedicated_video_memory": 12579766272, "luid_high": 0, "luid_low": 79931, "d3d12_feature_level": "12_0", "cuda_index": 0, "pci_bus_id": "0000:01:00.0"}], "ngx_initialized": false}
+{"event": "idle-start", "wall": 1792432117.9921124, "seconds": 60, "device": null}
+{"event": "idle-end", "wall": 1792432178.8284502}
+{"event": "closed", "wall": 1792432178.8293893}

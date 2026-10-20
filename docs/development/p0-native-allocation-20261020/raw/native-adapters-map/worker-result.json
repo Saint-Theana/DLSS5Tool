@@ -1,0 +1,15 @@
+{
+  "case": "native-adapters",
+  "scale": 2,
+  "frames": 32,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "adapters",
+  "idle_seconds": 60,
+  "minimal_device_work": false,
+  "minimal_compute": false,
+  "minimal_readback": false,
+  "minimal_timing": false,
+  "status": "passed"
+}

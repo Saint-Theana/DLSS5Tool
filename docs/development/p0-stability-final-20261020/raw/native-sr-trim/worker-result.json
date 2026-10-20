@@ -1,0 +1,13 @@
+{
+  "case": "native-sr",
+  "scale": 2,
+  "frames": 512,
+  "multiplier": 1,
+  "enhance": true,
+  "extension_point_policy": null,
+  "native": "sr",
+  "width": 960,
+  "height": 540,
+  "diagnostic_gc_interval": 512,
+  "status": "passed"
+}

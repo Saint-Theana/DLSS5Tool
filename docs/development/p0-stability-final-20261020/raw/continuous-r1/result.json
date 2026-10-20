@@ -1,0 +1,504 @@
+{
+  "status": "passed",
+  "case": "continuous",
+  "elapsed_seconds": 135.754,
+  "child_exit_code": 0,
+  "safety_error": null,
+  "peak_tree_private_bytes": 2409037824,
+  "peak_tree_working_set_bytes": 1518850048,
+  "observed_processes": [
+    {
+      "pid": 33848,
+      "parent": 3056,
+      "name": "python.exe",
+      "created": 134368942982377551,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Scripts\\python.exe",
+      "private_bytes": 827392,
+      "working_set_bytes": 4235264,
+      "handles": 54
+    },
+    {
+      "pid": 36148,
+      "parent": 33848,
+      "name": "conhost.exe",
+      "created": 134368942982455564,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1241088,
+      "working_set_bytes": 7639040,
+      "handles": 100
+    },
+    {
+      "pid": 21044,
+      "parent": 33848,
+      "name": "python.exe",
+      "created": 134368942982664499,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 67870720,
+      "working_set_bytes": 68964352,
+      "handles": 416
+    },
+    {
+      "pid": 46396,
+      "parent": 21044,
+      "name": "cmd.exe",
+      "created": 134368942988169545,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "private_bytes": 1544192,
+      "working_set_bytes": 2203648,
+      "handles": 4
+    },
+    {
+      "pid": 41520,
+      "parent": 21044,
+      "name": "ffmpeg-win-x86_64-v7.1.exe",
+      "created": 134368942989177533,
+      "path": "F:\\project\\DLSS5Tool\\.venv\\Lib\\site-packages\\imageio_ffmpeg\\binaries\\ffmpeg-win-x86_64-v7.1.exe",
+      "private_bytes": 27107328,
+      "working_set_bytes": 1966080,
+      "handles": 4
+    },
+    {
+      "pid": 196,
+      "parent": 21044,
+      "name": "ffmpeg.exe",
+      "created": 134368942996923683,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffmpeg.exe",
+      "private_bytes": 72732672,
+      "working_set_bytes": 54120448,
+      "handles": 298
+    },
+    {
+      "pid": 35912,
+      "parent": 196,
+      "name": "conhost.exe",
+      "created": 134368942997672961,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1253376,
+      "working_set_bytes": 7491584,
+      "handles": 99
+    },
+    {
+      "pid": 19584,
+      "parent": 21044,
+      "name": "ffprobe.exe",
+      "created": 134368943006322978,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffprobe.exe",
+      "private_bytes": 31006720,
+      "working_set_bytes": 1982464,
+      "handles": 3
+    },
+    {
+      "pid": 11340,
+      "parent": 21044,
+      "name": "ffprobe.exe",
+      "created": 134368943007643228,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffprobe.exe",
+      "private_bytes": 38379520,
+      "working_set_bytes": 22491136,
+      "handles": 182
+    },
+    {
+      "pid": 13696,
+      "parent": 11340,
+      "name": "conhost.exe",
+      "created": 134368943007729683,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    },
+    {
+      "pid": 26824,
+      "parent": 21044,
+      "name": "python.exe",
+      "created": 134368943016220600,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 511844352,
+      "working_set_bytes": 310075392,
+      "handles": 555
+    },
+    {
+      "pid": 48836,
+      "parent": 26824,
+      "name": "nvngx_update.exe",
+      "created": 134368943028232585,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 35942400,
+      "working_set_bytes": 45301760,
+      "handles": 189
+    },
+    {
+      "pid": 18728,
+      "parent": 48836,
+      "name": "conhost.exe",
+      "created": 134368943028632912,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1253376,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    },
+    {
+      "pid": 48596,
+      "parent": 26824,
+      "name": "nvngx_update.exe",
+      "created": 134368943029310063,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 17342464,
+      "working_set_bytes": 28995584,
+      "handles": 170
+    },
+    {
+      "pid": 16236,
+      "parent": 26824,
+      "name": "nvngx_update.exe",
+      "created": 134368943029414151,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 36069376,
+      "working_set_bytes": 47960064,
+      "handles": 189
+    },
+    {
+      "pid": 26276,
+      "parent": 48596,
+      "name": "conhost.exe",
+      "created": 134368943029421977,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1273856,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    },
+    {
+      "pid": 31200,
+      "parent": 26824,
+      "name": "nvngx_update.exe",
+      "created": 134368943029500960,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24465408,
+      "working_set_bytes": 33755136,
+      "handles": 178
+    },
+    {
+      "pid": 46712,
+      "parent": 16236,
+      "name": "conhost.exe",
+      "created": 134368943029590704,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    },
+    {
+      "pid": 11720,
+      "parent": 31200,
+      "name": "conhost.exe",
+      "created": 134368943029705464,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1257472,
+      "working_set_bytes": 7491584,
+      "handles": 99
+    },
+    {
+      "pid": 37224,
+      "parent": 21044,
+      "name": "python.exe",
+      "created": 134368943034802948,
+      "path": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "private_bytes": 953335808,
+      "working_set_bytes": 567582720,
+      "handles": 648
+    },
+    {
+      "pid": 30780,
+      "parent": 37224,
+      "name": "nvngx_update.exe",
+      "created": 134368943093701249,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 4894720,
+      "working_set_bytes": 15077376,
+      "handles": 142
+    },
+    {
+      "pid": 46468,
+      "parent": 30780,
+      "name": "conhost.exe",
+      "created": 134368943094129444,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1331200,
+      "working_set_bytes": 7569408,
+      "handles": 99
+    },
+    {
+      "pid": 41300,
+      "parent": 37224,
+      "name": "nvngx_update.exe",
+      "created": 134368943095120828,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24506368,
+      "working_set_bytes": 33837056,
+      "handles": 177
+    },
+    {
+      "pid": 2756,
+      "parent": 37224,
+      "name": "nvngx_update.exe",
+      "created": 134368943095230933,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 24539136,
+      "working_set_bytes": 33951744,
+      "handles": 179
+    },
+    {
+      "pid": 16924,
+      "parent": 41300,
+      "name": "conhost.exe",
+      "created": 134368943095247130,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1257472,
+      "working_set_bytes": 7487488,
+      "handles": 99
+    },
+    {
+      "pid": 42704,
+      "parent": 37224,
+      "name": "nvngx_update.exe",
+      "created": 134368943095341031,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 51658752,
+      "working_set_bytes": 63016960,
+      "handles": 190
+    },
+    {
+      "pid": 22532,
+      "parent": 2756,
+      "name": "conhost.exe",
+      "created": 134368943095349175,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1257472,
+      "working_set_bytes": 7487488,
+      "handles": 99
+    },
+    {
+      "pid": 39212,
+      "parent": 37224,
+      "name": "nvngx_update.exe",
+      "created": 134368943095767749,
+      "path": "C:\\Windows\\System32\\DriverStore\\FileRepository\\nv_dispi.inf_amd64_feedb8c0271ca811\\nvngx_update.exe",
+      "private_bytes": 51167232,
+      "working_set_bytes": 62513152,
+      "handles": 190
+    },
+    {
+      "pid": 47600,
+      "parent": 42704,
+      "name": "conhost.exe",
+      "created": 134368943095774615,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7491584,
+      "handles": 99
+    },
+    {
+      "pid": 30704,
+      "parent": 39212,
+      "name": "conhost.exe",
+      "created": 134368943096265179,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7491584,
+      "handles": 99
+    },
+    {
+      "pid": 34008,
+      "parent": 21044,
+      "name": "ffmpeg.exe",
+      "created": 134368943107681662,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffmpeg.exe",
+      "private_bytes": 598786048,
+      "working_set_bytes": 301084672,
+      "handles": 481
+    },
+    {
+      "pid": 29116,
+      "parent": 34008,
+      "name": "conhost.exe",
+      "created": 134368943108483560,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1265664,
+      "working_set_bytes": 7491584,
+      "handles": 99
+    },
+    {
+      "pid": 34984,
+      "parent": 21044,
+      "name": "ffmpeg.exe",
+      "created": 134368943112348355,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffmpeg.exe",
+      "private_bytes": 632070144,
+      "working_set_bytes": 334057472,
+      "handles": 578
+    },
+    {
+      "pid": 45088,
+      "parent": 34984,
+      "name": "conhost.exe",
+      "created": 134368943112618424,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1241088,
+      "working_set_bytes": 7479296,
+      "handles": 99
+    },
+    {
+      "pid": 48768,
+      "parent": 21044,
+      "name": "ffprobe.exe",
+      "created": 134368944299807323,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffprobe.exe",
+      "private_bytes": 31096832,
+      "working_set_bytes": 2682880,
+      "handles": 29
+    },
+    {
+      "pid": 24084,
+      "parent": 48768,
+      "name": "conhost.exe",
+      "created": 134368944300552747,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 454656,
+      "working_set_bytes": 2469888,
+      "handles": 0
+    },
+    {
+      "pid": 38268,
+      "parent": 21044,
+      "name": "ffmpeg.exe",
+      "created": 134368944301702084,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffmpeg.exe",
+      "private_bytes": 35876864,
+      "working_set_bytes": 19984384,
+      "handles": 194
+    },
+    {
+      "pid": 43824,
+      "parent": 38268,
+      "name": "conhost.exe",
+      "created": 134368944302484870,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7499776,
+      "handles": 99
+    },
+    {
+      "pid": 48396,
+      "parent": 21044,
+      "name": "ffprobe.exe",
+      "created": 134368944336687961,
+      "path": "C:\\Users\\PC\\ffmpeg-7.1.1-full_build\\bin\\ffprobe.exe",
+      "private_bytes": 33263616,
+      "working_set_bytes": 15659008,
+      "handles": 182
+    },
+    {
+      "pid": 49088,
+      "parent": 48396,
+      "name": "conhost.exe",
+      "created": 134368944336762165,
+      "path": "C:\\Windows\\System32\\conhost.exe",
+      "private_bytes": 1269760,
+      "working_set_bytes": 7495680,
+      "handles": 99
+    }
+  ],
+  "gpu_snapshots": [
+    {
+      "wall": 1792420698.3611739,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 4157.0,
+          "free_mib": 7841.0,
+          "utilization_percent": 8.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420718.4819806,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5154.0,
+          "free_mib": 6844.0,
+          "utilization_percent": 25.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420738.46481,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5160.0,
+          "free_mib": 6838.0,
+          "utilization_percent": 38.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420758.5906422,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5153.0,
+          "free_mib": 6845.0,
+          "utilization_percent": 38.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420778.5653934,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5152.0,
+          "free_mib": 6846.0,
+          "utilization_percent": 34.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420798.544974,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5148.0,
+          "free_mib": 6850.0,
+          "utilization_percent": 34.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    },
+    {
+      "wall": 1792420818.5777571,
+      "devices": [
+        {
+          "uuid": "GPU-e6f7753b-1e67-7635-809b-5653dace5f12",
+          "used_mib": 5180.0,
+          "free_mib": 6818.0,
+          "utilization_percent": 32.0
+        }
+      ],
+      "scope": "system GPU snapshot, not owned-process attribution"
+    }
+  ],
+  "remaining_before_recovery": [],
+  "recovery": [],
+  "samples": 515,
+  "scope": "synthetic media; actual existing runtimes and production processing",
+  "steady_sample_count": 371,
+  "post_warmup_private_delta_bytes": 118104064.0,
+  "post_warmup_private_range_bytes": 162410496
+}

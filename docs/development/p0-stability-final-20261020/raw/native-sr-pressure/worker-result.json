@@ -1,0 +1,8 @@
+{
+  "case": "native-sr",
+  "scale": 2,
+  "frames": 32,
+  "extension_point_policy": null,
+  "status": "failed",
+  "error": "Traceback (most recent call last):\n  File \"F:\\project\\DLSS5Tool\\scripts\\verify_p0_stability.py\", line 157, in worker\n    result.update(run(args, work, config, event))\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"F:\\project\\DLSS5Tool\\scripts\\profile_native_frame_memory.py\", line 120, in run\n    assert not process.is_alive(), 'Idle GPU worker ignored simulated memory pressure'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Idle GPU worker ignored simulated memory pressure\n"
+}

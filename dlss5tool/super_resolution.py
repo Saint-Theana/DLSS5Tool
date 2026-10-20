@@ -14,7 +14,10 @@ import time
 import uuid
 
 import numpy as np
-from dlss5tool.memory_budget import bounded_frame_count, memory_headroom_bytes
+from dlss5tool.memory_budget import (
+    bounded_frame_count, memory_headroom_bytes, receive_worker_command,
+    require_memory_headroom,
+)
 from dlss5tool import i18n
 from dlss5tool import paths
 
@@ -255,6 +258,7 @@ def _load_host():
 def _worker_main(connection, width, height, scale, is_hdr, input_name, output_name, log_path):
     input_memory = output_memory = None
     library = None
+    memory_pressure = False
     try:
         dtype = np.float16 if is_hdr else np.uint8
         output_width, output_height = target_size(width, height, scale)
@@ -272,7 +276,7 @@ def _worker_main(connection, width, height, scale, is_hdr, input_name, output_na
             raise SuperResolutionError("RTX Video Super Resolution 初始化失败，请查看超分日志")
         connection.send({"ok": True, "operation": "initialize"})
         while True:
-            message = connection.recv()
+            message = receive_worker_command(connection, output_frame.nbytes)
             operation = message.get("operation")
             if operation == "close":
                 connection.send({"ok": True, "operation": "close"})
@@ -289,12 +293,16 @@ def _worker_main(connection, width, height, scale, is_hdr, input_name, output_na
     except EOFError:
         pass
     except BaseException as exception:
+        memory_pressure = isinstance(exception, MemoryError)
         try:
             connection.send({"ok": False, "error": f"{type(exception).__name__}: {exception}"})
         except (BrokenPipeError, EOFError, OSError):
             pass
     finally:
-        if library is not None:
+        # NGX shutdown can block after evaluation. Under memory pressure this
+        # disposable process must exit promptly, as the NR host already does;
+        # Windows reclaims its native resources on process exit.
+        if library is not None and not memory_pressure:
             try:
                 library.vsr_shutdown()
             except Exception:
@@ -379,7 +387,8 @@ class ProcessSuperResolution:
             return ""
 
     def _receive(self, operation):
-        if not self._connection.poll(self.timeout):
+        dead = self._process is not None and not self._process.is_alive()
+        if not self._connection.poll(0 if dead else self.timeout):
             if self._process is not None and not self._process.is_alive():
                 detail = f"超分子进程异常退出（代码 {self._process.exitcode}）"
             else:
@@ -408,6 +417,11 @@ class ProcessSuperResolution:
             raise ValueError(
                 f"超分输入必须是 {np.dtype(self.dtype).name} {expected}，实际为 {rgba.dtype} {rgba.shape}"
             )
+        process = getattr(self, '_process', None)
+        if process is not None and not process.is_alive():
+            self._receive('process')
+            raise SuperResolutionError('超分工作进程已退出，请重新开始任务')
+        require_memory_headroom(self._output_frame.nbytes * 2)
         np.copyto(self._input_frame, rgba)
         self._connection.send({"operation": "process"})
         self._receive("process")

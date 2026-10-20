@@ -76,8 +76,7 @@ class AdapterPolicyTests(unittest.TestCase):
         native = native_info(luid_low=321)
         record = dlss_engine._adapter_records([native])[0]
         library = FakeAdapterLibrary()
-        with mock.patch.object(dlss_engine, "_native_adapter_infos", return_value=[native]), \
-                mock.patch.object(dlss_engine, "_cuda_adapter_luids", return_value={}):
+        with mock.patch.object(dlss_engine, "available_render_adapters", return_value=[record]):
             _records, selected = dlss_engine._configure_render_adapter(
                 library, {"render_gpu": "auto"}, "v2",
             )
@@ -91,9 +90,8 @@ class AdapterPolicyTests(unittest.TestCase):
 
     def test_unavailable_explicit_selection_does_not_silently_fallback(self):
         library = FakeAdapterLibrary()
-        with mock.patch.object(
-            dlss_engine, "_native_adapter_infos", return_value=[native_info()],
-        ), mock.patch.object(dlss_engine, "_cuda_adapter_luids", return_value={}):
+        with mock.patch.object(dlss_engine, "available_render_adapters",
+                               return_value=dlss_engine._adapter_records([native_info()])):
             with self.assertRaisesRegex(RuntimeError, "当前不可用"):
                 dlss_engine._configure_render_adapter(
                     library,

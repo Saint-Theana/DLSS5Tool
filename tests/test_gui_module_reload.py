@@ -174,6 +174,23 @@ class ModuleReloadTests(unittest.TestCase):
         self.assertIn('fixture failure', app.logln.call_args.args[0])
         app._resume_preview_cache.assert_not_called()
 
+    def test_warm_preview_close_failure_still_completes_reload_mailbox(self):
+        app = self.app
+        app._last_module_settings = {'guidance_mode': 1, 'guidance_depth_profile': 'fp32'}
+        app._collect_host_settings = lambda: {'guidance_mode': 1, 'guidance_depth_profile': 'sdpa_fp16'}
+        app._host_settings = {'v_guidance': mock.Mock()}
+        app._source_kind = 'video'
+        app._image_bgr = None
+        app._video_color_info = {}
+        app._guidance_context = True
+        app._frame = app._guidance_preview_epoch = 0
+        app._collect_settings = lambda: {}
+        app._close_live = mock.Mock(side_effect=RuntimeError('warm close failed'))
+        app._on_mod_settings_change()
+        self.wait_reload()
+        self.assertFalse(app._switching_backend)
+        self.assertIn('warm close failed', app.logln.call_args.args[0])
+
     def test_notification_created_during_retirement_is_discarded(self):
         app = self.app
         app._module_reload_thread = mock.Mock()
@@ -202,10 +219,11 @@ class ModuleReloadTests(unittest.TestCase):
     def test_busy_shortcuts_cannot_start_conflicting_operations(self):
         app = self.app
         app._switching_backend = True
-        for action in (app.play, app.export_dlss, app.start_export_queue,
-                       app.import_media, app.clear_media):
-            action()
-        self.assertFalse(app._load_media('does-not-exist.mp4'))
+        with mock.patch('tkinter.messagebox.showinfo'):
+            for action in (app.play, app.export_dlss, app.start_export_queue,
+                           app.import_media, app.clear_media):
+                action()
+            self.assertFalse(app._load_media('does-not-exist.mp4'))
 
     def test_real_tk_loop_keeps_ticking_during_reload(self):
         import tkinter as tk

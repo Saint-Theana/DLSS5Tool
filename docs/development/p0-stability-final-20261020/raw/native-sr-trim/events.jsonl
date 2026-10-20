@@ -1,0 +1,8 @@
+{"event": "starting", "wall": 1792424109.4056845, "pid": 5480}
+{"event": "idle-start", "wall": 1792424112.0731835, "seconds": 60}
+{"event": "idle-end", "wall": 1792424172.0979111}
+{"event": "frame", "wall": 1792424172.098357, "frame": 1, "total": 512}
+{"event": "frame", "wall": 1792424172.9605381, "frame": 129, "total": 512}
+{"event": "frame", "wall": 1792424173.8233402, "frame": 257, "total": 512}
+{"event": "frame", "wall": 1792424174.6111228, "frame": 385, "total": 512}
+{"event": "closed", "wall": 1792424178.6709554}

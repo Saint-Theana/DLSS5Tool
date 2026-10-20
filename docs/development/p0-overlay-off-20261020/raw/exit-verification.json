@@ -1,0 +1,40 @@
+{
+  "observed_workload_identities_still_alive": [],
+  "cases": [
+    {
+      "label": "continuous-off",
+      "status": "passed",
+      "remaining": [],
+      "recovery": [],
+      "safety_error": null
+    },
+    {
+      "label": "images-off",
+      "status": "passed",
+      "remaining": [],
+      "recovery": [],
+      "safety_error": null
+    },
+    {
+      "label": "native-composer-off",
+      "status": "passed",
+      "remaining": [],
+      "recovery": [],
+      "safety_error": null
+    },
+    {
+      "label": "native-nr-off",
+      "status": "passed",
+      "remaining": [],
+      "recovery": [],
+      "safety_error": null
+    },
+    {
+      "label": "native-sr-off",
+      "status": "passed",
+      "remaining": [],
+      "recovery": [],
+      "safety_error": null
+    }
+  ]
+}
