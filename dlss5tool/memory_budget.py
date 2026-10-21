@@ -35,12 +35,12 @@ def _status_function():
     return function
 
 
-def system_memory():
+def system_memory(*, refresh=False):
     """Cheap cached Windows snapshot; unavailable platforms retain prior policy."""
     global _snapshot, _snapshot_time
     with _snapshot_lock:
         now = time.monotonic()
-        if now - _snapshot_time < .25:
+        if not refresh and now - _snapshot_time < .25:
             return _snapshot
         try:
             function = _status_function()
@@ -107,14 +107,33 @@ def require_memory_headroom(required_bytes):
     reserve memory globally or change policy when the OS snapshot is unknown.
     """
     required = max(0, int(required_bytes))
-    available = memory_headroom_bytes()
+    memory = system_memory()
+    if not memory or int(memory['total_physical_bytes']) <= 0:
+        return
+    available = memory_headroom_bytes(memory=memory)
     if available is not None and required > available:
+        # Cache eviction/worker retirement may have freed memory during the
+        # snapshot's 250 ms lifetime. Recheck once before denying work; keep
+        # the last known denial if the fresh OS query is unavailable.
+        fresh = system_memory(refresh=True)
+        refreshed = bool(fresh and int(fresh['total_physical_bytes']) > 0)
+        if refreshed:
+            memory = fresh
+            available = memory_headroom_bytes(memory=memory)
+            if required <= available:
+                return
         from dlss5tool.i18n import tr
         def size(value):
             return (f'{value/_GIB:.2f} GiB' if value >= _GIB else
                     f'{value/1024**2:.0f} MiB')
+        detail = tr('message.ram_headroom_details', required_bytes=required,
+            available_bytes=available,
+            free_physical_bytes=int(memory['free_physical_bytes']),
+            free_commit_bytes=int(memory['free_commit_bytes']),
+            reserve_bytes=max(2 * _GIB, int(memory['total_physical_bytes']) // 8),
+            refreshed=refreshed)
         raise MemoryError(tr('message.ram_headroom', required=size(required),
-                             available=size(available)))
+                             available=size(available)) + '\n' + detail)
 
 
 def receive_worker_command(connection, frame_bytes):

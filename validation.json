@@ -1,0 +1,28 @@
+{
+  "baseline_commit": "7835104bfab3e66d9fb08c3fd5171bc97b9aba9a",
+  "files": {
+    "dlss5tool/memory_budget.py": {
+      "baseline_sha256": "ee546fa4155824fdf753ecceaaa7eda4c82e86f358ecbed5e11e5910facdb907",
+      "patched_sha256": "79949ae39c76c9c690e3e96b8972ae33f6ba4ac4c541a8734b42ee3611c7001b",
+      "hash_normalization": "UTF-8, LF newlines"
+    },
+    "locales/zh_CN.json": {
+      "baseline_sha256": "6829e501b4e3a77ca1030f59be5a4e0228071594ba3609217a1c4369c7aa97d8",
+      "patched_sha256": "09c58bfb9edbf482701066dd8f3481e023320f26f2bf8b7ae7c5850a199d5371",
+      "hash_normalization": "UTF-8, LF newlines"
+    },
+    "locales/en_US.json": {
+      "baseline_sha256": "67fbd8cecac0a373e95a8b8e330b9dbf8fb8d220f3c41ede2ddc3d2f1deadb27",
+      "patched_sha256": "cd2a549be77ba1f118380ae107ab362efca0ee85d29d1c61e333a1c9203bee22",
+      "hash_normalization": "UTF-8, LF newlines"
+    },
+    "tests/test_memory_admission_refresh.py": {
+      "baseline_sha256": null,
+      "patched_sha256": "ce7636728b888f62de21a845d3356f7f2ee32ffae2120d179e32f45109c300a7",
+      "hash_normalization": "UTF-8, LF newlines"
+    }
+  },
+  "tests_passed": 13,
+  "gpu_validation": false,
+  "limitations": "No GPU/native end-to-end test; thresholds unchanged; not a complete OOM fix."
+}

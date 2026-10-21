@@ -923,6 +923,7 @@
   "message.super_resolution_plan": "即将执行 {scale}× RTX 视频超分 → DLSS 5\n\n目标尺寸：{width}×{height}\n单帧：{frame_memory}\n已知显存下限：{gpu_minimum}\n建议空闲显存：{gpu_recommended}\n预计系统内存：{ram_recommended}",
   "message.gpu_free": "\n当前 GPU 空闲：{value}",
   "message.ram_headroom": "系统内存余量不足此处理任务：预计需要 {required}，预留系统和处理空间后可用 {available}。请关闭其他任务或释放预览缓存后重试。",
+  "message.ram_headroom_details": "内存检查（字节）：required={required_bytes}, available={available_bytes}, physical_free={free_physical_bytes}, commit_free={free_commit_bytes}, reserve={reserve_bytes}, fresh_snapshot={refreshed}",
   "message.frame_ram_headroom": "系统内存余量不足以处理一帧，已停止当前任务。请关闭其他任务或释放预览缓存后重试。",
   "message.decode_ram_headroom": "系统内存余量不足以继续解码预读，已停止当前导出。请释放内存后重试。",
   "message.over_8192": "\n\n目标有一边超过 8192。工具不会限制，但 RTX VSR 或视频编码器可能拒绝该尺寸。",

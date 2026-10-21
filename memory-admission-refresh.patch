@@ -1,0 +1,198 @@
+--- a/dlss5tool/memory_budget.py
++++ b/dlss5tool/memory_budget.py
+@@ -35,12 +35,12 @@
+     return function
+ 
+ 
+-def system_memory():
++def system_memory(*, refresh=False):
+     """Cheap cached Windows snapshot; unavailable platforms retain prior policy."""
+     global _snapshot, _snapshot_time
+     with _snapshot_lock:
+         now = time.monotonic()
+-        if now - _snapshot_time < .25:
++        if not refresh and now - _snapshot_time < .25:
+             return _snapshot
+         try:
+             function = _status_function()
+@@ -107,14 +107,33 @@
+     reserve memory globally or change policy when the OS snapshot is unknown.
+     """
+     required = max(0, int(required_bytes))
+-    available = memory_headroom_bytes()
++    memory = system_memory()
++    if not memory or int(memory['total_physical_bytes']) <= 0:
++        return
++    available = memory_headroom_bytes(memory=memory)
+     if available is not None and required > available:
++        # Cache eviction/worker retirement may have freed memory during the
++        # snapshot's 250 ms lifetime. Recheck once before denying work; keep
++        # the last known denial if the fresh OS query is unavailable.
++        fresh = system_memory(refresh=True)
++        refreshed = bool(fresh and int(fresh['total_physical_bytes']) > 0)
++        if refreshed:
++            memory = fresh
++            available = memory_headroom_bytes(memory=memory)
++            if required <= available:
++                return
+         from dlss5tool.i18n import tr
+         def size(value):
+             return (f'{value/_GIB:.2f} GiB' if value >= _GIB else
+                     f'{value/1024**2:.0f} MiB')
++        detail = tr('message.ram_headroom_details', required_bytes=required,
++            available_bytes=available,
++            free_physical_bytes=int(memory['free_physical_bytes']),
++            free_commit_bytes=int(memory['free_commit_bytes']),
++            reserve_bytes=max(2 * _GIB, int(memory['total_physical_bytes']) // 8),
++            refreshed=refreshed)
+         raise MemoryError(tr('message.ram_headroom', required=size(required),
+-                             available=size(available)))
++                             available=size(available)) + '\n' + detail)
+ 
+ 
+ def receive_worker_command(connection, frame_bytes):
+--- a/locales/zh_CN.json
++++ b/locales/zh_CN.json
+@@ -923,6 +923,7 @@
+   "message.super_resolution_plan": "即将执行 {scale}× RTX 视频超分 → DLSS 5\n\n目标尺寸：{width}×{height}\n单帧：{frame_memory}\n已知显存下限：{gpu_minimum}\n建议空闲显存：{gpu_recommended}\n预计系统内存：{ram_recommended}",
+   "message.gpu_free": "\n当前 GPU 空闲：{value}",
+   "message.ram_headroom": "系统内存余量不足此处理任务：预计需要 {required}，预留系统和处理空间后可用 {available}。请关闭其他任务或释放预览缓存后重试。",
++  "message.ram_headroom_details": "内存检查（字节）：required={required_bytes}, available={available_bytes}, physical_free={free_physical_bytes}, commit_free={free_commit_bytes}, reserve={reserve_bytes}, fresh_snapshot={refreshed}",
+   "message.frame_ram_headroom": "系统内存余量不足以处理一帧，已停止当前任务。请关闭其他任务或释放预览缓存后重试。",
+   "message.decode_ram_headroom": "系统内存余量不足以继续解码预读，已停止当前导出。请释放内存后重试。",
+   "message.over_8192": "\n\n目标有一边超过 8192。工具不会限制，但 RTX VSR 或视频编码器可能拒绝该尺寸。",
+--- a/locales/en_US.json
++++ b/locales/en_US.json
+@@ -923,6 +923,7 @@
+   "message.super_resolution_plan": "About to run {scale}× RTX Video super resolution → DLSS 5\n\nTarget size: {width}×{height}\nPer frame: {frame_memory}\nKnown VRAM minimum: {gpu_minimum}\nRecommended free VRAM: {gpu_recommended}\nEstimated system memory: {ram_recommended}",
+   "message.gpu_free": "\nCurrent free GPU memory: {value}",
+   "message.ram_headroom": "Insufficient system memory for this task: estimated {required}, with {available} available after reserving memory for the system and active processing. Close other tasks or clear the preview cache and retry.",
++  "message.ram_headroom_details": "Memory check (bytes): required={required_bytes}, available={available_bytes}, physical_free={free_physical_bytes}, commit_free={free_commit_bytes}, reserve={reserve_bytes}, fresh_snapshot={refreshed}",
+   "message.frame_ram_headroom": "There is not enough system memory to process one frame. This task has stopped; close other tasks or clear the preview cache and retry.",
+   "message.decode_ram_headroom": "Insufficient system memory to continue decoding ahead. This export has stopped; free memory and retry.",
+   "message.over_8192": "\n\nOne target dimension exceeds 8192. DLSS5Tool does not impose a limit, but RTX VSR or the video encoder may reject this size.",
+--- /dev/null
++++ b/tests/test_memory_admission_refresh.py
+@@ -0,0 +1,122 @@
++"""Admission regression tests requiring no GPU, OpenCV or model downloads."""
++import unittest
++from unittest import mock
++
++from dlss5tool import i18n, memory_budget as mb
++
++GIB = 1024**3
++
++
++def memory(free=8 * GIB, commit=8 * GIB):
++    return dict(total_physical_bytes=32 * GIB,
++                free_physical_bytes=free, free_commit_bytes=commit)
++
++
++class AdmissionRefreshTests(unittest.TestCase):
++    def test_user_diagnostic_snapshot_does_not_deny_13_mib(self):
++        snapshot = dict(total_physical_bytes=34181894144,
++                        free_physical_bytes=14868754432,
++                        free_commit_bytes=6649380864)
++        expected = 6649380864 - 34181894144 // 8
++        self.assertEqual(mb.memory_headroom_bytes(memory=snapshot), expected)
++        with mock.patch.object(mb, 'system_memory', return_value=snapshot) as read:
++            mb.require_memory_headroom(1728 * 960 * 4 * 2)
++        read.assert_called_once_with()
++
++    def test_stale_denial_recovers_after_cache_or_worker_release(self):
++        with mock.patch.object(mb, 'system_memory', side_effect=[memory(free=GIB), memory()]) as read:
++            mb.require_memory_headroom(13 * 1024**2)
++        self.assertEqual(read.call_args_list, [mock.call(), mock.call(refresh=True)])
++
++    def test_physical_commit_and_reserve_boundary_still_deny(self):
++        for snapshot in (memory(free=0), memory(commit=0), memory(free=4 * GIB),
++                         memory(commit=4 * GIB)):
++            with self.subTest(snapshot=snapshot), mock.patch.object(mb, 'system_memory', return_value=snapshot):
++                with self.assertRaises(MemoryError):
++                    mb.require_memory_headroom(1)
++
++    def test_unavailable_refresh_cannot_turn_known_denial_into_allowance(self):
++        for unavailable in (None, dict(total_physical_bytes=0)):
++            with self.subTest(unavailable=unavailable), mock.patch.object(
++                    mb, 'system_memory', side_effect=[memory(commit=GIB), unavailable]):
++                with self.assertRaisesRegex(MemoryError, 'fresh_snapshot=False'):
++                    mb.require_memory_headroom(1)
++
++    def test_initially_unknown_snapshot_retains_existing_policy(self):
++        with mock.patch.object(mb, 'system_memory', return_value=None) as read:
++            mb.require_memory_headroom(10 * GIB)
++        read.assert_called_once_with()
++
++    def test_exact_boundary_and_zero_allocation(self):
++        with mock.patch.object(mb, 'system_memory', return_value=memory(free=4 * GIB + 13)):
++            mb.require_memory_headroom(13)
++            with self.assertRaises(MemoryError):
++                mb.require_memory_headroom(14)
++        with mock.patch.object(mb, 'system_memory', return_value=memory(free=0)):
++            mb.require_memory_headroom(0)
++
++    def test_diagnostic_numbers_come_from_same_fresh_snapshot(self):
++        fresh = memory(free=7 * GIB, commit=4 * GIB + 12)
++        original_language = i18n.get_language()
++        try:
++            for language in ('zh_CN', 'en_US'):
++                i18n.set_language(language)
++                with self.subTest(language=language), mock.patch.object(
++                        mb, 'system_memory', side_effect=[memory(free=0), fresh]):
++                    with self.assertRaises(MemoryError) as caught:
++                        mb.require_memory_headroom(13)
++                    message = str(caught.exception)
++                    for field in ('required=13', 'available=12',
++                                  f'physical_free={7 * GIB}', f'commit_free={4 * GIB + 12}',
++                                  f'reserve={4 * GIB}', 'fresh_snapshot=True'):
++                        self.assertIn(field, message)
++                    self.assertNotIn('message.ram_headroom_details', message)
++        finally:
++            i18n.set_language(original_language)
++
++    def test_cache_and_queue_limits_are_unchanged(self):
++        with mock.patch.object(mb, 'system_memory', return_value=memory(free=GIB)):
++            self.assertEqual(mb.cache_limit_bytes(8 * GIB, 8 * GIB), 5 * GIB)
++            self.assertEqual(mb.bounded_frame_count(16, 1024), 0)
++        with mock.patch.object(mb, 'system_memory', return_value=memory()):
++            self.assertEqual(mb.bounded_frame_count(16, 256 * 1024**2), 4)
++
++    def test_shutdown_command_still_works_under_pressure(self):
++        connection = mock.Mock()
++        connection.poll.return_value = True
++        for operation in ('stop', 'close'):
++            connection.recv.return_value = dict(operation=operation)
++            with mock.patch.object(mb, 'system_memory', return_value=memory(free=0)) as read:
++                self.assertEqual(mb.receive_worker_command(connection, 1024), dict(operation=operation))
++            read.assert_not_called()
++
++    def test_worker_still_denies_processing_and_idle_pressure(self):
++        connection = mock.Mock()
++        connection.recv.return_value = dict(operation='process')
++        for ready in (True, False):
++            connection.poll.return_value = ready
++            with self.subTest(ready=ready), mock.patch.object(mb, 'system_memory', return_value=memory(free=0)):
++                with self.assertRaises(MemoryError):
++                    mb.receive_worker_command(connection, 1024)
++
++    def test_forced_snapshot_bypasses_ttl_and_updates_shared_cache(self):
++        def status(pointer):
++            pointer._obj.total_physical = 32 * GIB
++            pointer._obj.free_physical = 8 * GIB
++            pointer._obj.free_commit = 9 * GIB
++            return 1
++        stale = memory(free=GIB)
++        with mock.patch.object(mb, '_snapshot', stale), \
++                mock.patch.object(mb, '_snapshot_time', 10.0), \
++                mock.patch.object(mb.time, 'monotonic', return_value=10.1), \
++                mock.patch.object(mb, '_status_function', return_value=mock.Mock(side_effect=status)) as function:
++            self.assertIs(mb.system_memory(), stale)
++            function.assert_not_called()
++            fresh = mb.system_memory(refresh=True)
++            self.assertEqual(fresh, memory(commit=9 * GIB))
++            self.assertIs(mb.system_memory(), fresh)
++            function.assert_called_once_with()
++
++
++if __name__ == '__main__':
++    unittest.main()
